@@ -1,0 +1,20 @@
+<view class="placement-page">
+ <view class="heading"><text>{{context}}</text><button class="text-button" bindtap="backPhoto">{{editingSaved ? '返回标注' : '返回照片'}}</button></view>
+ <view class="instruction">{{calculating ? '正在计算参考对应，标注已保存…' : confirmed ? '位置已确认，已保存到本次标注' : '移动并调整病灶范围'}}</view>
+ <view class="body-stage">
+  <body-canvas view="{{view}}" zoom-region="{{zoomRegion}}" annotation="{{layer}}" interaction-mode="readonly" touch-disabled="{{true}}" layout-revision="{{layoutRevision}}" bind:viewportchange="onViewport"></body-canvas>
+  <placement-overlay id="placement-preview" wx:if="{{prepared && transform && !confirmed}}" class="overlay" view="{{view}}" prepared="{{prepared}}" transform="{{transform}}" viewport="{{viewport}}" revision="{{revision}}" interaction-key="{{interactionKey}}" disabled="{{dialog || !!error}}" bind:placementdrag="onDrag" bind:renderstate="onOverlayReady"></placement-overlay>
+ </view>
+ <button class="text-button focus" disabled="{{dragging || dialog}}" bindtap="toggleFocus">{{zoomRegion ? '查看全身' : '查看所选部位'}}</button>
+ <view wx:if="{{error}}" class="warning">{{error}}</view>
+ <view wx:elif="{{message}}" class="warning">{{message}}</view>
+ <block wx:if="{{!confirmed && !error}}">
+  <view class="slider-label"><text>调整大小</text><text>{{scalePercent}}%</text></view>
+  <slider min="10" max="400" step="1" value="{{scalePercent}}" activeColor="#28735c" disabled="{{dialog || dragging}}" bindchanging="scaleChanging" bindchange="scaleChanged"/>
+  <view class="slider-label"><text>调整方向</text><text>{{angle}}°</text></view>
+  <slider min="-180" max="180" step="1" value="{{angle}}" activeColor="#28735c" disabled="{{dialog || dragging}}" bindchanging="angleChanging" bindchange="angleChanged"/>
+  <view class="actions"><button bindtap="reset" disabled="{{dialog || dragging}}">重置调整</button><button class="primary" disabled="{{!valid || !viewport || !overlayReady || dragging || dialog || calculating}}" bindtap="confirmPosition">确认位置并计算</button></view>
+  <view class="note">按住橙色范围或移动柄拖动。初始位置与大小仅供调整，请按实际情况确认。未确认调整仅在当前运行暂存，返回照片可继续。</view>
+ </block>
+ <block wx:if="{{confirmed}}"><button class="primary saved" loading="{{calculating}}" disabled="{{opening || calculating}}" bindtap="confirmPosition">{{calculating ? '计算中…' : '查看结果 / 重试计算'}}</button><button class="text-button" disabled="{{opening || calculating}}" bindtap="viewAnnotations">查看已保存标注</button></block>
+</view>

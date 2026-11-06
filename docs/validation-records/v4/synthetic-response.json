@@ -1,0 +1,637 @@
+{
+  "request_id": "SYNTHETIC_OFFLINE_PREVIEW",
+  "annotation_revision": 1,
+  "identity": {
+    "template_id": "commons-neutral-v1",
+    "template_version": "4.0.0",
+    "geometry_id": "commons-blank-cc0-v1",
+    "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+    "atlas_id": "goran-2022",
+    "atlas_version": "goran-2022-commons-template4-preview.2",
+    "atlas_content_sha256": "8689fca1aa50cff0b1b7d7cd1adcd80cf244cd1a93ed580e91406d0cc2fb2056",
+    "body_content_sha256": "59979433be334f53a705f90a484aadc312a426387f4c1a3b59a718393fbf426a",
+    "coordinate_system": "normalized_2d_top_left"
+  },
+  "method": "manual_annotation_reference_geometry",
+  "area_unit": "normalized_template_area",
+  "source": {
+    "title": "Goran_tek-en · Dermatomes labeled, male front/back (2022)",
+    "url": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg",
+    "attribution": "Goran_tek-en / Wikimedia Commons / CC BY-SA 4.0；提取、配准、排除部分体表并简化曲线。衍生图谱数据沿用 CC BY-SA 4.0。 V3.1新增三叉神经及可见正面足部局部配准，保留父版。",
+    "license": "CC BY-SA 4.0",
+    "medical_review_status": "pending",
+    "preview": true,
+    "coverage_note": "已配置正面三叉神经眼支 V1、上颌支 V2、下颌支 V3，以及可见正面足背/趾 L4、L5、S1。背面足底源图不能套到当前足跟；头发覆盖的头皮、眼球开口、复杂耳部交界、后脑三叉神经、头侧、耳道口腔、手掌手指及前面会阴仍未配置。留白不代表无感觉神经。医学审核待完成。"
+  },
+  "lesions": [
+    {
+      "view": "back",
+      "lesion_ids": [
+        "TEST_BACK"
+      ],
+      "annotation_area": 0.002400000000000002,
+      "covered_area": 0.002399375568964492,
+      "uncovered_area": 6.244310355061318e-7,
+      "covered_ratio": 0.9997398204018708,
+      "uncovered_ratio": 0.0002601795981275547,
+      "coverage_status": "partial",
+      "candidates": [
+        {
+          "candidate_id": "1729b36f80128349f794e90cf5206627769f2e23194e13cef3f0f6e243fdaac7",
+          "region_ids": [
+            "back-right-T4"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T4",
+          "source_label": "T4",
+          "display_name": "T4",
+          "side": "right",
+          "view": "back",
+          "intersection_area": 0.0010017569676410837,
+          "lesion_coverage_ratio": 0.4173987365171179
+        },
+        {
+          "candidate_id": "4de472280263273d211f424b060d68cc2dd319e867fbc8e2efb05b8cd8557ed9",
+          "region_ids": [
+            "back-right-T5"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T5",
+          "source_label": "T5",
+          "display_name": "T5",
+          "side": "right",
+          "view": "back",
+          "intersection_area": 0.0005799985500200916,
+          "lesion_coverage_ratio": 0.2416660625083713
+        },
+        {
+          "candidate_id": "8f0db1cf34b415edf909734214cbef90675f256331bfbf5a82a280afab4736b4",
+          "region_ids": [
+            "back-left-T4"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T4",
+          "source_label": "T4",
+          "display_name": "T4",
+          "side": "left",
+          "view": "back",
+          "intersection_area": 0.00025931837275429794,
+          "lesion_coverage_ratio": 0.10804932198095739
+        },
+        {
+          "candidate_id": "3fec573d1159e09d82ac9e372cc115ef29f3e1fa097016c7f0771439c9060215",
+          "region_ids": [
+            "back-right-T6"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T6",
+          "source_label": "T6",
+          "display_name": "T6",
+          "side": "right",
+          "view": "back",
+          "intersection_area": 0.00023104259799372023,
+          "lesion_coverage_ratio": 0.09626774916405002
+        },
+        {
+          "candidate_id": "2499515292c4c1fe07ad35845f655bae6fc50c557fe0246fbccbc366c7029535",
+          "region_ids": [
+            "back-right-T7"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T7",
+          "source_label": "T7",
+          "display_name": "T7",
+          "side": "right",
+          "view": "back",
+          "intersection_area": 0.0001528350988463135,
+          "lesion_coverage_ratio": 0.0636812911859639
+        },
+        {
+          "candidate_id": "ba342c8b4c7a366c4308071167644165db8f656c7f6365d10f91eb663bd39a49",
+          "region_ids": [
+            "back-right-T3"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T3",
+          "source_label": "T3",
+          "display_name": "T3",
+          "side": "right",
+          "view": "back",
+          "intersection_area": 0.00012701119738232433,
+          "lesion_coverage_ratio": 0.052921332242635094
+        },
+        {
+          "candidate_id": "e8e80d8785745110aea6cab08b3e9d9a52d38ccebc1872b34588e228deee5004",
+          "region_ids": [
+            "back-left-T5"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T5",
+          "source_label": "T5",
+          "display_name": "T5",
+          "side": "left",
+          "view": "back",
+          "intersection_area": 0.00003243722842794614,
+          "lesion_coverage_ratio": 0.013515511844977549
+        },
+        {
+          "candidate_id": "3ab34d410ae0d37538638a6572653b639c52f3d04082581045fe5b3aed49032f",
+          "region_ids": [
+            "back-left-T3"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T3",
+          "source_label": "T3",
+          "display_name": "T3",
+          "side": "left",
+          "view": "back",
+          "intersection_area": 8.10123061565246e-6,
+          "lesion_coverage_ratio": 0.003375512756521856
+        },
+        {
+          "candidate_id": "b29bb080f7350aab85b8da384e87cfdc760d0d0e406461f23b45c0946af58f03",
+          "region_ids": [
+            "back-right-T8"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T8",
+          "source_label": "T8",
+          "display_name": "T8",
+          "side": "right",
+          "view": "back",
+          "intersection_area": 6.874325283064442e-6,
+          "lesion_coverage_ratio": 0.0028643022012768485
+        }
+      ]
+    },
+    {
+      "view": "front",
+      "lesion_ids": [
+        "TEST_FRONT"
+      ],
+      "annotation_area": 0.0024000000000000002,
+      "covered_area": 0.0023996432642932977,
+      "uncovered_area": 3.5673570670134205e-7,
+      "covered_ratio": 0.9998513601222073,
+      "uncovered_ratio": 0.00014863987779222584,
+      "coverage_status": "partial",
+      "candidates": [
+        {
+          "candidate_id": "257ab909f19e6b98ddf891f89d1ce66cade2df8e3f29b444c0a9308503be8cb9",
+          "region_ids": [
+            "front-left-T2"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T2",
+          "source_label": "T2",
+          "display_name": "T2",
+          "side": "left",
+          "view": "front",
+          "intersection_area": 0.00046768418107737554,
+          "lesion_coverage_ratio": 0.1948684087822398
+        },
+        {
+          "candidate_id": "02fe312fcf65e245a22f3cda3e0cb124cb8e0330937d302727956b4f407311c3",
+          "region_ids": [
+            "front-right-T2"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T2",
+          "source_label": "T2",
+          "display_name": "T2",
+          "side": "right",
+          "view": "front",
+          "intersection_area": 0.00046743128323924394,
+          "lesion_coverage_ratio": 0.19476303468301828
+        },
+        {
+          "candidate_id": "0a86404368af29b166168c9dfcd8ff6e93bf8676b261a26c9a32387c7d6d05f5",
+          "region_ids": [
+            "front-right-T3"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T3",
+          "source_label": "T3",
+          "display_name": "T3",
+          "side": "right",
+          "view": "front",
+          "intersection_area": 0.00034315090847243684,
+          "lesion_coverage_ratio": 0.14297954519684866
+        },
+        {
+          "candidate_id": "11c833a76e727bd66fa245c484fe57d9cf23bf56ebc06ce92446900827048608",
+          "region_ids": [
+            "front-left-T3"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T3",
+          "source_label": "T3",
+          "display_name": "T3",
+          "side": "left",
+          "view": "front",
+          "intersection_area": 0.00034242523727866063,
+          "lesion_coverage_ratio": 0.14267718219944192
+        },
+        {
+          "candidate_id": "2b713a1e81e6db00b5e9ef82589f4c11d12dd726b9bb31077cd2fd334b351d6e",
+          "region_ids": [
+            "front-left-T4"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T4",
+          "source_label": "T4",
+          "display_name": "T4",
+          "side": "left",
+          "view": "front",
+          "intersection_area": 0.00020653467357858188,
+          "lesion_coverage_ratio": 0.08605611399107578
+        },
+        {
+          "candidate_id": "8b335ced20b17b081057bddb094bdb327423b5e0b243938ce04863f802d670cb",
+          "region_ids": [
+            "front-right-T4"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T4",
+          "source_label": "T4",
+          "display_name": "T4",
+          "side": "right",
+          "view": "front",
+          "intersection_area": 0.0002060641344113218,
+          "lesion_coverage_ratio": 0.08586005600471741
+        },
+        {
+          "candidate_id": "4ef22400be19489f476b2f4b55f9085d0eaed8c164c3112c2c08cfd75d655d3a",
+          "region_ids": [
+            "front-left-T1"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T1",
+          "source_label": "T1",
+          "display_name": "T1",
+          "side": "left",
+          "view": "front",
+          "intersection_area": 0.00011874438325675725,
+          "lesion_coverage_ratio": 0.04947682635698218
+        },
+        {
+          "candidate_id": "02595c9e2fc22d5ab19b4d288d9fdbcde4be509a75da759f250a104b6358b4f1",
+          "region_ids": [
+            "front-right-T1"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T1",
+          "source_label": "T1",
+          "display_name": "T1",
+          "side": "right",
+          "view": "front",
+          "intersection_area": 0.00011873216546446284,
+          "lesion_coverage_ratio": 0.049471735610192843
+        },
+        {
+          "candidate_id": "0ed4d25c7bf8b0b22cce72946c91530eacc70b985f3cb7d132a418982dd19c98",
+          "region_ids": [
+            "front-left-T5"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T5",
+          "source_label": "T5",
+          "display_name": "T5",
+          "side": "left",
+          "view": "front",
+          "intersection_area": 0.0000644460505303569,
+          "lesion_coverage_ratio": 0.026852521054315372
+        },
+        {
+          "candidate_id": "d385f58b53e52c23e7bde273622b2f4171b16ad2b1705c9394f4b802d16bd13f",
+          "region_ids": [
+            "front-right-T5"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T5",
+          "source_label": "T5",
+          "display_name": "T5",
+          "side": "right",
+          "view": "front",
+          "intersection_area": 0.00006443024698410097,
+          "lesion_coverage_ratio": 0.0268459362433754
+        }
+      ]
+    },
+    {
+      "view": "front",
+      "lesion_ids": [
+        "TEST_HAIR"
+      ],
+      "annotation_area": 0.000050000000000000057,
+      "covered_area": 0.0,
+      "uncovered_area": 0.000050000000000000057,
+      "covered_ratio": 0.0,
+      "uncovered_ratio": 1.0,
+      "coverage_status": "none",
+      "candidates": []
+    }
+  ],
+  "views": [
+    {
+      "view": "back",
+      "lesion_ids": [
+        "TEST_BACK"
+      ],
+      "annotation_area": 0.002400000000000002,
+      "covered_area": 0.002399375568964492,
+      "uncovered_area": 6.244310355061318e-7,
+      "covered_ratio": 0.9997398204018708,
+      "uncovered_ratio": 0.0002601795981275547,
+      "coverage_status": "partial",
+      "candidates": [
+        {
+          "candidate_id": "1729b36f80128349f794e90cf5206627769f2e23194e13cef3f0f6e243fdaac7",
+          "region_ids": [
+            "back-right-T4"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T4",
+          "source_label": "T4",
+          "display_name": "T4",
+          "side": "right",
+          "view": "back",
+          "intersection_area": 0.0010017569676410837,
+          "lesion_coverage_ratio": 0.4173987365171179
+        },
+        {
+          "candidate_id": "4de472280263273d211f424b060d68cc2dd319e867fbc8e2efb05b8cd8557ed9",
+          "region_ids": [
+            "back-right-T5"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T5",
+          "source_label": "T5",
+          "display_name": "T5",
+          "side": "right",
+          "view": "back",
+          "intersection_area": 0.0005799985500200916,
+          "lesion_coverage_ratio": 0.2416660625083713
+        },
+        {
+          "candidate_id": "8f0db1cf34b415edf909734214cbef90675f256331bfbf5a82a280afab4736b4",
+          "region_ids": [
+            "back-left-T4"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T4",
+          "source_label": "T4",
+          "display_name": "T4",
+          "side": "left",
+          "view": "back",
+          "intersection_area": 0.00025931837275429794,
+          "lesion_coverage_ratio": 0.10804932198095739
+        },
+        {
+          "candidate_id": "3fec573d1159e09d82ac9e372cc115ef29f3e1fa097016c7f0771439c9060215",
+          "region_ids": [
+            "back-right-T6"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T6",
+          "source_label": "T6",
+          "display_name": "T6",
+          "side": "right",
+          "view": "back",
+          "intersection_area": 0.00023104259799372023,
+          "lesion_coverage_ratio": 0.09626774916405002
+        },
+        {
+          "candidate_id": "2499515292c4c1fe07ad35845f655bae6fc50c557fe0246fbccbc366c7029535",
+          "region_ids": [
+            "back-right-T7"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T7",
+          "source_label": "T7",
+          "display_name": "T7",
+          "side": "right",
+          "view": "back",
+          "intersection_area": 0.0001528350988463135,
+          "lesion_coverage_ratio": 0.0636812911859639
+        },
+        {
+          "candidate_id": "ba342c8b4c7a366c4308071167644165db8f656c7f6365d10f91eb663bd39a49",
+          "region_ids": [
+            "back-right-T3"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T3",
+          "source_label": "T3",
+          "display_name": "T3",
+          "side": "right",
+          "view": "back",
+          "intersection_area": 0.00012701119738232433,
+          "lesion_coverage_ratio": 0.052921332242635094
+        },
+        {
+          "candidate_id": "e8e80d8785745110aea6cab08b3e9d9a52d38ccebc1872b34588e228deee5004",
+          "region_ids": [
+            "back-left-T5"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T5",
+          "source_label": "T5",
+          "display_name": "T5",
+          "side": "left",
+          "view": "back",
+          "intersection_area": 0.00003243722842794614,
+          "lesion_coverage_ratio": 0.013515511844977549
+        },
+        {
+          "candidate_id": "3ab34d410ae0d37538638a6572653b639c52f3d04082581045fe5b3aed49032f",
+          "region_ids": [
+            "back-left-T3"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T3",
+          "source_label": "T3",
+          "display_name": "T3",
+          "side": "left",
+          "view": "back",
+          "intersection_area": 8.10123061565246e-6,
+          "lesion_coverage_ratio": 0.003375512756521856
+        },
+        {
+          "candidate_id": "b29bb080f7350aab85b8da384e87cfdc760d0d0e406461f23b45c0946af58f03",
+          "region_ids": [
+            "back-right-T8"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T8",
+          "source_label": "T8",
+          "display_name": "T8",
+          "side": "right",
+          "view": "back",
+          "intersection_area": 6.874325283064442e-6,
+          "lesion_coverage_ratio": 0.0028643022012768485
+        }
+      ]
+    },
+    {
+      "view": "front",
+      "lesion_ids": [
+        "TEST_FRONT",
+        "TEST_HAIR"
+      ],
+      "annotation_area": 0.0024500000000000004,
+      "covered_area": 0.0023996432642932972,
+      "uncovered_area": 0.0000503567357067014,
+      "covered_ratio": 0.9794462303237946,
+      "uncovered_ratio": 0.02055376967620465,
+      "coverage_status": "partial",
+      "candidates": [
+        {
+          "candidate_id": "257ab909f19e6b98ddf891f89d1ce66cade2df8e3f29b444c0a9308503be8cb9",
+          "region_ids": [
+            "front-left-T2"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T2",
+          "source_label": "T2",
+          "display_name": "T2",
+          "side": "left",
+          "view": "front",
+          "intersection_area": 0.00046768418107737554,
+          "lesion_coverage_ratio": 0.19089150248056141
+        },
+        {
+          "candidate_id": "02fe312fcf65e245a22f3cda3e0cb124cb8e0330937d302727956b4f407311c3",
+          "region_ids": [
+            "front-right-T2"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T2",
+          "source_label": "T2",
+          "display_name": "T2",
+          "side": "right",
+          "view": "front",
+          "intersection_area": 0.00046743128323924394,
+          "lesion_coverage_ratio": 0.19078827887316077
+        },
+        {
+          "candidate_id": "0a86404368af29b166168c9dfcd8ff6e93bf8676b261a26c9a32387c7d6d05f5",
+          "region_ids": [
+            "front-right-T3"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T3",
+          "source_label": "T3",
+          "display_name": "T3",
+          "side": "right",
+          "view": "front",
+          "intersection_area": 0.00034315090847243684,
+          "lesion_coverage_ratio": 0.14006159529487217
+        },
+        {
+          "candidate_id": "11c833a76e727bd66fa245c484fe57d9cf23bf56ebc06ce92446900827048608",
+          "region_ids": [
+            "front-left-T3"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T3",
+          "source_label": "T3",
+          "display_name": "T3",
+          "side": "left",
+          "view": "front",
+          "intersection_area": 0.00034242523727866063,
+          "lesion_coverage_ratio": 0.13976540297088186
+        },
+        {
+          "candidate_id": "2b713a1e81e6db00b5e9ef82589f4c11d12dd726b9bb31077cd2fd334b351d6e",
+          "region_ids": [
+            "front-left-T4"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T4",
+          "source_label": "T4",
+          "display_name": "T4",
+          "side": "left",
+          "view": "front",
+          "intersection_area": 0.00020653467357858188,
+          "lesion_coverage_ratio": 0.08429986676676811
+        },
+        {
+          "candidate_id": "8b335ced20b17b081057bddb094bdb327423b5e0b243938ce04863f802d670cb",
+          "region_ids": [
+            "front-right-T4"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T4",
+          "source_label": "T4",
+          "display_name": "T4",
+          "side": "right",
+          "view": "front",
+          "intersection_area": 0.0002060641344113218,
+          "lesion_coverage_ratio": 0.0841078099638048
+        },
+        {
+          "candidate_id": "4ef22400be19489f476b2f4b55f9085d0eaed8c164c3112c2c08cfd75d655d3a",
+          "region_ids": [
+            "front-left-T1"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T1",
+          "source_label": "T1",
+          "display_name": "T1",
+          "side": "left",
+          "view": "front",
+          "intersection_area": 0.00011874438325675725,
+          "lesion_coverage_ratio": 0.048467095206839686
+        },
+        {
+          "candidate_id": "02595c9e2fc22d5ab19b4d288d9fdbcde4be509a75da759f250a104b6358b4f1",
+          "region_ids": [
+            "front-right-T1"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T1",
+          "source_label": "T1",
+          "display_name": "T1",
+          "side": "right",
+          "view": "front",
+          "intersection_area": 0.00011873216546446284,
+          "lesion_coverage_ratio": 0.04846210835284197
+        },
+        {
+          "candidate_id": "0ed4d25c7bf8b0b22cce72946c91530eacc70b985f3cb7d132a418982dd19c98",
+          "region_ids": [
+            "front-left-T5"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T5",
+          "source_label": "T5",
+          "display_name": "T5",
+          "side": "left",
+          "view": "front",
+          "intersection_area": 0.0000644460505303569,
+          "lesion_coverage_ratio": 0.026304510420553835
+        },
+        {
+          "candidate_id": "d385f58b53e52c23e7bde273622b2f4171b16ad2b1705c9394f4b802d16bd13f",
+          "region_ids": [
+            "front-right-T5"
+          ],
+          "partition_type": "spinal_dermatome",
+          "label": "T5",
+          "source_label": "T5",
+          "display_name": "T5",
+          "side": "right",
+          "view": "front",
+          "intersection_area": 0.00006443024698410097,
+          "lesion_coverage_ratio": 0.026298059993510595
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "开发测试参考图谱，医学审核待完成。",
+    "比例仅为当前二维模板的几何覆盖，不是诊断概率或真实皮肤面积。",
+    "当前图谱未覆盖不代表没有感觉神经；不同候选可能重叠，不能累加候选比例。"
+  ]
+}

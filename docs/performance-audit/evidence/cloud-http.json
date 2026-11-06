@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-03T03:12:09.799535+00:00",
+  "environment": "local HTTP client to Tencent existing HTTP public test entrance; not phone; no transport encryption",
+  "operations": [
+    {
+      "traceId": "p5-7a6c817d4d1c",
+      "stage": "HEALTH",
+      "ms": 13.680167001439258,
+      "status": 200,
+      "response_bytes": 59
+    },
+    {
+      "traceId": "p5-792e47d1aa4d",
+      "stage": "ACCESS_SESSION",
+      "ms": 15.048291999846697,
+      "status": 200,
+      "response_bytes": 143
+    },
+    {
+      "traceId": "p5-049e88d823e7",
+      "stage": "MATCH_HTTP",
+      "ms": 332.33341699815355,
+      "status": 200,
+      "response_bytes": 4720
+    },
+    {
+      "traceId": "p5-9048e08a8ef7",
+      "stage": "MATCH_HTTP",
+      "ms": 208.29616699484177,
+      "status": 200,
+      "response_bytes": 4720
+    },
+    {
+      "traceId": "p5-54f4ce20f403",
+      "stage": "MATCH_HTTP",
+      "ms": 216.55887499218807,
+      "status": 200,
+      "response_bytes": 4720
+    },
+    {
+      "traceId": "p5-905d4a10dea0",
+      "stage": "AI_CREATE",
+      "ms": 14.618582994444296,
+      "status": 200,
+      "response_bytes": 165
+    },
+    {
+      "traceId": "p5-42d701980f43",
+      "stage": "IMAGE_UPLOAD",
+      "ms": 149.0126659919042,
+      "status": 200,
+      "response_bytes": 442
+    },
+    {
+      "traceId": "p5-542e7c63d4fe",
+      "stage": "AI_SEGMENT_HTTP",
+      "ms": 3217.4658750009257,
+      "status": 200,
+      "response_bytes": 2207,
+      "candidate_count": 3
+    },
+    {
+      "traceId": "p5-4e65c2a6e8ee",
+      "stage": "AI_SEGMENT_HTTP",
+      "ms": 3199.2601250240114,
+      "status": 200,
+      "response_bytes": 2207,
+      "candidate_count": 3
+    },
+    {
+      "traceId": "p5-1e500b358952",
+      "stage": "MASK_DOWNLOAD",
+      "ms": 12.582791998283938,
+      "status": 200,
+      "response_bytes": 3636
+    }
+  ],
+  "cleanup": {
+    "photo_delete_status": 204,
+    "access_revoke_status": 204
+  },
+  "status": "PASSED"
+}

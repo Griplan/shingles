@@ -1,0 +1,6 @@
+COMMAND: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/bin/python scripts/check_preview_atlas.py
+EXIT: 0
+front {'regions': 54, 'labels': 27, 'polygonParts': 63, 'holes': 15, 'vertices': 18051, 'outsideAfterSimplificationLogicalPx2': 0.0013452240925467935, 'manufacturingOverlapLogicalPx2': 0.411678164379466, 'rawOutsideBeforeAdaptationLogicalPx2': 58.15458156696285, 'bodyAreaLogicalPx2': 120615.50076667486, 'configuredAreaLogicalPx2': 107018.07893944674, 'unconfiguredAreaLogicalPx2': 13597.423172449635, 'medicalReviewStatus': 'pending'}
+back {'regions': 60, 'labels': 30, 'polygonParts': 71, 'holes': 2, 'vertices': 11705, 'outsideAfterSimplificationLogicalPx2': 0.0005508637368761197, 'manufacturingOverlapLogicalPx2': 0.430112907126253, 'rawOutsideBeforeAdaptationLogicalPx2': 107.34985006623775, 'bodyAreaLogicalPx2': 127095.93873884481, 'configuredAreaLogicalPx2': 114966.05499149188, 'unconfiguredAreaLogicalPx2': 12129.88429821674, 'medicalReviewStatus': 'pending'}
+extensions {'addedRegionsOrParts': 12, 'rawOutsideLogicalPx2': 8.274347815015911, 'retainedAreaLogicalPx2': 8608.81565610127}
+PASSED: sourced preview geometry/provenance/binding/side/inheritance checks. Not medical review or runtime proof.

@@ -1,0 +1,658 @@
+{
+  "source": "miniprogram/assets/body/commons-cc0/{front,back}.png",
+  "sourceSHA256": "486cdc8a89fbfe0ff0a4bb4104efc19bb5c708337c37768be6f9120c4837753a",
+  "logicalCanvas": [
+    400,
+    900
+  ],
+  "regionSetId": "commons-blank-cc0-v1-ui-regions-2",
+  "method": "Engineering points manually chosen after viewing original source raster and 20 logical-unit grid, before querying hitTestRegion. Expected categories are product UI conventions, not medical boundaries. No synthetic anatomy.",
+  "cases": [
+    {
+      "label": "front-1",
+      "view": "front",
+      "logical": [
+        200,
+        260
+      ],
+      "normalized": {
+        "x": 0.5,
+        "y": 0.28888888888888886
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "front-chest"
+      ],
+      "observation": "central chest"
+    },
+    {
+      "label": "front-2",
+      "view": "front",
+      "logical": [
+        150,
+        270
+      ],
+      "normalized": {
+        "x": 0.375,
+        "y": 0.3
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "front-chest"
+      ],
+      "observation": "viewer-left lateral torso"
+    },
+    {
+      "label": "front-3",
+      "view": "front",
+      "logical": [
+        250,
+        270
+      ],
+      "normalized": {
+        "x": 0.625,
+        "y": 0.3
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "front-chest"
+      ],
+      "observation": "viewer-right lateral torso"
+    },
+    {
+      "label": "front-4",
+      "view": "front",
+      "logical": [
+        110,
+        240
+      ],
+      "normalized": {
+        "x": 0.275,
+        "y": 0.26666666666666666
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "front-right-arm"
+      ],
+      "observation": "clear upper arm"
+    },
+    {
+      "label": "front-5",
+      "view": "front",
+      "logical": [
+        290,
+        240
+      ],
+      "normalized": {
+        "x": 0.725,
+        "y": 0.26666666666666666
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "front-left-arm"
+      ],
+      "observation": "clear upper arm"
+    },
+    {
+      "label": "front-6",
+      "view": "front",
+      "logical": [
+        148,
+        220
+      ],
+      "normalized": {
+        "x": 0.37,
+        "y": 0.24444444444444444
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "front-chest"
+      ],
+      "observation": "torso side of shoulder seam"
+    },
+    {
+      "label": "front-7",
+      "view": "front",
+      "logical": [
+        129,
+        220
+      ],
+      "normalized": {
+        "x": 0.3225,
+        "y": 0.24444444444444444
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "front-right-arm"
+      ],
+      "observation": "arm side of shoulder seam"
+    },
+    {
+      "label": "front-8",
+      "view": "front",
+      "logical": [
+        254,
+        220
+      ],
+      "normalized": {
+        "x": 0.635,
+        "y": 0.24444444444444444
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "front-chest"
+      ],
+      "observation": "torso side of shoulder seam"
+    },
+    {
+      "label": "front-9",
+      "view": "front",
+      "logical": [
+        274,
+        220
+      ],
+      "normalized": {
+        "x": 0.685,
+        "y": 0.24444444444444444
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "front-left-arm"
+      ],
+      "observation": "arm side of shoulder seam"
+    },
+    {
+      "label": "front-10",
+      "view": "front",
+      "logical": [
+        130,
+        340
+      ],
+      "normalized": {
+        "x": 0.325,
+        "y": 0.37777777777777777
+      },
+      "expectedStatus": "outside-body",
+      "expectedRegionIds": [],
+      "observation": "arm/torso gap"
+    },
+    {
+      "label": "front-11",
+      "view": "front",
+      "logical": [
+        270,
+        340
+      ],
+      "normalized": {
+        "x": 0.675,
+        "y": 0.37777777777777777
+      },
+      "expectedStatus": "outside-body",
+      "expectedRegionIds": [],
+      "observation": "arm/torso gap"
+    },
+    {
+      "label": "front-12",
+      "view": "front",
+      "logical": [
+        200,
+        180
+      ],
+      "normalized": {
+        "x": 0.5,
+        "y": 0.2
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "front-neck"
+      ],
+      "observation": "central neck"
+    },
+    {
+      "label": "front-13",
+      "view": "front",
+      "logical": [
+        200,
+        370
+      ],
+      "normalized": {
+        "x": 0.5,
+        "y": 0.4111111111111111
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "front-abdomen"
+      ],
+      "observation": "central abdomen"
+    },
+    {
+      "label": "front-14",
+      "view": "front",
+      "logical": [
+        137,
+        226
+      ],
+      "normalized": {
+        "x": 0.3425,
+        "y": 0.2511111111111111
+      },
+      "expectedStatus": "ambiguous",
+      "expectedRegionIds": [
+        "front-chest",
+        "front-right-arm"
+      ],
+      "observation": "shared shoulder boundary"
+    },
+    {
+      "label": "front-15",
+      "view": "front",
+      "logical": [
+        262,
+        226
+      ],
+      "normalized": {
+        "x": 0.655,
+        "y": 0.2511111111111111
+      },
+      "expectedStatus": "ambiguous",
+      "expectedRegionIds": [
+        "front-chest",
+        "front-left-arm"
+      ],
+      "observation": "shared shoulder boundary"
+    },
+    {
+      "label": "front-16",
+      "view": "front",
+      "logical": [
+        200,
+        194
+      ],
+      "normalized": {
+        "x": 0.5,
+        "y": 0.21555555555555556
+      },
+      "expectedStatus": "ambiguous",
+      "expectedRegionIds": [
+        "front-chest",
+        "front-neck"
+      ],
+      "observation": "shared neck boundary"
+    },
+    {
+      "label": "front-17",
+      "view": "front",
+      "logical": [
+        200,
+        315
+      ],
+      "normalized": {
+        "x": 0.5,
+        "y": 0.35
+      },
+      "expectedStatus": "ambiguous",
+      "expectedRegionIds": [
+        "front-abdomen",
+        "front-chest"
+      ],
+      "observation": "shared waist boundary"
+    },
+    {
+      "label": "back-1",
+      "view": "back",
+      "logical": [
+        200,
+        240
+      ],
+      "normalized": {
+        "x": 0.5,
+        "y": 0.26666666666666666
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "back-upper-back"
+      ],
+      "observation": "central upper back"
+    },
+    {
+      "label": "back-2",
+      "view": "back",
+      "logical": [
+        144,
+        245
+      ],
+      "normalized": {
+        "x": 0.36,
+        "y": 0.2722222222222222
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "back-upper-back"
+      ],
+      "observation": "viewer-left lateral torso"
+    },
+    {
+      "label": "back-3",
+      "view": "back",
+      "logical": [
+        254,
+        245
+      ],
+      "normalized": {
+        "x": 0.635,
+        "y": 0.2722222222222222
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "back-upper-back"
+      ],
+      "observation": "viewer-right lateral torso"
+    },
+    {
+      "label": "back-4",
+      "view": "back",
+      "logical": [
+        110,
+        235
+      ],
+      "normalized": {
+        "x": 0.275,
+        "y": 0.2611111111111111
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "back-left-arm"
+      ],
+      "observation": "clear upper arm"
+    },
+    {
+      "label": "back-5",
+      "view": "back",
+      "logical": [
+        290,
+        235
+      ],
+      "normalized": {
+        "x": 0.725,
+        "y": 0.2611111111111111
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "back-right-arm"
+      ],
+      "observation": "clear upper arm"
+    },
+    {
+      "label": "back-6",
+      "view": "back",
+      "logical": [
+        142,
+        225
+      ],
+      "normalized": {
+        "x": 0.355,
+        "y": 0.25
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "back-upper-back"
+      ],
+      "observation": "torso side of shoulder seam"
+    },
+    {
+      "label": "back-7",
+      "view": "back",
+      "logical": [
+        112,
+        225
+      ],
+      "normalized": {
+        "x": 0.28,
+        "y": 0.25
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "back-left-arm"
+      ],
+      "observation": "arm side of shoulder seam"
+    },
+    {
+      "label": "back-8",
+      "view": "back",
+      "logical": [
+        256,
+        225
+      ],
+      "normalized": {
+        "x": 0.64,
+        "y": 0.25
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "back-upper-back"
+      ],
+      "observation": "torso side of shoulder seam"
+    },
+    {
+      "label": "back-9",
+      "view": "back",
+      "logical": [
+        290,
+        225
+      ],
+      "normalized": {
+        "x": 0.725,
+        "y": 0.25
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "back-right-arm"
+      ],
+      "observation": "arm side of shoulder seam"
+    },
+    {
+      "label": "back-10",
+      "view": "back",
+      "logical": [
+        130,
+        340
+      ],
+      "normalized": {
+        "x": 0.325,
+        "y": 0.37777777777777777
+      },
+      "expectedStatus": "outside-body",
+      "expectedRegionIds": [],
+      "observation": "arm/torso gap"
+    },
+    {
+      "label": "back-11",
+      "view": "back",
+      "logical": [
+        270,
+        340
+      ],
+      "normalized": {
+        "x": 0.675,
+        "y": 0.37777777777777777
+      },
+      "expectedStatus": "outside-body",
+      "expectedRegionIds": [],
+      "observation": "arm/torso gap"
+    },
+    {
+      "label": "back-12",
+      "view": "back",
+      "logical": [
+        200,
+        158
+      ],
+      "normalized": {
+        "x": 0.5,
+        "y": 0.17555555555555555
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "back-neck"
+      ],
+      "observation": "central neck"
+    },
+    {
+      "label": "back-13",
+      "view": "back",
+      "logical": [
+        200,
+        355
+      ],
+      "normalized": {
+        "x": 0.5,
+        "y": 0.39444444444444443
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "back-lower-back"
+      ],
+      "observation": "central lower back"
+    },
+    {
+      "label": "back-14",
+      "view": "back",
+      "logical": [
+        127,
+        198
+      ],
+      "normalized": {
+        "x": 0.3175,
+        "y": 0.22
+      },
+      "expectedStatus": "ambiguous",
+      "expectedRegionIds": [
+        "back-left-arm",
+        "back-upper-back"
+      ],
+      "observation": "shared shoulder boundary"
+    },
+    {
+      "label": "back-15",
+      "view": "back",
+      "logical": [
+        265,
+        205
+      ],
+      "normalized": {
+        "x": 0.6625,
+        "y": 0.22777777777777777
+      },
+      "expectedStatus": "ambiguous",
+      "expectedRegionIds": [
+        "back-right-arm",
+        "back-upper-back"
+      ],
+      "observation": "shared shoulder boundary"
+    },
+    {
+      "label": "back-16",
+      "view": "back",
+      "logical": [
+        200,
+        173
+      ],
+      "normalized": {
+        "x": 0.5,
+        "y": 0.1922222222222222
+      },
+      "expectedStatus": "ambiguous",
+      "expectedRegionIds": [
+        "back-neck",
+        "back-upper-back"
+      ],
+      "observation": "shared neck boundary"
+    },
+    {
+      "label": "back-17",
+      "view": "back",
+      "logical": [
+        200,
+        320
+      ],
+      "normalized": {
+        "x": 0.5,
+        "y": 0.35555555555555557
+      },
+      "expectedStatus": "ambiguous",
+      "expectedRegionIds": [
+        "back-lower-back",
+        "back-upper-back"
+      ],
+      "observation": "shared waist boundary"
+    },
+    {
+      "label": "front-old-bleed-right-arm",
+      "view": "front",
+      "logical": [
+        120,
+        220
+      ],
+      "normalized": {
+        "x": 0.3,
+        "y": 0.24444444444444444
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "front-right-arm"
+      ],
+      "observation": "Original raster shows shoulder/upper-arm; old torso polygon overlapped here."
+    },
+    {
+      "label": "front-old-bleed-left-arm",
+      "view": "front",
+      "logical": [
+        280,
+        220
+      ],
+      "normalized": {
+        "x": 0.7,
+        "y": 0.24444444444444444
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "front-left-arm"
+      ],
+      "observation": "Original raster shows shoulder/upper-arm; old torso polygon overlapped here."
+    },
+    {
+      "label": "back-old-bleed-left-arm",
+      "view": "back",
+      "logical": [
+        112,
+        210
+      ],
+      "normalized": {
+        "x": 0.28,
+        "y": 0.23333333333333334
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "back-left-arm"
+      ],
+      "observation": "Original raster shows shoulder/upper-arm; old torso polygon overlapped here."
+    },
+    {
+      "label": "back-old-bleed-right-arm",
+      "view": "back",
+      "logical": [
+        287,
+        210
+      ],
+      "normalized": {
+        "x": 0.7175,
+        "y": 0.23333333333333334
+      },
+      "expectedStatus": "unique",
+      "expectedRegionIds": [
+        "back-right-arm"
+      ],
+      "observation": "Original raster shows shoulder/upper-arm; old torso polygon overlapped here."
+    }
+  ]
+}

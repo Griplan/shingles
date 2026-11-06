@@ -1,0 +1,8 @@
+usage: verify_v52_http.py [-h] [--output OUTPUT]
+
+Explicit local-only real MobileSAM HTTP experiment; public CDC image only. No
+credentials, raw photos or server paths are printed. Outputs are ignored.
+
+options:
+  -h, --help       show this help message and exit
+  --output OUTPUT  New output directory; existing paths are rejected

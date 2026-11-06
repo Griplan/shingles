@@ -1,0 +1,18 @@
+V1.5 initial implementation check / 2026-10-22
+FAILED: layout-edit helper called as backend/.venv/bin/python with cwd=miniprogram; path not found, no layout file edited by that call. Corrected cwd to project root.
+FAILED: npm run typecheck cwd=miniprogram exit2: select.ts switchView Object.assign inferred mode:string, incompatible with overview|focused. Added as const for the literal. No coordinate or geometry changed to satisfy the compiler.
+Original diagnostic: pages/select/select.ts(41,18): TS2345. Types of property mode are incompatible. Type string is not assignable to type overview|focused|undefined.
+
+Real WeChat FAILED on first render: hot reload initially showed Canvas error; compile Errors8/Warnings4 then reopen Errors4/Warnings6, region-picker.js ignored by dependency analysis. Cleared only compilation cache and explicitly recompiled; runtime recovered Errors0/Warnings4, without disabling unused-file filtering or changing source/project settings.
+First real 320px layout FAILED: header utility buttons had unconstrained intrinsic flex width, squeezing title into a vertical column and overflowing. Fixed explicit 90px utility width, 32/58px controls, and non-wrapping flexible title. No model geometry modified.
+
+Real overlay FAILED: native Canvas remained visually above bottom sheet in simulator screenshot, covering options despite interactionBlocked correctly stopping selection. Fix hides only Canvas while blocked, retains wrapper/layout, model/selection/focus/debug normalized point and cached node, skips drawing/measurement while hidden, remeasures/redraws on close. No geometry or coordinate-system change.
+Header native utility buttons still overflowed after explicit widths; replaced these small auxiliary controls with accessible role=button views, preserving native primary action buttons. Actual screenshot then showed intact title/utility labels and aligned list entry.
+
+After Canvas hide fix, actual sheet options visible but native button intrinsic widths still caused vertical single-column options and header wrap. Replaced close control with fixed-width accessible view; options now sit in explicit 50%-width view cells with button width100%, avoiding intrinsic button width in flex sizing. Final actual verification recorded separately.
+
+Final sheet fix: 50% wrapper alone still did not prevent native button width. Replaced option controls with accessible button-role views; actual screenshot showed all eight options in two columns, including last row. New hidden-node regression test confirms same normalized point, selected/focused model and image cache after modal close.
+Documentation patch first attempt failed context verification (no file changes), then reapplied with exact context successfully.
+Final GUI limitations: native coordinates noWindowsAvailable; 375 device switch briefly mismatched old simulator frame/new content. Reopened project; runtime AX recovered, but screenshot channel returned distorted small window captures. Preview launch for screenshot export timed out; no local screenshot file claimed. Remaining actual steps recorded NOT_RUN, not turned into all-pass.
+
+Scope audit first attempt FAILED: generic XML parser rejected valid WXML bare wx:else at line16, not a WeChat compile failure. Normalized bare wx:else in audit input only (source unchanged), then reran.

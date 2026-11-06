@@ -1,0 +1,19 @@
+{
+ "purpose":"人工查看当前400x900人体/源派生图谱叠加图后选定的工程参照位置；非患者、非临床验证。期望标签先于匹配函数执行确定。",
+ "evidence":["docs/validation-records/v3-atlas/front-overlay.png","docs/validation-records/v3-atlas/back-overlay.png","docs/validation-records/v3.1-atlas/face-single-branches.png","docs/validation-records/v3.1-atlas/feet-before-after.png"],
+ "coordinateSystem":"logical_400x900",
+ "cases":[
+  {"name":"front torso right","view":"front","x":165,"y":280,"label":"T5","side":"right"},
+  {"name":"front torso left","view":"front","x":235,"y":280,"label":"T5","side":"left"},
+  {"name":"front upper arm right","view":"front","x":110,"y":260,"label":"C6","side":"right"},
+  {"name":"front lower leg left","view":"front","x":274,"y":735,"label":"L5","side":"left"},
+  {"name":"front composite forearm","view":"front","x":110,"y":378,"label":"C8/T1","side":"right"},
+  {"name":"back torso left","view":"back","x":160,"y":276,"label":"T5","side":"left"},
+  {"name":"back leg right","view":"back","x":253,"y":638,"label":"S2","side":"right"},
+  {"name":"front face right","view":"front","x":195,"y":87,"label":"V1","side":"right"},
+  {"name":"front face left","view":"front","x":205,"y":87,"label":"V1","side":"left"},
+  {"name":"front foot right","view":"front","x":143,"y":862,"label":"L5","side":"right"},
+  {"name":"unconfigured hair","view":"front","x":200,"y":45,"label":null,"side":null},
+  {"name":"unconfigured back heel","view":"back","x":149,"y":843,"label":null,"side":null}
+ ]
+}

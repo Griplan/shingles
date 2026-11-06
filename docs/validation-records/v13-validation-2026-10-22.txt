@@ -1,0 +1,27 @@
+V1.3 actual verification / 2026-10-22 Asia/Shanghai
+Research-only change; no runtime replacement.
+
+COMMAND: backend/.venv/bin/python scripts/check_project.py
+PASSED: V0～V1.2 必要文件、目录、JSON、四页导航、组件注册及 Canvas 2D 配置完整。
+此检查不代表 WXML/WXSS 编译、页面导航交互或真机验证通过。
+
+EXIT_CODE: 0
+
+COMMAND: backend/.venv/bin/python scripts/check_atlas.py
+PASSED: V0 图谱 JSON/元数据符合约束；正背面为空、未验证、不可用于医学映射。
+此检查不验证多边形几何、来源真实性或医学准确性。
+
+EXIT_CODE: 0
+
+COMMAND: node --check docs/research/v13-materials/preview.cjs + Python AST syntax check of extract_views.py
+PASSED: research extraction helper syntax
+
+EXIT_CODE: 0
+
+Scope/hash audit: docs/validation-records/v13-scope-audit-2026-10-22.txt
+PASSED: only AGENTS.md / README.md / task.md modified among 132 baseline files; 34 research/documentation files added, 0 deleted. All miniprogram/backend/data/ai/tests/scripts files unchanged, historical records unchanged.
+PASSED: five original downloads match SHA-256; SVG parse and source inspection; six views equal 650px height; Markdown local links and JSON.
+Visual: candidate comparison and Servier excluded sample actually viewed using view_image. Source preview serialization failure and repair retained in v13-research-2026-10-22.txt.
+NOT_RUN: new-asset WeChat drawImage/SVG decoding, touch, registration, all devices and medical review. User has not selected an asset; runtime remains v3/3.0.0.
+NOT_RUN: npm/backend test suites in this V1.3 research turn; business code is byte-identical. Existing older passing results are not reported as tests of these candidates.
+No Git staging, commit or push.

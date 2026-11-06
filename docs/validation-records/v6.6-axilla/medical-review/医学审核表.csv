@@ -1,0 +1,11 @@
+﻿rowId,viewId,observationId,observationName,sourceRefs,observationDecision,observationReason,proposedDermatomeLabel,boundaryDecision,boundarySourcePageOrElement,boundaryFile,boundaryFileSHA256,uncertaintyOrExcludedSurface,reviewer,reviewerRole,reviewDate,comments
+L-O1,axilla-left,O1,腋窝中央,D1;M1;M2,,,,,,,,,,,,
+L-O2,axilla-left,O2,腋前褶,D1;M5;G1,,,,,,,,,,,,
+L-O3,axilla-left,O3,腋后褶,D1;M5;G2,,,,,,,,,,,,
+L-O4,axilla-left,O4,上臂近端内侧,G1;G2;M2;M3;M4,,,,,,,,,,,,
+L-O5,axilla-left,O5,邻近胸壁,G1;G2;M1;M2,,,,,,,,,,,,
+R-O1,axilla-right,O1,腋窝中央,D1;M1;M2,,,,,,,,,,,,
+R-O2,axilla-right,O2,腋前褶,D1;M5;G1,,,,,,,,,,,,
+R-O3,axilla-right,O3,腋后褶,D1;M5;G2,,,,,,,,,,,,
+R-O4,axilla-right,O4,上臂近端内侧,G1;G2;M2;M3;M4,,,,,,,,,,,,
+R-O5,axilla-right,O5,邻近胸壁,G1;G2;M1;M2,,,,,,,,,,,,

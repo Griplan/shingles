@@ -1,0 +1,21 @@
+{
+  "application_code_files_checked": 276,
+  "changed_application_code_files": [],
+  "local_report_links_missing": [],
+  "json_evidence_valid": [
+    "final-service-state.json",
+    "local-mobilesam-memory.json",
+    "public-https-sanitized.json",
+    "server-history-tls-sanitized.json",
+    "server-last24h-sanitized.json",
+    "server-services-sanitized.json"
+  ],
+  "production_service_identity_unchanged": {
+    "acupuncture.service": true,
+    "nginx.service": true
+  },
+  "production_mutation_commands_executed": false,
+  "model_load_or_stress_on_production": "NOT_RUN",
+  "business_regression_tests": "NOT_RUN_DOCUMENTATION_ONLY",
+  "private_keys_output": false
+}

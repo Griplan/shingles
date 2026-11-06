@@ -1,0 +1,372 @@
+{
+  "environment": {
+    "python": "3.12.14 (main, Aug 12 2026, 13:57:54) [Clang 17.0.0 (clang-1700.6.4.2)]",
+    "platform": "macOS-15.6.1-arm64-arm-64bit",
+    "processor": "arm64",
+    "shapely": "2.1.2",
+    "pydantic": "2.14.1"
+  },
+  "kind": "local Python single process, synthetic requests; no HTTP or native client",
+  "rows": [
+    {
+      "traceId": "match-local-1-0",
+      "lesion_objects": 1,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.007499998901039362,
+        "REQUEST_JSON_PARSE": 0.0040000013541430235,
+        "PYDANTIC_VALIDATE": 0.9305419807787985,
+        "ATLAS_LOAD": 32.890250004129484,
+        "MATCH_BACKEND": 47.609582979930565,
+        "RESPONSE_SERIALIZE": 0.3124579961877316,
+        "CLIENT_JSON_PARSE_PYTHON": 0.02804200630635023
+      },
+      "rss_before": 42876928,
+      "wall_ms": 81.79191700764932,
+      "request_bytes": 705,
+      "response_bytes": 4719,
+      "rss_after": 71188480
+    },
+    {
+      "traceId": "match-local-1-1",
+      "lesion_objects": 1,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.005915993824601173,
+        "REQUEST_JSON_PARSE": 0.0034999975468963385,
+        "PYDANTIC_VALIDATE": 0.01883300137706101,
+        "ATLAS_LOAD": 27.109040995128453,
+        "MATCH_BACKEND": 46.00775000290014,
+        "RESPONSE_SERIALIZE": 0.023250002413988113,
+        "CLIENT_JSON_PARSE_PYTHON": 0.029499991796910763
+      },
+      "rss_before": 71188480,
+      "wall_ms": 73.89458399848081,
+      "request_bytes": 705,
+      "response_bytes": 4719,
+      "rss_after": 82280448
+    },
+    {
+      "traceId": "match-local-1-2",
+      "lesion_objects": 1,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.005959009286016226,
+        "REQUEST_JSON_PARSE": 0.0031669915188103914,
+        "PYDANTIC_VALIDATE": 0.016541016520932317,
+        "ATLAS_LOAD": 26.242207997711375,
+        "MATCH_BACKEND": 46.489583008224145,
+        "RESPONSE_SERIALIZE": 0.022499996703118086,
+        "CLIENT_JSON_PARSE_PYTHON": 0.029457994969561696
+      },
+      "rss_before": 82280448,
+      "wall_ms": 73.42837500618771,
+      "request_bytes": 705,
+      "response_bytes": 4719,
+      "rss_after": 91471872
+    },
+    {
+      "traceId": "match-local-1-3",
+      "lesion_objects": 1,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.006000016583129764,
+        "REQUEST_JSON_PARSE": 0.003249995643272996,
+        "PYDANTIC_VALIDATE": 0.01562500256113708,
+        "ATLAS_LOAD": 31.03333298349753,
+        "MATCH_BACKEND": 46.399832994211465,
+        "RESPONSE_SERIALIZE": 0.0219999928958714,
+        "CLIENT_JSON_PARSE_PYTHON": 0.027834001230075955
+      },
+      "rss_before": 91471872,
+      "wall_ms": 78.11229099752381,
+      "request_bytes": 705,
+      "response_bytes": 4719,
+      "rss_after": 102842368
+    },
+    {
+      "traceId": "match-local-1-4",
+      "lesion_objects": 1,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.005582987796515226,
+        "REQUEST_JSON_PARSE": 0.0029579969123005867,
+        "PYDANTIC_VALIDATE": 0.016167003195732832,
+        "ATLAS_LOAD": 27.2507079935167,
+        "MATCH_BACKEND": 46.63550000987016,
+        "RESPONSE_SERIALIZE": 0.01999997766688466,
+        "CLIENT_JSON_PARSE_PYTHON": 0.026291992980986834
+      },
+      "rss_before": 102842368,
+      "wall_ms": 74.54345800215378,
+      "request_bytes": 705,
+      "response_bytes": 4719,
+      "rss_after": 103432192
+    },
+    {
+      "traceId": "match-local-1-5",
+      "lesion_objects": 1,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.005500012775883079,
+        "REQUEST_JSON_PARSE": 0.0032500247471034527,
+        "PYDANTIC_VALIDATE": 0.015333003830164671,
+        "ATLAS_LOAD": 25.845208001555875,
+        "MATCH_BACKEND": 46.05141599313356,
+        "RESPONSE_SERIALIZE": 0.022415973944589496,
+        "CLIENT_JSON_PARSE_PYTHON": 0.03266701241955161
+      },
+      "rss_before": 103432192,
+      "wall_ms": 72.58533299318515,
+      "request_bytes": 705,
+      "response_bytes": 4719,
+      "rss_after": 104202240
+    },
+    {
+      "traceId": "match-local-1-6",
+      "lesion_objects": 1,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.005417008651420474,
+        "REQUEST_JSON_PARSE": 0.00304199056699872,
+        "PYDANTIC_VALIDATE": 0.01604200224392116,
+        "ATLAS_LOAD": 26.267999986885116,
+        "MATCH_BACKEND": 45.89025001041591,
+        "RESPONSE_SERIALIZE": 0.022167019778862596,
+        "CLIENT_JSON_PARSE_PYTHON": 0.02879102248698473
+      },
+      "rss_before": 104202240,
+      "wall_ms": 72.88429199252278,
+      "request_bytes": 705,
+      "response_bytes": 4719,
+      "rss_after": 105054208
+    },
+    {
+      "traceId": "match-local-1-7",
+      "lesion_objects": 1,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.005584006430581212,
+        "REQUEST_JSON_PARSE": 0.003207998815923929,
+        "PYDANTIC_VALIDATE": 0.015375000657513738,
+        "ATLAS_LOAD": 27.175041992450133,
+        "MATCH_BACKEND": 46.129541005939245,
+        "RESPONSE_SERIALIZE": 0.02099998528137803,
+        "CLIENT_JSON_PARSE_PYTHON": 0.027750007575377822
+      },
+      "rss_before": 105054208,
+      "wall_ms": 74.00591598707251,
+      "request_bytes": 705,
+      "response_bytes": 4719,
+      "rss_after": 114835456
+    },
+    {
+      "traceId": "match-local-1-8",
+      "lesion_objects": 1,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.005500012775883079,
+        "REQUEST_JSON_PARSE": 0.0031250237952917814,
+        "PYDANTIC_VALIDATE": 0.015124998753890395,
+        "ATLAS_LOAD": 27.096917008748278,
+        "MATCH_BACKEND": 45.97087498405017,
+        "RESPONSE_SERIALIZE": 0.021832995116710663,
+        "CLIENT_JSON_PARSE_PYTHON": 0.026749999960884452
+      },
+      "rss_before": 114835456,
+      "wall_ms": 73.74304201221094,
+      "request_bytes": 705,
+      "response_bytes": 4719,
+      "rss_after": 114950144
+    },
+    {
+      "traceId": "match-local-1-9",
+      "lesion_objects": 1,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.005459005478769541,
+        "REQUEST_JSON_PARSE": 0.0029579969123005867,
+        "PYDANTIC_VALIDATE": 0.01624997821636498,
+        "ATLAS_LOAD": 26.330541993957013,
+        "MATCH_BACKEND": 46.05524998623878,
+        "RESPONSE_SERIALIZE": 0.022207997972145677,
+        "CLIENT_JSON_PARSE_PYTHON": 0.027166999643668532
+      },
+      "rss_before": 114950144,
+      "wall_ms": 73.08683398878202,
+      "request_bytes": 705,
+      "response_bytes": 4719,
+      "rss_after": 115015680
+    },
+    {
+      "traceId": "match-local-5-0",
+      "lesion_objects": 5,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.010666000889614224,
+        "REQUEST_JSON_PARSE": 0.005582987796515226,
+        "PYDANTIC_VALIDATE": 0.02300000051036477,
+        "ATLAS_LOAD": 26.362416974734515,
+        "MATCH_BACKEND": 139.79841701802798,
+        "RESPONSE_SERIALIZE": 0.03970798570662737,
+        "CLIENT_JSON_PARSE_PYTHON": 0.05395800690166652
+      },
+      "rss_before": 115015680,
+      "wall_ms": 167.06187499221414,
+      "request_bytes": 1285,
+      "response_bytes": 10683,
+      "rss_after": 115572736
+    },
+    {
+      "traceId": "match-local-5-1",
+      "lesion_objects": 5,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.011500000255182385,
+        "REQUEST_JSON_PARSE": 0.005708017852157354,
+        "PYDANTIC_VALIDATE": 0.02387500717304647,
+        "ATLAS_LOAD": 26.457542000571266,
+        "MATCH_BACKEND": 137.46133400127292,
+        "RESPONSE_SERIALIZE": 0.03766699228435755,
+        "CLIENT_JSON_PARSE_PYTHON": 0.05079200491309166
+      },
+      "rss_before": 115572736,
+      "wall_ms": 164.70987498178147,
+      "request_bytes": 1285,
+      "response_bytes": 10683,
+      "rss_after": 115572736
+    },
+    {
+      "traceId": "match-local-5-2",
+      "lesion_objects": 5,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.011541007552295923,
+        "REQUEST_JSON_PARSE": 0.0058340083342045546,
+        "PYDANTIC_VALIDATE": 0.022916996385902166,
+        "ATLAS_LOAD": 31.25733300112188,
+        "MATCH_BACKEND": 137.6707500021439,
+        "RESPONSE_SERIALIZE": 0.03762499545700848,
+        "CLIENT_JSON_PARSE_PYTHON": 0.04920799983665347
+      },
+      "rss_before": 115572736,
+      "wall_ms": 169.6800829959102,
+      "request_bytes": 1285,
+      "response_bytes": 10683,
+      "rss_after": 115900416
+    },
+    {
+      "traceId": "match-local-5-3",
+      "lesion_objects": 5,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.011541997082531452,
+        "REQUEST_JSON_PARSE": 0.005709007382392883,
+        "PYDANTIC_VALIDATE": 0.023917004000395536,
+        "ATLAS_LOAD": 25.834208994638175,
+        "MATCH_BACKEND": 136.79095901898108,
+        "RESPONSE_SERIALIZE": 0.0363329891115427,
+        "CLIENT_JSON_PARSE_PYTHON": 0.05137498374097049
+      },
+      "rss_before": 115900416,
+      "wall_ms": 163.41349997674115,
+      "request_bytes": 1285,
+      "response_bytes": 10683,
+      "rss_after": 116342784
+    },
+    {
+      "traceId": "match-local-5-4",
+      "lesion_objects": 5,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.011582975275814533,
+        "REQUEST_JSON_PARSE": 0.005958019755780697,
+        "PYDANTIC_VALIDATE": 0.023083004634827375,
+        "ATLAS_LOAD": 26.403999974718317,
+        "MATCH_BACKEND": 135.77900000382215,
+        "RESPONSE_SERIALIZE": 0.036375015042722225,
+        "CLIENT_JSON_PARSE_PYTHON": 0.050708011258393526
+      },
+      "rss_before": 116342784,
+      "wall_ms": 162.93208400020376,
+      "request_bytes": 1285,
+      "response_bytes": 10683,
+      "rss_after": 116490240
+    },
+    {
+      "traceId": "match-local-5-5",
+      "lesion_objects": 5,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.011249998351559043,
+        "REQUEST_JSON_PARSE": 0.00562501372769475,
+        "PYDANTIC_VALIDATE": 0.022041989723220468,
+        "ATLAS_LOAD": 26.34108401252888,
+        "MATCH_BACKEND": 137.60762501624413,
+        "RESPONSE_SERIALIZE": 0.03645799006335437,
+        "CLIENT_JSON_PARSE_PYTHON": 0.054500007536262274
+      },
+      "rss_before": 116490240,
+      "wall_ms": 164.9468330142554,
+      "request_bytes": 1285,
+      "response_bytes": 10683,
+      "rss_after": 116637696
+    },
+    {
+      "traceId": "match-local-5-6",
+      "lesion_objects": 5,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.011958996765315533,
+        "REQUEST_JSON_PARSE": 0.006165995728224516,
+        "PYDANTIC_VALIDATE": 0.023375003365799785,
+        "ATLAS_LOAD": 26.3384580030106,
+        "MATCH_BACKEND": 137.29041698388755,
+        "RESPONSE_SERIALIZE": 0.03545801155269146,
+        "CLIENT_JSON_PARSE_PYTHON": 0.053625000873580575
+      },
+      "rss_before": 116637696,
+      "wall_ms": 164.4249579985626,
+      "request_bytes": 1285,
+      "response_bytes": 10683,
+      "rss_after": 116965376
+    },
+    {
+      "traceId": "match-local-5-7",
+      "lesion_objects": 5,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.011750002158805728,
+        "REQUEST_JSON_PARSE": 0.00591602292843163,
+        "PYDANTIC_VALIDATE": 0.022916006855666637,
+        "ATLAS_LOAD": 26.42970799934119,
+        "MATCH_BACKEND": 137.3434170091059,
+        "RESPONSE_SERIALIZE": 0.0373339862562716,
+        "CLIENT_JSON_PARSE_PYTHON": 0.05270898691378534
+      },
+      "rss_before": 116965376,
+      "wall_ms": 164.63250000379048,
+      "request_bytes": 1285,
+      "response_bytes": 10683,
+      "rss_after": 117080064
+    },
+    {
+      "traceId": "match-local-5-8",
+      "lesion_objects": 5,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.011666998034343123,
+        "REQUEST_JSON_PARSE": 0.005750014679506421,
+        "PYDANTIC_VALIDATE": 0.023083004634827375,
+        "ATLAS_LOAD": 26.434833009261638,
+        "MATCH_BACKEND": 137.8096660191659,
+        "RESPONSE_SERIALIZE": 0.03633397864177823,
+        "CLIENT_JSON_PARSE_PYTHON": 0.05004199920222163
+      },
+      "rss_before": 117080064,
+      "wall_ms": 165.19004199653864,
+      "request_bytes": 1285,
+      "response_bytes": 10683,
+      "rss_after": 117080064
+    },
+    {
+      "traceId": "match-local-5-9",
+      "lesion_objects": 5,
+      "phases_ms": {
+        "REQUEST_SERIALIZE": 0.022541993530467153,
+        "REQUEST_JSON_PARSE": 0.010374991688877344,
+        "PYDANTIC_VALIDATE": 0.0321660190820694,
+        "ATLAS_LOAD": 26.478417014004663,
+        "MATCH_BACKEND": 138.26854201033711,
+        "RESPONSE_SERIALIZE": 0.03695799387060106,
+        "CLIENT_JSON_PARSE_PYTHON": 0.04874999285675585
+      },
+      "rss_before": 117080064,
+      "wall_ms": 165.60604199185036,
+      "request_bytes": 1285,
+      "response_bytes": 10683,
+      "rss_after": 117456896
+    }
+  ]
+}

@@ -1,0 +1,573 @@
+{
+  "atlasVersion": "goran-2022-commons-template4-preview.2",
+  "contentSHA256": "8689fca1aa50cff0b1b7d7cd1adcd80cf244cd1a93ed580e91406d0cc2fb2056",
+  "status": "PASSED_OFFLINE_GEOMETRY",
+  "runtimeVisualStatus": "NOT_RUN",
+  "medicalReviewStatus": "pending",
+  "views": {
+    "front": {
+      "regions": 54,
+      "labels": 27,
+      "polygonParts": 63,
+      "holes": 15,
+      "vertices": 18051,
+      "outsideAfterSimplificationLogicalPx2": 0.0013452240925467935,
+      "manufacturingOverlapLogicalPx2": 0.411678164379466,
+      "overlapPairs": [
+        {
+          "a": "front-right-T1",
+          "b": "front-right-T2",
+          "logicalPx2": 0.017615209234662064
+        },
+        {
+          "a": "front-right-T1",
+          "b": "front-right-T3",
+          "logicalPx2": 0.004404583857627417
+        },
+        {
+          "a": "front-right-T1",
+          "b": "front-right-T4",
+          "logicalPx2": 0.0025475155709834365
+        },
+        {
+          "a": "front-right-T1",
+          "b": "front-right-C5",
+          "logicalPx2": 0.033488486320639305
+        },
+        {
+          "a": "front-right-T1",
+          "b": "front-right-C8_T1",
+          "logicalPx2": 0.00973456627827673
+        },
+        {
+          "a": "front-left-T1",
+          "b": "front-left-T2",
+          "logicalPx2": 0.00038318827319378494
+        },
+        {
+          "a": "front-left-T1",
+          "b": "front-left-T3",
+          "logicalPx2": 0.00015374261922583273
+        },
+        {
+          "a": "front-left-T1",
+          "b": "front-left-T4",
+          "logicalPx2": 0.004026136369442857
+        },
+        {
+          "a": "front-left-T1",
+          "b": "front-left-T5",
+          "logicalPx2": 0.002070931517414184
+        },
+        {
+          "a": "front-left-T1",
+          "b": "front-left-C5",
+          "logicalPx2": 0.017716726337889153
+        },
+        {
+          "a": "front-left-T1",
+          "b": "front-left-C8_T1",
+          "logicalPx2": 0.01160054844032791
+        },
+        {
+          "a": "front-right-T2",
+          "b": "front-right-T5",
+          "logicalPx2": 0.0003352684205085558
+        },
+        {
+          "a": "front-left-T2",
+          "b": "front-left-T6",
+          "logicalPx2": 0.0014764743010353223
+        },
+        {
+          "a": "front-right-T5",
+          "b": "front-right-T6",
+          "logicalPx2": 0.0003952086475939753
+        },
+        {
+          "a": "front-left-T6",
+          "b": "front-left-T7",
+          "logicalPx2": 6.231312828022884e-05
+        },
+        {
+          "a": "front-right-T7",
+          "b": "front-right-T8",
+          "logicalPx2": 1.9058271320922885e-06
+        },
+        {
+          "a": "front-left-T7",
+          "b": "front-left-T8",
+          "logicalPx2": 2.5381459812850945e-06
+        },
+        {
+          "a": "front-right-T9",
+          "b": "front-right-T10",
+          "logicalPx2": 0.01942276667099066
+        },
+        {
+          "a": "front-left-T9",
+          "b": "front-left-T10",
+          "logicalPx2": 0.0035725791694414953
+        },
+        {
+          "a": "front-right-T11",
+          "b": "front-right-T12",
+          "logicalPx2": 0.01351466044772843
+        },
+        {
+          "a": "front-left-T11",
+          "b": "front-left-T12",
+          "logicalPx2": 0.029255036266886025
+        },
+        {
+          "a": "front-right-T12",
+          "b": "front-right-L1",
+          "logicalPx2": 0.02366641074199537
+        },
+        {
+          "a": "front-left-T12",
+          "b": "front-left-L1",
+          "logicalPx2": 0.006862482937536978
+        },
+        {
+          "a": "front-right-C2",
+          "b": "front-right-C3",
+          "logicalPx2": 0.01797815365176647
+        },
+        {
+          "a": "front-right-C2",
+          "b": "front-right-V3",
+          "logicalPx2": 1.9359358561222997e-08
+        },
+        {
+          "a": "front-left-C2",
+          "b": "front-left-C3",
+          "logicalPx2": 0.00253728896983391
+        },
+        {
+          "a": "front-right-C3",
+          "b": "front-right-C4",
+          "logicalPx2": 0.0012127469479165966
+        },
+        {
+          "a": "front-left-C3",
+          "b": "front-left-C4",
+          "logicalPx2": 0.0009888797005514053
+        },
+        {
+          "a": "front-left-C4",
+          "b": "front-left-C5",
+          "logicalPx2": 0.005018247155432678
+        },
+        {
+          "a": "front-right-C6",
+          "b": "front-right-C5",
+          "logicalPx2": 0.0046129186522741025
+        },
+        {
+          "a": "front-left-C6",
+          "b": "front-left-C5",
+          "logicalPx2": 0.07381512013757666
+        },
+        {
+          "a": "front-right-C5",
+          "b": "front-right-C8_T1",
+          "logicalPx2": 0.001810205587227166
+        },
+        {
+          "a": "front-left-C5",
+          "b": "front-left-C8_T1",
+          "logicalPx2": 0.0026100038139426057
+        },
+        {
+          "a": "front-right-L1",
+          "b": "front-right-L2",
+          "logicalPx2": 0.020824811964893396
+        },
+        {
+          "a": "front-right-L2",
+          "b": "front-right-L3",
+          "logicalPx2": 0.028310408322579545
+        },
+        {
+          "a": "front-right-L3",
+          "b": "front-right-L4",
+          "logicalPx2": 0.01792388656010286
+        },
+        {
+          "a": "front-right-L3",
+          "b": "front-right-L5",
+          "logicalPx2": 0.005098787506092218
+        },
+        {
+          "a": "front-left-L3",
+          "b": "front-left-L4",
+          "logicalPx2": 0.01466800796120414
+        },
+        {
+          "a": "front-left-L3",
+          "b": "front-left-L5",
+          "logicalPx2": 0.005683988845245207
+        },
+        {
+          "a": "front-right-L4",
+          "b": "front-right-L5",
+          "logicalPx2": 0.000324389517908254
+        },
+        {
+          "a": "front-left-L4",
+          "b": "front-left-L5",
+          "logicalPx2": 0.005668720087629553
+        },
+        {
+          "a": "front-right-L5",
+          "b": "front-right-S1",
+          "logicalPx2": 7.116643522094705e-05
+        },
+        {
+          "a": "front-left-L5",
+          "b": "front-left-S1",
+          "logicalPx2": 1.2480865839309469e-05
+        },
+        {
+          "a": "front-right-V1",
+          "b": "front-right-V2",
+          "logicalPx2": 3.8259014344729764e-05
+        },
+        {
+          "a": "front-right-V1",
+          "b": "front-right-V3",
+          "logicalPx2": 3.2118265402364476e-06
+        },
+        {
+          "a": "front-left-V1",
+          "b": "front-left-V2",
+          "logicalPx2": 0.00015278297115968602
+        },
+        {
+          "a": "front-left-V1",
+          "b": "front-left-V3",
+          "logicalPx2": 4.165344674588439e-06
+        },
+        {
+          "a": "front-right-V2",
+          "b": "front-right-V3",
+          "logicalPx2": 1.4294951995260903e-07
+        },
+        {
+          "a": "front-left-V2",
+          "b": "front-left-V3",
+          "logicalPx2": 9.070583816836567e-08
+        }
+      ],
+      "rawOutsideBeforeAdaptationLogicalPx2": 58.15458156696285,
+      "bodyAreaLogicalPx2": 120615.50076667486,
+      "configuredAreaLogicalPx2": 107018.07893944674,
+      "unconfiguredAreaLogicalPx2": 13597.423172449635,
+      "coverageInterpretation": "Unconfigured includes excluded/non-visible surfaces and source seams; not absence of sensation. Full-body tiling is not required.",
+      "medicalReviewStatus": "pending"
+    },
+    "back": {
+      "regions": 60,
+      "labels": 30,
+      "polygonParts": 71,
+      "holes": 2,
+      "vertices": 11705,
+      "outsideAfterSimplificationLogicalPx2": 0.0005508637368761197,
+      "manufacturingOverlapLogicalPx2": 0.430112907126253,
+      "overlapPairs": [
+        {
+          "a": "back-left-T1",
+          "b": "back-left-T2",
+          "logicalPx2": 0.0006542379390749147
+        },
+        {
+          "a": "back-left-T1",
+          "b": "back-left-C8",
+          "logicalPx2": 0.004755151521132582
+        },
+        {
+          "a": "back-right-T1",
+          "b": "back-right-T2",
+          "logicalPx2": 0.0003582279452480272
+        },
+        {
+          "a": "back-right-T1",
+          "b": "back-right-T1_T2",
+          "logicalPx2": 2.6908181501155397e-06
+        },
+        {
+          "a": "back-left-T2",
+          "b": "back-left-T3",
+          "logicalPx2": 0.0008231944961202077
+        },
+        {
+          "a": "back-left-T2",
+          "b": "back-left-T1_T2",
+          "logicalPx2": 1.2116559453454128e-05
+        },
+        {
+          "a": "back-right-T2",
+          "b": "back-right-T1_T2",
+          "logicalPx2": 0.0017027590589082171
+        },
+        {
+          "a": "back-right-T3",
+          "b": "back-right-T4",
+          "logicalPx2": 0.0004704615585926163
+        },
+        {
+          "a": "back-right-T3",
+          "b": "back-right-T1_T2",
+          "logicalPx2": 0.0008465979247975236
+        },
+        {
+          "a": "back-left-T4",
+          "b": "back-left-T5",
+          "logicalPx2": 0.0089478800479897
+        },
+        {
+          "a": "back-right-T4",
+          "b": "back-right-T5",
+          "logicalPx2": 0.0033126353869106727
+        },
+        {
+          "a": "back-right-T4",
+          "b": "back-right-T1_T2",
+          "logicalPx2": 0.001055329025578022
+        },
+        {
+          "a": "back-left-T5",
+          "b": "back-left-T6",
+          "logicalPx2": 0.007758202941180519
+        },
+        {
+          "a": "back-right-T5",
+          "b": "back-right-T1_T2",
+          "logicalPx2": 0.0020754268861914752
+        },
+        {
+          "a": "back-left-T6",
+          "b": "back-left-T7",
+          "logicalPx2": 0.016322239990392225
+        },
+        {
+          "a": "back-left-T7",
+          "b": "back-left-T8",
+          "logicalPx2": 0.005652529199718783
+        },
+        {
+          "a": "back-left-T12",
+          "b": "back-left-T11",
+          "logicalPx2": 0.004998688617967183
+        },
+        {
+          "a": "back-left-T12",
+          "b": "back-left-L1",
+          "logicalPx2": 0.004951023007776689
+        },
+        {
+          "a": "back-right-T12",
+          "b": "back-right-T11",
+          "logicalPx2": 0.0017002582399033507
+        },
+        {
+          "a": "back-right-T12",
+          "b": "back-right-L1",
+          "logicalPx2": 0.0039685699624014996
+        },
+        {
+          "a": "back-left-T8",
+          "b": "back-left-T9",
+          "logicalPx2": 0.007925070898160786
+        },
+        {
+          "a": "back-right-T8",
+          "b": "back-right-T9",
+          "logicalPx2": 0.00010182739338304779
+        },
+        {
+          "a": "back-left-T9",
+          "b": "back-left-T10",
+          "logicalPx2": 0.017871901550243943
+        },
+        {
+          "a": "back-left-L1",
+          "b": "back-left-L2",
+          "logicalPx2": 0.0010628353389504576
+        },
+        {
+          "a": "back-right-L1",
+          "b": "back-right-L2",
+          "logicalPx2": 0.016394916275100323
+        },
+        {
+          "a": "back-left-L2",
+          "b": "back-left-S3",
+          "logicalPx2": 5.5411404133910414e-05
+        },
+        {
+          "a": "back-left-L2",
+          "b": "back-left-S2",
+          "logicalPx2": 0.016487314670445063
+        },
+        {
+          "a": "back-right-L2",
+          "b": "back-right-S2",
+          "logicalPx2": 0.0160748083041662
+        },
+        {
+          "a": "back-left-C7",
+          "b": "back-left-C8",
+          "logicalPx2": 0.002784944185795902
+        },
+        {
+          "a": "back-left-C7",
+          "b": "back-left-C6",
+          "logicalPx2": 0.009387291739032976
+        },
+        {
+          "a": "back-left-C7",
+          "b": "back-left-C6_C8",
+          "logicalPx2": 0.006996564835558116
+        },
+        {
+          "a": "back-right-C7",
+          "b": "back-right-C8",
+          "logicalPx2": 3.9353683539866385e-05
+        },
+        {
+          "a": "back-right-C7",
+          "b": "back-right-C6",
+          "logicalPx2": 0.011049217964366883
+        },
+        {
+          "a": "back-right-C7",
+          "b": "back-right-C6_C8",
+          "logicalPx2": 0.02139641569828343
+        },
+        {
+          "a": "back-right-C2",
+          "b": "back-right-C3",
+          "logicalPx2": 0.012638003111660863
+        },
+        {
+          "a": "back-left-C3",
+          "b": "back-left-C4",
+          "logicalPx2": 0.00041360976801878204
+        },
+        {
+          "a": "back-right-C3",
+          "b": "back-right-C4",
+          "logicalPx2": 0.004612826564337656
+        },
+        {
+          "a": "back-right-C4",
+          "b": "back-right-C5",
+          "logicalPx2": 0.0017493567717463661
+        },
+        {
+          "a": "back-left-C8",
+          "b": "back-left-T1_T2",
+          "logicalPx2": 0.022923042582811602
+        },
+        {
+          "a": "back-left-C8",
+          "b": "back-left-C6_C8",
+          "logicalPx2": 0.0012960741507401041
+        },
+        {
+          "a": "back-right-C8",
+          "b": "back-right-T1_T2",
+          "logicalPx2": 0.004507038073736606
+        },
+        {
+          "a": "back-right-C8",
+          "b": "back-right-C6_C8",
+          "logicalPx2": 0.005561646782492038
+        },
+        {
+          "a": "back-left-C6",
+          "b": "back-left-C5",
+          "logicalPx2": 0.0004097649507020471
+        },
+        {
+          "a": "back-left-S3",
+          "b": "back-left-S4",
+          "logicalPx2": 0.007267968619436541
+        },
+        {
+          "a": "back-left-S3",
+          "b": "back-left-S2",
+          "logicalPx2": 0.07582713776736727
+        },
+        {
+          "a": "back-right-S3",
+          "b": "back-right-S4",
+          "logicalPx2": 0.00015610809407160802
+        },
+        {
+          "a": "back-right-S3",
+          "b": "back-right-S2",
+          "logicalPx2": 0.01920741066561151
+        },
+        {
+          "a": "back-right-S4",
+          "b": "back-right-S5",
+          "logicalPx2": 0.0004493750265185893
+        },
+        {
+          "a": "back-left-L4",
+          "b": "back-left-S2",
+          "logicalPx2": 0.010009380495194018
+        },
+        {
+          "a": "back-right-L4",
+          "b": "back-right-L3",
+          "logicalPx2": 0.007637147677531384
+        },
+        {
+          "a": "back-right-L4",
+          "b": "back-right-S2",
+          "logicalPx2": 2.671848923176186e-06
+        },
+        {
+          "a": "back-left-L3",
+          "b": "back-left-S2",
+          "logicalPx2": 0.005109007936068082
+        },
+        {
+          "a": "back-left-L5",
+          "b": "back-left-S2",
+          "logicalPx2": 0.007988263966944926
+        },
+        {
+          "a": "back-right-L5",
+          "b": "back-right-S2",
+          "logicalPx2": 0.0038001375882088014
+        },
+        {
+          "a": "back-left-T1_T2",
+          "b": "back-left-C6_C8",
+          "logicalPx2": 0.02769002403624761
+        },
+        {
+          "a": "back-right-T1_T2",
+          "b": "back-right-C6_C8",
+          "logicalPx2": 0.012860815579234732
+        }
+      ],
+      "rawOutsideBeforeAdaptationLogicalPx2": 107.34985006623775,
+      "bodyAreaLogicalPx2": 127095.93873884481,
+      "configuredAreaLogicalPx2": 114966.05499149188,
+      "unconfiguredAreaLogicalPx2": 12129.88429821674,
+      "coverageInterpretation": "Unconfigured includes excluded/non-visible surfaces and source seams; not absence of sensation. Full-body tiling is not required.",
+      "medicalReviewStatus": "pending"
+    },
+    "extensions": {
+      "addedRegionsOrParts": 12,
+      "rawOutsideLogicalPx2": 8.274347815015911,
+      "retainedAreaLogicalPx2": 8608.81565610127
+    }
+  }
+}

@@ -1,0 +1,309 @@
+{
+  "utc": "2026-11-01T10:29:35.043266+00:00",
+  "read_only": true,
+  "service": {
+    "Restart": "on-failure",
+    "RestartUSec": "5s",
+    "MainPID": "3480408",
+    "NRestarts": "0",
+    "ExecMainStartTimestamp": "Sat 2026-10-31 23:51:02 CST",
+    "ExecMainCode": "0",
+    "ExecMainStatus": "0",
+    "ControlGroup": "/system.slice/acupuncture.service",
+    "MemoryCurrent": "159031296",
+    "MemoryPeak": "161112064",
+    "CPUUsageNSec": "88984448000",
+    "TasksCurrent": "17",
+    "CPUQuotaPerSecUSec": "infinity",
+    "MemoryHigh": "infinity",
+    "MemoryMax": "infinity",
+    "User": "ubuntu",
+    "Group": "ubuntu",
+    "LoadState": "loaded",
+    "ActiveState": "active",
+    "SubState": "running",
+    "UnitFileState": "enabled",
+    "ActiveEnterTimestamp": "Sat 2026-10-31 23:51:02 CST",
+    "WorkingDirectoryIsSrvAcupuncture": true
+  },
+  "nginx": {
+    "Restart": "no",
+    "RestartUSec": "100ms",
+    "MainPID": "12643",
+    "NRestarts": "0",
+    "ExecMainStartTimestamp": "Thu 2026-10-08 13:25:29 CST",
+    "ExecMainCode": "0",
+    "ExecMainStatus": "0",
+    "ControlGroup": "/system.slice/nginx.service",
+    "MemoryCurrent": "8900608",
+    "MemoryPeak": "11771904",
+    "CPUUsageNSec": "9611309000",
+    "TasksCurrent": "5",
+    "CPUQuotaPerSecUSec": "infinity",
+    "MemoryHigh": "infinity",
+    "MemoryMax": "infinity",
+    "User": "",
+    "Group": "",
+    "LoadState": "loaded",
+    "ActiveState": "active",
+    "SubState": "running",
+    "UnitFileState": "enabled",
+    "ActiveEnterTimestamp": "Thu 2026-10-08 13:25:29 CST",
+    "WorkingDirectoryIsSrvAcupuncture": false
+  },
+  "process_memory_kib": {
+    "VmRSS": "275960 kB",
+    "VmHWM": "276872 kB",
+    "VmSize": "2062296 kB",
+    "VmPeak": "2127832 kB",
+    "RssAnon": "153244 kB",
+    "RssFile": "122716 kB",
+    "Threads": "17"
+  },
+  "command": {
+    "module": "uvicorn",
+    "app": "backend.main:app",
+    "workers": "1",
+    "bind": "127.0.0.1",
+    "port": "8000",
+    "venv_under_project": true
+  },
+  "feature_flags": {
+    "ACUPUNCTURE_ENV": "production",
+    "ACUPUNCTURE_ENABLE_FOREARM_EXAM": "true",
+    "ACUPUNCTURE_ENABLE_FOREARM_DEV": "false"
+  },
+  "python_environment": {
+    "exit_code": 0,
+    "data": {
+      "python": "3.12.3",
+      "packages": {
+        "fastapi": "0.141.1",
+        "uvicorn": "0.52.4",
+        "mediapipe": "0.10.35",
+        "opencv-contrib-python": "5.0.0.93",
+        "opencv-python": null,
+        "numpy": "2.5.2",
+        "torch": null,
+        "shapely": null
+      }
+    }
+  },
+  "cgroup_memory": {
+    "memory.current": "159031296",
+    "memory.peak": "161112064",
+    "memory.max": "max",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+    "cpu.max": "max 100000",
+    "cpu.stat": "usage_usec 88984569\nuser_usec 80745202\nsystem_usec 8239366\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0"
+  },
+  "app_journal_24h_sample": {
+    "exit_code": 0,
+    "sample_count": 300,
+    "limit": 300,
+    "counts": {},
+    "earliest_usec": 1793461883140521,
+    "latest_usec": 1793528112445283
+  },
+  "oom_journal_7d": {
+    "exit_code": 1,
+    "matching_records": 0,
+    "limit": 30
+  },
+  "renewal_timers": [
+    "Mon 2026-11-02 08:26:19 CST 13h Sun 2026-11-01 16:00:09 CST 2h 29min ago certbot.timer certbot.service"
+  ],
+  "nginx_version": "nginx version: nginx/1.24.0 (Ubuntu)",
+  "nginx_configuration": {
+    "enabled_site_names": [
+      "acupuncture-domain",
+      "acupuncture"
+    ],
+    "read_config_count": 4,
+    "selected_directives": [
+      {
+        "site": "nginx.conf",
+        "directive": "ssl_protocols",
+        "value": "TLSv1 TLSv1.1 TLSv1.2 TLSv1.3"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "listen",
+        "value": "80"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "listen",
+        "value": "[::]:80"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "server_name",
+        "value": "acupuncture.yandunshuati.online"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "client_max_body_size",
+        "value": "10m"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "location",
+        "value": "^~ /.well-known/acme-challenge/"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "location",
+        "value": "/"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "return",
+        "value": "308 [redirect target omitted]"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "listen",
+        "value": "443 ssl http2"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "listen",
+        "value": "[::]:443 ssl http2"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "server_name",
+        "value": "acupuncture.yandunshuati.online"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "ssl_protocols",
+        "value": "TLSv1.2 TLSv1.3"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "client_max_body_size",
+        "value": "10m"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "location",
+        "value": "/"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "proxy_pass",
+        "value": "http://127.0.0.1:8000"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "proxy_connect_timeout",
+        "value": "10s"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "proxy_send_timeout",
+        "value": "120s"
+      },
+      {
+        "site": "acupuncture-domain",
+        "directive": "proxy_read_timeout",
+        "value": "120s"
+      },
+      {
+        "site": "acupuncture",
+        "directive": "listen",
+        "value": "80 default_server"
+      },
+      {
+        "site": "acupuncture",
+        "directive": "listen",
+        "value": "[::]:80 default_server"
+      },
+      {
+        "site": "acupuncture",
+        "directive": "server_name",
+        "value": "_"
+      },
+      {
+        "site": "acupuncture",
+        "directive": "client_max_body_size",
+        "value": "10m"
+      },
+      {
+        "site": "acupuncture",
+        "directive": "location",
+        "value": "/"
+      },
+      {
+        "site": "acupuncture",
+        "directive": "proxy_pass",
+        "value": "http://127.0.0.1:8000"
+      },
+      {
+        "site": "acupuncture",
+        "directive": "proxy_connect_timeout",
+        "value": "10s"
+      },
+      {
+        "site": "acupuncture",
+        "directive": "proxy_send_timeout",
+        "value": "120s"
+      },
+      {
+        "site": "acupuncture",
+        "directive": "proxy_read_timeout",
+        "value": "120s"
+      }
+    ]
+  },
+  "certificates": [
+    {
+      "exit_code": 0,
+      "public_certificate_metadata": "subject=CN = acupuncture.yandunshuati.online\nissuer=C = US, O = Let's Encrypt, CN = YE2\nnotBefore=Oct 23 16:56:11 2026 GMT\nnotAfter=Jan 21 16:56:10 2027 GMT\nX509v3 Subject Alternative Name: \n    DNS:acupuncture.yandunshuati.online",
+      "private_key_read": false
+    }
+  ],
+  "access_log_samples": [
+    {
+      "exit_code": 0,
+      "rows": 345,
+      "limit": 2000,
+      "status_counts": {
+        "200": 2,
+        "400": 64,
+        "404": 278,
+        "499": 1
+      }
+    }
+  ],
+  "loopback_checks": [
+    {
+      "port": 8000,
+      "path": "/health",
+      "status": 200,
+      "ms": 26.39
+    },
+    {
+      "port": 8000,
+      "path": "/ready",
+      "status": 200,
+      "ms": 1.02
+    }
+  ],
+  "listeners": "State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess                                                                                                                                      \nLISTEN 0      4096   127.0.0.53%lo:53        0.0.0.0:*    users:((\"systemd-resolve\",pid=488,fd=15))                                                                                                   \nLISTEN 0      4096         0.0.0.0:22        0.0.0.0:*    users:((\"sshd\",pid=1110,fd=3),(\"systemd\",pid=1,fd=150))                                                                                     \nLISTEN 0      511          0.0.0.0:80        0.0.0.0:*    users:((\"nginx\",pid=1105579,fd=5),(\"nginx\",pid=1105578,fd=5),(\"nginx\",pid=1105577,fd=5),(\"nginx\",pid=1105576,fd=5),(\"nginx\",pid=12643,fd=5))\nLISTEN 0      511          0.0.0.0:443       0.0.0.0:*    users:((\"nginx\",pid=1105579,fd=9),(\"nginx\",pid=1105578,fd=9),(\"nginx\",pid=1105577,fd=9),(\"nginx\",pid=1105576,fd=9),(\"nginx\",pid=12643,fd=9))\nLISTEN 0      4096      127.0.0.54:53        0.0.0.0:*    users:((\"systemd-resolve\",pid=488,fd=17))                                                                                                   \nLISTEN 0      2048       127.0.0.1:8000      0.0.0.0:*    users:((\"python\",pid=3480408,fd=7))                                                                                                         \nLISTEN 0      4096            [::]:22           [::]:*    users:((\"sshd\",pid=1110,fd=4),(\"systemd\",pid=1,fd=155))                                                                                     \nLISTEN 0      511             [::]:80           [::]:*    users:((\"nginx\",pid=1105579,fd=6),(\"nginx\",pid=1105578,fd=6),(\"nginx\",pid=1105577,fd=6),(\"nginx\",pid=1105576,fd=6),(\"nginx\",pid=12643,fd=6))\nLISTEN 0      511             [::]:443          [::]:*    users:((\"nginx\",pid=1105579,fd=10),(\"nginx\",pid=1105578,fd=10),(\"nginx\",pid=1105577,fd=10),(\"nginx\",pid=1105576,fd=10),(\"nginx\",pid=12643,fd=10))",
+  "memory_bytes": "total        used        free      shared  buff/cache   available\nMem:      3904065536   917225472   534319104     2764800  2732007424  2986840064\nSwap:     2084564992           0  2084564992",
+  "load_average": [
+    0.08740234375,
+    0.05029296875,
+    0.0048828125
+  ],
+  "historic_metrics_available": {
+    "/var/log/sysstat": true,
+    "/var/log/atop": false
+  },
+  "gpu_pci_devices": "00:02.0 VGA compatible controller: Cirrus Logic GD 5446",
+  "disk_bytes": "Filesystem       1B-blocks       Used   Available Use% Mounted on\n/dev/vda2      42156257280 7358066688 32956329984  19% /",
+  "glibc": "glibc 2.39"
+}

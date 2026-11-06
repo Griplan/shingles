@@ -1,0 +1,21 @@
+{
+  "data/body/palm-resource.json": "0a2c49e9dc3dae58762473af2a82c0251e6804d1b6bc5b2ac8f276dc8bc75064",
+  "data/body/palm-v1.json": "e06ba178cf35bfe81ee714412e50ab353a09dcbc0915b37374cc3a368ed96f97",
+  "miniprogram/data/palm.generated.ts": "28b46ac4205108fb75c1240629be0c3a48dc9d40cdf6df37288b29df3840c705",
+  "data/sources/palm-v1/build_resource.py": "ec939a930687fe19f50f535ef728cf9171d02f322cb580528cf1da46d6224a47",
+  "data/sources/palm-v1/validate_resource.py": "7af30c578f950d3a2d058fa856a7385ae58552fd4414ec51526c5c3157435c44",
+  "data/sources/palm-v1/render_resource.cjs": "f64fc10f199244dcf448091b8182f68c9be0ae4da2a63c68e62fd99911187718",
+  "data/sources/palm-v1/resource-validation.json": "3ea75b2ada24248a4ae26d202eab83a3a12d45304f2344ae97b36721b90f5489",
+  "data/sources/palm-v1/palm-comparison.png": "10aa81d162a09bc1a805cbe203b5a4b2c70431f3105416b16af939434a75f11c",
+  "docs/validation-records/v6.1/frontend-resource-alignment.json": "63d76f1f9f709ca3929d77062ac8eccad5942261bc284f0de660ebffcb5aa311",
+  "miniprogram/assets/palm/palm-right.svg": "c0bcf8a037a8bc7cea26037811ff14ce2de1799e4d94a8392b71d2b781fb874b",
+  "miniprogram/assets/palm/palm-left.png": "e2c291ab28b305cb3b6801ae6dd84365894d9e67d972d019b063c2a184016d07",
+  "miniprogram/assets/palm/palm-left.svg": "4f0da1680eaa5fc9b4eec131f0a097303e13b92fa0bcb985e859ad16e2cd4592",
+  "miniprogram/assets/palm/palm-right.png": "050bbb4cae8ed0ec05e827b702be68adc6bef996ecbac1255d7b961d37be3380",
+  "miniprogram/assets/palm/NOTICE.md": "dc159a3d82a07b0901b19647bc06203bec99527a35688f73405900a48edc9177",
+  "data/atlas/palm-v1/sources.json": "ccd28da4eac20f5cfb7d4e6a60fdf59b56f965403032cc9360d41fd60171b0a3",
+  "data/atlas/palm-v1/palm-right.json": "e968622c560ed7fc688312ff87c40cb52fe6d62faa10074314fc398b8cc229eb",
+  "data/atlas/palm-v1/palm-left.json": "77a168bb546e02da101f6a3628846e0fba1a48c370f056e080bf861682fc0213",
+  "data/atlas/palm-v1/registration.json": "9bcd12ddda6ce8879a7cb8cb389c363bb82e1ed6f27aa568fd8776ed15c500f9",
+  "data/atlas/palm-v1/manifest.json": "d816ca6de9613929f4659a21ccb061e12e170b3ccc876f2bf99138a2238430bf"
+}

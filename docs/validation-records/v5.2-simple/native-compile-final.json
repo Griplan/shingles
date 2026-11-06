@@ -1,0 +1,24 @@
+[
+  {
+    "command": [
+      "/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/node_modules/wcc-exec/wcc",
+      "miniprogram/pages/ai-annotate/ai-annotate.wxml",
+      "miniprogram/components/photo-canvas/photo-canvas.wxml",
+      "-o",
+      "/private/tmp/v52-simple-wxml.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/node_modules/wcc-exec/wcsc",
+      "miniprogram/pages/ai-annotate/ai-annotate.wxss",
+      "miniprogram/components/photo-canvas/photo-canvas.wxss",
+      "-o",
+      "/private/tmp/v52-simple-wxss.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "templateId": "commons-axilla-v1",
+  "templateVersion": "1.0.0",
+  "geometryId": "cc0-raised-axilla-outline-v1",
+  "regionSetId": "commons-axilla-ui-v1",
+  "atlasType": "SCHEMATIC",
+  "reviewStatus": "NOT_MEDICALLY_VALIDATED",
+  "intendedUse": "INTERACTIVE_SIMULATION",
+  "sourceType": "ARTIFICIALLY_CONSTRUCTED",
+  "status": "passed_offline_geometry",
+  "method": "artificial_bezier_partition_clip_skin_mirror_left",
+  "curvesRightNormalized": [
+    [
+      [
+        0,
+        0.26
+      ],
+      [
+        0.28,
+        0.2
+      ],
+      [
+        0.48,
+        0.5
+      ],
+      [
+        1,
+        0.38
+      ]
+    ],
+    [
+      [
+        0,
+        0.5
+      ],
+      [
+        0.35,
+        0.4
+      ],
+      [
+        0.65,
+        0.72
+      ],
+      [
+        1,
+        0.6
+      ]
+    ]
+  ],
+  "segmentsPerCurve": 160,
+  "sourceMedicalBoundary": null,
+  "labelsAreSimulationSymbols": true,
+  "leftTransform": "x=1-x,y=y",
+  "undefinedRegion": "none required; all skin assigned to the three schematic zones"
+}

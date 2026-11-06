@@ -1,0 +1,30 @@
+{
+  "front": {
+    "rawBoundaryVertices": 13788,
+    "simplifiedVertices": 1563,
+    "area": 120615.49999999996,
+    "bounds": [
+      24.333333333333332,
+      31.333333333333332,
+      375.0,
+      869.6666666666666
+    ],
+    "valid": true,
+    "rasterClosingPixels": 3,
+    "logicalSimplificationTolerance": 0.3
+  },
+  "back": {
+    "rawBoundaryVertices": 13852,
+    "simplifiedVertices": 1487,
+    "area": 127095.94444444448,
+    "bounds": [
+      31.666666666666668,
+      30.0,
+      368.3333333333333,
+      870.6666666666666
+    ],
+    "valid": true,
+    "rasterClosingPixels": 3,
+    "logicalSimplificationTolerance": 0.3
+  }
+}

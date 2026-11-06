@@ -1,0 +1,12 @@
+{
+  "templateId": "commons-axilla-v1",
+  "templateVersion": "1.0.0",
+  "geometryId": "cc0-raised-axilla-outline-v1",
+  "regionSetId": "commons-axilla-ui-v1",
+  "status": "blocked_missing_boundary_evidence",
+  "method": null,
+  "sourceElements": [],
+  "registeredRegionCount": 0,
+  "reason": "No verified raised-arm dermatomal surface boundaries or sufficient cross-pose anatomical correspondences. No registration attempted.",
+  "medicalReviewStatus": "pending"
+}

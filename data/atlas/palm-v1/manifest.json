@@ -1,0 +1,18 @@
+{
+  "atlasId": "palm-dermatomes-v1",
+  "atlasVersion": "palm-dermatomes-preview.3",
+  "templateId": "commons-palm-v1",
+  "templateVersion": "1.1.0",
+  "geometryId": "commons-palm-outline-v2",
+  "regionSetId": "commons-palm-ui-v2",
+  "sourceTitle": "Servier Medical Art — Dermatomes（掌侧配准参考预览）",
+  "sourceUrl": "https://smart.servier.com/smart_image/dermatomes/",
+  "attribution": "Image adapted from Servier Medical Art (https://smart.servier.com), CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). 掌侧曲线数字化、腕部截取、配准及左右镜像；非医学审核。",
+  "license": "CC BY 4.0",
+  "sourceLicenseStatus": "verified",
+  "medicalReviewStatus": "pending",
+  "mappingEnabled": false,
+  "technicalValidationStatus": "passed_offline_geometry",
+  "coverageNote": "来自 Servier 教学示意图的掌侧 C6/C7/C8 配准预览。腕部仅含来源截取范围；没有添加 T1。图示全覆盖不等于个体分布完整或医学确诊，皮节重叠及配准仍待专家审核。",
+  "contentSHA256": "9efc6774667415a7006697150a1fee5c1d8a36e0ea3c076e18e4a674c04c171e"
+}

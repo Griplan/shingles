@@ -1,0 +1,47 @@
+[
+  {
+    "stem": "system-architecture",
+    "number": 1,
+    "title": "系统总体架构"
+  },
+  {
+    "stem": "complete-workflow",
+    "number": 2,
+    "title": "完整业务流程"
+  },
+  {
+    "stem": "ai-segmentation-pipeline",
+    "number": 3,
+    "title": "MobileSAM 分割与人工确认"
+  },
+  {
+    "stem": "coordinate-transform",
+    "number": 4,
+    "title": "照片到人体及显示坐标"
+  },
+  {
+    "stem": "dermatome-matching",
+    "number": 5,
+    "title": "参考图谱几何匹配"
+  },
+  {
+    "stem": "atlas-registration",
+    "number": 6,
+    "title": "图谱数字化与模板配准"
+  },
+  {
+    "stem": "manual-workflow",
+    "number": 10,
+    "title": "人工标注数据流程"
+  },
+  {
+    "stem": "page-modules",
+    "number": 11,
+    "title": "关键页面与状态模块"
+  },
+  {
+    "stem": "api-sequence",
+    "number": 12,
+    "title": "AI 确认、放置和计算接口时序"
+  }
+]

@@ -1,0 +1,62 @@
+{
+  "kind": "production page/component + real local model HTTP, wx adapters; not native GUI",
+  "sample": "CDC PHIL 21505, public V5.1 test image",
+  "inferences": [
+    {
+      "status": 200,
+      "seconds": 0.935695291,
+      "candidates": [
+        {
+          "id": "candidate-0",
+          "status": "ok",
+          "area_ratio": 0.040559006211180124
+        },
+        {
+          "id": "candidate-1",
+          "status": "ok",
+          "area_ratio": 0.051512422360248444
+        },
+        {
+          "id": "candidate-2",
+          "status": "ok",
+          "area_ratio": 0.07736645962732919
+        }
+      ]
+    },
+    {
+      "status": 200,
+      "seconds": 0.8001738749999999,
+      "candidates": [
+        {
+          "id": "candidate-0",
+          "status": "ok",
+          "area_ratio": 0.03748447204968944
+        },
+        {
+          "id": "candidate-1",
+          "status": "ok",
+          "area_ratio": 0.04945341614906832
+        },
+        {
+          "id": "candidate-2",
+          "status": "ok",
+          "area_ratio": 0.07033229813664596
+        }
+      ]
+    }
+  ],
+  "medical_accuracy": "NOT_MEASURED",
+  "confirmation": {
+    "schema": "confirmed-photo-segmentation-v1",
+    "coordinate_space": "photo_oriented_normalized_v1",
+    "candidate": "candidate-1",
+    "polygons": 5,
+    "holes": 4,
+    "mask_sha256": "4a3863429d3acf5254639dfeef3b154c23d09752dfc5b83ea6685b5883d89323"
+  },
+  "segment_requests": 2,
+  "frame_draws": 21,
+  "confirmation_requests": 1,
+  "after_delete_status": 410,
+  "status": "PASSED"
+}

@@ -1,0 +1,1 @@
+PASSED: three paired runs, 8 cases each, exact confirmation geometry verified. Evidence: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/docs/validation-records/v5.3-performance/paired

@@ -1,0 +1,29 @@
+V3 real developer-tool observations — 2026-10-23
+Tool: WeChat Developer Tools Stable 2.01.2510290; base library 3.17.4; simulator iPhone 6/7/8 at 118%.
+Actions used only native CUA accessibility/screenshot APIs; no injected console JS, CDP or simulated screenshots.
+
+FAILED then resolved:
+- New page initially showed ./pages/atlas-debug/atlas-debug.wxml not found.
+- Project reload exposed a second actual runtime error: atlas-debug.js was ignored by code dependency analysis.
+- Cleared compiler cache and project file-list cache, reopened project; dependency error persisted. Did not clear simulator user-data cache.
+- Explicit page-folder pack include did not alone resolve the installed tool's dev filter. Local private ignoreDevUnusedFiles true -> false and project setting false resolved page loading. Other private settings preserved; no upload filter, domain or runtime environment guard relaxed. Page reloaded with 0 errors.
+
+PASSED real GUI observations:
+- Homepage development entry visible and opens registered independent atlas page.
+- Front all: actual Canvas overlay visible over original body, full head/body/hands/feet background retained, 46 instances displayed. Screenshot emitted in this chat with actual page warning and original body.
+- Back switch: separate back body and overlay, 60 instances, anatomical-left caption on screen left. Actual screenshot emitted in this chat, visually inspected.
+- Back left/right buttons: 30 instances for one anatomical side. Both restored to 60.
+- Hidden mode: current display count 0 and explicit hidden-layer message. All mode restored coverage.
+- Label checkbox toggled 0 -> 1, no runtime error observed. Default label checkbox was 0 on reentry.
+- Native region picker opened and displayed actual dataset-generated labels/counts, including C8/T1 with 0 for back. No hardcoded segment buttons.
+- Exit returned to index; reentry showed front body, no selected label, labels off, 46 instances, console Errors: 0.
+
+NOT_RUN / not claimed as passed:
+- Native picker wheel scrolling via CUA returned computer-use -10005 noWindowsAvailable. Text-item click did not establish a T5 selection, so do not claim T5 actual selection, actual selected left/right comparison, focused-boundary screenshot or focus/full-touch workflow passed. Those paths pass Node page/production-render/viewport tests only.
+- Source SVG/PNG and offline registration previews are not runtime screenshots.
+- Tool screenshots of front/back were displayed in chat; attempted simulator screenshot export produced no verified repository output. No offline image was renamed as a runtime screenshot.
+- Other simulator sizes, handset/rotation/low-end timing, actual trial/release build/direct-route access and master-switch-off GUI: NOT_RUN. Environment guards, resize/viewport and switch-off are unit-tested.
+- Existing real V2 session/real-touch annotation recovery after tool recompilation: NOT_RUN. V2 is in-memory and compilation/restart can end the runtime; do not confuse this with persistent storage. Automated fixture regressions and the atlas-action no-read/no-write sentinel test passed; original V2 code and template fingerprints unchanged.
+- Medical review: pending; no reviewer/clinical approval supplied; matching disabled.
+
+Manual continuation: dev homepage -> atlas preview -> select T5 in native wheel and confirm -> verify both sides / left / right -> focus -> full -> labels -> back S5 -> front absent message -> exit/reenter -> existing V2 workflow. See docs/v3-atlas.md. Do not create patient fixtures for this check.

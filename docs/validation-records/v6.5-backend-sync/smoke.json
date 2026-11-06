@@ -1,0 +1,202 @@
+[
+  {
+    "endpoint": "http://127.0.0.1:8000",
+    "checks": [
+      {
+        "name": "health",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 2.83
+      },
+      {
+        "name": "ready_current_identity",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 54.19
+      },
+      {
+        "name": "front-right",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 82.06
+      },
+      {
+        "name": "front-left",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 88.73
+      },
+      {
+        "name": "back-left",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 99.6
+      },
+      {
+        "name": "back-right",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 99.32
+      },
+      {
+        "name": "sole-left-L5",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 6.78
+      },
+      {
+        "name": "sole-left-S1",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 4.0
+      },
+      {
+        "name": "sole-right-L5",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 4.74
+      },
+      {
+        "name": "sole-right-S1",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 4.01
+      },
+      {
+        "name": "old_version_still_rejected",
+        "status": 409,
+        "expected": 409,
+        "elapsed_ms": 0.53
+      },
+      {
+        "name": "retired_palm_rejected",
+        "status": 410,
+        "expected": 410,
+        "elapsed_ms": 0.79
+      }
+    ],
+    "identity": {
+      "template_id": "commons-neutral-v1",
+      "template_version": "4.0.1",
+      "geometry_id": "commons-blank-cc0-hands-v2",
+      "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+      "atlas_id": "goran-2022",
+      "atlas_version": "goran-2022-commons-template4-preview.3",
+      "atlas_content_sha256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+      "body_content_sha256": "b0bfa0047c156159fd2f5c8680b76ff64eb2f5f6f947bc0d53b8414ffb9a8731",
+      "coordinate_system": "normalized_2d_top_left"
+    }
+  },
+  {
+    "endpoint": "http://212.64.26.206/dermatome-test",
+    "checks": [
+      {
+        "name": "health",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 61.6
+      },
+      {
+        "name": "anonymous_ready_rejected",
+        "status": 401,
+        "expected": 401,
+        "elapsed_ms": 24.47
+      },
+      {
+        "name": "anonymous_match_rejected",
+        "status": 401,
+        "expected": 401,
+        "elapsed_ms": 87.93
+      },
+      {
+        "name": "bounded_test_session",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 88.29
+      },
+      {
+        "name": "ready_current_identity",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 193.35
+      },
+      {
+        "name": "front-right",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 267.53
+      },
+      {
+        "name": "front-left",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 283.39
+      },
+      {
+        "name": "back-left",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 325.42
+      },
+      {
+        "name": "back-right",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 394.05
+      },
+      {
+        "name": "sole-left-L5",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 46.15
+      },
+      {
+        "name": "sole-left-S1",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 59.43
+      },
+      {
+        "name": "sole-right-L5",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 99.4
+      },
+      {
+        "name": "sole-right-S1",
+        "status": 200,
+        "expected": 200,
+        "elapsed_ms": 44.71
+      },
+      {
+        "name": "old_version_still_rejected",
+        "status": 409,
+        "expected": 409,
+        "elapsed_ms": 35.09
+      },
+      {
+        "name": "retired_palm_rejected",
+        "status": 410,
+        "expected": 410,
+        "elapsed_ms": 86.48
+      },
+      {
+        "name": "test_session_revoked",
+        "status": 204,
+        "expected": 204,
+        "elapsed_ms": 43.47
+      }
+    ],
+    "identity": {
+      "template_id": "commons-neutral-v1",
+      "template_version": "4.0.1",
+      "geometry_id": "commons-blank-cc0-hands-v2",
+      "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+      "atlas_id": "goran-2022",
+      "atlas_version": "goran-2022-commons-template4-preview.3",
+      "atlas_content_sha256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+      "body_content_sha256": "b0bfa0047c156159fd2f5c8680b76ff64eb2f5f6f947bc0d53b8414ffb9a8731",
+      "coordinate_system": "normalized_2d_top_left"
+    }
+  }
+]

@@ -1,0 +1,17 @@
+首次执行：2026-11-06
+
+结果：FAILED（在 systemctl stop dermatome 之前安全退出）
+
+原因：暂存校验把左右腋下合计 6 个 SCHEMATIC 区域误写为期望 3 个。
+
+已实际加载：
+goran-2022-preview-v3 136 valid
+sole-v1 4 valid
+axilla-goran-provisional-v1 4 valid
+
+云端运行代码未切换，dermatome/acupuncture/nginx 均未被停止或重启。
+首次备份和暂存保留：
+/srv/dermatome-mapper/deployment/backups/v664-axilla-schematic-20261106
+/srv/dermatome-mapper/deployment/v664-axilla-schematic-staging
+
+重试使用独立 r2 目录，不覆盖失败证据。

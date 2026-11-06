@@ -1,0 +1,21 @@
+{
+  "theme": "base",
+  "themeVariables": {
+    "fontFamily": "PingFang SC, Arial, sans-serif",
+    "fontSize": "16px",
+    "primaryColor": "#e5f2ed",
+    "primaryBorderColor": "#26725f",
+    "primaryTextColor": "#183c34",
+    "lineColor": "#527369",
+    "secondaryColor": "#eef4fa",
+    "tertiaryColor": "#f5f5f0"
+  },
+  "flowchart": {
+    "htmlLabels": false,
+    "curve": "linear",
+    "nodeSpacing": 36,
+    "rankSpacing": 32,
+    "wrappingWidth": 380
+  },
+  "themeCSS": ".node rect, .node polygon { filter: none !important; }"
+}

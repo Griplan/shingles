@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-10-27",
+  "purpose": "Local engineering feasibility and qualitative visual review only. No training or diagnosis.",
+  "privacy": "No user/patient uploads. Public images stored only in ignored local inputs. Face-bearing source is used only as the documented neck crop; exported previews strip EXIF.",
+  "attribution": "Source: CDC PHIL; 21505/21506 by CDC / K.L. Herrmann; 18254 by NIAID. Original images freely available at the linked CDC pages. Local experimental masks and crops are our additions, not CDC findings. CDC, NIH and the US Government do not endorse this software or these segmentation results.",
+  "license_evidence": "https://www.cdc.gov/other/agencymaterials.html",
+  "images": [
+    {"id":"cdc-21505.jpg","source":"https://wwwn.cdc.gov/phil/Details.aspx?pid=21505","download":"https://wwwn.cdc.gov/phil/PHIL_Images/21505/21505_lores.jpg","author":"CDC / K.L. Herrmann","rights":"Page explicitly identifies public domain image, attribution required","relation":"Close view of 21506; not an independent patient"},
+    {"id":"cdc-21506.jpg","source":"https://wwwn.cdc.gov/phil/Details.aspx?pid=21506","download":"https://wwwn.cdc.gov/phil/PHIL_Images/21506/21506_lores.jpg","author":"CDC / K.L. Herrmann","rights":"Page explicitly identifies public domain image, attribution required","relation":"Wider view of 21505"},
+    {"id":"cdc-18254.jpg","source":"https://wwwn.cdc.gov/phil/Details.aspx?pid=18254","download":"https://wwwn.cdc.gov/phil/PHIL_Images/18254/18254_lores.jpg","author":"National Institute of Allergy and Infectious Diseases (NIAID)","rights":"Page explicitly identifies public domain image, attribution required","derived_input":"cdc-18254-neck-crop.png","crop_pixels_xyxy":[90,350,390,760],"purpose":"Remove jaw/mouth; retain local neck skin only"}
+  ],
+  "synthetic_inputs": ["synthetic-disconnected.png", "synthetic-low-contrast.png"],
+  "not_obtained": [{"source":"https://commons.wikimedia.org/wiki/File:Herpes_zoster_chest.png","author":"Fisle","license":"CC BY-SA 3.0 (one of the offered licenses)","status":"Download timed out; NOT_USED"}],
+  "expert_masks": "NONE",
+  "limitations": "Three public source photographs, of which two are the same case. Not 15-30 independent subjects; no population or lighting coverage claim. No normal-skin clinical control set. Synthetic images are not medical samples."
+}

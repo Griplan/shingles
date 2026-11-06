@@ -1,0 +1,14 @@
+V1.6 actual WeChat observations / 2026-10-22
+macOS, WeChat developer tools Stable2.01.2510290; library3.17.4; iPhone6/7/8 (375x667/DPR2), 118% simulator. Native CUA accessibility actions and actual app screenshots, no page/console injection. Current Commons model4.0.0 unchanged.
+
+PASSED actual compile: toolbar compile -> homepage; runtime Errors0/Warnings3, then normal hot-reload notice made Warnings4. Source shows revised region geometry; no cache error in this round.
+PASSED actual from list -> chest: compact page stayed full; actual chest fill followed inner shoulder/axilla, obvious outer upper arms remained uncolored. Head/feet and bottom controls visible. Screenshot viewed inline.
+PASSED actual explicit chest zoom: local view includes nearby shoulders/arms without tinting them as chest; thin solid border stayed readable. Return full retained chest, no apparent boundary drift. Screenshot viewed inline.
+PASSED list left upper limb then right upper limb: actual highlights included own lateral shoulder/arm/hand without painting central torso; anatomical left on screen right in front. Screenshots viewed inline.
+PASSED view switch back: old choice cleared, independent back visible; from list upper-back showed its own higher axilla/shoulder seams, outer arms uncolored. Full and focused back screenshots viewed inline.
+PASSED debug retention/isolation: opened developer panel, first checkbox click merely focused; fresh second click confirmed Value1 and the debug-only hint. Native AX Canvas-container click in focused back produced 有效人体位置, normalized X0.4951/Y0.2502, while choice stayed back/upper-back. Actual screenshot showed a single cross on the upper back. Return full retained those exact standard coordinates. No <=2 CSS px measurement claim. Closed developer panel (debug off), switched front and left page in selected chest overview.
+
+NOT_RUN: exact chest-side/upper-arm/gap native coordinate inputs and direct/list visual equivalence at those exact points. One actual upper-arm coordinate attempt rejected before dispatch with Computer Use -10005 noWindowsAvailable. Independent source references, actual fill-path and component/coordinate tests cover code but are not physical input proof.
+NOT_RUN: this revision's full 320/430 native touch/layout sweeps, actual public-boundary candidate touch, physical device/rotation and <=2 CSS px touch/cross error. Automated tests include these dimensions, not real engine acceptance.
+Actual runtime screenshots remain in this conversation's CUA tool outputs; no local GUI PNG file exported or claimed. Repository v16-regions-*.png files are explicitly offline production-command/source previews, not screenshots.
+Offline before/after uses historical v15 geometry with current renderer/style and identical crop/scale, not a screenshot of the old runtime. Those previews and actual runtime images were both inspected, separately.

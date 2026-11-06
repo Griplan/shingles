@@ -1,0 +1,29 @@
+Date: 2026-10-17 Asia/Shanghai
+Purpose: final documentation / structure / unchanged-scope verification
+COMMAND: python3 - (inline read-only Python cross-check; this record only is appended)
+Checks: git-listed nonignored files, Markdown local link targets, balanced fences, JSON examples, protected byte comparisons.
+
+PASSED: Markdown relative links - 59 targets checked; []
+PASSED: Markdown fences - []
+PASSED: JSON examples - 7 examples parsed; []
+PASSED: backend preserved - 18 original files
+PASSED: data/atlas preserved - 3 original files
+PASSED: ai preserved - 4 original files
+PASSED: miniprogram/project.config.json byte-identical
+PASSED: miniprogram/package-lock.json byte-identical
+PASSED: docs/file-inventory.txt byte-identical
+PASSED: V0 task history preserved
+PASSED: V0 evidence preserved - 13 files
+PASSED: medical mapping disabled
+PASSED: front atlas empty
+PASSED: back atlas empty
+PASSED: change inventory - 18 new, 18 modified, 0 deleted
+
+COMMAND: backend/.venv/bin/python scripts/check_project.py
+PASSED: V0/V1 必要文件、目录、JSON、四页导航、组件注册及 Canvas 2D 配置完整。
+此检查不代表 WXML/WXSS 编译、页面导航交互或真机验证通过。
+
+EXIT_CODE: 0
+
+No unit suites rerun for documentation-only changes; final frontend 25/25 and backend 12/12 logs are separately retained.
+FINAL_STATUS: PASSED

@@ -1,0 +1,86 @@
+V0 backend verification
+Date: 2026-10-15 Asia/Shanghai
+Environment: macOS-15.6.1-arm64-arm-64bit
+
+CWD: /Users/griplan/project/extra/Shingles‌/dermatome-mapper
+COMMAND: ['/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/backend/.venv/bin/python', '--version']
+Python 3.12.14
+EXIT_CODE: 0
+
+CWD: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend
+COMMAND: ['/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/backend/.venv/bin/python', '-m', 'pytest']
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.15.1
+collected 12 items
+
+tests/test_api.py ...........                                            [ 91%]
+tests/test_health.py .                                                   [100%]
+
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 12 passed, 1 warning in 0.18s =========================
+EXIT_CODE: 0
+
+CWD: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend
+COMMAND: ['/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/backend/.venv/bin/python', '-m', 'pip', 'check']
+WARNING: The directory '/Users/griplan/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+No broken requirements found.
+EXIT_CODE: 0
+
+CWD: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend
+COMMAND: ['/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/backend/.venv/bin/python', '-m', 'pip', 'freeze']
+WARNING: The directory '/Users/griplan/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+annotated-doc==0.0.5
+annotated-types==0.8.0
+anyio==4.15.1
+certifi==2026.7.22
+click==8.5.0
+# Editable Git install with no remote (dermatome-mapper-backend==0.0.0)
+-e /Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend
+fastapi==0.143.1
+h11==0.16.0
+httpcore==1.0.9
+httpx==0.28.1
+idna==3.20
+iniconfig==2.3.1
+numpy==2.5.4
+opentelemetry-api==1.45.1
+packaging==26.3
+pluggy==1.6.0
+pydantic==2.14.1
+pydantic_core==2.50.1
+Pygments==2.21.0
+pytest==9.1.1
+shapely==2.2.0
+starlette==1.8.0
+typing-inspection==0.4.4
+typing_extensions==4.16.0
+uvicorn==0.54.0
+EXIT_CODE: 0
+
+CWD: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend
+COMMAND: ['/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/backend/.venv/bin/python', '-c', 'import importlib, pkgutil; import app; names = [item.name for item in pkgutil.walk_packages(app.__path__, app.__name__ + ".")]; [importlib.import_module(name) for name in names]; print("PASSED: app and", len(names), "submodules imported"); print("\\n".join(names))']
+PASSED: app and 14 submodules imported
+app.api
+app.api.routes
+app.api.routes.atlas
+app.api.routes.evaluate
+app.api.routes.health
+app.main
+app.schemas
+app.schemas.common
+app.schemas.evaluate
+app.services
+app.services.atlas_service
+app.services.dermatome_matcher
+app.utils
+app.utils.geometry
+EXIT_CODE: 0

@@ -1,0 +1,10 @@
+{
+  "platform": "macOS-15.6.1-arm64-arm-64bit",
+  "python": "3.12.14",
+  "machine": "arm64",
+  "logical_cpu": 10,
+  "hardware": "Apple M4, 10 CPU cores, 10 GPU cores, 16 GB unified memory",
+  "free_disk_at_start": "17 GiB",
+  "sysctl_sandbox_probe": "FAILED operation not permitted; system_profiler succeeded",
+  "baseline_files": 504
+}

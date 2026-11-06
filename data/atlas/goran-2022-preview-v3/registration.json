@@ -1,0 +1,200 @@
+{
+  "method": "source SVG evenodd fills; paint-order visibility; piecewise monotone transverse surface correspondence, independent anterior/posterior; sample spacing 0.5 source units; no uniform dermatome strips or lesion inputs.",
+  "sourceCurveFlatness": 0.12,
+  "mappingSampleSpacing": 0.5,
+  "rowSpacing": 0.5,
+  "sourceRows": {
+    "front": [
+      [
+        10,
+        22.5
+      ],
+      [
+        120,
+        150
+      ],
+      [
+        156,
+        190
+      ],
+      [
+        187,
+        215
+      ],
+      [
+        250,
+        270
+      ],
+      [
+        286.5,
+        314.5
+      ],
+      [
+        350,
+        350
+      ],
+      [
+        430,
+        435
+      ],
+      [
+        520,
+        481
+      ],
+      [
+        680,
+        640
+      ],
+      [
+        842,
+        820
+      ]
+    ],
+    "back": [
+      [
+        10,
+        22.5
+      ],
+      [
+        120,
+        130
+      ],
+      [
+        160,
+        173
+      ],
+      [
+        187,
+        206
+      ],
+      [
+        250,
+        270
+      ],
+      [
+        286.5,
+        289.5
+      ],
+      [
+        350,
+        350
+      ],
+      [
+        430,
+        435
+      ],
+      [
+        520,
+        477
+      ],
+      [
+        680,
+        635
+      ],
+      [
+        842,
+        820
+      ]
+    ]
+  },
+  "excludedSourceSurface": {
+    "hands": {
+      "afterSourceY": 440,
+      "keepX": {
+        "front": [
+          133,
+          333
+        ],
+        "back": [
+          115,
+          320
+        ]
+      }
+    },
+    "feet": {
+      "afterSourceY": 842
+    },
+    "frontPerineumPathIndices": [
+      39,
+      40
+    ],
+    "frontDistalHandPathIndices": [
+      29,
+      30,
+      31
+    ]
+  },
+  "targetMidline": {
+    "front": [
+      [
+        0,
+        200
+      ],
+      [
+        155,
+        200
+      ],
+      [
+        260,
+        200
+      ],
+      [
+        370,
+        200
+      ],
+      [
+        481,
+        200
+      ],
+      [
+        900,
+        200
+      ]
+    ],
+    "back": [
+      [
+        0,
+        200
+      ],
+      [
+        158,
+        200
+      ],
+      [
+        240,
+        200
+      ],
+      [
+        355,
+        200
+      ],
+      [
+        477,
+        200
+      ],
+      [
+        900,
+        200
+      ]
+    ]
+  },
+  "midlineEvidence": "Existing BODY_LANDMARKS front/back head/neck/chest/waist/pelvis midline at x=200 on this 400-wide template only; explicit version-bound engineering convention, not a universal x=.5 assumption. Both source sides used directly; no mirrored front/back or sides.",
+  "limitations": [
+    "Engineering surface registration, not medical review.",
+    "Source atlas differs from other publications and individuals; no diagnosis or matching.",
+    "Distal hands/fingers, feet/toes and anterior perineum not registered because pose/surface correspondence is not reliable.",
+    "Cranial V1/V2/V3 and ambiguous source C1/Co1 excluded; no unconfigured area means no sensation."
+  ],
+  "sourceOutline": "Original whole-body base silhouette root/front:6/0/0, back:9/0/0; not union of dermatome fills (which contains narrow SVG paint seams). SVG evenodd fill rule respected.",
+  "sampling": {
+    "sourceCurveFlatness": 0.12,
+    "targetWarpChordToleranceLogicalPx": 0.001,
+    "topologyPreservingSimplificationLogicalPx": 0.01,
+    "sourcePolygonArtifactMinimumArea": 0.001,
+    "targetPolygonArtifactMinimumArea": 1e-05,
+    "note": "Subpixel thresholds only; source path IDs and all exclusions recorded. No convex hull or buffer/make_valid repair. Closed visible paths use the source evenodd fill rule."
+  },
+  "recordScope": "Inherited parent regions only; hand exclusions are superseded ONLY by hand-registration.json. All other exclusions remain.",
+  "activeAtlasVersion": "goran-2022-commons-template4-preview.3",
+  "activeHandRegistration": "hand-registration.json"
+}

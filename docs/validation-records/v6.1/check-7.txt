@@ -1,0 +1,7 @@
+COMMAND: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/bin/python scripts/test_atlas_geometry.py
+EXIT: 0
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.002s
+
+OK

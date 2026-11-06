@@ -1,0 +1,199 @@
+{
+  "endpoint": "http://212.64.26.206/dermatome-test",
+  "checks": [
+    {
+      "name": "health",
+      "status": 200,
+      "expected": 200,
+      "ms": 29.23
+    },
+    {
+      "name": "anonymous_match_rejected",
+      "status": 401,
+      "expected": 401,
+      "ms": 16.25
+    },
+    {
+      "name": "bounded_test_session",
+      "status": 200,
+      "expected": 200,
+      "ms": 30.5
+    },
+    {
+      "name": "authenticated_ready",
+      "status": 200,
+      "expected": 200,
+      "ms": 192.79
+    },
+    {
+      "name": "schematic-example-left",
+      "status": 200,
+      "expected": 200,
+      "ms": 31.77,
+      "labels": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "coverage": [
+        1.0
+      ],
+      "atlas_type": "SCHEMATIC"
+    },
+    {
+      "name": "schematic-example-right",
+      "status": 200,
+      "expected": 200,
+      "ms": 31.3,
+      "labels": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "coverage": [
+        1.0
+      ],
+      "atlas_type": "SCHEMATIC"
+    },
+    {
+      "name": "synthetic-0-single",
+      "status": 200,
+      "expected": 200,
+      "ms": 30.15,
+      "labels": [
+        "T2"
+      ]
+    },
+    {
+      "name": "synthetic-1-single",
+      "status": 200,
+      "expected": 200,
+      "ms": 32.0,
+      "labels": [
+        "T1"
+      ]
+    },
+    {
+      "name": "synthetic-2-single",
+      "status": 200,
+      "expected": 200,
+      "ms": 34.09,
+      "labels": [
+        "T3"
+      ]
+    },
+    {
+      "name": "synthetic-0-single",
+      "status": 200,
+      "expected": 200,
+      "ms": 30.57,
+      "labels": [
+        "T2"
+      ]
+    },
+    {
+      "name": "synthetic-1-single",
+      "status": 200,
+      "expected": 200,
+      "ms": 29.98,
+      "labels": [
+        "T1"
+      ]
+    },
+    {
+      "name": "synthetic-2-single",
+      "status": 200,
+      "expected": 200,
+      "ms": 29.73,
+      "labels": [
+        "T3"
+      ]
+    },
+    {
+      "name": "axilla-left-T1",
+      "status": 200,
+      "expected": 200,
+      "ms": 30.22
+    },
+    {
+      "name": "axilla-left-T2",
+      "status": 200,
+      "expected": 200,
+      "ms": 32.39
+    },
+    {
+      "name": "axilla-left-T3",
+      "status": 200,
+      "expected": 200,
+      "ms": 35.59
+    },
+    {
+      "name": "axilla-right-T1",
+      "status": 200,
+      "expected": 200,
+      "ms": 30.02
+    },
+    {
+      "name": "axilla-right-T2",
+      "status": 200,
+      "expected": 200,
+      "ms": 30.92
+    },
+    {
+      "name": "axilla-right-T3",
+      "status": 200,
+      "expected": 200,
+      "ms": 32.8
+    },
+    {
+      "name": "front-right",
+      "status": 200,
+      "expected": 200,
+      "ms": 247.86
+    },
+    {
+      "name": "front-left",
+      "status": 200,
+      "expected": 200,
+      "ms": 249.36
+    },
+    {
+      "name": "back-left",
+      "status": 200,
+      "expected": 200,
+      "ms": 317.2
+    },
+    {
+      "name": "back-right",
+      "status": 200,
+      "expected": 200,
+      "ms": 312.8
+    },
+    {
+      "name": "sole-left",
+      "status": 200,
+      "expected": 200,
+      "ms": 32.94
+    },
+    {
+      "name": "sole-right",
+      "status": 200,
+      "expected": 200,
+      "ms": 29.53
+    },
+    {
+      "name": "stale_schematic_version_rejected",
+      "status": 409,
+      "expected": 409,
+      "ms": 17.33
+    },
+    {
+      "name": "test_session_revoked",
+      "status": 204,
+      "expected": 204,
+      "ms": 17.35
+    }
+  ],
+  "realPhone": "NOT_RUN",
+  "input": "synthetic geometry only"
+}

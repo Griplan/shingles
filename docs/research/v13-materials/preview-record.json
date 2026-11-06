@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-22",
+  "method": "original SVG group extraction; trim transparent margins; same 650px body height and white background; no redraw or nonuniform scaling",
+  "body_previews": [
+    {
+      "key": "a-male",
+      "view": "front",
+      "width": 273,
+      "height": 650,
+      "bytes": 89659
+    },
+    {
+      "key": "a-male",
+      "view": "back",
+      "width": 273,
+      "height": 650,
+      "bytes": 85814
+    },
+    {
+      "key": "a-female",
+      "view": "front",
+      "width": 303,
+      "height": 650,
+      "bytes": 93921
+    },
+    {
+      "key": "a-female",
+      "view": "back",
+      "width": 308,
+      "height": 650,
+      "bytes": 88385
+    },
+    {
+      "key": "b-male",
+      "view": "front",
+      "width": 272,
+      "height": 650,
+      "bytes": 33511
+    },
+    {
+      "key": "b-male",
+      "view": "back",
+      "width": 260,
+      "height": 650,
+      "bytes": 31410
+    }
+  ],
+  "comparison": {
+    "width": 1980,
+    "height": 1020
+  },
+  "servier_preview": {
+    "width": 900,
+    "height": 1030
+  },
+  "wechat_render_test": "NOT_RUN"
+}

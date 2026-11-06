@@ -1,0 +1,14 @@
+[
+  {
+    "compiler": "wxml",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "compiler": "wxss",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

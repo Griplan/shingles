@@ -1,0 +1,28 @@
+{
+  "utc": "2026-11-01T10:35:42.799854+00:00",
+  "services": {
+    "acupuncture.service": {
+      "MainPID": "3480408",
+      "NRestarts": "0",
+      "ExecMainStartTimestamp": "Sat 2026-10-31 23:51:02 CST",
+      "ActiveState": "active"
+    },
+    "nginx.service": {
+      "MainPID": "12643",
+      "NRestarts": "0",
+      "ExecMainStartTimestamp": "Thu 2026-10-08 13:25:29 CST",
+      "ActiveState": "active"
+    }
+  },
+  "listen_ports": [
+    "127.0.0.53%lo:53",
+    "0.0.0.0:22",
+    "0.0.0.0:80",
+    "0.0.0.0:443",
+    "127.0.0.54:53",
+    "127.0.0.1:8000",
+    "[::]:22",
+    "[::]:80",
+    "[::]:443"
+  ]
+}

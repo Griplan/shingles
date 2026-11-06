@@ -1,0 +1,36 @@
+﻿label,partition_type,meaning,front_instances,back_instances,sides,instances,sources,medical_review
+V1,trigeminal_sensory,三叉神经眼支感觉参考区,2,0,left/right,2,commons-goran-2022-front,pending
+V2,trigeminal_sensory,三叉神经上颌支感觉参考区,2,0,left/right,2,commons-goran-2022-front,pending
+V3,trigeminal_sensory,三叉神经下颌支感觉参考区,2,0,left/right,2,commons-goran-2022-front,pending
+C2,spinal_dermatome,颈神经第2节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+C3,spinal_dermatome,颈神经第3节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+C4,spinal_dermatome,颈神经第4节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+C5,spinal_dermatome,颈神经第5节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+C6,spinal_dermatome,颈神经第6节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+C6-C8,spinal_dermatome_composite,源图组合标签 C6-C8；整体保留，不拆分贡献,0,2,left/right,2,commons-goran-2022-back,pending
+C7,spinal_dermatome,颈神经第7节段皮节参考区,0,2,left/right,2,commons-goran-2022-back,pending
+C8,spinal_dermatome,颈神经第8节段皮节参考区,0,2,left/right,2,commons-goran-2022-back,pending
+C8/T1,spinal_dermatome_composite,源图组合标签 C8/T1；整体保留，不拆分贡献,2,0,left/right,2,commons-goran-2022-front,pending
+T1,spinal_dermatome,胸神经第1节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+T1/T2,spinal_dermatome_composite,源图组合标签 T1/T2；整体保留，不拆分贡献,0,2,left/right,2,commons-goran-2022-back,pending
+T2,spinal_dermatome,胸神经第2节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+T3,spinal_dermatome,胸神经第3节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+T4,spinal_dermatome,胸神经第4节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+T5,spinal_dermatome,胸神经第5节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+T6,spinal_dermatome,胸神经第6节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+T7,spinal_dermatome,胸神经第7节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+T8,spinal_dermatome,胸神经第8节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+T9,spinal_dermatome,胸神经第9节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+T10,spinal_dermatome,胸神经第10节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+T11,spinal_dermatome,胸神经第11节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+T12,spinal_dermatome,胸神经第12节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+L1,spinal_dermatome,腰神经第1节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+L2,spinal_dermatome,腰神经第2节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+L3,spinal_dermatome,腰神经第3节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+L4,spinal_dermatome,腰神经第4节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+L5,spinal_dermatome,腰神经第5节段皮节参考区,2,2,left/right,4,commons-goran-2022-back;commons-goran-2022-front,pending
+S1,spinal_dermatome,骶神经第1节段皮节参考区,2,0,left/right,2,commons-goran-2022-front,pending
+S2,spinal_dermatome,骶神经第2节段皮节参考区,0,2,left/right,2,commons-goran-2022-back,pending
+S3,spinal_dermatome,骶神经第3节段皮节参考区,0,2,left/right,2,commons-goran-2022-back,pending
+S4,spinal_dermatome,骶神经第4节段皮节参考区,0,2,left/right,2,commons-goran-2022-back,pending
+S5,spinal_dermatome,骶神经第5节段皮节参考区,0,2,left/right,2,commons-goran-2022-back,pending

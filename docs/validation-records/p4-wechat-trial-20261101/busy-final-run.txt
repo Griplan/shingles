@@ -1,0 +1,1 @@
+{"transport": "direct loopback through admin SSH; not phone or HTTPS", "status": "PASSED", "primary_status": 200, "concurrent_status": 429, "code": "AI_BUSY", "image": "public CDC21505", "one_real_inference": true, "photo_delete_status": 204, "access_revoke_status": 204}

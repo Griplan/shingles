@@ -1,0 +1,71 @@
+{
+  "utc": "2026-11-01T10:48:12.523696+00:00",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "architecture": "x86_64",
+  "cpu_count": 4,
+  "load": [
+    0,
+    0,
+    0
+  ],
+  "memory_kib": {
+    "MemTotal": 3812564,
+    "MemAvailable": 2930500,
+    "SwapTotal": 2035708,
+    "SwapFree": 2035708
+  },
+  "disk_available_bytes": 32953856000,
+  "service": {
+    "acupuncture": {
+      "MainPID": "3480408",
+      "NRestarts": "0",
+      "ExecMainStartTimestamp": "Sat 2026-10-31 23:51:02 CST",
+      "ActiveState": "active",
+      "SubState": "running"
+    },
+    "nginx": {
+      "MainPID": "12643",
+      "NRestarts": "0",
+      "ExecMainStartTimestamp": "Thu 2026-10-08 13:25:29 CST",
+      "ActiveState": "active",
+      "SubState": "running"
+    }
+  },
+  "acupuncture_rss_kib": 275960,
+  "health": [
+    {
+      "path": "/health",
+      "status": 200,
+      "ms": 27.41,
+      "ready": {
+        "ai_ready": true
+      }
+    },
+    {
+      "path": "/ready",
+      "status": 200,
+      "ms": 1.03,
+      "ready": {
+        "ai_ready": true,
+        "model_ready": true,
+        "results_ready": true
+      }
+    }
+  ],
+  "cgroup_fs": "cgroup2fs",
+  "cgroup_controllers": "cpuset cpu io memory hugetlb pids rdma misc",
+  "systemd_version": "systemd 255 (255.4-1ubuntu8.15)",
+  "glibc": "glibc 2.39",
+  "venv_support": true,
+  "existing_preflight_dirs": [],
+  "protected_hashes": {
+    "/etc/systemd/system/acupuncture.service": "833ab4b2bfd63c264b26719004f5e169b50c973f23bb16e891ae488c489af89a",
+    "/etc/nginx/nginx.conf": "48c6a4ec1e1fd28ccf968490f07e34a1d7f755793b2108a3ed8670b1ee2a0aa2",
+    "/etc/nginx/sites-enabled/acupuncture-domain": "eb56f9f42003fd9df8fad1cd296c05728fbcb1d9bc3451ccacf7903a8b27ae78",
+    "/etc/nginx/sites-enabled/acupuncture": "db30b2164afcf41b2fdbf8ae4d2464deca988f3d1312063e99bd5d34123c79c8",
+    "/srv/acupuncture/backend/main.py": "e2e362ec2cee00d6441b84d3428a248745162e856d20de28f913dc499e4d8b8e",
+    "/srv/acupuncture/.venv/pyvenv.cfg": "11cb0ba728576bfdfb7cc6cd7fb333c2ef832f750fcc126a45c7a6db758e8b69"
+  },
+  "listeners": "LISTEN 0      4096   127.0.0.53%lo:53   0.0.0.0:*\nLISTEN 0      4096         0.0.0.0:22   0.0.0.0:*\nLISTEN 0      511          0.0.0.0:80   0.0.0.0:*\nLISTEN 0      511          0.0.0.0:443  0.0.0.0:*\nLISTEN 0      4096      127.0.0.54:53   0.0.0.0:*\nLISTEN 0      2048       127.0.0.1:8000 0.0.0.0:*\nLISTEN 0      4096            [::]:22      [::]:*\nLISTEN 0      511             [::]:80      [::]:*\nLISTEN 0      511             [::]:443     [::]:*",
+  "safe_to_prepare": true
+}

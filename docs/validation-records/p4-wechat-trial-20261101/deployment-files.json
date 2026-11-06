@@ -1,0 +1,9 @@
+{
+  "backend/app/main.py": "082e65ffa8315771080275864e93b6346b829c44984c4334a6fd02b93a436628",
+  "backend/app/api/routes/ai.py": "365ab3d228e6abf05df89c64859587573df0f36c73535dc6e66b9e0fbb6aa0a7",
+  "backend/app/api/routes/access.py": "86d232ad0c30a82ad729ff203dfd9ad56fafbccd00a786d6ac495826762af20b",
+  "backend/app/services/access.py": "e4b14dc3385141ff4e090497b3e75bb2dbff2001776593f2d21f8f0019495740",
+  "backend/app/services/ai_boundary.py": "fced2e4920577bbe11673b093d0fe377e4b096fb9ca58711c8f0266369ee14d3",
+  "backend/app/services/ai_sessions.py": "3a1d13a4c2e31a85cd9bb855b6e08ed260e814ce627f50ea0ae2d7bad430dae3",
+  "backend/app/services/trial_access.py": "e6c216b4cc4474c962f6dacbe100a40b71738fb2615668f84ff7596360c98b61"
+}

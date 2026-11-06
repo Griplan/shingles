@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-04",
+  "checks": [
+    {
+      "name": "palm-source-repro",
+      "command": "ai/.venv/bin/python scripts/build_palm_atlas.py",
+      "exit_code": 0,
+      "output": "PASSED: original source -> registered palm atlas reproducible\n"
+    },
+    {
+      "name": "palm-sync",
+      "command": "ai/.venv/bin/python scripts/sync_palm.py --check",
+      "exit_code": 0,
+      "output": "PASSED: palm source geometry, identity, content hashes and package agree\n"
+    },
+    {
+      "name": "body-sync",
+      "command": "ai/.venv/bin/python scripts/sync_matching_body.py --check",
+      "exit_code": 0,
+      "output": "PASSED: shared body equals current V2 hitOutline and package identity\n"
+    },
+    {
+      "name": "atlas-sync",
+      "command": "ai/.venv/bin/python scripts/sync_atlas.py --check",
+      "exit_code": 0,
+      "output": "PASSED: canonical hash and generated package copy agree\n"
+    },
+    {
+      "name": "project",
+      "command": "ai/.venv/bin/python scripts/check_project.py",
+      "exit_code": 0,
+      "output": "PASSED: V0～V6.1 必要文件、目录、JSON、九页导航、组件注册及 Canvas 2D 配置完整。\n此检查不代表 WXML/WXSS 编译、页面导航交互或真机验证通过。\n"
+    }
+  ]
+}

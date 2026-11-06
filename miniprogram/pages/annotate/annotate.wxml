@@ -1,0 +1,56 @@
+<view class="annotation-page" style="--feedback-ms:{{motionEnabled ? feedbackMs : 0}}ms">
+ <view wx:if="{{error}}" class="error-state"><text>{{error}}</text><navigator url="/pages/select/select" open-type="redirect">返回选择页</navigator></view>
+ <block wx:elif="{{session}}">
+  <view class="heading"><text>{{stateLabel}}</text><button class="control info-link" bindtap="openInfo">说明</button></view>
+  <view class="switch-row"><button class="control tab {{view === 'front' ? 'active' : ''}}" data-view="front" bindtap="switchView" disabled="{{dialogOpen || infoOpen}}">正面 · {{frontCount}}</button><button class="control tab {{view === 'back' ? 'active' : ''}}" data-view="back" bindtap="switchView" disabled="{{dialogOpen || infoOpen}}">背面 · {{backCount}}</button></view>
+  <scroll-view class="scope-row" scroll-x enhanced><view class="scope-items">
+   <block wx:if="{{resultMode}}"><button class="control chip {{!scope ? 'selected' : ''}}" data-id="" bindtap="chooseScope">全部标注</button><button wx:for="{{scopes}}" wx:key="id" class="control chip {{scope === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="chooseScope">{{item.name}}</button></block>
+   <block wx:else><button wx:for="{{regions}}" wx:key="id" class="control chip {{selectedId === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="selectPolygon" disabled="{{mode === 'draw' || phase === 'review' || debugEnabled || dialogOpen}}">{{item.label}}</button></block>
+  </view></scroll-view>
+  <view class="status">{{preparingView ? '正在准备另一面…' : loading ? '计算中，标注已保留…' : debugEnabled ? '坐标调试中，标注点击已暂停' : resultMode ? selected ? '单区查看 · 点击标签切换' : '全部参考区域 · 点击标签查看' : phase === 'review' ? '范围已确认，可以计算' : mode === 'draw' ? '沿边缘轻触取点，再闭合范围' : '可新增范围，或完成标注'}}</view>
+  <view class="result-stage" style="height:{{stageHeight}}px">
+   <view class="rail"><view class="rail-title">{{view === 'front' ? '人体右侧' : '人体左侧'}}</view>
+ <scroll-view class="rail-scroll" scroll-y enhanced style="height:{{stageHeight - 44}}px"><view class="rail-content {{sceneReady ? 'shown' : ''}}" style="height:{{leftRail.height}}px;transition-duration:{{motionEnabled ? overlayMs : 0}}ms">
+ <button wx:for="{{leftRail.items}}" wx:key="id" class="control nerve-label {{selected === item.id ? 'selected' : ''}}" style="top:{{item.top}}px;border-left-color:{{item.color}}" data-id="{{item.id}}" catchtap="chooseCandidate" disabled="{{!sceneReady || preparingView || infoOpen}}" aria-label="{{item.name}}，{{view === 'front' ? '人体右侧' : '人体左侧'}}，{{item.ratio}}"><text class="label-name">{{item.label}}</text><text class="label-ratio">{{item.ratio}}</text></button>
+ </view></scroll-view><view class="rail-hint">{{leftRail.overflow ? '↕ 滑动查看更多' : leftRail.items.length ? leftRail.items.length + ' 项' : ''}}</view></view>
+   <view class="canvas-area"><body-canvas id="work-canvas" view="{{view}}" zoom-region="{{zoomRegion}}" focus-bounds="{{focusBounds}}" retained-viewport="{{retainedViewport}}" interaction-mode="{{mode}}" annotation="{{layer}}" atlas="{{atlas}}" debug-enabled="{{debugEnabled}}" interaction-blocked="{{dialogOpen || infoOpen}}" touch-disabled="{{preparingView}}" layout-revision="{{layoutRevision}}" motion-enabled="{{motionEnabled}}" overlay-key="{{overlayKey}}" scene-id="{{sceneId}}" bind:annotationpoint="onAnnotationPoint" bind:debugprobe="onDebugProbe" bind:viewportchange="onViewportChange" bind:sceneready="onSceneReady" bind:renderstats="onRenderStats" bind:rendererror="onRenderError"></body-canvas></view>
+   <view class="rail"><view class="rail-title">{{view === 'front' ? '人体左侧' : '人体右侧'}}</view>
+ <scroll-view class="rail-scroll" scroll-y enhanced style="height:{{stageHeight - 44}}px"><view class="rail-content {{sceneReady ? 'shown' : ''}}" style="height:{{rightRail.height}}px;transition-duration:{{motionEnabled ? overlayMs : 0}}ms">
+ <button wx:for="{{rightRail.items}}" wx:key="id" class="control nerve-label {{selected === item.id ? 'selected' : ''}}" style="top:{{item.top}}px;border-left-color:{{item.color}}" data-id="{{item.id}}" catchtap="chooseCandidate" disabled="{{!sceneReady || preparingView || infoOpen}}" aria-label="{{item.name}}，{{view === 'front' ? '人体左侧' : '人体右侧'}}，{{item.ratio}}"><text class="label-name">{{item.label}}</text><text class="label-ratio">{{item.ratio}}</text></button>
+ </view></scroll-view><view class="rail-hint">{{rightRail.overflow ? '↕ 滑动查看更多' : rightRail.items.length ? rightRail.items.length + ' 项' : ''}}</view></view>
+  </view>
+  <view class="legend"><text class="lesion-key"></text>棕色：标注{{atlas ? '轮廓' : '范围'}}<text wx:if="{{atlas}}" class="atlas-key"></text><text wx:if="{{atlas}}">彩色：参考区域</text></view>
+  <scroll-view wx:if="{{unspecified.length}}" class="scope-row" scroll-x><view class="scope-items"><text>未指定侧别</text><button wx:for="{{unspecified}}" wx:key="id" class="control chip" data-id="{{item.id}}" bindtap="chooseCandidate">{{item.name}}</button></view></scroll-view>
+  <view class="view-tools"><button class="control subtle" bindtap="showAll" disabled="{{!resultMode || !selected}}">显示全部</button><button class="control subtle" bindtap="focusSelected" disabled="{{!resultMode || !selected}}">放大当前</button><button class="control subtle" bindtap="fullBody">全身</button></view>
+  <view class="action-area">
+   <view class="selection-caption">{{selectedName ? selectedName + ' · ' + selectedRatio : resultMode ? '参考区域与标注范围不同' : '已完成 ' + (frontCount + backCount) + ' 片' + (mode === 'draw' ? ' · 当前 ' + pointCount + ' 点' : '')}}</view>
+   <view class="toolbar" wx:if="{{phase === 'review'}}"><button class="control" bindtap="continueEditing" disabled="{{dialogOpen || infoOpen}}">修改标注</button><button wx:if="{{matchingAllowed && (!resultMode || matchStatus !== 'ready')}}" class="control primary" bindtap="viewMatches" loading="{{loading}}" disabled="{{loading || dialogOpen || infoOpen || preparingView || debugEnabled}}">{{loading ? '计算中…' : matchStatus === 'error' ? '重试' : matchingReady ? '查看结果' : '计算'}}</button></view>
+   <view class="toolbar" wx:elif="{{mode === 'draw'}}"><button class="control" bindtap="undo" disabled="{{!pointCount || debugEnabled || dialogOpen}}">撤销</button><button class="control" bindtap="cancelDraft">取消</button><button class="control primary" bindtap="closePolygon" disabled="{{pointCount < 3 || debugEnabled || dialogOpen}}">闭合范围</button></view>
+   <view class="toolbar" wx:else><button class="control" bindtap="newRegion">新增</button><button class="control" bindtap="deleteSelected" disabled="{{!selectedId || debugEnabled || dialogOpen}}">删除</button><button class="control primary" bindtap="finish" disabled="{{(!frontCount && !backCount) || debugEnabled || dialogOpen}}">完成标注</button></view>
+  </view>
+  <view wx:if="{{renderError}}" class="message" role="alert">画布显示失败，请点画布内的重试。结果尚未完整显示。</view>
+  <view wx:if="{{message || matchMessage}}" class="message" role="alert">{{message || matchMessage}}</view>
+  <view wx:if="{{resultMode && matchStatus === 'ready'}}" class="summary"><block wx:if="{{hasCoverage}}">{{coverageStatus === 'none' ? '当前范围无覆盖' : coverageStatus === 'partial' ? '部分覆盖' : '完整覆盖'}} · {{candidates.length}} 项参考<view>覆盖 {{coveredText}} · 未覆盖 {{uncoveredText}}</view></block><block wx:else>当前视图没有已完成标注</block></view>
+  <view wx:if="{{resultMode && coverageStatus === 'none'}}" class="message">当前图谱未覆盖这片标注，不代表没有感觉神经。</view>
+  <view wx:if="{{editableAIId}}"><button class="control subtle" bindtap="editAIPlacement" disabled="{{loading || openingPlacement || dialogOpen || infoOpen || preparingView || debugEnabled}}">{{editableAIName}}</button></view>
+  <view class="reference-note">{{hasAIPlacement ? 'AI 辅助标注 · 人工确认位置。参考对应非诊断结果。' : '参考图谱对应，非诊断结果。'}}</view>
+ </block>
+ <view wx:if="{{infoOpen}}" class="info-mask" catchtap="closeInfo" catchtouchmove="swallow">
+  <view class="info-sheet" catchtap="swallow"><view class="heading"><text>说明与来源</text><button class="control" bindtap="closeInfo">关闭</button></view>
+   <scroll-view scroll-y class="info-scroll">
+    <view class="info-paragraph">人工圈选或确认 AI 放置范围，查看与参考图谱的对应。仅用于辅助理解、教学和研究，不能用于临床确诊。图谱医学审核待完成，正式医学映射仍禁用。</view>
+    <view class="info-paragraph">标注仅在本次运行内暂存，关闭、重启或重新编译可能丢失。计算只向配置后端发送坐标和版本，不采集照片或身份信息。</view>
+    <view class="info-title">图谱署名与许可</view><view>{{source.attribution}}</view><view>{{source.sourceTitle}}</view><view>CC BY-SA 4.0；派生图谱以相同许可提供。原作者未对本项目作背书。</view>
+    <text user-select="{{true}}" class="source-url">{{source.sourceUrl}}</text><button class="control copy" data-id="source" bindtap="copySource">复制作品来源链接</button>
+    <text user-select="{{true}}" class="source-url">https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_back_3d-shaded.svg</text><button class="control copy" data-id="backSource" bindtap="copySource">复制背面作品来源链接</button>
+    <text user-select="{{true}}" class="source-url">https://creativecommons.org/licenses/by-sa/4.0/</text><button class="control copy" data-id="license" bindtap="copySource">复制图谱许可链接</button>
+    <view class="info-paragraph">修改：提取原矢量填充路径、采样曲线、正背独立配准、适配当前人体并排除未配置表面；补充来自原图的面部及可见足部区域。{{source.coverageNote}}</view>
+    <view class="info-title">人体素材</view><view>Šlomo · Human body with blank labels.svg · CC0 1.0。整理为独立正背面并统一留白，保留原比例。</view><button class="control copy" data-id="body" bindtap="copySource">复制人体来源链接</button><button class="control copy" data-id="bodyLicense" bindtap="copySource">复制人体许可链接</button>
+    <view class="info-title">计算与版本</view><view>比例＝参考区域与标注交集面积÷当前标注面积；不是诊断概率。全部标注仅对当前视图合并重叠，候选可重叠，比例不能直接相加。</view><block wx:if="{{debugAllowed}}"><view>{{modelLabel}}</view><view>{{source.atlasVersion}}</view></block>
+    <view class="setting-row"><text>减少动态效果</text><switch checked="{{!motionEnabled}}" bindchange="toggleMotion" color="#236b57"></switch></view>
+    <block wx:if="{{debugAllowed}}"><view class="setting-row"><text>坐标调试</text><switch checked="{{debugEnabled}}" bindchange="toggleDebug" color="#236b57"></switch></view><view wx:if="{{debugEnabled}}">{{debugText || '关闭说明后轻触人体查看坐标；不添加标注点。'}}</view><view class="info-title">本次性能记录（毫秒）</view><text user-select="{{true}}">{{performanceText}}</text></block>
+    <view class="message">{{detailsMessage}}</view><button class="control copy" bindtap="backToSelection">返回部位选择</button>
+   </scroll-view>
+  </view>
+ </view>
+</view>

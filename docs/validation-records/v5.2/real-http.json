@@ -1,0 +1,110 @@
+{
+  "sample": "CDC PHIL 21505, same public image as V5.1",
+  "medical_accuracy": "NOT_MEASURED",
+  "runs": [
+    {
+      "revision": 1,
+      "seconds": 2.1893423330038786,
+      "status": "needs_confirmation",
+      "candidates": [
+        {
+          "candidate_id": "candidate-0",
+          "status": "ok",
+          "area_ratio": 0.040559006211180124,
+          "outside_box_ratio": 0.0,
+          "component_count": 7,
+          "hole_count": 1,
+          "warnings": []
+        },
+        {
+          "candidate_id": "candidate-1",
+          "status": "ok",
+          "area_ratio": 0.051512422360248444,
+          "outside_box_ratio": 0.0025923916320009645,
+          "component_count": 4,
+          "hole_count": 2,
+          "warnings": []
+        },
+        {
+          "candidate_id": "candidate-2",
+          "status": "ok",
+          "area_ratio": 0.07736645962732919,
+          "outside_box_ratio": 0.006262042389210019,
+          "component_count": 7,
+          "hole_count": 14,
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "revision": 2,
+      "seconds": 0.5694777090102434,
+      "status": "needs_confirmation",
+      "candidates": [
+        {
+          "candidate_id": "candidate-0",
+          "status": "ok",
+          "area_ratio": 0.03748447204968944,
+          "outside_box_ratio": 0.0,
+          "component_count": 9,
+          "hole_count": 3,
+          "warnings": []
+        },
+        {
+          "candidate_id": "candidate-1",
+          "status": "ok",
+          "area_ratio": 0.04945341614906832,
+          "outside_box_ratio": 0.0,
+          "component_count": 5,
+          "hole_count": 4,
+          "warnings": []
+        },
+        {
+          "candidate_id": "candidate-2",
+          "status": "ok",
+          "area_ratio": 0.07033229813664596,
+          "outside_box_ratio": 0.0037091005431182937,
+          "component_count": 9,
+          "hole_count": 25,
+          "warnings": []
+        }
+      ]
+    }
+  ],
+  "image": {
+    "stored_width": 700,
+    "stored_height": 460,
+    "width": 700,
+    "height": 460,
+    "exif_orientation": 1,
+    "orientation_applied": false,
+    "orientation_policy": "exif_transpose_before_prompts",
+    "alpha_background": "white",
+    "metadata_stripped": true,
+    "oriented_rgb_sha256": "0e0dbfcff5100da90434b3aa4ef17efc4aab3eb6db5c4cbee032f6b7a7cef231"
+  },
+  "confirmation": {
+    "status": "PASSED",
+    "candidate_id": "candidate-1",
+    "coordinate_space": "photo_oriented_normalized_v1",
+    "polygon_count": 5,
+    "model": {
+      "name": "MobileSAM",
+      "variant": "vit_t",
+      "package_version": "1.0",
+      "source_commit": "f706ad9c4eb7f219c00d9050e46328518ffb65d2",
+      "license": "Apache-2.0",
+      "weights_sha256": "6dbb90523a35330fedd7f1d3dfc66f995213d81b29a5ca8108dbcdd4e37d6c2f",
+      "weights_bytes": 40728226,
+      "device": "cpu",
+      "dtype": "float32",
+      "torch": "2.5.1",
+      "threads": 4,
+      "load_seconds": 0.9341733751352876,
+      "source": "https://github.com/ChaoningZhang/MobileSAM"
+    }
+  },
+  "delete_status": 204,
+  "after_delete_status": 410,
+  "output": "ai/experiments/outputs/v52-http-20261027 (ignored public test artifacts)"
+}

@@ -1,0 +1,36 @@
+         249202 function calls (248226 primitive calls) in 0.093 seconds
+
+   Ordered by: cumulative time
+   List reduced from 135 to 28 due to restriction <28>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+     1039    0.001    0.000    0.051    0.000 decorators.py:73(wrapped)
+  686/574    0.000    0.000    0.048    0.000 decorators.py:171(wrapper)
+        1    0.000    0.000    0.047    0.047 dermatome_matcher.py:41(evaluate)
+     61/5    0.000    0.000    0.047    0.009 profile_backend.py:13(wrapped)
+        2    0.000    0.000    0.046    0.023 dermatome_matcher.py:26(coverage)
+        1    0.001    0.001    0.046    0.046 atlas_service.py:39(load_dataset)
+       57    0.000    0.000    0.044    0.001 ops.py:111(unary_union)
+       57    0.044    0.001    0.044    0.001 set_operations.py:463(union_all)
+      116    0.005    0.000    0.036    0.000 atlas_service.py:25(valid_geometry)
+       11    0.000    0.000    0.023    0.002 {method 'extend' of 'list' objects}
+        2    0.000    0.000    0.023    0.011 dermatome_matcher.py:52(<genexpr>)
+      116    0.000    0.000    0.015    0.000 geo.py:54(shape)
+      137    0.000    0.000    0.014    0.000 polygon.py:227(__new__)
+      114    0.000    0.000    0.013    0.000 multipolygon.py:48(__new__)
+      154    0.003    0.000    0.013    0.000 polygon.py:61(__new__)
+    32924    0.005    0.000    0.012    0.000 {built-in method builtins.any}
+        4    0.000    0.000    0.008    0.002 __init__.py:299(loads)
+    98424    0.007    0.000    0.007    0.000 atlas_service.py:34(<genexpr>)
+        4    0.000    0.000    0.007    0.002 decoder.py:333(decode)
+        4    0.007    0.002    0.007    0.002 decoder.py:344(raw_decode)
+    32811    0.005    0.000    0.006    0.000 polygon.py:87(_coords)
+      154    0.003    0.000    0.003    0.000 {built-in method numpy.array}
+      117    0.000    0.000    0.002    0.000 base.py:749(is_valid)
+      117    0.002    0.000    0.002    0.000 predicates.py:429(is_valid)
+      110    0.000    0.000    0.001    0.000 base.py:668(intersection)
+    36785    0.001    0.000    0.001    0.000 {built-in method builtins.isinstance}
+      110    0.001    0.000    0.001    0.000 set_operations.py:112(intersection)
+        1    0.000    0.000    0.001    0.001 dermatome_matcher.py:13(candidates_for)
+
+

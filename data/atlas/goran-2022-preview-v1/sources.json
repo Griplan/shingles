@@ -1,0 +1,58 @@
+{
+  "sources": [
+    {
+      "id": "commons-goran-2022-front",
+      "title": "Dermatomes labeled, male front 3d-shaded.svg",
+      "author": "Goran_tek-en",
+      "informationContributor": "Rob Hurt (source-page credit; not a medical reviewer for this derivative)",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Dermatomes_labeled%2C_male_front_3d-shaded.svg",
+      "accessDate": "2026-10-23",
+      "sourceDate": "2022-09-24",
+      "sourceSHA1": "d20be473843591779be22c102e193d8c1407861d",
+      "localOriginal": "docs/research/v3-atlas/goran-front.original.svg",
+      "view": "front",
+      "license": "CC-BY-SA-4.0",
+      "licenseEvidenceUrl": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg#Licensing",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceLicenseStatus": "verified",
+      "attribution": "Dermatomes labeled, male front 3d-shaded.svg, Goran_tek-en, Wikimedia Commons, CC BY-SA 4.0. Modified by dermatome-mapper: spinal regions extracted; source labels audited; cranial/inset/distal surfaces excluded; vector curves sampled and registered to commons-neutral-v1 4.0.0; original imagery not used as runtime body background.",
+      "modification": "Offline evenodd SVG fills with actual paint order, independent front/back piecewise transverse registration using original silhouettes and version-bound landmarks, documented distal exclusions, target-surface adaptation and <=0.01 logical px topology-preserving simplification. No mirroring or inferred dermatome numbering.",
+      "medicalReviewStatus": "pending",
+      "derivedDataLicense": "CC-BY-SA-4.0"
+    },
+    {
+      "id": "commons-goran-2022-back",
+      "title": "Dermatomes labeled, male back 3d-shaded.svg",
+      "author": "Goran_tek-en",
+      "informationContributor": "Rob Hurt (source-page credit; not a medical reviewer for this derivative)",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_back_3d-shaded.svg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/58/Dermatomes_labeled%2C_male_back_3d-shaded.svg",
+      "accessDate": "2026-10-23",
+      "sourceDate": "2022-09-24",
+      "sourceSHA1": "261566ce5128fdc2cc536945c148ac1c8f62e66d",
+      "localOriginal": "docs/research/v3-atlas/goran-back.original.svg",
+      "view": "back",
+      "license": "CC-BY-SA-4.0",
+      "licenseEvidenceUrl": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_back_3d-shaded.svg#Licensing",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceLicenseStatus": "verified",
+      "attribution": "Dermatomes labeled, male back 3d-shaded.svg, Goran_tek-en, Wikimedia Commons, CC BY-SA 4.0. Modified by dermatome-mapper: spinal regions extracted; source labels audited; cranial/inset/distal surfaces excluded; vector curves sampled and registered to commons-neutral-v1 4.0.0; original imagery not used as runtime body background.",
+      "modification": "Offline evenodd SVG fills with actual paint order, independent front/back piecewise transverse registration using original silhouettes and version-bound landmarks, documented distal exclusions, target-surface adaptation and <=0.01 logical px topology-preserving simplification. No mirroring or inferred dermatome numbering.",
+      "medicalReviewStatus": "pending",
+      "derivedDataLicense": "CC-BY-SA-4.0"
+    }
+  ],
+  "derivedAtlasLicense": "CC-BY-SA-4.0",
+  "shareAlikeScope": "Derived atlas geometry and source/registration records. This statement does not relicense independent application code.",
+  "reviewedAlternatives": [
+    {
+      "source": "Servier Medical Art",
+      "status": "Not downloaded; automated-access restrictions in website terms; no claim to having visually inspected original artwork."
+    },
+    {
+      "source": "https://commons.wikimedia.org/wiki/File:Dermatoms.svg",
+      "status": "Original inspected; Ralf Stephan public-domain dedication verified on its specific file page. Half views and merged gradient geometry do not meet this extraction workflow; no boundaries mixed into selected source."
+    }
+  ]
+}

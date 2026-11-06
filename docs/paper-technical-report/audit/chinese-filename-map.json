@@ -1,0 +1,16 @@
+{
+  "README.md": "阅读指南.md",
+  "01-system-technical-report.md": "01-系统技术报告.md",
+  "02-dermatome-atlas.md": "02-神经参考图谱构建.md",
+  "03-ai-segmentation.md": "03-AI辅助图像分割.md",
+  "04-coordinate-and-geometry.md": "04-坐标转换与几何匹配.md",
+  "05-system-architecture.md": "05-系统总体架构.md",
+  "06-experiments-and-validation.md": "06-实验与验证结果.md",
+  "07-paper-writing-materials.md": "07-论文写作素材.md",
+  "08-references-and-licenses.md": "08-文献来源与版权.md",
+  "09-reproducibility.md": "09-复现与工程说明.md",
+  "10-research-gaps.md": "10-研究缺口与实验建议.md",
+  "atlas-region-inventory.md": "附录-完整神经区域清单.md",
+  "atlas-labels.csv": "附录-神经标签统计.csv",
+  "evidence-index.md": "技术结论与证据索引.md"
+}

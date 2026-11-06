@@ -1,0 +1,21 @@
+V1.3 source/data/history audit / 2026-10-22
+First audit FAILED: self-referenced scope evidence file did not yet exist when checking task.md links. All earlier protection/hash/original-path assertions had passed. Created this record before rerunning; no production code changed to satisfy the checker.
+
+FINAL PASSED: modified 20, added 42, deleted 0; JSON 22, WXML 5, links 163
+PASSED baseline166
+PASSED no deletion
+PASSED 106 protected files byte-identical: all backend/AI/medical atlas, past evidence/research/models, coordinate/hit/probe functions, dependency/project config
+PASSED v3 regions archived byte-identically
+PASSED V0 to V1.2 task history verbatim
+PASSED research-phase V1.3 history verbatim
+PASSED V2+ planning unchanged
+PASSED all manifest asset hashes match
+PASSED two original SVG copies identical
+PASSED front all 71 original paths and body-group transform exact
+PASSED back all 49 original paths and body-group transform exact
+PASSED relative Markdown links 163 valid []
+PASSED JSON 22 and WXML 5 parse; namespaces/raw && normalized only in checker input
+PASSED no intermediate raw/RGBA files
+PASSED no vendored dependencies
+PASSED no generated miniprogram JS source
+PASSED new text evidence has no internal session URLs

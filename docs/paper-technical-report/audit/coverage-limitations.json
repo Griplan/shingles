@@ -1,0 +1,38 @@
+{
+  "atlasVersion": "goran-2022-commons-template4-preview.2",
+  "unconfigured": [
+    "Main back source V1 scalp path21 exists, but target hair-covered posterior head lacks reliable matching landmarks. Not copied from front.",
+    "Only source lateral-head inset; no corresponding posterior face surface.",
+    "Source feet show plantar sole and toe pads; target shows posterior heel/Achilles and small side. No reliable projection correspondence.",
+    "Hair-covered scalp, ocular openings, complex ear transition, distal hands/fingers, head-side inset, ear canal/oral interior, ambiguous C1/Co1, anterior perineum remain unconfigured.",
+    "Blank is not absent sensation."
+  ],
+  "surfaceExclusions": [
+    {
+      "view": "back",
+      "labels": [
+        "V1"
+      ],
+      "sourcePresent": true,
+      "reason": "Main back source V1 scalp path21 exists, but target hair-covered posterior head lacks reliable matching landmarks. Not copied from front."
+    },
+    {
+      "view": "back",
+      "labels": [
+        "V2",
+        "V3"
+      ],
+      "sourcePresent": false,
+      "reason": "Only source lateral-head inset; no corresponding posterior face surface."
+    },
+    {
+      "view": "back",
+      "labels": [
+        "L5",
+        "S1"
+      ],
+      "sourcePresent": true,
+      "reason": "Source feet show plantar sole and toe pads; target shows posterior heel/Achilles and small side. No reliable projection correspondence."
+    }
+  ]
+}

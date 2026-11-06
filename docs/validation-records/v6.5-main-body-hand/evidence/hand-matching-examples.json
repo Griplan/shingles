@@ -1,0 +1,686 @@
+[
+  {
+    "name": "front-right",
+    "request": {
+      "request_id": "TEST_REQUEST",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-neutral-v1",
+        "template_version": "4.0.1",
+        "geometry_id": "commons-blank-cc0-hands-v2",
+        "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+        "atlas_id": "goran-2022",
+        "atlas_version": "goran-2022-commons-template4-preview.3",
+        "atlas_content_sha256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+        "body_content_sha256": "b0bfa0047c156159fd2f5c8680b76ff64eb2f5f6f947bc0d53b8414ffb9a8731",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "lesions": [
+        {
+          "id": "TEST_MARK",
+          "view": "front",
+          "vertices": [
+            {
+              "x": 0.19,
+              "y": 0.5211111111111111
+            },
+            {
+              "x": 0.19,
+              "y": 0.53
+            },
+            {
+              "x": 0.15,
+              "y": 0.53
+            },
+            {
+              "x": 0.15,
+              "y": 0.5211111111111111
+            },
+            {
+              "x": 0.19,
+              "y": 0.5211111111111111
+            }
+          ]
+        }
+      ]
+    },
+    "response": {
+      "request_id": "TEST_REQUEST",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-neutral-v1",
+        "template_version": "4.0.1",
+        "geometry_id": "commons-blank-cc0-hands-v2",
+        "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+        "atlas_id": "goran-2022",
+        "atlas_version": "goran-2022-commons-template4-preview.3",
+        "atlas_content_sha256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+        "body_content_sha256": "b0bfa0047c156159fd2f5c8680b76ff64eb2f5f6f947bc0d53b8414ffb9a8731",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "method": "manual_annotation_reference_geometry",
+      "area_unit": "normalized_template_area",
+      "source": {
+        "title": "Goran_tek-en · Dermatomes labeled, male front/back (2022)",
+        "url": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg",
+        "attribution": "Goran_tek-en / Wikimedia Commons / CC BY-SA 4.0；提取、配准、排除部分体表并简化曲线。衍生图谱数据沿用 CC BY-SA 4.0。 V3.1新增三叉神经及可见正面足部局部配准，保留父版。 V6.5以原始手部Path分别配准四个主人体手表面；保留组合标签，修正CC0底图指缝命中轮廓。",
+        "license": "CC BY-SA 4.0",
+        "medical_review_status": "pending",
+        "preview": true,
+        "coverage_note": "主人体正面掌侧、背面手背已加入Goran实际组合参考区C6–8、C8/T1及源腕部过渡；不等于独立C6/C7/C8掌侧边界。源描边缝、目标表面适配余量、手指隐面仍未覆盖。其余面部/足部和未配置范围沿用父版。仅教学参考，医学审核待完成。"
+      },
+      "lesions": [
+        {
+          "view": "front",
+          "lesion_ids": [
+            "TEST_MARK"
+          ],
+          "annotation_area": 0.0003555555555555579,
+          "covered_area": 0.00035517204402186125,
+          "uncovered_area": 3.8351153369665985e-07,
+          "covered_ratio": 0.9989213738114782,
+          "uncovered_ratio": 0.0010786261885218488,
+          "coverage_status": "partial",
+          "candidates": [
+            {
+              "candidate_id": "4b4d5d83fe1044c95f34552dbc83f1f3a090a303c4a8a8d3e0ea06e60088e2ae",
+              "region_ids": [
+                "goran-front-hand-p29-right",
+                "goran-front-hand-p30-right"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C6-C8",
+              "source_label": "C 6-8",
+              "display_name": "C6-C8",
+              "side": "right",
+              "view": "front",
+              "intersection_area": 0.00022499213712955804,
+              "lesion_coverage_ratio": 0.6327903856768778
+            },
+            {
+              "candidate_id": "21e3154025d0a0c56fe46cc5c21183a2ed8fc714f7a800ab8920bdb3553dc6b7",
+              "region_ids": [
+                "front-right-C8_T1",
+                "goran-front-hand-p31-right",
+                "goran-front-hand-p32-right"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C8/T1",
+              "source_label": "C 8 / T 1",
+              "display_name": "C8/T1",
+              "side": "right",
+              "view": "front",
+              "intersection_area": 0.0001301799068923032,
+              "lesion_coverage_ratio": 0.3661309881346004
+            }
+          ]
+        }
+      ],
+      "views": [
+        {
+          "view": "front",
+          "lesion_ids": [
+            "TEST_MARK"
+          ],
+          "annotation_area": 0.0003555555555555579,
+          "covered_area": 0.00035517204402186125,
+          "uncovered_area": 3.8351153369665985e-07,
+          "covered_ratio": 0.9989213738114782,
+          "uncovered_ratio": 0.0010786261885218488,
+          "coverage_status": "partial",
+          "candidates": [
+            {
+              "candidate_id": "4b4d5d83fe1044c95f34552dbc83f1f3a090a303c4a8a8d3e0ea06e60088e2ae",
+              "region_ids": [
+                "goran-front-hand-p29-right",
+                "goran-front-hand-p30-right"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C6-C8",
+              "source_label": "C 6-8",
+              "display_name": "C6-C8",
+              "side": "right",
+              "view": "front",
+              "intersection_area": 0.00022499213712955804,
+              "lesion_coverage_ratio": 0.6327903856768778
+            },
+            {
+              "candidate_id": "21e3154025d0a0c56fe46cc5c21183a2ed8fc714f7a800ab8920bdb3553dc6b7",
+              "region_ids": [
+                "front-right-C8_T1",
+                "goran-front-hand-p31-right",
+                "goran-front-hand-p32-right"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C8/T1",
+              "source_label": "C 8 / T 1",
+              "display_name": "C8/T1",
+              "side": "right",
+              "view": "front",
+              "intersection_area": 0.0001301799068923032,
+              "lesion_coverage_ratio": 0.3661309881346004
+            }
+          ]
+        }
+      ],
+      "warnings": [
+        "开发测试参考图谱，医学审核待完成。",
+        "比例仅为当前二维模板的几何覆盖，不是诊断概率或真实皮肤面积。",
+        "当前图谱未覆盖不代表没有感觉神经；不同候选可能重叠，不能累加候选比例。"
+      ]
+    }
+  },
+  {
+    "name": "front-left",
+    "request": {
+      "request_id": "TEST_REQUEST",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-neutral-v1",
+        "template_version": "4.0.1",
+        "geometry_id": "commons-blank-cc0-hands-v2",
+        "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+        "atlas_id": "goran-2022",
+        "atlas_version": "goran-2022-commons-template4-preview.3",
+        "atlas_content_sha256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+        "body_content_sha256": "b0bfa0047c156159fd2f5c8680b76ff64eb2f5f6f947bc0d53b8414ffb9a8731",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "lesions": [
+        {
+          "id": "TEST_MARK",
+          "view": "front",
+          "vertices": [
+            {
+              "x": 0.85,
+              "y": 0.5211111111111111
+            },
+            {
+              "x": 0.85,
+              "y": 0.53
+            },
+            {
+              "x": 0.81,
+              "y": 0.53
+            },
+            {
+              "x": 0.81,
+              "y": 0.5211111111111111
+            },
+            {
+              "x": 0.85,
+              "y": 0.5211111111111111
+            }
+          ]
+        }
+      ]
+    },
+    "response": {
+      "request_id": "TEST_REQUEST",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-neutral-v1",
+        "template_version": "4.0.1",
+        "geometry_id": "commons-blank-cc0-hands-v2",
+        "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+        "atlas_id": "goran-2022",
+        "atlas_version": "goran-2022-commons-template4-preview.3",
+        "atlas_content_sha256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+        "body_content_sha256": "b0bfa0047c156159fd2f5c8680b76ff64eb2f5f6f947bc0d53b8414ffb9a8731",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "method": "manual_annotation_reference_geometry",
+      "area_unit": "normalized_template_area",
+      "source": {
+        "title": "Goran_tek-en · Dermatomes labeled, male front/back (2022)",
+        "url": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg",
+        "attribution": "Goran_tek-en / Wikimedia Commons / CC BY-SA 4.0；提取、配准、排除部分体表并简化曲线。衍生图谱数据沿用 CC BY-SA 4.0。 V3.1新增三叉神经及可见正面足部局部配准，保留父版。 V6.5以原始手部Path分别配准四个主人体手表面；保留组合标签，修正CC0底图指缝命中轮廓。",
+        "license": "CC BY-SA 4.0",
+        "medical_review_status": "pending",
+        "preview": true,
+        "coverage_note": "主人体正面掌侧、背面手背已加入Goran实际组合参考区C6–8、C8/T1及源腕部过渡；不等于独立C6/C7/C8掌侧边界。源描边缝、目标表面适配余量、手指隐面仍未覆盖。其余面部/足部和未配置范围沿用父版。仅教学参考，医学审核待完成。"
+      },
+      "lesions": [
+        {
+          "view": "front",
+          "lesion_ids": [
+            "TEST_MARK"
+          ],
+          "annotation_area": 0.0003555555555555572,
+          "covered_area": 0.0003555555555555572,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "a5c52c05895f4721003032f48ed6ed4f8e22486b7074b1a7552af4bd4a573092",
+              "region_ids": [
+                "goran-front-hand-p29-left",
+                "goran-front-hand-p30-left"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C6-C8",
+              "source_label": "C 6-8",
+              "display_name": "C6-C8",
+              "side": "left",
+              "view": "front",
+              "intersection_area": 0.00023439112314581183,
+              "lesion_coverage_ratio": 0.6592250338475927
+            },
+            {
+              "candidate_id": "4abd8b8c26b979166cf013a32a9a0c6ef3ba9da96d1726b82f14803c67767a05",
+              "region_ids": [
+                "front-left-C8_T1",
+                "goran-front-hand-p31-left",
+                "goran-front-hand-p32-left"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C8/T1",
+              "source_label": "C 8 / T 1",
+              "display_name": "C8/T1",
+              "side": "left",
+              "view": "front",
+              "intersection_area": 0.00012116443240974532,
+              "lesion_coverage_ratio": 0.34077496615240715
+            }
+          ]
+        }
+      ],
+      "views": [
+        {
+          "view": "front",
+          "lesion_ids": [
+            "TEST_MARK"
+          ],
+          "annotation_area": 0.0003555555555555572,
+          "covered_area": 0.0003555555555555572,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "a5c52c05895f4721003032f48ed6ed4f8e22486b7074b1a7552af4bd4a573092",
+              "region_ids": [
+                "goran-front-hand-p29-left",
+                "goran-front-hand-p30-left"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C6-C8",
+              "source_label": "C 6-8",
+              "display_name": "C6-C8",
+              "side": "left",
+              "view": "front",
+              "intersection_area": 0.00023439112314581183,
+              "lesion_coverage_ratio": 0.6592250338475927
+            },
+            {
+              "candidate_id": "4abd8b8c26b979166cf013a32a9a0c6ef3ba9da96d1726b82f14803c67767a05",
+              "region_ids": [
+                "front-left-C8_T1",
+                "goran-front-hand-p31-left",
+                "goran-front-hand-p32-left"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C8/T1",
+              "source_label": "C 8 / T 1",
+              "display_name": "C8/T1",
+              "side": "left",
+              "view": "front",
+              "intersection_area": 0.00012116443240974532,
+              "lesion_coverage_ratio": 0.34077496615240715
+            }
+          ]
+        }
+      ],
+      "warnings": [
+        "开发测试参考图谱，医学审核待完成。",
+        "比例仅为当前二维模板的几何覆盖，不是诊断概率或真实皮肤面积。",
+        "当前图谱未覆盖不代表没有感觉神经；不同候选可能重叠，不能累加候选比例。"
+      ]
+    }
+  },
+  {
+    "name": "back-left",
+    "request": {
+      "request_id": "TEST_REQUEST",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-neutral-v1",
+        "template_version": "4.0.1",
+        "geometry_id": "commons-blank-cc0-hands-v2",
+        "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+        "atlas_id": "goran-2022",
+        "atlas_version": "goran-2022-commons-template4-preview.3",
+        "atlas_content_sha256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+        "body_content_sha256": "b0bfa0047c156159fd2f5c8680b76ff64eb2f5f6f947bc0d53b8414ffb9a8731",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "lesions": [
+        {
+          "id": "TEST_MARK",
+          "view": "back",
+          "vertices": [
+            {
+              "x": 0.2,
+              "y": 0.5233333333333333
+            },
+            {
+              "x": 0.2,
+              "y": 0.5322222222222223
+            },
+            {
+              "x": 0.16,
+              "y": 0.5322222222222223
+            },
+            {
+              "x": 0.16,
+              "y": 0.5233333333333333
+            },
+            {
+              "x": 0.2,
+              "y": 0.5233333333333333
+            }
+          ]
+        }
+      ]
+    },
+    "response": {
+      "request_id": "TEST_REQUEST",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-neutral-v1",
+        "template_version": "4.0.1",
+        "geometry_id": "commons-blank-cc0-hands-v2",
+        "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+        "atlas_id": "goran-2022",
+        "atlas_version": "goran-2022-commons-template4-preview.3",
+        "atlas_content_sha256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+        "body_content_sha256": "b0bfa0047c156159fd2f5c8680b76ff64eb2f5f6f947bc0d53b8414ffb9a8731",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "method": "manual_annotation_reference_geometry",
+      "area_unit": "normalized_template_area",
+      "source": {
+        "title": "Goran_tek-en · Dermatomes labeled, male front/back (2022)",
+        "url": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg",
+        "attribution": "Goran_tek-en / Wikimedia Commons / CC BY-SA 4.0；提取、配准、排除部分体表并简化曲线。衍生图谱数据沿用 CC BY-SA 4.0。 V3.1新增三叉神经及可见正面足部局部配准，保留父版。 V6.5以原始手部Path分别配准四个主人体手表面；保留组合标签，修正CC0底图指缝命中轮廓。",
+        "license": "CC BY-SA 4.0",
+        "medical_review_status": "pending",
+        "preview": true,
+        "coverage_note": "主人体正面掌侧、背面手背已加入Goran实际组合参考区C6–8、C8/T1及源腕部过渡；不等于独立C6/C7/C8掌侧边界。源描边缝、目标表面适配余量、手指隐面仍未覆盖。其余面部/足部和未配置范围沿用父版。仅教学参考，医学审核待完成。"
+      },
+      "lesions": [
+        {
+          "view": "back",
+          "lesion_ids": [
+            "TEST_MARK"
+          ],
+          "annotation_area": 0.0003555555555555579,
+          "covered_area": 0.00035554759464571716,
+          "uncovered_area": 7.960909840655428e-09,
+          "covered_ratio": 0.9999776099410729,
+          "uncovered_ratio": 2.2390058926843244e-05,
+          "coverage_status": "partial",
+          "candidates": [
+            {
+              "candidate_id": "ef516680a9d8eba4e78edd894689e80b0e52c10f138a9dfbb3b85359d26bf834",
+              "region_ids": [
+                "back-left-C6_C8",
+                "goran-back-hand-p28-left",
+                "goran-back-hand-p29-left",
+                "goran-back-hand-p47-left"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C6-C8",
+              "source_label": "C 6-8",
+              "display_name": "C6-C8",
+              "side": "left",
+              "view": "back",
+              "intersection_area": 0.00025696450815865284,
+              "lesion_coverage_ratio": 0.7227126791962063
+            },
+            {
+              "candidate_id": "b5c9aa557cc5282c6774c796adbbef1779186f0ba07d7e6166cde287a49f5477",
+              "region_ids": [
+                "goran-back-hand-p39-left"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C8/T1",
+              "source_label": "C 8 / T 1",
+              "display_name": "C8/T1",
+              "side": "left",
+              "view": "back",
+              "intersection_area": 9.858308648706435e-05,
+              "lesion_coverage_ratio": 0.27726493074486663
+            }
+          ]
+        }
+      ],
+      "views": [
+        {
+          "view": "back",
+          "lesion_ids": [
+            "TEST_MARK"
+          ],
+          "annotation_area": 0.0003555555555555579,
+          "covered_area": 0.00035554759464571716,
+          "uncovered_area": 7.960909840655428e-09,
+          "covered_ratio": 0.9999776099410729,
+          "uncovered_ratio": 2.2390058926843244e-05,
+          "coverage_status": "partial",
+          "candidates": [
+            {
+              "candidate_id": "ef516680a9d8eba4e78edd894689e80b0e52c10f138a9dfbb3b85359d26bf834",
+              "region_ids": [
+                "back-left-C6_C8",
+                "goran-back-hand-p28-left",
+                "goran-back-hand-p29-left",
+                "goran-back-hand-p47-left"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C6-C8",
+              "source_label": "C 6-8",
+              "display_name": "C6-C8",
+              "side": "left",
+              "view": "back",
+              "intersection_area": 0.00025696450815865284,
+              "lesion_coverage_ratio": 0.7227126791962063
+            },
+            {
+              "candidate_id": "b5c9aa557cc5282c6774c796adbbef1779186f0ba07d7e6166cde287a49f5477",
+              "region_ids": [
+                "goran-back-hand-p39-left"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C8/T1",
+              "source_label": "C 8 / T 1",
+              "display_name": "C8/T1",
+              "side": "left",
+              "view": "back",
+              "intersection_area": 9.858308648706435e-05,
+              "lesion_coverage_ratio": 0.27726493074486663
+            }
+          ]
+        }
+      ],
+      "warnings": [
+        "开发测试参考图谱，医学审核待完成。",
+        "比例仅为当前二维模板的几何覆盖，不是诊断概率或真实皮肤面积。",
+        "当前图谱未覆盖不代表没有感觉神经；不同候选可能重叠，不能累加候选比例。"
+      ]
+    }
+  },
+  {
+    "name": "back-right",
+    "request": {
+      "request_id": "TEST_REQUEST",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-neutral-v1",
+        "template_version": "4.0.1",
+        "geometry_id": "commons-blank-cc0-hands-v2",
+        "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+        "atlas_id": "goran-2022",
+        "atlas_version": "goran-2022-commons-template4-preview.3",
+        "atlas_content_sha256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+        "body_content_sha256": "b0bfa0047c156159fd2f5c8680b76ff64eb2f5f6f947bc0d53b8414ffb9a8731",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "lesions": [
+        {
+          "id": "TEST_MARK",
+          "view": "back",
+          "vertices": [
+            {
+              "x": 0.845,
+              "y": 0.5255555555555556
+            },
+            {
+              "x": 0.845,
+              "y": 0.5344444444444445
+            },
+            {
+              "x": 0.805,
+              "y": 0.5344444444444445
+            },
+            {
+              "x": 0.805,
+              "y": 0.5255555555555556
+            },
+            {
+              "x": 0.845,
+              "y": 0.5255555555555556
+            }
+          ]
+        }
+      ]
+    },
+    "response": {
+      "request_id": "TEST_REQUEST",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-neutral-v1",
+        "template_version": "4.0.1",
+        "geometry_id": "commons-blank-cc0-hands-v2",
+        "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+        "atlas_id": "goran-2022",
+        "atlas_version": "goran-2022-commons-template4-preview.3",
+        "atlas_content_sha256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+        "body_content_sha256": "b0bfa0047c156159fd2f5c8680b76ff64eb2f5f6f947bc0d53b8414ffb9a8731",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "method": "manual_annotation_reference_geometry",
+      "area_unit": "normalized_template_area",
+      "source": {
+        "title": "Goran_tek-en · Dermatomes labeled, male front/back (2022)",
+        "url": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg",
+        "attribution": "Goran_tek-en / Wikimedia Commons / CC BY-SA 4.0；提取、配准、排除部分体表并简化曲线。衍生图谱数据沿用 CC BY-SA 4.0。 V3.1新增三叉神经及可见正面足部局部配准，保留父版。 V6.5以原始手部Path分别配准四个主人体手表面；保留组合标签，修正CC0底图指缝命中轮廓。",
+        "license": "CC BY-SA 4.0",
+        "medical_review_status": "pending",
+        "preview": true,
+        "coverage_note": "主人体正面掌侧、背面手背已加入Goran实际组合参考区C6–8、C8/T1及源腕部过渡；不等于独立C6/C7/C8掌侧边界。源描边缝、目标表面适配余量、手指隐面仍未覆盖。其余面部/足部和未配置范围沿用父版。仅教学参考，医学审核待完成。"
+      },
+      "lesions": [
+        {
+          "view": "back",
+          "lesion_ids": [
+            "TEST_MARK"
+          ],
+          "annotation_area": 0.0003555555555555572,
+          "covered_area": 0.000355325976809956,
+          "uncovered_area": 2.2957874560129272e-07,
+          "covered_ratio": 0.9993543097779966,
+          "uncovered_ratio": 0.0006456902220036328,
+          "coverage_status": "partial",
+          "candidates": [
+            {
+              "candidate_id": "fc8ff0674ad975471c4de151c99b1ccc2f580c7ae96ee87114c915eff41441e7",
+              "region_ids": [
+                "back-right-C6_C8",
+                "goran-back-hand-p30-right",
+                "goran-back-hand-p31-right",
+                "goran-back-hand-p48-right"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C6-C8",
+              "source_label": "C 6-8",
+              "display_name": "C6-C8",
+              "side": "right",
+              "view": "back",
+              "intersection_area": 0.00022438494470248242,
+              "lesion_coverage_ratio": 0.6310826569757289
+            },
+            {
+              "candidate_id": "3f26ab07150a2f29afd56399fb499cd75bb3ec7d82e03459b56fddf529fd1993",
+              "region_ids": [
+                "goran-back-hand-p42-right"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C8/T1",
+              "source_label": "C 8 / T 1",
+              "display_name": "C8/T1",
+              "side": "right",
+              "view": "back",
+              "intersection_area": 0.00013094103210747348,
+              "lesion_coverage_ratio": 0.3682716528022675
+            }
+          ]
+        }
+      ],
+      "views": [
+        {
+          "view": "back",
+          "lesion_ids": [
+            "TEST_MARK"
+          ],
+          "annotation_area": 0.0003555555555555572,
+          "covered_area": 0.000355325976809956,
+          "uncovered_area": 2.2957874560129272e-07,
+          "covered_ratio": 0.9993543097779966,
+          "uncovered_ratio": 0.0006456902220036328,
+          "coverage_status": "partial",
+          "candidates": [
+            {
+              "candidate_id": "fc8ff0674ad975471c4de151c99b1ccc2f580c7ae96ee87114c915eff41441e7",
+              "region_ids": [
+                "back-right-C6_C8",
+                "goran-back-hand-p30-right",
+                "goran-back-hand-p31-right",
+                "goran-back-hand-p48-right"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C6-C8",
+              "source_label": "C 6-8",
+              "display_name": "C6-C8",
+              "side": "right",
+              "view": "back",
+              "intersection_area": 0.00022438494470248242,
+              "lesion_coverage_ratio": 0.6310826569757289
+            },
+            {
+              "candidate_id": "3f26ab07150a2f29afd56399fb499cd75bb3ec7d82e03459b56fddf529fd1993",
+              "region_ids": [
+                "goran-back-hand-p42-right"
+              ],
+              "partition_type": "spinal_dermatome_composite",
+              "label": "C8/T1",
+              "source_label": "C 8 / T 1",
+              "display_name": "C8/T1",
+              "side": "right",
+              "view": "back",
+              "intersection_area": 0.00013094103210747348,
+              "lesion_coverage_ratio": 0.3682716528022675
+            }
+          ]
+        }
+      ],
+      "warnings": [
+        "开发测试参考图谱，医学审核待完成。",
+        "比例仅为当前二维模板的几何覆盖，不是诊断概率或真实皮肤面积。",
+        "当前图谱未覆盖不代表没有感觉神经；不同候选可能重叠，不能累加候选比例。"
+      ]
+    }
+  }
+]

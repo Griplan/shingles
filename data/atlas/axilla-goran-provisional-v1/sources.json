@@ -1,0 +1,17 @@
+{
+  "boundarySystem": "spinal_dermatome",
+  "boundaryLicenseStatus": "verified",
+  "atlasStatus": "PROVISIONAL",
+  "sources": [
+    {
+      "id": "goran-front-2022-provisional",
+      "purpose": "dermatome_boundaries",
+      "licenseStatus": "verified",
+      "license": "CC BY-SA 4.0",
+      "author": "Goran_tek-en",
+      "url": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg",
+      "boundaryEvidence": "Original visible inner-arm p19 T1/p20 T2 ONLY. Target control points are manual estimates, not reviewed target medical boundaries.",
+      "sourceSHA1": "d20be473843591779be22c102e193d8c1407861d"
+    }
+  ]
+}

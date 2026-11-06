@@ -1,0 +1,15 @@
+{
+  "localReportLinks": "passed",
+  "timingEnvironmentIdentical": true,
+  "responseHashesIdentical": true,
+  "protectedFilesUnchanged": 50,
+  "pngSizes": {
+    "axilla-left.png": 29555,
+    "axilla-right.png": 29715
+  },
+  "cloudDeployment": "NOT_RUN",
+  "wechatUpload": "NOT_RUN",
+  "wechatInteraction": "NOT_RUN",
+  "medicalReview": "NOT_RUN",
+  "axillaMatching": "BLOCKED"
+}

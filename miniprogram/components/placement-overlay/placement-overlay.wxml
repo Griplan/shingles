@@ -1,0 +1,1 @@
+<canvas id="placement" type="2d" class="placement-canvas" disable-scroll="true" catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd" bindtouchcancel="touchCancel" aria-label="可移动的病灶范围"></canvas>

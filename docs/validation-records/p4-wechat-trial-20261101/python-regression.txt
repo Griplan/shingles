@@ -1,0 +1,34 @@
+........................................................................ [ 40%]
+........................................................................ [ 81%]
+................................                                         [100%]
+=============================== warnings summary ===============================
+test_pipeline.py::test_missing_model_and_wrong_model
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+    warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+
+test_pipeline.py::test_missing_model_and_wrong_model
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+    warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+
+test_pipeline.py::test_missing_model_and_wrong_model
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_5m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_5m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+    return register_model(fn_wrapper)
+
+test_pipeline.py::test_missing_model_and_wrong_model
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_11m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_11m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+    return register_model(fn_wrapper)
+
+test_pipeline.py::test_missing_model_and_wrong_model
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+    return register_model(fn_wrapper)
+
+test_pipeline.py::test_missing_model_and_wrong_model
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_384 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_384. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+    return register_model(fn_wrapper)
+
+test_pipeline.py::test_missing_model_and_wrong_model
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_512 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_512. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+    return register_model(fn_wrapper)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+176 passed, 7 warnings in 12.33s

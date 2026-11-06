@@ -1,0 +1,30 @@
+Date: 2026-10-17 Asia/Shanghai
+Environment: Node v21.7.3 / npm 10.5.0 / TypeScript 5.9.3 / miniprogram-api-typings 5.2.3
+This record transcribes already executed tool output; tests were not rerun just to create a log.
+
+CWD: dermatome-mapper/miniprogram
+COMMAND: npm run typecheck
+ACTUAL STDOUT:
+> dermatome-mapper-miniprogram@0.0.0 typecheck
+> tsc --noEmit
+EXIT_CODE: 0
+
+COMMAND: npm test
+ACTUAL SUMMARY:
+> dermatome-mapper-miniprogram@0.0.0 test
+> node ../scripts/test_miniprogram.cjs
+TAP version 13
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 52.537875
+EXIT_CODE: 0
+
+15 coordinate tests cover A-J, including parameterized invalid dimensions; 9 Canvas/page tests cover command rendering, clipped highlight, DPR 1/2/3, zoom/reset, view changes, async lifecycle cancellation, initialization failure/retry and page state isolation.
+Round-trip threshold: 1e-9. Full-view grid: 11 x 11 points across 3 container sizes. Physical DPR tests: 280x460x1, 343x540x2, 700x570x3.
+LIMIT: Canvas uses explicit command/node fakes. This is not actual WeChat rendering or clinical validation; GUI results are recorded separately.

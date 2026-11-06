@@ -1,0 +1,12 @@
+.picker-overlay { position:fixed; top:0; right:0; bottom:0; left:0; z-index:100; display:flex; align-items:flex-end; background:rgba(20,42,34,.35); }
+.picker-sheet { width:100%; max-height:80vh; box-sizing:border-box; padding:16px 16px calc(12px + env(safe-area-inset-bottom)); border-radius:20px 20px 0 0; background:#f8faf8; }
+.picker-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.picker-title { flex:1; white-space:nowrap; font-size:18px; font-weight:600; color:#203b36; }
+.picker-close { box-sizing:border-box; flex:0 0 54px; width:54px; margin:0; min-height:40px; padding:8px 0; text-align:center; line-height:24px; font-size:14px; color:#236b57; background:#e5eee7; border-radius:10px; }
+.picker-close::after,.picker-option::after { border:0; }
+.picker-hint { margin:8px 0 12px; font-size:12px; line-height:18px; color:#667b6f; }
+.picker-scroll { max-height:calc(80vh - 126px - env(safe-area-inset-bottom)); height:232px; }
+.picker-grid { display:flex; flex-wrap:wrap; padding-bottom:8px; }
+.picker-cell { width:50%; padding:4px; box-sizing:border-box; }
+.picker-option { display:flex; align-items:center; justify-content:center; text-align:center; min-width:0; box-sizing:border-box; width:100%; margin:0; padding:10px 4px; min-height:44px; line-height:24px; border:1px solid #d9e3dc; border-radius:10px; background:#fff; color:#3d5b4b; font-size:14px; }
+.picker-option.is-selected { border-color:#236b57; background:#e1eee6; color:#175d43; font-weight:600; }

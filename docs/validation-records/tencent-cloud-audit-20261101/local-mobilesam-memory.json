@@ -1,0 +1,354 @@
+[
+  {
+    "run": "v51-cpu-20261027",
+    "measurement_scope": "Mac arm64 CPU process RSS at result creation; process high-water sampled before PNG/JSON export; not isolated per-request or Linux peak guarantee",
+    "records": [
+      {
+        "case": "v51-cpu-20261027/F_unclear",
+        "image_size": [
+          700,
+          1063
+        ],
+        "rss_bytes": 938098688,
+        "process_peak_rss_bytes": 938098688,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.4920365421567112
+      },
+      {
+        "case": "v51-cpu-20261027/A_single_fg",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 665894912,
+        "process_peak_rss_bytes": 733446144,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.7266432920005172
+      },
+      {
+        "case": "v51-cpu-20261027/H_synthetic_disconnected",
+        "image_size": [
+          320,
+          240
+        ],
+        "rss_bytes": 956170240,
+        "process_peak_rss_bytes": 956170240,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.5686020420398563
+      },
+      {
+        "case": "v51-cpu-20261027/C_multi_fg",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 903118848,
+        "process_peak_rss_bytes": 904740864,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.4738633749075234
+      },
+      {
+        "case": "v51-cpu-20261027/B_box",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 891355136,
+        "process_peak_rss_bytes": 892452864,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.5302201251033694
+      },
+      {
+        "case": "v51-cpu-20261027/I_synthetic_low_contrast",
+        "image_size": [
+          320,
+          240
+        ],
+        "rss_bytes": 964575232,
+        "process_peak_rss_bytes": 964575232,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.4525252499151975
+      },
+      {
+        "case": "v51-cpu-20261027/D_fg_bg",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 860995584,
+        "process_peak_rss_bytes": 904740864,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.8975083329714835
+      },
+      {
+        "case": "v51-cpu-20261027/G_neck_crop",
+        "image_size": [
+          300,
+          410
+        ],
+        "rss_bytes": 926679040,
+        "process_peak_rss_bytes": 940900352,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.472093999851495
+      },
+      {
+        "case": "v51-cpu-20261027/E_disconnected",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 916881408,
+        "process_peak_rss_bytes": 932102144,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.5398997908923775
+      }
+    ],
+    "max_sampled_rss_bytes": 964575232,
+    "max_recorded_process_peak_bytes": 964575232
+  },
+  {
+    "run": "overseg-20261101-final",
+    "measurement_scope": "Mac arm64 CPU process RSS at result creation; process high-water sampled before PNG/JSON export; not isolated per-request or Linux peak guarantee",
+    "records": [
+      {
+        "case": "overseg-20261101-final/F_unclear/context_crop",
+        "image_size": [
+          700,
+          1063
+        ],
+        "rss_bytes": 979091456,
+        "process_peak_rss_bytes": 979091456,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.5006439589997171
+      },
+      {
+        "case": "overseg-20261101-final/F_unclear/full_image",
+        "image_size": [
+          700,
+          1063
+        ],
+        "rss_bytes": 935821312,
+        "process_peak_rss_bytes": 972505088,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.5413837500000227
+      },
+      {
+        "case": "overseg-20261101-final/A_single_fg/context_crop",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 854605824,
+        "process_peak_rss_bytes": 914227200,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.5044874589984829
+      },
+      {
+        "case": "overseg-20261101-final/A_single_fg/full_image",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 892502016,
+        "process_peak_rss_bytes": 914227200,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.5260812079995958
+      },
+      {
+        "case": "overseg-20261101-final/J_three_local_boxes/context_crop",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 1006206976,
+        "process_peak_rss_bytes": 1006206976,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 1.4873599579987058
+      },
+      {
+        "case": "overseg-20261101-final/H_synthetic_disconnected/context_crop",
+        "image_size": [
+          320,
+          240
+        ],
+        "rss_bytes": 958857216,
+        "process_peak_rss_bytes": 990019584,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.60827983299896
+      },
+      {
+        "case": "overseg-20261101-final/H_synthetic_disconnected/full_image",
+        "image_size": [
+          320,
+          240
+        ],
+        "rss_bytes": 988479488,
+        "process_peak_rss_bytes": 989528064,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.5755067919999419
+      },
+      {
+        "case": "overseg-20261101-final/C_multi_fg/context_crop",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 924581888,
+        "process_peak_rss_bytes": 924581888,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.48935024999991583
+      },
+      {
+        "case": "overseg-20261101-final/C_multi_fg/full_image",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 921944064,
+        "process_peak_rss_bytes": 921944064,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.48893354199935857
+      },
+      {
+        "case": "overseg-20261101-final/B_box/context_crop",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 908558336,
+        "process_peak_rss_bytes": 914227200,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.5134957080008462
+      },
+      {
+        "case": "overseg-20261101-final/B_box/full_image",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 880377856,
+        "process_peak_rss_bytes": 914227200,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.49496374999944237
+      },
+      {
+        "case": "overseg-20261101-final/I_synthetic_low_contrast/context_crop",
+        "image_size": [
+          320,
+          240
+        ],
+        "rss_bytes": 1004503040,
+        "process_peak_rss_bytes": 1004503040,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.4777340839991666
+      },
+      {
+        "case": "overseg-20261101-final/I_synthetic_low_contrast/full_image",
+        "image_size": [
+          320,
+          240
+        ],
+        "rss_bytes": 1004437504,
+        "process_peak_rss_bytes": 1004437504,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.4722200830001384
+      },
+      {
+        "case": "overseg-20261101-final/D_fg_bg/context_crop",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 804077568,
+        "process_peak_rss_bytes": 972505088,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.9057620420007879
+      },
+      {
+        "case": "overseg-20261101-final/D_fg_bg/full_image",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 967737344,
+        "process_peak_rss_bytes": 968785920,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.8918495830002939
+      },
+      {
+        "case": "overseg-20261101-final/G_neck_crop/context_crop",
+        "image_size": [
+          300,
+          410
+        ],
+        "rss_bytes": 986513408,
+        "process_peak_rss_bytes": 986513408,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.5014504170012515
+      },
+      {
+        "case": "overseg-20261101-final/G_neck_crop/full_image",
+        "image_size": [
+          300,
+          410
+        ],
+        "rss_bytes": 973012992,
+        "process_peak_rss_bytes": 979091456,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.4832577500001207
+      },
+      {
+        "case": "overseg-20261101-final/E_disconnected/context_crop",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 935378944,
+        "process_peak_rss_bytes": 972505088,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.5297942500001227
+      },
+      {
+        "case": "overseg-20261101-final/E_disconnected/full_image",
+        "image_size": [
+          700,
+          460
+        ],
+        "rss_bytes": 829046784,
+        "process_peak_rss_bytes": 972505088,
+        "device": "cpu",
+        "threads": 4,
+        "seconds": 0.6249190409998846
+      }
+    ],
+    "max_sampled_rss_bytes": 1006206976,
+    "max_recorded_process_peak_bytes": 1006206976
+  }
+]

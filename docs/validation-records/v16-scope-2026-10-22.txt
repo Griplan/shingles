@@ -1,0 +1,14 @@
+PASSED: No baseline file deleted
+PASSED: 74 protected files byte-identical: source assets/template, coordinate/outline/hit tool, pages/interaction, backend/API/atlas, dependencies/config
+PASSED: No backend or atlas additions
+PASSED: Historical regions v15 snapshot exactly equals old active file
+PASSED: All historical validation/research evidence preserved
+PASSED: V0-V1.5 task history unchanged
+PASSED: V2 and subsequent plans unchanged
+PASSED: changed/new JSON and SVG parse; Markdown local links exist; no extension-token URLs/API-key patterns
+PASSED: No dependency/build output additions
+PASSED: Independent PNG decoder extracted unchanged
+Baseline files=227; modified=13; added=19; deleted=0.
+Final results: v16-regression-2026-10-22.txt (typecheck, 77 frontend, 12 backend, Shapely geometry, project/atlas static checks; all exit0).
+GUI scope: v16-gui-2026-10-22.txt (actual 375 display/zoom/list/debug observed; exact upper-arm native coordinates NOT_RUN).
+No medical data/template geometry generated or altered.

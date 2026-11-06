@@ -1,0 +1,40 @@
+V1.3 research-only file changes / 2026-10-22
+MODIFIED 3 / ADDED 34 / NO runtime replacement
+
+MODIFIED AGENTS.md
+MODIFIED README.md
+MODIFIED task.md
+ADDED docs/research/v13-materials/NOTICE.md
+ADDED docs/research/v13-materials/a-female-back-preview.png
+ADDED docs/research/v13-materials/a-female-back-preview.svg
+ADDED docs/research/v13-materials/a-female-front-preview.png
+ADDED docs/research/v13-materials/a-female-front-preview.svg
+ADDED docs/research/v13-materials/a-female-source-preview.png
+ADDED docs/research/v13-materials/a-female.svg
+ADDED docs/research/v13-materials/a-male-back-preview.png
+ADDED docs/research/v13-materials/a-male-back-preview.svg
+ADDED docs/research/v13-materials/a-male-front-preview.png
+ADDED docs/research/v13-materials/a-male-front-preview.svg
+ADDED docs/research/v13-materials/a-male-source-preview.png
+ADDED docs/research/v13-materials/a-male.svg
+ADDED docs/research/v13-materials/b-male-back-preview.png
+ADDED docs/research/v13-materials/b-male-back-preview.svg
+ADDED docs/research/v13-materials/b-male-front-preview.png
+ADDED docs/research/v13-materials/b-male-front-preview.svg
+ADDED docs/research/v13-materials/b-original-source-preview.png
+ADDED docs/research/v13-materials/b-original-white-preview.png
+ADDED docs/research/v13-materials/b-original.svg
+ADDED docs/research/v13-materials/c-servier-back.png
+ADDED docs/research/v13-materials/c-servier-excluded-preview.png
+ADDED docs/research/v13-materials/c-servier-front.png
+ADDED docs/research/v13-materials/candidate-comparison.png
+ADDED docs/research/v13-materials/extract_views.py
+ADDED docs/research/v13-materials/fetch-record.json
+ADDED docs/research/v13-materials/preview-record.json
+ADDED docs/research/v13-materials/preview.cjs
+ADDED docs/research/v13-materials/svg-inspection.json
+ADDED docs/v13-changes.txt
+ADDED docs/v13-material-review.md
+ADDED docs/validation-records/v13-research-2026-10-22.txt
+ADDED docs/validation-records/v13-scope-audit-2026-10-22.txt
+ADDED docs/validation-records/v13-validation-2026-10-22.txt

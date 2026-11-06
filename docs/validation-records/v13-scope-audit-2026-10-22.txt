@@ -1,0 +1,25 @@
+V1.3 scope and asset audit / 2026-10-22 Asia/Shanghai
+Command: python3 /private/tmp/dermatome-v13-audit.py
+Baseline: SHA-256 of 132 pre-turn non-ignored files, captured before research edits.
+Existing modified: 3; added: 34; deleted: 0.
+
+PASSED: Only existing AGENTS.md / README.md / task.md changed
+PASSED: miniprogram/ all baseline bytes unchanged and no new files
+PASSED: backend/ all baseline bytes unchanged and no new files
+PASSED: data/ all baseline bytes unchanged and no new files
+PASSED: ai/ all baseline bytes unchanged and no new files
+PASSED: tests/ all baseline bytes unchanged and no new files
+PASSED: scripts/ all baseline bytes unchanged and no new files
+PASSED: All historical validation records unchanged
+PASSED: Original task history preserved outside new V1.3 section/current authorization
+PASSED: Active model remains neutral-body-v3 / 3.0.0
+PASSED: Five downloaded original assets still match recorded size and SHA-256
+PASSED: Original SVG has no script/foreignObject/embedded image or external href
+PASSED: All source and derived SVG files parse
+PASSED: All six real body previews have the same 650px height
+PASSED: Final comparison is 1980x1020
+PASSED: Research references are not imported by runtime TS
+PASSED: Local Markdown links/fences and JSON parse
+
+No new-asset WeChat rendering/touch/registration test; user selection is pending.
+EXIT_CODE: 0

@@ -1,0 +1,14 @@
+{
+  "report_links": "PASSED",
+  "json_evidence": "PASSED",
+  "source_files_unchanged": 276,
+  "remote_protected_hashes_equal": 6,
+  "real_model_runs": 4,
+  "real_image_runs": 3,
+  "mask_geometry_exact_checks": 9,
+  "formal_deployment": false,
+  "server_directory_created": "/srv/dermatome-preflight-20261101-p0",
+  "server_environment_retained_for_review": true,
+  "permanent_service_config_changed": false,
+  "git_commit_or_push": false
+}

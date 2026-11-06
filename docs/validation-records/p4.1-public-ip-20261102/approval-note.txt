@@ -1,0 +1,1 @@
+An initial proposed test was rejected before execution: it would have sent the actual administrator access key over public HTTP to check stripping. No key was read or transmitted by that rejected command. Replaced with synthetic-header rejection plus deployed-configuration hash verification; actual operator key remains SSH-only. No approval requested to weaken this protection.

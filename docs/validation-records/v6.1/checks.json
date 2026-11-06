@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-04",
+  "system": "macOS-15.6.1-arm64-arm-64bit",
+  "python": "3.12.14",
+  "checks": [
+    {
+      "command": [
+        "npm",
+        "--prefix",
+        "miniprogram",
+        "run",
+        "typecheck"
+      ],
+      "exit": 0,
+      "log": "check-1.txt"
+    },
+    {
+      "command": [
+        "/Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/bin/python",
+        "scripts/check_project.py"
+      ],
+      "exit": 0,
+      "log": "check-2.txt"
+    },
+    {
+      "command": [
+        "/Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/bin/python",
+        "scripts/sync_palm.py",
+        "--check"
+      ],
+      "exit": 0,
+      "log": "check-3.txt"
+    },
+    {
+      "command": [
+        "/Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/bin/python",
+        "scripts/sync_matching_body.py",
+        "--check"
+      ],
+      "exit": 0,
+      "log": "check-4.txt"
+    },
+    {
+      "command": [
+        "/Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/bin/python",
+        "scripts/sync_atlas.py",
+        "--check"
+      ],
+      "exit": 0,
+      "log": "check-5.txt"
+    },
+    {
+      "command": [
+        "/Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/bin/python",
+        "scripts/check_preview_atlas.py"
+      ],
+      "exit": 0,
+      "log": "check-6.txt"
+    },
+    {
+      "command": [
+        "/Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/bin/python",
+        "scripts/test_atlas_geometry.py"
+      ],
+      "exit": 0,
+      "log": "check-7.txt"
+    },
+    {
+      "command": [
+        "/Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/bin/python",
+        "scripts/test_atlas_extensions.py"
+      ],
+      "exit": 0,
+      "log": "check-8.txt"
+    }
+  ]
+}

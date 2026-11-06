@@ -1,0 +1,80 @@
+{
+  "kind": "production page/component + real local model HTTP, wx adapters; not native GUI",
+  "sample": "CDC PHIL 21505, public V5.1 test image",
+  "inferences": [
+    {
+      "status": 200,
+      "seconds": 0.7873379589999999,
+      "candidates": [
+        {
+          "id": "candidate-0",
+          "status": "ok",
+          "area_ratio": 0.040559006211180124
+        },
+        {
+          "id": "candidate-1",
+          "status": "ok",
+          "area_ratio": 0.051512422360248444
+        },
+        {
+          "id": "candidate-2",
+          "status": "ok",
+          "area_ratio": 0.07736645962732919
+        }
+      ]
+    },
+    {
+      "status": 200,
+      "seconds": 0.9910073750000001,
+      "candidates": [
+        {
+          "id": "candidate-0",
+          "status": "ok",
+          "area_ratio": 0.03748447204968944
+        },
+        {
+          "id": "candidate-1",
+          "status": "ok",
+          "area_ratio": 0.04945341614906832
+        },
+        {
+          "id": "candidate-2",
+          "status": "ok",
+          "area_ratio": 0.07033229813664596
+        }
+      ]
+    }
+  ],
+  "medical_accuracy": "NOT_MEASURED",
+  "touch_dispatch": "overlapping client-coordinate events with asynchronous bounds queries",
+  "confirmation": {
+    "schema": "confirmed-photo-segmentation-v1",
+    "coordinate_space": "photo_oriented_normalized_v1",
+    "candidate": "candidate-1",
+    "polygons": 5,
+    "holes": 4,
+    "mask_sha256": "4a3863429d3acf5254639dfeef3b154c23d09752dfc5b83ea6685b5883d89323"
+  },
+  "placement": {
+    "view": "back",
+    "coordinate_space": "body_template_normalized_v1",
+    "polygons": 5,
+    "holes": 4,
+    "vertices": 941,
+    "scale": 0.7,
+    "angle": 25,
+    "formal_annotations_front": 1,
+    "formal_annotations_back": 1,
+    "duplicate_confirm_count": 1,
+    "network_requests_during_adjustment": 0,
+    "manual_preserved": true,
+    "full_view_transform_unchanged": true,
+    "v2_restored": true,
+    "photo_source_unchanged": true
+  },
+  "segment_requests": 2,
+  "frame_draws": 21,
+  "confirmation_requests": 1,
+  "after_delete_status": 410,
+  "status": "PASSED"
+}

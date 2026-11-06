@@ -1,0 +1,809 @@
+Date: 2026-10-24 Asia/Shanghai. Real local commands; no patient inputs.
+
+command=["/Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/bin/python", "scripts/check_preview_atlas.py"]
+cwd=/Users/griplan/project/extra/Shingles‌/dermatome-mapper
+front {'regions': 54, 'labels': 27, 'polygonParts': 63, 'holes': 15, 'vertices': 18051, 'outsideAfterSimplificationLogicalPx2': 0.0013452240925467935, 'manufacturingOverlapLogicalPx2': 0.411678164379466, 'rawOutsideBeforeAdaptationLogicalPx2': 58.15458156696285, 'bodyAreaLogicalPx2': 120615.50076667486, 'configuredAreaLogicalPx2': 107018.07893944674, 'unconfiguredAreaLogicalPx2': 13597.423172449635, 'medicalReviewStatus': 'pending'}
+back {'regions': 60, 'labels': 30, 'polygonParts': 71, 'holes': 2, 'vertices': 11705, 'outsideAfterSimplificationLogicalPx2': 0.0005508637368761197, 'manufacturingOverlapLogicalPx2': 0.430112907126253, 'rawOutsideBeforeAdaptationLogicalPx2': 107.34985006623775, 'bodyAreaLogicalPx2': 127095.93873884481, 'configuredAreaLogicalPx2': 114966.05499149188, 'unconfiguredAreaLogicalPx2': 12129.88429821674, 'medicalReviewStatus': 'pending'}
+extensions {'addedRegionsOrParts': 12, 'rawOutsideLogicalPx2': 8.274347815015911, 'retainedAreaLogicalPx2': 8608.81565610127}
+PASSED: sourced preview geometry/provenance/binding/side/inheritance checks. Not medical review or runtime proof.
+
+exit=0
+
+command=["/Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/bin/python", "scripts/test_atlas_extensions.py"]
+cwd=/Users/griplan/project/extra/Shingles‌/dermatome-mapper
+test_geometry_and_parent_archival_integrity (__main__.LocalRegistrationTests.test_geometry_and_parent_archival_integrity) ... ok
+test_hole_and_tiny_island_survive_without_area_filter (__main__.LocalRegistrationTests.test_hole_and_tiny_island_survive_without_area_filter) ... ok
+test_landmark_knots_and_no_folding (__main__.LocalRegistrationTests.test_landmark_knots_and_no_folding) ... ok
+test_original_face_knots_map_to_declared_target_landmarks (__main__.LocalRegistrationTests.test_original_face_knots_map_to_declared_target_landmarks) ... ok
+test_original_label_leaders_are_inside_audited_source_fills (__main__.LocalRegistrationTests.test_original_label_leaders_are_inside_audited_source_fills) ... ok
+test_reference_sites_and_explicit_unsupported_surfaces (__main__.LocalRegistrationTests.test_reference_sites_and_explicit_unsupported_surfaces) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.092s
+
+OK
+
+exit=0
+
+command=["/Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/bin/python", "scripts/test_atlas_geometry.py"]
+cwd=/Users/griplan/project/extra/Shingles‌/dermatome-mapper
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.002s
+
+OK
+
+exit=0
+
+command=["npm", "run", "typecheck", "--prefix", "miniprogram"]
+cwd=/Users/griplan/project/extra/Shingles‌/dermatome-mapper
+
+> dermatome-mapper-miniprogram@0.0.0 typecheck
+> tsc --noEmit
+
+
+exit=0
+
+command=["npm", "test", "--prefix", "miniprogram"]
+cwd=/Users/griplan/project/extra/Shingles‌/dermatome-mapper
+
+> dermatome-mapper-miniprogram@0.0.0 test
+> node ../scripts/test_miniprogram.cjs
+
+TAP version 13
+# Subtest: V1.2历史：新几何独立版本；前后同骨架、旧视觉与旧区域不静默迁移
+ok 1 - V1.2历史：新几何独立版本；前后同骨架、旧视觉与旧区域不静默迁移
+  ---
+  duration_ms: 1.2425
+  ...
+# Subtest: V1.2历史：设计比例单独检查：约7.5～8头身、裆50～54%、膝72～76%，不是医学准确率
+ok 2 - V1.2历史：设计比例单独检查：约7.5～8头身、裆50～54%、膝72～76%，不是医学准确率
+  ---
+  duration_ms: 0.162
+  ...
+# Subtest: V1.2历史：轮廓本身胸肩加宽、腰髋收放：不只修改参考点或全图缩放
+ok 3 - V1.2历史：轮廓本身胸肩加宽、腰髋收放：不只修改参考点或全图缩放
+  ---
+  duration_ms: 2.047792
+  ...
+# {"chestY":270,"oldChest":107.83838028169015,"chest":129.48642533936652,"waist":100.56126482213438,"hip":158.43705572116485}
+# Subtest: V1.2历史：躯干、髋膝踝、肘腕与手足参考点在两面同源轮廓内；关节高度有序
+ok 4 - V1.2历史：躯干、髋膝踝、肘腕与手足参考点在两面同源轮廓内；关节高度有序
+  ---
+  duration_ms: 10.188666
+  ...
+# Subtest: V1.2历史：16区域与新几何配准：肩肘腕手指、髋膝踝足均落在应属UI多边形内
+ok 5 - V1.2历史：16区域与新几何配准：肩肘腕手指、髋膝踝足均落在应属UI多边形内
+  ---
+  duration_ms: 0.349
+  ...
+# Subtest: V1.2历史：前后膝部实际细节路径靠近同一设计关节，避免只下移膝标签
+ok 6 - V1.2历史：前后膝部实际细节路径靠近同一设计关节，避免只下移膝标签
+  ---
+  duration_ms: 0.078333
+  ...
+# Subtest: V1.2历史：新关节参考点实际探测→十字重投影：三尺寸、前后、放大复位保持同一标准位置
+ok 7 - V1.2历史：新关节参考点实际探测→十字重投影：三尺寸、前后、放大复位保持同一标准位置
+  ---
+  duration_ms: 5.55725
+  ...
+# Subtest: V2 entry rejects no selection/debug; route holds only session identifier, starts focused without coarse highlight
+ok 8 - V2 entry rejects no selection/debug; route holds only session identifier, starts focused without coarse highlight
+  ---
+  duration_ms: 14.35025
+  ...
+# Subtest: V2 automated page workflow: two front polygons/delete second/reenter/back polygon/review/edit
+ok 9 - V2 automated page workflow: two front polygons/delete second/reenter/back polygon/review/edit
+  ---
+  duration_ms: 24.828
+  ...
+# Subtest: V2 page preserves invalid closure and draft switching choices; debug and modal pause input
+ok 10 - V2 page preserves invalid closure and draft switching choices; debug and modal pause input
+  ---
+  duration_ms: 9.599
+  ...
+# Subtest: V2 finish draft choices and return retain/discard; system hide/unload preserve immediate authority
+ok 11 - V2 finish draft choices and return retain/discard; system hide/unload preserve immediate authority
+  ---
+  duration_ms: 7.380334
+  ...
+# Subtest: V2 pending confirmation and point cannot mutate after hide or another revision
+ok 12 - V2 pending confirmation and point cannot mutate after hide or another revision
+  ---
+  duration_ms: 3.959625
+  ...
+# Subtest: V2 geometry UI-A-triangle
+ok 13 - V2 geometry UI-A-triangle
+  ---
+  duration_ms: 1.22475
+  ...
+# Subtest: V2 geometry UI-B-convex
+ok 14 - V2 geometry UI-B-convex
+  ---
+  duration_ms: 0.325292
+  ...
+# Subtest: V2 geometry UI-C-concave
+ok 15 - V2 geometry UI-C-concave
+  ---
+  duration_ms: 0.109125
+  ...
+# Subtest: V2 geometry UI-D-too-few
+ok 16 - V2 geometry UI-D-too-few
+  ---
+  duration_ms: 0.03625
+  ...
+# Subtest: V2 geometry UI-E-repeat
+ok 17 - V2 geometry UI-E-repeat
+  ---
+  duration_ms: 0.031666
+  ...
+# Subtest: V2 geometry UI-F-collinear
+ok 18 - V2 geometry UI-F-collinear
+  ---
+  duration_ms: 0.02525
+  ...
+# Subtest: V2 geometry UI-G-cross
+ok 19 - V2 geometry UI-G-cross
+  ---
+  duration_ms: 0.074666
+  ...
+# Subtest: V2 geometry UI-H-touch
+ok 20 - V2 geometry UI-H-touch
+  ---
+  duration_ms: 0.023958
+  ...
+# Subtest: V2 geometry UI-I-fold
+ok 21 - V2 geometry UI-I-fold
+  ---
+  duration_ms: 0.126459
+  ...
+# Subtest: V2 geometry UI-J-background-edge
+ok 22 - V2 geometry UI-J-background-edge
+  ---
+  duration_ms: 0.168875
+  ...
+# Subtest: V2 geometry UI-K-background-closing-edge
+ok 23 - V2 geometry UI-K-background-closing-edge
+  ---
+  duration_ms: 0.11575
+  ...
+# Subtest: V2 geometry UI-L-fill-hole
+ok 24 - V2 geometry UI-L-fill-hole
+  ---
+  duration_ms: 0.114291
+  ...
+# Subtest: V2 geometry UI-M-safe-beside-hole
+ok 25 - V2 geometry UI-M-safe-beside-hole
+  ---
+  duration_ms: 0.209792
+  ...
+# Subtest: V2 geometry UI-N-on-outer
+ok 26 - V2 geometry UI-N-on-outer
+  ---
+  duration_ms: 0.087
+  ...
+# Subtest: V2 geometry UI-O-outside-near-edge
+ok 27 - V2 geometry UI-O-outside-near-edge
+  ---
+  duration_ms: 0.024167
+  ...
+# Subtest: V2 geometry UI-P-inside-near-edge
+ok 28 - V2 geometry UI-P-inside-near-edge
+  ---
+  duration_ms: 0.047666
+  ...
+# Subtest: V2 geometry UI-Q-disconnected-bridge
+ok 29 - V2 geometry UI-Q-disconnected-bridge
+  ---
+  duration_ms: 0.031916
+  ...
+# Subtest: V2 geometry UI-R-one-part
+ok 30 - V2 geometry UI-R-one-part
+  ---
+  duration_ms: 0.061458
+  ...
+# Subtest: V2 geometry UI-S-hole-boundary-fill
+ok 31 - V2 geometry UI-S-hole-boundary-fill
+  ---
+  duration_ms: 0.726709
+  ...
+# Subtest: V2 geometry UI-T-sub-area
+ok 32 - V2 geometry UI-T-sub-area
+  ---
+  duration_ms: 0.060125
+  ...
+# Subtest: V2 geometry UI-U-tiny-valid
+ok 33 - V2 geometry UI-U-tiny-valid
+  ---
+  duration_ms: 0.110375
+  ...
+# Subtest: V2 malformed finite/type/range, unsupported nested/explicit closure and resource limits
+ok 34 - V2 malformed finite/type/range, unsupported nested/explicit closure and resource limits
+  ---
+  duration_ms: 0.255875
+  ...
+# Subtest: V2 actual bound body: central shape and crossing entry chest→abdomen accepted; air bridge rejected
+ok 35 - V2 actual bound body: central shape and crossing entry chest→abdomen accepted; air bridge rejected
+  ---
+  duration_ms: 25.258833
+  ...
+# Subtest: V2 full interval containment finds a narrow notch missed by sparse edge samples
+ok 36 - V2 full interval containment finds a narrow notch missed by sparse edge samples
+  ---
+  duration_ms: 0.094375
+  ...
+# Subtest: V2.1 valid entry, unique immutable authority, immediate draft sync and stale token rejection
+ok 37 - V2.1 valid entry, unique immutable authority, immediate draft sync and stale token rejection
+  ---
+  duration_ms: 2.812083
+  ...
+# Subtest: V2.1 expired process/session and changed template/geometry/region version retain original data
+ok 38 - V2.1 expired process/session and changed template/geometry/region version retain original data
+  ---
+  duration_ms: 0.182458
+  ...
+# Subtest: V2.2 invalid close preserves draft; undo and cancel affect only current draft
+ok 39 - V2.2 invalid close preserves draft; undo and cancel affect only current draft
+  ---
+  duration_ms: 13.313125
+  ...
+# Subtest: V2.3 multiple overlapping regions stay independent; selected delete changes only target
+ok 40 - V2.3 multiple overlapping regions stay independent; selected delete changes only target
+  ---
+  duration_ms: 7.780625
+  ...
+# Subtest: V2.3 draft switch is atomic: cancel/invalid close retain; discard or valid close switch; views isolated
+ok 41 - V2.3 draft switch is atomic: cancel/invalid close retain; discard or valid close switch; views isolated
+  ---
+  duration_ms: 7.439333
+  ...
+# Subtest: V2.4 reentry restores nonempty draft and its view; review guards zero/draft and continues same session
+ok 42 - V2.4 reentry restores nonempty draft and its view; review guards zero/draft and continues same session
+  ---
+  duration_ms: 2.520083
+  ...
+# Subtest: V2.5 focus is presentation only; entry navigation is not a polygon fence
+ok 43 - V2.5 focus is presentation only; entry navigation is not a polygon fence
+  ---
+  duration_ms: 3.572417
+  ...
+# Subtest: V2 resource limits fail without truncation and IDs never reuse on cancel/delete
+ok 44 - V2 resource limits fail without truncation and IDs never reuse on cancel/delete
+  ---
+  duration_ms: 32.196291
+  ...
+# Subtest: V2 128-vertex limit rejects extra input without mutating or truncating existing draft
+ok 45 - V2 128-vertex limit rejects extra input without mutating or truncating existing draft
+  ---
+  duration_ms: 48.1785
+  ...
+# Subtest: V3 environment fails closed for trial/release/missing/errors and master disable; query cannot grant access
+ok 46 - V3 environment fails closed for trial/release/missing/errors and master disable; query cannot grant access
+  ---
+  duration_ms: 1.643666
+  ...
+# Subtest: V3 packaged local geometry equals canonical source and hash, not demo numbering or clinical state
+ok 47 - V3 packaged local geometry equals canonical source and hash, not demo numbering or clinical state
+  ---
+  duration_ms: 26.197666
+  ...
+# Subtest: V3 actual labels aggregate all islands, per-view and anatomical-side filtering never mirrors
+ok 48 - V3 actual labels aggregate all islands, per-view and anatomical-side filtering never mirrors
+  ---
+  duration_ms: 17.870125
+  ...
+# Subtest: V3 page full/single/hide, label persistence, absent view, side, focus/reset, label toggle and reentry
+ok 49 - V3 page full/single/hide, label persistence, absent view, side, focus/reset, label toggle and reentry
+  ---
+  duration_ms: 2.731375
+  ...
+# Subtest: V3 atlas operations neither read nor write an existing V2 authority, including an unfinished draft
+ok 50 - V3 atlas operations neither read nor write an existing V2 authority, including an unfinished draft
+  ---
+  duration_ms: 6.185916
+  ...
+# Subtest: V3 draw MultiPolygon/hole uses closed paths from the same normalized coordinates; bbox only focuses
+ok 51 - V3 draw MultiPolygon/hole uses closed paths from the same normalized coordinates; bbox only focuses
+  ---
+  duration_ms: 0.759291
+  ...
+# Subtest: V3 wrong template/version/view/atlas identity fails closed; default null draws nothing
+ok 52 - V3 wrong template/version/view/atlas identity fails closed; default null draws nothing
+  ---
+  duration_ms: 0.277333
+  ...
+# Subtest: V3 overlay follows existing full/focus/resize transform and CSS stroke width remains fixed
+ok 53 - V3 overlay follows existing full/focus/resize transform and CSS stroke width remains fixed
+  ---
+  duration_ms: 1.422542
+  ...
+# Subtest: V3 label collisions suppressed, label switch leaves geometry unchanged
+ok 54 - V3 label collisions suppressed, label switch leaves geometry unchanged
+  ---
+  duration_ms: 0.361459
+  ...
+# Subtest: V3.1 group lists use actual labels, retain complete branch names, and disjointly partition all configured geometry
+ok 55 - V3.1 group lists use actual labels, retain complete branch names, and disjointly partition all configured geometry
+  ---
+  duration_ms: 1.778542
+  ...
+# Subtest: V3.1 face direct selection, anatomical side, back no-data and group changes remain consistent with picker geometry
+ok 56 - V3.1 face direct selection, anatomical side, back no-data and group changes remain consistent with picker geometry
+  ---
+  duration_ms: 6.67975
+  ...
+# Subtest: V3.1 local viewing presets use frozen model coordinates, retain selection and map anatomical feet correctly on each view
+ok 57 - V3.1 local viewing presets use frozen model coordinates, retain selection and map anatomical feet correctly on each view
+  ---
+  duration_ms: 1.510167
+  ...
+# Subtest: V3.1 full-body suppresses small face/foot text only; local zoom restores labels without changing painted polygons
+ok 58 - V3.1 full-body suppresses small face/foot text only; local zoom restores labels without changing painted polygons
+  ---
+  duration_ms: 3.359417
+  ...
+# Subtest: V3.1 every added action rechecks development access and cannot retain a previously visible overlay
+ok 59 - V3.1 every added action rechecks development access and cannot retain a previously visible overlay
+  ---
+  duration_ms: 2.30725
+  ...
+# Subtest: V3 homepage hides production entry and rechecks a stale visible button before navigation
+ok 60 - V3 homepage hides production entry and rechecks a stale visible button before navigation
+  ---
+  duration_ms: 0.282125
+  ...
+# Subtest: 新模板正背面资源、逻辑比例、版本及区域显式绑定，源文件存在
+ok 61 - 新模板正背面资源、逻辑比例、版本及区域显式绑定，源文件存在
+  ---
+  duration_ms: 3.24
+  ...
+# Subtest: 每面8个独立UI区域、16个唯一ID，头颈存在且能居中放大
+ok 62 - 每面8个独立UI区域、16个唯一ID，头颈存在且能居中放大
+  ---
+  duration_ms: 4.462291
+  ...
+# Subtest: 几何不变可更换配色/线条资源；几何、视图、尺寸或区域错版明确拒绝
+ok 63 - 几何不变可更换配色/线条资源；几何、视图、尺寸或区域错版明确拒绝
+  ---
+  duration_ms: 2.241375
+  ...
+# Subtest: 连续人体轮廓命中头颈躯干/双臂手/双腿足，拒绝臂躯间隙与腿间留白
+ok 64 - 连续人体轮廓命中头颈躯干/双臂手/双腿足，拒绝臂躯间隙与腿间留白
+  ---
+  duration_ms: 13.202125
+  ...
+# Subtest: 外部素材保留自然非对称及独立正背面，全身轮廓适配Canvas
+ok 65 - 外部素材保留自然非对称及独立正背面，全身轮廓适配Canvas
+  ---
+  duration_ms: 4.19025
+  ...
+# Subtest: 同一二次曲线路径细分命中，边缘容差不吸附，开放路径拒绝
+ok 66 - 同一二次曲线路径细分命中，边缘容差不吸附，开放路径拒绝
+  ---
+  duration_ms: 0.366167
+  ...
+# Subtest: 原生Canvas本地触点和client触点识别，不猜测page坐标或DPR
+ok 67 - 原生Canvas本地触点和client触点识别，不猜测page坐标或DPR
+  ---
+  duration_ms: 0.5175
+  ...
+# Subtest: 真实矩形处理页面滚动：两种事件基准得到相同标准点
+ok 68 - 真实矩形处理页面滚动：两种事件基准得到相同标准点
+  ---
+  duration_ms: 1.853417
+  ...
+# Subtest: 三种尺寸区分有效人体、逻辑画布内留白、模型范围外；无效点不产生标准点
+ok 69 - 三种尺寸区分有效人体、逻辑画布内留白、模型范围外；无效点不产生标准点
+  ---
+  duration_ms: 2.021417
+  ...
+# Subtest: 归一化单点在放大、复位、尺寸变化时重投影；超出可见范围隐藏，不贴边
+ok 70 - 归一化单点在放大、复位、尺寸变化时重投影；超出可见范围隐藏，不贴边
+  ---
+  duration_ms: 2.593333
+  ...
+# Subtest: Canvas 正背面使用不同PNG资源且绘图状态成对恢复
+ok 71 - Canvas 正背面使用不同PNG资源且绘图状态成对恢复
+  ---
+  duration_ms: 2.858625
+  ...
+# Subtest: 区域高亮裁剪于人体轮廓，跨视图区域不会误画
+ok 72 - 区域高亮裁剪于人体轮廓，跨视图区域不会误画
+  ---
+  duration_ms: 3.416084
+  ...
+# Subtest: 初始化/尺寸适配/DPR 280×460×1
+ok 73 - 初始化/尺寸适配/DPR 280×460×1
+  ---
+  duration_ms: 2.251625
+  ...
+# Subtest: 初始化/尺寸适配/DPR 343×540×2
+ok 74 - 初始化/尺寸适配/DPR 343×540×2
+  ---
+  duration_ms: 1.386833
+  ...
+# Subtest: 初始化/尺寸适配/DPR 700×570×3
+ok 75 - 初始化/尺寸适配/DPR 700×570×3
+  ---
+  duration_ms: 0.733625
+  ...
+# Subtest: 反复切换、区域放大与复位不累加 DPR/模型缩放
+ok 76 - 反复切换、区域放大与复位不累加 DPR/模型缩放
+  ---
+  duration_ms: 6.778333
+  ...
+# Subtest: hide/show、resize 重测尺寸；detached 后忽略异步结果
+ok 77 - hide/show、resize 重测尺寸；detached 后忽略异步结果
+  ---
+  duration_ms: 1.865792
+  ...
+# Subtest: 初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口
+ok 78 - 初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口
+  ---
+  duration_ms: 0.437666
+  ...
+# Subtest: 页面选择校验、换面清理、区域切换与复位状态
+ok 79 - 页面选择校验、换面清理、区域切换与复位状态
+  ---
+  duration_ms: 0.79925
+  ...
+# Subtest: 调试默认关闭，不采集坐标；开启后实际触点形成单个十字和真实事件
+ok 80 - 调试默认关闭，不采集坐标；开启后实际触点形成单个十字和真实事件
+  ---
+  duration_ms: 3.823958
+  ...
+# Subtest: DPR1/2/3不会进入点击归一化，client触点与Canvas触点一致
+ok 81 - DPR1/2/3不会进入点击归一化，client触点与Canvas触点一致
+  ---
+  duration_ms: 8.404458
+  ...
+# Subtest: 十字随区域放大、复位及resize重投影；原标准坐标不变，出视口时隐藏
+ok 82 - 十字随区域放大、复位及resize重投影；原标准坐标不变，出视口时隐藏
+  ---
+  duration_ms: 7.349292
+  ...
+# Subtest: 留白及模型外点击清除旧十字，不伪造标准点，不改变所选区域
+ok 83 - 留白及模型外点击清除旧十字，不伪造标准点，不改变所选区域
+  ---
+  duration_ms: 5.165375
+  ...
+# Subtest: 关闭调试或换面清除单点，重新开启/换回不复用另一视图的点
+ok 84 - 关闭调试或换面清除单点，重新开启/换回不复用另一视图的点
+  ---
+  duration_ms: 1.50525
+  ...
+# Subtest: 拖动/滚动、取消触摸和多触点不当作点击；不会创建病灶集合
+ok 85 - 拖动/滚动、取消触摸和多触点不当作点击；不会创建病灶集合
+  ---
+  duration_ms: 0.355042
+  ...
+# Subtest: 点击查询期间切换视口或detach丢弃旧结果；查询失败明确提示且不保留标记
+ok 86 - 点击查询期间切换视口或detach丢弃旧结果；查询失败明确提示且不保留标记
+  ---
+  duration_ms: 0.514042
+  ...
+# Subtest: 调试面板显示四位标准坐标及实际运行状态；关闭、换面和错版事件隔离
+ok 87 - 调试面板显示四位标准坐标及实际运行状态；关闭、换面和错版事件隔离
+  ---
+  duration_ms: 0.478584
+  ...
+# Subtest: 真实图片绘制分支：PNG未提供时拒绝画旧人体，正常帧确实调用drawImage
+ok 88 - 真实图片绘制分支：PNG未提供时拒绝画旧人体，正常帧确实调用drawImage
+  ---
+  duration_ms: 0.365958
+  ...
+# Subtest: 本地PNG异步加载期间不产生视口，旧面onload不会误画，新面成功后可复用缓存
+ok 89 - 本地PNG异步加载期间不产生视口，旧面onload不会误画，新面成功后可复用缓存
+  ---
+  duration_ms: 0.324792
+  ...
+# Subtest: PNG加载失败明确报错且不回退，重试成功；detach后的图片事件被丢弃
+ok 90 - PNG加载失败明确报错且不回退，重试成功；detach后的图片事件被丢弃
+  ---
+  duration_ms: 0.173417
+  ...
+# Subtest: 真实组件正常轻触经rect与统一逆变换报告选区一次，不放大、不生成调试点
+ok 91 - 真实组件正常轻触经rect与统一逆变换报告选区一次，不放大、不生成调试点
+  ---
+  duration_ms: 0.451542
+  ...
+# Subtest: 选择、局部、调试与弹层优先级隔离；弹层中途打开会废弃待返回的触摸结果
+ok 92 - 选择、局部、调试与弹层优先级隔离；弹层中途打开会废弃待返回的触摸结果
+  ---
+  duration_ms: 1.482959
+  ...
+# Subtest: 正常模式拖动、多指、取消也不误选，布局变更后旧尺寸拒绝并重新测量
+ok 93 - 正常模式拖动、多指、取消也不误选，布局变更后旧尺寸拒绝并重新测量
+  ---
+  duration_ms: 0.390334
+  ...
+# Subtest: 正常选择区分重叠和人体外，查询失败不伪造选区；换面丢弃旧触点
+ok 94 - 正常选择区分重叠和人体外，查询失败不伪造选区；换面丢弃旧触点
+  ---
+  duration_ms: 4.122209
+  ...
+# Subtest: 320/375/430宽及矮屏节点重测：独立手算胸点选择、放大/复位和双侧无漂移
+ok 95 - 320/375/430宽及矮屏节点重测：独立手算胸点选择、放大/复位和双侧无漂移
+  ---
+  duration_ms: 6.506625
+  ...
+# Subtest: 弹层隐藏期间停止测量绘图；关闭后同一模板、图片缓存、局部视口和调试标准点恢复
+ok 96 - 弹层隐藏期间停止测量绘图；关闭后同一模板、图片缓存、局部视口和调试标准点恢复
+  ---
+  duration_ms: 0.773708
+  ...
+# Subtest: V2 focused annotation input is exclusive, same viewport and strict body; debug/readonly/block pause it
+ok 97 - V2 focused annotation input is exclusive, same viewport and strict body; debug/readonly/block pause it
+  ---
+  duration_ms: 1.853
+  ...
+# Subtest: V2 gesture/repeated end/stale revision and modal callbacks cannot add points; rect refresh handles scrolling
+ok 98 - V2 gesture/repeated end/stale revision and modal callbacks cannot add points; rect refresh handles scrolling
+  ---
+  duration_ms: 4.370625
+  ...
+# Subtest: V2 actual renderer uses same fixed CSS projection; open draft has no fill and selected fill precedes debug
+ok 99 - V2 actual renderer uses same fixed CSS projection; open draft has no fill and selected fill precedes debug
+  ---
+  duration_ms: 3.071167
+  ...
+# Subtest: V3 actual body-canvas accepts independent atlas/focus props; readonly emits no lesion/selection input and null restores V1 defaults
+ok 100 - V3 actual body-canvas accepts independent atlas/focus props; readonly emits no lesion/selection input and null restores V1 defaults
+  ---
+  duration_ms: 18.530125
+  ...
+# Subtest: 实际启用Commons新模板与真实PNG，原SVG和许可来源可核对，拒绝旧几何
+ok 101 - 实际启用Commons新模板与真实PNG，原SVG和许可来源可核对，拒绝旧几何
+  ---
+  duration_ms: 4.373875
+  ...
+# Subtest: 16个新区域独立配准源图参考点；旧头部边界不能直接复用
+ok 102 - 16个新区域独立配准源图参考点；旧头部边界不能直接复用
+  ---
+  duration_ms: 6.107125
+  ...
+# Subtest: 实际PNG透明度与命中轮廓密集抽样一致，含四肢间隙，不能仅用矩形命中
+ok 103 - 实际PNG透明度与命中轮廓密集抽样一致，含四肢间隙，不能仅用矩形命中
+  ---
+  duration_ms: 743.358458
+  ...
+# Subtest: 头颈胸腹背及四肢全部放大范围，三种容器/DPR下同点探测与复位不变
+ok 104 - 头颈胸腹背及四肢全部放大范围，三种容器/DPR下同点探测与复位不变
+  ---
+  duration_ms: 9.643083
+  ...
+# Subtest: 前后使用同一尺度与画布，保持原视图差异，历史点明确失效
+ok 105 - 前后使用同一尺度与画布，保持原视图差异，历史点明确失效
+  ---
+  duration_ms: 0.181209
+  ...
+# Subtest: A 标准坐标正向转换：独立手算 0.5 比例与 16px 留白
+ok 106 - A 标准坐标正向转换：独立手算 0.5 比例与 16px 留白
+  ---
+  duration_ms: 0.673667
+  ...
+# Subtest: B CSS 坐标逆向转换：手算容器中心
+ok 107 - B CSS 坐标逆向转换：手算容器中心
+  ---
+  duration_ms: 0.072917
+  ...
+# Subtest: C 三种尺寸 11×11 参考点往返，最大允许误差 1e-9
+ok 108 - C 三种尺寸 11×11 参考点往返，最大允许误差 1e-9
+  ---
+  duration_ms: 1.251125
+  ...
+# Subtest: D 宽/窄容器始终等比例，分别产生上下和左右留白
+ok 109 - D 宽/窄容器始终等比例，分别产生上下和左右留白
+  ---
+  duration_ms: 0.145417
+  ...
+# Subtest: E 留白、Canvas 外部以及非有限点击拒绝，不吸附边缘
+ok 110 - E 留白、Canvas 外部以及非有限点击拒绝，不吸附边缘
+  ---
+  duration_ms: 0.284041
+  ...
+# Subtest: F 区域放大居中、四角留在容器内，标准位置保持一致
+ok 111 - F 区域放大居中、四角留在容器内，标准位置保持一致
+  ---
+  duration_ms: 0.531584
+  ...
+# Subtest: G 复位恢复原全身视口，放大不会修改原始点或区域
+ok 112 - G 复位恢复原全身视口，放大不会修改原始点或区域
+  ---
+  duration_ms: 0.60725
+  ...
+# Subtest: H 拒绝非法容器尺寸 0
+ok 113 - H 拒绝非法容器尺寸 0
+  ---
+  duration_ms: 0.305333
+  ...
+# Subtest: H 拒绝非法容器尺寸 -1
+ok 114 - H 拒绝非法容器尺寸 -1
+  ---
+  duration_ms: 0.266833
+  ...
+# Subtest: H 拒绝非法容器尺寸 NaN
+ok 115 - H 拒绝非法容器尺寸 NaN
+  ---
+  duration_ms: 0.3785
+  ...
+# Subtest: H 拒绝非法容器尺寸 Infinity
+ok 116 - H 拒绝非法容器尺寸 Infinity
+  ---
+  duration_ms: 0.191
+  ...
+# Subtest: H 拒绝非法容器尺寸 -Infinity
+ok 117 - H 拒绝非法容器尺寸 -Infinity
+  ---
+  duration_ms: 0.07225
+  ...
+# Subtest: H 拒绝异常模型、留白、区域和标准点数值
+ok 118 - H 拒绝异常模型、留白、区域和标准点数值
+  ---
+  duration_ms: 0.5065
+  ...
+# Subtest: I 边界点 (0,0)、(1,1) 与全画布放大复位
+ok 119 - I 边界点 (0,0)、(1,1) 与全画布放大复位
+  ---
+  duration_ms: 0.130083
+  ...
+# Subtest: H 拒绝调用方构造的无效视口，不返回 NaN 或伪造坐标
+ok 120 - H 拒绝调用方构造的无效视口，不返回 NaN 或伪造坐标
+  ---
+  duration_ms: 0.143959
+  ...
+# Subtest: J 正背面区域独立、ID唯一、解剖学左右正确，区域中心可往返
+ok 121 - J 正背面区域独立、ID唯一、解剖学左右正确，区域中心可往返
+  ---
+  duration_ms: 0.954417
+  ...
+# Subtest: 人工非医学夹具：唯一、重叠、边界、人体外和人体内无配置分别报告
+ok 122 - 人工非医学夹具：唯一、重叠、边界、人体外和人体内无配置分别报告
+  ---
+  duration_ms: 1.144084
+  ...
+# Subtest: 真实区域使用多边形且保留独立前后与解剖学左右，唯一点不会串面
+ok 123 - 真实区域使用多边形且保留独立前后与解剖学左右，唯一点不会串面
+  ---
+  duration_ms: 4.676959
+  ...
+# Subtest: 真实头颈/颈胸/胸腹边界有明确候选，不通过扩大包围盒吞掉人体间隙
+ok 124 - 真实头颈/颈胸/胸腹边界有明确候选，不通过扩大包围盒吞掉人体间隙
+  ---
+  duration_ms: 0.515833
+  ...
+# Subtest: V1.6源图人工参考点：胸侧/双上臂/肩界两侧/颈腹与公共边界，不从命中函数产生期望
+ok 125 - V1.6源图人工参考点：胸侧/双上臂/肩界两侧/颈腹与公共边界，不从命中函数产生期望
+  ---
+  duration_ms: 4.591583
+  ...
+# Subtest: 旧胸/上背上臂混选复现；新配置同点只属对应上肢，focus留白不参与最终判定
+ok 126 - 旧胸/上背上臂混选复现；新配置同点只属对应上肢，focus留白不参与最终判定
+  ---
+  duration_ms: 1.079917
+  ...
+# Subtest: 高亮实际fill路径就是命中outline，轻实线宽度始终1 CSS px；源图裁切状态恢复
+ok 127 - 高亮实际fill路径就是命中outline，轻实线宽度始终1 CSS px；源图裁切状态恢复
+  ---
+  duration_ms: 4.048875
+  ...
+# Subtest: 手工源图参考点跨全身/胸部focus/复位及320/375/430/矮容器归属不变
+ok 128 - 手工源图参考点跨全身/胸部focus/复位及320/375/430/矮容器归属不变
+  ---
+  duration_ms: 43.091208
+  ...
+# Subtest: 初始无默认选择、不可放大；人体唯一命中只高亮，确认后才进入focused
+ok 129 - 初始无默认选择、不可放大；人体唯一命中只高亮，确认后才进入focused
+  ---
+  duration_ms: 0.664875
+  ...
+# Subtest: 从列表和人体选中相同状态，focused换部位回overview，取消弹层不改选择/视口
+ok 130 - 从列表和人体选中相同状态，focused换部位回overview，取消弹层不改选择/视口
+  ---
+  duration_ms: 0.304625
+  ...
+# Subtest: 人体外/未配置保留原选择并提示；边界弹候选，取消不抢占，候选选中后不放大
+ok 131 - 人体外/未配置保留原选择并提示；边界弹候选，取消不抢占，候选选中后不放大
+  ---
+  duration_ms: 0.339541
+  ...
+# Subtest: 调试/弹层/说明/错版隔离正常选区，切面清空选择缩放与调试，拒绝跨面列表ID
+ok 132 - 调试/弹层/说明/错版隔离正常选区，切面清空选择缩放与调试，拒绝跨面列表ID
+  ---
+  duration_ms: 0.170166
+  ...
+# Subtest: 开发调试低干扰入口可关闭并清点；说明是真实许可，不调用未来评估或标注接口
+ok 133 - 开发调试低干扰入口可关闭并清点；说明是真实许可，不调用未来评估或标注接口
+  ---
+  duration_ms: 0.189708
+  ...
+# Subtest: region-picker只展示配置并发送已知ID，关闭/遮罩不偷偷选择
+ok 134 - region-picker只展示配置并发送已知ID，关闭/遮罩不偷偷选择
+  ---
+  duration_ms: 0.379459
+  ...
+1..134
+# tests 134
+# suites 0
+# pass 134
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1074.460667
+
+exit=0
+
+command=["/Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/bin/python", "scripts/check_annotation_geometry.py"]
+cwd=/Users/griplan/project/extra/Shingles‌/dermatome-mapper
+PASSED actual front: valid simple single outer body, no holes; 1563 source vertices
+PASSED actual back: valid simple single outer body, no holes; 1487 source vertices
+PASSED: 2421 deterministic fixture/random cases agree with independent Shapely validity and covers; seed 20261023, 400 cases/body, 6 bodies.
+Node geometry audit only; not WeChat runtime, clinical accuracy or handset performance.
+
+exit=0
+
+command=["/Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/bin/python", "scripts/check_body_regions.py"]
+cwd=/Users/griplan/project/extra/Shingles‌/dermatome-mapper
+front left torso/arm source-body overlap: old=2054.254475, new=0.000000 logical square units
+front right torso/arm source-body overlap: old=2054.503216, new=0.000000 logical square units
+PASSED: front: 8 valid closed simple polygons, 28 pairs zero interior overlap, shared torso/arm edges, focus containment, source-body coverage (unassigned area=0.00000000).
+back left torso/arm source-body overlap: old=2123.218952, new=0.000000 logical square units
+back right torso/arm source-body overlap: old=2183.434057, new=0.000000 logical square units
+PASSED: back: 8 valid closed simple polygons, 28 pairs zero interior overlap, shared torso/arm edges, focus containment, source-body coverage (unassigned area=0.00000000).
+Engineering UI geometry only; no medical or real-WeChat acceptance claim.
+
+exit=0
+
+command=["/Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/bin/python", "scripts/check_atlas.py"]
+cwd=/Users/griplan/project/extra/Shingles‌/dermatome-mapper
+PASSED: V0 图谱 JSON/元数据符合约束；正背面为空、未验证、不可用于医学映射。
+此检查不验证多边形几何、来源真实性或医学准确性。
+
+exit=0
+
+command=["/Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/bin/python", "scripts/check_project.py"]
+cwd=/Users/griplan/project/extra/Shingles‌/dermatome-mapper
+PASSED: V0～V3 必要文件、目录、JSON、五页导航、组件注册及 Canvas 2D 配置完整。
+此检查不代表 WXML/WXSS 编译、页面导航交互或真机验证通过。
+
+exit=0
+
+command=["/Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/bin/python", "-m", "pytest"]
+cwd=/Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.15.1
+collected 12 items
+
+tests/test_api.py ...........                                            [ 91%]
+tests/test_health.py .                                                   [100%]
+
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 12 passed, 1 warning in 0.21s =========================
+
+exit=0
+
+command=["python3", "scripts/sync_atlas.py", "--check"]
+cwd=/Users/griplan/project/extra/Shingles‌/dermatome-mapper
+PASSED: canonical hash and generated package copy agree
+
+exit=0
+
+command=["/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/node_modules/wcc-exec/wcc", "pages/index/index.wxml", "pages/select/select.wxml", "pages/annotate/annotate.wxml", "pages/result/result.wxml", "pages/atlas-debug/atlas-debug.wxml", "components/body-canvas/body-canvas.wxml", "components/region-picker/region-picker.wxml", "-o", "/private/tmp/v31-wxml.js"]
+cwd=/Users/griplan/project/extra/Shingles‌/dermatome-mapper/miniprogram
+
+exit=0
+
+command=["/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/node_modules/wcc-exec/wcsc", "pages/index/index.wxss", "pages/select/select.wxss", "pages/annotate/annotate.wxss", "pages/result/result.wxss", "pages/atlas-debug/atlas-debug.wxss", "components/body-canvas/body-canvas.wxss", "components/region-picker/region-picker.wxss", "-o", "/private/tmp/v31-wxss.js"]
+cwd=/Users/griplan/project/extra/Shingles‌/dermatome-mapper/miniprogram
+
+exit=0

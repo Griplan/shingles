@@ -1,0 +1,71 @@
+V1.1 final automated validation
+Date: 2026-10-18 Asia/Shanghai
+Frontend: installed TypeScript 5.9.3; Canvas tests are explicit doubles.
+
+COMMAND: ['npm', 'run', 'typecheck']
+CWD: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/miniprogram
+
+> dermatome-mapper-miniprogram@0.0.0 typecheck
+> tsc --noEmit
+
+pages/select/select.ts(30,18): error TS2345: Argument of type '{ view: string; regions: readonly BodyRegion[]; modelId: string; modelVersion: string; logicalWidth: number; logicalHeight: number; selectedRegion: string; selectedName: string; zoomRegion: string; screenLeft: string; screenRight: string; } & { ...; }' is not assignable to parameter of type 'Partial<{ view: BodyView; regions: readonly BodyRegion[]; modelId: string; modelVersion: string; logicalWidth: number; logicalHeight: number; selectedRegion: string; selectedName: string; ... 12 more ...; offsetY: string; } & { ...; }> & IAnyObject'.
+  Type '{ view: string; regions: readonly BodyRegion[]; modelId: string; modelVersion: string; logicalWidth: number; logicalHeight: number; selectedRegion: string; selectedName: string; zoomRegion: string; screenLeft: string; screenRight: string; } & { ...; }' is not assignable to type 'Partial<{ view: BodyView; regions: readonly BodyRegion[]; modelId: string; modelVersion: string; logicalWidth: number; logicalHeight: number; selectedRegion: string; selectedName: string; ... 12 more ...; offsetY: string; } & { ...; }>'.
+    Types of property 'view' are incompatible.
+      Type 'string' is not assignable to type 'BodyView | undefined'.
+
+
+EXIT_CODE: 2
+
+COMMAND: ['npm', 'test']
+CWD: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/miniprogram
+
+> dermatome-mapper-miniprogram@0.0.0 test
+> node ../scripts/test_miniprogram.cjs
+
+pages/select/select.ts(30,18): error TS2345: Argument of type '{ view: string; regions: readonly BodyRegion[]; modelId: string; modelVersion: string; logicalWidth: number; logicalHeight: number; selectedRegion: string; selectedName: string; zoomRegion: string; screenLeft: string; screenRight: string; } & { ...; }' is not assignable to parameter of type 'Partial<{ view: BodyView; regions: readonly BodyRegion[]; modelId: string; modelVersion: string; logicalWidth: number; logicalHeight: number; selectedRegion: string; selectedName: string; ... 12 more ...; offsetY: string; } & { ...; }> & IAnyObject'.
+  Type '{ view: string; regions: readonly BodyRegion[]; modelId: string; modelVersion: string; logicalWidth: number; logicalHeight: number; selectedRegion: string; selectedName: string; zoomRegion: string; screenLeft: string; screenRight: string; } & { ...; }' is not assignable to type 'Partial<{ view: BodyView; regions: readonly BodyRegion[]; modelId: string; modelVersion: string; logicalWidth: number; logicalHeight: number; selectedRegion: string; selectedName: string; ... 12 more ...; offsetY: string; } & { ...; }>'.
+    Types of property 'view' are incompatible.
+      Type 'string' is not assignable to type 'BodyView | undefined'.
+
+
+EXIT_CODE: 2
+
+COMMAND: ['/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/backend/.venv/bin/python', '-m', 'pytest']
+CWD: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.15.1
+collected 12 items
+
+tests/test_api.py ...........                                            [ 91%]
+tests/test_health.py .                                                   [100%]
+
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 12 passed, 1 warning in 0.18s =========================
+
+
+EXIT_CODE: 0
+
+COMMAND: ['/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/backend/.venv/bin/python', 'scripts/check_atlas.py']
+CWD: /Users/griplan/project/extra/Shingles‌/dermatome-mapper
+PASSED: V0 图谱 JSON/元数据符合约束；正背面为空、未验证、不可用于医学映射。
+此检查不验证多边形几何、来源真实性或医学准确性。
+
+
+EXIT_CODE: 0
+
+COMMAND: ['/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/backend/.venv/bin/python', 'scripts/check_project.py']
+CWD: /Users/griplan/project/extra/Shingles‌/dermatome-mapper
+PASSED: V0/V1/V1.1 必要文件、目录、JSON、四页导航、组件注册及 Canvas 2D 配置完整。
+此检查不代表 WXML/WXSS 编译、页面导航交互或真机验证通过。
+
+
+EXIT_CODE: 0

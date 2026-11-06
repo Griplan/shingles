@@ -1,0 +1,1 @@
++																					783 text V54_NATIVE_FIRST {"route":"pages/annotate/annotate","requests":1,"httpMs":[125],"status":"ready","selected":"","regions":5,"labels":5,"pieces":8,"holes":5,"vertices":1015,"scale":0.72,"angle":28,"cameraRetained":true,"photoNotSent":true}

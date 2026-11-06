@@ -1,0 +1,98 @@
+{
+  "time": "2026-11-05T22:09:05+08:00",
+  "a": {
+    "MainPID": "611289",
+    "NRestarts": "0",
+    "ControlGroup": "/system.slice/acupuncture.service",
+    "MemoryCurrent": "187363328",
+    "CPUUsageNSec": "123407076000",
+    "ActiveState": "active",
+    "ActiveEnterTimestamp": "Wed 2026-11-04 23:53:58 CST"
+  },
+  "nginx": {
+    "MainPID": "12643",
+    "NRestarts": "0",
+    "ControlGroup": "/system.slice/nginx.service",
+    "MemoryCurrent": "11956224",
+    "CPUUsageNSec": "24668562000",
+    "ActiveState": "active",
+    "ActiveEnterTimestamp": "Thu 2026-10-08 13:25:29 CST"
+  },
+  "b": {
+    "MainPID": "813352",
+    "NRestarts": "0",
+    "ControlGroup": "/system.slice/dermatome.service",
+    "MemoryCurrent": "63938560",
+    "CPUUsageNSec": "35631416000",
+    "ActiveState": "active",
+    "ActiveEnterTimestamp": "Thu 2026-11-05 14:40:26 CST"
+  },
+  "memory": "total        used        free      shared  buff/cache   available\nMem:      3904065536   979865600   818565120     2813952  2413199360  2924199936\nSwap:     2084564992      536576  2084028416",
+  "disk": "Filesystem       1B-blocks       Used   Available Use% Mounted on\n/dev/vda2      42156257280 9909436416 30404960256  25% /",
+  "ports": "State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\nLISTEN 0      4096   127.0.0.53%lo:53        0.0.0.0:*          \nLISTEN 0      4096         0.0.0.0:22        0.0.0.0:*          \nLISTEN 0      511          0.0.0.0:80        0.0.0.0:*          \nLISTEN 0      511          0.0.0.0:443       0.0.0.0:*          \nLISTEN 0      4096      127.0.0.54:53        0.0.0.0:*          \nLISTEN 0      32         127.0.0.1:8001      0.0.0.0:*          \nLISTEN 0      2048       127.0.0.1:8000      0.0.0.0:*          \nLISTEN 0      4096            [::]:22           [::]:*          \nLISTEN 0      511             [::]:80           [::]:*          \nLISTEN 0      511             [::]:443          [::]:*",
+  "vm": {
+    "pswpin": 0,
+    "pswpout": 5,
+    "oom_kill": 0
+  },
+  "hashes": {
+    "/etc/systemd/system/acupuncture.service": "833ab4b2bfd63c264b26719004f5e169b50c973f23bb16e891ae488c489af89a",
+    "/etc/nginx/nginx.conf": "48c6a4ec1e1fd28ccf968490f07e34a1d7f755793b2108a3ed8670b1ee2a0aa2",
+    "/etc/nginx/sites-enabled/acupuncture-domain": "eb56f9f42003fd9df8fad1cd296c05728fbcb1d9bc3451ccacf7903a8b27ae78",
+    "/etc/nginx/sites-enabled/acupuncture": "db30b2164afcf41b2fdbf8ae4d2464deca988f3d1312063e99bd5d34123c79c8",
+    "/etc/nginx/sites-enabled/dermatome-ip-test": "3729c6da8ef09069ca78ca3e7f207811eea0fc4daf99bfa166f260048ea4fa15",
+    "/srv/acupuncture/backend/main.py": "89802533162251b9b881774f871b855cf9fead34673831e9ff8d626dc0625c81",
+    "/srv/acupuncture/.venv/pyvenv.cfg": "11cb0ba728576bfdfb7cc6cd7fb333c2ef832f750fcc126a45c7a6db758e8b69"
+  },
+  "health": {
+    "status": 200,
+    "body": {
+      "status": "ok",
+      "ai_ready": true
+    },
+    "ms": 27.20249118283391
+  },
+  "ready": {
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "ai_ready": true,
+      "model_ready": true,
+      "results_ready": true
+    },
+    "ms": 0.8881101384758949
+  },
+  "https_health": {
+    "status": 200,
+    "body": {
+      "status": "ok",
+      "ai_ready": true
+    },
+    "ms": 22.826931905001402
+  },
+  "https_ready": {
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "ai_ready": true,
+      "model_ready": true,
+      "results_ready": true
+    },
+    "ms": 11.324668768793344
+  },
+  "b_process": {
+    "VmHWM": "99780 kB",
+    "VmRSS": "87392 kB",
+    "Threads": "2"
+  },
+  "b_limits": {
+    "memory.max": "1610612736",
+    "memory.high": "1342177280",
+    "memory.current": "63938560",
+    "memory.peak": "77058048",
+    "memory.swap.current": "0",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+    "cpu.max": "100000 100000",
+    "cpu.stat": "usage_usec 35631416\nuser_usec 32287165\nsystem_usec 3344250\ncore_sched.force_idle_usec 0\nnr_periods 62560\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0"
+  }
+}

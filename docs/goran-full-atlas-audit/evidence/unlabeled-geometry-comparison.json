@@ -1,0 +1,74 @@
+[
+  {
+    "file": "Dermatomes_unlabeled,_male_front-back_3d-shaded.svg",
+    "group": "root/4/1",
+    "parentGroup": "root/10/1",
+    "paths": 42,
+    "maxSymmetricDifferenceArea": 0.0,
+    "sumSymmetricDifferenceArea": 0.0,
+    "comparisonSpace": "Same container coordinates; layout translation excluded; existing adaptive sampler .12 source units."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_male_front-back_3d-shaded.svg",
+    "group": "root/7/1",
+    "parentGroup": "root/14/1",
+    "paths": 50,
+    "maxSymmetricDifferenceArea": 3.314490015782509e-14,
+    "sumSymmetricDifferenceArea": 3.314490015782509e-14,
+    "comparisonSpace": "Same container coordinates; layout translation excluded; existing adaptive sampler .12 source units."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female-male_front-back_3d-shaded.svg",
+    "group": "root/2/1",
+    "parentGroup": "root/2/1",
+    "paths": 47,
+    "maxSymmetricDifferenceArea": 3.527190983732007e-13,
+    "sumSymmetricDifferenceArea": 5.19725045222686e-13,
+    "comparisonSpace": "Same container coordinates; layout translation excluded; existing adaptive sampler .12 source units."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female-male_front-back_3d-shaded.svg",
+    "group": "root/5/1",
+    "parentGroup": "root/6/1",
+    "paths": 43,
+    "maxSymmetricDifferenceArea": 7.361012271389633e-12,
+    "sumSymmetricDifferenceArea": 7.67661990030977e-12,
+    "comparisonSpace": "Same container coordinates; layout translation excluded; existing adaptive sampler .12 source units."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female-male_front-back_3d-shaded.svg",
+    "group": "root/8/1",
+    "parentGroup": "root/10/1",
+    "paths": 42,
+    "maxSymmetricDifferenceArea": 0.0,
+    "sumSymmetricDifferenceArea": 0.0,
+    "comparisonSpace": "Same container coordinates; layout translation excluded; existing adaptive sampler .12 source units."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female-male_front-back_3d-shaded.svg",
+    "group": "root/11/1",
+    "parentGroup": "root/14/1",
+    "paths": 50,
+    "maxSymmetricDifferenceArea": 3.314490015782509e-14,
+    "sumSymmetricDifferenceArea": 3.314490015782509e-14,
+    "comparisonSpace": "Same container coordinates; layout translation excluded; existing adaptive sampler .12 source units."
+  },
+  {
+    "file": "Dermatomes_labeled,_male_front-back_3d-shaded.svg",
+    "group": "root/6/1",
+    "parentGroup": "root/10/1",
+    "paths": 42,
+    "maxSymmetricDifferenceArea": 0.0,
+    "sumSymmetricDifferenceArea": 0.0,
+    "comparisonSpace": "Same container coordinates; layout translation excluded; existing adaptive sampler .12 source units."
+  },
+  {
+    "file": "Dermatomes_labeled,_male_front-back_3d-shaded.svg",
+    "group": "root/10/1",
+    "parentGroup": "root/14/1",
+    "paths": 50,
+    "maxSymmetricDifferenceArea": 0.0,
+    "sumSymmetricDifferenceArea": 0.0,
+    "comparisonSpace": "Same container coordinates; layout translation excluded; existing adaptive sampler .12 source units."
+  }
+]

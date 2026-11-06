@@ -1,0 +1,1 @@
++																					793 text V54_RETRY_OK {"calls":[{"failed":true,"ms":21},{"status":200,"failed":false,"ms":105}],"sameLesions":true,"savedCount":1,"labels":6,"photoSent":false}

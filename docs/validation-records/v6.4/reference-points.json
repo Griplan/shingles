@@ -1,0 +1,65 @@
+{
+  "medicalReviewStatus": "pending",
+  "points": [
+    {
+      "view": "sole-left",
+      "point": {
+        "x": 0.35,
+        "y": 0.21
+      },
+      "expectedLabel": "L5",
+      "surface": "内侧前足/趾腹投影",
+      "selectionMethod": "人工查看原始足底与同源提取预览后固定；不是用匹配器生成；非医学真值"
+    },
+    {
+      "view": "sole-left",
+      "point": {
+        "x": 0.55,
+        "y": 0.65
+      },
+      "expectedLabel": "S1",
+      "surface": "足弓投影",
+      "selectionMethod": "人工查看原始足底与同源提取预览后固定；不是用匹配器生成；非医学真值"
+    },
+    {
+      "view": "sole-left",
+      "point": {
+        "x": 0.35,
+        "y": 0.85
+      },
+      "expectedLabel": "S1",
+      "surface": "跟垫",
+      "selectionMethod": "人工查看原始足底与同源提取预览后固定；不是用匹配器生成；非医学真值"
+    },
+    {
+      "view": "sole-right",
+      "point": {
+        "x": 0.65,
+        "y": 0.21
+      },
+      "expectedLabel": "L5",
+      "surface": "内侧前足/趾腹投影",
+      "selectionMethod": "人工查看原始足底与同源提取预览后固定；不是用匹配器生成；非医学真值"
+    },
+    {
+      "view": "sole-right",
+      "point": {
+        "x": 0.45,
+        "y": 0.65
+      },
+      "expectedLabel": "S1",
+      "surface": "足弓投影",
+      "selectionMethod": "人工查看原始足底与同源提取预览后固定；不是用匹配器生成；非医学真值"
+    },
+    {
+      "view": "sole-right",
+      "point": {
+        "x": 0.65,
+        "y": 0.85
+      },
+      "expectedLabel": "S1",
+      "surface": "跟垫",
+      "selectionMethod": "人工查看原始足底与同源提取预览后固定；不是用匹配器生成；非医学真值"
+    }
+  ]
+}

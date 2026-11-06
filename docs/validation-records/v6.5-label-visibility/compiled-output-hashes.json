@@ -1,0 +1,12 @@
+[
+  {
+    "name": "compiled-wxml.js",
+    "bytes": 76193,
+    "sha256": "6118171ab0655601d7ba4ed23b1ba4ab6ffe2187b826f977e9713043b6a8ef16"
+  },
+  {
+    "name": "compiled-wxss.js",
+    "bytes": 3241,
+    "sha256": "71f9e89f3526e61bb60f782be7743f8185d631145ccdaa6348023f5a3d5c84c8"
+  }
+]

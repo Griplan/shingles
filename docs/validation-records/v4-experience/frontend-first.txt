@@ -1,0 +1,338 @@
+
+> dermatome-mapper-miniprogram@0.0.0 test
+> node ../scripts/test_miniprogram.cjs
+
+✔ V1.2历史：新几何独立版本；前后同骨架、旧视觉与旧区域不静默迁移 (1.1735ms)
+✔ V1.2历史：设计比例单独检查：约7.5～8头身、裆50～54%、膝72～76%，不是医学准确率 (0.139708ms)
+✔ V1.2历史：轮廓本身胸肩加宽、腰髋收放：不只修改参考点或全图缩放 (0.347584ms)
+ℹ {"chestY":270,"oldChest":107.83838028169015,"chest":129.48642533936652,"waist":100.56126482213438,"hip":158.43705572116485}
+✔ V1.2历史：躯干、髋膝踝、肘腕与手足参考点在两面同源轮廓内；关节高度有序 (3.08725ms)
+✔ V1.2历史：16区域与新几何配准：肩肘腕手指、髋膝踝足均落在应属UI多边形内 (0.753875ms)
+✔ V1.2历史：前后膝部实际细节路径靠近同一设计关节，避免只下移膝标签 (0.181959ms)
+✔ V1.2历史：新关节参考点实际探测→十字重投影：三尺寸、前后、放大复位保持同一标准位置 (4.750041ms)
+✔ V2 entry rejects no selection/debug; route holds only session identifier, starts focused without coarse highlight (28.971459ms)
+✖ V2 automated page workflow: two front polygons/delete second/reenter/back polygon/review/edit (12.50725ms)
+✔ V2 page preserves invalid closure and draft switching choices; debug and modal pause input (4.236375ms)
+✔ V2 finish draft choices and return retain/discard; system hide/unload preserve immediate authority (3.891708ms)
+✔ V2 pending confirmation and point cannot mutate after hide or another revision (0.962583ms)
+✔ V2 geometry UI-A-triangle (1.336625ms)
+✔ V2 geometry UI-B-convex (0.522083ms)
+✔ V2 geometry UI-C-concave (0.252083ms)
+✔ V2 geometry UI-D-too-few (0.161084ms)
+✔ V2 geometry UI-E-repeat (0.242ms)
+✔ V2 geometry UI-F-collinear (0.098875ms)
+✔ V2 geometry UI-G-cross (0.089584ms)
+✔ V2 geometry UI-H-touch (0.067959ms)
+✔ V2 geometry UI-I-fold (0.088084ms)
+✔ V2 geometry UI-J-background-edge (2.269334ms)
+✔ V2 geometry UI-K-background-closing-edge (0.100666ms)
+✔ V2 geometry UI-L-fill-hole (0.164667ms)
+✔ V2 geometry UI-M-safe-beside-hole (0.1215ms)
+✔ V2 geometry UI-N-on-outer (0.079709ms)
+✔ V2 geometry UI-O-outside-near-edge (0.03125ms)
+✔ V2 geometry UI-P-inside-near-edge (0.044042ms)
+✔ V2 geometry UI-Q-disconnected-bridge (0.042916ms)
+✔ V2 geometry UI-R-one-part (0.081458ms)
+✔ V2 geometry UI-S-hole-boundary-fill (0.067375ms)
+✔ V2 geometry UI-T-sub-area (0.022209ms)
+✔ V2 geometry UI-U-tiny-valid (0.050541ms)
+✔ V2 malformed finite/type/range, unsupported nested/explicit closure and resource limits (0.0945ms)
+✔ V2 actual bound body: central shape and crossing entry chest→abdomen accepted; air bridge rejected (19.86575ms)
+✔ V2 full interval containment finds a narrow notch missed by sparse edge samples (0.174125ms)
+✔ V2.1 valid entry, unique immutable authority, immediate draft sync and stale token rejection (2.014ms)
+✔ V2.1 expired process/session and changed template/geometry/region version retain original data (0.151125ms)
+✔ V2.2 invalid close preserves draft; undo and cancel affect only current draft (9.333917ms)
+✔ V2.3 multiple overlapping regions stay independent; selected delete changes only target (2.583125ms)
+✔ V2.3 draft switch is atomic: cancel/invalid close retain; discard or valid close switch; views isolated (4.533792ms)
+✖ V2.4 reentry restores nonempty draft and its view; review guards zero/draft and continues same session (2.9845ms)
+✔ V2.5 focus is presentation only; entry navigation is not a polygon fence (1.410375ms)
+✔ V2 resource limits fail without truncation and IDs never reuse on cancel/delete (15.530458ms)
+✔ V2 128-vertex limit rejects extra input without mutating or truncating existing draft (45.96525ms)
+✔ V3 environment fails closed for trial/release/missing/errors and master disable; query cannot grant access (3.84025ms)
+✔ V3 packaged local geometry equals canonical source and hash, not demo numbering or clinical state (27.022958ms)
+✔ V3 actual labels aggregate all islands, per-view and anatomical-side filtering never mirrors (15.101209ms)
+✔ V3 page full/single/hide, label persistence, absent view, side, focus/reset, label toggle and reentry (4.610833ms)
+✔ V3 atlas operations neither read nor write an existing V2 authority, including an unfinished draft (4.715375ms)
+✔ V3 draw MultiPolygon/hole uses closed paths from the same normalized coordinates; bbox only focuses (0.489791ms)
+✔ V3 wrong template/version/view/atlas identity fails closed; default null draws nothing (0.142458ms)
+✔ V3 overlay follows existing full/focus/resize transform and CSS stroke width remains fixed (3.841375ms)
+✔ V3 label collisions suppressed, label switch leaves geometry unchanged (0.181792ms)
+✔ V3.1 group lists use actual labels, retain complete branch names, and disjointly partition all configured geometry (0.716541ms)
+✔ V3.1 face direct selection, anatomical side, back no-data and group changes remain consistent with picker geometry (12.000083ms)
+✔ V3.1 local viewing presets use frozen model coordinates, retain selection and map anatomical feet correctly on each view (2.331792ms)
+✔ V3.1 full-body suppresses small face/foot text only; local zoom restores labels without changing painted polygons (6.038375ms)
+✔ V3.1 every added action rechecks development access and cannot retain a previously visible overlay (1.321542ms)
+✔ V3 homepage hides production entry and rechecks a stale visible button before navigation (0.304875ms)
+✔ 新模板正背面资源、逻辑比例、版本及区域显式绑定，源文件存在 (1.582542ms)
+✔ 每面8个独立UI区域、16个唯一ID，头颈存在且能居中放大 (1.687208ms)
+✔ 几何不变可更换配色/线条资源；几何、视图、尺寸或区域错版明确拒绝 (2.209708ms)
+✔ 连续人体轮廓命中头颈躯干/双臂手/双腿足，拒绝臂躯间隙与腿间留白 (42.219542ms)
+✔ 外部素材保留自然非对称及独立正背面，全身轮廓适配Canvas (3.510667ms)
+✔ 同一二次曲线路径细分命中，边缘容差不吸附，开放路径拒绝 (0.187042ms)
+✔ 原生Canvas本地触点和client触点识别，不猜测page坐标或DPR (0.204583ms)
+✔ 真实矩形处理页面滚动：两种事件基准得到相同标准点 (0.384166ms)
+✔ 三种尺寸区分有效人体、逻辑画布内留白、模型范围外；无效点不产生标准点 (0.339208ms)
+✔ 归一化单点在放大、复位、尺寸变化时重投影；超出可见范围隐藏，不贴边 (3.030958ms)
+✔ Canvas 正背面使用不同PNG资源且绘图状态成对恢复 (5.205667ms)
+✔ 区域高亮裁剪于人体轮廓，跨视图区域不会误画 (6.629167ms)
+✖ 初始化/尺寸适配/DPR 280×460×1 (1.190334ms)
+✖ 初始化/尺寸适配/DPR 343×540×2 (0.255458ms)
+✖ 初始化/尺寸适配/DPR 700×570×3 (0.34575ms)
+✖ 反复切换、区域放大与复位不累加 DPR/模型缩放 (3.491958ms)
+✖ hide/show、resize 重测尺寸；detached 后忽略异步结果 (1.340958ms)
+✖ 初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口 (4.09675ms)
+✔ 页面选择校验、换面清理、区域切换与复位状态 (1.753584ms)
+✔ 调试默认关闭，不采集坐标；开启后实际触点形成单个十字和真实事件 (4.833292ms)
+✔ DPR1/2/3不会进入点击归一化，client触点与Canvas触点一致 (5.273583ms)
+✔ 十字随区域放大、复位及resize重投影；原标准坐标不变，出视口时隐藏 (12.339917ms)
+✔ 留白及模型外点击清除旧十字，不伪造标准点，不改变所选区域 (2.66425ms)
+✔ 关闭调试或换面清除单点，重新开启/换回不复用另一视图的点 (3.290208ms)
+✔ 拖动/滚动、取消触摸和多触点不当作点击；不会创建病灶集合 (1.013666ms)
+✖ 点击查询期间切换视口或detach丢弃旧结果；查询失败明确提示且不保留标记 (3.264792ms)
+✔ 调试面板显示四位标准坐标及实际运行状态；关闭、换面和错版事件隔离 (0.448541ms)
+✔ 真实图片绘制分支：PNG未提供时拒绝画旧人体，正常帧确实调用drawImage (2.183167ms)
+✔ 本地PNG异步加载期间不产生视口，旧面onload不会误画，新面成功后可复用缓存 (1.075458ms)
+✖ PNG加载失败明确报错且不回退，重试成功；detach后的图片事件被丢弃 (0.709666ms)
+✔ 真实组件正常轻触经rect与统一逆变换报告选区一次，不放大、不生成调试点 (1.452917ms)
+✔ 选择、局部、调试与弹层优先级隔离；弹层中途打开会废弃待返回的触摸结果 (3.10725ms)
+✔ 正常模式拖动、多指、取消也不误选，布局变更后旧尺寸拒绝并重新测量 (1.11875ms)
+✔ 正常选择区分重叠和人体外，查询失败不伪造选区；换面丢弃旧触点 (0.798125ms)
+✔ 320/375/430宽及矮屏节点重测：独立手算胸点选择、放大/复位和双侧无漂移 (6.229042ms)
+✔ 弹层隐藏期间停止测量绘图；关闭后同一模板、图片缓存、局部视口和调试标准点恢复 (14.689958ms)
+✔ V2 focused annotation input is exclusive, same viewport and strict body; debug/readonly/block pause it (11.538833ms)
+✔ V2 gesture/repeated end/stale revision and modal callbacks cannot add points; rect refresh handles scrolling (5.303583ms)
+✔ V2 actual renderer uses same fixed CSS projection; open draft has no fill and selected fill precedes debug (13.454417ms)
+✔ V3 actual body-canvas accepts independent atlas/focus props; readonly emits no lesion/selection input and null restores V1 defaults (10.503708ms)
+✔ 实际启用Commons新模板与真实PNG，原SVG和许可来源可核对，拒绝旧几何 (4.054958ms)
+✔ 16个新区域独立配准源图参考点；旧头部边界不能直接复用 (3.555916ms)
+✔ 实际PNG透明度与命中轮廓密集抽样一致，含四肢间隙，不能仅用矩形命中 (453.00175ms)
+✔ 头颈胸腹背及四肢全部放大范围，三种容器/DPR下同点探测与复位不变 (5.907583ms)
+✔ 前后使用同一尺度与画布，保持原视图差异，历史点明确失效 (0.189542ms)
+✔ A 标准坐标正向转换：独立手算 0.5 比例与 16px 留白 (0.623833ms)
+✔ B CSS 坐标逆向转换：手算容器中心 (0.085792ms)
+✔ C 三种尺寸 11×11 参考点往返，最大允许误差 1e-9 (2.569542ms)
+✔ D 宽/窄容器始终等比例，分别产生上下和左右留白 (0.207ms)
+✔ E 留白、Canvas 外部以及非有限点击拒绝，不吸附边缘 (0.257292ms)
+✔ F 区域放大居中、四角留在容器内，标准位置保持一致 (0.471041ms)
+✔ G 复位恢复原全身视口，放大不会修改原始点或区域 (0.945459ms)
+✔ H 拒绝非法容器尺寸 0 (0.51875ms)
+✔ H 拒绝非法容器尺寸 -1 (0.1785ms)
+✔ H 拒绝非法容器尺寸 NaN (0.08875ms)
+✔ H 拒绝非法容器尺寸 Infinity (0.043334ms)
+✔ H 拒绝非法容器尺寸 -Infinity (0.032667ms)
+✔ H 拒绝异常模型、留白、区域和标准点数值 (0.136375ms)
+✔ I 边界点 (0,0)、(1,1) 与全画布放大复位 (0.080958ms)
+✔ H 拒绝调用方构造的无效视口，不返回 NaN 或伪造坐标 (0.109583ms)
+✔ J 正背面区域独立、ID唯一、解剖学左右正确，区域中心可往返 (0.320542ms)
+✔ all mode maps every stable ID once; single retains original MultiPolygon and holes, sides remain distinct (3.95575ms)
+✔ front/back side rules and geometric height order preserve backend candidate order and long labels (2.437416ms)
+✔ 320/375/430 widths and short screen: disjoint rails, uniform body scale, 7/30 labels accessible without overlap; focus reprojection (0.669834ms)
+✖ real page: one click/one request; all by default, label/scope/focus/reentry cached, edits invalidate and new navigation computes once (6.503792ms)
+✔ confirmed polygons fill immediately once each, result outline mode preserves rings and stroke across viewports (3.012875ms)
+✔ snapshot blocks missing/empty/draft/wrong basis; excludes only display changes (0.625708ms)
+✔ loading locks duplicate calls, snapshot is immutable; failures preserve annotations and retry succeeds (0.829625ms)
+✔ late A cannot replace B after geometry edit; display changes keep B (0.190375ms)
+✔ add/delete/clear/atlas content/template mutations invalidate results (11.421917ms)
+✔ hide/cancel discards late responses and allows retry; draft never submitted (0.164416ms)
+✔ response association rejects foreign identity, revision, candidate instances and scope; tiny display never becomes zero (0.343625ms)
+✔ API client separately denies release/trial, requires phone URL, and maps backend/network errors (0.715542ms)
+✔ draft-to-completed edit keeps stale reminder until explicit recalculation (0.25775ms)
+✔ matching snapshot and overlay positions survive three screen sizes, focus and reset (0.791833ms)
+✔ API distinguishes WeChat domain rejection from timeout and unavailable service without echoing raw details (0.273416ms)
+✔ 人工非医学夹具：唯一、重叠、边界、人体外和人体内无配置分别报告 (2.055ms)
+✔ 真实区域使用多边形且保留独立前后与解剖学左右，唯一点不会串面 (5.694625ms)
+✔ 真实头颈/颈胸/胸腹边界有明确候选，不通过扩大包围盒吞掉人体间隙 (1.189542ms)
+✔ V1.6源图人工参考点：胸侧/双上臂/肩界两侧/颈腹与公共边界，不从命中函数产生期望 (5.908667ms)
+✔ 旧胸/上背上臂混选复现；新配置同点只属对应上肢，focus留白不参与最终判定 (0.849792ms)
+✔ 高亮实际fill路径就是命中outline，轻实线宽度始终1 CSS px；源图裁切状态恢复 (2.463083ms)
+✔ 手工源图参考点跨全身/胸部focus/复位及320/375/430/矮容器归属不变 (34.064375ms)
+✔ 初始无默认选择、不可放大；人体唯一命中只高亮，确认后才进入focused (1.595542ms)
+✔ 从列表和人体选中相同状态，focused换部位回overview，取消弹层不改选择/视口 (0.351458ms)
+✔ 人体外/未配置保留原选择并提示；边界弹候选，取消不抢占，候选选中后不放大 (0.313542ms)
+✔ 调试/弹层/说明/错版隔离正常选区，切面清空选择缩放与调试，拒绝跨面列表ID (0.186041ms)
+✔ 开发调试低干扰入口可关闭并清点；说明是真实许可，不调用未来评估或标注接口 (0.282833ms)
+✔ region-picker只展示配置并发送已知ID，关闭/遮罩不偷偷选择 (0.446834ms)
+ℹ tests 149
+ℹ suites 0
+ℹ pass 138
+ℹ fail 11
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 725.11675
+
+✖ failing tests:
+
+test at ../tests/miniprogram/annotation-flow.test.cjs:28:1
+✖ V2 automated page workflow: two front polygons/delete second/reenter/back polygon/review/edit (12.50725ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'front-chest' !== ''
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/annotation-flow.test.cjs:40:64)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'front-chest',
+    expected: '',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/annotation-session.test.cjs:54:1
+✖ V2.4 reentry restores nonempty draft and its view; review guards zero/draft and continues same session (2.9845ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'front-chest'
+  - null
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/annotation-session.test.cjs:61:46)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'front-chest',
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/canvas.test.cjs:84:3
+✖ 初始化/尺寸适配/DPR 280×460×1 (1.190334ms)
+  TypeError: Cannot read properties of undefined (reading 'zoom')
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/canvas.test.cjs:90:61)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at ../tests/miniprogram/canvas.test.cjs:84:3
+✖ 初始化/尺寸适配/DPR 343×540×2 (0.255458ms)
+  TypeError: Cannot read properties of undefined (reading 'zoom')
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/canvas.test.cjs:90:61)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at ../tests/miniprogram/canvas.test.cjs:84:3
+✖ 初始化/尺寸适配/DPR 700×570×3 (0.34575ms)
+  TypeError: Cannot read properties of undefined (reading 'zoom')
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/canvas.test.cjs:90:61)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at ../tests/miniprogram/canvas.test.cjs:93:1
+✖ 反复切换、区域放大与复位不累加 DPR/模型缩放 (3.491958ms)
+  TypeError: Cannot read properties of undefined (reading 'zoom')
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/canvas.test.cjs:97:55)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at ../tests/miniprogram/canvas.test.cjs:106:1
+✖ hide/show、resize 重测尺寸；detached 后忽略异步结果 (1.340958ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 2
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/canvas.test.cjs:110:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/canvas.test.cjs:121:1
+✖ 初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口 (4.09675ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  7 !== 5
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/canvas.test.cjs:132:32)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 7,
+    expected: 5,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/canvas.test.cjs:244:1
+✖ 点击查询期间切换视口或detach丢弃旧结果；查询失败明确提示且不保留标记 (3.264792ms)
+  TypeError: h.deferred.shift(...) is not a function
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/canvas.test.cjs:250:21)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at ../tests/miniprogram/canvas.test.cjs:295:1
+✖ PNG加载失败明确报错且不回退，重试成功；detach后的图片事件被丢弃 (0.709666ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  4 !== 2
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/canvas.test.cjs:300:9)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 4,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/matching-presentation.test.cjs:71:1
+✖ real page: one click/one request; all by default, label/scope/focus/reentry cached, edits invalidate and new navigation computes once (6.503792ms)
+  TypeError: p.onShow is not a function
+      at Object.open (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/matching-presentation.test.cjs:67:84)
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/matching-presentation.test.cjs:72:24)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)

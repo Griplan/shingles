@@ -1,0 +1,211 @@
+{
+  "utc": "2026-11-01T10:31:20.428004+00:00",
+  "hardware": {
+    "nproc": 4,
+    "architecture": "x86_64",
+    "os_pretty": "Ubuntu 24.04.4 LTS"
+  },
+  "memory_kib": {
+    "MemTotal": 3812564,
+    "MemFree": 547676,
+    "MemAvailable": 2943092,
+    "SwapTotal": 2035708,
+    "SwapFree": 2035708
+  },
+  "load": [
+    0.01220703125,
+    0.02978515625,
+    0
+  ],
+  "pressure": {
+    "cpu": "some avg10=0.00 avg60=0.00 avg300=0.00 total=2645493748\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "memory": "some avg10=0.00 avg60=0.00 avg300=0.00 total=5643\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=4875\n",
+    "io": "some avg10=0.00 avg60=0.00 avg300=0.00 total=1660945549\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=1612574468\n"
+  },
+  "sysstat": {
+    "sadf_available": true,
+    "files": [
+      {
+        "day": "2026-10-31",
+        "bytes": 286828,
+        "exit_code": 0,
+        "samples": 143,
+        "first_timestamp": {
+          "date": "2026-10-30",
+          "time": "16:10:01",
+          "utc": 1,
+          "interval": 600
+        },
+        "last_timestamp": {
+          "date": "2026-10-31",
+          "time": "15:50:01",
+          "utc": 1,
+          "interval": 600
+        },
+        "sample_keys": [
+          "timestamp",
+          "cpu-load",
+          "memory"
+        ],
+        "cpu_busy_pct_max": 1.0999999999999943,
+        "cpu_busy_pct_mean": 0.5743356643356634,
+        "memory_available_kib_min": null,
+        "memory_used_pct_max": 13.21,
+        "swap_used_kib_max": null,
+        "memory_keys": [
+          "memfree",
+          "avail",
+          "memused",
+          "memused-percent",
+          "buffers",
+          "cached",
+          "commit",
+          "commit-percent",
+          "active",
+          "inactive",
+          "dirty",
+          "swpfree",
+          "swpused",
+          "swpused-percent",
+          "swpcad",
+          "swpcad-percent"
+        ],
+        "last_memory": {
+          "memfree": 496268,
+          "avail": 2959780,
+          "memused": 498904,
+          "memused-percent": 13.09,
+          "buffers": 151764,
+          "cached": 2462560,
+          "commit": 2391912,
+          "commit-percent": 40.9,
+          "active": 827132,
+          "inactive": 2148540,
+          "dirty": 2580,
+          "swpfree": 2035708,
+          "swpused": 0,
+          "swpused-percent": 0,
+          "swpcad": 0,
+          "swpcad-percent": 0
+        }
+      },
+      {
+        "day": "2026-11-01",
+        "bytes": 223340,
+        "exit_code": 0,
+        "samples": 111,
+        "first_timestamp": {
+          "date": "2026-10-31",
+          "time": "16:10:01",
+          "utc": 1,
+          "interval": 600
+        },
+        "last_timestamp": {
+          "date": "2026-11-01",
+          "time": "10:30:01",
+          "utc": 1,
+          "interval": 600
+        },
+        "sample_keys": [
+          "timestamp",
+          "cpu-load",
+          "memory"
+        ],
+        "cpu_busy_pct_max": 1.2099999999999937,
+        "cpu_busy_pct_mean": 0.5750450450450443,
+        "memory_available_kib_min": null,
+        "memory_used_pct_max": 13.87,
+        "swap_used_kib_max": null,
+        "memory_keys": [
+          "memfree",
+          "avail",
+          "memused",
+          "memused-percent",
+          "buffers",
+          "cached",
+          "commit",
+          "commit-percent",
+          "active",
+          "inactive",
+          "dirty",
+          "swpfree",
+          "swpused",
+          "swpused-percent",
+          "swpcad",
+          "swpcad-percent"
+        ],
+        "last_memory": {
+          "memfree": 566680,
+          "avail": 2961916,
+          "memused": 496732,
+          "memused-percent": 13.03,
+          "buffers": 151848,
+          "cached": 2394308,
+          "commit": 2417320,
+          "commit-percent": 41.33,
+          "active": 838488,
+          "inactive": 2076876,
+          "dirty": 888,
+          "swpfree": 2035708,
+          "swpused": 0,
+          "swpused-percent": 0,
+          "swpcad": 0,
+          "swpcad-percent": 0
+        }
+      }
+    ]
+  },
+  "tls_loopback": [
+    {
+      "version": "TLSv1.2",
+      "verified": true,
+      "notAfter": "Jan 21 16:56:10 2027 GMT",
+      "dns": [
+        "acupuncture.yandunshuati.online"
+      ]
+    },
+    {
+      "version": "TLSv1.3",
+      "verified": true,
+      "notAfter": "Jan 21 16:56:10 2027 GMT",
+      "dns": [
+        "acupuncture.yandunshuati.online"
+      ]
+    }
+  ],
+  "service_snapshot_before_exit": {
+    "acupuncture": {
+      "MainPID": "3480408",
+      "NRestarts": "0",
+      "ExecMainStartTimestamp": "Sat 2026-10-31 23:51:02 CST",
+      "ActiveState": "active"
+    },
+    "nginx": {
+      "MainPID": "12643",
+      "NRestarts": "0",
+      "ExecMainStartTimestamp": "Thu 2026-10-08 13:25:29 CST",
+      "ActiveState": "active"
+    }
+  },
+  "journal_coverage": {
+    "app": {
+      "exit_code": 0,
+      "last_usec": "1793528975299934"
+    },
+    "kernel": {
+      "exit_code": 0,
+      "records_found": false
+    }
+  },
+  "certbot_state": {
+    "NextElapseUSecRealtime": "Mon 2026-11-02 08:26:19 CST",
+    "LastTriggerUSec": "Sun 2026-11-01 16:00:09 CST",
+    "ActiveState": "active",
+    "UnitFileState": "enabled"
+  },
+  "certbot_last_result": {
+    "Result": "success",
+    "ExecMainCode": "1",
+    "ExecMainStatus": "0"
+  }
+}

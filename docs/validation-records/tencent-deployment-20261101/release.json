@@ -1,0 +1,7 @@
+{
+  "release_id": "20261101-p1p3-92c517b5f35a",
+  "manifest_sha256": "92c517b5f35adfbf4c23481f110fcb3d03c07fba40db59ccccbf345d035b91a7",
+  "runtime_files": 92,
+  "git_commit": "NOT_CREATED",
+  "note": "Content manifest, not a Git commit; production operational watch and cleanup updates included."
+}

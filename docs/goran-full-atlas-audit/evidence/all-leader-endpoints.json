@@ -1,0 +1,613 @@
+[
+  {
+    "view": "front",
+    "route": "root/9/12",
+    "subpath": 0,
+    "endpoint": [
+      128.50700000000006,
+      218.6
+    ],
+    "pathCandidates": [
+      21
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/14",
+    "subpath": 0,
+    "endpoint": [
+      151.56000000000006,
+      308.9
+    ],
+    "pathCandidates": [
+      20
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/16",
+    "subpath": 0,
+    "endpoint": [
+      56.21500000000003,
+      509.76699999999994
+    ],
+    "pathCandidates": [
+      29
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/22",
+    "subpath": 0,
+    "endpoint": [
+      219.55000000000007,
+      464.98
+    ],
+    "pathCandidates": [
+      40
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/23",
+    "subpath": 0,
+    "endpoint": [
+      171.2500000000001,
+      775.96
+    ],
+    "pathCandidates": [
+      36
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/25",
+    "subpath": 0,
+    "endpoint": [
+      148.64,
+      794.55
+    ],
+    "pathCandidates": [
+      41
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/27",
+    "subpath": 0,
+    "endpoint": [
+      150.409,
+      895.33
+    ],
+    "pathCandidates": [
+      37
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/29",
+    "subpath": 0,
+    "endpoint": [
+      107.50999999999999,
+      41.934
+    ],
+    "pathCandidates": [
+      25
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/31",
+    "subpath": 0,
+    "endpoint": [
+      107.50999999999999,
+      76.242
+    ],
+    "pathCandidates": [
+      26
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/33",
+    "subpath": 0,
+    "endpoint": [
+      107.50999999999999,
+      113.69
+    ],
+    "pathCandidates": [
+      24
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/35",
+    "subpath": 0,
+    "endpoint": [
+      90.33000000000004,
+      126.85
+    ],
+    "pathCandidates": [
+      22
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/37",
+    "subpath": 0,
+    "endpoint": [
+      79.25999999999999,
+      135.6
+    ],
+    "pathCandidates": [
+      23
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/39",
+    "subpath": 0,
+    "endpoint": [
+      66.29000000000008,
+      151.0
+    ],
+    "pathCandidates": [
+      27
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/41",
+    "subpath": 0,
+    "endpoint": [
+      38.72000000000003,
+      151.0
+    ],
+    "pathCandidates": [
+      0
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/43",
+    "subpath": 0,
+    "endpoint": [
+      147.93000000000018,
+      290.32
+    ],
+    "pathCandidates": [
+      19
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/45",
+    "subpath": 0,
+    "endpoint": [
+      61.857000000000085,
+      453.439
+    ],
+    "pathCandidates": [
+      30
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/47",
+    "subpath": 0,
+    "endpoint": [
+      123.303,
+      389.81
+    ],
+    "pathCandidates": [
+      32
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/49",
+    "subpath": 0,
+    "endpoint": [
+      94.74400000000003,
+      488.94
+    ],
+    "pathCandidates": [
+      31
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/50",
+    "subpath": 0,
+    "endpoint": [
+      175.88,
+      858.077
+    ],
+    "pathCandidates": [
+      38
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "front",
+    "route": "root/9/53",
+    "subpath": 0,
+    "endpoint": [
+      211.64999999999998,
+      488.48
+    ],
+    "pathCandidates": [
+      39
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/12",
+    "subpath": 0,
+    "endpoint": [
+      109.144,
+      208.9501
+    ],
+    "pathCandidates": [
+      26
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/14",
+    "subpath": 0,
+    "endpoint": [
+      171.44899999999961,
+      711.285
+    ],
+    "pathCandidates": [
+      37
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/16",
+    "subpath": 0,
+    "endpoint": [
+      171.44999999999982,
+      745.71
+    ],
+    "pathCandidates": [
+      36
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/18",
+    "subpath": 0,
+    "endpoint": [
+      123.19199999999978,
+      764.18
+    ],
+    "pathCandidates": [
+      38
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/20",
+    "subpath": 0,
+    "endpoint": [
+      99.29999999999995,
+      33.967
+    ],
+    "pathCandidates": [
+      3
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/22",
+    "subpath": 0,
+    "endpoint": [
+      99.29999999999995,
+      84.242
+    ],
+    "pathCandidates": [
+      4
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/24",
+    "subpath": 0,
+    "endpoint": [
+      99.29999999999995,
+      115.69
+    ],
+    "pathCandidates": [
+      45
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/26",
+    "subpath": 0,
+    "endpoint": [
+      78.09999999999991,
+      126.85
+    ],
+    "pathCandidates": [
+      2
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/28",
+    "subpath": 0,
+    "endpoint": [
+      67.0,
+      135.6
+    ],
+    "pathCandidates": [
+      0
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/30",
+    "subpath": 0,
+    "endpoint": [
+      54.0,
+      151.0
+    ],
+    "pathCandidates": [
+      1
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/32",
+    "subpath": 0,
+    "endpoint": [
+      26.5,
+      151.0
+    ],
+    "pathCandidates": [
+      5
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/33",
+    "subpath": 0,
+    "endpoint": [
+      130.3610000000001,
+      367.48
+    ],
+    "pathCandidates": [
+      41
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/35",
+    "subpath": 0,
+    "endpoint": [
+      62.2969999999998,
+      466.778
+    ],
+    "pathCandidates": [
+      47
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/37",
+    "subpath": 0,
+    "endpoint": [
+      32.074100000000044,
+      479.52899999999994
+    ],
+    "pathCandidates": [
+      29
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/38",
+    "subpath": 0,
+    "endpoint": [
+      81.00299999999993,
+      488.94
+    ],
+    "pathCandidates": [
+      39
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/41",
+    "subpath": 0,
+    "endpoint": [
+      132.81999999999994,
+      208.94400000000002
+    ],
+    "pathCandidates": [
+      40
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/43",
+    "subpath": 0,
+    "endpoint": [
+      120.42399999999998,
+      208.95
+    ],
+    "pathCandidates": [
+      20
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/47",
+    "subpath": 0,
+    "endpoint": [
+      134.51499999999987,
+      914.01
+    ],
+    "pathCandidates": [
+      44
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/48",
+    "subpath": 0,
+    "endpoint": [
+      132.85099999999989,
+      300.641
+    ],
+    "pathCandidates": [
+      25
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/50",
+    "subpath": 0,
+    "endpoint": [
+      51.41599999999994,
+      528.845
+    ],
+    "pathCandidates": [
+      28
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/52",
+    "subpath": 0,
+    "endpoint": [
+      191.19999999999982,
+      420.6
+    ],
+    "pathCandidates": [
+      49
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/54",
+    "subpath": 0,
+    "endpoint": [
+      170.39999999999986,
+      511.58
+    ],
+    "pathCandidates": [
+      32
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/56",
+    "subpath": 0,
+    "endpoint": [
+      202.79999999999995,
+      473.08
+    ],
+    "pathCandidates": [
+      33
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/58",
+    "subpath": 0,
+    "endpoint": [
+      211.69999999999982,
+      473.08
+    ],
+    "pathCandidates": [
+      34
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/60",
+    "subpath": 0,
+    "endpoint": [
+      219.69999999999982,
+      473.08
+    ],
+    "pathCandidates": [
+      35
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/61",
+    "subpath": 0,
+    "endpoint": [
+      158.89999999999986,
+      518.46
+    ],
+    "pathCandidates": [
+      49
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  },
+  {
+    "view": "back",
+    "route": "root/12/62",
+    "subpath": 0,
+    "endpoint": [
+      157.43599999999992,
+      914.008
+    ],
+    "pathCandidates": [
+      43
+    ],
+    "note": "Geometric evidence, label association still visually audited."
+  }
+]

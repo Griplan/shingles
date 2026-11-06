@@ -1,0 +1,636 @@
+
+> dermatome-mapper-miniprogram@0.0.0 test
+> node ../scripts/test_miniprogram.cjs
+
+✖ one confirmation, one request; retry preserves ID and all geometry; result defaults to all without another request (69.197708ms)
+✖ saved AI editing retains original results until confirmation; stable ID replaced and only new geometry requested (70.918375ms)
+✖ page hiding/unload drops late response and navigation; confirmed annotation remains recoverable (52.55875ms)
+✔ invalid placement never calls matching or replaces formal geometry; abandoned edit preserves original (12.354584ms)
+✔ explicit review clears empty opposite placeholders, never active manual geometry (31.33325ms)
+✔ display handoff keeps anatomical center, CSS scale and shape across screen sizes; no geometry mutation (0.351333ms)
+✔ V5.4 wire retains all pieces/holes and excludes photos, masks and model information (52.182375ms)
+✔ V5.4 edit is isolated until atomic replacement, stable ID and repeat confirmation (139.939834ms)
+✔ V5.4 saved placement remains editable/matchable after photo TTL and cleanup without network (109.148583ms)
+✔ V5.4 failed/canceled editing and stale replacement leave saved geometry untouched (46.693333ms)
+✔ V5.4 late old AI response and network retry never insert additional annotations (62.009125ms)
+✔ photo contain coordinates 320,380 (2.380958ms)
+✔ photo contain coordinates 390,520 (0.2085ms)
+✔ photo contain coordinates 768,700 (0.1955ms)
+✔ photo contain coordinates 220,240 (0.104458ms)
+✔ box sorted, degenerate rejected; DPR is not photo coordinate input (0.952125ms)
+✔ default preview is not confirmation, chosen candidate alone confirms (0.694625ms)
+✔ foreground/background/undo preserve box; reject bad points, reset invalidates results (0.151833ms)
+✔ no valid prompt does not call inference (0.079625ms)
+✔ late A inference cannot overwrite B photo (0.125667ms)
+✔ late A upload cleaned after B upload (0.120958ms)
+✔ late inference after changed prompts cannot restore obsolete candidates (0.114625ms)
+✔ late candidate preview cannot replace current preview or confirm wrong mask (0.611458ms)
+✔ empty mask cannot confirm; warning preserves raw full-image candidate (0.109083ms)
+✔ 请求超时 retains prompts and allows retry (0.110083ms)
+✔ 模型失败 retains prompts and allows retry (0.0775ms)
+✔ 照片已过期 retains prompts and allows retry (0.068958ms)
+✔ cancel invalidates confirmation in flight and deletes temporary photo (0.090375ms)
+✔ mismatched result and confirmation rejected (0.099416ms)
+✔ temporary cleanup failure is explicit (0.097042ms)
+✔ page render acknowledgement is deferred, ignores stale photos and unchanged state (11.224ms)
+✔ effective released box triggers one inference; duplicate and tiny/nonfinite boxes do not (0.958125ms)
+✔ latest replacement box waits for active request, intermediate boxes coalesced (1.270334ms)
+✔ changing photo while auto analysis runs keeps only B prompts and B result (1.895917ms)
+✔ reset or cancel removes queued auto request and late mask (0.54925ms)
+✔ preview keeps the old frame while loading but blocks confirmation until the new candidate arrives (0.870708ms)
+✔ default preview skips unusable candidates without deleting their source records or ranking scores (0.111583ms)
+✔ all candidates unusable -> explicit failure; reselect can retry the same location (0.153209ms)
+✔ page upload -> auto box -> cycle -> explicit confirmation; no manual segment control (1.192084ms)
+✔ fine adjustment is opt-in; foreground/background/undo and manual refine stay available (1.908334ms)
+✔ failed auto request retains photo and supports reselect or manual return (0.417917ms)
+✔ new photo resets result, fine controls and mode (0.271416ms)
+✔ prompt-adherence priority controls preview; confirmation remains explicit (0.070917ms)
+✔ brush applies authoritative mask, replays undo and restore; explicit confirmation retains holes (0.351542ms)
+✔ brush timeout blocks confirmation/candidate switching; retry same revision or restore higher revision (0.167792ms)
+✔ late brush A cannot modify photo B or its candidate; malformed edit/confirmation revisions fail (0.159875ms)
+✔ additional ROI performs real segment request; full-image fallback explicit and incompatible with multiple boxes (0.128375ms)
+✔ page brush is optional, canvas acknowledgment required; correction can return to normal confirm (1.0495ms)
+✔ upload normalized photo download carries secret only in header and deletes cache (1.743708ms)
+✔ upload mismatch removes new session and never yields photo (0.274916ms)
+✖ physical device and release disabled before any upload (0.614959ms)
+✔ network timeout and expired asset explicitly fail, never fake masks (0.213917ms)
+✔ V1.2历史：新几何独立版本；前后同骨架、旧视觉与旧区域不静默迁移 (3.46425ms)
+✔ V1.2历史：设计比例单独检查：约7.5～8头身、裆50～54%、膝72～76%，不是医学准确率 (0.350042ms)
+✔ V1.2历史：轮廓本身胸肩加宽、腰髋收放：不只修改参考点或全图缩放 (0.983875ms)
+ℹ {"chestY":270,"oldChest":107.83838028169015,"chest":129.48642533936652,"waist":100.56126482213438,"hip":158.43705572116485}
+✔ V1.2历史：躯干、髋膝踝、肘腕与手足参考点在两面同源轮廓内；关节高度有序 (3.90125ms)
+✔ V1.2历史：16区域与新几何配准：肩肘腕手指、髋膝踝足均落在应属UI多边形内 (0.275167ms)
+✔ V1.2历史：前后膝部实际细节路径靠近同一设计关节，避免只下移膝标签 (0.085541ms)
+✔ V1.2历史：新关节参考点实际探测→十字重投影：三尺寸、前后、放大复位保持同一标准位置 (4.285542ms)
+✖ V2 entry rejects no selection/debug; route holds only session identifier, starts focused without coarse highlight (29.622084ms)
+✔ V2 automated page workflow: two front polygons/delete second/reenter/back polygon/review/edit (14.940625ms)
+✔ V2 page preserves invalid closure and draft switching choices; debug and modal pause input (2.857041ms)
+✔ V2 finish draft choices and return retain/discard; system hide/unload preserve immediate authority (4.41325ms)
+✔ V2 pending confirmation and point cannot mutate after hide or another revision (2.366625ms)
+✔ V2 geometry UI-A-triangle (2.299125ms)
+✔ V2 geometry UI-B-convex (0.199709ms)
+✔ V2 geometry UI-C-concave (0.105959ms)
+✔ V2 geometry UI-D-too-few (0.045792ms)
+✔ V2 geometry UI-E-repeat (0.0435ms)
+✔ V2 geometry UI-F-collinear (0.040292ms)
+✔ V2 geometry UI-G-cross (0.038375ms)
+✔ V2 geometry UI-H-touch (0.028958ms)
+✔ V2 geometry UI-I-fold (0.038625ms)
+✔ V2 geometry UI-J-background-edge (0.101583ms)
+✔ V2 geometry UI-K-background-closing-edge (1.753125ms)
+✔ V2 geometry UI-L-fill-hole (0.171708ms)
+✔ V2 geometry UI-M-safe-beside-hole (0.132625ms)
+✔ V2 geometry UI-N-on-outer (0.085375ms)
+✔ V2 geometry UI-O-outside-near-edge (0.034625ms)
+✔ V2 geometry UI-P-inside-near-edge (0.048833ms)
+✔ V2 geometry UI-Q-disconnected-bridge (0.04175ms)
+✔ V2 geometry UI-R-one-part (0.073916ms)
+✔ V2 geometry UI-S-hole-boundary-fill (0.064208ms)
+✔ V2 geometry UI-T-sub-area (0.025ms)
+✔ V2 geometry UI-U-tiny-valid (0.055417ms)
+✔ V2 malformed finite/type/range, unsupported nested/explicit closure and resource limits (0.087541ms)
+✔ V2 actual bound body: central shape and crossing entry chest→abdomen accepted; air bridge rejected (22.917875ms)
+✔ V2 full interval containment finds a narrow notch missed by sparse edge samples (0.335458ms)
+✔ V2.1 valid entry, unique immutable authority, immediate draft sync and stale token rejection (4.745167ms)
+✔ V2.1 expired process/session and changed template/geometry/region version retain original data (0.709542ms)
+✔ V2.2 invalid close preserves draft; undo and cancel affect only current draft (6.940166ms)
+✔ V2.3 multiple overlapping regions stay independent; selected delete changes only target (3.570958ms)
+✔ V2.3 draft switch is atomic: cancel/invalid close retain; discard or valid close switch; views isolated (4.898833ms)
+✔ V2.4 reentry restores nonempty draft and its view; review guards zero/draft and continues same session (1.131042ms)
+✔ V2.5 focus is presentation only; entry navigation is not a polygon fence (2.698ms)
+✔ V2 resource limits fail without truncation and IDs never reuse on cancel/delete (21.184708ms)
+✔ V2 128-vertex limit rejects extra input without mutating or truncating existing draft (26.860042ms)
+✔ V3 environment fails closed for trial/release/missing/errors and master disable; query cannot grant access (1.41575ms)
+✔ V3 packaged local geometry equals canonical source and hash, not demo numbering or clinical state (20.842333ms)
+✔ V3 actual labels aggregate all islands, per-view and anatomical-side filtering never mirrors (14.167666ms)
+✔ V3 page full/single/hide, label persistence, absent view, side, focus/reset, label toggle and reentry (1.993417ms)
+✔ V3 atlas operations neither read nor write an existing V2 authority, including an unfinished draft (7.430875ms)
+✔ V3 draw MultiPolygon/hole uses closed paths from the same normalized coordinates; bbox only focuses (0.554292ms)
+✔ V3 wrong template/version/view/atlas identity fails closed; default null draws nothing (0.15225ms)
+✔ V3 overlay follows existing full/focus/resize transform and CSS stroke width remains fixed (3.523167ms)
+✔ V3 label collisions suppressed, label switch leaves geometry unchanged (0.325ms)
+✔ V3.1 group lists use actual labels, retain complete branch names, and disjointly partition all configured geometry (0.758083ms)
+✔ V3.1 face direct selection, anatomical side, back no-data and group changes remain consistent with picker geometry (6.277916ms)
+✔ V3.1 local viewing presets use frozen model coordinates, retain selection and map anatomical feet correctly on each view (1.24025ms)
+✔ V3.1 full-body suppresses small face/foot text only; local zoom restores labels without changing painted polygons (0.66475ms)
+✔ V3.1 every added action rechecks development access and cannot retain a previously visible overlay (1.292792ms)
+✔ V3 homepage hides production entry and rechecks a stale visible button before navigation (0.778833ms)
+✔ 新模板正背面资源、逻辑比例、版本及区域显式绑定，源文件存在 (2.435958ms)
+✔ 每面8个独立UI区域、16个唯一ID，头颈存在且能居中放大 (1.101125ms)
+✔ 几何不变可更换配色/线条资源；几何、视图、尺寸或区域错版明确拒绝 (4.583292ms)
+✔ 连续人体轮廓命中头颈躯干/双臂手/双腿足，拒绝臂躯间隙与腿间留白 (6.89025ms)
+✔ 外部素材保留自然非对称及独立正背面，全身轮廓适配Canvas (3.547917ms)
+✔ 同一二次曲线路径细分命中，边缘容差不吸附，开放路径拒绝 (0.466584ms)
+✔ 原生Canvas本地触点和client触点识别，不猜测page坐标或DPR (0.506459ms)
+✔ 真实矩形处理页面滚动：两种事件基准得到相同标准点 (1.162375ms)
+✔ 三种尺寸区分有效人体、逻辑画布内留白、模型范围外；无效点不产生标准点 (1.132625ms)
+✔ 归一化单点在放大、复位、尺寸变化时重投影；超出可见范围隐藏，不贴边 (1.035792ms)
+✔ Canvas 正背面使用不同PNG资源且绘图状态成对恢复 (6.023458ms)
+✔ 区域高亮裁剪于人体轮廓，跨视图区域不会误画 (1.838708ms)
+✔ 初始化/尺寸适配/DPR 280×460×1 (2.404625ms)
+✔ 初始化/尺寸适配/DPR 343×540×2 (0.660667ms)
+✔ 初始化/尺寸适配/DPR 700×570×3 (0.946583ms)
+✔ 反复切换、区域放大与复位不累加 DPR/模型缩放 (7.034958ms)
+✔ hide/show、resize 重测尺寸；detached 后忽略异步结果 (0.443542ms)
+✔ 初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口 (0.373375ms)
+✔ 页面选择校验、换面清理、区域切换与复位状态 (0.978ms)
+✔ 调试默认关闭，不采集坐标；开启后实际触点形成单个十字和真实事件 (4.80625ms)
+✔ DPR1/2/3不会进入点击归一化，client触点与Canvas触点一致 (6.89775ms)
+✔ 十字随区域放大、复位及resize重投影；原标准坐标不变，出视口时隐藏 (5.086417ms)
+✔ 留白及模型外点击清除旧十字，不伪造标准点，不改变所选区域 (2.089ms)
+✔ 关闭调试或换面清除单点，重新开启/换回不复用另一视图的点 (4.153958ms)
+✔ 拖动/滚动、取消触摸和多触点不当作点击；不会创建病灶集合 (0.599708ms)
+✔ 点击查询期间切换视口或detach丢弃旧结果；查询失败明确提示且不保留标记 (2.230792ms)
+✖ 调试面板显示四位标准坐标及实际运行状态；关闭、换面和错版事件隔离 (0.7485ms)
+✔ 真实图片绘制分支：PNG未提供时拒绝画旧人体，正常帧确实调用drawImage (0.382333ms)
+✔ 本地PNG异步加载期间不产生视口，旧面onload不会误画，新面成功后可复用缓存 (0.267958ms)
+✔ PNG加载失败明确报错且不回退，重试成功；detach后的图片事件被丢弃 (0.154542ms)
+✔ 真实组件正常轻触经rect与统一逆变换报告选区一次，不放大、不生成调试点 (0.353542ms)
+✔ 选择、局部、调试与弹层优先级隔离；弹层中途打开会废弃待返回的触摸结果 (0.689958ms)
+✔ 正常模式拖动、多指、取消也不误选，布局变更后旧尺寸拒绝并重新测量 (0.3035ms)
+✔ 正常选择区分重叠和人体外，查询失败不伪造选区；换面丢弃旧触点 (0.515916ms)
+✔ 320/375/430宽及矮屏节点重测：独立手算胸点选择、放大/复位和双侧无漂移 (9.111542ms)
+✔ 弹层隐藏期间停止测量绘图；关闭后同一模板、图片缓存、局部视口和调试标准点恢复 (2.509708ms)
+✔ V2 focused annotation input is exclusive, same viewport and strict body; debug/readonly/block pause it (2.102708ms)
+✔ V2 gesture/repeated end/stale revision and modal callbacks cannot add points; rect refresh handles scrolling (0.658416ms)
+✔ V2 actual renderer uses same fixed CSS projection; open draft has no fill and selected fill precedes debug (5.57575ms)
+✔ V3 actual body-canvas accepts independent atlas/focus props; readonly emits no lesion/selection input and null restores V1 defaults (18.8745ms)
+✔ V4 stable node: preload each view once, no clear while waiting, no measurement on overlay changes or frames, cancel stale frames (9.160917ms)
+✔ information overlay blocks native canvas without destroying cached scene or changing viewport (0.504834ms)
+✔ 实际启用Commons新模板与真实PNG，原SVG和许可来源可核对，拒绝旧几何 (5.143333ms)
+✔ 16个新区域独立配准源图参考点；旧头部边界不能直接复用 (5.211209ms)
+✔ 实际PNG透明度与命中轮廓密集抽样一致，含四肢间隙，不能仅用矩形命中 (486.49075ms)
+✔ 头颈胸腹背及四肢全部放大范围，三种容器/DPR下同点探测与复位不变 (6.525958ms)
+✔ 前后使用同一尺度与画布，保持原视图差异，历史点明确失效 (0.225875ms)
+✔ 受控云端凭据只在内存生效，清除后回本机；真机不能借此绕过HTTPS门禁 (0.942167ms)
+✔ A 标准坐标正向转换：独立手算 0.5 比例与 16px 留白 (0.563542ms)
+✔ B CSS 坐标逆向转换：手算容器中心 (0.086208ms)
+✔ C 三种尺寸 11×11 参考点往返，最大允许误差 1e-9 (3.185ms)
+✔ D 宽/窄容器始终等比例，分别产生上下和左右留白 (0.076708ms)
+✔ E 留白、Canvas 外部以及非有限点击拒绝，不吸附边缘 (0.096292ms)
+✔ F 区域放大居中、四角留在容器内，标准位置保持一致 (0.1485ms)
+✔ G 复位恢复原全身视口，放大不会修改原始点或区域 (0.32875ms)
+✔ H 拒绝非法容器尺寸 0 (0.171417ms)
+✔ H 拒绝非法容器尺寸 -1 (0.048042ms)
+✔ H 拒绝非法容器尺寸 NaN (0.06675ms)
+✔ H 拒绝非法容器尺寸 Infinity (0.038667ms)
+✔ H 拒绝非法容器尺寸 -Infinity (0.032125ms)
+✔ H 拒绝异常模型、留白、区域和标准点数值 (1.095667ms)
+✔ I 边界点 (0,0)、(1,1) 与全画布放大复位 (1.673416ms)
+✔ H 拒绝调用方构造的无效视口，不返回 NaN 或伪造坐标 (1.172459ms)
+✔ J 正背面区域独立、ID唯一、解剖学左右正确，区域中心可往返 (1.486084ms)
+✔ all mode maps every stable ID once; single retains original MultiPolygon and holes, sides remain distinct (4.267667ms)
+✔ front/back side rules and geometric height order preserve backend candidate order and long labels (2.00675ms)
+✔ 320/375/430 widths and short screen: disjoint rails, uniform body scale, 7/30 labels accessible without overlap; focus reprojection (0.628708ms)
+✖ one canvas workflow: calculate once, keep viewport, all/single/scope, edit invalidation and cache reentry (11.354667ms)
+✖ prepared view race, request during view switch, stale frame and information/motion controls (1.764292ms)
+✔ confirmed polygons fill immediately once each, result outline mode preserves rings and stroke across viewports (0.632209ms)
+✖ in-flight calculation follows current view; hide cancels response; release gate clears cached colors but attribution stays accessible (2.383ms)
+✔ snapshot blocks missing/empty/draft/wrong basis; excludes only display changes (0.620375ms)
+✔ loading locks duplicate calls, snapshot is immutable; failures preserve annotations and retry succeeds (0.805792ms)
+✔ late A cannot replace B after geometry edit; display changes keep B (0.1925ms)
+✔ add/delete/clear/atlas content/template mutations invalidate results (6.713583ms)
+✔ hide/cancel discards late responses and allows retry; draft never submitted (0.151916ms)
+✔ response association rejects foreign identity, revision, candidate instances and scope; tiny display never becomes zero (0.350708ms)
+✖ API client separately denies release/trial, requires phone URL, and maps backend/network errors (1.175334ms)
+✔ draft-to-completed edit keeps stale reminder until explicit recalculation (0.223875ms)
+✔ matching snapshot and overlay positions survive three screen sizes, focus and reset (0.737167ms)
+✔ API distinguishes WeChat domain rejection from timeout and unavailable service without echoing raw details (0.237125ms)
+✔ overlay fade retains common IDs, cancels interrupted tasks, terminates and supports immediate fallback (0.771625ms)
+✔ photo and alpha use identical contain transform 320,300,1 (3.230542ms)
+✔ photo and alpha use identical contain transform 375,360,2 (0.449542ms)
+✔ photo and alpha use identical contain transform 768,600,3 (0.299417ms)
+✔ component native/client touch box, foreground/background and whitespace (1.799166ms)
+✔ stale loaded mask never paints after source replacement (0.975792ms)
+✔ cancel never commits a partial box (0.662167ms)
+✔ loading next mask never clears the current photo before an atomic completed frame (0.437458ms)
+✔ drag moves emit no prompt, release emits once; tiny screen box and cancellation never submit (1.032167ms)
+✔ review mode hides prompting decorations but draws the identical photo and mask (0.559ms)
+✔ client release survives a move redraw while its bounds query is pending (0.754708ms)
+✔ cancel during an asynchronous start cannot resurrect the gesture (0.162292ms)
+✔ unchanged mode and disabled notifications preserve an active gesture (0.109042ms)
+✔ native dispatch order survives out-of-order client query completion (0.101375ms)
+✔ photo replacement and disabling invalidate pending client gestures (0.124833ms)
+✔ brush commits one photo-space stroke on release, consistent at 320,300,1 (0.315292ms)
+✔ brush commits one photo-space stroke on release, consistent at 375,360,2 (0.125167ms)
+✔ brush commits one photo-space stroke on release, consistent at 768,600,3 (0.100833ms)
+✔ brush cancel, outside-photo path and page detachment cannot commit (0.16825ms)
+✔ V5.3 draft keeps source independent; move/size/rotation never write formal V2 until one confirmation (27.864541ms)
+✔ V5.3 reset and cancel affect only placement draft; invalid body placement cannot commit (8.450791ms)
+✔ V5.3 page leases, source replacement, expiry and annotation revision reject old callbacks (16.328083ms)
+✔ system unload preserves in-run draft for resuming, while old owner can no longer write (13.787458ms)
+✔ unclipped projection previews outside coordinates without changing strict V1 projection rules (0.286667ms)
+✔ deleted V2 placement cannot reopen as falsely confirmed; original photo can create a fresh draft (11.081125ms)
+✖ production placement page: back focus, drag, sliders, full-view invariance, confirmation and V2 navigation (3.217041ms)
+✖ production placement page: missing handoff fails without replacing the V2 session (0.218458ms)
+✖ placement exit has valid native button lengths; continuing retains draft and explicit discard preserves V2 (1.761791ms)
+✖ rapid slider updates stay local, never acknowledge a stale frame, and flush correctly when hidden or resized (1.840917ms)
+✖ unload during drag settles complete geometry without saving, and old page events cannot write (2.78475ms)
+✖ native timer id zero is still a pending label timer and is canceled on hide (2.21375ms)
+✔ photo preparation copies oriented pixel metric, centers the whole group and does not mutate source (2.487667ms)
+✔ known photo pixels -> body normalized, angle 0 (0.271625ms)
+✔ known photo pixels -> body normalized, angle 90 (0.115167ms)
+✔ known photo pixels -> body normalized, angle 180 (0.200458ms)
+✔ equal scale and rotation use original-image aspect and body logical aspect, never normalized-axis stretching (0.652709ms)
+✔ combined scale/rotation/translation has independently calculated expected position (0.267708ms)
+✔ whole MultiPolygon incl tiny piece, holes, ordering and area ratio survives shared similarity transform (4.330333ms)
+✔ viewport focus/reset and different screen sizes cannot modify placement coordinates (1.186791ms)
+✔ explicit initial baseline inherits selected view/basis and 100 percent edit scale (0.317542ms)
+✔ bounds and hit tests retain holes and separate components (0.149042ms)
+✔ invalid photo result, coordinates, ring topology, empty and resource overrun fail explicitly (2.099834ms)
+✔ invalid transformations and target binding cannot be silently normalized or adopted (0.421666ms)
+✔ filled regions outside, bridges across notches and legs fail even when all outer vertices are inside (0.148084ms)
+✔ body hole enclosed in a filled lesion is invalid; lesion hole may cover that excluded body hole (1.590417ms)
+✔ opposite ring winding, isolated touching components, and island in another polygon hole are valid (0.473584ms)
+✔ invalid holes, overlapping components and edge-sharing components are rejected without changing geometry (0.285916ms)
+✔ hole contact topology rejects disconnected interiors but preserves legitimate single/common point contacts (2.62775ms)
+✔ tiny valid pieces are preserved, numerical body edge does not expand to hide real outside area (0.133334ms)
+✔ actual front and back body reject arm/torso air bridge and legs gap, accept central chest/back (8.974917ms)
+✔ AI cancel releases pending placement before clearing the old photo session (7.087292ms)
+✔ AI replace releases pending placement before clearing the old photo session (1.772875ms)
+✔ AI manual releases pending placement before clearing the old photo session (1.409334ms)
+✔ AI ttl releases pending placement before clearing the old photo session (2.628ms)
+✔ V2 return-to-selection skips the intermediate AI page while preserving the original manual route (0.702959ms)
+✔ transparent placement canvas draws all rings, a visible move handle, and CSS-sized strokes (1.887958ms)
+✔ handle drags an entire multi-ring patch with ordered async touch events, without a body selection or vertex event (2.04625ms)
+✔ new source key, cancel and viewport changes invalidate old drag queries (0.881167ms)
+✔ background touch does not start dragging and repeated same-value redraw keeps the current gesture (0.515125ms)
+✔ preview caches 100 vertices / single piece without modifying source or final geometry (5.902375ms)
+✔ preview caches 100 vertices / five pieces with five holes without modifying source or final geometry (3.973333ms)
+✔ preview caches 500 vertices / single piece without modifying source or final geometry (3.851292ms)
+✔ preview caches 500 vertices / five pieces with five holes without modifying source or final geometry (10.238416ms)
+✔ preview caches 2000 vertices / single piece without modifying source or final geometry (6.407458ms)
+✔ preview caches 2000 vertices / five pieces with five holes without modifying source or final geometry (51.879709ms)
+✔ in-flight state changes only immutable scalar transform; settle validates once and confirm recomputes fully once (720.665417ms)
+✔ invalid scalar parameters still reject without an intermediate full transform (10.925875ms)
+✔ preview affine coordinates match exact body transform at 320/375/430 widths, full and focused views; holes remain unfilled (4.782417ms)
+✔ unsupported offscreen or failing cached draw falls back to complete vector preview (0.623291ms)
+✔ one pending frame coalesces rapid scale/rotation, releases resources on exit, and does no idle looping (1.272875ms)
+✔ source change and late async start cannot mutate new source, lower revision starts correctly (3.648209ms)
+✔ timer fallback still coalesces frames and a hidden page cancels the pending draw (54.247208ms)
+✔ V5.3 atomic group commit preserves old manual annotations, components, holes and immutable photo source (15.913917ms)
+✔ V5.3 duplicate confirmation is idempotent even with original token; conflicting payload cannot overwrite (3.141417ms)
+✔ V5.3 invalid token, template/view, expiry, source or preview cannot partially mutate V2 (9.370208ms)
+✔ V5.3 pending manual draft is never discarded; empty draft may be atomically replaced; back view stays isolated (9.721583ms)
+✔ V5.3 placement entry can switch front empty draft to back atomically without changing manual open semantics (3.417209ms)
+✔ V5.4 extends V5.3 invalidation: complete AI geometry enters the shared V4 transport (9.295458ms)
+✔ V5.3 renderer draws every component and a genuine oppositely wound hole across focus/full view (2.341209ms)
+✔ V5.3 V2 page restores complete back-view AI group, keeps body coordinates on full view and manual add available (9.944875ms)
+✔ 人工非医学夹具：唯一、重叠、边界、人体外和人体内无配置分别报告 (0.918ms)
+✔ 真实区域使用多边形且保留独立前后与解剖学左右，唯一点不会串面 (4.882125ms)
+✔ 真实头颈/颈胸/胸腹边界有明确候选，不通过扩大包围盒吞掉人体间隙 (1.36825ms)
+✔ V1.6源图人工参考点：胸侧/双上臂/肩界两侧/颈腹与公共边界，不从命中函数产生期望 (4.580334ms)
+✔ 旧胸/上背上臂混选复现；新配置同点只属对应上肢，focus留白不参与最终判定 (0.980583ms)
+✔ 高亮实际fill路径就是命中outline，轻实线宽度始终1 CSS px；源图裁切状态恢复 (2.893125ms)
+✔ 手工源图参考点跨全身/胸部focus/复位及320/375/430/矮容器归属不变 (35.237042ms)
+✔ 初始无默认选择、不可放大；人体唯一命中只高亮，确认后才进入focused (0.52725ms)
+✔ 从列表和人体选中相同状态，focused换部位回overview，取消弹层不改选择/视口 (0.308541ms)
+✔ 人体外/未配置保留原选择并提示；边界弹候选，取消不抢占，候选选中后不放大 (0.30075ms)
+✖ 调试/弹层/说明/错版隔离正常选区，切面清空选择缩放与调试，拒绝跨面列表ID (0.47025ms)
+✖ 开发调试低干扰入口可关闭并清点；说明是真实许可，不调用未来评估或标注接口 (0.155625ms)
+✔ region-picker只展示配置并发送已知ID，关闭/遮罩不偷偷选择 (0.328ms)
+ℹ tests 286
+ℹ suites 0
+ℹ pass 268
+ℹ fail 18
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1180.517375
+
+✖ failing tests:
+
+test at ../tests/miniprogram/ai-matching-flow.test.cjs:33:1
+✖ one confirmation, one request; retry preserves ID and all geometry; result defaults to all without another request (69.197708ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/ai-matching-flow.test.cjs:35:66)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/ai-matching-flow.test.cjs:48:1
+✖ saved AI editing retains original results until confirmation; stable ID replaced and only new geometry requested (70.918375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/ai-matching-flow.test.cjs:54:43)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/ai-matching-flow.test.cjs:59:1
+✖ page hiding/unload drops late response and navigation; confirmed annotation remains recoverable (52.55875ms)
+  TypeError: Cannot read properties of undefined (reading 'success')
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/ai-matching-flow.test.cjs:61:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at ../tests/miniprogram/ai-transport.test.cjs:16:1
+✖ physical device and release disabled before any upload (0.614959ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /开发工具/. Input:
+  
+  'Error: 当前测试服务暂不可用，请联系邀请人完成服务接入'
+  
+      at async TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/ai-transport.test.cjs:17:70)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: 当前测试服务暂不可用，请联系邀请人完成服务接入
+        at validatedHttpsBase (/private/var/folders/vn/20gd7kbn4k70bmt4jhqgpg5h0000gn/T/dermatome-v1-test-1lThXB/config/servers.js:13:15)
+        at apiBaseUrl (/private/var/folders/vn/20gd7kbn4k70bmt4jhqgpg5h0000gn/T/dermatome-v1-test-1lThXB/config/api.js:24:49)
+        at ensureTrialAccess (/private/var/folders/vn/20gd7kbn4k70bmt4jhqgpg5h0000gn/T/dermatome-v1-test-1lThXB/services/trial-access.js:68:30)
+        at request (/private/var/folders/vn/20gd7kbn4k70bmt4jhqgpg5h0000gn/T/dermatome-v1-test-1lThXB/services/ai.js:29:52)
+        at Object.open (/private/var/folders/vn/20gd7kbn4k70bmt4jhqgpg5h0000gn/T/dermatome-v1-test-1lThXB/services/ai.js:80:31)
+        at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/ai-transport.test.cjs:17:103)
+        at Test.runInAsyncScope (node:async_hooks:214:14)
+        at Test.run (node:internal/test_runner/test:1106:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+        at Test.postRun (node:internal/test_runner/test:1235:19),
+    expected: /开发工具/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/annotation-flow.test.cjs:21:1
+✖ V2 entry rejects no selection/debug; route holds only session identifier, starts focused without coarse highlight (29.622084ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '/pages/annotate/annotate?sessionId=session-mvxyuor9-1'
+  - ''
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/annotation-flow.test.cjs:23:119)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '/pages/annotate/annotate?sessionId=session-mvxyuor9-1',
+    expected: '',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/canvas.test.cjs:256:1
+✖ 调试面板显示四位标准坐标及实际运行状态；关闭、换面和错版事件隔离 (0.7485ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  '—' !== '0.4200'
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/canvas.test.cjs:266:48)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '—',
+    expected: '0.4200',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/matching-presentation.test.cjs:72:1
+✖ one canvas workflow: calculate once, keep viewport, all/single/scope, edit invalidation and cache reentry (11.354667ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/matching-presentation.test.cjs:75:61)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/matching-presentation.test.cjs:93:1
+✖ prepared view race, request during view switch, stale frame and information/motion controls (1.764292ms)
+  TypeError: h.replies.shift(...) is not a function
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/matching-presentation.test.cjs:94:76)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at ../tests/miniprogram/matching-presentation.test.cjs:121:1
+✖ in-flight calculation follows current view; hide cancels response; release gate clears cached colors but attribution stays accessible (2.383ms)
+  TypeError: h.replies.shift(...) is not a function
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/matching-presentation.test.cjs:122:108)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at ../tests/miniprogram/matching-session.test.cjs:15:1
+✖ API client separately denies release/trial, requires phone URL, and maps backend/network errors (1.175334ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /真机|手机/. Input:
+  
+  'Error: 当前测试服务暂不可用，请联系邀请人完成服务接入'
+  
+      at async TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/matching-session.test.cjs:15:838)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: 当前测试服务暂不可用，请联系邀请人完成服务接入
+        at validatedHttpsBase (/private/var/folders/vn/20gd7kbn4k70bmt4jhqgpg5h0000gn/T/dermatome-v1-test-1lThXB/config/servers.js:13:15)
+        at apiBaseUrl (/private/var/folders/vn/20gd7kbn4k70bmt4jhqgpg5h0000gn/T/dermatome-v1-test-1lThXB/config/api.js:24:49)
+        at ensureTrialAccess (/private/var/folders/vn/20gd7kbn4k70bmt4jhqgpg5h0000gn/T/dermatome-v1-test-1lThXB/services/trial-access.js:68:30)
+        at evaluateAnnotations (/private/var/folders/vn/20gd7kbn4k70bmt4jhqgpg5h0000gn/T/dermatome-v1-test-1lThXB/services/api.js:37:48)
+        at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/matching-session.test.cjs:15:859)
+        at async Test.run (node:internal/test_runner/test:1113:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:788:7),
+    expected: /真机|手机/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/placement-flow.test.cjs:63:1
+✖ production placement page: back focus, drag, sliders, full-view invariance, confirmation and V2 navigation (3.217041ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'front' !== 'back'
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/placement-flow.test.cjs:65:102)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'front',
+    expected: 'back',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/placement-flow.test.cjs:75:1
+✖ production placement page: missing handoff fails without replacing the V2 session (0.218458ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /失效/. Input:
+  
+  '当前版本暂未开放AI人体放置，请返回手动标注'
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/placement-flow.test.cjs:77:22)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '当前版本暂未开放AI人体放置，请返回手动标注',
+    expected: /失效/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/placement-flow.test.cjs:79:1
+✖ placement exit has valid native button lengths; continuing retains draft and explicit discard preserves V2 (1.761791ms)
+  TypeError: Cannot read properties of undefined (reading 'confirmText')
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/placement-flow.test.cjs:81:31)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at ../tests/miniprogram/placement-flow.test.cjs:87:1
+✖ rapid slider updates stay local, never acknowledge a stale frame, and flush correctly when hidden or resized (1.840917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 120
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/placement-flow.test.cjs:93:9)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 120,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/placement-flow.test.cjs:100:1
+✖ unload during drag settles complete geometry without saving, and old page events cannot write (2.78475ms)
+  TypeError: Cannot read properties of undefined (reading 'geometryRevision')
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/placement-flow.test.cjs:103:82)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at ../tests/miniprogram/placement-flow.test.cjs:107:1
+✖ native timer id zero is still a pending label timer and is canceled on hide (2.21375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/placement-flow.test.cjs:111:76)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/selection.test.cjs:39:1
+✖ 调试/弹层/说明/错版隔离正常选区，切面清空选择缩放与调试，拒绝跨面列表ID (0.47025ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'front-chest' !== ''
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/selection.test.cjs:40:89)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'front-chest',
+    expected: '',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../tests/miniprogram/selection.test.cjs:50:1
+✖ 开发调试低干扰入口可关闭并清点；说明是真实许可，不调用未来评估或标注接口 (0.155625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/selection.test.cjs:52:29)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

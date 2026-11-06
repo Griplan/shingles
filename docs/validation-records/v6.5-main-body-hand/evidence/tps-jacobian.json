@@ -1,0 +1,26 @@
+{
+  "front-left": {
+    "samples": 4132,
+    "minJacobian": 0.13990969333232756,
+    "negative": 0,
+    "outside": 1
+  },
+  "front-right": {
+    "samples": 4201,
+    "minJacobian": 0.05799371361151851,
+    "negative": 0,
+    "outside": 0
+  },
+  "back-left": {
+    "samples": 4141,
+    "minJacobian": 0.07564689193506091,
+    "negative": 0,
+    "outside": 2
+  },
+  "back-right": {
+    "samples": 4216,
+    "minJacobian": 0.06206521127524936,
+    "negative": 0,
+    "outside": 1
+  }
+}

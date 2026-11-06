@@ -1,0 +1,3 @@
+COMMAND: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/bin/python scripts/sync_matching_body.py --check
+EXIT: 0
+PASSED: shared body equals current V2 hitOutline and package identity

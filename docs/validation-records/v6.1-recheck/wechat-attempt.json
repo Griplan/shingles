@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-04",
+  "tool": "cua_repl native app",
+  "project": "Shingles",
+  "compiled_by_agent": false,
+  "actions": [
+    {
+      "action": "compile initial AX element",
+      "status": "FAILED",
+      "error": "-10005 invalid element ID"
+    },
+    {
+      "action": "switch to left palm",
+      "status": "PASSED",
+      "observed": "Left selected, thumb at left, left 0 and right 1 annotations"
+    },
+    {
+      "action": "raise project window and inspect screenshot",
+      "status": "PASSED",
+      "observed": "Clear native left palm with left-facing thumb"
+    },
+    {
+      "action": "add point by screenshot coordinate",
+      "status": "NOT_RUN",
+      "error": "-10005 noWindowsAvailable; no point added"
+    },
+    {
+      "action": "switch to right palm",
+      "status": "PASSED",
+      "observed": "Right selected, saved annotation 1 retained"
+    },
+    {
+      "action": "zoom saved right annotation then reset",
+      "status": "PASSED",
+      "observed": "Triangle shown close up then returned to same visible location; right thumb on right"
+    }
+  ],
+  "image_evidence": "Native images emitted in tool transcript; not persisted as local screenshots",
+  "scope": "All native actions occurred BEFORE Servier preview.3 was written. No original annotation was deleted or rewritten.",
+  "new_atlas_native_match": "NOT_RUN",
+  "phone": "NOT_RUN",
+  "multiple_screen_touch": "NOT_RUN"
+}

@@ -1,0 +1,281 @@
+V1.3 replacement first checks / 2026-10-22
+Earlier invocation from repository root: npm run typecheck failed ENOENT (no root package.json), exit254; corrected working directory below.
+
+COMMAND: npm run typecheck
+CWD: miniprogram
+
+> dermatome-mapper-miniprogram@0.0.0 typecheck
+> tsc --noEmit
+
+
+EXIT_CODE: 0
+
+COMMAND: npm test
+CWD: miniprogram
+
+> dermatome-mapper-miniprogram@0.0.0 test
+> node ../scripts/test_miniprogram.cjs
+
+TAP version 13
+# Subtest: 新几何独立版本；前后同骨架、旧视觉与旧区域不静默迁移
+ok 1 - 新几何独立版本；前后同骨架、旧视觉与旧区域不静默迁移
+  ---
+  duration_ms: 1.196166
+  ...
+# Subtest: 设计比例单独检查：约7.5～8头身、裆50～54%、膝72～76%，不是医学准确率
+ok 2 - 设计比例单独检查：约7.5～8头身、裆50～54%、膝72～76%，不是医学准确率
+  ---
+  duration_ms: 0.154667
+  ...
+# Subtest: 轮廓本身胸肩加宽、腰髋收放：不只修改参考点或全图缩放
+ok 3 - 轮廓本身胸肩加宽、腰髋收放：不只修改参考点或全图缩放
+  ---
+  duration_ms: 1.106583
+  ...
+# {"chestY":270,"oldChest":107.83838028169015,"chest":129.48642533936652,"waist":100.56126482213438,"hip":158.43705572116485}
+# Subtest: 躯干、髋膝踝、肘腕与手足参考点在两面同源轮廓内；关节高度有序
+ok 4 - 躯干、髋膝踝、肘腕与手足参考点在两面同源轮廓内；关节高度有序
+  ---
+  duration_ms: 3.219584
+  ...
+# Subtest: 16区域与新几何配准：肩肘腕手指、髋膝踝足均落在应属UI多边形内
+ok 5 - 16区域与新几何配准：肩肘腕手指、髋膝踝足均落在应属UI多边形内
+  ---
+  duration_ms: 0.521542
+  ...
+# Subtest: 前后膝部实际细节路径靠近同一设计关节，避免只下移膝标签
+ok 6 - 前后膝部实际细节路径靠近同一设计关节，避免只下移膝标签
+  ---
+  duration_ms: 0.080583
+  ...
+# Subtest: 新关节参考点实际探测→十字重投影：三尺寸、前后、放大复位保持同一标准位置
+ok 7 - 新关节参考点实际探测→十字重投影：三尺寸、前后、放大复位保持同一标准位置
+  ---
+  duration_ms: 3.299333
+  ...
+# Subtest: 新模板正背面资源、逻辑比例、版本及区域显式绑定，源文件存在
+ok 8 - 新模板正背面资源、逻辑比例、版本及区域显式绑定，源文件存在
+  ---
+  duration_ms: 2.107292
+  ...
+# Subtest: 每面8个独立UI区域、16个唯一ID，头颈存在且能居中放大
+ok 9 - 每面8个独立UI区域、16个唯一ID，头颈存在且能居中放大
+  ---
+  duration_ms: 2.689209
+  ...
+# Subtest: 几何不变可更换配色/线条资源；几何、视图、尺寸或区域错版明确拒绝
+ok 10 - 几何不变可更换配色/线条资源；几何、视图、尺寸或区域错版明确拒绝
+  ---
+  duration_ms: 2.544916
+  ...
+# Subtest: 连续人体轮廓命中头颈躯干/双臂手/双腿足，拒绝臂躯间隙与腿间留白
+ok 11 - 连续人体轮廓命中头颈躯干/双臂手/双腿足，拒绝臂躯间隙与腿间留白
+  ---
+  duration_ms: 6.778584
+  ...
+# Subtest: 外部素材保留自然非对称及独立正背面，全身轮廓适配Canvas
+ok 12 - 外部素材保留自然非对称及独立正背面，全身轮廓适配Canvas
+  ---
+  duration_ms: 2.374417
+  ...
+# Subtest: 同一二次曲线路径细分命中，边缘容差不吸附，开放路径拒绝
+ok 13 - 同一二次曲线路径细分命中，边缘容差不吸附，开放路径拒绝
+  ---
+  duration_ms: 0.171625
+  ...
+# Subtest: 原生Canvas本地触点和client触点识别，不猜测page坐标或DPR
+ok 14 - 原生Canvas本地触点和client触点识别，不猜测page坐标或DPR
+  ---
+  duration_ms: 0.254167
+  ...
+# Subtest: 真实矩形处理页面滚动：两种事件基准得到相同标准点
+ok 15 - 真实矩形处理页面滚动：两种事件基准得到相同标准点
+  ---
+  duration_ms: 0.520292
+  ...
+# Subtest: 三种尺寸区分有效人体、逻辑画布内留白、模型范围外；无效点不产生标准点
+ok 16 - 三种尺寸区分有效人体、逻辑画布内留白、模型范围外；无效点不产生标准点
+  ---
+  duration_ms: 1.033083
+  ...
+# Subtest: 归一化单点在放大、复位、尺寸变化时重投影；超出可见范围隐藏，不贴边
+ok 17 - 归一化单点在放大、复位、尺寸变化时重投影；超出可见范围隐藏，不贴边
+  ---
+  duration_ms: 0.765834
+  ...
+# Subtest: Canvas 正背面使用不同路径细节且绘图状态成对恢复
+ok 18 - Canvas 正背面使用不同路径细节且绘图状态成对恢复
+  ---
+  duration_ms: 1.539292
+  ...
+# Subtest: 区域高亮裁剪于人体轮廓，跨视图区域不会误画
+ok 19 - 区域高亮裁剪于人体轮廓，跨视图区域不会误画
+  ---
+  duration_ms: 1.412292
+  ...
+# Subtest: 初始化/尺寸适配/DPR 280×460×1
+ok 20 - 初始化/尺寸适配/DPR 280×460×1
+  ---
+  duration_ms: 1.289375
+  ...
+# Subtest: 初始化/尺寸适配/DPR 343×540×2
+ok 21 - 初始化/尺寸适配/DPR 343×540×2
+  ---
+  duration_ms: 0.186042
+  ...
+# Subtest: 初始化/尺寸适配/DPR 700×570×3
+ok 22 - 初始化/尺寸适配/DPR 700×570×3
+  ---
+  duration_ms: 0.390708
+  ...
+# Subtest: 反复切换、区域放大与复位不累加 DPR/模型缩放
+ok 23 - 反复切换、区域放大与复位不累加 DPR/模型缩放
+  ---
+  duration_ms: 3.642583
+  ...
+# Subtest: hide/show、resize 重测尺寸；detached 后忽略异步结果
+ok 24 - hide/show、resize 重测尺寸；detached 后忽略异步结果
+  ---
+  duration_ms: 1.717125
+  ...
+# Subtest: 初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口
+ok 25 - 初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口
+  ---
+  duration_ms: 0.354041
+  ...
+# Subtest: 页面选择校验、换面清理、区域切换与复位状态
+ok 26 - 页面选择校验、换面清理、区域切换与复位状态
+  ---
+  duration_ms: 0.713
+  ...
+# Subtest: 调试默认关闭，不采集坐标；开启后实际触点形成单个十字和真实事件
+ok 27 - 调试默认关闭，不采集坐标；开启后实际触点形成单个十字和真实事件
+  ---
+  duration_ms: 1.278917
+  ...
+# Subtest: DPR1/2/3不会进入点击归一化，client触点与Canvas触点一致
+ok 28 - DPR1/2/3不会进入点击归一化，client触点与Canvas触点一致
+  ---
+  duration_ms: 3.848917
+  ...
+# Subtest: 十字随区域放大、复位及resize重投影；原标准坐标不变，出视口时隐藏
+ok 29 - 十字随区域放大、复位及resize重投影；原标准坐标不变，出视口时隐藏
+  ---
+  duration_ms: 3.540542
+  ...
+# Subtest: 留白及模型外点击清除旧十字，不伪造标准点，不改变所选区域
+ok 30 - 留白及模型外点击清除旧十字，不伪造标准点，不改变所选区域
+  ---
+  duration_ms: 1.854667
+  ...
+# Subtest: 关闭调试或换面清除单点，重新开启/换回不复用另一视图的点
+ok 31 - 关闭调试或换面清除单点，重新开启/换回不复用另一视图的点
+  ---
+  duration_ms: 0.823458
+  ...
+# Subtest: 拖动/滚动、取消触摸和多触点不当作点击；不会创建病灶集合
+ok 32 - 拖动/滚动、取消触摸和多触点不当作点击；不会创建病灶集合
+  ---
+  duration_ms: 0.286416
+  ...
+# Subtest: 点击查询期间切换视口或detach丢弃旧结果；查询失败明确提示且不保留标记
+ok 33 - 点击查询期间切换视口或detach丢弃旧结果；查询失败明确提示且不保留标记
+  ---
+  duration_ms: 0.368458
+  ...
+# Subtest: 调试面板显示四位标准坐标及实际运行状态；关闭、换面和错版事件隔离
+ok 34 - 调试面板显示四位标准坐标及实际运行状态；关闭、换面和错版事件隔离
+  ---
+  duration_ms: 0.357333
+  ...
+# Subtest: A 标准坐标正向转换：独立手算 0.5 比例与 16px 留白
+ok 35 - A 标准坐标正向转换：独立手算 0.5 比例与 16px 留白
+  ---
+  duration_ms: 0.645875
+  ...
+# Subtest: B CSS 坐标逆向转换：手算容器中心
+ok 36 - B CSS 坐标逆向转换：手算容器中心
+  ---
+  duration_ms: 0.067791
+  ...
+# Subtest: C 三种尺寸 11×11 参考点往返，最大允许误差 1e-9
+ok 37 - C 三种尺寸 11×11 参考点往返，最大允许误差 1e-9
+  ---
+  duration_ms: 0.711875
+  ...
+# Subtest: D 宽/窄容器始终等比例，分别产生上下和左右留白
+ok 38 - D 宽/窄容器始终等比例，分别产生上下和左右留白
+  ---
+  duration_ms: 0.04375
+  ...
+# Subtest: E 留白、Canvas 外部以及非有限点击拒绝，不吸附边缘
+ok 39 - E 留白、Canvas 外部以及非有限点击拒绝，不吸附边缘
+  ---
+  duration_ms: 0.060292
+  ...
+# Subtest: F 区域放大居中、四角留在容器内，标准位置保持一致
+ok 40 - F 区域放大居中、四角留在容器内，标准位置保持一致
+  ---
+  duration_ms: 0.19975
+  ...
+# Subtest: G 复位恢复原全身视口，放大不会修改原始点或区域
+ok 41 - G 复位恢复原全身视口，放大不会修改原始点或区域
+  ---
+  duration_ms: 0.252375
+  ...
+# Subtest: H 拒绝非法容器尺寸 0
+ok 42 - H 拒绝非法容器尺寸 0
+  ---
+  duration_ms: 0.136709
+  ...
+# Subtest: H 拒绝非法容器尺寸 -1
+ok 43 - H 拒绝非法容器尺寸 -1
+  ---
+  duration_ms: 0.118292
+  ...
+# Subtest: H 拒绝非法容器尺寸 NaN
+ok 44 - H 拒绝非法容器尺寸 NaN
+  ---
+  duration_ms: 0.169917
+  ...
+# Subtest: H 拒绝非法容器尺寸 Infinity
+ok 45 - H 拒绝非法容器尺寸 Infinity
+  ---
+  duration_ms: 0.08975
+  ...
+# Subtest: H 拒绝非法容器尺寸 -Infinity
+ok 46 - H 拒绝非法容器尺寸 -Infinity
+  ---
+  duration_ms: 0.031
+  ...
+# Subtest: H 拒绝异常模型、留白、区域和标准点数值
+ok 47 - H 拒绝异常模型、留白、区域和标准点数值
+  ---
+  duration_ms: 0.213125
+  ...
+# Subtest: I 边界点 (0,0)、(1,1) 与全画布放大复位
+ok 48 - I 边界点 (0,0)、(1,1) 与全画布放大复位
+  ---
+  duration_ms: 0.074208
+  ...
+# Subtest: H 拒绝调用方构造的无效视口，不返回 NaN 或伪造坐标
+ok 49 - H 拒绝调用方构造的无效视口，不返回 NaN 或伪造坐标
+  ---
+  duration_ms: 0.116875
+  ...
+# Subtest: J 正背面区域独立、ID唯一、解剖学左右正确，区域中心可往返
+ok 50 - J 正背面区域独立、ID唯一、解剖学左右正确，区域中心可往返
+  ---
+  duration_ms: 0.717792
+  ...
+1..50
+# tests 50
+# suites 0
+# pass 50
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 81.567625
+
+EXIT_CODE: 0

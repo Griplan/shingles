@@ -1,0 +1,1 @@
+{"synthetic":true,"purpose":"Hand-computable non-medical area fixtures, not atlas geometry","lesion":[[0,0],[1,0],[1,1],[0,1]],"nonoverlap":{"TEST_A":[[0,0],[0.6,0],[0.6,1],[0,1]],"TEST_B":[[0.6,0],[0.9,0],[0.9,1],[0.6,1]]},"overlap":{"TEST_A":[[0,0],[0.6,0],[0.6,1],[0,1]],"TEST_B":[[0.4,0],[0.9,0],[0.9,1],[0.4,1]]}}

@@ -1,0 +1,18 @@
+{
+  "b": {
+    "status": 200,
+    "location": null
+  },
+  "a_ip": {
+    "status": 200,
+    "location": null
+  },
+  "a_https": {
+    "status": 200,
+    "location": null
+  },
+  "a_redirect": {
+    "status": 308,
+    "location": "https://acupuncture.yandunshuati.online/health"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "coordinate_space": "photo_oriented_pixels_v1",
+  "prompt_authoring": "Manually chosen after inspecting original CDC images; no expected medical mask is provided.",
+  "cases": [
+    {"id":"A_single_fg","image":"cdc-21505.jpg","points":[[430,328,1]],"intent":"Central visible cluster; single foreground point"},
+    {"id":"B_box","image":"cdc-21505.jpg","box":[215,245,495,385],"intent":"Same central cluster; bounding box includes some surrounding skin"},
+    {"id":"C_multi_fg","image":"cdc-21505.jpg","points":[[270,295,1],[350,335,1],[430,328,1],[465,355,1]],"intent":"Several central cluster components"},
+    {"id":"D_fg_bg","image":"cdc-21505.jpg","points":[[270,295,1],[350,335,1],[430,328,1],[465,355,1],[370,300,0],[500,350,0],[300,365,0]],"intent":"Same as C, add normal-looking gap/background exclusion prompts"},
+    {"id":"E_disconnected","image":"cdc-21505.jpg","points":[[165,290,1],[445,82,1],[430,328,1]],"intent":"Three separated visible targets; do not force a convex hull"},
+    {"id":"F_unclear","image":"cdc-21506.jpg","points":[[460,650,1]],"box":[350,590,530,700],"intent":"Faint peripheral patch in distant image; boundary uncertain"},
+    {"id":"G_neck_crop","image":"cdc-18254-neck-crop.png","points":[[210,180,1]],"box":[150,130,265,235],"intent":"Local neck patch; source face and jaw excluded by documented crop"},
+    {"id":"H_synthetic_disconnected","image":"synthetic-disconnected.png","points":[[80,85,1],[230,160,1]],"intent":"Technical non-medical two-object test"},
+    {"id":"I_synthetic_low_contrast","image":"synthetic-low-contrast.png","points":[[160,120,1]],"box":[100,60,230,190],"intent":"Technical non-medical faint ellipse"}
+  ]
+}

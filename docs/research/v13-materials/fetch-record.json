@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-22",
+  "purpose": "Licensed source inspection and user-requested comparison only; no runtime import",
+  "results": [
+    {
+      "key": "a-male",
+      "source_name": "Male_front-back_3d-shaded_human_illustration.svg",
+      "requested_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Male_front-back_3d-shaded_human_illustration.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Male_front-back_3d-shaded_human_illustration.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "status": 200,
+      "bytes": 1002501,
+      "sha256": "e8c22cb75e6d3d1ffb95bf4e6cf36996ccac26a82cb3dbb75ead91516a810a59"
+    },
+    {
+      "key": "a-female",
+      "source_name": "Female_front-back_3d-shaded_human_illustration.svg",
+      "requested_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Female_front-back_3d-shaded_human_illustration.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Female_front-back_3d-shaded_human_illustration.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "status": 200,
+      "bytes": 1181556,
+      "sha256": "12d8c4abb8ffb9957164592aace9c0ddd9d762e3215dd36ef4b3bda31d61309d"
+    },
+    {
+      "key": "b-neutral",
+      "requested_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Silhouette_humain_asexue_anterieur_posterieur.svg",
+      "error": "HTTPError: HTTP Error 429: Too many requests (f061ab2)"
+    },
+    {
+      "key": "b-original",
+      "source_name": "Silhouette_femme_homme_anterieur_posterieur.svg",
+      "requested_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Silhouette_femme_homme_anterieur_posterieur.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Silhouette_femme_homme_anterieur_posterieur.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "status": 200,
+      "bytes": 363932,
+      "sha256": "e95de0eaccec2a511a465c793711ee31da535f7d77f9881bcdf15141e71c362f"
+    },
+    {
+      "key": "c-servier-front",
+      "source_name": "Monsieur_muscles_face.png",
+      "url": "https://smart.servier.com/wp-content/uploads/2016/10/Monsieur_muscles_face.png",
+      "status": 200,
+      "bytes": 361607,
+      "sha256": "cba27322bc63fdd9eea6f0da71e0b3d0919ba9c9aaa979526b0ed98499d67f7d"
+    },
+    {
+      "key": "c-servier-back",
+      "source_name": "Monsieur_muscles_dos.png",
+      "url": "https://smart.servier.com/wp-content/uploads/2016/10/Monsieur_muscles_dos.png",
+      "status": 200,
+      "bytes": 291332,
+      "sha256": "99fc7d2cec0b5fa1df94f5a3cdd3d0847db92e0ad4f7ea1e3bf22c431ecd63b3"
+    }
+  ]
+}

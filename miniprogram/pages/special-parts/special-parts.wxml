@@ -1,0 +1,8 @@
+<view class="special-page">
+ <view class="title">选择特殊部位</view>
+ <view class="hint">选择部位并圈选需要观察的范围。手部请在全身正面或背面标注。</view>
+ <view class="choices"><button class="choice" data-view="sole-left" bindtap="choose" disabled="{{opening}}">左脚底<text>足跟、足弓与跖侧脚趾</text></button><button class="choice" data-view="sole-right" bindtap="choose" disabled="{{opening}}">右脚底<text>足跟、足弓与跖侧脚趾</text></button></view>
+ <view class="choices"><button class="choice" data-view="axilla-left" bindtap="choose" disabled="{{opening}}">左腋下<text>抬臂圈选 · 参考图谱待配置</text></button><button class="choice" data-view="axilla-right" bindtap="choose" disabled="{{opening}}">右腋下<text>抬臂圈选 · 参考图谱待配置</text></button></view>
+ <view wx:if="{{message}}" class="message">{{message}}</view>
+ <button class="back" bindtap="returnBody">返回全身人体</button>
+</view>

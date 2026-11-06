@@ -1,0 +1,82 @@
+{
+  "time": "2026-11-01T23:19:45+08:00",
+  "a": {
+    "MainPID": "3480408",
+    "NRestarts": "0",
+    "ControlGroup": "/system.slice/acupuncture.service",
+    "MemoryCurrent": "159035392",
+    "CPUUsageNSec": "113464413000",
+    "ActiveState": "active",
+    "ActiveEnterTimestamp": "Sat 2026-10-31 23:51:02 CST"
+  },
+  "nginx": {
+    "MainPID": "12643",
+    "NRestarts": "0",
+    "ControlGroup": "/system.slice/nginx.service",
+    "MemoryCurrent": "8937472",
+    "CPUUsageNSec": "9776865000",
+    "ActiveState": "active",
+    "ActiveEnterTimestamp": "Thu 2026-10-08 13:25:29 CST"
+  },
+  "b": {
+    "MainPID": "0",
+    "NRestarts": "0",
+    "ControlGroup": "",
+    "MemoryCurrent": "[not set]",
+    "CPUUsageNSec": "21952237000",
+    "ActiveState": "inactive",
+    "ActiveEnterTimestamp": "Sun 2026-11-01 23:13:43 CST"
+  },
+  "memory": "total        used        free      shared  buff/cache   available\nMem:      3904065536   921022464   787767296     2801664  2499358720  2983043072\nSwap:     2084564992      536576  2084028416",
+  "disk": "Filesystem       1B-blocks       Used   Available Use% Mounted on\n/dev/vda2      42156257280 9849274368 30465122304  25% /",
+  "ports": "State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\nLISTEN 0      4096   127.0.0.53%lo:53        0.0.0.0:*          \nLISTEN 0      4096         0.0.0.0:22        0.0.0.0:*          \nLISTEN 0      511          0.0.0.0:80        0.0.0.0:*          \nLISTEN 0      511          0.0.0.0:443       0.0.0.0:*          \nLISTEN 0      4096      127.0.0.54:53        0.0.0.0:*          \nLISTEN 0      2048       127.0.0.1:8000      0.0.0.0:*          \nLISTEN 0      4096            [::]:22           [::]:*          \nLISTEN 0      511             [::]:80           [::]:*          \nLISTEN 0      511             [::]:443          [::]:*",
+  "vm": {
+    "pswpin": 0,
+    "pswpout": 5,
+    "oom_kill": 0
+  },
+  "hashes": {
+    "/etc/systemd/system/acupuncture.service": "833ab4b2bfd63c264b26719004f5e169b50c973f23bb16e891ae488c489af89a",
+    "/etc/nginx/nginx.conf": "48c6a4ec1e1fd28ccf968490f07e34a1d7f755793b2108a3ed8670b1ee2a0aa2",
+    "/etc/nginx/sites-enabled/acupuncture-domain": "eb56f9f42003fd9df8fad1cd296c05728fbcb1d9bc3451ccacf7903a8b27ae78",
+    "/etc/nginx/sites-enabled/acupuncture": "db30b2164afcf41b2fdbf8ae4d2464deca988f3d1312063e99bd5d34123c79c8",
+    "/srv/acupuncture/backend/main.py": "e2e362ec2cee00d6441b84d3428a248745162e856d20de28f913dc499e4d8b8e",
+    "/srv/acupuncture/.venv/pyvenv.cfg": "11cb0ba728576bfdfb7cc6cd7fb333c2ef832f750fcc126a45c7a6db758e8b69"
+  },
+  "health": {
+    "status": 200,
+    "body": {
+      "status": "ok",
+      "ai_ready": true
+    },
+    "ms": 26.634036097675562
+  },
+  "ready": {
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "ai_ready": true,
+      "model_ready": true,
+      "results_ready": true
+    },
+    "ms": 0.9679407812654972
+  },
+  "https_health": {
+    "status": 200,
+    "body": {
+      "status": "ok",
+      "ai_ready": true
+    },
+    "ms": 12.43447931483388
+  },
+  "https_ready": {
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "ai_ready": true,
+      "model_ready": true,
+      "results_ready": true
+    },
+    "ms": 48.03748428821564
+  }
+}

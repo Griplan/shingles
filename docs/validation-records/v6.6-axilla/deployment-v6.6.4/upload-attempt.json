@@ -1,0 +1,36 @@
+{
+  "status": "NOT_RUN",
+  "uploaded": false,
+  "attemptedVersion": "0.6.6-axilla.20261106",
+  "appId": "wx951711e2fa1da5ff",
+  "project": "miniprogram",
+  "attempts": [
+    {
+      "stage": "cli-service",
+      "result": "FAILED",
+      "detail": "IDE service port disabled; after confirmation, .ide port wait timed out"
+    },
+    {
+      "stage": "fixed-port",
+      "result": "FAILED",
+      "detail": "Default/.ide contained 9420, but no listener remained on 127.0.0.1:9420"
+    },
+    {
+      "stage": "login",
+      "result": "BLOCKED",
+      "detail": "Developer-tools logs report errcode 41001 and access_token missing; WeChat account login must be renewed"
+    },
+    {
+      "stage": "window-automation",
+      "result": "NOT_RUN",
+      "detail": "CUA getState timed out repeatedly"
+    }
+  ],
+  "manualAction": [
+    "Open the Shingles project in WeChat Developer Tools.",
+    "Sign in with an account authorized for AppID wx951711e2fa1da5ff.",
+    "Compile and upload version 0.6.6-axilla.20261106.",
+    "Set that uploaded development version as the experience version in WeChat platform."
+  ],
+  "phoneAcceptance": "NOT_RUN"
+}

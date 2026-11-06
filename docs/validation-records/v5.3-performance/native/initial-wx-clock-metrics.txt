@@ -1,0 +1,70 @@
+The following is a diff from the previous accessibility tree for Window: "Shingles - 微信开发者工具 Stable v2.01.2510290" with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 475-531, 695
++												707 文本 21
+~																		474 container Warning [Deprecation] SharedArrayBuffer will require cross-origin isolation as of M92, around July 2021. See https://developer.chrome.com/blog/enabling-shared-array-buffer/ for more details. Warning ai.ts:4 wx.getSystemInfoSync is deprecated.Please use wx.getSystemSetting/wx.getAppAuthorizeSetting/wx.getDeviceInfo/wx.getWindowInfo/wx.getAppBaseInfo instead. Warning api.ts:4 wx.getSystemInfoSync is deprecated.Please use wx.getSystemSetting/wx.getAppAuthorizeSetting/wx.getDeviceInfo/wx.getWindowInfo/wx.getApp
++																			708 container Object.entries(__placementPerf.stats).forEach(([k,v])=>console.log('NATIVE_METRIC '+k+' '+JSON.stringify(v)));console.log('NATIVE_STATE '+JSON.stringify({dragging:__placementPerf.page.data.dragging,valid:__placementPerf.page.data.valid,ready:__placementPerf.page.data.overlayReady,vertices:__placementPerf.page.data.prepared.vertexCount,polygons:__placementPerf.page.data.prepared.polygons.length}));
++																				709 container
++																					710 text Object . entries ( __placementPerf . stats ). forEach (([ k , v ]) => console . log ( 'NATIVE_METRIC ' + k + ' ' + JSON . stringify ( v ))); console . log ( 'NATIVE_STATE ' + JSON . stringify ({ dragging : __placementPerf . page . data . dragging , valid : __placementPerf . page . data . valid , ready : __placementPerf . page . data . overlayReady , vertices : __placementPerf . page . data . prepared . vertexCount , polygons : __placementPerf . page . data . prepared . polygons . length }));
++																			711 container VM321:1 NATIVE_METRIC overlay.layoutQuery {"count":2,"totalMs":-0.115966796875,"maxMs":0}
++																				712 container
++																					713 链接 VM321:1
++																						714 文本 VM321:1
++																					715 text NATIVE_METRIC overlay.layoutQuery {"count":2,"totalMs":-0.115966796875,"maxMs":0}
++																			716 container VM321:1 NATIVE_METRIC page.setData.sync {"count":5,"totalMs":27.361572265625,"maxMs":7.058837890625}
++																				717 container
++																					718 链接 VM321:1
++																						719 文本 VM321:1
++																					720 text NATIVE_METRIC page.setData.sync {"count":5,"totalMs":27.361572265625,"maxMs":7.058837890625}
++																			721 container VM321:1 NATIVE_METRIC drag.event.start {"count":1,"totalMs":6.9619140625,"maxMs":6.9619140625}
++																				722 container
++																					723 链接 VM321:1
++																						724 文本 VM321:1
++																					725 text NATIVE_METRIC drag.event.start {"count":1,"totalMs":6.9619140625,"maxMs":6.9619140625}
++																			726 container VM321:1 NATIVE_METRIC preview.parameters {"count":1,"totalMs":0.076904296875,"maxMs":0.076904296875}
++																				727 container
++																					728 链接 VM321:1
++																						729 文本 VM321:1
++																					730 text NATIVE_METRIC preview.parameters {"count":1,"totalMs":0.076904296875,"maxMs":0.076904296875}
++																			731 container VM321:1 NATIVE_METRIC update.scalars {"count":1,"totalMs":5.9130859375,"maxMs":5.9130859375}
++																				732 container
++																					733 链接 VM321:1
++																						734 文本 VM321:1
++																					735 text NATIVE_METRIC update.scalars {"count":1,"totalMs":5.9130859375,"maxMs":5.9130859375}
++																			736 container VM321:1 NATIVE_METRIC drag.event.move {"count":1,"totalMs":5.98193359375,"maxMs":5.98193359375}
++																				737 container
++																					738 链接 VM321:1
++																						739 文本 VM321:1
++																					740 text NATIVE_METRIC drag.event.move {"count":1,"totalMs":5.98193359375,"maxMs":5.98193359375}
++																			741 container VM321:1 NATIVE_METRIC settle.transform+validation+sync {"count":1,"totalMs":635.001220703125,"maxMs":635.001220703125}
++																				742 container
++																					743 链接 VM321:1
++																						744 文本 VM321:1
++																					745 text NATIVE_METRIC settle.transform+validation+sync {"count":1,"totalMs":635.001220703125,"maxMs":635.001220703125}
++																			746 container VM321:1 NATIVE_METRIC drag.event.end {"count":1,"totalMs":638.05908203125,"maxMs":638.05908203125}
++																				747 container
++																					748 链接 VM321:1
++																						749 文本 VM321:1
++																					750 text NATIVE_METRIC drag.event.end {"count":1,"totalMs":638.05908203125,"maxMs":638.05908203125}
++																			751 container VM321:1 NATIVE_METRIC canvas.setTransform {"count":1,"totalMs":-0.01806640625,"maxMs":0}
++																				752 container
++																					753 链接 VM321:1
++																						754 文本 VM321:1
++																					755 text NATIVE_METRIC canvas.setTransform {"count":1,"totalMs":-0.01806640625,"maxMs":0}
++																			756 container VM321:1 NATIVE_METRIC canvas.lineTo {"count":2146,"totalMs":92.098388671875,"maxMs":2.175048828125}
++																				757 container
++																					758 链接 VM321:1
++																						759 文本 VM321:1
++																					760 text NATIVE_METRIC canvas.lineTo {"count":2146,"totalMs":92.098388671875,"maxMs":2.175048828125}
++																			761 container VM321:1 NATIVE_METRIC overlay.draw.sync {"count":1,"totalMs":180.864013671875,"maxMs":180.864013671875}
++																				762 container
++																					763 链接 VM321:1
++																						764 文本 VM321:1
++																					765 text NATIVE_METRIC overlay.draw.sync {"count":1,"totalMs":180.864013671875,"maxMs":180.864013671875}
++																			766 container VM321:1 NATIVE_STATE {"dragging":false,"valid":true,"ready":true,"vertices":2207,"polygons":27}
++																				767 container
++																					768 链接 VM321:1
++																						769 文本 VM321:1
++																					770 text NATIVE_STATE {"dragging":false,"valid":true,"ready":true,"vertices":2207,"polygons":27}
++																			771 container undefined
++																				772 文本 undefined
+The focused UI element is 647 文本输入区 (settable) Console prompt

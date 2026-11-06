@@ -1,0 +1,18 @@
+{
+  "templateId": "commons-axilla-v1",
+  "templateVersion": "1.0.0",
+  "geometryId": "cc0-raised-axilla-outline-v1",
+  "regionSetId": "commons-axilla-ui-v1",
+  "atlasId": "axilla-reference-v1",
+  "atlasVersion": "axilla-unconfigured.1",
+  "contentSHA256": "9e2c04e30615ebe1665ea9aa7e2e77bdf6545aec8e7ec77d513a5c4c667838c8",
+  "sourceTitle": "腋下参考边界待配置",
+  "sourceUrl": "",
+  "attribution": "尚无可用于本模板计算的皮节边界；不将体表素材或感觉检查点作为图谱。",
+  "license": "UNKNOWN",
+  "sourceLicenseStatus": "unconfigured",
+  "mappingEnabled": false,
+  "medicalReviewStatus": "pending",
+  "technicalValidationStatus": "blocked_missing_boundary_evidence",
+  "coverageNote": "抬臂侧面可见皮肤的局部示意；皮节未配置，不表示没有感觉神经。隐蔽深部不外推。"
+}

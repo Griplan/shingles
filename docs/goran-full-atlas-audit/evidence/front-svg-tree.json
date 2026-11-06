@@ -1,0 +1,925 @@
+{
+  "file": "docs/research/v3-atlas/goran-front.original.svg",
+  "sha256": "b03a312817818d0370f3633986554b9fc12a5d2261e3aca30859f0b4e392f18d",
+  "svg": {
+    "width": "439.97",
+    "height": "954.58",
+    "version": "1.1",
+    "viewBox": "0 0 439.97 954.58"
+  },
+  "tagCounts": {
+    "svg": 1,
+    "defs": 1,
+    "marker": 3,
+    "path": 664,
+    "linearGradient": 93,
+    "stop": 70,
+    "radialGradient": 266,
+    "g": 23,
+    "image": 1,
+    "text": 34,
+    "tspan": 35,
+    "rect": 1
+  },
+  "nodes": [
+    {
+      "route": "root/1",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": true,
+      "inDefs": false,
+      "transform": "translate(-879.15 4)",
+      "style": "display:none"
+    },
+    {
+      "route": "root/1/0",
+      "tag": "image",
+      "id": null,
+      "hiddenByDisplay": true,
+      "inDefs": false,
+      "transform": "scale(-1,1)",
+      "style": "stroke-width:1.1611",
+      "hrefType": "embedded"
+    },
+    {
+      "route": "root/2",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(-884.44 -38.43)",
+      "style": ""
+    },
+    {
+      "route": "root/3",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": true,
+      "inDefs": false,
+      "transform": "translate(-879.15 4)",
+      "style": "display:none"
+    },
+    {
+      "route": "root/4",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(-884.44 -38.43)",
+      "style": ""
+    },
+    {
+      "route": "root/5",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": true,
+      "inDefs": false,
+      "transform": "translate(-879.15 4)",
+      "style": "display:none"
+    },
+    {
+      "route": "root/6",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(-884.44 -38.43)",
+      "style": ""
+    },
+    {
+      "route": "root/6/0",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": null,
+      "style": ""
+    },
+    {
+      "route": "root/6/1",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(904.76 42.43)",
+      "style": ""
+    },
+    {
+      "route": "root/6/1/22",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(-13.471)",
+      "style": ""
+    },
+    {
+      "route": "root/6/2",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": null,
+      "style": ""
+    },
+    {
+      "route": "root/6/3",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": null,
+      "style": ""
+    },
+    {
+      "route": "root/6/4",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": null,
+      "style": ""
+    },
+    {
+      "route": "root/6/5",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": null,
+      "style": ""
+    },
+    {
+      "route": "root/6/5/113",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(886)",
+      "style": ""
+    },
+    {
+      "route": "root/6/6",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": null,
+      "style": ""
+    },
+    {
+      "route": "root/7",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": true,
+      "inDefs": false,
+      "transform": "translate(20.322 4)",
+      "style": "display:none"
+    },
+    {
+      "route": "root/7/28",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": true,
+      "inDefs": false,
+      "transform": "translate(-13.471)",
+      "style": ""
+    },
+    {
+      "route": "root/8",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(20.322 4)",
+      "style": ""
+    },
+    {
+      "route": "root/9",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(-879.15 4)",
+      "style": ""
+    },
+    {
+      "route": "root/9/0",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(790.88 83.168)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 2"
+    },
+    {
+      "route": "root/9/1",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(790.86 97.716)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 3"
+    },
+    {
+      "route": "root/9/2",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(790.56 113.28)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 4"
+    },
+    {
+      "route": "root/9/3",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(790.21 133.73)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 5"
+    },
+    {
+      "route": "root/9/4",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(789.84 156.63)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 6"
+    },
+    {
+      "route": "root/9/5",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(789.2 180.7)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 7"
+    },
+    {
+      "route": "root/9/6",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(787.95 202.62)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 8"
+    },
+    {
+      "route": "root/9/7",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(787.19 224.38)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 9"
+    },
+    {
+      "route": "root/9/8",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(786.71 249.39)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 10"
+    },
+    {
+      "route": "root/9/9",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(786.41 271.15)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 11"
+    },
+    {
+      "route": "root/9/10",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(786.2 292.1)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 12"
+    },
+    {
+      "route": "root/9/11",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(673.91 84.665)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 6"
+    },
+    {
+      "route": "root/9/13",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(608.81 175.16)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 2"
+    },
+    {
+      "route": "root/9/15",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(631.69 432.78)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C6-8"
+    },
+    {
+      "route": "root/9/17",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(750.92 310.56)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "L 1"
+    },
+    {
+      "route": "root/9/18",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(743.17 412.08)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "L 2"
+    },
+    {
+      "route": "root/9/19",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(743.06 493.49)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "L 3"
+    },
+    {
+      "route": "root/9/20",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(644.2 642)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "L 4"
+    },
+    {
+      "route": "root/9/21",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": null,
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;letter-spacing:0px;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "S 3"
+    },
+    {
+      "route": "root/9/24",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(644.2 660.57)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "L 5"
+    },
+    {
+      "route": "root/9/26",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(644.2 761.39)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "S 1"
+    },
+    {
+      "route": "root/9/28",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(729.58 -76.056)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "V 1"
+    },
+    {
+      "route": "root/9/30",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(729.58 -57.52)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "V 2"
+    },
+    {
+      "route": "root/9/32",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(729.58 -38.949)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "V 3"
+    },
+    {
+      "route": "root/9/34",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(672.08 10.988)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 2"
+    },
+    {
+      "route": "root/9/36",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(672.08 29.371)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 3"
+    },
+    {
+      "route": "root/9/38",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(672.08 47.866)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 4"
+    },
+    {
+      "route": "root/9/40",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(672.08 66.267)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 5"
+    },
+    {
+      "route": "root/9/42",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(608.81 156.54)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 1"
+    },
+    {
+      "route": "root/9/44",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(608.61 274.57)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 6-8"
+    },
+    {
+      "route": "root/9/46",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(608.81 255.9)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;letter-spacing:-.26px;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 8, T 1"
+    },
+    {
+      "route": "root/9/48",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(790.88 68.681)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 1"
+    },
+    {
+      "route": "root/9/51",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": null,
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;letter-spacing:0px;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 8T 1"
+    },
+    {
+      "route": "root/9/52",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": null,
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;letter-spacing:0px;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "S 4"
+    },
+    {
+      "route": "root/10",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(-884.44 -38.43)",
+      "style": ""
+    },
+    {
+      "route": "root/11",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": true,
+      "inDefs": false,
+      "transform": "translate(20.322 4)",
+      "style": "display:none"
+    },
+    {
+      "route": "root/11/0",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": true,
+      "inDefs": false,
+      "transform": "translate(402.53 520)",
+      "style": ""
+    },
+    {
+      "route": "root/12",
+      "tag": "g",
+      "id": null,
+      "hiddenByDisplay": true,
+      "inDefs": false,
+      "transform": "translate(-879.15 4)",
+      "style": "display:none"
+    }
+  ],
+  "texts": [
+    {
+      "route": "root/9/0",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(790.88 83.168)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 2"
+    },
+    {
+      "route": "root/9/1",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(790.86 97.716)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 3"
+    },
+    {
+      "route": "root/9/2",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(790.56 113.28)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 4"
+    },
+    {
+      "route": "root/9/3",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(790.21 133.73)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 5"
+    },
+    {
+      "route": "root/9/4",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(789.84 156.63)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 6"
+    },
+    {
+      "route": "root/9/5",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(789.2 180.7)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 7"
+    },
+    {
+      "route": "root/9/6",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(787.95 202.62)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 8"
+    },
+    {
+      "route": "root/9/7",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(787.19 224.38)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 9"
+    },
+    {
+      "route": "root/9/8",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(786.71 249.39)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 10"
+    },
+    {
+      "route": "root/9/9",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(786.41 271.15)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 11"
+    },
+    {
+      "route": "root/9/10",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(786.2 292.1)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 12"
+    },
+    {
+      "route": "root/9/11",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(673.91 84.665)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 6"
+    },
+    {
+      "route": "root/9/13",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(608.81 175.16)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 2"
+    },
+    {
+      "route": "root/9/15",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(631.69 432.78)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C6-8"
+    },
+    {
+      "route": "root/9/17",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(750.92 310.56)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "L 1"
+    },
+    {
+      "route": "root/9/18",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(743.17 412.08)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "L 2"
+    },
+    {
+      "route": "root/9/19",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(743.06 493.49)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "L 3"
+    },
+    {
+      "route": "root/9/20",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(644.2 642)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "L 4"
+    },
+    {
+      "route": "root/9/21",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": null,
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;letter-spacing:0px;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "S 3"
+    },
+    {
+      "route": "root/9/24",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(644.2 660.57)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "L 5"
+    },
+    {
+      "route": "root/9/26",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(644.2 761.39)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "S 1"
+    },
+    {
+      "route": "root/9/28",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(729.58 -76.056)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "V 1"
+    },
+    {
+      "route": "root/9/30",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(729.58 -57.52)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "V 2"
+    },
+    {
+      "route": "root/9/32",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(729.58 -38.949)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "V 3"
+    },
+    {
+      "route": "root/9/34",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(672.08 10.988)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 2"
+    },
+    {
+      "route": "root/9/36",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(672.08 29.371)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 3"
+    },
+    {
+      "route": "root/9/38",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(672.08 47.866)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 4"
+    },
+    {
+      "route": "root/9/40",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(672.08 66.267)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 5"
+    },
+    {
+      "route": "root/9/42",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(608.81 156.54)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 1"
+    },
+    {
+      "route": "root/9/44",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(608.61 274.57)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 6-8"
+    },
+    {
+      "route": "root/9/46",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(608.81 255.9)",
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;letter-spacing:-.26px;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 8, T 1"
+    },
+    {
+      "route": "root/9/48",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": "translate(790.88 68.681)",
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;inline-size:0;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-align:center;text-anchor:middle;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "T 1"
+    },
+    {
+      "route": "root/9/51",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": null,
+      "style": "-inkscape-stroke:none;dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;letter-spacing:0px;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "C 8T 1"
+    },
+    {
+      "route": "root/9/52",
+      "tag": "text",
+      "id": null,
+      "hiddenByDisplay": false,
+      "inDefs": false,
+      "transform": null,
+      "style": "dominant-baseline:auto;fill:#000000;font-family:'Liberation Sans';font-size:16px;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;letter-spacing:0px;line-height:100%;shape-margin:0;shape-padding:0;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal;word-spacing:0px",
+      "text": "S 4"
+    }
+  ]
+}

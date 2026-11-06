@@ -1,0 +1,17 @@
+PASSED: No baseline file deleted
+PASSED: 48 protected baseline files byte-identical: models/assets/regions, normalized math, render/highlight, backend, atlas/spec, dependencies/config
+PASSED: Only backend addition is synthetic UI fixture; no backend code change
+PASSED: UI fixture explicitly synthetic
+PASSED: All pre-V1.5 evidence unchanged
+PASSED: V0 through V1.3 historical task records preserved byte-for-byte
+PASSED: V2 and later plans unchanged
+PASSED: changed/new JSON parses
+PASSED: changed/new WXML balanced tags/attributes (static XML syntax only, not WeChat compile)
+PASSED: changed/new Markdown local link targets exist
+PASSED: changed/new text has no browser extension token URLs or API-key patterns
+PASSED: No new dependency/build files in actual inventory
+Baseline files: 208; modified: 16; added: 19; deleted: 0.
+Inventory: docs/v15-changes.txt
+Automated regression: v15-regression-2026-10-22.txt (73 frontend, 12 backend).
+GUI: v15-gui-2026-10-22.txt; partial actual simulator verification, no all-pass or local screenshot-file claim.
+No atlas/medical result generated; V2/V3 untouched; no staging/commit/push action.

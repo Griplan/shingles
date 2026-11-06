@@ -1,0 +1,558 @@
+[
+  {
+    "request": {
+      "request_id": "V64_GEOMETRIC_TEST",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "goran-sole-v1",
+        "template_version": "1.0.0",
+        "geometry_id": "goran-plantar-outline-v1",
+        "region_set_id": "goran-sole-ui-v1",
+        "atlas_id": "goran-sole-v1",
+        "atlas_version": "goran-sole-preview.1",
+        "atlas_content_sha256": "fa6298008344ead0011d64cfdc7f8748f24b645a39ff7b08b057d5ffffc8a0b6",
+        "body_content_sha256": "9ced00d66da132b5f25b0d8593100f05537121b5aa00a361d982a487504e3dff",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "lesions": [
+        {
+          "id": "0",
+          "view": "sole-left",
+          "vertices": null,
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinateSpace": "body_template_normalized_v1",
+            "coordinates": [
+              [
+                [
+                  {
+                    "x": 0.36,
+                    "y": 0.2
+                  },
+                  {
+                    "x": 0.36,
+                    "y": 0.22
+                  },
+                  {
+                    "x": 0.34,
+                    "y": 0.22
+                  },
+                  {
+                    "x": 0.34,
+                    "y": 0.2
+                  },
+                  {
+                    "x": 0.36,
+                    "y": 0.2
+                  }
+                ]
+              ]
+            ]
+          },
+          "source": "manual"
+        }
+      ]
+    },
+    "status": 200,
+    "response": {
+      "request_id": "V64_GEOMETRIC_TEST",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "goran-sole-v1",
+        "template_version": "1.0.0",
+        "geometry_id": "goran-plantar-outline-v1",
+        "region_set_id": "goran-sole-ui-v1",
+        "atlas_id": "goran-sole-v1",
+        "atlas_version": "goran-sole-preview.1",
+        "atlas_content_sha256": "fa6298008344ead0011d64cfdc7f8748f24b645a39ff7b08b057d5ffffc8a0b6",
+        "body_content_sha256": "9ced00d66da132b5f25b0d8593100f05537121b5aa00a361d982a487504e3dff",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "method": "manual_annotation_reference_geometry",
+      "area_unit": "normalized_template_area",
+      "source": {
+        "title": "Dermatomes labeled, male back 3d-shaded — plantar detail",
+        "url": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_back_3d-shaded.svg",
+        "attribution": "Goran_tek-en (2022), CC BY-SA 4.0；从原背图独立提取两足足底，移除标签和皮节底色，旋转180°并等比例放大；两侧均为原侧，未镜像。",
+        "license": "CC BY-SA 4.0",
+        "medical_review_status": "pending",
+        "preview": true,
+        "coverage_note": "仅 Goran 原图可见足底投影的 L5/S1；原图细缝及未配置表面不补齐。非完整足部周向、外周神经分布或诊断；医学审核待完成。"
+      },
+      "lesions": [
+        {
+          "view": "sole-left",
+          "lesion_ids": [
+            "0"
+          ],
+          "annotation_area": 0.00039999999999999904,
+          "covered_area": 0.00039999999999999904,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "c10acf06ae0d8e53570a4b9de8a194707ae452b20de0cc4f734f78101e0bd888",
+              "region_ids": [
+                "sole-left-L5"
+              ],
+              "partition_type": "spinal_dermatome",
+              "label": "L5",
+              "source_label": "L5",
+              "display_name": "L5",
+              "side": "left",
+              "view": "sole-left",
+              "intersection_area": 0.00039999999999999904,
+              "lesion_coverage_ratio": 1.0
+            }
+          ]
+        }
+      ],
+      "views": [
+        {
+          "view": "sole-left",
+          "lesion_ids": [
+            "0"
+          ],
+          "annotation_area": 0.00039999999999999904,
+          "covered_area": 0.00039999999999999904,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "c10acf06ae0d8e53570a4b9de8a194707ae452b20de0cc4f734f78101e0bd888",
+              "region_ids": [
+                "sole-left-L5"
+              ],
+              "partition_type": "spinal_dermatome",
+              "label": "L5",
+              "source_label": "L5",
+              "display_name": "L5",
+              "side": "left",
+              "view": "sole-left",
+              "intersection_area": 0.00039999999999999904,
+              "lesion_coverage_ratio": 1.0
+            }
+          ]
+        }
+      ],
+      "warnings": [
+        "开发测试参考图谱，医学审核待完成。",
+        "比例仅为当前二维模板的几何覆盖，不是诊断概率或真实皮肤面积。",
+        "当前图谱未覆盖不代表没有感觉神经；不同候选可能重叠，不能累加候选比例。"
+      ]
+    }
+  },
+  {
+    "request": {
+      "request_id": "V64_GEOMETRIC_TEST",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "goran-sole-v1",
+        "template_version": "1.0.0",
+        "geometry_id": "goran-plantar-outline-v1",
+        "region_set_id": "goran-sole-ui-v1",
+        "atlas_id": "goran-sole-v1",
+        "atlas_version": "goran-sole-preview.1",
+        "atlas_content_sha256": "fa6298008344ead0011d64cfdc7f8748f24b645a39ff7b08b057d5ffffc8a0b6",
+        "body_content_sha256": "9ced00d66da132b5f25b0d8593100f05537121b5aa00a361d982a487504e3dff",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "lesions": [
+        {
+          "id": "0",
+          "view": "sole-right",
+          "vertices": null,
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinateSpace": "body_template_normalized_v1",
+            "coordinates": [
+              [
+                [
+                  {
+                    "x": 0.66,
+                    "y": 0.2
+                  },
+                  {
+                    "x": 0.66,
+                    "y": 0.22
+                  },
+                  {
+                    "x": 0.64,
+                    "y": 0.22
+                  },
+                  {
+                    "x": 0.64,
+                    "y": 0.2
+                  },
+                  {
+                    "x": 0.66,
+                    "y": 0.2
+                  }
+                ]
+              ]
+            ]
+          },
+          "source": "manual"
+        }
+      ]
+    },
+    "status": 200,
+    "response": {
+      "request_id": "V64_GEOMETRIC_TEST",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "goran-sole-v1",
+        "template_version": "1.0.0",
+        "geometry_id": "goran-plantar-outline-v1",
+        "region_set_id": "goran-sole-ui-v1",
+        "atlas_id": "goran-sole-v1",
+        "atlas_version": "goran-sole-preview.1",
+        "atlas_content_sha256": "fa6298008344ead0011d64cfdc7f8748f24b645a39ff7b08b057d5ffffc8a0b6",
+        "body_content_sha256": "9ced00d66da132b5f25b0d8593100f05537121b5aa00a361d982a487504e3dff",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "method": "manual_annotation_reference_geometry",
+      "area_unit": "normalized_template_area",
+      "source": {
+        "title": "Dermatomes labeled, male back 3d-shaded — plantar detail",
+        "url": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_back_3d-shaded.svg",
+        "attribution": "Goran_tek-en (2022), CC BY-SA 4.0；从原背图独立提取两足足底，移除标签和皮节底色，旋转180°并等比例放大；两侧均为原侧，未镜像。",
+        "license": "CC BY-SA 4.0",
+        "medical_review_status": "pending",
+        "preview": true,
+        "coverage_note": "仅 Goran 原图可见足底投影的 L5/S1；原图细缝及未配置表面不补齐。非完整足部周向、外周神经分布或诊断；医学审核待完成。"
+      },
+      "lesions": [
+        {
+          "view": "sole-right",
+          "lesion_ids": [
+            "0"
+          ],
+          "annotation_area": 0.0004000000000000002,
+          "covered_area": 0.0004000000000000002,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "789089db86392341c7498a92b13a39193386de476678567bc993c8f2ca6fa409",
+              "region_ids": [
+                "sole-right-L5"
+              ],
+              "partition_type": "spinal_dermatome",
+              "label": "L5",
+              "source_label": "L5",
+              "display_name": "L5",
+              "side": "right",
+              "view": "sole-right",
+              "intersection_area": 0.0004000000000000002,
+              "lesion_coverage_ratio": 1.0
+            }
+          ]
+        }
+      ],
+      "views": [
+        {
+          "view": "sole-right",
+          "lesion_ids": [
+            "0"
+          ],
+          "annotation_area": 0.0004000000000000002,
+          "covered_area": 0.0004000000000000002,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "789089db86392341c7498a92b13a39193386de476678567bc993c8f2ca6fa409",
+              "region_ids": [
+                "sole-right-L5"
+              ],
+              "partition_type": "spinal_dermatome",
+              "label": "L5",
+              "source_label": "L5",
+              "display_name": "L5",
+              "side": "right",
+              "view": "sole-right",
+              "intersection_area": 0.0004000000000000002,
+              "lesion_coverage_ratio": 1.0
+            }
+          ]
+        }
+      ],
+      "warnings": [
+        "开发测试参考图谱，医学审核待完成。",
+        "比例仅为当前二维模板的几何覆盖，不是诊断概率或真实皮肤面积。",
+        "当前图谱未覆盖不代表没有感觉神经；不同候选可能重叠，不能累加候选比例。"
+      ]
+    }
+  },
+  {
+    "request": {
+      "request_id": "V64_PALM_REGRESSION",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-palm-v1",
+        "template_version": "1.1.0",
+        "geometry_id": "commons-palm-outline-v2",
+        "region_set_id": "commons-palm-ui-v2",
+        "atlas_id": "palm-dermatomes-v1",
+        "atlas_version": "palm-dermatomes-preview.3",
+        "atlas_content_sha256": "9efc6774667415a7006697150a1fee5c1d8a36e0ea3c076e18e4a674c04c171e",
+        "body_content_sha256": "8cdfdfc47a5839d085df77e7dc9a3c51f2faca90d16940e2274982efabbeffb4",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "lesions": [
+        {
+          "id": "test",
+          "view": "palm-left",
+          "vertices": [
+            {
+              "x": 0.55,
+              "y": 0.2
+            },
+            {
+              "x": 0.57,
+              "y": 0.2
+            },
+            {
+              "x": 0.56,
+              "y": 0.22
+            }
+          ],
+          "geometry": null,
+          "source": "manual"
+        }
+      ]
+    },
+    "status": 200,
+    "response": {
+      "request_id": "V64_PALM_REGRESSION",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-palm-v1",
+        "template_version": "1.1.0",
+        "geometry_id": "commons-palm-outline-v2",
+        "region_set_id": "commons-palm-ui-v2",
+        "atlas_id": "palm-dermatomes-v1",
+        "atlas_version": "palm-dermatomes-preview.3",
+        "atlas_content_sha256": "9efc6774667415a7006697150a1fee5c1d8a36e0ea3c076e18e4a674c04c171e",
+        "body_content_sha256": "8cdfdfc47a5839d085df77e7dc9a3c51f2faca90d16940e2274982efabbeffb4",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "method": "manual_annotation_reference_geometry",
+      "area_unit": "normalized_template_area",
+      "source": {
+        "title": "Servier Medical Art — Dermatomes（掌侧配准参考预览）",
+        "url": "https://smart.servier.com/smart_image/dermatomes/",
+        "attribution": "Image adapted from Servier Medical Art (https://smart.servier.com), CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). 掌侧曲线数字化、腕部截取、配准及左右镜像；非医学审核。",
+        "license": "CC BY 4.0",
+        "medical_review_status": "pending",
+        "preview": true,
+        "coverage_note": "来自 Servier 教学示意图的掌侧 C6/C7/C8 配准预览。腕部仅含来源截取范围；没有添加 T1。图示全覆盖不等于个体分布完整或医学确诊，皮节重叠及配准仍待专家审核。"
+      },
+      "lesions": [
+        {
+          "view": "palm-left",
+          "lesion_ids": [
+            "test"
+          ],
+          "annotation_area": 0.00019999999999999898,
+          "covered_area": 0.00019999999999999898,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "9d77ba4ad252be6fb5a372682a82add9e2e8f7581056fcb22889fc060791c1f6",
+              "region_ids": [
+                "palm-left-c7"
+              ],
+              "partition_type": "spinal_dermatome",
+              "label": "C7",
+              "source_label": "C7",
+              "display_name": "C7",
+              "side": "left",
+              "view": "palm-left",
+              "intersection_area": 0.00019999999999999898,
+              "lesion_coverage_ratio": 1.0
+            }
+          ]
+        }
+      ],
+      "views": [
+        {
+          "view": "palm-left",
+          "lesion_ids": [
+            "test"
+          ],
+          "annotation_area": 0.00019999999999999898,
+          "covered_area": 0.00019999999999999898,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "9d77ba4ad252be6fb5a372682a82add9e2e8f7581056fcb22889fc060791c1f6",
+              "region_ids": [
+                "palm-left-c7"
+              ],
+              "partition_type": "spinal_dermatome",
+              "label": "C7",
+              "source_label": "C7",
+              "display_name": "C7",
+              "side": "left",
+              "view": "palm-left",
+              "intersection_area": 0.00019999999999999898,
+              "lesion_coverage_ratio": 1.0
+            }
+          ]
+        }
+      ],
+      "warnings": [
+        "开发测试参考图谱，医学审核待完成。",
+        "比例仅为当前二维模板的几何覆盖，不是诊断概率或真实皮肤面积。",
+        "当前图谱未覆盖不代表没有感觉神经；不同候选可能重叠，不能累加候选比例。"
+      ]
+    }
+  },
+  {
+    "request": {
+      "request_id": "V64_PALM_REGRESSION",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-palm-v1",
+        "template_version": "1.1.0",
+        "geometry_id": "commons-palm-outline-v2",
+        "region_set_id": "commons-palm-ui-v2",
+        "atlas_id": "palm-dermatomes-v1",
+        "atlas_version": "palm-dermatomes-preview.3",
+        "atlas_content_sha256": "9efc6774667415a7006697150a1fee5c1d8a36e0ea3c076e18e4a674c04c171e",
+        "body_content_sha256": "8cdfdfc47a5839d085df77e7dc9a3c51f2faca90d16940e2274982efabbeffb4",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "lesions": [
+        {
+          "id": "test",
+          "view": "palm-right",
+          "vertices": [
+            {
+              "x": 0.55,
+              "y": 0.2
+            },
+            {
+              "x": 0.57,
+              "y": 0.2
+            },
+            {
+              "x": 0.56,
+              "y": 0.22
+            }
+          ],
+          "geometry": null,
+          "source": "manual"
+        }
+      ]
+    },
+    "status": 200,
+    "response": {
+      "request_id": "V64_PALM_REGRESSION",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-palm-v1",
+        "template_version": "1.1.0",
+        "geometry_id": "commons-palm-outline-v2",
+        "region_set_id": "commons-palm-ui-v2",
+        "atlas_id": "palm-dermatomes-v1",
+        "atlas_version": "palm-dermatomes-preview.3",
+        "atlas_content_sha256": "9efc6774667415a7006697150a1fee5c1d8a36e0ea3c076e18e4a674c04c171e",
+        "body_content_sha256": "8cdfdfc47a5839d085df77e7dc9a3c51f2faca90d16940e2274982efabbeffb4",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "method": "manual_annotation_reference_geometry",
+      "area_unit": "normalized_template_area",
+      "source": {
+        "title": "Servier Medical Art — Dermatomes（掌侧配准参考预览）",
+        "url": "https://smart.servier.com/smart_image/dermatomes/",
+        "attribution": "Image adapted from Servier Medical Art (https://smart.servier.com), CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). 掌侧曲线数字化、腕部截取、配准及左右镜像；非医学审核。",
+        "license": "CC BY 4.0",
+        "medical_review_status": "pending",
+        "preview": true,
+        "coverage_note": "来自 Servier 教学示意图的掌侧 C6/C7/C8 配准预览。腕部仅含来源截取范围；没有添加 T1。图示全覆盖不等于个体分布完整或医学确诊，皮节重叠及配准仍待专家审核。"
+      },
+      "lesions": [
+        {
+          "view": "palm-right",
+          "lesion_ids": [
+            "test"
+          ],
+          "annotation_area": 0.00019999999999999898,
+          "covered_area": 0.00019999999999999898,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "bcee74b06b8a5cbdcb7ea3bff9d8ac90cb68adeb11846ee9d5f0f3fdd01005d9",
+              "region_ids": [
+                "palm-right-c7"
+              ],
+              "partition_type": "spinal_dermatome",
+              "label": "C7",
+              "source_label": "C7",
+              "display_name": "C7",
+              "side": "right",
+              "view": "palm-right",
+              "intersection_area": 0.00019999999999999898,
+              "lesion_coverage_ratio": 1.0
+            }
+          ]
+        }
+      ],
+      "views": [
+        {
+          "view": "palm-right",
+          "lesion_ids": [
+            "test"
+          ],
+          "annotation_area": 0.00019999999999999898,
+          "covered_area": 0.00019999999999999898,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "bcee74b06b8a5cbdcb7ea3bff9d8ac90cb68adeb11846ee9d5f0f3fdd01005d9",
+              "region_ids": [
+                "palm-right-c7"
+              ],
+              "partition_type": "spinal_dermatome",
+              "label": "C7",
+              "source_label": "C7",
+              "display_name": "C7",
+              "side": "right",
+              "view": "palm-right",
+              "intersection_area": 0.00019999999999999898,
+              "lesion_coverage_ratio": 1.0
+            }
+          ]
+        }
+      ],
+      "warnings": [
+        "开发测试参考图谱，医学审核待完成。",
+        "比例仅为当前二维模板的几何覆盖，不是诊断概率或真实皮肤面积。",
+        "当前图谱未覆盖不代表没有感觉神经；不同候选可能重叠，不能累加候选比例。"
+      ]
+    }
+  }
+]

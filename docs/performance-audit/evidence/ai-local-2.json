@@ -1,0 +1,223 @@
+{
+  "environment": {
+    "python": "3.12.14 (main, Aug 12 2026, 13:57:54) [Clang 17.0.0 (clang-1700.6.4.2)]",
+    "platform": "macOS-15.6.1-arm64-arm-64bit",
+    "cpu": "Apple M4",
+    "threads": 4,
+    "device": "cpu"
+  },
+  "source": "existing CDC PHIL21505 public-domain 700x460; no image data saved in this audit",
+  "model": {
+    "name": "MobileSAM",
+    "variant": "vit_t",
+    "package_version": "1.0",
+    "source_commit": "f706ad9c4eb7f219c00d9050e46328518ffb65d2",
+    "license": "Apache-2.0",
+    "weights_sha256": "6dbb90523a35330fedd7f1d3dfc66f995213d81b29a5ca8108dbcdd4e37d6c2f",
+    "weights_bytes": 40728226,
+    "device": "cpu",
+    "dtype": "float32",
+    "torch": "2.5.1",
+    "threads": 4,
+    "load_seconds": 1.4230799170036335,
+    "source": "https://github.com/ChaoningZhang/MobileSAM"
+  },
+  "load_ms": 1423.0971250217408,
+  "input_read_ms": 0.36545799230225384,
+  "local_upload_decode_orient_encode_ms": 27.40625001024455,
+  "rows": [
+    {
+      "traceId": "p5-local-ai-0",
+      "kind": "first inference after load",
+      "wall_ms": 585.7237500022165,
+      "cpu_ms": 2292.0009999999997,
+      "rss_before": 464125952,
+      "rss_after": 782057472,
+      "process_highwater_bytes": 782057472,
+      "phases_ms": {
+        "_persist": [
+          0.18370902398601174,
+          2.063583000563085
+        ],
+        "image_encoder": [
+          456.68533400748856
+        ],
+        "set_image": [
+          463.041584007442
+        ],
+        "prompt_encoder": [
+          0.18470900249667466
+        ],
+        "mask_decoder": [
+          26.785499998368323
+        ],
+        "mask_to_polygons": [
+          24.67962499940768,
+          15.124208992347121,
+          14.069791999645531
+        ],
+        "inspect_candidates": [
+          1.7713329871185124
+        ],
+        "_publish": [
+          16.305083001498133
+        ]
+      },
+      "model_timings": {
+        "encode_seconds": 0.463064542011125,
+        "decode_seconds": 0.030196708015864715,
+        "inference_seconds": 0.49326125002698973,
+        "polygon_seconds": 0.0570082500053104,
+        "total_seconds": 0.5519579999963753,
+        "process_cpu_seconds": 2.162374
+      },
+      "candidate_count": 3,
+      "response_bytes": 2361
+    },
+    {
+      "traceId": "p5-local-ai-1",
+      "kind": "same image/crop repeat",
+      "wall_ms": 588.6072919820435,
+      "cpu_ms": 2282.8089999999997,
+      "rss_before": 782057472,
+      "rss_after": 669532160,
+      "process_highwater_bytes": 798523392,
+      "phases_ms": {
+        "_persist": [
+          0.20695800776593387,
+          2.3392909788526595
+        ],
+        "image_encoder": [
+          477.3297920182813
+        ],
+        "set_image": [
+          482.8398340032436
+        ],
+        "prompt_encoder": [
+          0.1203749852720648
+        ],
+        "mask_decoder": [
+          25.067999988095835
+        ],
+        "mask_to_polygons": [
+          22.884791978867725,
+          15.137292008148506,
+          14.388125011464581
+        ],
+        "inspect_candidates": [
+          1.2242499797139317
+        ],
+        "_publish": [
+          16.259875003015622
+        ]
+      },
+      "model_timings": {
+        "encode_seconds": 0.4828826660232153,
+        "decode_seconds": 0.02800808398751542,
+        "inference_seconds": 0.5108907500107307,
+        "polygon_seconds": 0.054089165991172194,
+        "total_seconds": 0.5664328330021817,
+        "process_cpu_seconds": 2.1948040000000004
+      },
+      "candidate_count": 3,
+      "response_bytes": 2361
+    },
+    {
+      "traceId": "p5-local-ai-2",
+      "kind": "same image/crop repeat",
+      "wall_ms": 546.9830410147551,
+      "cpu_ms": 2159.6210000000005,
+      "rss_before": 669532160,
+      "rss_after": 801767424,
+      "process_highwater_bytes": 808337408,
+      "phases_ms": {
+        "_persist": [
+          0.17662500613369048,
+          1.9358329882379621
+        ],
+        "image_encoder": [
+          437.65308399451897
+        ],
+        "set_image": [
+          442.06612498965114
+        ],
+        "prompt_encoder": [
+          0.09266697452403605
+        ],
+        "mask_decoder": [
+          24.663500022143126
+        ],
+        "mask_to_polygons": [
+          24.175540980650112,
+          14.91487500607036,
+          14.126750000286847
+        ],
+        "inspect_candidates": [
+          1.955999992787838
+        ],
+        "_publish": [
+          15.601042017806321
+        ]
+      },
+      "model_timings": {
+        "encode_seconds": 0.44209104200126603,
+        "decode_seconds": 0.027119332982692868,
+        "inference_seconds": 0.4692103749839589,
+        "polygon_seconds": 0.055607832997338846,
+        "total_seconds": 0.5261434169951826,
+        "process_cpu_seconds": 2.0766340000000003
+      },
+      "candidate_count": 3,
+      "response_bytes": 2361
+    },
+    {
+      "traceId": "p5-local-ai-3",
+      "kind": "same image/crop repeat",
+      "wall_ms": 525.5049169936683,
+      "cpu_ms": 2086.9180000000006,
+      "rss_before": 801767424,
+      "rss_after": 839008256,
+      "process_highwater_bytes": 839008256,
+      "phases_ms": {
+        "_persist": [
+          0.18491598893888295,
+          2.335041994228959
+        ],
+        "image_encoder": [
+          417.6835420075804
+        ],
+        "set_image": [
+          422.73037499398924
+        ],
+        "prompt_encoder": [
+          0.10008300887420774
+        ],
+        "mask_decoder": [
+          23.28870800556615
+        ],
+        "mask_to_polygons": [
+          23.61716699670069,
+          14.717250014655292,
+          13.670999993337318
+        ],
+        "inspect_candidates": [
+          1.088084012735635
+        ],
+        "_publish": [
+          16.32445800350979
+        ]
+      },
+      "model_timings": {
+        "encode_seconds": 0.42274466599337757,
+        "decode_seconds": 0.026379624992841855,
+        "inference_seconds": 0.4491242909862194,
+        "polygon_seconds": 0.053595208999468014,
+        "total_seconds": 0.5038469999853987,
+        "process_cpu_seconds": 2.0007789999999996
+      },
+      "candidate_count": 3,
+      "response_bytes": 2361
+    }
+  ],
+  "notes": "First service call receives already loaded model; cold user time additionally includes load_ms. _publish includes _persist and PNG writes; nested timers not additive."
+}

@@ -1,0 +1,1 @@
+{"raw_area_pixels": 15982, "edited_area_pixels": 15621, "added_pixels": 479, "removed_pixels": 840, "replay_seconds": 0.00015145799989113584, "pixel_polygon_roundtrip_exact": true}

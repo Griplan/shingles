@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-03",
+  "app": "Shingles - WeChat DevTools Stable2.01.2510290",
+  "observation": "AX includes old upload dialogs absent from screenshot; debugger coordinate click failed",
+  "error": "Computer Use server error -10005: noWindowsAvailable",
+  "native_performance": "NOT_MEASURED",
+  "phone": "NOT_RUN",
+  "fps": "NOT_MEASURED",
+  "production_changes": false
+}

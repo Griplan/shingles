@@ -1,0 +1,92 @@
+{
+  "status": "PASSED",
+  "kind": "real cloud HTTP via SSH, not HTTPS/phone",
+  "checks": {
+    "exchange_0": {
+      "actual": 200,
+      "expected": 200
+    },
+    "replay_0": {
+      "actual": 401,
+      "expected": 401
+    },
+    "exchange_1": {
+      "actual": 200,
+      "expected": 200
+    },
+    "replay_1": {
+      "actual": 401,
+      "expected": 401
+    },
+    "anonymous_cannot_spoof_trial": {
+      "actual": 401,
+      "expected": 401
+    },
+    "authorized_ready": {
+      "actual": 200,
+      "expected": 200
+    },
+    "photo_session": {
+      "actual": 200,
+      "expected": 200
+    },
+    "synthetic_upload": {
+      "actual": 200,
+      "expected": 200
+    },
+    "foreign_read_even_with_photo_capability": {
+      "actual": 410,
+      "expected": 410
+    },
+    "foreign_delete": {
+      "actual": 410,
+      "expected": 410
+    },
+    "foreign_upload": {
+      "actual": 410,
+      "expected": 410
+    },
+    "anonymous_with_photo_key": {
+      "actual": 401,
+      "expected": 401
+    },
+    "foreign_segment": {
+      "actual": 410,
+      "expected": 410
+    },
+    "foreign_confirm": {
+      "actual": 410,
+      "expected": 410
+    },
+    "foreign_edit": {
+      "actual": 410,
+      "expected": 410
+    },
+    "owner_photo_unchanged": {
+      "actual": 200,
+      "expected": 200
+    },
+    "owner_delete": {
+      "actual": 204,
+      "expected": 204
+    },
+    "deleted_photo_gone": {
+      "actual": 410,
+      "expected": 410
+    },
+    "operator_expired_own_disposable_access": {
+      "actual": 401,
+      "expected": 401
+    },
+    "revoke_other_own_test_access": {
+      "actual": 204,
+      "expected": 204
+    },
+    "revoked_access_denied": {
+      "actual": 401,
+      "expected": 401
+    }
+  },
+  "image": "synthetic 32x24 PNG",
+  "expiry_test": "operator set ONLY own disposable token expiry into past; no clock or service configuration change"
+}

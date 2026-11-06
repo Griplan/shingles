@@ -1,0 +1,17 @@
+{
+  "pairs": [
+    {
+      "before": "before-1.json",
+      "after": "after-1.json"
+    },
+    {
+      "after": "after-2.json",
+      "before": "before-2.json"
+    },
+    {
+      "before": "before-3.json",
+      "after": "after-3.json"
+    }
+  ],
+  "kind": "paired JS/wx adapter; same synthetic geometry, environment, event schedule; native Canvas raster, bridge latency and FPS NOT_RUN"
+}

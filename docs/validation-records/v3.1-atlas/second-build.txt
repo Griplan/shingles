@@ -1,0 +1,13 @@
+Built goran-2022-commons-template4-preview.2 {'front': 54, 'back': 60}
+front-right-V1 area 1583.127 outside% 0.0 parent conflict 0.0
+front-left-V1 area 1730.84 outside% 0.0 parent conflict 0.0
+front-right-V2 area 753.441 outside% 0.0 parent conflict 0.0
+front-left-V2 area 802.758 outside% 0.0 parent conflict 0.0
+front-right-V3 area 1123.244 outside% 0.0 parent conflict 25.912
+front-left-V3 area 1254.385 outside% 0.0 parent conflict 15.728
+front-right-L4 area 327.488 outside% 0.0002 parent conflict 0.0
+front-right-S1 area 594.472 outside% 0.0708 parent conflict 0.0
+front-right-L5 area 1065.11 outside% 0.3276 parent conflict 0.0
+front-left-L4 area 303.123 outside% 0.0012 parent conflict 0.0
+front-left-S1 area 645.524 outside% 0.0574 parent conflict 0.0
+front-left-L5 area 1034.98 outside% 0.3829 parent conflict 0.0

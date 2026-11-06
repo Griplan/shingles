@@ -1,0 +1,4 @@
+PASSED: V0～V3 必要文件、目录、JSON、五页导航、组件注册及 Canvas 2D 配置完整。
+此检查不代表 WXML/WXSS 编译、页面导航交互或真机验证通过。
+
+EXIT_CODE=0

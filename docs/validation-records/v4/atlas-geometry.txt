@@ -1,0 +1,6 @@
+COMMAND: ["/Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/bin/python", "scripts/test_atlas_geometry.py"]
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK

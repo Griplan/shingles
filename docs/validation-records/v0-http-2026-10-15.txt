@@ -1,0 +1,11 @@
+Date: 2026-10-15 Asia/Shanghai
+COMMAND: backend/.venv/bin/python scripts/smoke_backend.py
+Traceback (most recent call last):
+  File "/Users/griplan/project/extra/Shingles‌/dermatome-mapper/scripts/smoke_backend.py", line 78, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/Users/griplan/project/extra/Shingles‌/dermatome-mapper/scripts/smoke_backend.py", line 36, in main
+    probe.bind(("127.0.0.1", 0))
+PermissionError: [Errno 1] Operation not permitted
+
+EXIT_CODE: 1

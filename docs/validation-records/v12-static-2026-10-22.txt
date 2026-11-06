@@ -1,0 +1,32 @@
+V1.2 static audit / 2026-10-22 Asia/Shanghai
+Command: python3 /private/tmp/dermatome-v12-static.py
+Method: compare existing workspace with pre-turn file snapshot; no staging, commit or push.
+Inventory: 14 added, 17 modified, 0 deleted.
+
+PASSED: No baseline file deleted
+PASSED: backend/ unchanged
+PASSED: data/atlas/ unchanged
+PASSED: ai/ unchanged
+PASSED: miniprogram/utils/coordinate.ts byte-identical to baseline
+PASSED: miniprogram/utils/body-path.ts byte-identical to baseline
+PASSED: miniprogram/utils/body-debug.ts byte-identical to baseline
+PASSED: miniprogram/assets/body/neutral-v2.ts byte-identical to baseline
+PASSED: miniprogram/assets/body/model.ts byte-identical to baseline
+PASSED: miniprogram/components/body-canvas/body-canvas.ts byte-identical to baseline
+PASSED: miniprogram/components/body-canvas/render.ts byte-identical to baseline
+PASSED: miniprogram/package.json byte-identical to baseline
+PASSED: miniprogram/package-lock.json byte-identical to baseline
+PASSED: miniprogram/project.config.json byte-identical to baseline
+PASSED: tests/miniprogram/coordinate.test.cjs byte-identical to baseline
+PASSED: Archived v2 regions byte-identical to old active regions
+PASSED: task V0/V1/V1.1 history unchanged
+PASSED: task V2+ plans unchanged
+PASSED: All 27 prior validation artifacts byte-identical
+PASSED: All local Markdown links resolve
+PASSED: Markdown code fences balanced
+PASSED: JSON files and fenced examples parse
+PASSED: WXML approximate structure parses (not WeChat compiler)
+
+
+Limit: static checks do not validate WeChat touch input or medical anatomy.
+EXIT_CODE: 0

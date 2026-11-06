@@ -1,0 +1,11 @@
+<view wx:if="{{open}}" class="picker-overlay" bindtap="close" catchtouchmove="stopTouch">
+  <view class="picker-sheet" catchtap="stopTouch" role="dialog" aria-label="选择身体部位">
+    <view class="picker-heading"><text class="picker-title">选择身体部位</text><view class="picker-close" aria-role="button" bindtap="close" aria-label="关闭部位列表">关闭</view></view>
+    <view class="picker-hint">{{viewLabel}} · {{candidatesOnly ? '此处有多个候选，请确认' : '选择后返回全身，再确认放大'}}</view>
+    <scroll-view scroll-y="{{true}}" class="picker-scroll" catchtouchmove="stopTouch">
+      <view class="picker-grid">
+        <view wx:for="{{regions}}" wx:key="id" class="picker-cell"><view aria-role="button" class="picker-option {{selected === item.id ? 'is-selected' : ''}}" data-id="{{item.id}}" bindtap="choose" aria-pressed="{{selected === item.id}}">{{item.name}}{{selected === item.id ? ' · 已选' : ''}}</view></view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

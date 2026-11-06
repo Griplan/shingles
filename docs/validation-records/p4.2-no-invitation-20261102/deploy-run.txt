@@ -1,0 +1,2 @@
+B runtime verified and private backup created
+B updated with explicitly enabled public-test sessions; A left running

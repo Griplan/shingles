@@ -1,0 +1,23 @@
+{
+  "a_identity_unchanged": true,
+  "nginx_master_unchanged": true,
+  "b_identity_unchanged": true,
+  "original_files_unchanged": true,
+  "original_file_count": 6,
+  "watch_rounds": 326,
+  "watch_a_non_200": 0,
+  "guard_stop_reasons": [],
+  "min_available_bytes": 2329280512,
+  "observed_b_peak_bytes": 792657920,
+  "vm_before": {
+    "pswpin": 0,
+    "pswpout": 5,
+    "oom_kill": 0
+  },
+  "vm_after": {
+    "pswpin": 0,
+    "pswpout": 5,
+    "oom_kill": 0
+  },
+  "last_server_time": "2026-11-02T00:37:40+08:00"
+}

@@ -1,0 +1,17 @@
+HTTP/2 200 
+content-type: application/vnd.snesdev-page-table
+content-length: 156008466
+accept-ranges: bytes
+server: AmazonS3
+last-modified: Sun, 29 Sep 2024 03:13:57 GMT
+x-amz-version-id: 6gDe_HuMb8ygSM0T9UYUiWUgLBi6ODmd
+x-amz-server-side-encryption: AES256
+x-amz-storage-class: INTELLIGENT_TIERING
+date: Tue, 27 Oct 2026 02:13:46 GMT
+etag: "2a9d5f6d5f451bd71757590b89efa757-19"
+x-cache: Hit from cloudfront
+via: 1.1 1abf5b3404c509ce53355c980299be6c.cloudfront.net (CloudFront)
+x-amz-cf-pop: HKG61-P1
+x-amz-cf-id: 78Ys-OPfHIuieReLPN7lypt5xm8PcWbgxRduWumHlny6WivPV3fJNg==
+age: 12106
+

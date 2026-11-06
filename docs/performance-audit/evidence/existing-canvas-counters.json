@@ -1,0 +1,16 @@
+{
+  "environment": {
+    "node": "v24.11.1",
+    "kind": "deterministic adapter; 207x363, DPR2, init + 20 same-view all/single changes, animation off; NOT native rendering"
+  },
+  "after": {
+    "selectorMeasurements": 1,
+    "contextAcquisitions": 1,
+    "imageLoads": 2,
+    "widthWrites": 1,
+    "heightWrites": 1,
+    "bodyDraws": 21,
+    "clearBeforeReady": 0,
+    "setDataCalls": 2
+  }
+}

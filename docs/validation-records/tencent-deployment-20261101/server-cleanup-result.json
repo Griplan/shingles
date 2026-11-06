@@ -1,0 +1,8 @@
+{
+  "isolated_server_cleanup": "PASSED",
+  "expired_deleted": true,
+  "unexpired_retained": true,
+  "symlink_target_retained": true,
+  "user": "dermatome",
+  "scope": "temporary isolated B runtime directory, not real sessions"
+}

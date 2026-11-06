@@ -1,0 +1,36 @@
+V1.2 change inventory / 2026-10-22 Asia/Shanghai
+Compared byte-for-byte with the pre-V1.2 workspace snapshot; no Git commit/staging performed.
+Excludes ignored caches, dependencies, personal settings and .git.
+ADDED 14 / MODIFIED 17 / DELETED 0
+
+ADDED docs/v12-changes.txt
+ADDED docs/validation-records/v12-comparison-2026-10-22.png
+ADDED docs/validation-records/v12-comparison-2026-10-22.svg
+ADDED docs/validation-records/v12-first-preview-2026-10-22.png
+ADDED docs/validation-records/v12-first-preview-2026-10-22.svg
+ADDED docs/validation-records/v12-first-tests-2026-10-22.txt
+ADDED docs/validation-records/v12-gui-2026-10-22.txt
+ADDED docs/validation-records/v12-regression-2026-10-22.txt
+ADDED docs/validation-records/v12-repaired-tests-2026-10-22.txt
+ADDED docs/validation-records/v12-static-2026-10-22.txt
+ADDED docs/validation-records/v12-visual-2026-10-22.txt
+ADDED miniprogram/assets/body/neutral-v3.ts
+ADDED miniprogram/data/body-regions-v2.ts
+ADDED tests/miniprogram/anatomy-registration.test.cjs
+MODIFIED AGENTS.md
+MODIFIED README.md
+MODIFIED data/references.md
+MODIFIED docs/architecture.md
+MODIFIED docs/atlas-spec.md
+MODIFIED docs/requirements.md
+MODIFIED docs/validation.md
+MODIFIED miniprogram/assets/body/README.md
+MODIFIED miniprogram/data/body-models.ts
+MODIFIED miniprogram/data/body-regions.ts
+MODIFIED miniprogram/pages/index/index.wxml
+MODIFIED miniprogram/pages/select/select.wxml
+MODIFIED scripts/check_project.py
+MODIFIED scripts/preview_body.cjs
+MODIFIED task.md
+MODIFIED tests/miniprogram/body-debug.test.cjs
+MODIFIED tests/miniprogram/canvas.test.cjs

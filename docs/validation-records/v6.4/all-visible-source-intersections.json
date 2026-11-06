@@ -1,0 +1,54 @@
+{
+  "minimumReportedAreaOriginalSVGUnits": 1e-10,
+  "note": "Initial survey. Canonical complete list including numerical residues is registration.unconfiguredAdjacentSourceFragments.",
+  "intersections": [
+    {
+      "index": 49,
+      "route": "root/9/1/49",
+      "label": "S2",
+      "side": "left",
+      "areaOriginalSVGUnits": 0.1466428817707382,
+      "ratioOfDisplayedSkin": 4.7501915477249995e-05
+    },
+    {
+      "index": 49,
+      "route": "root/9/1/49",
+      "label": "S2",
+      "side": "right",
+      "areaOriginalSVGUnits": 0.06371484635236395,
+      "ratioOfDisplayedSkin": 2.0348072951330102e-05
+    },
+    {
+      "index": 44,
+      "route": "root/9/1/44",
+      "label": "S1",
+      "side": "left",
+      "areaOriginalSVGUnits": 2252.126876054667,
+      "ratioOfDisplayedSkin": 0.7295297202195272
+    },
+    {
+      "index": 44,
+      "route": "root/9/1/44",
+      "label": "S1",
+      "side": "right",
+      "areaOriginalSVGUnits": 2251.211115250889,
+      "ratioOfDisplayedSkin": 0.7189503016084843
+    },
+    {
+      "index": 43,
+      "route": "root/9/1/43",
+      "label": "L5",
+      "side": "left",
+      "areaOriginalSVGUnits": 831.8279616007968,
+      "ratioOfDisplayedSkin": 0.2694533893936262
+    },
+    {
+      "index": 43,
+      "route": "root/9/1/43",
+      "label": "L5",
+      "side": "right",
+      "areaOriginalSVGUnits": 877.4954517743088,
+      "ratioOfDisplayedSkin": 0.2802383194713854
+    }
+  ]
+}

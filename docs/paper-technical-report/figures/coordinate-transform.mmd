@@ -1,0 +1,17 @@
+flowchart TB
+  P["照片归一化顶点 q
+外环和孔洞统一处理"] --> PIX["diag(W,H) × q
+恢复照片像素度量"]
+  PIX --> CENTER["减去整体轮廓包围盒中心 c"]
+  CENTER --> SIM["统一尺度 k × R(theta)
+全部片区同一相似变换"]
+  SIM --> BODY["除以人体逻辑宽高 400×900
+加人体归一化平移 t"]
+  BODY --> VALID["完整几何 / 体表包含校验
+确认后保存人体坐标"]
+  VALID --> DISPLAY["现有视口变换
+等比fit · 局部放大 · CSS偏移"]
+  DISPLAY --> SCREEN["Canvas 显示
+DPR只影响像素缓冲"]
+  BODY -.-> NOTE["照片原数据不可变
+视口不改变已保存几何"]

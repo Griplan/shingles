@@ -1,0 +1,302 @@
+{
+  "kind": "candidates from interrupted pip in this audit time window; ownership/time only, not proven exclusive; no deletion performed",
+  "count": 59,
+  "total_kib": 3820,
+  "directories": [
+    {
+      "path": "/tmp/pip-unpack-84ax_gd9",
+      "mtime_utc": "2026-11-01T11:05:25.095137+00:00",
+      "size_kib": 16
+    },
+    {
+      "path": "/tmp/pip-unpack-zy8p3p_u",
+      "mtime_utc": "2026-11-01T11:03:45.826620+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-metadata-8cb_6tmc",
+      "mtime_utc": "2026-11-01T11:03:31.483545+00:00",
+      "size_kib": 16
+    },
+    {
+      "path": "/tmp/pip-metadata-4aqczc91",
+      "mtime_utc": "2026-11-01T11:03:11.163439+00:00",
+      "size_kib": 68
+    },
+    {
+      "path": "/tmp/pip-unpack-41t9quka",
+      "mtime_utc": "2026-11-01T11:04:28.767843+00:00",
+      "size_kib": 8
+    },
+    {
+      "path": "/tmp/pip-unpack-4f3ypkk0",
+      "mtime_utc": "2026-11-01T11:05:06.324039+00:00",
+      "size_kib": 64
+    },
+    {
+      "path": "/tmp/pip-metadata-y4v5lisn",
+      "mtime_utc": "2026-11-01T11:04:49.107949+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-metadata-qoaxkozc",
+      "mtime_utc": "2026-11-01T11:04:15.909776+00:00",
+      "size_kib": 8
+    },
+    {
+      "path": "/tmp/pip-metadata-s722q1px",
+      "mtime_utc": "2026-11-01T11:05:03.773026+00:00",
+      "size_kib": 8
+    },
+    {
+      "path": "/tmp/pip-metadata-ikpvhqr_",
+      "mtime_utc": "2026-11-01T11:04:22.597811+00:00",
+      "size_kib": 16
+    },
+    {
+      "path": "/tmp/pip-unpack-sazyul7v",
+      "mtime_utc": "2026-11-01T11:05:17.191096+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-unpack-ilf4kat6",
+      "mtime_utc": "2026-11-01T11:04:15.818776+00:00",
+      "size_kib": 8
+    },
+    {
+      "path": "/tmp/pip-unpack-z4cmolqz",
+      "mtime_utc": "2026-11-01T11:03:57.606681+00:00",
+      "size_kib": 28
+    },
+    {
+      "path": "/tmp/pip-unpack-1_j1w8ek",
+      "mtime_utc": "2026-11-01T11:03:10.678437+00:00",
+      "size_kib": 68
+    },
+    {
+      "path": "/tmp/pip-unpack-5mbhopf0",
+      "mtime_utc": "2026-11-01T11:04:59.527004+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-metadata-d66pdlnl",
+      "mtime_utc": "2026-11-01T11:05:00.235007+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-unpack-9butu93t",
+      "mtime_utc": "2026-11-01T11:04:12.845760+00:00",
+      "size_kib": 8
+    },
+    {
+      "path": "/tmp/pip-unpack-hydel5pp",
+      "mtime_utc": "2026-11-01T11:05:22.170122+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-metadata-n6ih3tnb",
+      "mtime_utc": "2026-11-01T11:02:46.424310+00:00",
+      "size_kib": 56
+    },
+    {
+      "path": "/tmp/pip-metadata-c56bcafy",
+      "mtime_utc": "2026-11-01T11:04:19.189793+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-metadata-v3vihs5l",
+      "mtime_utc": "2026-11-01T11:05:21.131116+00:00",
+      "size_kib": 32
+    },
+    {
+      "path": "/tmp/pip-metadata-0ux4ht8y",
+      "mtime_utc": "2026-11-01T11:03:46.047621+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-unpack-0yogev3y",
+      "mtime_utc": "2026-11-01T11:05:15.686088+00:00",
+      "size_kib": 8
+    },
+    {
+      "path": "/tmp/pip-unpack-du0vx2vy",
+      "mtime_utc": "2026-11-01T11:04:10.507748+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-unpack-91g03k2l",
+      "mtime_utc": "2026-11-01T11:04:18.062788+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-unpack-cbsxfrbz",
+      "mtime_utc": "2026-11-01T11:04:49.016949+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-metadata-yxcd2ojv",
+      "mtime_utc": "2026-11-01T11:05:09.646056+00:00",
+      "size_kib": 64
+    },
+    {
+      "path": "/tmp/pip-unpack-cbchic1h",
+      "mtime_utc": "2026-11-01T11:05:24.327133+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-unpack-pc324415",
+      "mtime_utc": "2026-11-01T11:05:00.936011+00:00",
+      "size_kib": 16
+    },
+    {
+      "path": "/tmp/pip-metadata-dji05qdm",
+      "mtime_utc": "2026-11-01T11:05:02.362018+00:00",
+      "size_kib": 16
+    },
+    {
+      "path": "/tmp/pip-metadata-utxk4fj5",
+      "mtime_utc": "2026-11-01T11:04:28.796844+00:00",
+      "size_kib": 8
+    },
+    {
+      "path": "/tmp/pip-metadata-3_f7hiwu",
+      "mtime_utc": "2026-11-01T11:05:17.661098+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-unpack-gxxwzdaw",
+      "mtime_utc": "2026-11-01T11:04:24.045819+00:00",
+      "size_kib": 20
+    },
+    {
+      "path": "/tmp/pip-metadata-_i3tbinh",
+      "mtime_utc": "2026-11-01T11:04:12.896761+00:00",
+      "size_kib": 8
+    },
+    {
+      "path": "/tmp/pip-unpack-6fe1airq",
+      "mtime_utc": "2026-11-01T11:04:20.572801+00:00",
+      "size_kib": 8
+    },
+    {
+      "path": "/tmp/pip-metadata-z7xr5xzx",
+      "mtime_utc": "2026-11-01T11:04:11.262752+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-unpack-i180vc_5",
+      "mtime_utc": "2026-11-01T11:04:32.539863+00:00",
+      "size_kib": 20
+    },
+    {
+      "path": "/tmp/pip-metadata-78p7cgf4",
+      "mtime_utc": "2026-11-01T11:04:14.662770+00:00",
+      "size_kib": 8
+    },
+    {
+      "path": "/tmp/pip-metadata-i06tt71e",
+      "mtime_utc": "2026-11-01T11:04:52.686968+00:00",
+      "size_kib": 16
+    },
+    {
+      "path": "/tmp/pip-unpack-htbb9sl_",
+      "mtime_utc": "2026-11-01T11:02:45.979308+00:00",
+      "size_kib": 56
+    },
+    {
+      "path": "/tmp/pip-download-lueqlqri",
+      "mtime_utc": "2026-11-01T11:02:40.139277+00:00",
+      "size_kib": 4
+    },
+    {
+      "path": "/tmp/pip-metadata-nitzr70i",
+      "mtime_utc": "2026-11-01T11:04:55.110981+00:00",
+      "size_kib": 8
+    },
+    {
+      "path": "/tmp/pip-unpack-07rzzla5",
+      "mtime_utc": "2026-11-01T11:04:54.201976+00:00",
+      "size_kib": 8
+    },
+    {
+      "path": "/tmp/pip-unpack-l685qips",
+      "mtime_utc": "2026-11-01T11:04:14.622770+00:00",
+      "size_kib": 8
+    },
+    {
+      "path": "/tmp/pip-unpack-fyj3adsk",
+      "mtime_utc": "2026-11-01T11:08:22.665062+00:00",
+      "size_kib": 2756
+    },
+    {
+      "path": "/tmp/pip-unpack-yq8hh49n",
+      "mtime_utc": "2026-11-01T11:03:31.224544+00:00",
+      "size_kib": 16
+    },
+    {
+      "path": "/tmp/pip-metadata-f_uv76_z",
+      "mtime_utc": "2026-11-01T11:04:24.412821+00:00",
+      "size_kib": 20
+    },
+    {
+      "path": "/tmp/pip-metadata-ujlzuv7_",
+      "mtime_utc": "2026-11-01T11:03:58.443685+00:00",
+      "size_kib": 28
+    },
+    {
+      "path": "/tmp/pip-metadata-1ipeh6el",
+      "mtime_utc": "2026-11-01T11:05:23.185127+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-unpack-ugoul01z",
+      "mtime_utc": "2026-11-01T11:04:22.243809+00:00",
+      "size_kib": 16
+    },
+    {
+      "path": "/tmp/pip-metadata-2f88tt9k",
+      "mtime_utc": "2026-11-01T11:04:33.199867+00:00",
+      "size_kib": 20
+    },
+    {
+      "path": "/tmp/pip-metadata-fja4tfim",
+      "mtime_utc": "2026-11-01T11:04:20.618801+00:00",
+      "size_kib": 8
+    },
+    {
+      "path": "/tmp/pip-build-tracker-kll698j2",
+      "mtime_utc": "2026-11-01T11:02:40.139277+00:00",
+      "size_kib": 4
+    },
+    {
+      "path": "/tmp/pip-unpack-qumo4w9l",
+      "mtime_utc": "2026-11-01T11:05:18.889105+00:00",
+      "size_kib": 32
+    },
+    {
+      "path": "/tmp/pip-metadata-p_0vhoau",
+      "mtime_utc": "2026-11-01T11:05:15.998089+00:00",
+      "size_kib": 8
+    },
+    {
+      "path": "/tmp/pip-unpack-fwlvf42p",
+      "mtime_utc": "2026-11-01T11:04:50.618957+00:00",
+      "size_kib": 16
+    },
+    {
+      "path": "/tmp/pip-metadata-2l6agafj",
+      "mtime_utc": "2026-11-01T11:05:24.547134+00:00",
+      "size_kib": 12
+    },
+    {
+      "path": "/tmp/pip-metadata-fknktw6a",
+      "mtime_utc": "2026-11-01T11:05:25.333138+00:00",
+      "size_kib": 16
+    },
+    {
+      "path": "/tmp/pip-unpack-pz06od5n",
+      "mtime_utc": "2026-11-01T11:05:03.471024+00:00",
+      "size_kib": 8
+    }
+  ]
+}

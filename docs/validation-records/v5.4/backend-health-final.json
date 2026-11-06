@@ -1,0 +1,9 @@
+{
+  "status_code": 200,
+  "body": {
+    "status": "ok",
+    "project": "dermatome-mapper",
+    "version": "v0"
+  },
+  "note": "本轮断线测试后恢复的本机开发后端；健康检查不等于临床/生产验收"
+}

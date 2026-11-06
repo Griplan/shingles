@@ -1,0 +1,214 @@
+{
+  "stage": "C",
+  "kind": "Linux single-process CPU preflight; no medical accuracy labels",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "before": {
+    "available_bytes": 2968289280,
+    "swap_used_bytes": 12288
+  },
+  "model": {
+    "name": "MobileSAM",
+    "variant": "vit_t",
+    "package_version": "1.0",
+    "source_commit": "f706ad9c4eb7f219c00d9050e46328518ffb65d2",
+    "license": "Apache-2.0",
+    "weights_sha256": "6dbb90523a35330fedd7f1d3dfc66f995213d81b29a5ca8108dbcdd4e37d6c2f",
+    "weights_bytes": 40728226,
+    "device": "cpu",
+    "dtype": "float32",
+    "torch": "2.5.1+cpu",
+    "threads": 1,
+    "load_seconds": 1.4799729739315808,
+    "source": "https://github.com/ChaoningZhang/MobileSAM"
+  },
+  "model_load_call_seconds": 1.479992520995438,
+  "import_and_load_seconds": 2.681141837965697,
+  "after_load": {
+    "VmRSS": 397324288,
+    "VmHWM": 407298048
+  },
+  "threads": {
+    "intra": 1,
+    "inter": 1
+  },
+  "preprocess_seconds": 0.13480039592832327,
+  "segment_wall_seconds": 3.5166119430214167,
+  "image": {
+    "width": 1400,
+    "height": 2126,
+    "source": "cdc-21506-derived-1400x2126.png",
+    "derivation": "CDC21506 enlarged 2x for bounded memory/capacity test only; not new medical sample."
+  },
+  "prompts": {
+    "coordinate_space": "photo_oriented_pixels_v1",
+    "points": [
+      [
+        920,
+        1300,
+        1
+      ]
+    ],
+    "box": [
+      700,
+      1180,
+      1060,
+      1400
+    ]
+  },
+  "strategy": "full_image",
+  "model_transform": {
+    "kind": "sam_resize_longest_side_pad_then_postprocess",
+    "original_hw": [
+      2126,
+      1400
+    ],
+    "resized_hw": [
+      1024,
+      674
+    ],
+    "padded_hw": [
+      1024,
+      1024
+    ],
+    "strategy": "full_image",
+    "requested_strategy": "full_image"
+  },
+  "timings": {
+    "encode_seconds": 2.852629970991984,
+    "decode_seconds": 0.3572799440007657,
+    "inference_seconds": 3.2099099149927497,
+    "polygon_seconds": 0.3035998430568725,
+    "total_seconds": 3.514727036934346,
+    "process_cpu_seconds": 3.510285755
+  },
+  "after_segment": {
+    "VmRSS": 555073536,
+    "VmHWM": 692523008
+  },
+  "export_seconds": 6.171984899789095,
+  "candidates": [
+    {
+      "candidate_id": "candidate-0",
+      "status": "ok",
+      "component_count": 10,
+      "hole_count": 4,
+      "model_score": 0.7127979397773743,
+      "quality": {
+        "area_ratio": 0.019161739013573445,
+        "box_pixel_area": 79200,
+        "mask_to_box_ratio": 0.7201136363636363,
+        "outside_box_ratio": 0.012974944330475338,
+        "foreground_contained": [
+          true
+        ],
+        "background_excluded": [],
+        "prompt_penalty": 0,
+        "warnings": [],
+        "policy": "prompt_adherence_v1_not_medical_quality",
+        "candidate_differences": [
+          {
+            "candidate_id": "candidate-1",
+            "mask_iou": 0.7843409616019364
+          },
+          {
+            "candidate_id": "candidate-2",
+            "mask_iou": 0.6449945716095178
+          }
+        ]
+      },
+      "mask_shape": [
+        2126,
+        1400
+      ],
+      "mask_foreground_pixels": 57033,
+      "geometry_valid": true,
+      "area_error_pixels": 2.1827872842550278e-11
+    },
+    {
+      "candidate_id": "candidate-1",
+      "status": "ok",
+      "component_count": 3,
+      "hole_count": 4,
+      "model_score": 0.8421869277954102,
+      "quality": {
+        "area_ratio": 0.02442884020964924,
+        "box_pixel_area": 79200,
+        "mask_to_box_ratio": 0.9180555555555555,
+        "outside_box_ratio": 0.0864805391280429,
+        "foreground_contained": [
+          true
+        ],
+        "background_excluded": [],
+        "prompt_penalty": 0,
+        "warnings": [],
+        "policy": "prompt_adherence_v1_not_medical_quality",
+        "candidate_differences": [
+          {
+            "candidate_id": "candidate-0",
+            "mask_iou": 0.7843409616019364
+          },
+          {
+            "candidate_id": "candidate-2",
+            "mask_iou": 0.8101079544816275
+          }
+        ]
+      },
+      "mask_shape": [
+        2126,
+        1400
+      ],
+      "mask_foreground_pixels": 72710,
+      "geometry_valid": true,
+      "area_error_pixels": 0.0
+    },
+    {
+      "candidate_id": "candidate-2",
+      "status": "ok",
+      "component_count": 3,
+      "hole_count": 4,
+      "model_score": 0.8477727174758911,
+      "quality": {
+        "area_ratio": 0.02970837253057385,
+        "box_pixel_area": 79200,
+        "mask_to_box_ratio": 1.1164646464646464,
+        "outside_box_ratio": 0.12919569347688412,
+        "foreground_contained": [
+          true
+        ],
+        "background_excluded": [],
+        "prompt_penalty": 0,
+        "warnings": [],
+        "policy": "prompt_adherence_v1_not_medical_quality",
+        "candidate_differences": [
+          {
+            "candidate_id": "candidate-0",
+            "mask_iou": 0.6449945716095178
+          },
+          {
+            "candidate_id": "candidate-1",
+            "mask_iou": 0.8101079544816275
+          }
+        ]
+      },
+      "mask_shape": [
+        2126,
+        1400
+      ],
+      "mask_foreground_pixels": 88424,
+      "geometry_valid": true,
+      "area_error_pixels": 1.3096723705530167e-10
+    }
+  ],
+  "status": "PASSED_ENGINEERING_REQUIRES_USER_CONFIRMATION",
+  "after": {
+    "available_bytes": 2527514624,
+    "swap_used_bytes": 12288
+  },
+  "final_memory": {
+    "VmRSS": 572370944,
+    "VmHWM": 692523008
+  },
+  "total_seconds": 13.291655877837911,
+  "process_cpu_seconds": 13.282829038,
+  "ru_maxrss_bytes": 692523008
+}

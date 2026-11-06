@@ -1,0 +1,1 @@
+Initial timing fixture used a clipped schematic atlas region as a lesion. Strict patient annotation validation rejected sub-ULP outside-skin residue. Changed benchmark input to the unchanged original full skin polygon, exercising all three regions; no production validation or numerical formula changed.

@@ -1,0 +1,19 @@
+{
+  "atlasVersion": "goran-2022-commons-template4-preview.3",
+  "status": "PASSED_OFFLINE_GEOMETRY",
+  "views": {
+    "front": {
+      "regions": 64,
+      "newHandRegions": 10,
+      "vertices": 21758,
+      "holes": 15
+    },
+    "back": {
+      "regions": 72,
+      "newHandRegions": 12,
+      "vertices": 27471,
+      "holes": 2
+    }
+  },
+  "notMedicalReview": true
+}

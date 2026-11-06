@@ -1,0 +1,22 @@
+[
+  {
+    "route": "root/3",
+    "status": "hidden draft explicitly enabled for audit; NOT final medical boundary",
+    "image": "parent-hidden-layer-3.png"
+  },
+  {
+    "route": "root/7",
+    "status": "hidden draft explicitly enabled for audit; NOT final medical boundary",
+    "image": "parent-hidden-layer-7.png"
+  },
+  {
+    "route": "root/11",
+    "status": "hidden draft explicitly enabled for audit; NOT final medical boundary",
+    "image": "parent-hidden-layer-11.png"
+  },
+  {
+    "route": "root/15",
+    "status": "hidden draft explicitly enabled for audit; NOT final medical boundary",
+    "image": "parent-hidden-layer-15.png"
+  }
+]

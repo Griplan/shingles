@@ -1,0 +1,28 @@
+<view class="local-surface-page">
+ <view wx:if="{{error}}" class="error"><text>{{error}}</text><button class="control" bindtap="returnBody">返回全身人体</button></view>
+ <block wx:elif="{{session}}">
+  <view class="heading"><text>{{resultMode ? partName + '参考结果' : previewMode ? partName + '参考图谱' : partName + '病灶标注'}}</text><button class="control link" bindtap="showInfo">说明</button></view>
+  <view class="switch-row"><button class="control tab {{view === leftView ? 'active' : ''}}" data-view="{{leftView}}" bindtap="switchView">左{{partName}} · {{leftCount}}</button><button class="control tab {{view === rightView ? 'active' : ''}}" data-view="{{rightView}}" bindtap="switchView">右{{partName}} · {{rightCount}}</button></view>
+  <view class="status">{{loading ? '计算中，标注已保留…' : previewMode ? labels.length ? '参考预览 · 点击标签查看' : '当前分区尚未配置' : resultMode ? selected ? '单区查看 · 可恢复全部' : '全部参考区域 · 点击标签查看' : phase === 'review' ? '范围已确认，可返回修改' : mode === 'draw' ? '沿皮肤范围边缘逐点圈选，再闭合' : '可新增范围，或完成标注'}}</view>
+  <scroll-view wx:if="{{!resultMode && !previewMode && regions.length}}" scroll-x class="region-row"><view class="region-items"><button wx:for="{{regions}}" wx:key="id" class="control chip {{selectedId === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="selectPolygon" disabled="{{mode === 'draw' || phase === 'review' || loading}}">{{item.label}}</button></view></scroll-view>
+  <view class="local-surface-stage" style="height:{{stageHeight}}px">
+   <view class="canvas-area"><local-surface-canvas view="{{view}}" layer="{{layer}}" atlas-regions="{{atlasRegions}}" focus-bounds="{{focusBounds}}" interaction-blocked="{{infoOpen}}" disabled="{{mode !== 'draw' || phase !== 'editing' || previewMode || loading || infoOpen}}" layout-revision="{{layoutRevision}}" bind:point="onPoint" bind:viewport="onViewport"></local-surface-canvas></view>
+   <scroll-view wx:if="{{labels.length}}" scroll-y class="label-rail" style="height:{{stageHeight}}px"><view class="rail-content" style="height:{{rail.height}}px"><button wx:for="{{rail.items}}" wx:key="id" class="control nerve-label {{selected === item.id ? 'selected' : ''}}" style="top:{{item.top}}px;border-left-color:{{item.color}}" data-id="{{item.id}}" bindtap="chooseCandidate"><text>{{item.label}}</text><text class="ratio">{{item.ratio}}</text></button></view></scroll-view>
+  </view>
+  <view class="legend">{{title}} · {{orientation}}<text>棕色轮廓：标注范围</text></view>
+  <view class="view-tools"><button class="control subtle" wx:if="{{resultMode || previewMode}}" bindtap="showAll" disabled="{{!selected}}">显示全部</button><button class="control subtle" bindtap="zoom">放大查看</button><button class="control subtle" bindtap="reset">复位</button><button wx:if="{{previewAllowed}}" class="control subtle" bindtap="togglePreview">{{previewMode ? '返回标注' : '参考图谱'}}</button></view>
+  <view wx:if="{{!previewMode}}" class="action-area">
+   <view class="count">{{phase === 'review' ? '已确认 ' + completedCount + ' 片' : mode === 'draw' ? '当前 ' + pointCount + ' 点' : '已完成 ' + completedCount + ' 片'}}</view>
+   <view class="toolbar" wx:if="{{phase === 'review'}}"><button class="control" bindtap="edit" disabled="{{loading}}">修改标注</button><button class="control primary" bindtap="calculate" loading="{{loading}}" disabled="{{loading || !atlasReady || !matchingAllowed}}">{{loading ? '计算中…' : '计算参考区域'}}</button></view>
+   <view class="toolbar" wx:elif="{{mode === 'draw'}}"><button class="control" bindtap="undo" disabled="{{!pointCount}}">撤销</button><button class="control" bindtap="cancelDraft">取消</button><button class="control primary" bindtap="closePolygon" disabled="{{pointCount < 3}}">闭合范围</button></view>
+   <view class="toolbar" wx:else><button class="control" bindtap="newRegion">新增</button><button class="control" bindtap="deleteSelected" disabled="{{!selectedId}}">删除</button><button class="control primary" bindtap="finish" disabled="{{!completedCount}}">完成标注</button></view>
+  </view>
+  <view wx:if="{{message}}" class="message" role="alert">{{message}}</view>
+  <view wx:if="{{!atlasReady}}" class="reference-note">{{atlasBlocked}} 已保存的标注仍可查看与修改。</view>
+  <view wx:elif="{{!matchingAllowed && phase === 'review'}}" class="reference-note">当前版本仅支持本地标注，参考计算尚未开放。</view>
+  <view wx:if="{{coverage}}" class="coverage">{{coverage}}</view>
+  <view wx:if="{{resultMode}}" class="reference-note">几何覆盖为参考对应，不是诊断概率；未覆盖不代表没有感觉神经。</view>
+  <button class="control return-link" bindtap="returnBody">返回全身人体</button>
+ </block>
+ <view wx:if="{{infoOpen}}" class="info-mask" catchtap="closeInfo" catchtouchmove="swallow"><view class="info-sheet" catchtap="swallow"><view class="heading"><text>说明与来源</text><button class="control link" bindtap="closeInfo">关闭</button></view><scroll-view scroll-y class="info-scroll"><view>左、右{{partName}}独立标注；切换或返回全身会保留本次运行中的范围。关闭或重启小程序后不保留。</view><view>{{partName}}与全身使用不同模板。参考图谱用于教学与研究，医学审核待完成，不提供临床确诊。</view><view>{{sourceTitle}}</view><view>{{attribution}}</view><text class="source" user-select>{{sourceUrl}}</text><view wx:if="{{resourceAttribution}}">{{resourceAttribution}}</view><text wx:if="{{resourceSource}}" class="source" user-select>{{resourceSource}}</text><view wx:if="{{!atlasReady}}">{{atlasBlocked}}</view></scroll-view></view></view>
+</view>

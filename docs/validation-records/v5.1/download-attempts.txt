@@ -1,0 +1,11 @@
+2026-10-27; local engineering experiment, no patient uploads.
+1. curl official GitHub commit API in sandbox: FAILED exit6 DNS denied.
+2. Same API via execution approval: PASSED, commit f706ad9c4eb7f219c00d9050e46328518ffb65d2.
+3. codeload pinned archive --max-time120: FAILED exit28, 10,726,087 bytes partial. Archive contains ~88MB of blobs; not used.
+4. First tree URL unquoted: FAILED exit1 zsh glob '?'; quoted retry PASSED.
+5. Official raw.githubusercontent.com required files: FAILED curl35 resets (model-download.json).
+6. Official GitHub blob API JSON: source/license PASSED with Git SHA checks; weight FAILED after300s/23,756,800 bytes (model-download-api.json).
+7. Official GitHub blob API Accept application/vnd.github.raw+json --max-time900: PASSED exit0; 40,728,226 bytes; Git blob and SHA256 verified (checkpoint.json).
+8. CDC21505/21506/18254 official low-res JPG: PASSED curl exits0. Sources and content hashes retained separately.
+9. Commons Herpes_zoster_chest.png: FAILED exit28 connection timeout60s; NOT_USED, not counted.
+10. Official SAM2.1 tiny HEAD: PASSED content-length156008466; NOT_DOWNLOADED/NOT_RUN.

@@ -1,0 +1,35 @@
+{
+  "checked_at": "2026-11-03T06:27:02.017835+00:00",
+  "kind": "delivery integrity recheck; not new performance run",
+  "same_request_attachment": true,
+  "report_files": 10,
+  "protected_files": 161,
+  "core_changed": [],
+  "broken_links": [],
+  "missing_evidence": [],
+  "original_test_logs": {
+    "miniprogram-tests.log": {
+      "exists": true,
+      "bytes": 29441
+    },
+    "python-tests.log": {
+      "exists": true,
+      "bytes": 3466
+    },
+    "typecheck.log": {
+      "exists": true,
+      "bytes": 64
+    }
+  },
+  "prior_cloud_probe_status": "PASSED",
+  "prior_cloud_probe_cleanup": {
+    "photo_delete_status": 204,
+    "access_revoke_status": 204
+  },
+  "native_frame_measurement": "NOT_MEASURED",
+  "phone_test": "NOT_RUN",
+  "new_model_inference_runs": 0,
+  "new_server_requests": 0,
+  "confirmation_requested": false,
+  "status": "PASSED"
+}

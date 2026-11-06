@@ -1,0 +1,242 @@
+{
+  "checked_at": "2026-11-03T03:03:03.194590+00:00",
+  "mode": "read-only",
+  "cpu": "{\n   \"lscpu\": [\n      {\n         \"field\": \"Architecture:\",\n         \"data\": \"x86_64\"\n      },{\n         \"field\": \"CPU op-mode(s):\",\n         \"data\": \"32-bit, 64-bit\"\n      },{\n         \"field\": \"Address sizes:\",\n         \"data\": \"48 bits physical, 48 bits virtual\"\n      },{\n         \"field\": \"Byte Order:\",\n         \"data\": \"Little Endian\"\n      },{\n         \"field\": \"CPU(s):\",\n         \"data\": \"4\"\n      },{\n         \"field\": \"On-line CPU(s) list:\",\n         \"data\": \"0-3\"\n      },{\n         \"field\": \"Vendor ID:\",\n         \"data\": \"AuthenticAMD\"\n      },{\n         \"field\": \"Model name:\",\n         \"data\": \"AMD EPYC 7K62 48-Core Processor\"\n      },{\n         \"field\": \"CPU family:\",\n         \"data\": \"23\"\n      },{\n         \"field\": \"Model:\",\n         \"data\": \"49\"\n      },{\n         \"field\": \"Thread(s) per core:\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"Core(s) per socket:\",\n         \"data\": \"4\"\n      },{\n         \"field\": \"Socket(s):\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"Stepping:\",\n         \"data\": \"0\"\n      },{\n         \"field\": \"BogoMIPS:\",\n         \"data\": \"5190.24\"\n      },{\n         \"field\": \"Flags:\",\n         \"data\": \"fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm rep_good nopl cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext ibpb vmmcall fsgsbase bmi1 avx2 smep bmi2 rdseed adx smap clflushopt sha_ni xsaveopt xsavec xgetbv1 arat\"\n      },{\n         \"field\": \"Hypervisor vendor:\",\n         \"data\": \"KVM\"\n      },{\n         \"field\": \"Virtualization type:\",\n         \"data\": \"full\"\n      },{\n         \"field\": \"L1d cache:\",\n         \"data\": \"128 KiB (4 instances)\"\n      },{\n         \"field\": \"L1i cache:\",\n         \"data\": \"128 KiB (4 instances)\"\n      },{\n         \"field\": \"L2 cache:\",\n         \"data\": \"16 MiB (4 instances)\"\n      },{\n         \"field\": \"L3 cache:\",\n         \"data\": \"16 MiB (1 instance)\"\n      },{\n         \"field\": \"NUMA node(s):\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"NUMA node0 CPU(s):\",\n         \"data\": \"0-3\"\n      },{\n         \"field\": \"Vulnerability Gather data sampling:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Indirect target selection:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Itlb multihit:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability L1tf:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Mds:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Meltdown:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Mmio stale data:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Reg file data sampling:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Retbleed:\",\n         \"data\": \"Mitigation; untrained return thunk; SMT disabled\"\n      },{\n         \"field\": \"Vulnerability Spec rstack overflow:\",\n         \"data\": \"Vulnerable\"\n      },{\n         \"field\": \"Vulnerability Spec store bypass:\",\n         \"data\": \"Vulnerable\"\n      },{\n         \"field\": \"Vulnerability Spectre v1:\",\n         \"data\": \"Mitigation; usercopy/swapgs barriers and __user pointer sanitization\"\n      },{\n         \"field\": \"Vulnerability Spectre v2:\",\n         \"data\": \"Mitigation; Retpolines; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\"\n      },{\n         \"field\": \"Vulnerability Srbds:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Tsa:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Tsx async abort:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Vmscape:\",\n         \"data\": \"Not affected\"\n      }\n   ]\n}",
+  "os": "PRETTY_NAME=\"Ubuntu 24.04.4 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.4 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo",
+  "disk": "Filesystem       1B-blocks       Used   Available Use% Mounted on\n/dev/vda2      42156257280 9864265728 30450130944  25% /",
+  "ports": "State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\nLISTEN 0      4096   127.0.0.53%lo:53        0.0.0.0:*          \nLISTEN 0      4096         0.0.0.0:22        0.0.0.0:*          \nLISTEN 0      511          0.0.0.0:80        0.0.0.0:*          \nLISTEN 0      511          0.0.0.0:443       0.0.0.0:*          \nLISTEN 0      4096      127.0.0.54:53        0.0.0.0:*          \nLISTEN 0      32         127.0.0.1:8001      0.0.0.0:*          \nLISTEN 0      2048       127.0.0.1:8000      0.0.0.0:*          \nLISTEN 0      4096            [::]:22           [::]:*          \nLISTEN 0      511             [::]:80           [::]:*          \nLISTEN 0      511             [::]:443          [::]:*",
+  "samples": [
+    {
+      "monotonic": 2239713.429734825,
+      "memory": {
+        "MemTotal": "3812564 kB",
+        "MemAvailable": "2328172 kB",
+        "SwapTotal": "2035708 kB",
+        "SwapFree": "2035184 kB"
+      },
+      "load": [
+        "0.08",
+        "0.02",
+        "0.01"
+      ],
+      "services": {
+        "acupuncture.service": {
+          "MainPID": "3480408",
+          "NRestarts": "0",
+          "MemoryCurrent": "159068160",
+          "CPUUsageNSec": "271817038000",
+          "TasksCurrent": "17",
+          "CPUQuotaPerSecUSec": "infinity",
+          "MemoryHigh": "infinity",
+          "MemoryMax": "infinity",
+          "MemorySwapMax": "infinity",
+          "ActiveState": "active",
+          "process": {
+            "VmHWM": "276872 kB",
+            "VmRSS": "275996 kB",
+            "VmSwap": "0 kB",
+            "Threads": "17"
+          },
+          "children": [],
+          "cpu.stat": "usage_usec 271817038\nuser_usec 247076514\nsystem_usec 24740523\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "memory.current": "159068160",
+          "memory.peak": "161112064",
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+          "cpu.max": "max 100000"
+        },
+        "dermatome.service": {
+          "MainPID": "3980765",
+          "NRestarts": "0",
+          "MemoryCurrent": "573538304",
+          "CPUUsageNSec": "178514669000",
+          "TasksCurrent": "3",
+          "CPUQuotaPerSecUSec": "1s",
+          "MemoryHigh": "1342177280",
+          "MemoryMax": "1610612736",
+          "MemorySwapMax": "0",
+          "ActiveState": "active",
+          "process": {
+            "VmHWM": "873996 kB",
+            "VmRSS": "677908 kB",
+            "VmSwap": "0 kB",
+            "Threads": "3"
+          },
+          "children": [],
+          "cpu.stat": "usage_usec 178514669\nuser_usec 159766648\nsystem_usec 18748021\ncore_sched.force_idle_usec 0\nnr_periods 202057\nnr_throttled 94\nthrottled_usec 87319\nnr_bursts 0\nburst_usec 0",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "memory.current": "573538304",
+          "memory.peak": "777093120",
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+          "cpu.max": "100000 100000"
+        },
+        "nginx.service": {
+          "MainPID": "12643",
+          "NRestarts": "0",
+          "MemoryCurrent": "7831552",
+          "CPUUsageNSec": "11332593000",
+          "TasksCurrent": "5",
+          "CPUQuotaPerSecUSec": "infinity",
+          "MemoryHigh": "infinity",
+          "MemoryMax": "infinity",
+          "MemorySwapMax": "infinity",
+          "ActiveState": "active",
+          "process": {
+            "VmHWM": "8284 kB",
+            "VmRSS": "7408 kB",
+            "VmSwap": "0 kB",
+            "Threads": "1"
+          },
+          "children": [
+            "3830191",
+            "3830192",
+            "3830193",
+            "3830194"
+          ],
+          "cpu.stat": "usage_usec 11332593\nuser_usec 5337719\nsystem_usec 5994873\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "memory.current": "7831552",
+          "memory.peak": "13737984",
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+          "cpu.max": "max 100000"
+        }
+      },
+      "network": {
+        "eth0": {
+          "rx_bytes": 4761224947,
+          "tx_bytes": 1568610535
+        },
+        "docker0": {
+          "rx_bytes": 0,
+          "tx_bytes": 0
+        }
+      },
+      "a_health": {
+        "error_type": "HTTPError"
+      },
+      "a_ready": {
+        "error_type": "HTTPError"
+      },
+      "b_health": {
+        "status": 200,
+        "ms": 1.2892247177660465
+      }
+    },
+    {
+      "monotonic": 2239716.476458591,
+      "memory": {
+        "MemTotal": "3812564 kB",
+        "MemAvailable": "2340504 kB",
+        "SwapTotal": "2035708 kB",
+        "SwapFree": "2035184 kB"
+      },
+      "load": [
+        "0.08",
+        "0.02",
+        "0.01"
+      ],
+      "services": {
+        "acupuncture.service": {
+          "MainPID": "3480408",
+          "NRestarts": "0",
+          "MemoryCurrent": "159068160",
+          "CPUUsageNSec": "271822260000",
+          "TasksCurrent": "17",
+          "CPUQuotaPerSecUSec": "infinity",
+          "MemoryHigh": "infinity",
+          "MemoryMax": "infinity",
+          "MemorySwapMax": "infinity",
+          "ActiveState": "active",
+          "process": {
+            "VmHWM": "276872 kB",
+            "VmRSS": "275996 kB",
+            "VmSwap": "0 kB",
+            "Threads": "17"
+          },
+          "children": [],
+          "cpu.stat": "usage_usec 271822260\nuser_usec 247081623\nsystem_usec 24740637\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "memory.current": "159068160",
+          "memory.peak": "161112064",
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+          "cpu.max": "max 100000"
+        },
+        "dermatome.service": {
+          "MainPID": "3980765",
+          "NRestarts": "0",
+          "MemoryCurrent": "573538304",
+          "CPUUsageNSec": "178519204000",
+          "TasksCurrent": "3",
+          "CPUQuotaPerSecUSec": "1s",
+          "MemoryHigh": "1342177280",
+          "MemoryMax": "1610612736",
+          "MemorySwapMax": "0",
+          "ActiveState": "active",
+          "process": {
+            "VmHWM": "873996 kB",
+            "VmRSS": "677908 kB",
+            "VmSwap": "0 kB",
+            "Threads": "3"
+          },
+          "children": [],
+          "cpu.stat": "usage_usec 178519204\nuser_usec 159771018\nsystem_usec 18748185\ncore_sched.force_idle_usec 0\nnr_periods 202063\nnr_throttled 94\nthrottled_usec 87319\nnr_bursts 0\nburst_usec 0",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "memory.current": "573538304",
+          "memory.peak": "777093120",
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+          "cpu.max": "100000 100000"
+        },
+        "nginx.service": {
+          "MainPID": "12643",
+          "NRestarts": "0",
+          "MemoryCurrent": "7831552",
+          "CPUUsageNSec": "11332593000",
+          "TasksCurrent": "5",
+          "CPUQuotaPerSecUSec": "infinity",
+          "MemoryHigh": "infinity",
+          "MemoryMax": "infinity",
+          "MemorySwapMax": "infinity",
+          "ActiveState": "active",
+          "process": {
+            "VmHWM": "8284 kB",
+            "VmRSS": "7408 kB",
+            "VmSwap": "0 kB",
+            "Threads": "1"
+          },
+          "children": [
+            "3830191",
+            "3830192",
+            "3830193",
+            "3830194"
+          ],
+          "cpu.stat": "usage_usec 11332593\nuser_usec 5337719\nsystem_usec 5994873\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+          "memory.current": "7831552",
+          "memory.peak": "13737984",
+          "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+          "cpu.max": "max 100000"
+        }
+      },
+      "network": {
+        "eth0": {
+          "rx_bytes": 4761226405,
+          "tx_bytes": 1568618623
+        },
+        "docker0": {
+          "rx_bytes": 0,
+          "tx_bytes": 0
+        }
+      },
+      "a_health": {
+        "error_type": "HTTPError"
+      },
+      "a_ready": {
+        "error_type": "HTTPError"
+      },
+      "b_health": {
+        "status": 200,
+        "ms": 1.2169792316854
+      }
+    }
+  ]
+}

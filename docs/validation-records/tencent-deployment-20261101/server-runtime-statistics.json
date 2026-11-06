@@ -1,0 +1,9 @@
+{
+  "idle_cpu_percent_one_core": 0.11413077542133265,
+  "sample_seconds": 2,
+  "recent_journal_lines": 100,
+  "error_or_traceback_lines": 0,
+  "temporary_session_directories": 0,
+  "disk_bytes": 1017136278,
+  "source": "actual administrator statistics command stdout; no photo contents read"
+}

@@ -1,0 +1,7 @@
+2026-11-01 Asia/Shanghai; manually retained excerpts from actual WeChat UI console inspection.
+V53_FLAGS {"dialog":false,"confirmed":false,"error":""}
+V53_MODAL 放弃本次放置？ 放弃并返回
+V53_MODAL_FAIL showModal:fail confirmText length should not larger than 4 Chinese characters
+Source corrected to confirmText=放弃返回 (4 characters). The first hot-update retry still used the old cached page text.
+After a full WeChat compilation and a new real photo segmentation/placement entry, native modal displayed 继续调整 / 放弃返回.
+继续调整 verified. Final explicit-discard branch NOT_RUN due input-window unavailability.

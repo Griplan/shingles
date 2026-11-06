@@ -1,0 +1,1 @@
+{"synthetic":true,"purpose":"NON-MEDICAL parser correctness only; not runtime atlas data","sameWindingRings":"M0 0L10 0L10 10L0 10Z M3 3L7 3L7 7L3 7Z","islands":"M0 0L2 0L2 2L0 2Z M4 0L6 0L6 2L4 2Z","curves":"m0 0 c0 3 3 3 3 0 s3 -3 3 0 q2 2 0 4 t-6 0 h-1 v-4 z"}

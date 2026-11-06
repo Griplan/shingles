@@ -1,0 +1,457 @@
+
+> dermatome-mapper-miniprogram@0.0.0 test
+> node ../scripts/test_miniprogram.cjs
+
+TAP version 13
+# Subtest: V1.2历史：新几何独立版本；前后同骨架、旧视觉与旧区域不静默迁移
+ok 1 - V1.2历史：新几何独立版本；前后同骨架、旧视觉与旧区域不静默迁移
+  ---
+  duration_ms: 2.206584
+  ...
+# Subtest: V1.2历史：设计比例单独检查：约7.5～8头身、裆50～54%、膝72～76%，不是医学准确率
+ok 2 - V1.2历史：设计比例单独检查：约7.5～8头身、裆50～54%、膝72～76%，不是医学准确率
+  ---
+  duration_ms: 0.171708
+  ...
+# Subtest: V1.2历史：轮廓本身胸肩加宽、腰髋收放：不只修改参考点或全图缩放
+ok 3 - V1.2历史：轮廓本身胸肩加宽、腰髋收放：不只修改参考点或全图缩放
+  ---
+  duration_ms: 1.102709
+  ...
+# {"chestY":270,"oldChest":107.83838028169015,"chest":129.48642533936652,"waist":100.56126482213438,"hip":158.43705572116485}
+# Subtest: V1.2历史：躯干、髋膝踝、肘腕与手足参考点在两面同源轮廓内；关节高度有序
+ok 4 - V1.2历史：躯干、髋膝踝、肘腕与手足参考点在两面同源轮廓内；关节高度有序
+  ---
+  duration_ms: 5.583459
+  ...
+# Subtest: V1.2历史：16区域与新几何配准：肩肘腕手指、髋膝踝足均落在应属UI多边形内
+ok 5 - V1.2历史：16区域与新几何配准：肩肘腕手指、髋膝踝足均落在应属UI多边形内
+  ---
+  duration_ms: 0.673958
+  ...
+# Subtest: V1.2历史：前后膝部实际细节路径靠近同一设计关节，避免只下移膝标签
+ok 6 - V1.2历史：前后膝部实际细节路径靠近同一设计关节，避免只下移膝标签
+  ---
+  duration_ms: 0.13725
+  ...
+# Subtest: V1.2历史：新关节参考点实际探测→十字重投影：三尺寸、前后、放大复位保持同一标准位置
+ok 7 - V1.2历史：新关节参考点实际探测→十字重投影：三尺寸、前后、放大复位保持同一标准位置
+  ---
+  duration_ms: 4.676167
+  ...
+# Subtest: 新模板正背面资源、逻辑比例、版本及区域显式绑定，源文件存在
+ok 8 - 新模板正背面资源、逻辑比例、版本及区域显式绑定，源文件存在
+  ---
+  duration_ms: 1.2325
+  ...
+# Subtest: 每面8个独立UI区域、16个唯一ID，头颈存在且能居中放大
+ok 9 - 每面8个独立UI区域、16个唯一ID，头颈存在且能居中放大
+  ---
+  duration_ms: 2.708042
+  ...
+# Subtest: 几何不变可更换配色/线条资源；几何、视图、尺寸或区域错版明确拒绝
+ok 10 - 几何不变可更换配色/线条资源；几何、视图、尺寸或区域错版明确拒绝
+  ---
+  duration_ms: 2.518834
+  ...
+# Subtest: 连续人体轮廓命中头颈躯干/双臂手/双腿足，拒绝臂躯间隙与腿间留白
+ok 11 - 连续人体轮廓命中头颈躯干/双臂手/双腿足，拒绝臂躯间隙与腿间留白
+  ---
+  duration_ms: 12.112
+  ...
+# Subtest: 外部素材保留自然非对称及独立正背面，全身轮廓适配Canvas
+ok 12 - 外部素材保留自然非对称及独立正背面，全身轮廓适配Canvas
+  ---
+  duration_ms: 3.335709
+  ...
+# Subtest: 同一二次曲线路径细分命中，边缘容差不吸附，开放路径拒绝
+ok 13 - 同一二次曲线路径细分命中，边缘容差不吸附，开放路径拒绝
+  ---
+  duration_ms: 0.357625
+  ...
+# Subtest: 原生Canvas本地触点和client触点识别，不猜测page坐标或DPR
+ok 14 - 原生Canvas本地触点和client触点识别，不猜测page坐标或DPR
+  ---
+  duration_ms: 0.29075
+  ...
+# Subtest: 真实矩形处理页面滚动：两种事件基准得到相同标准点
+ok 15 - 真实矩形处理页面滚动：两种事件基准得到相同标准点
+  ---
+  duration_ms: 0.520584
+  ...
+# Subtest: 三种尺寸区分有效人体、逻辑画布内留白、模型范围外；无效点不产生标准点
+ok 16 - 三种尺寸区分有效人体、逻辑画布内留白、模型范围外；无效点不产生标准点
+  ---
+  duration_ms: 1.6895
+  ...
+# Subtest: 归一化单点在放大、复位、尺寸变化时重投影；超出可见范围隐藏，不贴边
+ok 17 - 归一化单点在放大、复位、尺寸变化时重投影；超出可见范围隐藏，不贴边
+  ---
+  duration_ms: 1.371167
+  ...
+# Subtest: Canvas 正背面使用不同PNG资源且绘图状态成对恢复
+ok 18 - Canvas 正背面使用不同PNG资源且绘图状态成对恢复
+  ---
+  duration_ms: 2.753375
+  ...
+# Subtest: 区域高亮裁剪于人体轮廓，跨视图区域不会误画
+ok 19 - 区域高亮裁剪于人体轮廓，跨视图区域不会误画
+  ---
+  duration_ms: 1.453375
+  ...
+# Subtest: 初始化/尺寸适配/DPR 280×460×1
+ok 20 - 初始化/尺寸适配/DPR 280×460×1
+  ---
+  duration_ms: 1.703875
+  ...
+# Subtest: 初始化/尺寸适配/DPR 343×540×2
+ok 21 - 初始化/尺寸适配/DPR 343×540×2
+  ---
+  duration_ms: 0.450958
+  ...
+# Subtest: 初始化/尺寸适配/DPR 700×570×3
+ok 22 - 初始化/尺寸适配/DPR 700×570×3
+  ---
+  duration_ms: 2.419292
+  ...
+# Subtest: 反复切换、区域放大与复位不累加 DPR/模型缩放
+ok 23 - 反复切换、区域放大与复位不累加 DPR/模型缩放
+  ---
+  duration_ms: 4.574542
+  ...
+# Subtest: hide/show、resize 重测尺寸；detached 后忽略异步结果
+ok 24 - hide/show、resize 重测尺寸；detached 后忽略异步结果
+  ---
+  duration_ms: 1.921625
+  ...
+# Subtest: 初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口
+ok 25 - 初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口
+  ---
+  duration_ms: 0.884
+  ...
+# Subtest: 页面选择校验、换面清理、区域切换与复位状态
+ok 26 - 页面选择校验、换面清理、区域切换与复位状态
+  ---
+  duration_ms: 0.960334
+  ...
+# Subtest: 调试默认关闭，不采集坐标；开启后实际触点形成单个十字和真实事件
+ok 27 - 调试默认关闭，不采集坐标；开启后实际触点形成单个十字和真实事件
+  ---
+  duration_ms: 2.353917
+  ...
+# Subtest: DPR1/2/3不会进入点击归一化，client触点与Canvas触点一致
+ok 28 - DPR1/2/3不会进入点击归一化，client触点与Canvas触点一致
+  ---
+  duration_ms: 4.241334
+  ...
+# Subtest: 十字随区域放大、复位及resize重投影；原标准坐标不变，出视口时隐藏
+ok 29 - 十字随区域放大、复位及resize重投影；原标准坐标不变，出视口时隐藏
+  ---
+  duration_ms: 4.34375
+  ...
+# Subtest: 留白及模型外点击清除旧十字，不伪造标准点，不改变所选区域
+ok 30 - 留白及模型外点击清除旧十字，不伪造标准点，不改变所选区域
+  ---
+  duration_ms: 1.763
+  ...
+# Subtest: 关闭调试或换面清除单点，重新开启/换回不复用另一视图的点
+ok 31 - 关闭调试或换面清除单点，重新开启/换回不复用另一视图的点
+  ---
+  duration_ms: 0.915708
+  ...
+# Subtest: 拖动/滚动、取消触摸和多触点不当作点击；不会创建病灶集合
+ok 32 - 拖动/滚动、取消触摸和多触点不当作点击；不会创建病灶集合
+  ---
+  duration_ms: 0.323333
+  ...
+# Subtest: 点击查询期间切换视口或detach丢弃旧结果；查询失败明确提示且不保留标记
+ok 33 - 点击查询期间切换视口或detach丢弃旧结果；查询失败明确提示且不保留标记
+  ---
+  duration_ms: 0.432083
+  ...
+# Subtest: 调试面板显示四位标准坐标及实际运行状态；关闭、换面和错版事件隔离
+ok 34 - 调试面板显示四位标准坐标及实际运行状态；关闭、换面和错版事件隔离
+  ---
+  duration_ms: 0.457458
+  ...
+# Subtest: 真实图片绘制分支：PNG未提供时拒绝画旧人体，正常帧确实调用drawImage
+ok 35 - 真实图片绘制分支：PNG未提供时拒绝画旧人体，正常帧确实调用drawImage
+  ---
+  duration_ms: 0.347125
+  ...
+# Subtest: 本地PNG异步加载期间不产生视口，旧面onload不会误画，新面成功后可复用缓存
+ok 36 - 本地PNG异步加载期间不产生视口，旧面onload不会误画，新面成功后可复用缓存
+  ---
+  duration_ms: 0.291166
+  ...
+# Subtest: PNG加载失败明确报错且不回退，重试成功；detach后的图片事件被丢弃
+ok 37 - PNG加载失败明确报错且不回退，重试成功；detach后的图片事件被丢弃
+  ---
+  duration_ms: 0.150792
+  ...
+# Subtest: 真实组件正常轻触经rect与统一逆变换报告选区一次，不放大、不生成调试点
+ok 38 - 真实组件正常轻触经rect与统一逆变换报告选区一次，不放大、不生成调试点
+  ---
+  duration_ms: 0.397625
+  ...
+# Subtest: 选择、局部、调试与弹层优先级隔离；弹层中途打开会废弃待返回的触摸结果
+ok 39 - 选择、局部、调试与弹层优先级隔离；弹层中途打开会废弃待返回的触摸结果
+  ---
+  duration_ms: 0.803333
+  ...
+# Subtest: 正常模式拖动、多指、取消也不误选，布局变更后旧尺寸拒绝并重新测量
+ok 40 - 正常模式拖动、多指、取消也不误选，布局变更后旧尺寸拒绝并重新测量
+  ---
+  duration_ms: 0.339917
+  ...
+# Subtest: 正常选择区分重叠和人体外，查询失败不伪造选区；换面丢弃旧触点
+not ok 41 - 正常选择区分重叠和人体外，查询失败不伪造选区；换面丢弃旧触点
+  ---
+  duration_ms: 1.936
+  location: '/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/canvas.test.cjs:333:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'unique'
+    - 'ambiguous'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'ambiguous'
+  actual: 'unique'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/canvas.test.cjs:335:48)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:639:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:382:18)
+    Test.postRun (node:internal/test_runner/test:730:19)
+    Test.run (node:internal/test_runner/test:688:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:382:7)
+  ...
+# Subtest: 320/375/430宽及矮屏节点重测：独立手算胸点选择、放大/复位和双侧无漂移
+ok 42 - 320/375/430宽及矮屏节点重测：独立手算胸点选择、放大/复位和双侧无漂移
+  ---
+  duration_ms: 4.240791
+  ...
+# Subtest: 弹层隐藏期间停止测量绘图；关闭后同一模板、图片缓存、局部视口和调试标准点恢复
+ok 43 - 弹层隐藏期间停止测量绘图；关闭后同一模板、图片缓存、局部视口和调试标准点恢复
+  ---
+  duration_ms: 0.897209
+  ...
+# Subtest: 实际启用Commons新模板与真实PNG，原SVG和许可来源可核对，拒绝旧几何
+ok 44 - 实际启用Commons新模板与真实PNG，原SVG和许可来源可核对，拒绝旧几何
+  ---
+  duration_ms: 5.244708
+  ...
+# Subtest: 16个新区域独立配准源图参考点；旧头部边界不能直接复用
+ok 45 - 16个新区域独立配准源图参考点；旧头部边界不能直接复用
+  ---
+  duration_ms: 5.772417
+  ...
+# Subtest: 实际PNG透明度与命中轮廓密集抽样一致，含四肢间隙，不能仅用矩形命中
+ok 46 - 实际PNG透明度与命中轮廓密集抽样一致，含四肢间隙，不能仅用矩形命中
+  ---
+  duration_ms: 734.8805
+  ...
+# Subtest: 头颈胸腹背及四肢全部放大范围，三种容器/DPR下同点探测与复位不变
+ok 47 - 头颈胸腹背及四肢全部放大范围，三种容器/DPR下同点探测与复位不变
+  ---
+  duration_ms: 9.33175
+  ...
+# Subtest: 前后使用同一尺度与画布，保持原视图差异，历史点明确失效
+ok 48 - 前后使用同一尺度与画布，保持原视图差异，历史点明确失效
+  ---
+  duration_ms: 0.210041
+  ...
+# Subtest: A 标准坐标正向转换：独立手算 0.5 比例与 16px 留白
+ok 49 - A 标准坐标正向转换：独立手算 0.5 比例与 16px 留白
+  ---
+  duration_ms: 0.6845
+  ...
+# Subtest: B CSS 坐标逆向转换：手算容器中心
+ok 50 - B CSS 坐标逆向转换：手算容器中心
+  ---
+  duration_ms: 0.07075
+  ...
+# Subtest: C 三种尺寸 11×11 参考点往返，最大允许误差 1e-9
+ok 51 - C 三种尺寸 11×11 参考点往返，最大允许误差 1e-9
+  ---
+  duration_ms: 0.736083
+  ...
+# Subtest: D 宽/窄容器始终等比例，分别产生上下和左右留白
+ok 52 - D 宽/窄容器始终等比例，分别产生上下和左右留白
+  ---
+  duration_ms: 0.046833
+  ...
+# Subtest: E 留白、Canvas 外部以及非有限点击拒绝，不吸附边缘
+ok 53 - E 留白、Canvas 外部以及非有限点击拒绝，不吸附边缘
+  ---
+  duration_ms: 0.070708
+  ...
+# Subtest: F 区域放大居中、四角留在容器内，标准位置保持一致
+ok 54 - F 区域放大居中、四角留在容器内，标准位置保持一致
+  ---
+  duration_ms: 0.203166
+  ...
+# Subtest: G 复位恢复原全身视口，放大不会修改原始点或区域
+ok 55 - G 复位恢复原全身视口，放大不会修改原始点或区域
+  ---
+  duration_ms: 0.258334
+  ...
+# Subtest: H 拒绝非法容器尺寸 0
+ok 56 - H 拒绝非法容器尺寸 0
+  ---
+  duration_ms: 0.139583
+  ...
+# Subtest: H 拒绝非法容器尺寸 -1
+ok 57 - H 拒绝非法容器尺寸 -1
+  ---
+  duration_ms: 0.125875
+  ...
+# Subtest: H 拒绝非法容器尺寸 NaN
+ok 58 - H 拒绝非法容器尺寸 NaN
+  ---
+  duration_ms: 0.173625
+  ...
+# Subtest: H 拒绝非法容器尺寸 Infinity
+ok 59 - H 拒绝非法容器尺寸 Infinity
+  ---
+  duration_ms: 0.092625
+  ...
+# Subtest: H 拒绝非法容器尺寸 -Infinity
+ok 60 - H 拒绝非法容器尺寸 -Infinity
+  ---
+  duration_ms: 0.032083
+  ...
+# Subtest: H 拒绝异常模型、留白、区域和标准点数值
+ok 61 - H 拒绝异常模型、留白、区域和标准点数值
+  ---
+  duration_ms: 0.222917
+  ...
+# Subtest: I 边界点 (0,0)、(1,1) 与全画布放大复位
+ok 62 - I 边界点 (0,0)、(1,1) 与全画布放大复位
+  ---
+  duration_ms: 0.075584
+  ...
+# Subtest: H 拒绝调用方构造的无效视口，不返回 NaN 或伪造坐标
+ok 63 - H 拒绝调用方构造的无效视口，不返回 NaN 或伪造坐标
+  ---
+  duration_ms: 0.116834
+  ...
+# Subtest: J 正背面区域独立、ID唯一、解剖学左右正确，区域中心可往返
+not ok 64 - J 正背面区域独立、ID唯一、解剖学左右正确，区域中心可往返
+  ---
+  duration_ms: 6.245375
+  location: '/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/coordinate.test.cjs:113:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(getBodyRegion("front","front-left-leg").bounds.x >= .5)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/coordinate.test.cjs:119:10)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:639:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:382:18)
+    Test.postRun (node:internal/test_runner/test:730:19)
+    Test.run (node:internal/test_runner/test:688:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:382:7)
+  ...
+# Subtest: 人工非医学夹具：唯一、重叠、边界、人体外和人体内无配置分别报告
+ok 65 - 人工非医学夹具：唯一、重叠、边界、人体外和人体内无配置分别报告
+  ---
+  duration_ms: 1.95075
+  ...
+# Subtest: 真实区域使用多边形且保留独立前后与解剖学左右，唯一点不会串面
+ok 66 - 真实区域使用多边形且保留独立前后与解剖学左右，唯一点不会串面
+  ---
+  duration_ms: 3.936792
+  ...
+# Subtest: 真实头颈/颈胸/胸腹边界有明确候选，不通过扩大包围盒吞掉人体间隙
+not ok 67 - 真实头颈/颈胸/胸腹边界有明确候选，不通过扩大包围盒吞掉人体间隙
+  ---
+  duration_ms: 1.095125
+  location: '/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/region-hit.test.cjs:30:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        regionIds: [
+    +     'front-neck'
+    +   ],
+    +   status: 'unique'
+    -     'front-head',
+    -     'front-neck'
+    -   ],
+    -   status: 'ambiguous'
+      }
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    status: 'ambiguous'
+    regionIds:
+      0: 'front-head'
+      1: 'front-neck'
+  actual:
+    status: 'unique'
+    regionIds:
+      0: 'front-neck'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/tests/miniprogram/region-hit.test.cjs:33:49)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:639:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:382:18)
+    Test.postRun (node:internal/test_runner/test:730:19)
+    Test.run (node:internal/test_runner/test:688:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:382:7)
+  ...
+# Subtest: 初始无默认选择、不可放大；人体唯一命中只高亮，确认后才进入focused
+ok 68 - 初始无默认选择、不可放大；人体唯一命中只高亮，确认后才进入focused
+  ---
+  duration_ms: 0.992625
+  ...
+# Subtest: 从列表和人体选中相同状态，focused换部位回overview，取消弹层不改选择/视口
+ok 69 - 从列表和人体选中相同状态，focused换部位回overview，取消弹层不改选择/视口
+  ---
+  duration_ms: 0.288875
+  ...
+# Subtest: 人体外/未配置保留原选择并提示；边界弹候选，取消不抢占，候选选中后不放大
+ok 70 - 人体外/未配置保留原选择并提示；边界弹候选，取消不抢占，候选选中后不放大
+  ---
+  duration_ms: 0.329
+  ...
+# Subtest: 调试/弹层/说明/错版隔离正常选区，切面清空选择缩放与调试，拒绝跨面列表ID
+ok 71 - 调试/弹层/说明/错版隔离正常选区，切面清空选择缩放与调试，拒绝跨面列表ID
+  ---
+  duration_ms: 0.168542
+  ...
+# Subtest: 开发调试低干扰入口可关闭并清点；说明是真实许可，不调用未来评估或标注接口
+ok 72 - 开发调试低干扰入口可关闭并清点；说明是真实许可，不调用未来评估或标注接口
+  ---
+  duration_ms: 0.184
+  ...
+# Subtest: region-picker只展示配置并发送已知ID，关闭/遮罩不偷偷选择
+ok 73 - region-picker只展示配置并发送已知ID，关闭/遮罩不偷偷选择
+  ---
+  duration_ms: 0.458667
+  ...
+1..73
+# tests 73
+# suites 0
+# pass 70
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 982.566625

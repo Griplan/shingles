@@ -1,0 +1,1326 @@
+{
+  "generated_at": "2026-11-03T03:18:25.120939+00:00",
+  "definitions": "P95 only n>=20; fixed synthetic scenario, not user population; nested timers not additive",
+  "placement": {
+    "10/False/375/False/initialization": {
+      "n": 3,
+      "mean_ms": 6.3256109999999985,
+      "median_ms": 5.843166,
+      "min_ms": 5.588666999999997,
+      "max_ms": 7.544999999999998,
+      "p95_ms": null
+    },
+    "10/False/375/False/continuous-drag-60-events-60-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 4.067861333333333,
+      "median_ms": 2.331667000000003,
+      "min_ms": 2.127041999999996,
+      "max_ms": 7.744875,
+      "p95_ms": null
+    },
+    "10/False/375/False/continuous-drag-end-validation": {
+      "n": 3,
+      "mean_ms": 1.1054166666666656,
+      "median_ms": 1.0911249999999981,
+      "min_ms": 1.0416249999999962,
+      "max_ms": 1.1835000000000022,
+      "p95_ms": null
+    },
+    "10/False/375/False/drag-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 1.742235999999996,
+      "median_ms": 1.6357499999999945,
+      "min_ms": 1.577582999999997,
+      "max_ms": 2.0133749999999964,
+      "p95_ms": null
+    },
+    "10/False/375/False/drag-end-validation": {
+      "n": 3,
+      "mean_ms": 1.1930833333333364,
+      "median_ms": 1.1866249999999994,
+      "min_ms": 1.1790830000000057,
+      "max_ms": 1.213542000000004,
+      "p95_ms": null
+    },
+    "10/False/375/False/scale-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 1.0796253333333325,
+      "median_ms": 1.0831249999999955,
+      "min_ms": 1.071666999999998,
+      "max_ms": 1.0840840000000043,
+      "p95_ms": null
+    },
+    "10/False/375/False/scale-end-validation": {
+      "n": 3,
+      "mean_ms": 1.09125033333333,
+      "median_ms": 1.0906249999999957,
+      "min_ms": 1.0635419999999982,
+      "max_ms": 1.1195839999999961,
+      "p95_ms": null
+    },
+    "10/False/375/False/rotate-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.9935280000000001,
+      "median_ms": 0.9866250000000036,
+      "min_ms": 0.9833339999999993,
+      "max_ms": 1.0106249999999974,
+      "p95_ms": null
+    },
+    "10/False/375/False/rotate-end-validation": {
+      "n": 3,
+      "mean_ms": 1.1698609999999998,
+      "median_ms": 1.1664579999999987,
+      "min_ms": 1.1649999999999991,
+      "max_ms": 1.1781250000000014,
+      "p95_ms": null
+    },
+    "10/False/375/False/viewport-full-focus": {
+      "n": 3,
+      "mean_ms": 0.15861099999999814,
+      "median_ms": 0.15749999999999886,
+      "min_ms": 0.15662499999999824,
+      "max_ms": 0.1617079999999973,
+      "p95_ms": null
+    },
+    "10/False/375/False/confirm": {
+      "n": 3,
+      "mean_ms": 1.554944333333334,
+      "median_ms": 1.5606659999999977,
+      "min_ms": 1.5333340000000035,
+      "max_ms": 1.5708330000000004,
+      "p95_ms": null
+    },
+    "100/False/375/False/initialization": {
+      "n": 3,
+      "mean_ms": 10.395194000000004,
+      "median_ms": 10.522165999999999,
+      "min_ms": 9.943166000000005,
+      "max_ms": 10.720250000000007,
+      "p95_ms": null
+    },
+    "100/False/375/False/continuous-drag-60-events-60-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 1.2456940000000003,
+      "median_ms": 1.2136660000000035,
+      "min_ms": 1.1913750000000007,
+      "max_ms": 1.3320409999999967,
+      "p95_ms": null
+    },
+    "100/False/375/False/continuous-drag-end-validation": {
+      "n": 3,
+      "mean_ms": 9.867847333333332,
+      "median_ms": 9.841999999999999,
+      "min_ms": 9.542459000000001,
+      "max_ms": 10.219082999999998,
+      "p95_ms": null
+    },
+    "100/False/375/False/drag-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 1.4096253333333237,
+      "median_ms": 1.4069579999999888,
+      "min_ms": 1.4032089999999897,
+      "max_ms": 1.4187089999999927,
+      "p95_ms": null
+    },
+    "100/False/375/False/drag-end-validation": {
+      "n": 3,
+      "mean_ms": 9.766985666666665,
+      "median_ms": 9.732957999999996,
+      "min_ms": 9.680582999999999,
+      "max_ms": 9.887416000000002,
+      "p95_ms": null
+    },
+    "100/False/375/False/scale-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.9438199999999975,
+      "median_ms": 0.9431669999999883,
+      "min_ms": 0.9368340000000046,
+      "max_ms": 0.9514589999999998,
+      "p95_ms": null
+    },
+    "100/False/375/False/scale-end-validation": {
+      "n": 3,
+      "mean_ms": 9.944069666666664,
+      "median_ms": 9.809957999999995,
+      "min_ms": 9.619333999999995,
+      "max_ms": 10.402917000000002,
+      "p95_ms": null
+    },
+    "100/False/375/False/rotate-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.8841946666666635,
+      "median_ms": 0.8834169999999943,
+      "min_ms": 0.8821669999999955,
+      "max_ms": 0.8870000000000005,
+      "p95_ms": null
+    },
+    "100/False/375/False/rotate-end-validation": {
+      "n": 3,
+      "mean_ms": 10.023944666666665,
+      "median_ms": 10.058999999999997,
+      "min_ms": 9.813167000000007,
+      "max_ms": 10.199666999999991,
+      "p95_ms": null
+    },
+    "100/False/375/False/viewport-full-focus": {
+      "n": 3,
+      "mean_ms": 0.09250033333333363,
+      "median_ms": 0.08670899999999904,
+      "min_ms": 0.08329200000000014,
+      "max_ms": 0.1075000000000017,
+      "p95_ms": null
+    },
+    "100/False/375/False/confirm": {
+      "n": 3,
+      "mean_ms": 10.888013999999998,
+      "median_ms": 10.581291000000007,
+      "min_ms": 10.361916999999991,
+      "max_ms": 11.720833999999996,
+      "p95_ms": null
+    },
+    "100/True/375/False/initialization": {
+      "n": 3,
+      "mean_ms": 11.387110999999996,
+      "median_ms": 11.417207999999988,
+      "min_ms": 11.31366700000001,
+      "max_ms": 11.430457999999987,
+      "p95_ms": null
+    },
+    "100/True/375/False/continuous-drag-60-events-60-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.928944333333329,
+      "median_ms": 0.9247499999999889,
+      "min_ms": 0.9198750000000047,
+      "max_ms": 0.9422079999999937,
+      "p95_ms": null
+    },
+    "100/True/375/False/continuous-drag-end-validation": {
+      "n": 3,
+      "mean_ms": 9.232208333333338,
+      "median_ms": 9.137541999999996,
+      "min_ms": 9.04208300000002,
+      "max_ms": 9.516999999999996,
+      "p95_ms": null
+    },
+    "100/True/375/False/drag-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 1.332652333333319,
+      "median_ms": 1.3579159999999888,
+      "min_ms": 1.2748749999999802,
+      "max_ms": 1.365165999999988,
+      "p95_ms": null
+    },
+    "100/True/375/False/drag-end-validation": {
+      "n": 3,
+      "mean_ms": 9.304916666666665,
+      "median_ms": 9.299292000000008,
+      "min_ms": 9.221749999999986,
+      "max_ms": 9.393708000000004,
+      "p95_ms": null
+    },
+    "100/True/375/False/scale-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.7758886666666646,
+      "median_ms": 0.7799579999999935,
+      "min_ms": 0.7612919999999974,
+      "max_ms": 0.7864160000000027,
+      "p95_ms": null
+    },
+    "100/True/375/False/scale-end-validation": {
+      "n": 3,
+      "mean_ms": 9.086610999999996,
+      "median_ms": 9.050707999999986,
+      "min_ms": 8.886500000000012,
+      "max_ms": 9.322624999999988,
+      "p95_ms": null
+    },
+    "100/True/375/False/rotate-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.7543473333333282,
+      "median_ms": 0.7554169999999942,
+      "min_ms": 0.7485829999999964,
+      "max_ms": 0.7590419999999938,
+      "p95_ms": null
+    },
+    "100/True/375/False/rotate-end-validation": {
+      "n": 3,
+      "mean_ms": 9.285153,
+      "median_ms": 9.33337499999999,
+      "min_ms": 9.151542000000006,
+      "max_ms": 9.370542,
+      "p95_ms": null
+    },
+    "100/True/375/False/viewport-full-focus": {
+      "n": 3,
+      "mean_ms": 0.09169466666666419,
+      "median_ms": 0.09033400000001279,
+      "min_ms": 0.0902499999999975,
+      "max_ms": 0.09449999999998226,
+      "p95_ms": null
+    },
+    "100/True/375/False/confirm": {
+      "n": 3,
+      "mean_ms": 9.494111000000013,
+      "median_ms": 9.42833300000001,
+      "min_ms": 9.28845800000002,
+      "max_ms": 9.76554200000001,
+      "p95_ms": null
+    },
+    "500/False/375/False/initialization": {
+      "n": 3,
+      "mean_ms": 49.40466633333333,
+      "median_ms": 49.57220800000002,
+      "min_ms": 48.73724999999999,
+      "max_ms": 49.904540999999995,
+      "p95_ms": null
+    },
+    "500/False/375/False/continuous-drag-60-events-60-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.9090696666666626,
+      "median_ms": 0.8974170000000186,
+      "min_ms": 0.8810419999999795,
+      "max_ms": 0.9487499999999898,
+      "p95_ms": null
+    },
+    "500/False/375/False/continuous-drag-end-validation": {
+      "n": 3,
+      "mean_ms": 48.48894466666665,
+      "median_ms": 48.87012499999997,
+      "min_ms": 47.50329199999999,
+      "max_ms": 49.09341699999999,
+      "p95_ms": null
+    },
+    "500/False/375/False/drag-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 1.101805666666678,
+      "median_ms": 1.0996670000000108,
+      "min_ms": 1.0861250000000382,
+      "max_ms": 1.119624999999985,
+      "p95_ms": null
+    },
+    "500/False/375/False/drag-end-validation": {
+      "n": 3,
+      "mean_ms": 48.39062466666667,
+      "median_ms": 48.52795800000001,
+      "min_ms": 47.883375,
+      "max_ms": 48.76054099999999,
+      "p95_ms": null
+    },
+    "500/False/375/False/scale-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.6602500000000001,
+      "median_ms": 0.6595419999999876,
+      "min_ms": 0.6568750000000136,
+      "max_ms": 0.6643329999999992,
+      "p95_ms": null
+    },
+    "500/False/375/False/scale-end-validation": {
+      "n": 3,
+      "mean_ms": 48.547000000000004,
+      "median_ms": 48.83479199999999,
+      "min_ms": 47.68112500000001,
+      "max_ms": 49.12508300000002,
+      "p95_ms": null
+    },
+    "500/False/375/False/rotate-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.687639000000028,
+      "median_ms": 0.6794170000000008,
+      "min_ms": 0.6754580000000487,
+      "max_ms": 0.7080420000000345,
+      "p95_ms": null
+    },
+    "500/False/375/False/rotate-end-validation": {
+      "n": 3,
+      "mean_ms": 48.393417,
+      "median_ms": 48.35787499999998,
+      "min_ms": 47.959542,
+      "max_ms": 48.86283400000002,
+      "p95_ms": null
+    },
+    "500/False/375/False/viewport-full-focus": {
+      "n": 3,
+      "mean_ms": 0.12380533333331793,
+      "median_ms": 0.11974999999995362,
+      "min_ms": 0.1150000000000091,
+      "max_ms": 0.13666599999999107,
+      "p95_ms": null
+    },
+    "500/False/375/False/confirm": {
+      "n": 3,
+      "mean_ms": 48.83595833333334,
+      "median_ms": 49.26687499999997,
+      "min_ms": 47.861875,
+      "max_ms": 49.379125000000045,
+      "p95_ms": null
+    },
+    "500/True/375/False/initialization": {
+      "n": 3,
+      "mean_ms": 51.881430333333334,
+      "median_ms": 51.81816700000002,
+      "min_ms": 51.18754100000001,
+      "max_ms": 52.63858299999998,
+      "p95_ms": null
+    },
+    "500/True/375/False/continuous-drag-60-events-60-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.8456250000000409,
+      "median_ms": 0.8440420000000586,
+      "min_ms": 0.8440410000000611,
+      "max_ms": 0.8487920000000031,
+      "p95_ms": null
+    },
+    "500/True/375/False/continuous-drag-end-validation": {
+      "n": 3,
+      "mean_ms": 49.44595866666665,
+      "median_ms": 49.32245899999998,
+      "min_ms": 48.99866700000007,
+      "max_ms": 50.01674999999989,
+      "p95_ms": null
+    },
+    "500/True/375/False/drag-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 1.0769726666666959,
+      "median_ms": 1.0547920000000204,
+      "min_ms": 1.0504170000000386,
+      "max_ms": 1.125709000000029,
+      "p95_ms": null
+    },
+    "500/True/375/False/drag-end-validation": {
+      "n": 3,
+      "mean_ms": 48.35179166666668,
+      "median_ms": 47.98133399999995,
+      "min_ms": 47.75029100000006,
+      "max_ms": 49.32375000000002,
+      "p95_ms": null
+    },
+    "500/True/375/False/scale-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.7085276666666687,
+      "median_ms": 0.7140829999999596,
+      "min_ms": 0.6933330000000524,
+      "max_ms": 0.718166999999994,
+      "p95_ms": null
+    },
+    "500/True/375/False/scale-end-validation": {
+      "n": 3,
+      "mean_ms": 48.46958300000002,
+      "median_ms": 48.60195799999997,
+      "min_ms": 47.78870800000004,
+      "max_ms": 49.01808300000005,
+      "p95_ms": null
+    },
+    "500/True/375/False/rotate-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.6827083333333045,
+      "median_ms": 0.6810839999999416,
+      "min_ms": 0.6691250000000082,
+      "max_ms": 0.6979159999999638,
+      "p95_ms": null
+    },
+    "500/True/375/False/rotate-end-validation": {
+      "n": 3,
+      "mean_ms": 48.54844433333335,
+      "median_ms": 48.889625000000024,
+      "min_ms": 47.41670799999997,
+      "max_ms": 49.339000000000055,
+      "p95_ms": null
+    },
+    "500/True/375/False/viewport-full-focus": {
+      "n": 3,
+      "mean_ms": 0.13588866666664975,
+      "median_ms": 0.13804099999993014,
+      "min_ms": 0.125583000000006,
+      "max_ms": 0.1440420000000131,
+      "p95_ms": null
+    },
+    "500/True/375/False/confirm": {
+      "n": 3,
+      "mean_ms": 50.318375000000024,
+      "median_ms": 50.24679200000003,
+      "min_ms": 49.87245800000005,
+      "max_ms": 50.83587499999999,
+      "p95_ms": null
+    },
+    "2000/False/375/False/initialization": {
+      "n": 3,
+      "mean_ms": 193.79288866666664,
+      "median_ms": 193.42483299999992,
+      "min_ms": 191.44825000000003,
+      "max_ms": 196.505583,
+      "p95_ms": null
+    },
+    "2000/False/375/False/continuous-drag-60-events-60-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.8571803333333037,
+      "median_ms": 0.8843329999999696,
+      "min_ms": 0.7221660000000156,
+      "max_ms": 0.9650419999999258,
+      "p95_ms": null
+    },
+    "2000/False/375/False/continuous-drag-end-validation": {
+      "n": 3,
+      "mean_ms": 191.74352733333333,
+      "median_ms": 191.49458300000003,
+      "min_ms": 190.214291,
+      "max_ms": 193.521708,
+      "p95_ms": null
+    },
+    "2000/False/375/False/drag-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 1.0597916666667213,
+      "median_ms": 1.0505000000000564,
+      "min_ms": 1.026166000000103,
+      "max_ms": 1.1027090000000044,
+      "p95_ms": null
+    },
+    "2000/False/375/False/drag-end-validation": {
+      "n": 3,
+      "mean_ms": 193.29640299999997,
+      "median_ms": 193.02833299999998,
+      "min_ms": 192.43408399999998,
+      "max_ms": 194.42679199999998,
+      "p95_ms": null
+    },
+    "2000/False/375/False/scale-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.7353750000000522,
+      "median_ms": 0.7217500000001564,
+      "min_ms": 0.7161670000000413,
+      "max_ms": 0.7682079999999587,
+      "p95_ms": null
+    },
+    "2000/False/375/False/scale-end-validation": {
+      "n": 3,
+      "mean_ms": 191.18159766666653,
+      "median_ms": 190.7752919999998,
+      "min_ms": 187.98583399999984,
+      "max_ms": 194.78366699999992,
+      "p95_ms": null
+    },
+    "2000/False/375/False/rotate-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.706291333333335,
+      "median_ms": 0.7082499999999072,
+      "min_ms": 0.6915830000000369,
+      "max_ms": 0.7190410000000611,
+      "p95_ms": null
+    },
+    "2000/False/375/False/rotate-end-validation": {
+      "n": 3,
+      "mean_ms": 190.4758753333333,
+      "median_ms": 190.18941700000005,
+      "min_ms": 188.83683399999995,
+      "max_ms": 192.40137499999992,
+      "p95_ms": null
+    },
+    "2000/False/375/False/viewport-full-focus": {
+      "n": 3,
+      "mean_ms": 0.3908890000000156,
+      "median_ms": 0.3962500000000091,
+      "min_ms": 0.36691700000005767,
+      "max_ms": 0.40949999999998,
+      "p95_ms": null
+    },
+    "2000/False/375/False/confirm": {
+      "n": 3,
+      "mean_ms": 196.1960416666666,
+      "median_ms": 195.9616249999999,
+      "min_ms": 193.482125,
+      "max_ms": 199.14437499999985,
+      "p95_ms": null
+    },
+    "2000/True/375/False/initialization": {
+      "n": 3,
+      "mean_ms": 234.92094433333332,
+      "median_ms": 234.68445800000018,
+      "min_ms": 233.05012499999998,
+      "max_ms": 237.02824999999984,
+      "p95_ms": null
+    },
+    "2000/True/375/False/continuous-drag-60-events-60-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.8536250000000413,
+      "median_ms": 0.9000829999999951,
+      "min_ms": 0.7604169999999613,
+      "max_ms": 0.9003750000001673,
+      "p95_ms": null
+    },
+    "2000/True/375/False/continuous-drag-end-validation": {
+      "n": 3,
+      "mean_ms": 209.69556933333342,
+      "median_ms": 209.63366600000018,
+      "min_ms": 208.0545830000001,
+      "max_ms": 211.398459,
+      "p95_ms": null
+    },
+    "2000/True/375/False/drag-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 1.0265413333334739,
+      "median_ms": 1.0470000000000255,
+      "min_ms": 0.9700410000000375,
+      "max_ms": 1.0625830000003589,
+      "p95_ms": null
+    },
+    "2000/True/375/False/drag-end-validation": {
+      "n": 3,
+      "mean_ms": 209.65213900000012,
+      "median_ms": 209.10170800000014,
+      "min_ms": 206.91870900000004,
+      "max_ms": 212.93600000000015,
+      "p95_ms": null
+    },
+    "2000/True/375/False/scale-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.6735279999999572,
+      "median_ms": 0.6528339999999844,
+      "min_ms": 0.6524580000000242,
+      "max_ms": 0.715291999999863,
+      "p95_ms": null
+    },
+    "2000/True/375/False/scale-end-validation": {
+      "n": 3,
+      "mean_ms": 210.58216700000017,
+      "median_ms": 209.89404200000035,
+      "min_ms": 209.64824999999973,
+      "max_ms": 212.20420900000045,
+      "p95_ms": null
+    },
+    "2000/True/375/False/rotate-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.6878886666668222,
+      "median_ms": 0.6690000000003238,
+      "min_ms": 0.6521250000000691,
+      "max_ms": 0.7425410000000738,
+      "p95_ms": null
+    },
+    "2000/True/375/False/rotate-end-validation": {
+      "n": 3,
+      "mean_ms": 209.85451399999997,
+      "median_ms": 209.84554200000002,
+      "min_ms": 207.36183299999993,
+      "max_ms": 212.3561669999999,
+      "p95_ms": null
+    },
+    "2000/True/375/False/viewport-full-focus": {
+      "n": 3,
+      "mean_ms": 0.30927733333328433,
+      "median_ms": 0.32570799999984956,
+      "min_ms": 0.2731659999999465,
+      "max_ms": 0.3289580000000569,
+      "p95_ms": null
+    },
+    "2000/True/375/False/confirm": {
+      "n": 3,
+      "mean_ms": 235.70161099999982,
+      "median_ms": 233.97220799999968,
+      "min_ms": 233.4030419999999,
+      "max_ms": 239.72958299999982,
+      "p95_ms": null
+    },
+    "2000/True/375/True/initialization": {
+      "n": 3,
+      "mean_ms": 232.14265266666675,
+      "median_ms": 232.61479099999997,
+      "min_ms": 229.62333400000034,
+      "max_ms": 234.1898329999999,
+      "p95_ms": null
+    },
+    "2000/True/375/True/continuous-drag-60-events-60-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.8025000000000849,
+      "median_ms": 0.7938749999998436,
+      "min_ms": 0.7876250000003893,
+      "max_ms": 0.8260000000000218,
+      "p95_ms": null
+    },
+    "2000/True/375/True/exit-during-drag": {
+      "n": 3,
+      "mean_ms": 209.62898633333347,
+      "median_ms": 209.4536250000001,
+      "min_ms": 207.4272920000003,
+      "max_ms": 212.00604199999998,
+      "p95_ms": null
+    },
+    "2000/True/320/False/initialization": {
+      "n": 3,
+      "mean_ms": 231.9643890000002,
+      "median_ms": 231.69050000000016,
+      "min_ms": 229.96412500000042,
+      "max_ms": 234.23854200000005,
+      "p95_ms": null
+    },
+    "2000/True/320/False/continuous-drag-60-events-60-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.7662223333331895,
+      "median_ms": 0.756832999999915,
+      "min_ms": 0.7251249999999345,
+      "max_ms": 0.8167089999997188,
+      "p95_ms": null
+    },
+    "2000/True/320/False/continuous-drag-end-validation": {
+      "n": 3,
+      "mean_ms": 208.82647233333364,
+      "median_ms": 207.83308300000044,
+      "min_ms": 206.40904200000023,
+      "max_ms": 212.23729200000025,
+      "p95_ms": null
+    },
+    "2000/True/320/False/drag-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 1.0081943333332977,
+      "median_ms": 1.0032919999994192,
+      "min_ms": 0.9866250000000036,
+      "max_ms": 1.0346660000004704,
+      "p95_ms": null
+    },
+    "2000/True/320/False/drag-end-validation": {
+      "n": 3,
+      "mean_ms": 208.5953196666669,
+      "median_ms": 207.40008300000045,
+      "min_ms": 207.31245900000067,
+      "max_ms": 211.0734169999996,
+      "p95_ms": null
+    },
+    "2000/True/320/False/scale-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.6725553333332451,
+      "median_ms": 0.6749579999996058,
+      "min_ms": 0.6502499999996871,
+      "max_ms": 0.6924580000004426,
+      "p95_ms": null
+    },
+    "2000/True/320/False/scale-end-validation": {
+      "n": 3,
+      "mean_ms": 209.4719439999999,
+      "median_ms": 208.73279099999945,
+      "min_ms": 207.1139579999999,
+      "max_ms": 212.56908300000032,
+      "p95_ms": null
+    },
+    "2000/True/320/False/rotate-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.688833333333605,
+      "median_ms": 0.6893330000002607,
+      "min_ms": 0.6780420000004597,
+      "max_ms": 0.6991250000000946,
+      "p95_ms": null
+    },
+    "2000/True/320/False/rotate-end-validation": {
+      "n": 3,
+      "mean_ms": 209.46777766666642,
+      "median_ms": 209.50487500000054,
+      "min_ms": 206.74629099999947,
+      "max_ms": 212.15216699999928,
+      "p95_ms": null
+    },
+    "2000/True/320/False/viewport-full-focus": {
+      "n": 3,
+      "mean_ms": 0.29323599999982736,
+      "median_ms": 0.29724999999962165,
+      "min_ms": 0.27270799999951123,
+      "max_ms": 0.30975000000034925,
+      "p95_ms": null
+    },
+    "2000/True/320/False/confirm": {
+      "n": 3,
+      "mean_ms": 232.9439303333338,
+      "median_ms": 232.11891600000035,
+      "min_ms": 231.64600000000064,
+      "max_ms": 235.06687500000044,
+      "p95_ms": null
+    },
+    "2000/True/430/False/initialization": {
+      "n": 3,
+      "mean_ms": 231.51891666666688,
+      "median_ms": 230.87366700000075,
+      "min_ms": 229.39645800000017,
+      "max_ms": 234.28662499999973,
+      "p95_ms": null
+    },
+    "2000/True/430/False/continuous-drag-60-events-60-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.8018470000000283,
+      "median_ms": 0.8000000000001819,
+      "min_ms": 0.7685830000000351,
+      "max_ms": 0.8369579999998678,
+      "p95_ms": null
+    },
+    "2000/True/430/False/continuous-drag-end-validation": {
+      "n": 3,
+      "mean_ms": 209.8550416666667,
+      "median_ms": 209.10812499999975,
+      "min_ms": 208.91154199999983,
+      "max_ms": 211.5454580000005,
+      "p95_ms": null
+    },
+    "2000/True/430/False/drag-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 1.0785416666667516,
+      "median_ms": 1.0410830000000715,
+      "min_ms": 1.0047500000000582,
+      "max_ms": 1.189792000000125,
+      "p95_ms": null
+    },
+    "2000/True/430/False/drag-end-validation": {
+      "n": 3,
+      "mean_ms": 209.16765333333356,
+      "median_ms": 209.00770900000043,
+      "min_ms": 206.06370900000002,
+      "max_ms": 212.43154200000026,
+      "p95_ms": null
+    },
+    "2000/True/430/False/scale-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.6722359999997328,
+      "median_ms": 0.6694579999993948,
+      "min_ms": 0.6679170000006707,
+      "max_ms": 0.6793329999991329,
+      "p95_ms": null
+    },
+    "2000/True/430/False/scale-end-validation": {
+      "n": 3,
+      "mean_ms": 209.7158056666667,
+      "median_ms": 208.87904100000014,
+      "min_ms": 207.56245899999976,
+      "max_ms": 212.70591700000023,
+      "p95_ms": null
+    },
+    "2000/True/430/False/rotate-120-events-30-frame-opportunities": {
+      "n": 3,
+      "mean_ms": 0.678805666666752,
+      "median_ms": 0.6850420000000668,
+      "min_ms": 0.6564580000003843,
+      "max_ms": 0.6949169999998048,
+      "p95_ms": null
+    },
+    "2000/True/430/False/rotate-end-validation": {
+      "n": 3,
+      "mean_ms": 208.91631933333338,
+      "median_ms": 208.56433300000026,
+      "min_ms": 206.89133299999958,
+      "max_ms": 211.2932920000003,
+      "p95_ms": null
+    },
+    "2000/True/430/False/viewport-full-focus": {
+      "n": 3,
+      "mean_ms": 0.3203476666667484,
+      "median_ms": 0.33108400000037363,
+      "min_ms": 0.27791700000034325,
+      "max_ms": 0.35204199999952834,
+      "p95_ms": null
+    },
+    "2000/True/430/False/confirm": {
+      "n": 3,
+      "mean_ms": 232.33147199999985,
+      "median_ms": 232.1153750000003,
+      "min_ms": 230.6779579999993,
+      "max_ms": 234.20108299999993,
+      "p95_ms": null
+    }
+  },
+  "frontend": {
+    "MANUAL_PAGE_ADD": {
+      "n": 110,
+      "mean_ms": 0.0968810363636365,
+      "median_ms": 0.09002100000000723,
+      "min_ms": 0.05649999999999977,
+      "max_ms": 0.24108300000000327,
+      "p95_ms": 0.1467919999999907
+    },
+    "MATCH_INSTANCE_MAP": {
+      "n": 30,
+      "mean_ms": 0.006408233333333157,
+      "median_ms": 0.0005000000000023874,
+      "min_ms": 0.00012499999999704414,
+      "max_ms": 0.1763339999999971,
+      "p95_ms": 0.0014590000000112013
+    },
+    "ATLAS_ANIMATION_COMMANDS": {
+      "n": 19,
+      "mean_ms": 9.295089894736845,
+      "median_ms": 9.272457999999972,
+      "min_ms": 9.06091699999996,
+      "max_ms": 9.741792000000032,
+      "p95_ms": null
+    },
+    "LESION_POINT_ADD": {
+      "n": 330,
+      "mean_ms": 0.03603740606060596,
+      "median_ms": 0.0315000000000083,
+      "min_ms": 0.02679200000000037,
+      "max_ms": 0.5374589999999984,
+      "p95_ms": 0.04862500000000125
+    },
+    "ATLAS_ALL_SINGLE_SUBMIT": {
+      "n": 380,
+      "mean_ms": 0.4243601052631579,
+      "median_ms": 0.5582294999999888,
+      "min_ms": 0.09554199999996627,
+      "max_ms": 1.964624999999998,
+      "p95_ms": 0.8129999999999882
+    },
+    "CANVAS_INIT_ADAPTER": {
+      "n": 19,
+      "mean_ms": 0.18698463157895237,
+      "median_ms": 0.15554099999997106,
+      "min_ms": 0.09966700000001083,
+      "max_ms": 0.770458000000005,
+      "p95_ms": null
+    },
+    "APP_MODULE_BODY_REQUIRE": {
+      "n": 1,
+      "mean_ms": 2.9900410000000015,
+      "median_ms": 2.9900410000000015,
+      "min_ms": 2.9900410000000015,
+      "max_ms": 2.9900410000000015,
+      "p95_ms": null
+    },
+    "POLYGON_CAP_REJECTION": {
+      "n": 6,
+      "mean_ms": 0.031097166666664105,
+      "median_ms": 0.024562499999994714,
+      "min_ms": 0.0072920000000067375,
+      "max_ms": 0.08899999999999864,
+      "p95_ms": null
+    },
+    "MANUAL_PAGE_CLOSE": {
+      "n": 2,
+      "mean_ms": 6.115021000000006,
+      "median_ms": 6.115021000000006,
+      "min_ms": 1.2516250000000042,
+      "max_ms": 10.978417000000007,
+      "p95_ms": null
+    },
+    "BODY_FRONT_BACK_SWITCH": {
+      "n": 190,
+      "mean_ms": 0.09762516315789455,
+      "median_ms": 0.09137549999996963,
+      "min_ms": 0.07662500000000705,
+      "max_ms": 0.2494999999999976,
+      "p95_ms": 0.12104099999999107
+    },
+    "APP_MODULE_ATLAS_REQUIRE": {
+      "n": 1,
+      "mean_ms": 7.831375000000001,
+      "median_ms": 7.831375000000001,
+      "min_ms": 7.831375000000001,
+      "max_ms": 7.831375000000001,
+      "p95_ms": null
+    },
+    "MATCH_CLIENT_JSON_PARSE": {
+      "n": 30,
+      "mean_ms": 0.011315300000001116,
+      "median_ms": 0.010770499999992467,
+      "min_ms": 0.010166999999995596,
+      "max_ms": 0.021708000000003835,
+      "p95_ms": 0.01345799999999997
+    },
+    "REGION_FOCUS": {
+      "n": 100,
+      "mean_ms": 0.0015891400000009525,
+      "median_ms": 0.001041999999998211,
+      "min_ms": 0.0007910000000066475,
+      "max_ms": 0.021708000000003835,
+      "p95_ms": 0.0035419999999959373
+    },
+    "MATCH_LABEL_LAYOUT": {
+      "n": 30,
+      "mean_ms": 0.003423666666667202,
+      "median_ms": 0.0015420000000005984,
+      "min_ms": 0.001416000000006079,
+      "max_ms": 0.04179200000000094,
+      "p95_ms": 0.010374999999996248
+    },
+    "POLYGON_CLOSE": {
+      "n": 6,
+      "mean_ms": 6.097375,
+      "median_ms": 6.491166500000002,
+      "min_ms": 1.1982499999999945,
+      "max_ms": 10.572083,
+      "p95_ms": null
+    },
+    "ISOLATED_LESION_DRAW": {
+      "n": 12,
+      "mean_ms": 0.35334708333333137,
+      "median_ms": 0.2058540000000022,
+      "min_ms": 0.02750000000000341,
+      "max_ms": 0.9452909999999974,
+      "p95_ms": null
+    },
+    "REGION_HIT_TEST": {
+      "n": 100,
+      "mean_ms": 0.06099955000000023,
+      "median_ms": 0.050083000000000766,
+      "min_ms": 0.03883299999999679,
+      "max_ms": 0.5025409999999937,
+      "p95_ms": 0.08612499999999557
+    }
+  },
+  "backend": {
+    "1": {
+      "REQUEST_SERIALIZE": {
+        "n": 10,
+        "mean_ms": 0.005770899588242173,
+        "median_ms": 0.005541995051316917,
+        "min_ms": 0.005207984941080213,
+        "max_ms": 0.0077500008046627045,
+        "p95_ms": null
+      },
+      "REQUEST_JSON_PARSE": {
+        "n": 10,
+        "mean_ms": 0.003312394255772233,
+        "median_ms": 0.0032709940569475293,
+        "min_ms": 0.0029579969123005867,
+        "max_ms": 0.003958004526793957,
+        "p95_ms": null
+      },
+      "PYDANTIC_VALIDATE": {
+        "n": 10,
+        "mean_ms": 0.022324800374917686,
+        "median_ms": 0.016770500224083662,
+        "min_ms": 0.01491600414738059,
+        "max_ms": 0.0737080117687583,
+        "p95_ms": null
+      },
+      "ATLAS_LOAD": {
+        "n": 10,
+        "mean_ms": 27.348750105011277,
+        "median_ms": 26.657271009753458,
+        "min_ms": 26.053916983073577,
+        "max_ms": 30.470166995655745,
+        "p95_ms": null
+      },
+      "MATCH_BACKEND": {
+        "n": 10,
+        "mean_ms": 46.36032500420697,
+        "median_ms": 46.342125002411194,
+        "min_ms": 45.90891700354405,
+        "max_ms": 46.85379200964235,
+        "p95_ms": null
+      },
+      "RESPONSE_SERIALIZE": {
+        "n": 10,
+        "mean_ms": 0.153466803021729,
+        "median_ms": 0.023416505428031087,
+        "min_ms": 0.020167004549875855,
+        "max_ms": 1.32545898668468,
+        "p95_ms": null
+      },
+      "CLIENT_JSON_PARSE_PYTHON": {
+        "n": 10,
+        "mean_ms": 0.031324996962212026,
+        "median_ms": 0.02837499778252095,
+        "min_ms": 0.026958994567394257,
+        "max_ms": 0.05708300159312785,
+        "p95_ms": null
+      },
+      "total": {
+        "n": 10,
+        "mean_ms": 74.48256680218037,
+        "median_ms": 73.79204202152323,
+        "min_ms": 72.99091701861471,
+        "max_ms": 78.13383400207385,
+        "p95_ms": null
+      },
+      "coverage_union": {
+        "n": 10,
+        "mean_ms": 42.91162100271322,
+        "median_ms": 42.9394585225964,
+        "min_ms": 42.46491697267629,
+        "max_ms": 43.38291700696573,
+        "p95_ms": null
+      }
+    },
+    "5": {
+      "REQUEST_SERIALIZE": {
+        "n": 10,
+        "mean_ms": 0.011662402539514005,
+        "median_ms": 0.011312498827464879,
+        "min_ms": 0.010917021427303553,
+        "max_ms": 0.014791992725804448,
+        "p95_ms": null
+      },
+      "REQUEST_JSON_PARSE": {
+        "n": 10,
+        "mean_ms": 0.005762398359365761,
+        "median_ms": 0.005687485099770129,
+        "min_ms": 0.005582987796515226,
+        "max_ms": 0.006457994459196925,
+        "p95_ms": null
+      },
+      "PYDANTIC_VALIDATE": {
+        "n": 10,
+        "mean_ms": 0.02392070891801268,
+        "median_ms": 0.023874512407928705,
+        "min_ms": 0.02304100780747831,
+        "max_ms": 0.024834007490426302,
+        "p95_ms": null
+      },
+      "ATLAS_LOAD": {
+        "n": 10,
+        "mean_ms": 26.904525002464652,
+        "median_ms": 26.334562498959713,
+        "min_ms": 26.049750013044104,
+        "max_ms": 31.8506250041537,
+        "p95_ms": null
+      },
+      "MATCH_BACKEND": {
+        "n": 10,
+        "mean_ms": 138.63039590069093,
+        "median_ms": 137.80793749901932,
+        "min_ms": 137.09512498462573,
+        "max_ms": 146.92412500153296,
+        "p95_ms": null
+      },
+      "RESPONSE_SERIALIZE": {
+        "n": 10,
+        "mean_ms": 0.03689580480568111,
+        "median_ms": 0.03610400017350912,
+        "min_ms": 0.03516700235195458,
+        "max_ms": 0.04025001544505358,
+        "p95_ms": null
+      },
+      "CLIENT_JSON_PARSE_PYTHON": {
+        "n": 10,
+        "mean_ms": 0.052587600657716393,
+        "median_ms": 0.0524374918313697,
+        "min_ms": 0.050292001105844975,
+        "max_ms": 0.054625008488073945,
+        "p95_ms": null
+      },
+      "total": {
+        "n": 10,
+        "mean_ms": 166.4071539969882,
+        "median_ms": 165.07689548598137,
+        "min_ms": 164.34512499836273,
+        "max_ms": 173.75991598237306,
+        "p95_ms": null
+      },
+      "coverage_union": {
+        "n": 10,
+        "mean_ms": 134.36661249143071,
+        "median_ms": 129.2104169697268,
+        "min_ms": 128.5537099756766,
+        "max_ms": 173.16970898536965,
+        "p95_ms": null
+      }
+    }
+  },
+  "ai": {
+    "load": {
+      "n": 3,
+      "mean_ms": 1366.6310833456616,
+      "median_ms": 1423.0971250217408,
+      "min_ms": 1032.7246249944437,
+      "max_ms": 1644.0715000208002,
+      "p95_ms": null
+    },
+    "first": {
+      "n": 3,
+      "mean_ms": 584.0838193350161,
+      "median_ms": 585.7237500022165,
+      "min_ms": 536.4758750074543,
+      "max_ms": 630.0518329953775,
+      "p95_ms": null
+    },
+    "warm": {
+      "n": 9,
+      "mean_ms": 535.3405695576738,
+      "median_ms": 526.626540988218,
+      "min_ms": 512.8366660210304,
+      "max_ms": 588.6072919820435,
+      "p95_ms": null
+    },
+    "encode_seconds": {
+      "n": 9,
+      "mean_ms": 430.08880089231144,
+      "median_ms": 422.74466599337757,
+      "min_ms": 409.11179201793857,
+      "max_ms": 482.8826660232153,
+      "p95_ms": null
+    },
+    "decode_seconds": {
+      "n": 9,
+      "mean_ms": 26.81217121749392,
+      "median_ms": 26.79270802764222,
+      "min_ms": 24.461207998683676,
+      "max_ms": 28.81429099943489,
+      "p95_ms": null
+    },
+    "polygon_seconds": {
+      "n": 9,
+      "mean_ms": 54.823666668703986,
+      "median_ms": 55.19604199798778,
+      "min_ms": 53.595208999468014,
+      "max_ms": 56.086041004164144,
+      "p95_ms": null
+    },
+    "highwater_range_bytes": [
+      782057472,
+      966754304
+    ]
+  },
+  "server": {
+    "acupuncture.service": {
+      "pid_before": "3480408",
+      "pid_after": "3480408",
+      "active": "active",
+      "restart_before": "0",
+      "restart_after": "0",
+      "rss": "275996 kB",
+      "cgroup_current": "159072256",
+      "cgroup_peak": "161112064",
+      "cpu_delta": {
+        "usage_usec": 218439,
+        "user_usec": 206205,
+        "system_usec": 12235,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 0,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "memory_events_delta": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      }
+    },
+    "dermatome.service": {
+      "pid_before": "3980765",
+      "pid_after": "3980765",
+      "active": "active",
+      "restart_before": "0",
+      "restart_after": "0",
+      "rss": "677908 kB",
+      "cgroup_current": "573538304",
+      "cgroup_peak": "777093120",
+      "cpu_delta": {
+        "usage_usec": 7429550,
+        "user_usec": 6436567,
+        "system_usec": 992983,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 444,
+        "nr_throttled": 8,
+        "throttled_usec": 8848,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "memory_events_delta": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      }
+    },
+    "nginx.service": {
+      "pid_before": "12643",
+      "pid_after": "12643",
+      "active": "active",
+      "restart_before": "0",
+      "restart_after": "0",
+      "rss": "7408 kB",
+      "cgroup_current": "7839744",
+      "cgroup_peak": "13737984",
+      "cpu_delta": {
+        "usage_usec": 28841,
+        "user_usec": 15455,
+        "system_usec": 13387,
+        "core_sched.force_idle_usec": 0,
+        "nr_periods": 0,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      },
+      "memory_events_delta": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0
+      }
+    },
+    "observation_seconds": 165.79011347563937,
+    "memory_before": {
+      "MemTotal": "3812564 kB",
+      "MemAvailable": "2333004 kB",
+      "SwapTotal": "2035708 kB",
+      "SwapFree": "2035184 kB"
+    },
+    "memory_after": {
+      "MemTotal": "3812564 kB",
+      "MemAvailable": "2328340 kB",
+      "SwapTotal": "2035708 kB",
+      "SwapFree": "2035184 kB"
+    },
+    "note": "counters cover observation window including background activity; not exclusive attribution to audit requests"
+  },
+  "atlas": {
+    "front": {
+      "instances": 54,
+      "parts": 63,
+      "holes": 15,
+      "vertices": 18051
+    },
+    "back": {
+      "instances": 60,
+      "parts": 71,
+      "holes": 2,
+      "vertices": 11705
+    }
+  },
+  "manual_setData": [
+    {
+      "vertices": 10,
+      "setDataCalls": 11,
+      "totalBytes": 16219,
+      "maxBytes": 2124,
+      "keys": [
+        "session",
+        "layer",
+        "pointCount",
+        "sceneId",
+        "mode",
+        "completedCount",
+        "frontCount",
+        "selectedId",
+        "regions",
+        "stateLabel",
+        "scopes"
+      ]
+    },
+    {
+      "vertices": 100,
+      "setDataCalls": 101,
+      "totalBytes": 582948,
+      "maxBytes": 10824,
+      "keys": [
+        "session",
+        "layer",
+        "pointCount",
+        "sceneId",
+        "mode",
+        "completedCount",
+        "frontCount",
+        "selectedId",
+        "regions",
+        "stateLabel",
+        "matchMessage",
+        "scopes"
+      ]
+    }
+  ],
+  "core_protection": {
+    "checked": 161,
+    "changed": []
+  }
+}

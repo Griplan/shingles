@@ -1,0 +1,17 @@
+{
+  "input": "existing public CDC21505 historical geometry; pure geometry benchmark, no new inference or valid runtime session",
+  "photo_dimensions": [
+    700,
+    460
+  ],
+  "polygons": 5,
+  "holes": 4,
+  "vertices": 941,
+  "initial_region": "back-upper-back",
+  "prepare_ms": 11.496291999999812,
+  "transform_ms": 0.2653330000000551,
+  "validate_ms": 101.82166700000016,
+  "validation": {
+    "ok": true
+  }
+}

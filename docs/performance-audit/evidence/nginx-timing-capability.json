@@ -1,0 +1,9 @@
+{
+  "read_only": true,
+  "config_read_ok": true,
+  "log_format_count": 0,
+  "any_request_time": false,
+  "any_upstream_response_time": false,
+  "b_custom_access_log_present": false,
+  "nginx_request_latency": "NOT_MEASURED: no request log read; do not expose URLs or identifiers"
+}

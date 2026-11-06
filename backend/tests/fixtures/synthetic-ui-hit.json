@@ -1,0 +1,9 @@
+{
+  "synthetic": true,
+  "purpose": "Artificial UI geometry for hit-test edges and gaps; no medical labels or atlas data",
+  "body": [[0.05,0.05],[0.95,0.05],[0.95,0.95],[0.05,0.95]],
+  "regions": [
+    {"id":"ui-a","name":"UI A","bounds":{"x":0.1,"y":0.1,"width":0.4,"height":0.4},"outline":[[0.1,0.1],[0.5,0.1],[0.5,0.5],[0.1,0.5]]},
+    {"id":"ui-b","name":"UI B","bounds":{"x":0.4,"y":0.2,"width":0.4,"height":0.6},"outline":[[0.4,0.2],[0.8,0.2],[0.4,0.8]]}
+  ]
+}

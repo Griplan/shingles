@@ -1,0 +1,29 @@
+Rebuild of original pinned source with body-only compilation
+front 46 regions; compatible source rows 1573 pre-adaptation outside 58.15458156696285
+back 60 regions; compatible source rows 1546 pre-adaptation outside 107.34985006623775
+
+exit_code=0
+PASSED: all four generated canonical files byte-identical after rebuild. No generated frontend copy required by body compilation.
+
+Final explicit registered-midline lookup check:
+['backend/.venv/bin/python', 'scripts/prepare_atlas.py']
+front 46 regions; compatible source rows 1573 pre-adaptation outside 58.15458156696285
+back 60 regions; compatible source rows 1546 pre-adaptation outside 107.34985006623775
+
+exit_code=0
+['backend/.venv/bin/python', 'scripts/check_preview_atlas.py']
+front {'regions': 46, 'labels': 23, 'polygonParts': 49, 'holes': 11, 'vertices': 7238, 'outsideAfterSimplificationLogicalPx2': 0.001344560295353376, 'manufacturingOverlapLogicalPx2': 0.41133965509059234, 'rawOutsideBeforeAdaptationLogicalPx2': 58.15458156696285, 'bodyAreaLogicalPx2': 120615.50076667486, 'configuredAreaLogicalPx2': 98409.26362185876, 'unconfiguredAreaLogicalPx2': 22206.23848937435, 'medicalReviewStatus': 'pending'}
+back {'regions': 60, 'labels': 30, 'polygonParts': 71, 'holes': 2, 'vertices': 11705, 'outsideAfterSimplificationLogicalPx2': 0.0005508637368761197, 'manufacturingOverlapLogicalPx2': 0.430112907126253, 'rawOutsideBeforeAdaptationLogicalPx2': 107.34985006623775, 'bodyAreaLogicalPx2': 127095.93873884481, 'configuredAreaLogicalPx2': 114966.05499149188, 'unconfiguredAreaLogicalPx2': 12129.88429821674, 'medicalReviewStatus': 'pending'}
+PASSED: sourced preview schema/geometry/provenance/binding/side checks. Not medical review or runtime proof.
+
+exit_code=0
+['python3', 'scripts/sync_atlas.py', '--check']
+PASSED: canonical hash and generated package copy agree
+
+exit_code=0
+['backend/.venv/bin/python', 'scripts/check_project.py']
+PASSED: V0～V3 必要文件、目录、JSON、五页导航、组件注册及 Canvas 2D 配置完整。
+此检查不代表 WXML/WXSS 编译、页面导航交互或真机验证通过。
+
+exit_code=0
+PASSED: canonical files byte-identical; registered midline explicitly read; package consistent; final project config validated.

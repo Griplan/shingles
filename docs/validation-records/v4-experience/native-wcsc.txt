@@ -1,0 +1,3 @@
+COMMAND ['/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/node_modules/wcc-exec/wcsc', 'app.wxss', 'components/body-canvas/body-canvas.wxss', 'components/region-picker/region-picker.wxss', 'pages/annotate/annotate.wxss', 'pages/atlas-debug/atlas-debug.wxss', 'pages/index/index.wxss', 'pages/result/result.wxss', 'pages/select/select.wxss', '-o', '/private/tmp/v4-experience-wxss.js']
+EXIT 0
+

@@ -1,0 +1,51 @@
+{
+  "stopped_request": {
+    "http_status": 502,
+    "meaning": "SSH/local transport reports unavailable; not a B success response"
+  },
+  "stopped_session": {
+    "retained": true,
+    "expires_at": 1793545353.0076718,
+    "confirmed": true
+  },
+  "ready_before_reload": {
+    "status": "ready",
+    "identity": {
+      "template_id": "commons-neutral-v1",
+      "template_version": "4.0.0",
+      "geometry_id": "commons-blank-cc0-v1",
+      "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+      "atlas_id": "goran-2022",
+      "atlas_version": "goran-2022-commons-template4-preview.2",
+      "atlas_content_sha256": "8689fca1aa50cff0b1b7d7cd1adcd80cf244cd1a93ed580e91406d0cc2fb2056",
+      "body_content_sha256": "59979433be334f53a705f90a484aadc312a426387f4c1a3b59a718393fbf426a",
+      "coordinate_system": "normalized_2d_top_left"
+    },
+    "ai_model_loaded": false,
+    "ai_device": "cpu",
+    "medical_review": "pending",
+    "diagnosis_enabled": false
+  },
+  "unexpired_mask_retained": true,
+  "start": {
+    "real_inference": true,
+    "seconds": 7.664312583001447,
+    "candidates": 3,
+    "model_loaded": true
+  },
+  "restart": {
+    "real_inference": true,
+    "seconds": 6.7839810000004945,
+    "candidates": 3,
+    "model_loaded": true
+  },
+  "cleanup_status": 204,
+  "before_cgroup_bytes": 504053760,
+  "before_rss": "562912 kB",
+  "stopped_pid": 0,
+  "available_before": "total        used        free      shared  buff/cache   available\nMem:      3904065536  1394241536   361099264     2801664  2452901888  2509824000\nSwap:     2084564992      536576  2084028416",
+  "available_after_stop": "total        used        free      shared  buff/cache   available\nMem:      3904065536   937033728   818323456     2801664  2452885504  2967031808\nSwap:     2084564992      536576  2084028416",
+  "a_unchanged": true,
+  "protected_hashes_equal": true,
+  "status": "PASSED"
+}

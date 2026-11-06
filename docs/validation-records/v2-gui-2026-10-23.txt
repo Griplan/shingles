@@ -1,0 +1,18 @@
+2026-10-23 Asia/Shanghai — WeChat developer tools actual observations
+Environment: macOS; WeChat DevTools Stable 2.01.2510290; base library 3.17.4; iPhone 6/7/8, 375x667, DPR2, simulator display118%. No patient data, only disposable manual test touch.
+
+Initial FAILED: hot reload did not recognize newly added lesion-render.js and annotation-session.js. Cleared compilation cache then project file-list cache through native UI. Initial frame later reported __route__ undefined, frame timeout, __subPageFrameEndTime__ null. No claim that these intermediary frames rendered correctly.
+Recovery: Project menu -> reopen this project. Home/select actually loaded. Native accessibility state showed real Webview pages/select/select, Errors0. Full native screenshot visually showed current complete front model, region list entry, disabled annotation entry before choosing. Reopen resolved the stale runtime in this observation, without changing compiler/security configuration.
+
+PASSED actual subset, through native accessibility controls:
+- Enter model from home; open existing region list; choose chest. Label became selected front/chest; start annotation enabled.
+- Start annotation navigated to pages/annotate/annotate, title artificial lesion annotation; actual focus(front/local), drawing mode, draft0/completed0; undo/close/finish disabled. Real screenshot confirmed original source body in focus, no V1 green chest fill, compact toolbar visible without cover.
+- Click actual front Canvas accessibility container center. Real touch pipeline updated draft1/completed0, enabled undo. Full native screenshot showed one green draft point at chest and matching draft1 label; close and finish remained disabled. This is a genuine one-point draft screenshot in the conversation, not offline preview.
+- Undo -> draft0/completed0 and undo disabled.
+- Click Canvas center again -> draft1. Return selection -> native action sheet offered retain+return/discard+return/continue. Select retain+return -> actual select page title restored.
+- Start annotation again -> actual annotate page restored draft1/completed0 and original focused front view. Thus one-point draft survived controlled return/unload/reentry during same runtime.
+
+Remaining input limitation: coordinate-based native click still errors `Computer Use server error -10005: noWindowsAvailable`, including after reopening the visible window. AX container-center clicks work but cannot target three independent intended polygon vertices. Did not manipulate hidden page data, inject geometry or use static preview as a real closed region.
+
+NOT_RUN actual: >=3 precise input points, single closed/multiple polygons/selected deletion, back completed region, full review/continue, exact <=2CSSpx measured alignment, drag/scroll/modal input penetration, new320/430/short-screen validation, true device, low-end performance. Corresponding automated component/page tests are separate evidence.
+Screenshots: actual full select and single-point annotation screenshots displayed inline in conversation. No local exported actual screenshot files. Required closed/multiple/review screenshots remain NOT_RUN. Local v2-offline-render PNG is explicitly synthetic offline production renderer replay, not a WeChat screenshot.

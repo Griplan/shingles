@@ -1,0 +1,264 @@
+{
+  "date": "2026-10-24",
+  "baselineFileCount": 327,
+  "protectedFileCount": 51,
+  "status": "PASSED",
+  "note": "Working-tree baseline SHA256, not Git commit comparison. No commit/push. Runtime patient storage not inspected.",
+  "files": {
+    "backend/app/__init__.py": {
+      "before": "d5e7c048f456cf5d7df6e7fdd96e930dddabe23a4c84b16ab9cb299b67e064e6",
+      "after": "d5e7c048f456cf5d7df6e7fdd96e930dddabe23a4c84b16ab9cb299b67e064e6",
+      "unchanged": true
+    },
+    "backend/app/api/__init__.py": {
+      "before": "431ab77ab426058dc1651469c264decb9a10097109c11737a492f2c01b06d9d5",
+      "after": "431ab77ab426058dc1651469c264decb9a10097109c11737a492f2c01b06d9d5",
+      "unchanged": true
+    },
+    "backend/app/api/routes/__init__.py": {
+      "before": "6cc6868eb515ba9f7794ac3808d33e85b59e65551e8f59c9271ffdf8dc3958fb",
+      "after": "6cc6868eb515ba9f7794ac3808d33e85b59e65551e8f59c9271ffdf8dc3958fb",
+      "unchanged": true
+    },
+    "backend/app/api/routes/atlas.py": {
+      "before": "bb4abfa98df5ef9430a18db169a67cea8b07612b17a32fef077ef08fa99a7c13",
+      "after": "bb4abfa98df5ef9430a18db169a67cea8b07612b17a32fef077ef08fa99a7c13",
+      "unchanged": true
+    },
+    "backend/app/api/routes/evaluate.py": {
+      "before": "6e1ec025ae7d38064b699dfafd5e5f31f56c0265daf519ba185ad16906c79db1",
+      "after": "6e1ec025ae7d38064b699dfafd5e5f31f56c0265daf519ba185ad16906c79db1",
+      "unchanged": true
+    },
+    "backend/app/api/routes/health.py": {
+      "before": "97ad9eaed60c921f098d35a7175552883e131614823c046fddd28903266a3beb",
+      "after": "97ad9eaed60c921f098d35a7175552883e131614823c046fddd28903266a3beb",
+      "unchanged": true
+    },
+    "backend/app/main.py": {
+      "before": "5348db68e7ad3a4e98d8c86f4485171e7cd3828a33f2155e067dc9ea39cbd487",
+      "after": "5348db68e7ad3a4e98d8c86f4485171e7cd3828a33f2155e067dc9ea39cbd487",
+      "unchanged": true
+    },
+    "backend/app/schemas/__init__.py": {
+      "before": "403472c46cabb0f67f080aa2ffb2e6946579c89a8001b88600cc14810e5b3d37",
+      "after": "403472c46cabb0f67f080aa2ffb2e6946579c89a8001b88600cc14810e5b3d37",
+      "unchanged": true
+    },
+    "backend/app/schemas/common.py": {
+      "before": "445ee14fef1f1fbdad34139a898d74e0c1ed01175785931c1bd2a4498e333246",
+      "after": "445ee14fef1f1fbdad34139a898d74e0c1ed01175785931c1bd2a4498e333246",
+      "unchanged": true
+    },
+    "backend/app/schemas/evaluate.py": {
+      "before": "ff89db028ead187023a44b009dcf93ed8e5d7ce0a05596dce24b0bacbf6a7c2b",
+      "after": "ff89db028ead187023a44b009dcf93ed8e5d7ce0a05596dce24b0bacbf6a7c2b",
+      "unchanged": true
+    },
+    "backend/app/services/__init__.py": {
+      "before": "7304b539f0a0d9a689a44458cb45e7c867e263d30e2fc2fcafc1829b780489e1",
+      "after": "7304b539f0a0d9a689a44458cb45e7c867e263d30e2fc2fcafc1829b780489e1",
+      "unchanged": true
+    },
+    "backend/app/services/atlas_service.py": {
+      "before": "17cca680ded212df75bc286c15391fcbac8bffdbbdde447b5e46c38915cfab77",
+      "after": "17cca680ded212df75bc286c15391fcbac8bffdbbdde447b5e46c38915cfab77",
+      "unchanged": true
+    },
+    "backend/app/services/dermatome_matcher.py": {
+      "before": "6808d0e2382386144d9859fdbf37280e2f9b4ac62f591a953552b542f7680278",
+      "after": "6808d0e2382386144d9859fdbf37280e2f9b4ac62f591a953552b542f7680278",
+      "unchanged": true
+    },
+    "backend/app/utils/__init__.py": {
+      "before": "24656c749eb37596286ab2ab4fcb190d4642a5999ad8599793741f18f0a69a1a",
+      "after": "24656c749eb37596286ab2ab4fcb190d4642a5999ad8599793741f18f0a69a1a",
+      "unchanged": true
+    },
+    "backend/app/utils/geometry.py": {
+      "before": "f68e78b90f243966195971773f42276d242b67bd2ec76f0d20215fb2d758386f",
+      "after": "f68e78b90f243966195971773f42276d242b67bd2ec76f0d20215fb2d758386f",
+      "unchanged": true
+    },
+    "data/atlas/goran-2022-preview-v1/NOTICE.md": {
+      "before": "7bbe18d36fb9440c6b4b580e636668d5fefdb9061bbf8e633dc4cab34868f2b7",
+      "after": "7bbe18d36fb9440c6b4b580e636668d5fefdb9061bbf8e633dc4cab34868f2b7",
+      "unchanged": true
+    },
+    "data/atlas/goran-2022-preview-v1/back.json": {
+      "before": "aea2085c93560dc434bc9b0bb62cb7ef7d2df91023f19200e54816357f003bbb",
+      "after": "aea2085c93560dc434bc9b0bb62cb7ef7d2df91023f19200e54816357f003bbb",
+      "unchanged": true
+    },
+    "data/atlas/goran-2022-preview-v1/coverage.json": {
+      "before": "d79d88c3f892a436e33345b39229330bb2730c8b39a80ad5320b804504dfdfa1",
+      "after": "d79d88c3f892a436e33345b39229330bb2730c8b39a80ad5320b804504dfdfa1",
+      "unchanged": true
+    },
+    "data/atlas/goran-2022-preview-v1/front.json": {
+      "before": "b68954b9c0af82b4ebdf052933b98a45efb8dcc74c84e4a181733cc50c11a80d",
+      "after": "b68954b9c0af82b4ebdf052933b98a45efb8dcc74c84e4a181733cc50c11a80d",
+      "unchanged": true
+    },
+    "data/atlas/goran-2022-preview-v1/manifest.json": {
+      "before": "c27b03c330ef5ce69480778c8fea2479608ff2dd347d34dfe6fc40e3fa758568",
+      "after": "c27b03c330ef5ce69480778c8fea2479608ff2dd347d34dfe6fc40e3fa758568",
+      "unchanged": true
+    },
+    "data/atlas/goran-2022-preview-v1/registration-report.json": {
+      "before": "709cec15b0b2a6d10905645ad3ac2faef29397542a71c45a99969639e26e0853",
+      "after": "709cec15b0b2a6d10905645ad3ac2faef29397542a71c45a99969639e26e0853",
+      "unchanged": true
+    },
+    "data/atlas/goran-2022-preview-v1/registration.json": {
+      "before": "8a997410d8e92d6133079cea4c228c990234dfbb896bd849f41c06b2a2b46066",
+      "after": "8a997410d8e92d6133079cea4c228c990234dfbb896bd849f41c06b2a2b46066",
+      "unchanged": true
+    },
+    "data/atlas/goran-2022-preview-v1/source-map.json": {
+      "before": "ceea8c7896c586d2067a2f302f34ce85cb87b631698cead36485f3fb0b413573",
+      "after": "ceea8c7896c586d2067a2f302f34ce85cb87b631698cead36485f3fb0b413573",
+      "unchanged": true
+    },
+    "data/atlas/goran-2022-preview-v1/sources.json": {
+      "before": "bed13c66fdfd9b9cd4cc6c63b9eee4272f7cc9912405a482f09acca1c8196252",
+      "after": "bed13c66fdfd9b9cd4cc6c63b9eee4272f7cc9912405a482f09acca1c8196252",
+      "unchanged": true
+    },
+    "data/atlas/goran-2022-preview-v1/validation.json": {
+      "before": "6ae9778a09972c2e4b24ffc66a1fa5a68000191cc79e37837f1f295014a1da7d",
+      "after": "6ae9778a09972c2e4b24ffc66a1fa5a68000191cc79e37837f1f295014a1da7d",
+      "unchanged": true
+    },
+    "data/atlas/v1/back.json": {
+      "before": "0da1f74189f90a7d8e185bc6d8c997eb22b9d3b1d42c98e0e2f76ad65d9e0467",
+      "after": "0da1f74189f90a7d8e185bc6d8c997eb22b9d3b1d42c98e0e2f76ad65d9e0467",
+      "unchanged": true
+    },
+    "data/atlas/v1/front.json": {
+      "before": "faab0b0486926bee8415419e705cc0324b4ec0265c9eb580c967a280b6b4f74f",
+      "after": "faab0b0486926bee8415419e705cc0324b4ec0265c9eb580c967a280b6b4f74f",
+      "unchanged": true
+    },
+    "data/atlas/v1/manifest.json": {
+      "before": "1deb2742e18acc52fc66d33c7454f1b9ec0627fc123e049754d62f891ba80eb2",
+      "after": "1deb2742e18acc52fc66d33c7454f1b9ec0627fc123e049754d62f891ba80eb2",
+      "unchanged": true
+    },
+    "miniprogram/assets/body/.gitkeep": {
+      "before": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    "miniprogram/assets/body/README.md": {
+      "before": "42ae1a68e0f79ce080b75c32e986a85384d88bbc726223d4306bec7b8955a764",
+      "after": "42ae1a68e0f79ce080b75c32e986a85384d88bbc726223d4306bec7b8955a764",
+      "unchanged": true
+    },
+    "miniprogram/assets/body/commons-cc0/NOTICE.md": {
+      "before": "06c69824bbe16b2253e61bfaf1a4b1ac6009a631dc7b88a21f84e93925c11f38",
+      "after": "06c69824bbe16b2253e61bfaf1a4b1ac6009a631dc7b88a21f84e93925c11f38",
+      "unchanged": true
+    },
+    "miniprogram/assets/body/commons-cc0/back.png": {
+      "before": "f8d01a058c6a5caef7ae85d836248dad2138b7552f2d5c2eb7ab3ea0b5110117",
+      "after": "f8d01a058c6a5caef7ae85d836248dad2138b7552f2d5c2eb7ab3ea0b5110117",
+      "unchanged": true
+    },
+    "miniprogram/assets/body/commons-cc0/back.svg": {
+      "before": "11f5836b4732cd5e8f43cdbd9780c0e01c50ef8fa66bb2bb9d41457492a6da02",
+      "after": "11f5836b4732cd5e8f43cdbd9780c0e01c50ef8fa66bb2bb9d41457492a6da02",
+      "unchanged": true
+    },
+    "miniprogram/assets/body/commons-cc0/front.png": {
+      "before": "6fdfc96f6cfa8987ec5bf331d0c4697bd46e95a1833e8d539d665ed02b9746c3",
+      "after": "6fdfc96f6cfa8987ec5bf331d0c4697bd46e95a1833e8d539d665ed02b9746c3",
+      "unchanged": true
+    },
+    "miniprogram/assets/body/commons-cc0/front.svg": {
+      "before": "6906420e124c03816d19b53ec22ac61916b9cc4bc74b1ceb75ec4b7fddae94b0",
+      "after": "6906420e124c03816d19b53ec22ac61916b9cc4bc74b1ceb75ec4b7fddae94b0",
+      "unchanged": true
+    },
+    "miniprogram/assets/body/commons-cc0/geometry.generated.ts": {
+      "before": "f33673dd7813459e796403539b01fed04467b14013420d15c6dc1ef60fdb0d02",
+      "after": "f33673dd7813459e796403539b01fed04467b14013420d15c6dc1ef60fdb0d02",
+      "unchanged": true
+    },
+    "miniprogram/assets/body/commons-cc0/manifest.json": {
+      "before": "d9863ea69e79eda75f376e0304cefaf1df57df33e3324e3bbcf93c615e479b42",
+      "after": "d9863ea69e79eda75f376e0304cefaf1df57df33e3324e3bbcf93c615e479b42",
+      "unchanged": true
+    },
+    "miniprogram/assets/body/commons-cc0/source.svg": {
+      "before": "486cdc8a89fbfe0ff0a4bb4104efc19bb5c708337c37768be6f9120c4837753a",
+      "after": "486cdc8a89fbfe0ff0a4bb4104efc19bb5c708337c37768be6f9120c4837753a",
+      "unchanged": true
+    },
+    "miniprogram/assets/body/commons-v1.ts": {
+      "before": "087549443fb43c5ba39f60636cc6a830f9b31e3e1a0d2ab65f5827a77ac90d8f",
+      "after": "087549443fb43c5ba39f60636cc6a830f9b31e3e1a0d2ab65f5827a77ac90d8f",
+      "unchanged": true
+    },
+    "miniprogram/assets/body/model.ts": {
+      "before": "c9f1b6cdfe3e984b620ba1bac7b79866b975114e3ef2c1cdbf65fb1d25c5202e",
+      "after": "c9f1b6cdfe3e984b620ba1bac7b79866b975114e3ef2c1cdbf65fb1d25c5202e",
+      "unchanged": true
+    },
+    "miniprogram/assets/body/neutral-v2.ts": {
+      "before": "179382f0a5734b5f47ffb436ab962232adc18eca3e0a7f451ccf0df724f1fdcc",
+      "after": "179382f0a5734b5f47ffb436ab962232adc18eca3e0a7f451ccf0df724f1fdcc",
+      "unchanged": true
+    },
+    "miniprogram/assets/body/neutral-v3.ts": {
+      "before": "2fc4c20abc984ac203bb9ff976a55abd7586802a4795a4206912b1ba9e5f8398",
+      "after": "2fc4c20abc984ac203bb9ff976a55abd7586802a4795a4206912b1ba9e5f8398",
+      "unchanged": true
+    },
+    "miniprogram/data/body-models.ts": {
+      "before": "e1aeb0aee5d2429d18e74650072cd48eb619aae991cb2eb80f37042bfef71916",
+      "after": "e1aeb0aee5d2429d18e74650072cd48eb619aae991cb2eb80f37042bfef71916",
+      "unchanged": true
+    },
+    "miniprogram/pages/annotate/annotate.json": {
+      "before": "a856e6373c9b64d46eb1e67c031dced099517bbaa220b6fff0a23ffa92e0a603",
+      "after": "a856e6373c9b64d46eb1e67c031dced099517bbaa220b6fff0a23ffa92e0a603",
+      "unchanged": true
+    },
+    "miniprogram/pages/annotate/annotate.ts": {
+      "before": "2721799f4e4504017c2828d4925156ab6a88640e4348a31defdf5e086fffc30b",
+      "after": "2721799f4e4504017c2828d4925156ab6a88640e4348a31defdf5e086fffc30b",
+      "unchanged": true
+    },
+    "miniprogram/pages/annotate/annotate.wxml": {
+      "before": "e217d82a397fc129b4a60150c203648a7642e0fc3e27a64d64888375186a73cd",
+      "after": "e217d82a397fc129b4a60150c203648a7642e0fc3e27a64d64888375186a73cd",
+      "unchanged": true
+    },
+    "miniprogram/pages/annotate/annotate.wxss": {
+      "before": "ddcf235fd1523abdb43186b697cc2447a4da2361fc356605b776152b867bad58",
+      "after": "ddcf235fd1523abdb43186b697cc2447a4da2361fc356605b776152b867bad58",
+      "unchanged": true
+    },
+    "miniprogram/state/annotation-session.ts": {
+      "before": "28a1afbc77ca19b26e0fbca4c0daf5a81dfe1b3ad377d4c4b8ddd67301728e05",
+      "after": "28a1afbc77ca19b26e0fbca4c0daf5a81dfe1b3ad377d4c4b8ddd67301728e05",
+      "unchanged": true
+    },
+    "miniprogram/utils/annotation-geometry.ts": {
+      "before": "88fcd455eb8ecf4e7952a087d1cd7b1c2c0998fbb936897dc3f54762279f4d8d",
+      "after": "88fcd455eb8ecf4e7952a087d1cd7b1c2c0998fbb936897dc3f54762279f4d8d",
+      "unchanged": true
+    },
+    "miniprogram/utils/body-hit-test.ts": {
+      "before": "61aa55392dcdb031a22c4e6f4239268daad2411c71999fa4420ccefa952be60b",
+      "after": "61aa55392dcdb031a22c4e6f4239268daad2411c71999fa4420ccefa952be60b",
+      "unchanged": true
+    },
+    "miniprogram/utils/coordinate.ts": {
+      "before": "545742a17b13b49bbeb40891183f2011970298a73e0d18345404b5f94b081cf1",
+      "after": "545742a17b13b49bbeb40891183f2011970298a73e0d18345404b5f94b081cf1",
+      "unchanged": true
+    }
+  }
+}

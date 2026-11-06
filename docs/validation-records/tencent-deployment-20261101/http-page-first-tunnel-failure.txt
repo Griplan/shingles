@@ -1,0 +1,14 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ '无法连接AI后端，请检查服务和开发工具的本地网络设置'
+- ''
+
+    at main (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/scripts/test_placement_http.cjs:53:134) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: '无法连接AI后端，请检查服务和开发工具的本地网络设置',
+  expected: '',
+  operator: 'strictEqual',
+  diff: 'simple'
+}

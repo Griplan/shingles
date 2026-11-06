@@ -1,0 +1,6 @@
+2026-11-04
+Command: ai/.venv/bin/python scripts/check_project.py
+Exit: 1
+FAILED: app.json 页面注册或首页顺序不符合现有页面与独立V3、V5.2、V5.3页面约定
+Cause: existing checker enumerated seven pages and knew no special-parts/palm navigation.
+Fix: add the two explicitly authorized V6.1 pages, their guarded return navigation and palm component registration checks. Do not weaken existing page checks. Final check saved separately.

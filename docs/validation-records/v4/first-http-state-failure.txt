@@ -1,0 +1,13 @@
+PASS real HTTP: V2 polygon -> auto evaluate -> results -> exact atlas instances + unchanged annotation -> focus/reset/resize
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'idle'
+- 'stale'
+    at main (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/scripts/test_matching_http.cjs:27:117) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'idle',
+  expected: 'stale',
+  operator: 'strictEqual'
+}

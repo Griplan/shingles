@@ -1,0 +1,47 @@
+V1.1 final static verification
+Date: 2026-10-18 Asia/Shanghai
+COMMAND: python3 - (inline local-file cross-check)
+Methods: git nonignored file set; byte comparison; Markdown links/fences/JSON examples; WXML structural XML parsing.
+WXML structural parsing is not WeChat compilation or UI validation.
+
+PASSED: change inventory - 15 new / 24 modified / 0 deleted
+PASSED: backend/ preserved - 18 files
+PASSED: data/atlas/ preserved - 3 files
+PASSED: ai/ preserved - 4 files
+PASSED: miniprogram/pages/annotate/ preserved - 4 files
+PASSED: miniprogram/pages/result/ preserved - 4 files
+PASSED: miniprogram/project.config.json byte-identical
+PASSED: miniprogram/package.json byte-identical
+PASSED: miniprogram/package-lock.json byte-identical
+PASSED: miniprogram/app.json byte-identical
+PASSED: .gitignore byte-identical
+PASSED: docs/v1-changes.txt byte-identical
+PASSED: docs/file-inventory.txt byte-identical
+PASSED: V0/V1 evidence retained - 19 files
+PASSED: V0/V1 task history preserved
+PASSED: V2+ task history preserved
+PASSED: legacy V1 geometry retained - only legacy config type annotation/import adapted
+PASSED: Markdown links/fences and JSON examples - 78 local links, 7 JSON examples; []
+FAILED: WXML structural tags - 5 files; ['miniprogram/components/body-canvas/body-canvas.wxml:not well-formed (invalid token): line 3, column 26']
+PASSED: atlas unverified and disabled
+PASSED: front medical regions empty
+PASSED: back medical regions empty
+PASSED: debug source has no storage/network/lesion editor
+
+COMMAND: backend/.venv/bin/python scripts/check_project.py
+PASSED: V0/V1/V1.1 必要文件、目录、JSON、四页导航、组件注册及 Canvas 2D 配置完整。
+此检查不代表 WXML/WXSS 编译、页面导航交互或真机验证通过。
+
+
+EXIT_CODE: 0
+
+Frontend final43/43 and backend12/12 are recorded separately. No suites rerun for documentation-only changes.
+Real final WeChat touch/layout acceptance remains NOT_RUN; this static result does not clear the GUI blocker.
+FINAL_STATUS: FAILED
+
+V1.1 static checker repair / append-only follow-up
+COMMAND: python3 - (WXML structural check with legal expression ampersands normalized for the XML parser only)
+The prior structural-parser failure was caused by a pre-existing valid WXML expression loading && !error, not a newly established WeChat syntax error. Generic XML does not accept raw ampersands. No WXML source change was made for this parser limitation.
+PASSED: WXML structural tags - 5 files; []
+All preceding scope/history/link/JSON/structure checks already passed; only the parser-specific failure was rechecked.
+FINAL_STATUS: PASSED

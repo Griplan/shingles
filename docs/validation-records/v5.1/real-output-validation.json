@@ -1,0 +1,316 @@
+{
+  "validation_kind": "Geometry/export fidelity ONLY, NOT medical segmentation accuracy",
+  "checks": [
+    {
+      "run": "v51-cpu-20261027",
+      "case": "F_unclear",
+      "candidate": "candidate-0",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 14539
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "F_unclear",
+      "candidate": "candidate-1",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 18333
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "F_unclear",
+      "candidate": "candidate-2",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 22268
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "A_single_fg",
+      "candidate": "candidate-0",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 157
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "A_single_fg",
+      "candidate": "candidate-1",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 1666
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "A_single_fg",
+      "candidate": "candidate-2",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 319968
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "H_synthetic_disconnected",
+      "candidate": "candidate-0",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 7379
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "H_synthetic_disconnected",
+      "candidate": "candidate-1",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 7480
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "H_synthetic_disconnected",
+      "candidate": "candidate-2",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 30946
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "C_multi_fg",
+      "candidate": "candidate-0",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 9292
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "C_multi_fg",
+      "candidate": "candidate-1",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 13862
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "C_multi_fg",
+      "candidate": "candidate-2",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 321250
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "B_box",
+      "candidate": "candidate-0",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 13060
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "B_box",
+      "candidate": "candidate-1",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 16587
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "B_box",
+      "candidate": "candidate-2",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 24912
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "I_synthetic_low_contrast",
+      "candidate": "candidate-0",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 13166
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "I_synthetic_low_contrast",
+      "candidate": "candidate-1",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 13203
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "I_synthetic_low_contrast",
+      "candidate": "candidate-2",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 13245
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "D_fg_bg",
+      "candidate": "candidate-0",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 7818
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "D_fg_bg",
+      "candidate": "candidate-1",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 10419
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "D_fg_bg",
+      "candidate": "candidate-2",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 217648
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "G_neck_crop",
+      "candidate": "candidate-0",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 2044
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "G_neck_crop",
+      "candidate": "candidate-1",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 2944
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "G_neck_crop",
+      "candidate": "candidate-2",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 7395
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "E_disconnected",
+      "candidate": "candidate-0",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 17663
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "E_disconnected",
+      "candidate": "candidate-1",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 287749
+    },
+    {
+      "run": "v51-cpu-20261027",
+      "case": "E_disconnected",
+      "candidate": "candidate-2",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 321720
+    },
+    {
+      "run": "v51-mps-20261027",
+      "case": "B_box",
+      "candidate": "candidate-0",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 13060
+    },
+    {
+      "run": "v51-mps-20261027",
+      "case": "B_box",
+      "candidate": "candidate-1",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 16587
+    },
+    {
+      "run": "v51-mps-20261027",
+      "case": "B_box",
+      "candidate": "candidate-2",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 24912
+    },
+    {
+      "run": "v51-cli-20261027",
+      "case": "v51-cli-20261027",
+      "candidate": "candidate-0",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 13060
+    },
+    {
+      "run": "v51-cli-20261027",
+      "case": "v51-cli-20261027",
+      "candidate": "candidate-1",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 16587
+    },
+    {
+      "run": "v51-cli-20261027",
+      "case": "v51-cli-20261027",
+      "candidate": "candidate-2",
+      "geometry_valid": true,
+      "pixel_roundtrip_mismatch": 0,
+      "alpha_aligned": true,
+      "area_pixels": 24912
+    }
+  ],
+  "cpu_mps_same_box_comparison": [
+    {
+      "candidate": 0,
+      "cpu_mps_mask_mismatch_pixels": 0
+    },
+    {
+      "candidate": 1,
+      "cpu_mps_mask_mismatch_pixels": 0
+    },
+    {
+      "candidate": 2,
+      "cpu_mps_mask_mismatch_pixels": 0
+    }
+  ]
+}

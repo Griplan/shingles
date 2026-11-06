@@ -1,0 +1,5 @@
+COMMAND: ["npm", "run", "typecheck", "--prefix", "miniprogram"]
+
+> dermatome-mapper-miniprogram@0.0.0 typecheck
+> tsc --noEmit
+

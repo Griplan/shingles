@@ -1,0 +1,49 @@
+<view class="ai-page">
+ <view class="heading"><text>{{context}}</text><button wx:if="{{photo}}" class="text-button" disabled="{{phase === 'uploading'}}" bindtap="changePhoto">更换照片</button></view>
+ <view wx:if="{{!available}}" class="notice">当前仅开放测试图片体验，可返回手动标注。</view>
+ <view class="photo-stage">
+  <photo-canvas wx:if="{{photo}}" source="{{photo}}" mask="{{mask}}" photo-width="{{photoWidth}}" photo-height="{{photoHeight}}" mode="{{mode}}" points="{{points}}" box="{{box}}" additional-boxes="{{additionalBoxes}}" brush-radius="{{brushRadius}}" show-prompts="{{selecting || adjusting}}" layout-revision="{{layoutRevision}}" disabled="{{phase === 'confirming' || phase === 'confirmed' || phase === 'correcting' || previewing || pendingBrush || (!selecting && !adjusting && !editingMask)}}" bind:prompt="onPrompt" bind:stroke="onStroke" bind:strokeinvalid="strokeInvalid" bind:boxinvalid="boxInvalid" bind:renderstate="renderState"></photo-canvas>
+  <view wx:else class="placeholder"><text class="placeholder-title">{{phase === 'uploading' ? '正在准备照片…' : '上传一张局部皮肤照片'}}</text><text class="muted">{{phase === 'uploading' ? '请稍候' : '圈住皮疹，AI辅助识别范围'}}</text></view>
+ </view>
+ <view wx:if="{{!photo}}" class="upload-actions"><button class="primary" disabled="{{!available || phase === 'uploading'}}" loading="{{phase === 'uploading'}}" data-source="album" bindtap="pickPhoto">从相册上传</button><button disabled="{{!available || phase === 'uploading'}}" data-source="camera" bindtap="pickPhoto">拍照</button></view>
+ <block wx:if="{{photo}}">
+  <view class="status" aria-live="polite">
+   <text wx:if="{{phase === 'confirmed'}}">{{hasPendingPlacement ? '上次的位置调整已在本次运行中暂存，可继续放置。' : '照片中的识别范围已确认，请继续确认人体位置。'}}</text>
+   <text wx:elif="{{phase === 'confirming'}}">正在确认…</text>
+   <text wx:elif="{{phase === 'correcting'}}">正在应用修正，照片会保持显示…</text>
+   <text wx:elif="{{working}}" class="muted">{{previewing ? '正在切换结果…' : '正在识别，请稍候…'}}</text>
+   <text wx:elif="{{editingMask}}">{{mode === 'paint-add' ? '涂过需要补充的范围，松手后应用' : '涂过误选的正常皮肤，松手后擦除'}}</text>
+   <text wx:elif="{{addingRegion}}">再框住一处需要识别的皮疹区域。</text>
+   <text wx:elif="{{failed}}">这次没有得到合适的识别范围，请重新圈选。</text>
+   <text wx:elif="{{adjusting}}">{{mode === 'foreground' ? '轻点需要补充识别的位置' : '轻点需要排除的位置'}}</text>
+   <text wx:elif="{{hasResult}}">请检查绿色范围，再确认。</text>
+   <text wx:else>请框住需要识别的皮疹区域。</text>
+  </view>
+  <view wx:for="{{warnings}}" wx:key="*this" class="warning">{{item}}</view>
+  <block wx:if="{{phase !== 'confirmed'}}">
+   <view wx:if="{{editingMask}}" class="adjustment">
+    <view class="row"><button class="{{mode === 'paint-add' ? 'active' : ''}}" disabled="{{working}}" data-mode="paint-add" bindtap="brushMode">补充区域</button><button class="{{mode === 'paint-erase' ? 'active' : ''}}" disabled="{{working}}" data-mode="paint-erase" bindtap="brushMode">擦除误选</button></view>
+    <view class="brush-size"><text>画笔大小</text><slider class="brush-slider" min="5" max="60" value="{{brushSize}}" disabled="{{working}}" activeColor="#246c59" bindchange="brushSizeChanged" /></view>
+    <view class="row"><button disabled="{{!canUndoBrush || working || pendingBrush}}" bindtap="undoBrush">撤销</button><button disabled="{{working}}" bindtap="restoreBrush">恢复原识别</button></view>
+    <button wx:if="{{pendingBrush}}" class="primary" disabled="{{working}}" bindtap="retryBrush">重试本次修正</button>
+    <button wx:else class="primary" disabled="{{working || !renderReady}}" bindtap="finishBrush">完成修正</button>
+   </view>
+   <view wx:elif="{{adjusting}}" class="adjustment">
+    <view class="row"><button class="{{mode === 'foreground' ? 'active' : ''}}" data-mode="foreground" bindtap="setMode">补充识别区域</button><button class="{{mode === 'background' ? 'active' : ''}}" data-mode="background" bindtap="setMode">排除误选区域</button></view>
+    <view class="row"><button disabled="{{!canUndo}}" bindtap="undo">撤销</button><button class="primary" disabled="{{!hasPrompt || working}}" bindtap="refine">重新识别</button></view>
+    <view class="result-actions"><button class="text-button" disabled="{{working || additionalBoxes.length >= 3}}" bindtap="addRegion">补圈一处</button><button class="text-button" disabled="{{working || additionalBoxes.length > 0}}" bindtap="alternativeAnalysis">{{strategy === 'context_crop' ? '改用整图分析' : '改用局部分析'}}</button></view>
+    <text class="muted">局部分析仅识别圈选附近，圈外病灶可补圈。重新识别会替换本次画笔修正。</text>
+   </view>
+   <block wx:else>
+    <button wx:if="{{hasResult}}" class="primary confirm" disabled="{{!canConfirm || !renderReady}}" loading="{{phase === 'confirming'}}" bindtap="confirm">确认识别范围</button>
+    <view wx:if="{{box || failed || hasResult}}" class="result-actions"><button class="text-button" disabled="{{phase === 'confirming'}}" bindtap="reselect">重新圈选</button><button wx:if="{{canCycle}}" class="text-button" disabled="{{phase === 'confirming'}}" bindtap="nextResult">换个结果</button></view>
+    <view wx:if="{{hasResult && !working && phase === 'ready'}}" class="result-actions"><button class="text-button fine-entry" bindtap="openBrush">修正范围</button><button class="text-button fine-entry" bindtap="openAdjustment">识别不准确？精细调整</button></view>
+   </block>
+  </block>
+  <view wx:else><button class="primary confirm" disabled="{{openingPlacement}}" bindtap="placeOnBody">{{hasPendingPlacement ? '继续放置到人体' : '放置到人体'}}</button><button class="text-button" bindtap="reselect">重新圈选</button></view>
+ </block>
+ <view wx:if="{{error && error !== '这次没有得到合适的识别范围，请重新圈选。'}}" class="warning">{{error}}</view>
+ <view wx:if="{{cleanupWarning}}" class="warning">{{cleanupWarning}}</view>
+ <view class="footer"><button wx:if="{{photo || phase === 'uploading'}}" class="text-button" bindtap="cancel">取消并删除照片</button><button class="text-button" bindtap="backManual">返回手动标注</button></view>
+ <view class="privacy"><text>AI辅助结果需自行确认，不用于诊断</text><button class="text-button" bindtap="showPrivacy">照片用途与隐私</button></view>
+</view>

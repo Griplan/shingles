@@ -1,0 +1,12 @@
+WARNING: The directory '/Users/griplan/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Processing ./ai/models/MobileSAM-source
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: mobile_sam
+  Building wheel for mobile_sam (pyproject.toml): started
+  Building wheel for mobile_sam (pyproject.toml): finished with status 'done'
+  Created wheel for mobile_sam: filename=mobile_sam-1.0-py3-none-any.whl size=42478 sha256=f968df27aa2feb3ce57278f709c80b840edd49d237c1cb3e9f375828df4e0f05
+  Stored in directory: /private/var/folders/vn/20gd7kbn4k70bmt4jhqgpg5h0000gn/T/pip-ephem-wheel-cache-te1pwxdw/wheels/cf/3f/27/5562a1a2a6369a819c15c0cd4df2f92a081f9df0caf562f720
+Successfully built mobile_sam
+Installing collected packages: mobile_sam
+Successfully installed mobile_sam-1.0

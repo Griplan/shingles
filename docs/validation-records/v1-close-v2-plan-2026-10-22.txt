@@ -1,0 +1,34 @@
+V1 close / V2 planning documentation audit — 2026-10-22 Asia/Shanghai
+Scope: review/close/plan only. Existing V1 results referenced, no unit/WeChat rerun; all new V2 tests NOT_RUN.
+Initial read note: shell wildcard of empty lesion-editor directory reported no matches. Read-only ls later confirmed only .gitkeep; not a business test failure.
+
+PASSED: Baseline 246 non-ignored files captured
+PASSED: Only six allowed existing documents modified
+PASSED: Only plan and this evidence text added
+PASSED: No file deleted
+PASSED: 240 other baseline files byte-identical including AGENTS quality rules, all TS/WXML/WXSS/JSON/assets, backend, atlas, dependencies/tests and old evidence
+PASSED: V0-V1.6 task history retained exactly
+PASSED: Initial V2 plan history retained exactly
+PASSED: V3-V8 plans unchanged
+PASSED: 162 relative Markdown links and 4 JSON code blocks valid; code fences balanced; no extension-token URL/API-key patterns
+PASSED: Exactly 38 unique V2 planned tests, all seven fields present and all NOT_RUN
+PASSED: All five development phases remain TODO
+PASSED: five phase plans each define objective/dependency/reuse/files/tasks/tests/acceptance/exclusions/risks/status
+PASSED: Six frozen baseline SHA-256 fingerprints match actual files
+PASSED: Proposed business modules are not created
+
+MODIFIED (6)
+README.md
+docs/architecture.md
+docs/atlas-spec.md
+docs/requirements.md
+docs/validation.md
+task.md
+
+ADDED (2)
+docs/v2-plan.md
+docs/validation-records/v1-close-v2-plan-2026-10-22.txt
+
+No Git add/commit/tag/push/reset/clean action performed.
+Existing V1.6 result references: v16-regression-2026-10-22.txt (77 frontend/12 backend plus static/geometry); not new results.
+Actual GUI/polygon implementation/V2 tests: NOT_RUN this round. This report is a documentation/scope audit only.

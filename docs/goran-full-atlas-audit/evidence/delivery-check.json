@@ -1,0 +1,14 @@
+{
+  "auditDate": "2026-11-05",
+  "protectedFiles": 260,
+  "changed": [],
+  "missing": [],
+  "brokenReportLinks": [],
+  "sourceVersions": 22,
+  "svgEvidenceCount": 41,
+  "pngEvidenceCount": 43,
+  "productionAccessed": false,
+  "deployed": false,
+  "wechatUploaded": false,
+  "gitCommitted": false
+}

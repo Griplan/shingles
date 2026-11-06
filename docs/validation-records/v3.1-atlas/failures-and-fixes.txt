@@ -1,0 +1,5 @@
+2026-10-24 Asia/Shanghai. V3.1制作过程真实失败与修正。
+1. 初次离线源SVG裁图使用ns0:svg前缀，Sharp报unsupported format；注册默认SVG namespace后正常渲染。未因此猜测源图标签。
+2. first-build.txt：初次脚部同标签踝线并集发生近重合点自交，位置约(0.3833064163,0.9111111111)。原因是父版已归一化几何重复缩放/舍入；改在最终归一化空间合并原父几何与新片区，未用buffer/make_valid/凸包掩盖问题。初次外层日志显示命令状态不能替代其中Python traceback；该次生成记FAILED，后续独立校验通过。保留first-build.txt、second-build.txt。
+3. 初次源正背面并排预览中SVG共享gradient ID导致背面一脚着色异常。预览脚本给各view的ID及引用加独立前缀后恢复，未改原图几何。最终图已重新生成并目视核对。
+4. 微信初次画面与辅助树不同步；重新打开项目后恢复，见gui-validation.txt。原生滚轮指定足标签未能可靠选中，随后窗口连接消失；不记通过。

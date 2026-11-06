@@ -1,0 +1,7 @@
+PASS real HTTP: confirmed polygon -> one calculation, no route change, stable zoom/stage -> ALL exact instances -> focus/all/reset/resize
+PASS real HTTP: return edit/add -> stale colors cleared -> one calculation -> independent lesions + union summary + single scope
+PASS real HTTP: back polygon -> isolated back response/overlay -> switch front defaults to ALL front candidates
+PASS injected network failure: old colors cleared, annotation retained, retry returns real HTTP result
+PASS real HTTP: unconfigured hair -> none, no invented candidate; unchanged revision reentry uses response; no navigation
+Actual adapter timing (ms; NOT native first-frame/FPS): {"prepareMs":0}
+All integration assertions PASSED. Synthetic markers, local HTTP; no patient data.

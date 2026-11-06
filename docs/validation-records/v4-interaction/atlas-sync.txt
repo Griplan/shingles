@@ -1,0 +1,3 @@
+COMMAND: backend/.venv/bin/python scripts/sync_atlas.py --check
+EXIT_CODE: 0
+PASSED: canonical hash and generated package copy agree

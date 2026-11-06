@@ -1,0 +1,8 @@
+COMMAND: node scripts/test_matching_http.cjs
+EXIT_CODE: 0
+PASS real HTTP: V2 polygon -> one calculation -> ALL exact atlas instances + unchanged annotation -> focus/reset/resize
+PASS real HTTP: return edit/add -> old overlay cleared -> one navigation calculation -> independent lesions + union summary + single scope
+PASS real HTTP: back polygon -> isolated back response/overlay -> switch front defaults to ALL front candidates
+PASS network adapter failure: new request clears old colors, annotation retained, retry returns real HTTP result
+PASS real HTTP: unconfigured hair -> none, no invented candidate; unchanged revision reentry reuses response
+All integration assertions PASSED. Synthetic markers; no patient data; wx platform adapter, NOT real GUI.

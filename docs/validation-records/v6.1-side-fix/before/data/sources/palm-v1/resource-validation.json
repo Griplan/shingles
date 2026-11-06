@@ -1,0 +1,166 @@
+{
+  "status": "PASS",
+  "scope": "Source-derived display geometry and static resources only; not neurological atlas or WeChat runtime",
+  "logicalSize": [
+    440,
+    700
+  ],
+  "runtimeRasterSize": [
+    880,
+    1400
+  ],
+  "outlineVertexCountEach": 366,
+  "polygonValid": true,
+  "mirrorSymmetricDifferenceArea": 9.343136315892474e-17,
+  "referencePoints": [
+    {
+      "name": "thumb",
+      "rightNormalized": [
+        0.13636363636363635,
+        0.44285714285714284
+      ],
+      "leftNormalized": [
+        0.8636363636363636,
+        0.44285714285714284
+      ],
+      "expectedOnSurface": true,
+      "actualOnSurface": true
+    },
+    {
+      "name": "index",
+      "rightNormalized": [
+        0.42727272727272725,
+        0.2
+      ],
+      "leftNormalized": [
+        0.5727272727272728,
+        0.2
+      ],
+      "expectedOnSurface": true,
+      "actualOnSurface": true
+    },
+    {
+      "name": "middle",
+      "rightNormalized": [
+        0.5772727272727273,
+        0.1357142857142857
+      ],
+      "leftNormalized": [
+        0.42272727272727273,
+        0.1357142857142857
+      ],
+      "expectedOnSurface": true,
+      "actualOnSurface": true
+    },
+    {
+      "name": "ring",
+      "rightNormalized": [
+        0.6977272727272728,
+        0.15714285714285714
+      ],
+      "leftNormalized": [
+        0.30227272727272725,
+        0.15714285714285714
+      ],
+      "expectedOnSurface": true,
+      "actualOnSurface": true
+    },
+    {
+      "name": "little",
+      "rightNormalized": [
+        0.8568181818181818,
+        0.2785714285714286
+      ],
+      "leftNormalized": [
+        0.1431818181818182,
+        0.2785714285714286
+      ],
+      "expectedOnSurface": true,
+      "actualOnSurface": true
+    },
+    {
+      "name": "central_palm",
+      "rightNormalized": [
+        0.6363636363636364,
+        0.6714285714285714
+      ],
+      "leftNormalized": [
+        0.36363636363636365,
+        0.6714285714285714
+      ],
+      "expectedOnSurface": true,
+      "actualOnSurface": true
+    },
+    {
+      "name": "wrist",
+      "rightNormalized": [
+        0.6363636363636364,
+        0.9142857142857143
+      ],
+      "leftNormalized": [
+        0.36363636363636365,
+        0.9142857142857143
+      ],
+      "expectedOnSurface": true,
+      "actualOnSurface": true
+    },
+    {
+      "name": "index_middle_gap",
+      "rightNormalized": [
+        0.49772727272727274,
+        0.37142857142857144
+      ],
+      "leftNormalized": [
+        0.5022727272727272,
+        0.37142857142857144
+      ],
+      "expectedOnSurface": false,
+      "actualOnSurface": false
+    },
+    {
+      "name": "middle_ring_gap",
+      "rightNormalized": [
+        0.6431818181818182,
+        0.37142857142857144
+      ],
+      "leftNormalized": [
+        0.3568181818181818,
+        0.37142857142857144
+      ],
+      "expectedOnSurface": false,
+      "actualOnSurface": false
+    },
+    {
+      "name": "ring_little_gap",
+      "rightNormalized": [
+        0.7886363636363637,
+        0.40714285714285714
+      ],
+      "leftNormalized": [
+        0.2113636363636363,
+        0.40714285714285714
+      ],
+      "expectedOnSurface": false,
+      "actualOnSurface": false
+    },
+    {
+      "name": "thumb_index_gap",
+      "rightNormalized": [
+        0.31136363636363634,
+        0.4857142857142857
+      ],
+      "leftNormalized": [
+        0.6886363636363637,
+        0.4857142857142857
+      ],
+      "expectedOnSurface": false,
+      "actualOnSurface": false
+    }
+  ],
+  "checks": [
+    "closed valid normalized rings",
+    "source path retained with documented wrist crop",
+    "left/right equal area and horizontal mirror within rounding tolerance",
+    "seven visible anatomical surface points and four visible gaps checked on both sides"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "atlasId": "palm-dermatomes-v1",
+  "atlasVersion": "palm-dermatomes-preview.2",
+  "templateId": "commons-palm-v1",
+  "templateVersion": "1.1.0",
+  "geometryId": "commons-palm-outline-v2",
+  "regionSetId": "commons-palm-ui-v2",
+  "contentSHA256": "5e6366a5664ea15c4140fc510ac42771e0e5367f9128511f820275efececbe6d",
+  "sourceTitle": "掌侧脊神经皮节边界待核验",
+  "sourceUrl": "",
+  "attribution": "尚未配置可用于掌侧面积匹配的皮节来源",
+  "license": "UNKNOWN",
+  "sourceLicenseStatus": "UNKNOWN",
+  "medicalReviewStatus": "pending",
+  "mappingEnabled": false,
+  "technicalValidationStatus": "blocked_missing_boundaries",
+  "coverageNote": "当前左右手掌没有可靠配置的皮节区域。未配置不代表没有感觉神经；此状态不能返回成功的未覆盖计算。"
+}

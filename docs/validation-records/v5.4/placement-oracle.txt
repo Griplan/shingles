@@ -1,0 +1,3 @@
+PASSED: 1341 MultiPolygon validity/covers cases agree with independent Shapely; seed 20261031, 6 bodies including actual front/back, 220 generated cases/body.
+Includes disconnected pieces, preserved holes, hidden background bridges, invalid topology and boundary contact.
+Synthetic engineering oracle only; not AI segmentation accuracy, anatomical registration, or WeChat runtime.

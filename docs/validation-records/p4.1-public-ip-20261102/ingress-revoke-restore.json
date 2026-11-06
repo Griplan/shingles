@@ -1,0 +1,12 @@
+[
+  {
+    "action": "disable",
+    "b_public_health": 404,
+    "a_public_ip_ready": 200
+  },
+  {
+    "action": "enable",
+    "b_public_health": 200,
+    "a_public_ip_ready": 200
+  }
+]

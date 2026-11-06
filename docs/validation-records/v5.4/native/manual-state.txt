@@ -1,0 +1,1 @@
++																					784 text V54_MANUAL_OK {"requests":3,"httpMs":[125,135,170],"lesions":[{"source":"manual","view":"front","fullGeometry":false},{"source":"ai_assisted","view":"back","fullGeometry":true}],"labels":4}

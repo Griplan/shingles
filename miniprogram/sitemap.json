@@ -1,0 +1,6 @@
+{
+  "desc": "V0 开发骨架不参与小程序搜索索引",
+  "rules": [
+    {"action": "disallow", "page": "*"}
+  ]
+}

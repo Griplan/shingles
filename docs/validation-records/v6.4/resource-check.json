@@ -1,0 +1,46 @@
+{
+  "sole-left": {
+    "pngSize": [
+      640,
+      1280
+    ],
+    "alphaSamplesInside": 2592,
+    "alphaSamplesOutside": 2882,
+    "pngSHA256": "b2c22883f50ba1f1619197f20ef46b28cfafd36f768a7d97a97250c912785163",
+    "samplingHausdorffNormalizedAgainstHalfTolerance": {
+      "L5": 0.00023418487734410548,
+      "S1": 0.0002018913675776162
+    },
+    "L5_S1_overlapArea": 3.626610484241336e-15,
+    "containmentOutsideArea": {
+      "L5": 0.0,
+      "S1": 7.911848475395573e-24
+    },
+    "sourceToExportAreaDiscrepancy": {
+      "L5": 0.0,
+      "S1": 0.0
+    }
+  },
+  "sole-right": {
+    "pngSize": [
+      640,
+      1280
+    ],
+    "alphaSamplesInside": 2627,
+    "alphaSamplesOutside": 2843,
+    "pngSHA256": "fbb070433bebe60c480df13a7e752cf7642acbee95ad9e8cbbbfcde2c9c69b9b",
+    "samplingHausdorffNormalizedAgainstHalfTolerance": {
+      "L5": 0.00023538683029485078,
+      "S1": 0.00023859805965274338
+    },
+    "L5_S1_overlapArea": 0.0,
+    "containmentOutsideArea": {
+      "L5": 0.0,
+      "S1": 6.687853565402967e-16
+    },
+    "sourceToExportAreaDiscrepancy": {
+      "L5": 0.0,
+      "S1": 0.0
+    }
+  }
+}

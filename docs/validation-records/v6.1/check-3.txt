@@ -1,0 +1,3 @@
+COMMAND: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/bin/python scripts/sync_palm.py --check
+EXIT: 0
+PASSED: palm source geometry, identity, content hashes and package agree

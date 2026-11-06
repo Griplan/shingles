@@ -1,0 +1,76 @@
+{
+  "model": {
+    "name": "MobileSAM",
+    "variant": "vit_t",
+    "package_version": "1.0",
+    "source_commit": "f706ad9c4eb7f219c00d9050e46328518ffb65d2",
+    "license": "Apache-2.0",
+    "weights_sha256": "6dbb90523a35330fedd7f1d3dfc66f995213d81b29a5ca8108dbcdd4e37d6c2f",
+    "weights_bytes": 40728226,
+    "device": "mps",
+    "dtype": "float32",
+    "torch": "2.5.1",
+    "threads": 4,
+    "load_seconds": 1.06440879101865,
+    "source": "https://github.com/ChaoningZhang/MobileSAM"
+  },
+  "records": [
+    {
+      "iteration": 0,
+      "kind": "cold",
+      "encode_seconds": 0.31462487508542836,
+      "decode_seconds": 0.12290524994023144,
+      "inference_seconds": 0.4375301250256598,
+      "cpu_seconds": 0.6799060000000001,
+      "wall_seconds": 0.4380759159103036,
+      "rss_bytes": 524681216,
+      "process_peak_rss_macos_bytes": 534364160,
+      "masks_sha256": "6acfe5ccb756d5da8027e3466bbcd521c3383cc37660e9c8e021e1a0161ee6c1",
+      "mps_current_allocated_bytes": 47444992,
+      "mps_driver_allocated_bytes": 1331855360
+    },
+    {
+      "iteration": 1,
+      "kind": "warm",
+      "encode_seconds": 0.10951837501488626,
+      "decode_seconds": 0.011071542045101523,
+      "inference_seconds": 0.12058991705998778,
+      "cpu_seconds": 0.055713000000000346,
+      "wall_seconds": 0.12101141596212983,
+      "rss_bytes": 500432896,
+      "process_peak_rss_macos_bytes": 536559616,
+      "masks_sha256": "6acfe5ccb756d5da8027e3466bbcd521c3383cc37660e9c8e021e1a0161ee6c1",
+      "mps_current_allocated_bytes": 47444992,
+      "mps_driver_allocated_bytes": 1556250624
+    },
+    {
+      "iteration": 2,
+      "kind": "warm",
+      "encode_seconds": 0.10722458316013217,
+      "decode_seconds": 0.010985499946400523,
+      "inference_seconds": 0.11821008310653269,
+      "cpu_seconds": 0.03561999999999976,
+      "wall_seconds": 0.11837475001811981,
+      "rss_bytes": 502595584,
+      "process_peak_rss_macos_bytes": 536559616,
+      "masks_sha256": "6acfe5ccb756d5da8027e3466bbcd521c3383cc37660e9c8e021e1a0161ee6c1",
+      "mps_current_allocated_bytes": 47444992,
+      "mps_driver_allocated_bytes": 1556250624
+    },
+    {
+      "iteration": 3,
+      "kind": "warm",
+      "encode_seconds": 0.11581624997779727,
+      "decode_seconds": 0.009925417136400938,
+      "inference_seconds": 0.1257416671141982,
+      "cpu_seconds": 0.056831999999999994,
+      "wall_seconds": 0.12584541598334908,
+      "rss_bytes": 482623488,
+      "process_peak_rss_macos_bytes": 536559616,
+      "masks_sha256": "6acfe5ccb756d5da8027e3466bbcd521c3383cc37660e9c8e021e1a0161ee6c1",
+      "mps_current_allocated_bytes": 47444992,
+      "mps_driver_allocated_bytes": 1556250624
+    }
+  ],
+  "gpu_utilization": "NOT_MEASURED"
+}

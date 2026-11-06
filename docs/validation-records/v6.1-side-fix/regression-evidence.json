@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-04",
+  "rule": "Fingers up, palmar surface toward observer: left thumb screen-left, right thumb screen-right. Original Gray1237.png is captioned left palm.",
+  "source": "https://commons.wikimedia.org/wiki/File:Gray1237.png",
+  "checks": [
+    {
+      "view": "palm-left",
+      "reference": "visible thumb/index web air",
+      "normalizedPoint": [
+        0.28,
+        0.45
+      ],
+      "expectedOnSkin": false,
+      "before": {
+        "alpha": 255,
+        "onSkin": true
+      },
+      "after": {
+        "alpha": 0,
+        "onSkin": false
+      },
+      "geometryEqualsOldOpposite": true,
+      "pngEqualsOldOpposite": true
+    },
+    {
+      "view": "palm-right",
+      "reference": "visible thumb/index web air",
+      "normalizedPoint": [
+        0.72,
+        0.45
+      ],
+      "expectedOnSkin": false,
+      "before": {
+        "alpha": 255,
+        "onSkin": true
+      },
+      "after": {
+        "alpha": 0,
+        "onSkin": false
+      },
+      "geometryEqualsOldOpposite": true,
+      "pngEqualsOldOpposite": true
+    }
+  ],
+  "originalProtectedFiles": 63,
+  "originalProtectedChanges": [],
+  "templateVersion": "1.1.0",
+  "geometryId": "commons-palm-outline-v2",
+  "atlasVersion": "palm-dermatomes-preview.2",
+  "runtimeValidation": "NOT_RUN",
+  "medicalAtlasStatus": "BLOCKED"
+}

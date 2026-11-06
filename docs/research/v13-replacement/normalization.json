@@ -1,0 +1,29 @@
+{
+  "logicalWidth": 400,
+  "logicalHeight": 900,
+  "rasterScale": 3,
+  "sourceTop": 19,
+  "sourceBottom": 750,
+  "scale": 1.1491108071135432,
+  "translateY": 8.16689466484268,
+  "views": {
+    "front": {
+      "translateX": 10.396716826265362,
+      "bounds": {
+        "x0": 13,
+        "y0": 20,
+        "x1": 317,
+        "y1": 749
+      }
+    },
+    "back": {
+      "translateX": -477.9753761969905,
+      "bounds": {
+        "x0": 444,
+        "y0": 19,
+        "x1": 736,
+        "y1": 750
+      }
+    }
+  }
+}

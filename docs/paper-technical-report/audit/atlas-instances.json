@@ -1,0 +1,1838 @@
+[
+  {
+    "id": "back-left-C2",
+    "label": "C2",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 179,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      22
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-C2",
+    "label": "C2",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 143,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      22
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-C3",
+    "label": "C3",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 140,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      23
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-C3",
+    "label": "C3",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 136,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      23
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-C4",
+    "label": "C4",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 205,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      24
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-C4",
+    "label": "C4",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 162,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      24
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-C5",
+    "label": "C5",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 156,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      46
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-C5",
+    "label": "C5",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 153,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      46
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-C6",
+    "label": "C6",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 425,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      26
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-C6",
+    "label": "C6",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 320,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      26
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-C6_C8",
+    "label": "C6-C8",
+    "view": "back",
+    "side": "left",
+    "parts": 3,
+    "holes": 0,
+    "vertices": 389,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      47,
+      48
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-C6_C8",
+    "label": "C6-C8",
+    "view": "back",
+    "side": "right",
+    "parts": 3,
+    "holes": 0,
+    "vertices": 391,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      47,
+      48
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-C7",
+    "label": "C7",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 1,
+    "vertices": 517,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      20
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-C7",
+    "label": "C7",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 500,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      20
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-C8",
+    "label": "C8",
+    "view": "back",
+    "side": "left",
+    "parts": 2,
+    "holes": 0,
+    "vertices": 205,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      25,
+      27,
+      40
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-C8",
+    "label": "C8",
+    "view": "back",
+    "side": "right",
+    "parts": 2,
+    "holes": 0,
+    "vertices": 204,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      25,
+      27,
+      40
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-T1",
+    "label": "T1",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 101,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      6
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-T1",
+    "label": "T1",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 119,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      6
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-T1_T2",
+    "label": "T1/T2",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 288,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      41
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-T1_T2",
+    "label": "T1/T2",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 406,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      41
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-T2",
+    "label": "T2",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 97,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      7
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-T2",
+    "label": "T2",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 102,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      7
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-T3",
+    "label": "T3",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 78,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      8
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-T3",
+    "label": "T3",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 85,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      8
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-T4",
+    "label": "T4",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 67,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      9
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-T4",
+    "label": "T4",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 68,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      9
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-T5",
+    "label": "T5",
+    "view": "back",
+    "side": "left",
+    "parts": 2,
+    "holes": 0,
+    "vertices": 66,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      10
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-T5",
+    "label": "T5",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 62,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      10
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-T6",
+    "label": "T6",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 58,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      11
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-T6",
+    "label": "T6",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 62,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      11
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-T7",
+    "label": "T7",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 74,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      12
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-T7",
+    "label": "T7",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 68,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      12
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-T8",
+    "label": "T8",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 90,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      14
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-T8",
+    "label": "T8",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 81,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      14
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-T9",
+    "label": "T9",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 89,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      15
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-T9",
+    "label": "T9",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 84,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      15
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-T10",
+    "label": "T10",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 104,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      16
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-T10",
+    "label": "T10",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 116,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      16
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-T11",
+    "label": "T11",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 175,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      17
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-T11",
+    "label": "T11",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 132,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      17
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-T12",
+    "label": "T12",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 168,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      13
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-T12",
+    "label": "T12",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 158,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      13
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-L1",
+    "label": "L1",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 191,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      18
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-L1",
+    "label": "L1",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 192,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      18
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-L2",
+    "label": "L2",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 360,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      19
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-L2",
+    "label": "L2",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 1,
+    "vertices": 333,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      19
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-L3",
+    "label": "L3",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 233,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      37
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-L3",
+    "label": "L3",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 396,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      37
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-L4",
+    "label": "L4",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 203,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      36
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-L4",
+    "label": "L4",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 241,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      36
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-L5",
+    "label": "L5",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 247,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      38
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-L5",
+    "label": "L5",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 179,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      38
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-S2",
+    "label": "S2",
+    "view": "back",
+    "side": "left",
+    "parts": 2,
+    "holes": 0,
+    "vertices": 649,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      49
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-S2",
+    "label": "S2",
+    "view": "back",
+    "side": "right",
+    "parts": 2,
+    "holes": 0,
+    "vertices": 627,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      49
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-S3",
+    "label": "S3",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 155,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      32
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-S3",
+    "label": "S3",
+    "view": "back",
+    "side": "right",
+    "parts": 3,
+    "holes": 0,
+    "vertices": 173,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      32
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-S4",
+    "label": "S4",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 83,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      33
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-S4",
+    "label": "S4",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 102,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      33
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-left-S5",
+    "label": "S5",
+    "view": "back",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 43,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      34
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "back-right-S5",
+    "label": "S5",
+    "view": "back",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 75,
+    "source_refs": [
+      "commons-goran-2022-back"
+    ],
+    "source_path_indices": [
+      34
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-V1",
+    "label": "V1",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 345,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      13
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-V1",
+    "label": "V1",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 372,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      13
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-V2",
+    "label": "V2",
+    "view": "front",
+    "side": "left",
+    "parts": 2,
+    "holes": 0,
+    "vertices": 567,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      14
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-V2",
+    "label": "V2",
+    "view": "front",
+    "side": "right",
+    "parts": 2,
+    "holes": 0,
+    "vertices": 594,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      14
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-V3",
+    "label": "V3",
+    "view": "front",
+    "side": "left",
+    "parts": 2,
+    "holes": 0,
+    "vertices": 485,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      16
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-V3",
+    "label": "V3",
+    "view": "front",
+    "side": "right",
+    "parts": 2,
+    "holes": 0,
+    "vertices": 490,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      16
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-C2",
+    "label": "C2",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 191,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      15
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-C2",
+    "label": "C2",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 139,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      15
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-C3",
+    "label": "C3",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 89,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      17
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-C3",
+    "label": "C3",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 78,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      17
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-C4",
+    "label": "C4",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 139,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      18
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-C4",
+    "label": "C4",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 115,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      18
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-C5",
+    "label": "C5",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 548,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      28
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-C5",
+    "label": "C5",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 506,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      28
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-C6",
+    "label": "C6",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 356,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      21
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-C6",
+    "label": "C6",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 239,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      21
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-C8_T1",
+    "label": "C8/T1",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 248,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      32
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-C8_T1",
+    "label": "C8/T1",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 323,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      32
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-T1",
+    "label": "T1",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 1,
+    "vertices": 301,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      1,
+      19
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-T1",
+    "label": "T1",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 10,
+    "vertices": 347,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      1,
+      19
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-T2",
+    "label": "T2",
+    "view": "front",
+    "side": "left",
+    "parts": 2,
+    "holes": 0,
+    "vertices": 152,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      2,
+      20
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-T2",
+    "label": "T2",
+    "view": "front",
+    "side": "right",
+    "parts": 2,
+    "holes": 0,
+    "vertices": 186,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      2,
+      20
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-T3",
+    "label": "T3",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 56,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      3
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-T3",
+    "label": "T3",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 57,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      3
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-T4",
+    "label": "T4",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 34,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      4
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-T4",
+    "label": "T4",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 39,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      4
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-T5",
+    "label": "T5",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 44,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      5
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-T5",
+    "label": "T5",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 43,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      5
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-T6",
+    "label": "T6",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 57,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      6
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-T6",
+    "label": "T6",
+    "view": "front",
+    "side": "right",
+    "parts": 2,
+    "holes": 0,
+    "vertices": 54,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      6
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-T7",
+    "label": "T7",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 36,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      7
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-T7",
+    "label": "T7",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 29,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      7
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-T8",
+    "label": "T8",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 24,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      8
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-T8",
+    "label": "T8",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 26,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      8
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-T9",
+    "label": "T9",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 41,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      9
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-T9",
+    "label": "T9",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 39,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      9
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-T10",
+    "label": "T10",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 63,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      10
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-T10",
+    "label": "T10",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 56,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      10
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-T11",
+    "label": "T11",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 50,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      11
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-T11",
+    "label": "T11",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 57,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      11
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-T12",
+    "label": "T12",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 75,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      12
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-T12",
+    "label": "T12",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 78,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      12
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-L1",
+    "label": "L1",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 115,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      33
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-L1",
+    "label": "L1",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 116,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      33
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-L2",
+    "label": "L2",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 191,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      34
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-L2",
+    "label": "L2",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 166,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      34
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-L3",
+    "label": "L3",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 272,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      35
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-L3",
+    "label": "L3",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 319,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      35
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-L4",
+    "label": "L4",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 877,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      36
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-L4",
+    "label": "L4",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 0,
+    "vertices": 925,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      36
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-L5",
+    "label": "L5",
+    "view": "front",
+    "side": "left",
+    "parts": 1,
+    "holes": 1,
+    "vertices": 2077,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      41
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-L5",
+    "label": "L5",
+    "view": "front",
+    "side": "right",
+    "parts": 1,
+    "holes": 3,
+    "vertices": 1934,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      41
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-left-S1",
+    "label": "S1",
+    "view": "front",
+    "side": "left",
+    "parts": 2,
+    "holes": 0,
+    "vertices": 1665,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      37,
+      38
+    ],
+    "medical_review": "pending"
+  },
+  {
+    "id": "front-right-S1",
+    "label": "S1",
+    "view": "front",
+    "side": "right",
+    "parts": 2,
+    "holes": 0,
+    "vertices": 1626,
+    "source_refs": [
+      "commons-goran-2022-front"
+    ],
+    "source_path_indices": [
+      37,
+      38
+    ],
+    "medical_review": "pending"
+  }
+]

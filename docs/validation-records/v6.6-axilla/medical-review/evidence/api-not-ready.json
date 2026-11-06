@@ -1,0 +1,27 @@
+{
+  "testKind": "in-process FastAPI TestClient, not deployed service or WeChat",
+  "responses": [
+    {
+      "view": "axilla-left",
+      "status": 409,
+      "response": {
+        "error": {
+          "code": "ATLAS_NOT_READY",
+          "message": "局部视图皮节边界资料尚未通过配置检查，当前可标注但不能计算；标注仍保留"
+        }
+      },
+      "fixture": "Existing synthetic multipolygon with hole; no patient data"
+    },
+    {
+      "view": "axilla-right",
+      "status": 409,
+      "response": {
+        "error": {
+          "code": "ATLAS_NOT_READY",
+          "message": "局部视图皮节边界资料尚未通过配置检查，当前可标注但不能计算；标注仍保留"
+        }
+      },
+      "fixture": "Existing synthetic multipolygon with hole; no patient data"
+    }
+  ]
+}

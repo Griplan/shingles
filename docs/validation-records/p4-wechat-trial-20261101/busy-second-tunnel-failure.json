@@ -1,0 +1,5 @@
+{
+  "transport": "direct loopback through admin SSH; not phone or HTTPS",
+  "status": "FAILED",
+  "error_type": "ConnectError"
+}

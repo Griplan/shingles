@@ -1,0 +1,15 @@
+{
+  "atlasVersion": "goran-2022-commons-template4-preview.1",
+  "templateId": "commons-neutral-v1",
+  "templateVersion": "4.0.0",
+  "geometryId": "commons-blank-cc0-v1",
+  "sourceLicenseStatus": "verified",
+  "technicalValidationStatus": "passed_offline_geometry",
+  "medicalReviewStatus": "pending",
+  "mappingEnabled": false,
+  "sourceTitle": "Goran_tek-en · Dermatomes labeled, male front/back (2022)",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg",
+  "attribution": "Goran_tek-en / Wikimedia Commons / CC BY-SA 4.0；提取、配准、排除部分体表并简化曲线。衍生图谱数据沿用 CC BY-SA 4.0。",
+  "coverageNote": "仅已配置脊神经皮节与原图组合标签。面部三叉神经、头部侧面插图、歧义 C1/Co1、手掌手指、足趾及前面会阴未配置；留白不代表无感觉神经。医学审核待完成。",
+  "contentSHA256": "ae4bc65f60d8aba519d46fa3c4687a68f02a7ea7c1331aebdc9a1034e4133cd7"
+}

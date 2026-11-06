@@ -1,0 +1,38 @@
+{
+  "atlas_version": "v1",
+  "coordinate_system": {
+    "type": "normalized_2d",
+    "origin": "top_left",
+    "x_range": [0, 1],
+    "y_range": [0, 1],
+    "x_direction": "right",
+    "y_direction": "down",
+    "laterality": "anatomical"
+  },
+  "source": {
+    "status": "not_acquired",
+    "references": []
+  },
+  "license": {
+    "status": "not_acquired",
+    "identifier": null
+  },
+  "validation_status": "unverified",
+  "mapping_enabled": false,
+  "views": {
+    "front": {
+      "file": "front.json",
+      "background_image": null
+    },
+    "back": {
+      "file": "back.json",
+      "background_image": null
+    }
+  },
+  "medical_review": {
+    "status": "not_started",
+    "reviewer": null,
+    "reviewed_at": null,
+    "record": null
+  }
+}

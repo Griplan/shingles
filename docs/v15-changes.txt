@@ -1,0 +1,43 @@
+V1.5 actual changes relative to 208-file pre-turn snapshot (not Git HEAD).
+Historical project files were already untracked; no Git add/commit/push performed.
+
+MODIFIED (16)
+AGENTS.md
+README.md
+docs/architecture.md
+docs/validation.md
+miniprogram/components/body-canvas/body-canvas.ts
+miniprogram/components/body-canvas/body-canvas.wxml
+miniprogram/components/body-canvas/body-canvas.wxss
+miniprogram/pages/index/index.wxml
+miniprogram/pages/select/select.json
+miniprogram/pages/select/select.ts
+miniprogram/pages/select/select.wxml
+miniprogram/pages/select/select.wxss
+miniprogram/types/dermatome.ts
+scripts/check_project.py
+task.md
+tests/miniprogram/canvas.test.cjs
+
+ADDED (19)
+backend/tests/fixtures/synthetic-ui-hit.json
+docs/v15-changes.txt
+docs/validation-records/v15-first-check-2026-10-22.txt
+docs/validation-records/v15-gui-2026-10-22.txt
+docs/validation-records/v15-regression-2026-10-22.txt
+docs/validation-records/v15-scope-2026-10-22.txt
+docs/validation-records/v15-tests-expanded-2026-10-22.txt
+docs/validation-records/v15-tests-final-2026-10-22.txt
+docs/validation-records/v15-tests-first-2026-10-22.txt
+docs/validation-records/v15-tests-layout-2026-10-22.txt
+docs/validation-records/v15-typecheck-2026-10-22.txt
+docs/validation-records/v15-typecheck-final-2026-10-22.txt
+miniprogram/components/region-picker/region-picker.json
+miniprogram/components/region-picker/region-picker.ts
+miniprogram/components/region-picker/region-picker.wxml
+miniprogram/components/region-picker/region-picker.wxss
+miniprogram/utils/body-hit-test.ts
+tests/miniprogram/region-hit.test.cjs
+tests/miniprogram/selection.test.cjs
+
+DELETED (0)

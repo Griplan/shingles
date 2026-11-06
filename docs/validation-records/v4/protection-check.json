@@ -1,0 +1,311 @@
+{
+  "status": "PASSED",
+  "count": 61,
+  "files": [
+    {
+      "path": "data/atlas/goran-2022-preview-v1/NOTICE.md",
+      "before": "7bbe18d36fb9440c6b4b580e636668d5fefdb9061bbf8e633dc4cab34868f2b7",
+      "after": "7bbe18d36fb9440c6b4b580e636668d5fefdb9061bbf8e633dc4cab34868f2b7"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/back.json",
+      "before": "aea2085c93560dc434bc9b0bb62cb7ef7d2df91023f19200e54816357f003bbb",
+      "after": "aea2085c93560dc434bc9b0bb62cb7ef7d2df91023f19200e54816357f003bbb"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/coverage.json",
+      "before": "d79d88c3f892a436e33345b39229330bb2730c8b39a80ad5320b804504dfdfa1",
+      "after": "d79d88c3f892a436e33345b39229330bb2730c8b39a80ad5320b804504dfdfa1"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/front.json",
+      "before": "b68954b9c0af82b4ebdf052933b98a45efb8dcc74c84e4a181733cc50c11a80d",
+      "after": "b68954b9c0af82b4ebdf052933b98a45efb8dcc74c84e4a181733cc50c11a80d"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/manifest.json",
+      "before": "c27b03c330ef5ce69480778c8fea2479608ff2dd347d34dfe6fc40e3fa758568",
+      "after": "c27b03c330ef5ce69480778c8fea2479608ff2dd347d34dfe6fc40e3fa758568"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/registration-report.json",
+      "before": "709cec15b0b2a6d10905645ad3ac2faef29397542a71c45a99969639e26e0853",
+      "after": "709cec15b0b2a6d10905645ad3ac2faef29397542a71c45a99969639e26e0853"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/registration.json",
+      "before": "8a997410d8e92d6133079cea4c228c990234dfbb896bd849f41c06b2a2b46066",
+      "after": "8a997410d8e92d6133079cea4c228c990234dfbb896bd849f41c06b2a2b46066"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/source-map.json",
+      "before": "ceea8c7896c586d2067a2f302f34ce85cb87b631698cead36485f3fb0b413573",
+      "after": "ceea8c7896c586d2067a2f302f34ce85cb87b631698cead36485f3fb0b413573"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/sources.json",
+      "before": "bed13c66fdfd9b9cd4cc6c63b9eee4272f7cc9912405a482f09acca1c8196252",
+      "after": "bed13c66fdfd9b9cd4cc6c63b9eee4272f7cc9912405a482f09acca1c8196252"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/validation.json",
+      "before": "6ae9778a09972c2e4b24ffc66a1fa5a68000191cc79e37837f1f295014a1da7d",
+      "after": "6ae9778a09972c2e4b24ffc66a1fa5a68000191cc79e37837f1f295014a1da7d"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/NOTICE.md",
+      "before": "420726ed651d492514d47b78ba205f04620d452333e2a1f6351adf4ed5db5e22",
+      "after": "420726ed651d492514d47b78ba205f04620d452333e2a1f6351adf4ed5db5e22"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/back.json",
+      "before": "515217b185ecc088a4fdfcaf58f3a8eaf84a2bcf8355462201c92b2ec3b1da10",
+      "after": "515217b185ecc088a4fdfcaf58f3a8eaf84a2bcf8355462201c92b2ec3b1da10"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/coverage.json",
+      "before": "f2892326d05c93160706b772db85e4a93c65cdf3751bef5ee9ea70bd90a841f3",
+      "after": "f2892326d05c93160706b772db85e4a93c65cdf3751bef5ee9ea70bd90a841f3"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/front.json",
+      "before": "d46ddaf4702714dbbab9c03958df2b3fe563c0a454eecf44d6de2a0904bfbc5d",
+      "after": "d46ddaf4702714dbbab9c03958df2b3fe563c0a454eecf44d6de2a0904bfbc5d"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/local-registration-report.json",
+      "before": "2c17674b1c2a299b55cbfb615945c3d86f21b2d56e5a67bcf9388769656f89ca",
+      "after": "2c17674b1c2a299b55cbfb615945c3d86f21b2d56e5a67bcf9388769656f89ca"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/local-registration.json",
+      "before": "f552b029e7daed386f73e13956a4764e3a852de253ceef124bbed445bdadc30d",
+      "after": "f552b029e7daed386f73e13956a4764e3a852de253ceef124bbed445bdadc30d"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/manifest.json",
+      "before": "5c2e3d543160fccbf18b6cb5fe6542010fc5420dfc38ec2a175e5cff4b793621",
+      "after": "5c2e3d543160fccbf18b6cb5fe6542010fc5420dfc38ec2a175e5cff4b793621"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/registration-report.json",
+      "before": "709cec15b0b2a6d10905645ad3ac2faef29397542a71c45a99969639e26e0853",
+      "after": "709cec15b0b2a6d10905645ad3ac2faef29397542a71c45a99969639e26e0853"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/registration.json",
+      "before": "8a997410d8e92d6133079cea4c228c990234dfbb896bd849f41c06b2a2b46066",
+      "after": "8a997410d8e92d6133079cea4c228c990234dfbb896bd849f41c06b2a2b46066"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/source-map.json",
+      "before": "bbebc9d698fe8bab956e9fd6bb69827b93a797cf658911157915a11b388e8e62",
+      "after": "bbebc9d698fe8bab956e9fd6bb69827b93a797cf658911157915a11b388e8e62"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/sources.json",
+      "before": "930a60073bbde9c4feb62e7b603b9f85d9ecf1ab07d1ebf252f7884c4ba7909b",
+      "after": "930a60073bbde9c4feb62e7b603b9f85d9ecf1ab07d1ebf252f7884c4ba7909b"
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/validation.json",
+      "before": "08d60dcc74afd5380b3d16f6c4a02c96d82758a75d2a2dadb2ce716bfd2afbaf",
+      "after": "08d60dcc74afd5380b3d16f6c4a02c96d82758a75d2a2dadb2ce716bfd2afbaf"
+    },
+    {
+      "path": "data/atlas/v1/back.json",
+      "before": "0da1f74189f90a7d8e185bc6d8c997eb22b9d3b1d42c98e0e2f76ad65d9e0467",
+      "after": "0da1f74189f90a7d8e185bc6d8c997eb22b9d3b1d42c98e0e2f76ad65d9e0467"
+    },
+    {
+      "path": "data/atlas/v1/front.json",
+      "before": "faab0b0486926bee8415419e705cc0324b4ec0265c9eb580c967a280b6b4f74f",
+      "after": "faab0b0486926bee8415419e705cc0324b4ec0265c9eb580c967a280b6b4f74f"
+    },
+    {
+      "path": "data/atlas/v1/manifest.json",
+      "before": "1deb2742e18acc52fc66d33c7454f1b9ec0627fc123e049754d62f891ba80eb2",
+      "after": "1deb2742e18acc52fc66d33c7454f1b9ec0627fc123e049754d62f891ba80eb2"
+    },
+    {
+      "path": "miniprogram/assets/body/.gitkeep",
+      "before": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "miniprogram/assets/body/README.md",
+      "before": "42ae1a68e0f79ce080b75c32e986a85384d88bbc726223d4306bec7b8955a764",
+      "after": "42ae1a68e0f79ce080b75c32e986a85384d88bbc726223d4306bec7b8955a764"
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/NOTICE.md",
+      "before": "06c69824bbe16b2253e61bfaf1a4b1ac6009a631dc7b88a21f84e93925c11f38",
+      "after": "06c69824bbe16b2253e61bfaf1a4b1ac6009a631dc7b88a21f84e93925c11f38"
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/back.png",
+      "before": "f8d01a058c6a5caef7ae85d836248dad2138b7552f2d5c2eb7ab3ea0b5110117",
+      "after": "f8d01a058c6a5caef7ae85d836248dad2138b7552f2d5c2eb7ab3ea0b5110117"
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/back.svg",
+      "before": "11f5836b4732cd5e8f43cdbd9780c0e01c50ef8fa66bb2bb9d41457492a6da02",
+      "after": "11f5836b4732cd5e8f43cdbd9780c0e01c50ef8fa66bb2bb9d41457492a6da02"
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/front.png",
+      "before": "6fdfc96f6cfa8987ec5bf331d0c4697bd46e95a1833e8d539d665ed02b9746c3",
+      "after": "6fdfc96f6cfa8987ec5bf331d0c4697bd46e95a1833e8d539d665ed02b9746c3"
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/front.svg",
+      "before": "6906420e124c03816d19b53ec22ac61916b9cc4bc74b1ceb75ec4b7fddae94b0",
+      "after": "6906420e124c03816d19b53ec22ac61916b9cc4bc74b1ceb75ec4b7fddae94b0"
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/geometry.generated.ts",
+      "before": "f33673dd7813459e796403539b01fed04467b14013420d15c6dc1ef60fdb0d02",
+      "after": "f33673dd7813459e796403539b01fed04467b14013420d15c6dc1ef60fdb0d02"
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/manifest.json",
+      "before": "d9863ea69e79eda75f376e0304cefaf1df57df33e3324e3bbcf93c615e479b42",
+      "after": "d9863ea69e79eda75f376e0304cefaf1df57df33e3324e3bbcf93c615e479b42"
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/source.svg",
+      "before": "486cdc8a89fbfe0ff0a4bb4104efc19bb5c708337c37768be6f9120c4837753a",
+      "after": "486cdc8a89fbfe0ff0a4bb4104efc19bb5c708337c37768be6f9120c4837753a"
+    },
+    {
+      "path": "miniprogram/assets/body/commons-v1.ts",
+      "before": "087549443fb43c5ba39f60636cc6a830f9b31e3e1a0d2ab65f5827a77ac90d8f",
+      "after": "087549443fb43c5ba39f60636cc6a830f9b31e3e1a0d2ab65f5827a77ac90d8f"
+    },
+    {
+      "path": "miniprogram/assets/body/model.ts",
+      "before": "c9f1b6cdfe3e984b620ba1bac7b79866b975114e3ef2c1cdbf65fb1d25c5202e",
+      "after": "c9f1b6cdfe3e984b620ba1bac7b79866b975114e3ef2c1cdbf65fb1d25c5202e"
+    },
+    {
+      "path": "miniprogram/assets/body/neutral-v2.ts",
+      "before": "179382f0a5734b5f47ffb436ab962232adc18eca3e0a7f451ccf0df724f1fdcc",
+      "after": "179382f0a5734b5f47ffb436ab962232adc18eca3e0a7f451ccf0df724f1fdcc"
+    },
+    {
+      "path": "miniprogram/assets/body/neutral-v3.ts",
+      "before": "2fc4c20abc984ac203bb9ff976a55abd7586802a4795a4206912b1ba9e5f8398",
+      "after": "2fc4c20abc984ac203bb9ff976a55abd7586802a4795a4206912b1ba9e5f8398"
+    },
+    {
+      "path": "miniprogram/components/body-canvas/.gitkeep",
+      "before": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "miniprogram/components/body-canvas/atlas-render.ts",
+      "before": "a238af460335061935f3df925a353ff2be4a361d1a8b4668be6c414f5f0f4a6d",
+      "after": "a238af460335061935f3df925a353ff2be4a361d1a8b4668be6c414f5f0f4a6d"
+    },
+    {
+      "path": "miniprogram/components/body-canvas/body-canvas.json",
+      "before": "3cac147888c7f1804ca5c8fd5aeca071cc29e1a776c6c7c6d52d823c4f568ef3",
+      "after": "3cac147888c7f1804ca5c8fd5aeca071cc29e1a776c6c7c6d52d823c4f568ef3"
+    },
+    {
+      "path": "miniprogram/components/body-canvas/body-canvas.ts",
+      "before": "f66e68c6d2b6c4b89fce6f2c1185d7704011d024484cd7c24fcb32e0112f59de",
+      "after": "f66e68c6d2b6c4b89fce6f2c1185d7704011d024484cd7c24fcb32e0112f59de"
+    },
+    {
+      "path": "miniprogram/components/body-canvas/body-canvas.wxml",
+      "before": "494db24df781fc99ea4a52878bec6c2e42ccd28378f0a4b1a5f0499509da8aa6",
+      "after": "494db24df781fc99ea4a52878bec6c2e42ccd28378f0a4b1a5f0499509da8aa6"
+    },
+    {
+      "path": "miniprogram/components/body-canvas/body-canvas.wxss",
+      "before": "d11074a554ca066f701f103db83c9ac9eb5684839bcba8750bd55fab7a8cd3c1",
+      "after": "d11074a554ca066f701f103db83c9ac9eb5684839bcba8750bd55fab7a8cd3c1"
+    },
+    {
+      "path": "miniprogram/components/body-canvas/lesion-render.ts",
+      "before": "da877237041c6f40d0c7bc2680680f299909aa59d03f57250d87ca1711b9684b",
+      "after": "da877237041c6f40d0c7bc2680680f299909aa59d03f57250d87ca1711b9684b"
+    },
+    {
+      "path": "miniprogram/components/body-canvas/render.ts",
+      "before": "dfc92f9613632934ee53ccb1f1440a63282150ca3001e18a374772273a15977b",
+      "after": "dfc92f9613632934ee53ccb1f1440a63282150ca3001e18a374772273a15977b"
+    },
+    {
+      "path": "miniprogram/data/atlas.generated.ts",
+      "before": "0900418bf332627fd4934b4921839002a19c0ea0874d838d7dcd1e22761b4298",
+      "after": "0900418bf332627fd4934b4921839002a19c0ea0874d838d7dcd1e22761b4298"
+    },
+    {
+      "path": "miniprogram/data/body-models.ts",
+      "before": "e1aeb0aee5d2429d18e74650072cd48eb619aae991cb2eb80f37042bfef71916",
+      "after": "e1aeb0aee5d2429d18e74650072cd48eb619aae991cb2eb80f37042bfef71916"
+    },
+    {
+      "path": "miniprogram/data/body-regions-v15.ts",
+      "before": "7c55e8a656914334f205049050a30a8f2959aa8f3e3744bf0e2168a3ed3a2d54",
+      "after": "7c55e8a656914334f205049050a30a8f2959aa8f3e3744bf0e2168a3ed3a2d54"
+    },
+    {
+      "path": "miniprogram/data/body-regions-v2.ts",
+      "before": "18943b16a95ced8d32e963cb9ee70eec027b30d5adf300884ea8cbd26d728bb3",
+      "after": "18943b16a95ced8d32e963cb9ee70eec027b30d5adf300884ea8cbd26d728bb3"
+    },
+    {
+      "path": "miniprogram/data/body-regions-v3.ts",
+      "before": "330354bbc096dea5ea014bd896a1a289c88d71afe520aa18bc6e5077e31b7bc9",
+      "after": "330354bbc096dea5ea014bd896a1a289c88d71afe520aa18bc6e5077e31b7bc9"
+    },
+    {
+      "path": "miniprogram/data/body-regions.ts",
+      "before": "6943d083d7a1b7d857638894cfdba167fb539702b5e9c341dacba6c8a181e51c",
+      "after": "6943d083d7a1b7d857638894cfdba167fb539702b5e9c341dacba6c8a181e51c"
+    },
+    {
+      "path": "miniprogram/pages/atlas-debug/atlas-debug.json",
+      "before": "de2b9f06aaa195da043f959bf7c1d223ff42cc715b3e12134fa77d3ee6a37b84",
+      "after": "de2b9f06aaa195da043f959bf7c1d223ff42cc715b3e12134fa77d3ee6a37b84"
+    },
+    {
+      "path": "miniprogram/pages/atlas-debug/atlas-debug.ts",
+      "before": "c1ca0c1e3e6329e78e2985602cd608a2b1b912e524924a3ae9edd7a2778ea3ee",
+      "after": "c1ca0c1e3e6329e78e2985602cd608a2b1b912e524924a3ae9edd7a2778ea3ee"
+    },
+    {
+      "path": "miniprogram/pages/atlas-debug/atlas-debug.wxml",
+      "before": "c30ce7bc75aabf687c1489e662a03998a2c74a9eabcfa860777f5ccf47d41c11",
+      "after": "c30ce7bc75aabf687c1489e662a03998a2c74a9eabcfa860777f5ccf47d41c11"
+    },
+    {
+      "path": "miniprogram/pages/atlas-debug/atlas-debug.wxss",
+      "before": "82db27cf1ab7470333b176aa844328ef6faad6465e1aa72712d7056e128aa294",
+      "after": "82db27cf1ab7470333b176aa844328ef6faad6465e1aa72712d7056e128aa294"
+    },
+    {
+      "path": "miniprogram/state/annotation-session.ts",
+      "before": "28a1afbc77ca19b26e0fbca4c0daf5a81dfe1b3ad377d4c4b8ddd67301728e05",
+      "after": "28a1afbc77ca19b26e0fbca4c0daf5a81dfe1b3ad377d4c4b8ddd67301728e05"
+    },
+    {
+      "path": "miniprogram/types/annotation.ts",
+      "before": "93d1a2cccbdf27869b3a0be47819c5206ca0a7a2d38cb40ab056dd14cc5dd8a7",
+      "after": "93d1a2cccbdf27869b3a0be47819c5206ca0a7a2d38cb40ab056dd14cc5dd8a7"
+    },
+    {
+      "path": "miniprogram/utils/annotation-geometry.ts",
+      "before": "88fcd455eb8ecf4e7952a087d1cd7b1c2c0998fbb936897dc3f54762279f4d8d",
+      "after": "88fcd455eb8ecf4e7952a087d1cd7b1c2c0998fbb936897dc3f54762279f4d8d"
+    },
+    {
+      "path": "miniprogram/utils/coordinate.ts",
+      "before": "545742a17b13b49bbeb40891183f2011970298a73e0d18345404b5f94b081cf1",
+      "after": "545742a17b13b49bbeb40891183f2011970298a73e0d18345404b5f94b081cf1"
+    }
+  ]
+}

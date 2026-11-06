@@ -1,0 +1,18 @@
+																					567 text REPLAY_scale page.setData.sync {"count":11,"totalMs":60.30000000074506,"maxMs":10}
+																					572 text REPLAY_scale preview.parameters {"count":40,"totalMs":1.3999999994412065,"maxMs":0.30000000074505806}
+																					577 text REPLAY_scale update.scalars {"count":40,"totalMs":16.400000002235174,"maxMs":10.600000000558794}
+																					582 text REPLAY_scale scale.event {"count":40,"totalMs":19.70000000204891,"maxMs":11.100000000558794}
+																					587 text REPLAY_scale canvas.setTransform {"count":41,"totalMs":0.7999999998137355,"maxMs":0.10000000055879354}
+																					592 text REPLAY_scale canvas.drawImage {"count":40,"totalMs":1.9999999981373549,"maxMs":0.20000000018626451}
+																					597 text REPLAY_scale overlay.draw.sync {"count":41,"totalMs":21.899999995715916,"maxMs":1.2000000001862645}
+																					602 text REPLAY_scale settle.transform+validation+sync {"count":1,"totalMs":609.2000000001863,"maxMs":609.2000000001863}
+																					607 text REPLAY_scale_STATE {"injectedEvents":true,"valid":true,"ready":true,"sourceUnchanged":true}
+																					612 text REPLAY_angle page.setData.sync {"count":11,"totalMs":61.299999999813735,"maxMs":7.2000000001862645}
+																					617 text REPLAY_angle preview.parameters {"count":40,"totalMs":1.5999999986961484,"maxMs":0.10000000055879354}
+																					622 text REPLAY_angle update.scalars {"count":40,"totalMs":10.899999999441206,"maxMs":5.400000000372529}
+																					627 text REPLAY_angle rotate.event {"count":40,"totalMs":13.69999999832362,"maxMs":5.5}
+																					632 text REPLAY_angle canvas.setTransform {"count":41,"totalMs":0.2999999988824129,"maxMs":0.09999999962747097}
+																					637 text REPLAY_angle canvas.drawImage {"count":40,"totalMs":1.8999999985098839,"maxMs":0.20000000018626451}
+																					642 text REPLAY_angle overlay.draw.sync {"count":41,"totalMs":21.099999996833503,"maxMs":1.1000000005587935}
+																					647 text REPLAY_angle settle.transform+validation+sync {"count":1,"totalMs":583.6999999992549,"maxMs":583.6999999992549}
+																					652 text REPLAY_angle_STATE {"injectedEvents":true,"valid":true,"ready":true,"sourceUnchanged":true}

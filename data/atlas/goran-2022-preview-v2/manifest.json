@@ -1,0 +1,16 @@
+{
+  "atlasVersion": "goran-2022-commons-template4-preview.2",
+  "templateId": "commons-neutral-v1",
+  "templateVersion": "4.0.0",
+  "geometryId": "commons-blank-cc0-v1",
+  "sourceLicenseStatus": "verified",
+  "technicalValidationStatus": "passed_offline_geometry",
+  "medicalReviewStatus": "pending",
+  "mappingEnabled": false,
+  "sourceTitle": "Goran_tek-en · Dermatomes labeled, male front/back (2022)",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg",
+  "attribution": "Goran_tek-en / Wikimedia Commons / CC BY-SA 4.0；提取、配准、排除部分体表并简化曲线。衍生图谱数据沿用 CC BY-SA 4.0。 V3.1新增三叉神经及可见正面足部局部配准，保留父版。",
+  "coverageNote": "已配置正面三叉神经眼支 V1、上颌支 V2、下颌支 V3，以及可见正面足背/趾 L4、L5、S1。背面足底源图不能套到当前足跟；头发覆盖的头皮、眼球开口、复杂耳部交界、后脑三叉神经、头侧、耳道口腔、手掌手指及前面会阴仍未配置。留白不代表无感觉神经。医学审核待完成。",
+  "contentSHA256": "8689fca1aa50cff0b1b7d7cd1adcd80cf244cd1a93ed580e91406d0cc2fb2056",
+  "inheritedParentVersion": "goran-2022-commons-template4-preview.1"
+}

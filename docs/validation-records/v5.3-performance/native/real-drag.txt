@@ -1,0 +1,10 @@
++																					812 text REAL_DRAG overlay.layoutQuery {"count":2,"totalMs":0.10000000055879354,"maxMs":0.10000000055879354}
++																					817 text REAL_DRAG page.setData.sync {"count":5,"totalMs":24.299999998882413,"maxMs":7.199999999254942}
++																					822 text REAL_DRAG drag.event.start {"count":1,"totalMs":7.199999999254942,"maxMs":7.199999999254942}
++																					827 text REAL_DRAG preview.parameters {"count":1,"totalMs":0,"maxMs":0}
++																					832 text REAL_DRAG update.scalars {"count":1,"totalMs":5.7000000001862645,"maxMs":5.7000000001862645}
++																					837 text REAL_DRAG drag.event.move {"count":1,"totalMs":5.7999999998137355,"maxMs":5.7999999998137355}
++																					842 text REAL_DRAG settle.transform+validation+sync {"count":1,"totalMs":633.4000000003725,"maxMs":633.4000000003725}
++																					847 text REAL_DRAG drag.event.end {"count":1,"totalMs":636.7999999998137,"maxMs":636.7999999998137}
++																					852 text REAL_DRAG canvas.setTransform {"count":1,"totalMs":0,"maxMs":0}
++																					857 text REAL_DRAG overlay.draw.sync {"count":1,"totalMs":0.7000000001862645,"maxMs":0.7000000001862645}

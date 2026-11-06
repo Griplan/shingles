@@ -1,0 +1,58 @@
+V0 前端验证证据说明
+日期：2026-10-15，用户时区 Asia/Shanghai。
+环境：Node v21.7.3；npm 10.5.0；macOS；工作目录 dermatome-mapper/miniprogram。
+本摘要转录本轮真实工具输出；不是重新运行生成的日志。
+旁边的 npm .txt 文件直接复制 npm 原始日志，归档时只改后缀以纳入 Git，日志内容未修改。日志文件名含 UTC 时间。
+
+一、依赖查询/安装
+1. 默认沙箱：npm view typescript@5.9 version --json
+   结果：exit 1，ENOTFOUND registry.npmjs.org；默认日志目录不可写，未生成 npm 日志。
+2. 默认沙箱：npm view miniprogram-api-typings version
+   结果：exit 1，ENOTFOUND registry.npmjs.org；默认日志目录不可写，未生成 npm 日志。
+3. 获准沙箱外：npm view miniprogram-api-typings version --fetch-retries=0 --fetch-timeout=15000 --cache /private/tmp/dermatome-mapper-npm-cache
+   结果：exit 0，5.2.3。原始日志 v0-frontend-npm-view.txt。
+4. 获准沙箱外：npm install --ignore-scripts --no-audit --no-fund --fetch-retries=0 --fetch-timeout=20000 --cache /private/tmp/dermatome-mapper-npm-cache
+   结果：exit 1，ECONNRESET，request to https://registry.npmjs.org/typescript failed, reason: read ECONNRESET。
+   原始日志 v0-frontend-npm-install-failed.txt。
+5. 获准沙箱外：npm install --ignore-scripts --no-audit --no-fund --fetch-retries=2 --fetch-timeout=20000 --cache /private/tmp/dermatome-mapper-npm-cache
+   结果：日志停在 fetch manifest typescript@5.9.3；取消本次进程以复用已有官方缓存，最终 exit 143。
+   原始日志 v0-frontend-npm-install-cancelled.txt；此尝试不能记为成功。
+6. 获准沙箱外：npm install --prefer-offline --ignore-scripts --no-audit --no-fund --fetch-retries=0 --fetch-timeout=20000 --logs-dir /private/tmp/dermatome-mapper-npm-logs
+   结果：exit 0，added 2 packages in 22s。
+   原始日志 v0-frontend-npm-install-passed.txt；生成真实 package-lock.json。
+7. 默认沙箱：npm ci --offline --ignore-scripts --no-audit --no-fund --logs-dir /private/tmp/dermatome-mapper-npm-logs
+   结果：exit 0，added 2 packages in 187ms。
+   原始日志 v0-frontend-npm-ci-passed.txt；依据 lockfile 从已下载的官方缓存重装。
+最终依赖：typescript 5.9.3，miniprogram-api-typings 5.2.3；无运行时 npm 依赖。
+
+二、TypeScript
+命令：npm run typecheck
+安装后与 npm ci 后各执行一次，均 exit 0。实际 stdout：
+> dermatome-mapper-miniprogram@0.0.0 typecheck
+> tsc --noEmit
+仅证明 TypeScript 静态检查通过；不生成 JS，不代表微信开发者工具编译成功。
+
+三、静态结构
+以 Python 标准库 json/pathlib 读取 app.json，对 pages 中各路径检查 .ts/.json/.wxml/.wxss 存在；递归解析除 node_modules 外全部 JSON。
+结果：exit 0。
+stdout：PASS: 4 registered pages have TS/JSON/WXML/WXSS and project JSON parses.
+
+四、微信开发者工具
+路径：/Applications/wechatwebdevtools.app/Contents/MacOS/cli
+命令：该路径 --help；该路径 open --help；该路径 auto --help。
+以上三个只读帮助命令 exit 0。open/auto 可用，无独立 compile 子命令。
+实际项目打开命令：
+/Applications/wechatwebdevtools.app/Contents/MacOS/cli open --project '/Users/griplan/project/extra/Shingles‌/dermatome-mapper/miniprogram'
+默认沙箱结果：exit 255，#initialize-error: Error: listen EPERM: operation not permitted 127.0.0.1:3799。
+获准沙箱外重试同命令结果：提示 IDE service port disabled；工具的服务端口已关闭；要求输入 y 开启服务端口。
+未同意开启，不修改用户全局设置；该调用最终以 SIGTERM 取消，exit 143。仅取消本次 CLI 调用进程，未关闭 IDE。
+因此 GUI 编译、页面运行导航和真机验证均 NOT_RUN，不可用 TypeScript 检查代替。
+
+五、配置来源
+官方示例：https://github.com/wechat-miniprogram/miniprogram-demo/blob/master/project.config.json （setting.useCompilerPlugins 包含 typescript）
+官方类型：https://github.com/wechat-miniprogram/api-typings （npm 包及 tsconfig types 配置）
+官方开发者文档 https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html 等页面工具访问失败。
+补充本机官方安装包只读证据：
+/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/js/extensions/appservice/index.js 对 touristappid 判断游客模式；
+/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/js/common/miniprogram-builder/schema/dist/projectconfig.js 的 useCompilerPlugins 枚举含 typescript。
+这些为配置依据，不是实际编译验收。

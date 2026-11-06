@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-03T14:43:01.607842+08:00",
+  "app": "Shingles 微信开发者工具 Stable 2.01.2510290",
+  "observation": "Window tree and home screenshot readable; cannot control live debugger",
+  "actions": [
+    {
+      "action": "click debugger AX element",
+      "result": "Computer Use server error -10005: 343 is an invalid element ID"
+    },
+    {
+      "action": "click debugger at observed screenshot position",
+      "result": "Computer Use server error -10005: noWindowsAvailable"
+    }
+  ],
+  "native_performance": "NOT_RUN",
+  "handset": "NOT_RUN",
+  "user_confirmation_requested": false,
+  "production_deployment": "NOT_RUN"
+}

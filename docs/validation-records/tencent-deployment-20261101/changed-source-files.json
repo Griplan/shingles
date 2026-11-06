@@ -1,0 +1,12 @@
+[
+  "backend/app/main.py",
+  "backend/app/api/routes/health.py",
+  "backend/app/services/ai_boundary.py",
+  "backend/app/services/ai_sessions.py",
+  "ai/preprocessing/image.py",
+  "miniprogram/config/api.ts",
+  "miniprogram/pages/ai-annotate/ai-annotate.ts",
+  "miniprogram/pages/index/index.ts",
+  "miniprogram/services/api.ts",
+  "miniprogram/services/ai.ts"
+]

@@ -1,0 +1,64 @@
+[
+  {
+    "check": "backend-pytest",
+    "command": [
+      "backend/.venv/bin/python",
+      "-m",
+      "pytest",
+      "backend/tests",
+      "-q"
+    ],
+    "exit": 0,
+    "seconds": 9.65457595908083
+  },
+  {
+    "check": "miniprogram-tests",
+    "command": [
+      "npm",
+      "test",
+      "--prefix",
+      "miniprogram"
+    ],
+    "exit": 0,
+    "seconds": 1.961369042051956
+  },
+  {
+    "check": "miniprogram-typecheck",
+    "command": [
+      "npm",
+      "run",
+      "typecheck",
+      "--prefix",
+      "miniprogram"
+    ],
+    "exit": 0,
+    "seconds": 0.8218625001609325
+  },
+  {
+    "check": "check-atlas",
+    "command": [
+      "backend/.venv/bin/python",
+      "scripts/check_atlas.py"
+    ],
+    "exit": 0,
+    "seconds": 0.03509841696359217
+  },
+  {
+    "check": "check-project",
+    "command": [
+      "backend/.venv/bin/python",
+      "scripts/check_project.py"
+    ],
+    "exit": 0,
+    "seconds": 0.022916083224117756
+  },
+  {
+    "check": "check-preview-atlas",
+    "command": [
+      "backend/.venv/bin/python",
+      "scripts/check_preview_atlas.py"
+    ],
+    "exit": 0,
+    "seconds": 0.5483925000298768
+  }
+]

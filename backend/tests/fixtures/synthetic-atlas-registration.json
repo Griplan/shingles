@@ -1,0 +1,11 @@
+{
+  "synthetic": true,
+  "label": "UI-LOCAL-WARP",
+  "description": "Nonmedical two-island polygon with a hole and tiny retained island.",
+  "geometry": {"type":"MultiPolygon","coordinates":[[[[0,0],[10,0],[10,10],[0,10],[0,0]],[[2,2],[2,4],[4,4],[4,2],[2,2]]],[[[11,1],[11.0001,1],[11.0001,1.0001],[11,1.0001],[11,1]]]]},
+  "rows": [
+    {"sourceY":0,"targetY":0,"sourceX":[0,5,12],"targetX":[0,5,12]},
+    {"sourceY":5,"targetY":6,"sourceX":[0,5,12],"targetX":[0,7,14]},
+    {"sourceY":12,"targetY":14,"sourceX":[0,5,12],"targetX":[0,6,13]}
+  ]
+}

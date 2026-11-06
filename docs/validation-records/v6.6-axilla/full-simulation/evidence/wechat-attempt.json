@@ -1,0 +1,9 @@
+{
+  "project": "Shingles",
+  "app": "com.tencent.webplusdevtools",
+  "readable": true,
+  "compileAX": "invalid element ID",
+  "compileCoordinate": "noWindowsAvailable",
+  "runtimeValidation": "NOT_RUN",
+  "screenshot": "Observed previous PROVISIONAL page; not used as V6.6.3 evidence"
+}

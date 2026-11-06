@@ -1,0 +1,426 @@
+cwd=miniprogram
+command=['npm', 'run', 'typecheck']
+exit=0
+
+> dermatome-mapper-miniprogram@0.0.0 typecheck
+> tsc --noEmit
+
+
+cwd=miniprogram
+command=['npm', 'test']
+exit=0
+
+> dermatome-mapper-miniprogram@0.0.0 test
+> node ../scripts/test_miniprogram.cjs
+
+TAP version 13
+# Subtest: V1.2历史：新几何独立版本；前后同骨架、旧视觉与旧区域不静默迁移
+ok 1 - V1.2历史：新几何独立版本；前后同骨架、旧视觉与旧区域不静默迁移
+  ---
+  duration_ms: 2.244208
+  ...
+# Subtest: V1.2历史：设计比例单独检查：约7.5～8头身、裆50～54%、膝72～76%，不是医学准确率
+ok 2 - V1.2历史：设计比例单独检查：约7.5～8头身、裆50～54%、膝72～76%，不是医学准确率
+  ---
+  duration_ms: 0.1725
+  ...
+# Subtest: V1.2历史：轮廓本身胸肩加宽、腰髋收放：不只修改参考点或全图缩放
+ok 3 - V1.2历史：轮廓本身胸肩加宽、腰髋收放：不只修改参考点或全图缩放
+  ---
+  duration_ms: 1.21225
+  ...
+# {"chestY":270,"oldChest":107.83838028169015,"chest":129.48642533936652,"waist":100.56126482213438,"hip":158.43705572116485}
+# Subtest: V1.2历史：躯干、髋膝踝、肘腕与手足参考点在两面同源轮廓内；关节高度有序
+ok 4 - V1.2历史：躯干、髋膝踝、肘腕与手足参考点在两面同源轮廓内；关节高度有序
+  ---
+  duration_ms: 5.784417
+  ...
+# Subtest: V1.2历史：16区域与新几何配准：肩肘腕手指、髋膝踝足均落在应属UI多边形内
+ok 5 - V1.2历史：16区域与新几何配准：肩肘腕手指、髋膝踝足均落在应属UI多边形内
+  ---
+  duration_ms: 0.336209
+  ...
+# Subtest: V1.2历史：前后膝部实际细节路径靠近同一设计关节，避免只下移膝标签
+ok 6 - V1.2历史：前后膝部实际细节路径靠近同一设计关节，避免只下移膝标签
+  ---
+  duration_ms: 0.080125
+  ...
+# Subtest: V1.2历史：新关节参考点实际探测→十字重投影：三尺寸、前后、放大复位保持同一标准位置
+ok 7 - V1.2历史：新关节参考点实际探测→十字重投影：三尺寸、前后、放大复位保持同一标准位置
+  ---
+  duration_ms: 3.269875
+  ...
+# Subtest: 新模板正背面资源、逻辑比例、版本及区域显式绑定，源文件存在
+ok 8 - 新模板正背面资源、逻辑比例、版本及区域显式绑定，源文件存在
+  ---
+  duration_ms: 1.289042
+  ...
+# Subtest: 每面8个独立UI区域、16个唯一ID，头颈存在且能居中放大
+ok 9 - 每面8个独立UI区域、16个唯一ID，头颈存在且能居中放大
+  ---
+  duration_ms: 3.444959
+  ...
+# Subtest: 几何不变可更换配色/线条资源；几何、视图、尺寸或区域错版明确拒绝
+ok 10 - 几何不变可更换配色/线条资源；几何、视图、尺寸或区域错版明确拒绝
+  ---
+  duration_ms: 4.019708
+  ...
+# Subtest: 连续人体轮廓命中头颈躯干/双臂手/双腿足，拒绝臂躯间隙与腿间留白
+ok 11 - 连续人体轮廓命中头颈躯干/双臂手/双腿足，拒绝臂躯间隙与腿间留白
+  ---
+  duration_ms: 10.245709
+  ...
+# Subtest: 外部素材保留自然非对称及独立正背面，全身轮廓适配Canvas
+ok 12 - 外部素材保留自然非对称及独立正背面，全身轮廓适配Canvas
+  ---
+  duration_ms: 4.340916
+  ...
+# Subtest: 同一二次曲线路径细分命中，边缘容差不吸附，开放路径拒绝
+ok 13 - 同一二次曲线路径细分命中，边缘容差不吸附，开放路径拒绝
+  ---
+  duration_ms: 0.249125
+  ...
+# Subtest: 原生Canvas本地触点和client触点识别，不猜测page坐标或DPR
+ok 14 - 原生Canvas本地触点和client触点识别，不猜测page坐标或DPR
+  ---
+  duration_ms: 0.269167
+  ...
+# Subtest: 真实矩形处理页面滚动：两种事件基准得到相同标准点
+ok 15 - 真实矩形处理页面滚动：两种事件基准得到相同标准点
+  ---
+  duration_ms: 0.490667
+  ...
+# Subtest: 三种尺寸区分有效人体、逻辑画布内留白、模型范围外；无效点不产生标准点
+ok 16 - 三种尺寸区分有效人体、逻辑画布内留白、模型范围外；无效点不产生标准点
+  ---
+  duration_ms: 0.626375
+  ...
+# Subtest: 归一化单点在放大、复位、尺寸变化时重投影；超出可见范围隐藏，不贴边
+ok 17 - 归一化单点在放大、复位、尺寸变化时重投影；超出可见范围隐藏，不贴边
+  ---
+  duration_ms: 1.020167
+  ...
+# Subtest: Canvas 正背面使用不同PNG资源且绘图状态成对恢复
+ok 18 - Canvas 正背面使用不同PNG资源且绘图状态成对恢复
+  ---
+  duration_ms: 3.152458
+  ...
+# Subtest: 区域高亮裁剪于人体轮廓，跨视图区域不会误画
+ok 19 - 区域高亮裁剪于人体轮廓，跨视图区域不会误画
+  ---
+  duration_ms: 1.149958
+  ...
+# Subtest: 初始化/尺寸适配/DPR 280×460×1
+ok 20 - 初始化/尺寸适配/DPR 280×460×1
+  ---
+  duration_ms: 1.733542
+  ...
+# Subtest: 初始化/尺寸适配/DPR 343×540×2
+ok 21 - 初始化/尺寸适配/DPR 343×540×2
+  ---
+  duration_ms: 0.212917
+  ...
+# Subtest: 初始化/尺寸适配/DPR 700×570×3
+ok 22 - 初始化/尺寸适配/DPR 700×570×3
+  ---
+  duration_ms: 0.494375
+  ...
+# Subtest: 反复切换、区域放大与复位不累加 DPR/模型缩放
+ok 23 - 反复切换、区域放大与复位不累加 DPR/模型缩放
+  ---
+  duration_ms: 6.159917
+  ...
+# Subtest: hide/show、resize 重测尺寸；detached 后忽略异步结果
+ok 24 - hide/show、resize 重测尺寸；detached 后忽略异步结果
+  ---
+  duration_ms: 2.381041
+  ...
+# Subtest: 初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口
+ok 25 - 初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口
+  ---
+  duration_ms: 0.68
+  ...
+# Subtest: 页面选择校验、换面清理、区域切换与复位状态
+ok 26 - 页面选择校验、换面清理、区域切换与复位状态
+  ---
+  duration_ms: 0.972333
+  ...
+# Subtest: 调试默认关闭，不采集坐标；开启后实际触点形成单个十字和真实事件
+ok 27 - 调试默认关闭，不采集坐标；开启后实际触点形成单个十字和真实事件
+  ---
+  duration_ms: 3.389333
+  ...
+# Subtest: DPR1/2/3不会进入点击归一化，client触点与Canvas触点一致
+ok 28 - DPR1/2/3不会进入点击归一化，client触点与Canvas触点一致
+  ---
+  duration_ms: 3.577333
+  ...
+# Subtest: 十字随区域放大、复位及resize重投影；原标准坐标不变，出视口时隐藏
+ok 29 - 十字随区域放大、复位及resize重投影；原标准坐标不变，出视口时隐藏
+  ---
+  duration_ms: 3.985875
+  ...
+# Subtest: 留白及模型外点击清除旧十字，不伪造标准点，不改变所选区域
+ok 30 - 留白及模型外点击清除旧十字，不伪造标准点，不改变所选区域
+  ---
+  duration_ms: 1.509584
+  ...
+# Subtest: 关闭调试或换面清除单点，重新开启/换回不复用另一视图的点
+ok 31 - 关闭调试或换面清除单点，重新开启/换回不复用另一视图的点
+  ---
+  duration_ms: 0.86575
+  ...
+# Subtest: 拖动/滚动、取消触摸和多触点不当作点击；不会创建病灶集合
+ok 32 - 拖动/滚动、取消触摸和多触点不当作点击；不会创建病灶集合
+  ---
+  duration_ms: 0.311167
+  ...
+# Subtest: 点击查询期间切换视口或detach丢弃旧结果；查询失败明确提示且不保留标记
+ok 33 - 点击查询期间切换视口或detach丢弃旧结果；查询失败明确提示且不保留标记
+  ---
+  duration_ms: 0.429708
+  ...
+# Subtest: 调试面板显示四位标准坐标及实际运行状态；关闭、换面和错版事件隔离
+ok 34 - 调试面板显示四位标准坐标及实际运行状态；关闭、换面和错版事件隔离
+  ---
+  duration_ms: 0.448708
+  ...
+# Subtest: 真实图片绘制分支：PNG未提供时拒绝画旧人体，正常帧确实调用drawImage
+ok 35 - 真实图片绘制分支：PNG未提供时拒绝画旧人体，正常帧确实调用drawImage
+  ---
+  duration_ms: 0.336542
+  ...
+# Subtest: 本地PNG异步加载期间不产生视口，旧面onload不会误画，新面成功后可复用缓存
+ok 36 - 本地PNG异步加载期间不产生视口，旧面onload不会误画，新面成功后可复用缓存
+  ---
+  duration_ms: 0.263083
+  ...
+# Subtest: PNG加载失败明确报错且不回退，重试成功；detach后的图片事件被丢弃
+ok 37 - PNG加载失败明确报错且不回退，重试成功；detach后的图片事件被丢弃
+  ---
+  duration_ms: 0.169875
+  ...
+# Subtest: 真实组件正常轻触经rect与统一逆变换报告选区一次，不放大、不生成调试点
+ok 38 - 真实组件正常轻触经rect与统一逆变换报告选区一次，不放大、不生成调试点
+  ---
+  duration_ms: 0.399208
+  ...
+# Subtest: 选择、局部、调试与弹层优先级隔离；弹层中途打开会废弃待返回的触摸结果
+ok 39 - 选择、局部、调试与弹层优先级隔离；弹层中途打开会废弃待返回的触摸结果
+  ---
+  duration_ms: 0.812125
+  ...
+# Subtest: 正常模式拖动、多指、取消也不误选，布局变更后旧尺寸拒绝并重新测量
+ok 40 - 正常模式拖动、多指、取消也不误选，布局变更后旧尺寸拒绝并重新测量
+  ---
+  duration_ms: 0.36225
+  ...
+# Subtest: 正常选择区分重叠和人体外，查询失败不伪造选区；换面丢弃旧触点
+ok 41 - 正常选择区分重叠和人体外，查询失败不伪造选区；换面丢弃旧触点
+  ---
+  duration_ms: 1.606459
+  ...
+# Subtest: 320/375/430宽及矮屏节点重测：独立手算胸点选择、放大/复位和双侧无漂移
+ok 42 - 320/375/430宽及矮屏节点重测：独立手算胸点选择、放大/复位和双侧无漂移
+  ---
+  duration_ms: 4.087667
+  ...
+# Subtest: 弹层隐藏期间停止测量绘图；关闭后同一模板、图片缓存、局部视口和调试标准点恢复
+ok 43 - 弹层隐藏期间停止测量绘图；关闭后同一模板、图片缓存、局部视口和调试标准点恢复
+  ---
+  duration_ms: 0.751542
+  ...
+# Subtest: 实际启用Commons新模板与真实PNG，原SVG和许可来源可核对，拒绝旧几何
+ok 44 - 实际启用Commons新模板与真实PNG，原SVG和许可来源可核对，拒绝旧几何
+  ---
+  duration_ms: 3.994125
+  ...
+# Subtest: 16个新区域独立配准源图参考点；旧头部边界不能直接复用
+ok 45 - 16个新区域独立配准源图参考点；旧头部边界不能直接复用
+  ---
+  duration_ms: 5.527125
+  ...
+# Subtest: 实际PNG透明度与命中轮廓密集抽样一致，含四肢间隙，不能仅用矩形命中
+ok 46 - 实际PNG透明度与命中轮廓密集抽样一致，含四肢间隙，不能仅用矩形命中
+  ---
+  duration_ms: 757.25
+  ...
+# Subtest: 头颈胸腹背及四肢全部放大范围，三种容器/DPR下同点探测与复位不变
+ok 47 - 头颈胸腹背及四肢全部放大范围，三种容器/DPR下同点探测与复位不变
+  ---
+  duration_ms: 9.5715
+  ...
+# Subtest: 前后使用同一尺度与画布，保持原视图差异，历史点明确失效
+ok 48 - 前后使用同一尺度与画布，保持原视图差异，历史点明确失效
+  ---
+  duration_ms: 0.215834
+  ...
+# Subtest: A 标准坐标正向转换：独立手算 0.5 比例与 16px 留白
+ok 49 - A 标准坐标正向转换：独立手算 0.5 比例与 16px 留白
+  ---
+  duration_ms: 0.667042
+  ...
+# Subtest: B CSS 坐标逆向转换：手算容器中心
+ok 50 - B CSS 坐标逆向转换：手算容器中心
+  ---
+  duration_ms: 0.070291
+  ...
+# Subtest: C 三种尺寸 11×11 参考点往返，最大允许误差 1e-9
+ok 51 - C 三种尺寸 11×11 参考点往返，最大允许误差 1e-9
+  ---
+  duration_ms: 0.722417
+  ...
+# Subtest: D 宽/窄容器始终等比例，分别产生上下和左右留白
+ok 52 - D 宽/窄容器始终等比例，分别产生上下和左右留白
+  ---
+  duration_ms: 0.055458
+  ...
+# Subtest: E 留白、Canvas 外部以及非有限点击拒绝，不吸附边缘
+ok 53 - E 留白、Canvas 外部以及非有限点击拒绝，不吸附边缘
+  ---
+  duration_ms: 0.069708
+  ...
+# Subtest: F 区域放大居中、四角留在容器内，标准位置保持一致
+ok 54 - F 区域放大居中、四角留在容器内，标准位置保持一致
+  ---
+  duration_ms: 0.200375
+  ...
+# Subtest: G 复位恢复原全身视口，放大不会修改原始点或区域
+ok 55 - G 复位恢复原全身视口，放大不会修改原始点或区域
+  ---
+  duration_ms: 0.271541
+  ...
+# Subtest: H 拒绝非法容器尺寸 0
+ok 56 - H 拒绝非法容器尺寸 0
+  ---
+  duration_ms: 0.144125
+  ...
+# Subtest: H 拒绝非法容器尺寸 -1
+ok 57 - H 拒绝非法容器尺寸 -1
+  ---
+  duration_ms: 0.121542
+  ...
+# Subtest: H 拒绝非法容器尺寸 NaN
+ok 58 - H 拒绝非法容器尺寸 NaN
+  ---
+  duration_ms: 0.172625
+  ...
+# Subtest: H 拒绝非法容器尺寸 Infinity
+ok 59 - H 拒绝非法容器尺寸 Infinity
+  ---
+  duration_ms: 0.091125
+  ...
+# Subtest: H 拒绝非法容器尺寸 -Infinity
+ok 60 - H 拒绝非法容器尺寸 -Infinity
+  ---
+  duration_ms: 0.0325
+  ...
+# Subtest: H 拒绝异常模型、留白、区域和标准点数值
+ok 61 - H 拒绝异常模型、留白、区域和标准点数值
+  ---
+  duration_ms: 0.223459
+  ...
+# Subtest: I 边界点 (0,0)、(1,1) 与全画布放大复位
+ok 62 - I 边界点 (0,0)、(1,1) 与全画布放大复位
+  ---
+  duration_ms: 0.074833
+  ...
+# Subtest: H 拒绝调用方构造的无效视口，不返回 NaN 或伪造坐标
+ok 63 - H 拒绝调用方构造的无效视口，不返回 NaN 或伪造坐标
+  ---
+  duration_ms: 0.121
+  ...
+# Subtest: J 正背面区域独立、ID唯一、解剖学左右正确，区域中心可往返
+ok 64 - J 正背面区域独立、ID唯一、解剖学左右正确，区域中心可往返
+  ---
+  duration_ms: 1.229959
+  ...
+# Subtest: 人工非医学夹具：唯一、重叠、边界、人体外和人体内无配置分别报告
+ok 65 - 人工非医学夹具：唯一、重叠、边界、人体外和人体内无配置分别报告
+  ---
+  duration_ms: 1.617625
+  ...
+# Subtest: 真实区域使用多边形且保留独立前后与解剖学左右，唯一点不会串面
+ok 66 - 真实区域使用多边形且保留独立前后与解剖学左右，唯一点不会串面
+  ---
+  duration_ms: 4.433625
+  ...
+# Subtest: 真实头颈/颈胸/胸腹边界有明确候选，不通过扩大包围盒吞掉人体间隙
+ok 67 - 真实头颈/颈胸/胸腹边界有明确候选，不通过扩大包围盒吞掉人体间隙
+  ---
+  duration_ms: 1.070459
+  ...
+# Subtest: 初始无默认选择、不可放大；人体唯一命中只高亮，确认后才进入focused
+ok 68 - 初始无默认选择、不可放大；人体唯一命中只高亮，确认后才进入focused
+  ---
+  duration_ms: 0.893584
+  ...
+# Subtest: 从列表和人体选中相同状态，focused换部位回overview，取消弹层不改选择/视口
+ok 69 - 从列表和人体选中相同状态，focused换部位回overview，取消弹层不改选择/视口
+  ---
+  duration_ms: 0.297208
+  ...
+# Subtest: 人体外/未配置保留原选择并提示；边界弹候选，取消不抢占，候选选中后不放大
+ok 70 - 人体外/未配置保留原选择并提示；边界弹候选，取消不抢占，候选选中后不放大
+  ---
+  duration_ms: 0.330125
+  ...
+# Subtest: 调试/弹层/说明/错版隔离正常选区，切面清空选择缩放与调试，拒绝跨面列表ID
+ok 71 - 调试/弹层/说明/错版隔离正常选区，切面清空选择缩放与调试，拒绝跨面列表ID
+  ---
+  duration_ms: 0.164583
+  ...
+# Subtest: 开发调试低干扰入口可关闭并清点；说明是真实许可，不调用未来评估或标注接口
+ok 72 - 开发调试低干扰入口可关闭并清点；说明是真实许可，不调用未来评估或标注接口
+  ---
+  duration_ms: 0.18125
+  ...
+# Subtest: region-picker只展示配置并发送已知ID，关闭/遮罩不偷偷选择
+ok 73 - region-picker只展示配置并发送已知ID，关闭/遮罩不偷偷选择
+  ---
+  duration_ms: 0.484291
+  ...
+1..73
+# tests 73
+# suites 0
+# pass 73
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1003.793667
+
+cwd=backend
+command=['/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/backend/.venv/bin/python', '-m', 'pytest']
+exit=0
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.15.1
+collected 12 items
+
+tests/test_api.py ...........                                            [ 91%]
+tests/test_health.py .                                                   [100%]
+
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 12 passed, 1 warning in 0.20s =========================
+
+cwd=.
+command=['/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/backend/.venv/bin/python', 'scripts/check_atlas.py']
+exit=0
+PASSED: V0 图谱 JSON/元数据符合约束；正背面为空、未验证、不可用于医学映射。
+此检查不验证多边形几何、来源真实性或医学准确性。
+
+cwd=.
+command=['/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/backend/.venv/bin/python', 'scripts/check_project.py']
+exit=0
+PASSED: V0～V1.5 必要文件、目录、JSON、四页导航、组件注册及 Canvas 2D 配置完整。
+此检查不代表 WXML/WXSS 编译、页面导航交互或真机验证通过。
+

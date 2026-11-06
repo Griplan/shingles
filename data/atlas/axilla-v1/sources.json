@@ -1,0 +1,13 @@
+{
+  "boundarySystem": "spinal_dermatome",
+  "boundaryLicenseStatus": "unconfigured",
+  "sources": [],
+  "displaySource": {
+    "title": "MaleArmpit1: raised right axillary surface",
+    "url": "https://commons.wikimedia.org/wiki/File:MaleArmpit1.jpg",
+    "author": "Roquex",
+    "license": "CC0 1.0",
+    "attribution": "依据 Roquex / MaleArmpit1（CC0）右腋下照片描摹可见皮肤与褶线，去除照片纹理、毛发及背景；左侧镜像。仅体表示意，非皮节图谱。"
+  },
+  "review": "See docs/validation-records/v6.6-axilla/source-review.md. Display license is NOT boundary evidence. Goran hidden surfaces and sensory test points are not extrapolated."
+}

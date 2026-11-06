@@ -1,0 +1,102 @@
+{
+  "status": "PASSED",
+  "endpoint": "http://212.64.26.206/dermatome-test/api/v1",
+  "input": "synthetic images/bytes only",
+  "invitations_or_operator_key_used": false,
+  "checks": {
+    "anonymous_health": {
+      "expected": 200,
+      "actual": 200
+    },
+    "direct_ready_still_rejected": {
+      "expected": 401,
+      "actual": 401
+    },
+    "direct_evaluate_still_rejected": {
+      "expected": 401,
+      "actual": 401
+    },
+    "spoofed_debug_not_identity": {
+      "expected": 422,
+      "actual": 422
+    },
+    "origin_rejected": {
+      "expected": 403,
+      "actual": 403
+    },
+    "session_body_limit": {
+      "expected": 413,
+      "actual": 413
+    },
+    "automatic_session_0": {
+      "expected": 200,
+      "actual": 200
+    },
+    "automatic_session_1": {
+      "expected": 200,
+      "actual": 200
+    },
+    "valid_ready": {
+      "expected": 200,
+      "actual": 200
+    },
+    "create_photo": {
+      "expected": 200,
+      "actual": 200
+    },
+    "invalid_file_rejected": {
+      "expected": 422,
+      "actual": 422
+    },
+    "over_3mp_rejected": {
+      "expected": 422,
+      "actual": 422
+    },
+    "over_10mib_rejected": {
+      "expected": 413,
+      "actual": 413
+    },
+    "legal_synthetic_photo": {
+      "expected": 200,
+      "actual": 200
+    },
+    "other_guest_read_denied": {
+      "expected": 410,
+      "actual": 410
+    },
+    "other_guest_delete_denied": {
+      "expected": 410,
+      "actual": 410
+    },
+    "owner_read": {
+      "expected": 200,
+      "actual": 200
+    },
+    "cancel_photo": {
+      "expected": 204,
+      "actual": 204
+    },
+    "deleted_photo_gone": {
+      "expected": 410,
+      "actual": 410
+    },
+    "revoke_0": {
+      "expected": 204,
+      "actual": 204
+    },
+    "revoked_denied_0": {
+      "expected": 401,
+      "actual": 401
+    },
+    "revoke_1": {
+      "expected": 204,
+      "actual": 204
+    },
+    "revoked_denied_1": {
+      "expected": 401,
+      "actual": 401
+    }
+  },
+  "phone": "NOT_RUN",
+  "isolation_not_identity": "Any internet client can request bounded public-test access. Tokens protect per-photo ownership, not eligibility."
+}

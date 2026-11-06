@@ -1,0 +1,9 @@
+2026-10-23: after home capability-copy change only; no algorithm edits since full 118 test run.
+command=["/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/node_modules/wcc-exec/wcc", "pages/index/index.wxml", "pages/annotate/annotate.wxml", "pages/select/select.wxml", "components/body-canvas/body-canvas.wxml", "components/region-picker/region-picker.wxml", "-o", "/private/tmp/dermatome-v2-post-copy.js"]
+cwd=/Users/griplan/project/extra/Shingles‌/dermatome-mapper/miniprogram
+exit_code=0
+command=["backend/.venv/bin/python", "scripts/check_project.py"]
+cwd=/Users/griplan/project/extra/Shingles‌/dermatome-mapper
+PASSED: V0～V2 必要文件、目录、JSON、四页导航、组件注册及 Canvas 2D 配置完整。
+此检查不代表 WXML/WXSS 编译、页面导航交互或真机验证通过。
+exit_code=0

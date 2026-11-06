@@ -1,0 +1,518 @@
+[
+  {
+    "request": {
+      "request_id": "SYNTHETIC_PROVISIONAL",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-axilla-v1",
+        "template_version": "1.0.0",
+        "geometry_id": "cc0-raised-axilla-outline-v1",
+        "region_set_id": "commons-axilla-ui-v1",
+        "atlas_id": "axilla-goran-provisional-v1",
+        "atlas_version": "goran-axilla-provisional.1",
+        "atlas_content_sha256": "5ac3acfb9ba6c9f2aa7e379ed51634674822058112647aa6e920f9701aedcaf1",
+        "body_content_sha256": "d606be12993d015c43c27e65c2e3749b2ace6e4df0b304142a776a5464e45d72",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "lesions": [
+        {
+          "id": "SYNTHETIC",
+          "view": "axilla-left",
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinateSpace": "body_template_normalized_v1",
+            "coordinates": [
+              [
+                [
+                  {
+                    "x": 0.4846666666666669,
+                    "y": 0.4428468382891743
+                  },
+                  {
+                    "x": 0.49005859721473677,
+                    "y": 0.4370879560022913
+                  },
+                  {
+                    "x": 0.49011444288005585,
+                    "y": 0.437029892366634
+                  },
+                  {
+                    "x": 0.5058608440926209,
+                    "y": 0.4210920646398956
+                  },
+                  {
+                    "x": 0.5058890990984145,
+                    "y": 0.4210638443160709
+                  },
+                  {
+                    "x": 0.5270700068539483,
+                    "y": 0.4001886828430691
+                  },
+                  {
+                    "x": 0.5270905901483375,
+                    "y": 0.40016859028205254
+                  },
+                  {
+                    "x": 0.5527888170933247,
+                    "y": 0.3753225181162173
+                  },
+                  {
+                    "x": 0.5528071604813785,
+                    "y": 0.3753049326931473
+                  },
+                  {
+                    "x": 0.582105519262303,
+                    "y": 0.34745437288791053
+                  },
+                  {
+                    "x": 0.5821240376137093,
+                    "y": 0.34743691854713865
+                  },
+                  {
+                    "x": 0.6141053408770554,
+                    "y": 0.31754829415593044
+                  },
+                  {
+                    "x": 0.6141256586059273,
+                    "y": 0.31752948081866683
+                  },
+                  {
+                    "x": 0.6478727189981798,
+                    "y": 0.28656921489491816
+                  },
+                  {
+                    "x": 0.6478964221431063,
+                    "y": 0.2865477008935603
+                  },
+                  {
+                    "x": 0.6824920523107496,
+                    "y": 0.25548221649070213
+                  },
+                  {
+                    "x": 0.6825130590027935,
+                    "y": 0.255463530387113
+                  },
+                  {
+                    "x": 0.6998424667044127,
+                    "y": 0.2401933384602145
+                  },
+                  {
+                    "x": 0.6998588275283502,
+                    "y": 0.24017902671911381
+                  },
+                  {
+                    "x": 0.7053333333333333,
+                    "y": 0.23542506525514406
+                  },
+                  {
+                    "x": 0.7053333333333333,
+                    "y": 0.17568622822186955
+                  },
+                  {
+                    "x": 0.6878692752722262,
+                    "y": 0.18803509934140164
+                  },
+                  {
+                    "x": 0.6680991598682077,
+                    "y": 0.20225576125698277
+                  },
+                  {
+                    "x": 0.6483365598140498,
+                    "y": 0.2167021329162085
+                  },
+                  {
+                    "x": 0.6286293857025304,
+                    "y": 0.2313300365524078
+                  },
+                  {
+                    "x": 0.5895320965346827,
+                    "y": 0.26098408908018056
+                  },
+                  {
+                    "x": 0.5511705304235155,
+                    "y": 0.2908791116238421
+                  },
+                  {
+                    "x": 0.5138907946508388,
+                    "y": 0.32068914307002927
+                  },
+                  {
+                    "x": 0.4846666666666667,
+                    "y": 0.3446535816301896
+                  },
+                  {
+                    "x": 0.4846666666666669,
+                    "y": 0.4428468382891743
+                  }
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    "response": {
+      "request_id": "SYNTHETIC_PROVISIONAL",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-axilla-v1",
+        "template_version": "1.0.0",
+        "geometry_id": "cc0-raised-axilla-outline-v1",
+        "region_set_id": "commons-axilla-ui-v1",
+        "atlas_id": "axilla-goran-provisional-v1",
+        "atlas_version": "goran-axilla-provisional.1",
+        "atlas_content_sha256": "5ac3acfb9ba6c9f2aa7e379ed51634674822058112647aa6e920f9701aedcaf1",
+        "body_content_sha256": "d606be12993d015c43c27e65c2e3749b2ace6e4df0b304142a776a5464e45d72",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "method": "manual_annotation_reference_geometry",
+      "area_unit": "normalized_template_area",
+      "source": {
+        "atlas_status": "PROVISIONAL",
+        "uncertainty_level": "HIGH",
+        "title": "Goran 腋下局部近似配准 · PROVISIONAL",
+        "url": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg",
+        "attribution": "Goran_tek-en (2022), CC BY-SA 4.0；本项目裁取原侧内臂T1/T2并以估计点局部仿射；非原图完整腋窝边界。",
+        "license": "CC BY-SA 4.0",
+        "medical_review_status": "pending",
+        "preview": true,
+        "coverage_note": "试验性神经皮节参考匹配：区域边界由公开图谱近似配准，尚未经过医学审核，仅用于模拟与科普，不能用于疾病诊断或替代就医。"
+      },
+      "lesions": [
+        {
+          "view": "axilla-left",
+          "lesion_ids": [
+            "SYNTHETIC"
+          ],
+          "annotation_area": 0.01733833904174236,
+          "covered_area": 0.017338339041742364,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0000000000000002,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "15108c9fd658576a737106f03030475d167925dd069e71334c43a146faf7f2a2",
+              "region_ids": [
+                "axilla-left-T1"
+              ],
+              "partition_type": "spinal_dermatome",
+              "label": "T1",
+              "source_label": "T1",
+              "display_name": "T1（试验性）",
+              "side": "left",
+              "view": "axilla-left",
+              "intersection_area": 0.017338339041742364,
+              "lesion_coverage_ratio": 1.0000000000000002
+            }
+          ]
+        }
+      ],
+      "views": [
+        {
+          "view": "axilla-left",
+          "lesion_ids": [
+            "SYNTHETIC"
+          ],
+          "annotation_area": 0.01733833904174236,
+          "covered_area": 0.017338339041742364,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0000000000000002,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "15108c9fd658576a737106f03030475d167925dd069e71334c43a146faf7f2a2",
+              "region_ids": [
+                "axilla-left-T1"
+              ],
+              "partition_type": "spinal_dermatome",
+              "label": "T1",
+              "source_label": "T1",
+              "display_name": "T1（试验性）",
+              "side": "left",
+              "view": "axilla-left",
+              "intersection_area": 0.017338339041742364,
+              "lesion_coverage_ratio": 1.0000000000000002
+            }
+          ]
+        }
+      ],
+      "warnings": [
+        "试验性神经皮节参考匹配：区域边界由公开图谱近似配准，尚未经过医学审核，仅用于模拟与科普，不能用于疾病诊断或替代就医。",
+        "开发测试参考图谱，医学审核待完成。",
+        "比例仅为当前二维模板的几何覆盖，不是诊断概率或真实皮肤面积。",
+        "当前图谱未覆盖不代表没有感觉神经；不同候选可能重叠，不能累加候选比例。"
+      ]
+    },
+    "elapsedMs": 3.996625018771738
+  },
+  {
+    "request": {
+      "request_id": "SYNTHETIC_PROVISIONAL",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-axilla-v1",
+        "template_version": "1.0.0",
+        "geometry_id": "cc0-raised-axilla-outline-v1",
+        "region_set_id": "commons-axilla-ui-v1",
+        "atlas_id": "axilla-goran-provisional-v1",
+        "atlas_version": "goran-axilla-provisional.1",
+        "atlas_content_sha256": "5ac3acfb9ba6c9f2aa7e379ed51634674822058112647aa6e920f9701aedcaf1",
+        "body_content_sha256": "d606be12993d015c43c27e65c2e3749b2ace6e4df0b304142a776a5464e45d72",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "lesions": [
+        {
+          "id": "SYNTHETIC",
+          "view": "axilla-right",
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinateSpace": "body_template_normalized_v1",
+            "coordinates": [
+              [
+                [
+                  {
+                    "x": 0.5100238818422456,
+                    "y": 0.33919748025136703
+                  },
+                  {
+                    "x": 0.4358366990009258,
+                    "y": 0.2820978348155025
+                  },
+                  {
+                    "x": 0.39765853108946175,
+                    "y": 0.2526780804257827
+                  },
+                  {
+                    "x": 0.35914490884650346,
+                    "y": 0.2232284526437797
+                  },
+                  {
+                    "x": 0.32058260316220183,
+                    "y": 0.1941583499371186
+                  },
+                  {
+                    "x": 0.29466666666666674,
+                    "y": 0.175033730963249
+                  },
+                  {
+                    "x": 0.29466666666666674,
+                    "y": 0.22856501812909746
+                  },
+                  {
+                    "x": 0.3033244021044073,
+                    "y": 0.2350614679514919
+                  },
+                  {
+                    "x": 0.3033660592508232,
+                    "y": 0.2350932986659197
+                  },
+                  {
+                    "x": 0.3171566849801933,
+                    "y": 0.24582302135014192
+                  },
+                  {
+                    "x": 0.31719358110890233,
+                    "y": 0.24585219539085584
+                  },
+                  {
+                    "x": 0.33104034637074314,
+                    "y": 0.25697845955217663
+                  },
+                  {
+                    "x": 0.3310733055411406,
+                    "y": 0.2570053297975352
+                  },
+                  {
+                    "x": 0.3449245918234887,
+                    "y": 0.26846208054389
+                  },
+                  {
+                    "x": 0.34495427551829183,
+                    "y": 0.268486957110109
+                  },
+                  {
+                    "x": 0.35875846430918557,
+                    "y": 0.28020813954943496
+                  },
+                  {
+                    "x": 0.35878541114217727,
+                    "y": 0.2802312962017051
+                  },
+                  {
+                    "x": 0.37249088392965296,
+                    "y": 0.2921508554419379
+                  },
+                  {
+                    "x": 0.37251553917675506,
+                    "y": 0.29217253604069376
+                  },
+                  {
+                    "x": 0.3860706774488497,
+                    "y": 0.3042244171897695
+                  },
+                  {
+                    "x": 0.3861039543709438,
+                    "y": 0.30425445185609323
+                  },
+                  {
+                    "x": 0.41255675332113906,
+                    "y": 0.328490960312519
+                  },
+                  {
+                    "x": 0.41259649051928354,
+                    "y": 0.32852803586888485
+                  },
+                  {
+                    "x": 0.437828529264401,
+                    "y": 0.3525011732559173
+                  },
+                  {
+                    "x": 0.4378644854697026,
+                    "y": 0.3525359101279634
+                  },
+                  {
+                    "x": 0.4614628159140385,
+                    "y": 0.37571723730909184
+                  },
+                  {
+                    "x": 0.4614968737631778,
+                    "y": 0.37575123434913404
+                  },
+                  {
+                    "x": 0.48304854781102896,
+                    "y": 0.39761231218784765
+                  },
+                  {
+                    "x": 0.48308280737352455,
+                    "y": 0.39764763849721735
+                  },
+                  {
+                    "x": 0.5021748769291887,
+                    "y": 0.41766002785700646
+                  },
+                  {
+                    "x": 0.5022123327733503,
+                    "y": 0.4177000140267536
+                  },
+                  {
+                    "x": 0.5153333333333335,
+                    "y": 0.431966300728316
+                  },
+                  {
+                    "x": 0.5153333333333335,
+                    "y": 0.34288908326328965
+                  },
+                  {
+                    "x": 0.5101424496030734,
+                    "y": 0.339284199949391
+                  },
+                  {
+                    "x": 0.5100238818422456,
+                    "y": 0.33919748025136703
+                  }
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    "response": {
+      "request_id": "SYNTHETIC_PROVISIONAL",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-axilla-v1",
+        "template_version": "1.0.0",
+        "geometry_id": "cc0-raised-axilla-outline-v1",
+        "region_set_id": "commons-axilla-ui-v1",
+        "atlas_id": "axilla-goran-provisional-v1",
+        "atlas_version": "goran-axilla-provisional.1",
+        "atlas_content_sha256": "5ac3acfb9ba6c9f2aa7e379ed51634674822058112647aa6e920f9701aedcaf1",
+        "body_content_sha256": "d606be12993d015c43c27e65c2e3749b2ace6e4df0b304142a776a5464e45d72",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "method": "manual_annotation_reference_geometry",
+      "area_unit": "normalized_template_area",
+      "source": {
+        "atlas_status": "PROVISIONAL",
+        "uncertainty_level": "HIGH",
+        "title": "Goran 腋下局部近似配准 · PROVISIONAL",
+        "url": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg",
+        "attribution": "Goran_tek-en (2022), CC BY-SA 4.0；本项目裁取原侧内臂T1/T2并以估计点局部仿射；非原图完整腋窝边界。",
+        "license": "CC BY-SA 4.0",
+        "medical_review_status": "pending",
+        "preview": true,
+        "coverage_note": "试验性神经皮节参考匹配：区域边界由公开图谱近似配准，尚未经过医学审核，仅用于模拟与科普，不能用于疾病诊断或替代就医。"
+      },
+      "lesions": [
+        {
+          "view": "axilla-right",
+          "lesion_ids": [
+            "SYNTHETIC"
+          ],
+          "annotation_area": 0.014506250486092371,
+          "covered_area": 0.01450625048609237,
+          "uncovered_area": 0.0,
+          "covered_ratio": 0.9999999999999999,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "c83140455ceabbc603f9a83dd106083127a14b6499f764e5d692303e80a223f7",
+              "region_ids": [
+                "axilla-right-T1"
+              ],
+              "partition_type": "spinal_dermatome",
+              "label": "T1",
+              "source_label": "T1",
+              "display_name": "T1（试验性）",
+              "side": "right",
+              "view": "axilla-right",
+              "intersection_area": 0.01450625048609237,
+              "lesion_coverage_ratio": 0.9999999999999999
+            }
+          ]
+        }
+      ],
+      "views": [
+        {
+          "view": "axilla-right",
+          "lesion_ids": [
+            "SYNTHETIC"
+          ],
+          "annotation_area": 0.014506250486092371,
+          "covered_area": 0.01450625048609237,
+          "uncovered_area": 0.0,
+          "covered_ratio": 0.9999999999999999,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "c83140455ceabbc603f9a83dd106083127a14b6499f764e5d692303e80a223f7",
+              "region_ids": [
+                "axilla-right-T1"
+              ],
+              "partition_type": "spinal_dermatome",
+              "label": "T1",
+              "source_label": "T1",
+              "display_name": "T1（试验性）",
+              "side": "right",
+              "view": "axilla-right",
+              "intersection_area": 0.01450625048609237,
+              "lesion_coverage_ratio": 0.9999999999999999
+            }
+          ]
+        }
+      ],
+      "warnings": [
+        "试验性神经皮节参考匹配：区域边界由公开图谱近似配准，尚未经过医学审核，仅用于模拟与科普，不能用于疾病诊断或替代就医。",
+        "开发测试参考图谱，医学审核待完成。",
+        "比例仅为当前二维模板的几何覆盖，不是诊断概率或真实皮肤面积。",
+        "当前图谱未覆盖不代表没有感觉神经；不同候选可能重叠，不能累加候选比例。"
+      ]
+    },
+    "elapsedMs": 2.3152910289354622
+  }
+]

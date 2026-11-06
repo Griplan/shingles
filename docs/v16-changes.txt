@@ -1,0 +1,40 @@
+V1.6 actual scope relative to 227-file pre-turn byte snapshot, not Git HEAD.
+No Git staging/commit/push.
+
+MODIFIED (13)
+AGENTS.md
+README.md
+docs/architecture.md
+docs/validation.md
+miniprogram/components/body-canvas/render.ts
+miniprogram/data/body-regions.ts
+miniprogram/types/dermatome.ts
+scripts/check_project.py
+task.md
+tests/miniprogram/canvas.test.cjs
+tests/miniprogram/commons-registration.test.cjs
+tests/miniprogram/coordinate.test.cjs
+tests/miniprogram/region-hit.test.cjs
+
+ADDED (19)
+docs/body-regions.md
+docs/v16-changes.txt
+docs/validation-records/v16-first-check-2026-10-22.txt
+docs/validation-records/v16-first-regression-2026-10-22.txt
+docs/validation-records/v16-geometry-2026-10-22.txt
+docs/validation-records/v16-gui-2026-10-22.txt
+docs/validation-records/v16-reference-tests-2026-10-22.txt
+docs/validation-records/v16-regions-2026-10-22-boundaries.png
+docs/validation-records/v16-regions-2026-10-22-boundaries.svg
+docs/validation-records/v16-regions-2026-10-22-comparison.png
+docs/validation-records/v16-regions-2026-10-22-comparison.svg
+docs/validation-records/v16-regression-2026-10-22.txt
+docs/validation-records/v16-scope-2026-10-22.txt
+miniprogram/data/body-regions-v15.ts
+scripts/check_body_regions.py
+scripts/preview_regions.cjs
+tests/miniprogram/fixtures/commons-region-references.json
+tests/miniprogram/helpers/png-alpha.cjs
+tests/miniprogram/region-refinement.test.cjs
+
+DELETED (0)

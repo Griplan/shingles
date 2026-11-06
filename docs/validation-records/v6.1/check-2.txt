@@ -1,0 +1,4 @@
+COMMAND: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/bin/python scripts/check_project.py
+EXIT: 0
+PASSED: V0～V6.1 必要文件、目录、JSON、九页导航、组件注册及 Canvas 2D 配置完整。
+此检查不代表 WXML/WXSS 编译、页面导航交互或真机验证通过。

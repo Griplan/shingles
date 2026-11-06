@@ -1,0 +1,27 @@
+flowchart TB
+  UI["微信小程序
+人工标注 · AI确认 · 人体放置"]
+  STATE["唯一标注会话
+人体 MultiPolygon + 版本"]
+  N["腾讯云 Nginx
+独立 HTTP 测试入口 · 限流"]
+  API["FastAPI · 单 Worker
+访问身份 / 请求体 / 数据契约校验"]
+  MATCH["图谱加载与 Shapely 匹配
+标签归并 · 交集 · 并集去重"]
+  AI["AI 会话服务 · 单推理锁
+MobileSAM → Mask → 含孔轮廓"]
+  FILE["私有临时文件
+照片 / Mask / TTL清理"]
+  DATA["固定本地资源
+人体 + atlas JSON + 内容哈希"]
+  UI --> STATE
+  STATE -->|"人体坐标请求"| N
+  UI -->|"照片与提示"| N
+  N -->|"127.0.0.1:8001"| API
+  API --> MATCH
+  API --> AI
+  AI --> FILE
+  DATA --> MATCH
+  DATA --> UI
+  API -->|"候选 / 几何覆盖结果"| UI

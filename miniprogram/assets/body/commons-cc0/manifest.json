@@ -1,0 +1,91 @@
+{
+  "templateId": "commons-neutral-v1",
+  "templateVersion": "4.0.0",
+  "geometryId": "commons-blank-cc0-v1",
+  "sourceURL": "https://commons.wikimedia.org/wiki/File:Human_body_with_blank_labels.svg",
+  "authors": [
+    "Šlomo",
+    "Michael W Harris (Digital Nomad)",
+    "Christophe Dang Ngoc Chan (Cdang)"
+  ],
+  "license": "CC0-1.0",
+  "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "sourceSHA256": "486cdc8a89fbfe0ff0a4bb4104efc19bb5c708337c37768be6f9120c4837753a",
+  "sourceGroups": {
+    "front": "g5692",
+    "back": "g5815"
+  },
+  "normalization": {
+    "logicalWidth": 400,
+    "logicalHeight": 900,
+    "rasterScale": 3,
+    "sourceTop": 19,
+    "sourceBottom": 750,
+    "scale": 1.1491108071135432,
+    "translateY": 8.16689466484268,
+    "views": {
+      "front": {
+        "translateX": 10.396716826265362,
+        "bounds": {
+          "x0": 13,
+          "y0": 20,
+          "x1": 317,
+          "y1": 749
+        }
+      },
+      "back": {
+        "translateX": -477.9753761969905,
+        "bounds": {
+          "x0": 444,
+          "y0": 19,
+          "x1": 736,
+          "y1": 750
+        }
+      }
+    }
+  },
+  "geometry": {
+    "front": {
+      "rawBoundaryVertices": 13788,
+      "simplifiedVertices": 1563,
+      "area": 120615.49999999996,
+      "bounds": [
+        24.333333333333332,
+        31.333333333333332,
+        375.0,
+        869.6666666666666
+      ],
+      "valid": true,
+      "rasterClosingPixels": 3,
+      "logicalSimplificationTolerance": 0.3
+    },
+    "back": {
+      "rawBoundaryVertices": 13852,
+      "simplifiedVertices": 1487,
+      "area": 127095.94444444448,
+      "bounds": [
+        31.666666666666668,
+        30.0,
+        368.3333333333333,
+        870.6666666666666
+      ],
+      "valid": true,
+      "rasterClosingPixels": 3,
+      "logicalSimplificationTolerance": 0.3
+    }
+  },
+  "changes": [
+    "Removed label/leader elements by selecting original body groups only",
+    "Same uniform scale for both views; translation and transparent interaction margins",
+    "3x PNG with flat neutral interior under original ink; no body deformation",
+    "Source raster boundary, 3x3 raster closing, 0.3 logical-unit simplification"
+  ],
+  "files": {
+    "source.svg": "486cdc8a89fbfe0ff0a4bb4104efc19bb5c708337c37768be6f9120c4837753a",
+    "front.svg": "6906420e124c03816d19b53ec22ac61916b9cc4bc74b1ceb75ec4b7fddae94b0",
+    "back.svg": "11f5836b4732cd5e8f43cdbd9780c0e01c50ef8fa66bb2bb9d41457492a6da02",
+    "front.png": "6fdfc96f6cfa8987ec5bf331d0c4697bd46e95a1833e8d539d665ed02b9746c3",
+    "back.png": "f8d01a058c6a5caef7ae85d836248dad2138b7552f2d5c2eb7ab3ea0b5110117",
+    "geometry.generated.ts": "f33673dd7813459e796403539b01fed04467b14013420d15c6dc1ef60fdb0d02"
+  }
+}

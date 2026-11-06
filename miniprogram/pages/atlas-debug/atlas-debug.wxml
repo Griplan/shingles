@@ -1,0 +1,69 @@
+<view wx:if="{{!allowed}}" class="page">
+ <view class="notice">此页面仅在获准的开发环境开放。</view>
+ <navigator url="/pages/index/index">返回首页</navigator>
+</view>
+<view wx:else class="atlas-page">
+ <view class="preview-warning">开发预览，尚未完成医学审核</view>
+ <view class="toolbar">
+  <view class="segments">
+   <button size="mini" class="{{view === 'front' ? 'active' : ''}}" data-view="front" bindtap="switchView">正面</button>
+   <button size="mini" class="{{view === 'back' ? 'active' : ''}}" data-view="back" bindtap="switchView">背面</button>
+  </view>
+  <view class="segments">
+   <button size="mini" class="{{displayMode === 'all' ? 'active' : ''}}" data-mode="all" bindtap="changeMode">{{group === 'all' ? '全部' : '本组全部'}}</button>
+   <button size="mini" class="{{displayMode === 'single' ? 'active' : ''}}" data-mode="single" bindtap="changeMode">单区</button>
+   <button size="mini" class="{{displayMode === 'hidden' ? 'active' : ''}}" data-mode="hidden" bindtap="changeMode">隐藏</button>
+  </view>
+ </view>
+ <view class="canvas-area">
+  <body-canvas view="{{view}}" interaction-mode="readonly" atlas="{{layer}}" focus-bounds="{{focusBounds}}" layout-revision="{{layoutRevision}}" />
+  <view class="side-guide"><text>{{screenLeft}}</text><text>{{screenRight}}</text></view>
+ </view>
+ <view class="controls">
+  <view class="segments group-tabs">
+   <button size="mini" class="{{group === 'all' ? 'active' : ''}}" data-group="all" bindtap="changeGroup">全部分区</button>
+   <button size="mini" class="{{group === 'trigeminal' ? 'active' : ''}}" data-group="trigeminal" bindtap="changeGroup">面部三叉神经</button>
+   <button size="mini" class="{{group === 'spinal' ? 'active' : ''}}" data-group="spinal" bindtap="changeGroup">脊神经皮节</button>
+  </view>
+  <view wx:if="{{group === 'trigeminal'}}" class="face-options">
+   <button wx:for="{{faceOptions}}" wx:key="id" size="mini" class="{{labelId === item.id ? 'active' : ''}}" data-label="{{item.id}}" bindtap="chooseFace">{{item.name}}</button>
+  </view>
+  <picker mode="selector" range="{{options}}" range-key="name" value="{{pickerIndex}}" bindchange="chooseLabel">
+   <view class="region-selector">分区列表 · {{selectedText}} <text>⌄</text></view>
+  </picker>
+  <view class="toolbar">
+   <view class="segments">
+    <button size="mini" class="{{side === 'both' ? 'active' : ''}}" data-side="both" bindtap="changeSide">双侧</button>
+    <button size="mini" class="{{side === 'left' ? 'active' : ''}}" data-side="left" bindtap="changeSide">人体左侧</button>
+    <button size="mini" class="{{side === 'right' ? 'active' : ''}}" data-side="right" bindtap="changeSide">人体右侧</button>
+   </view>
+   <label class="label-switch">标签 <switch checked="{{showLabels}}" bindchange="toggleLabels" color="#236b57" /></label>
+  </view>
+  <view class="toolbar actions">
+   <button size="mini" bindtap="focusSelected" disabled="{{!labelId}}">放大所选</button>
+   <button size="mini" bindtap="fullBody">返回全身</button>
+   <button size="mini" bindtap="clearSelection">清除选择</button>
+  </view>
+  <view class="toolbar actions local-focus">
+   <button size="mini" data-focus="face" bindtap="focusLocal">放大面部</button>
+   <button size="mini" data-focus="left-foot" bindtap="focusLocal">放大左足</button>
+   <button size="mini" data-focus="right-foot" bindtap="focusLocal">放大右足</button>
+  </view>
+  <view class="coverage">本面已配置 {{configuredCount}} 区域实例 · 当前显示 {{shownCount}} 个</view>
+  <view class="message">{{message}}</view>
+  <view wx:if="{{group === 'trigeminal'}}" class="coverage">本页仅展示参考感觉分区。实际出现眼周或鼻部皮疹、视力变化时，应及时就医。</view>
+  <view wx:if="{{showLabels}}" class="coverage">面部及足部的小区域标签在局部放大后显示；几何范围始终按筛选显示。</view>
+  <view class="source-toggle" bindtap="toggleInfo">来源、许可与未配置范围 {{infoOpen ? '−' : '+'}}</view>
+  <view wx:if="{{infoOpen}}" class="source-info">
+   <view>{{manifest.sourceTitle}}</view><view>{{manifest.attribution}}</view>
+   <view selectable="true">{{manifest.sourceUrl}}</view>
+   <view selectable="true">背面来源：commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_back_3d-shaded.svg</view>
+   <view selectable="true">许可：creativecommons.org/licenses/by-sa/4.0/</view>
+   <view>图谱 {{manifest.atlasVersion}} · 人体 {{manifest.templateId}} / {{manifest.templateVersion}}</view>
+   <view>许可已核实 · 技术状态 {{manifest.technicalValidationStatus}} · 医学审核待完成</view>
+   <view>{{manifest.coverageNote}}</view>
+   <view>组合标签保留原图含义；颜色仅辅助查看。此页不使用病灶，不生成匹配或诊断。</view>
+  </view>
+  <navigator class="back-link" url="/pages/index/index">返回首页</navigator>
+ </view>
+</view>

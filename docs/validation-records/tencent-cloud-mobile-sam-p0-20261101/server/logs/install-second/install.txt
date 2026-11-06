@@ -1,0 +1,77 @@
+Looking in indexes: https://download.pytorch.org/whl/cpu
+Collecting torch==2.5.1+cpu
+  Downloading https://download-r2.pytorch.org/whl/cpu/torch-2.5.1%2Bcpu-cp312-cp312-linux_x86_64.whl (174.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 174.6/174.6 MB 4.0 MB/s eta 0:00:00
+Collecting torchvision==0.20.1+cpu
+  Downloading https://download-r2.pytorch.org/whl/cpu/torchvision-0.20.1%2Bcpu-cp312-cp312-linux_x86_64.whl (1.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 1.7 MB/s eta 0:00:00
+Saved ./model/wheelhouse/torch-2.5.1+cpu-cp312-cp312-linux_x86_64.whl
+Saved ./model/wheelhouse/torchvision-0.20.1+cpu-cp312-cp312-linux_x86_64.whl
+Successfully downloaded torch torchvision
+Looking in links: /srv/dermatome-preflight-20261101-p0/model/wheelhouse
+Processing ./model/wheelhouse/torch-2.5.1+cpu-cp312-cp312-linux_x86_64.whl
+  File was already downloaded /srv/dermatome-preflight-20261101-p0/model/wheelhouse/torch-2.5.1+cpu-cp312-cp312-linux_x86_64.whl
+Processing ./model/wheelhouse/torchvision-0.20.1+cpu-cp312-cp312-linux_x86_64.whl
+  File was already downloaded /srv/dermatome-preflight-20261101-p0/model/wheelhouse/torchvision-0.20.1+cpu-cp312-cp312-linux_x86_64.whl
+Collecting timm==1.0.12
+  Downloading timm-1.0.12-py3-none-any.whl.metadata (51 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 51.6/51.6 kB 210.1 kB/s eta 0:00:00
+Collecting numpy==2.1.3
+  Downloading numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 305.5 kB/s eta 0:00:00
+Collecting Pillow==11.1.0
+  Downloading pillow-11.1.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting shapely==2.1.2
+  Downloading shapely-2.1.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.8 kB)
+Collecting psutil==6.1.1
+  Downloading psutil-6.1.1-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
+Collecting setuptools==75.8.0
+  Downloading setuptools-75.8.0-py3-none-any.whl.metadata (6.7 kB)
+Collecting wheel==0.45.1
+  Downloading wheel-0.45.1-py3-none-any.whl.metadata (2.3 kB)
+Collecting filelock (from torch==2.5.1+cpu)
+  Downloading filelock-4.2.6-py3-none-any.whl.metadata (2.0 kB)
+Collecting typing-extensions>=4.8.0 (from torch==2.5.1+cpu)
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting networkx (from torch==2.5.1+cpu)
+  Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+Collecting jinja2 (from torch==2.5.1+cpu)
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec (from torch==2.5.1+cpu)
+  Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting sympy==1.13.1 (from torch==2.5.1+cpu)
+  Downloading sympy-1.13.1-py3-none-any.whl.metadata (12 kB)
+Collecting pyyaml (from timm==1.0.12)
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting huggingface_hub (from timm==1.0.12)
+  Downloading huggingface_hub-2.4.0-py3-none-any.whl.metadata (16 kB)
+Collecting safetensors (from timm==1.0.12)
+  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy==1.13.1->torch==2.5.1+cpu)
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting click<9.0.0,>=8.4.2 (from huggingface_hub->timm==1.0.12)
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface_hub->timm==1.0.12)
+  Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting httpx2<3,>=2.0.0 (from huggingface_hub->timm==1.0.12)
+  Downloading httpx2-2.16.0-py3-none-any.whl.metadata (10 kB)
+Collecting packaging>=20.9 (from huggingface_hub->timm==1.0.12)
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting tqdm>=4.42.1 (from huggingface_hub->timm==1.0.12)
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.4/57.4 kB 17.7 kB/s eta 0:00:00
+Collecting MarkupSafe>=2.0 (from jinja2->torch==2.5.1+cpu)
+  Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Collecting anyio>=4.10 (from httpx2<3,>=2.0.0->huggingface_hub->timm==1.0.12)
+  Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpcore2==2.16.0 (from httpx2<3,>=2.0.0->huggingface_hub->timm==1.0.12)
+  Downloading httpcore2-2.16.0-py3-none-any.whl.metadata (27 kB)
+Collecting idna>=3.18 (from httpx2<3,>=2.0.0->huggingface_hub->timm==1.0.12)
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting truststore>=0.10 (from httpx2<3,>=2.0.0->huggingface_hub->timm==1.0.12)
+  Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
+Collecting h11>=0.16 (from httpcore2==2.16.0->httpx2<3,>=2.0.0->huggingface_hub->timm==1.0.12)
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Downloading timm-1.0.12-py3-none-any.whl (2.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 14.3 kB/s eta 0:00:00
+Downloading numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.0 MB)

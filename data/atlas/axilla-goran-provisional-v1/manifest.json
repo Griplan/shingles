@@ -1,0 +1,20 @@
+{
+  "templateId": "commons-axilla-v1",
+  "templateVersion": "1.0.0",
+  "geometryId": "cc0-raised-axilla-outline-v1",
+  "regionSetId": "commons-axilla-ui-v1",
+  "atlasId": "axilla-goran-provisional-v1",
+  "atlasVersion": "goran-axilla-provisional.1",
+  "atlasStatus": "PROVISIONAL",
+  "contentSHA256": "5ac3acfb9ba6c9f2aa7e379ed51634674822058112647aa6e920f9701aedcaf1",
+  "mappingEnabled": false,
+  "medicalReviewStatus": "pending",
+  "reviewStatus": "UNREVIEWED_PROVISIONAL",
+  "technicalValidationStatus": "passed_offline_geometry",
+  "sourceLicenseStatus": "verified",
+  "sourceTitle": "Goran 腋下局部近似配准 · PROVISIONAL",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg",
+  "attribution": "Goran_tek-en (2022), CC BY-SA 4.0；本项目裁取原侧内臂T1/T2并以估计点局部仿射；非原图完整腋窝边界。",
+  "license": "CC BY-SA 4.0",
+  "coverageNote": "试验性神经皮节参考匹配：区域边界由公开图谱近似配准，尚未经过医学审核，仅用于模拟与科普，不能用于疾病诊断或替代就医。"
+}

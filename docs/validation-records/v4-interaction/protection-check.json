@@ -1,0 +1,565 @@
+{
+  "baseline": "/private/tmp/dermatome-v4-ui-baseline.json",
+  "count": 93,
+  "all_unchanged": true,
+  "files": [
+    {
+      "path": "backend/app/__init__.py",
+      "before": "d5e7c048f456cf5d7df6e7fdd96e930dddabe23a4c84b16ab9cb299b67e064e6",
+      "after": "d5e7c048f456cf5d7df6e7fdd96e930dddabe23a4c84b16ab9cb299b67e064e6",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/api/__init__.py",
+      "before": "431ab77ab426058dc1651469c264decb9a10097109c11737a492f2c01b06d9d5",
+      "after": "431ab77ab426058dc1651469c264decb9a10097109c11737a492f2c01b06d9d5",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/api/routes/__init__.py",
+      "before": "6cc6868eb515ba9f7794ac3808d33e85b59e65551e8f59c9271ffdf8dc3958fb",
+      "after": "6cc6868eb515ba9f7794ac3808d33e85b59e65551e8f59c9271ffdf8dc3958fb",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/api/routes/atlas.py",
+      "before": "bb4abfa98df5ef9430a18db169a67cea8b07612b17a32fef077ef08fa99a7c13",
+      "after": "bb4abfa98df5ef9430a18db169a67cea8b07612b17a32fef077ef08fa99a7c13",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/api/routes/evaluate.py",
+      "before": "4ae6f05a592e8f87a053ea7a8f490109917ce53064214ff126da961f95ec46e3",
+      "after": "4ae6f05a592e8f87a053ea7a8f490109917ce53064214ff126da961f95ec46e3",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/api/routes/health.py",
+      "before": "97ad9eaed60c921f098d35a7175552883e131614823c046fddd28903266a3beb",
+      "after": "97ad9eaed60c921f098d35a7175552883e131614823c046fddd28903266a3beb",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/main.py",
+      "before": "3be02d18c364b4fb779b768930e53052239fa6cf73608bf24b11d73f527b7c9f",
+      "after": "3be02d18c364b4fb779b768930e53052239fa6cf73608bf24b11d73f527b7c9f",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/schemas/__init__.py",
+      "before": "403472c46cabb0f67f080aa2ffb2e6946579c89a8001b88600cc14810e5b3d37",
+      "after": "403472c46cabb0f67f080aa2ffb2e6946579c89a8001b88600cc14810e5b3d37",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/schemas/common.py",
+      "before": "81ac34ddd3374701f1dac519a7832175141d709d3c7a8f11d7128ed544221370",
+      "after": "81ac34ddd3374701f1dac519a7832175141d709d3c7a8f11d7128ed544221370",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/schemas/evaluate.py",
+      "before": "fb9bfb78d9f02b65b49cd47d5678e3628309b8e2337107d69714409dfce21fa6",
+      "after": "fb9bfb78d9f02b65b49cd47d5678e3628309b8e2337107d69714409dfce21fa6",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/services/__init__.py",
+      "before": "7304b539f0a0d9a689a44458cb45e7c867e263d30e2fc2fcafc1829b780489e1",
+      "after": "7304b539f0a0d9a689a44458cb45e7c867e263d30e2fc2fcafc1829b780489e1",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/services/atlas_service.py",
+      "before": "a9c6a1aca33b61c0c8d6d12840a3ed5bace0a5babadceed2ede253663de63867",
+      "after": "a9c6a1aca33b61c0c8d6d12840a3ed5bace0a5babadceed2ede253663de63867",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/services/dermatome_matcher.py",
+      "before": "3f984583540bf1563b1506859c631d6334743485b301f1f36ef2d2c4080a481a",
+      "after": "3f984583540bf1563b1506859c631d6334743485b301f1f36ef2d2c4080a481a",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/utils/__init__.py",
+      "before": "24656c749eb37596286ab2ab4fcb190d4642a5999ad8599793741f18f0a69a1a",
+      "after": "24656c749eb37596286ab2ab4fcb190d4642a5999ad8599793741f18f0a69a1a",
+      "unchanged": true
+    },
+    {
+      "path": "backend/app/utils/geometry.py",
+      "before": "5773aa8665c3bdfee59c5a27e5be5c37626264841d95541ce2b270bd267262e9",
+      "after": "5773aa8665c3bdfee59c5a27e5be5c37626264841d95541ce2b270bd267262e9",
+      "unchanged": true
+    },
+    {
+      "path": "backend/dermatome_mapper_backend.egg-info/PKG-INFO",
+      "before": "e61f213702d278dd8442e5e32d40d6550ce75c2259ab7b651ee1bf423f6b580f",
+      "after": "e61f213702d278dd8442e5e32d40d6550ce75c2259ab7b651ee1bf423f6b580f",
+      "unchanged": true
+    },
+    {
+      "path": "backend/dermatome_mapper_backend.egg-info/SOURCES.txt",
+      "before": "c6076d8e7c6009eea416307070d4a9e4b8b409359486d4c8d1ed102a3f0bc748",
+      "after": "c6076d8e7c6009eea416307070d4a9e4b8b409359486d4c8d1ed102a3f0bc748",
+      "unchanged": true
+    },
+    {
+      "path": "backend/dermatome_mapper_backend.egg-info/dependency_links.txt",
+      "before": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "after": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "unchanged": true
+    },
+    {
+      "path": "backend/dermatome_mapper_backend.egg-info/requires.txt",
+      "before": "cd6149f63fa4ae910b803776e51be1c8e4ffb8e70231f794368e5b47efccb076",
+      "after": "cd6149f63fa4ae910b803776e51be1c8e4ffb8e70231f794368e5b47efccb076",
+      "unchanged": true
+    },
+    {
+      "path": "backend/dermatome_mapper_backend.egg-info/top_level.txt",
+      "before": "8a8f60ecb09b7e64c6d5214a8043865e608507db8c3f61f995eae6d078875901",
+      "after": "8a8f60ecb09b7e64c6d5214a8043865e608507db8c3f61f995eae6d078875901",
+      "unchanged": true
+    },
+    {
+      "path": "backend/pyproject.toml",
+      "before": "eaa945d091d50701f8d489a0e3afd969cb19b5b9a10d501809b5380a82b06c19",
+      "after": "eaa945d091d50701f8d489a0e3afd969cb19b5b9a10d501809b5380a82b06c19",
+      "unchanged": true
+    },
+    {
+      "path": "backend/tests/fixtures/atlas-matching-reference-points.json",
+      "before": "a1cb693f947ca2a70a1f14cb20387d660055af1325d70bc3e00c53737c983cf9",
+      "after": "a1cb693f947ca2a70a1f14cb20387d660055af1325d70bc3e00c53737c983cf9",
+      "unchanged": true
+    },
+    {
+      "path": "backend/tests/fixtures/synthetic-annotation-geometry.json",
+      "before": "1eb6e984558281848f13ff0c20e49519c3e1abbff5392a9c76044f05e87278e2",
+      "after": "1eb6e984558281848f13ff0c20e49519c3e1abbff5392a9c76044f05e87278e2",
+      "unchanged": true
+    },
+    {
+      "path": "backend/tests/fixtures/synthetic-atlas-registration.json",
+      "before": "de57dd58ac3e88c205cfc48798fcee104cbbd3e5b222796334b795119aba317e",
+      "after": "de57dd58ac3e88c205cfc48798fcee104cbbd3e5b222796334b795119aba317e",
+      "unchanged": true
+    },
+    {
+      "path": "backend/tests/fixtures/synthetic-atlas-render.json",
+      "before": "2d1f837422a120c267e395b75be080687589f780cbbfcf59393b31ed6ee8a04a",
+      "after": "2d1f837422a120c267e395b75be080687589f780cbbfcf59393b31ed6ee8a04a",
+      "unchanged": true
+    },
+    {
+      "path": "backend/tests/fixtures/synthetic-atlas-svg.json",
+      "before": "3f9f873e79c98f6f7a1b38fafb886de63b7235eab75848dda894aa1e57befce1",
+      "after": "3f9f873e79c98f6f7a1b38fafb886de63b7235eab75848dda894aa1e57befce1",
+      "unchanged": true
+    },
+    {
+      "path": "backend/tests/fixtures/synthetic-matching.json",
+      "before": "34b17dd8cc280f4a0e1fbbb9764378eee1cfd48d5f7bf21258e0f41bcacdcaf5",
+      "after": "34b17dd8cc280f4a0e1fbbb9764378eee1cfd48d5f7bf21258e0f41bcacdcaf5",
+      "unchanged": true
+    },
+    {
+      "path": "backend/tests/fixtures/synthetic-ui-hit.json",
+      "before": "c6a867c1c1b9fbf89c6e263a537bd35b87f81252d62d6551333988b7a7de037d",
+      "after": "c6a867c1c1b9fbf89c6e263a537bd35b87f81252d62d6551333988b7a7de037d",
+      "unchanged": true
+    },
+    {
+      "path": "backend/tests/test_api.py",
+      "before": "05cc37cc10b86a5fc71ffb1175d53c6fca279068459fa339f72cc920e960a3ca",
+      "after": "05cc37cc10b86a5fc71ffb1175d53c6fca279068459fa339f72cc920e960a3ca",
+      "unchanged": true
+    },
+    {
+      "path": "backend/tests/test_evaluate_api.py",
+      "before": "12e59c79864efa3fe85d58006a8d959339b93ca8e63dc3f35c5d955c34a244b3",
+      "after": "12e59c79864efa3fe85d58006a8d959339b93ca8e63dc3f35c5d955c34a244b3",
+      "unchanged": true
+    },
+    {
+      "path": "backend/tests/test_health.py",
+      "before": "a7dfb07e03b8962013bd67a8703dbf3d18acc500db5938313d5165875c29a292",
+      "after": "a7dfb07e03b8962013bd67a8703dbf3d18acc500db5938313d5165875c29a292",
+      "unchanged": true
+    },
+    {
+      "path": "backend/tests/test_matching.py",
+      "before": "395ae1eb2eeab67b198c7d9c4e3aa1617ebe60410ce41c0e42d9eab6d7bcdee5",
+      "after": "395ae1eb2eeab67b198c7d9c4e3aa1617ebe60410ce41c0e42d9eab6d7bcdee5",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/NOTICE.md",
+      "before": "7bbe18d36fb9440c6b4b580e636668d5fefdb9061bbf8e633dc4cab34868f2b7",
+      "after": "7bbe18d36fb9440c6b4b580e636668d5fefdb9061bbf8e633dc4cab34868f2b7",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/back.json",
+      "before": "aea2085c93560dc434bc9b0bb62cb7ef7d2df91023f19200e54816357f003bbb",
+      "after": "aea2085c93560dc434bc9b0bb62cb7ef7d2df91023f19200e54816357f003bbb",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/coverage.json",
+      "before": "d79d88c3f892a436e33345b39229330bb2730c8b39a80ad5320b804504dfdfa1",
+      "after": "d79d88c3f892a436e33345b39229330bb2730c8b39a80ad5320b804504dfdfa1",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/front.json",
+      "before": "b68954b9c0af82b4ebdf052933b98a45efb8dcc74c84e4a181733cc50c11a80d",
+      "after": "b68954b9c0af82b4ebdf052933b98a45efb8dcc74c84e4a181733cc50c11a80d",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/manifest.json",
+      "before": "c27b03c330ef5ce69480778c8fea2479608ff2dd347d34dfe6fc40e3fa758568",
+      "after": "c27b03c330ef5ce69480778c8fea2479608ff2dd347d34dfe6fc40e3fa758568",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/registration-report.json",
+      "before": "709cec15b0b2a6d10905645ad3ac2faef29397542a71c45a99969639e26e0853",
+      "after": "709cec15b0b2a6d10905645ad3ac2faef29397542a71c45a99969639e26e0853",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/registration.json",
+      "before": "8a997410d8e92d6133079cea4c228c990234dfbb896bd849f41c06b2a2b46066",
+      "after": "8a997410d8e92d6133079cea4c228c990234dfbb896bd849f41c06b2a2b46066",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/source-map.json",
+      "before": "ceea8c7896c586d2067a2f302f34ce85cb87b631698cead36485f3fb0b413573",
+      "after": "ceea8c7896c586d2067a2f302f34ce85cb87b631698cead36485f3fb0b413573",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/sources.json",
+      "before": "bed13c66fdfd9b9cd4cc6c63b9eee4272f7cc9912405a482f09acca1c8196252",
+      "after": "bed13c66fdfd9b9cd4cc6c63b9eee4272f7cc9912405a482f09acca1c8196252",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v1/validation.json",
+      "before": "6ae9778a09972c2e4b24ffc66a1fa5a68000191cc79e37837f1f295014a1da7d",
+      "after": "6ae9778a09972c2e4b24ffc66a1fa5a68000191cc79e37837f1f295014a1da7d",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/NOTICE.md",
+      "before": "420726ed651d492514d47b78ba205f04620d452333e2a1f6351adf4ed5db5e22",
+      "after": "420726ed651d492514d47b78ba205f04620d452333e2a1f6351adf4ed5db5e22",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/back.json",
+      "before": "515217b185ecc088a4fdfcaf58f3a8eaf84a2bcf8355462201c92b2ec3b1da10",
+      "after": "515217b185ecc088a4fdfcaf58f3a8eaf84a2bcf8355462201c92b2ec3b1da10",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/coverage.json",
+      "before": "f2892326d05c93160706b772db85e4a93c65cdf3751bef5ee9ea70bd90a841f3",
+      "after": "f2892326d05c93160706b772db85e4a93c65cdf3751bef5ee9ea70bd90a841f3",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/front.json",
+      "before": "d46ddaf4702714dbbab9c03958df2b3fe563c0a454eecf44d6de2a0904bfbc5d",
+      "after": "d46ddaf4702714dbbab9c03958df2b3fe563c0a454eecf44d6de2a0904bfbc5d",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/local-registration-report.json",
+      "before": "2c17674b1c2a299b55cbfb615945c3d86f21b2d56e5a67bcf9388769656f89ca",
+      "after": "2c17674b1c2a299b55cbfb615945c3d86f21b2d56e5a67bcf9388769656f89ca",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/local-registration.json",
+      "before": "f552b029e7daed386f73e13956a4764e3a852de253ceef124bbed445bdadc30d",
+      "after": "f552b029e7daed386f73e13956a4764e3a852de253ceef124bbed445bdadc30d",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/manifest.json",
+      "before": "5c2e3d543160fccbf18b6cb5fe6542010fc5420dfc38ec2a175e5cff4b793621",
+      "after": "5c2e3d543160fccbf18b6cb5fe6542010fc5420dfc38ec2a175e5cff4b793621",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/registration-report.json",
+      "before": "709cec15b0b2a6d10905645ad3ac2faef29397542a71c45a99969639e26e0853",
+      "after": "709cec15b0b2a6d10905645ad3ac2faef29397542a71c45a99969639e26e0853",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/registration.json",
+      "before": "8a997410d8e92d6133079cea4c228c990234dfbb896bd849f41c06b2a2b46066",
+      "after": "8a997410d8e92d6133079cea4c228c990234dfbb896bd849f41c06b2a2b46066",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/source-map.json",
+      "before": "bbebc9d698fe8bab956e9fd6bb69827b93a797cf658911157915a11b388e8e62",
+      "after": "bbebc9d698fe8bab956e9fd6bb69827b93a797cf658911157915a11b388e8e62",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/sources.json",
+      "before": "930a60073bbde9c4feb62e7b603b9f85d9ecf1ab07d1ebf252f7884c4ba7909b",
+      "after": "930a60073bbde9c4feb62e7b603b9f85d9ecf1ab07d1ebf252f7884c4ba7909b",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/goran-2022-preview-v2/validation.json",
+      "before": "08d60dcc74afd5380b3d16f6c4a02c96d82758a75d2a2dadb2ce716bfd2afbaf",
+      "after": "08d60dcc74afd5380b3d16f6c4a02c96d82758a75d2a2dadb2ce716bfd2afbaf",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/v1/back.json",
+      "before": "0da1f74189f90a7d8e185bc6d8c997eb22b9d3b1d42c98e0e2f76ad65d9e0467",
+      "after": "0da1f74189f90a7d8e185bc6d8c997eb22b9d3b1d42c98e0e2f76ad65d9e0467",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/v1/front.json",
+      "before": "faab0b0486926bee8415419e705cc0324b4ec0265c9eb580c967a280b6b4f74f",
+      "after": "faab0b0486926bee8415419e705cc0324b4ec0265c9eb580c967a280b6b4f74f",
+      "unchanged": true
+    },
+    {
+      "path": "data/atlas/v1/manifest.json",
+      "before": "1deb2742e18acc52fc66d33c7454f1b9ec0627fc123e049754d62f891ba80eb2",
+      "after": "1deb2742e18acc52fc66d33c7454f1b9ec0627fc123e049754d62f891ba80eb2",
+      "unchanged": true
+    },
+    {
+      "path": "data/body/commons-template4.json",
+      "before": "59979433be334f53a705f90a484aadc312a426387f4c1a3b59a718393fbf426a",
+      "after": "59979433be334f53a705f90a484aadc312a426387f4c1a3b59a718393fbf426a",
+      "unchanged": true
+    },
+    {
+      "path": "data/examples/.gitkeep",
+      "before": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "data/references.md",
+      "before": "4be06bd903eec7174831e419f2d1582d087202b6e311722d06f7ecdfda3bdfd3",
+      "after": "4be06bd903eec7174831e419f2d1582d087202b6e311722d06f7ecdfda3bdfd3",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/assets/body/.gitkeep",
+      "before": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/assets/body/README.md",
+      "before": "42ae1a68e0f79ce080b75c32e986a85384d88bbc726223d4306bec7b8955a764",
+      "after": "42ae1a68e0f79ce080b75c32e986a85384d88bbc726223d4306bec7b8955a764",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/NOTICE.md",
+      "before": "06c69824bbe16b2253e61bfaf1a4b1ac6009a631dc7b88a21f84e93925c11f38",
+      "after": "06c69824bbe16b2253e61bfaf1a4b1ac6009a631dc7b88a21f84e93925c11f38",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/back.png",
+      "before": "f8d01a058c6a5caef7ae85d836248dad2138b7552f2d5c2eb7ab3ea0b5110117",
+      "after": "f8d01a058c6a5caef7ae85d836248dad2138b7552f2d5c2eb7ab3ea0b5110117",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/back.svg",
+      "before": "11f5836b4732cd5e8f43cdbd9780c0e01c50ef8fa66bb2bb9d41457492a6da02",
+      "after": "11f5836b4732cd5e8f43cdbd9780c0e01c50ef8fa66bb2bb9d41457492a6da02",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/front.png",
+      "before": "6fdfc96f6cfa8987ec5bf331d0c4697bd46e95a1833e8d539d665ed02b9746c3",
+      "after": "6fdfc96f6cfa8987ec5bf331d0c4697bd46e95a1833e8d539d665ed02b9746c3",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/front.svg",
+      "before": "6906420e124c03816d19b53ec22ac61916b9cc4bc74b1ceb75ec4b7fddae94b0",
+      "after": "6906420e124c03816d19b53ec22ac61916b9cc4bc74b1ceb75ec4b7fddae94b0",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/geometry.generated.ts",
+      "before": "f33673dd7813459e796403539b01fed04467b14013420d15c6dc1ef60fdb0d02",
+      "after": "f33673dd7813459e796403539b01fed04467b14013420d15c6dc1ef60fdb0d02",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/manifest.json",
+      "before": "d9863ea69e79eda75f376e0304cefaf1df57df33e3324e3bbcf93c615e479b42",
+      "after": "d9863ea69e79eda75f376e0304cefaf1df57df33e3324e3bbcf93c615e479b42",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/assets/body/commons-cc0/source.svg",
+      "before": "486cdc8a89fbfe0ff0a4bb4104efc19bb5c708337c37768be6f9120c4837753a",
+      "after": "486cdc8a89fbfe0ff0a4bb4104efc19bb5c708337c37768be6f9120c4837753a",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/assets/body/commons-v1.ts",
+      "before": "087549443fb43c5ba39f60636cc6a830f9b31e3e1a0d2ab65f5827a77ac90d8f",
+      "after": "087549443fb43c5ba39f60636cc6a830f9b31e3e1a0d2ab65f5827a77ac90d8f",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/assets/body/model.ts",
+      "before": "c9f1b6cdfe3e984b620ba1bac7b79866b975114e3ef2c1cdbf65fb1d25c5202e",
+      "after": "c9f1b6cdfe3e984b620ba1bac7b79866b975114e3ef2c1cdbf65fb1d25c5202e",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/assets/body/neutral-v2.ts",
+      "before": "179382f0a5734b5f47ffb436ab962232adc18eca3e0a7f451ccf0df724f1fdcc",
+      "after": "179382f0a5734b5f47ffb436ab962232adc18eca3e0a7f451ccf0df724f1fdcc",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/assets/body/neutral-v3.ts",
+      "before": "2fc4c20abc984ac203bb9ff976a55abd7586802a4795a4206912b1ba9e5f8398",
+      "after": "2fc4c20abc984ac203bb9ff976a55abd7586802a4795a4206912b1ba9e5f8398",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/components/body-canvas/atlas-render.ts",
+      "before": "a238af460335061935f3df925a353ff2be4a361d1a8b4668be6c414f5f0f4a6d",
+      "after": "a238af460335061935f3df925a353ff2be4a361d1a8b4668be6c414f5f0f4a6d",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/components/body-canvas/body-canvas.ts",
+      "before": "f66e68c6d2b6c4b89fce6f2c1185d7704011d024484cd7c24fcb32e0112f59de",
+      "after": "f66e68c6d2b6c4b89fce6f2c1185d7704011d024484cd7c24fcb32e0112f59de",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/components/body-canvas/render.ts",
+      "before": "dfc92f9613632934ee53ccb1f1440a63282150ca3001e18a374772273a15977b",
+      "after": "dfc92f9613632934ee53ccb1f1440a63282150ca3001e18a374772273a15977b",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/config/api.ts",
+      "before": "617abacf0c4e3b4a50cc53c48fd5ef0bedc3700ca9195f8f2d236366b4be615d",
+      "after": "617abacf0c4e3b4a50cc53c48fd5ef0bedc3700ca9195f8f2d236366b4be615d",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/config/development.ts",
+      "before": "89f345b4b8427fc37b749fbf035fb91240c683cc4db77abdbd411a5338afb012",
+      "after": "89f345b4b8427fc37b749fbf035fb91240c683cc4db77abdbd411a5338afb012",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/data/atlas.generated.ts",
+      "before": "0900418bf332627fd4934b4921839002a19c0ea0874d838d7dcd1e22761b4298",
+      "after": "0900418bf332627fd4934b4921839002a19c0ea0874d838d7dcd1e22761b4298",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/data/body-models.ts",
+      "before": "e1aeb0aee5d2429d18e74650072cd48eb619aae991cb2eb80f37042bfef71916",
+      "after": "e1aeb0aee5d2429d18e74650072cd48eb619aae991cb2eb80f37042bfef71916",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/data/body-regions-v15.ts",
+      "before": "7c55e8a656914334f205049050a30a8f2959aa8f3e3744bf0e2168a3ed3a2d54",
+      "after": "7c55e8a656914334f205049050a30a8f2959aa8f3e3744bf0e2168a3ed3a2d54",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/data/body-regions-v2.ts",
+      "before": "18943b16a95ced8d32e963cb9ee70eec027b30d5adf300884ea8cbd26d728bb3",
+      "after": "18943b16a95ced8d32e963cb9ee70eec027b30d5adf300884ea8cbd26d728bb3",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/data/body-regions-v3.ts",
+      "before": "330354bbc096dea5ea014bd896a1a289c88d71afe520aa18bc6e5077e31b7bc9",
+      "after": "330354bbc096dea5ea014bd896a1a289c88d71afe520aa18bc6e5077e31b7bc9",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/data/body-regions.ts",
+      "before": "6943d083d7a1b7d857638894cfdba167fb539702b5e9c341dacba6c8a181e51c",
+      "after": "6943d083d7a1b7d857638894cfdba167fb539702b5e9c341dacba6c8a181e51c",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/data/matching-body.generated.ts",
+      "before": "e0d1fdb74bd8d9ff8ac16946267f3a2f46b17b965d22f272e7fe809d100857c5",
+      "after": "e0d1fdb74bd8d9ff8ac16946267f3a2f46b17b965d22f272e7fe809d100857c5",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/package-lock.json",
+      "before": "67418f3588d3d18c7f91f0433cf622b8afe1098ee9e2c6bce46dc046e4ce97d1",
+      "after": "67418f3588d3d18c7f91f0433cf622b8afe1098ee9e2c6bce46dc046e4ce97d1",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/package.json",
+      "before": "dc18d13ce186dad46c67fba33c76592c333ecf97da1eeaa4548af0691ce8d183",
+      "after": "dc18d13ce186dad46c67fba33c76592c333ecf97da1eeaa4548af0691ce8d183",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/services/api.ts",
+      "before": "b26cbde925c748b63ca7620732154fbaae4edf5c4defd6cc0fe4bb8422d825a1",
+      "after": "b26cbde925c748b63ca7620732154fbaae4edf5c4defd6cc0fe4bb8422d825a1",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/state/annotation-session.ts",
+      "before": "28a1afbc77ca19b26e0fbca4c0daf5a81dfe1b3ad377d4c4b8ddd67301728e05",
+      "after": "28a1afbc77ca19b26e0fbca4c0daf5a81dfe1b3ad377d4c4b8ddd67301728e05",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/types/evaluate.ts",
+      "before": "977d8d8e892b120f08266b83c80ff46ba4158e11e1fcf211ef360ee5ca0800af",
+      "after": "977d8d8e892b120f08266b83c80ff46ba4158e11e1fcf211ef360ee5ca0800af",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/utils/annotation-geometry.ts",
+      "before": "88fcd455eb8ecf4e7952a087d1cd7b1c2c0998fbb936897dc3f54762279f4d8d",
+      "after": "88fcd455eb8ecf4e7952a087d1cd7b1c2c0998fbb936897dc3f54762279f4d8d",
+      "unchanged": true
+    },
+    {
+      "path": "miniprogram/utils/coordinate.ts",
+      "before": "545742a17b13b49bbeb40891183f2011970298a73e0d18345404b5f94b081cf1",
+      "after": "545742a17b13b49bbeb40891183f2011970298a73e0d18345404b5f94b081cf1",
+      "unchanged": true
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+V1.6 first checks / 2026-10-22
+Baseline: 227 non-ignored files snapshotted before changes; existing Git files already untracked, no staging/commit/push.
+Source inspection: front.svg 71 paths, all fill:none, 8 close commands; back.svg 49 paths, all fill:none, 10 close commands. No reusable closed chest/arm partition suite; original PNGs viewed full and with 20 logical-unit source grid (400x900 coordinates), not screenshot-scaled estimates.
+Environment inspection command FAILED exit127 for unavailable /opt/homebrew/bin/python3; existing backend Python3.12 and existing Sharp runtime used, nothing installed.
+
+First new-region regression FAILED: 70/73 passed, three stale-data expectations failed (raw log v16-first-regression-2026-10-22.txt):
+- Canvas old y.182 expected head/neck ambiguity, now uniquely neck.
+- Old boundary fixture .182/.222 expected overlap bands, replaced with exact revised shared y162/y194 points; chest/abd y315 retained.
+- Left-leg assertion assumed focusBounds could not cross midline. New derived focus margin can cross; now assert actual outline anatomical side instead. No coordinate formula changed.
+
+Early geometry draft inspection: valid polygons but narrow source-body unassigned strips (front152.130225, back211.024010 logical square units) near neck/axilla/flanks. Extended shared joins and linked shoulder-to-pelvis flanks; intermediate widened flanks overlapped outside body, then replaced with common flank arrays on both adjacent regions. Final raw polygon intersections zero and source-body unassigned area zero. Did not move/resize/redraw source body or expand hit tolerance.
+
+After updating boundary assertions to revised public edges and adding independent source-point/render tests: v16-reference-tests-2026-10-22.txt PASSED 77/77. Final full results separately recorded.
+Actual native vector click at a visible upper-arm point FAILED before dispatch: Computer Use -10005 noWindowsAvailable. AX list selection/rendering did work. First debug checkbox AX click only focused/scrolled; state remained Value0. Retried after fresh observation, confirmed Value1, then actual Canvas-container native click yielded valid source point. No injected state or console execution; not counted as precise upper-arm acceptance.

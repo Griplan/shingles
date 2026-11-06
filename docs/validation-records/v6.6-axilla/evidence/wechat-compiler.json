@@ -1,0 +1,24 @@
+[
+  {
+    "compiler": "wcc",
+    "files": [
+      "pages/special-parts/special-parts.wxml",
+      "pages/local-surface/local-surface.wxml",
+      "components/local-surface-canvas/local-surface-canvas.wxml"
+    ],
+    "exitCode": 0,
+    "outputBytes": 56145,
+    "outputSHA256": "c670c7843fbb141188500789bce1d699aced7a1b33590aa955b6b53b66541bd1"
+  },
+  {
+    "compiler": "wcsc",
+    "files": [
+      "pages/special-parts/special-parts.wxss",
+      "pages/local-surface/local-surface.wxss",
+      "components/local-surface-canvas/local-surface-canvas.wxss"
+    ],
+    "exitCode": 0,
+    "outputBytes": 802,
+    "outputSHA256": "39bccbfea5600c02524c369eb8903913e48345fe7ef68fb5a66a0c519b78e432"
+  }
+]

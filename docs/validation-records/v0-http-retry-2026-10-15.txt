@@ -1,0 +1,20 @@
+Date: 2026-10-15 Asia/Shanghai
+COMMAND: backend/.venv/bin/python scripts/smoke_backend.py
+COMMAND: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 60374
+PASSED: GET health 200 {"status": "ok", "project": "dermatome-mapper", "version": "v0"}
+PASSED: GET atlas 501 {"error": {"code": "NOT_IMPLEMENTED", "message": "图谱查询尚未实现；V0 不提供可用于医学映射的图谱。"}}
+PASSED: POST evaluate 501 {"error": {"code": "NOT_IMPLEMENTED", "message": "标注评估尚未实现；V0 不执行皮节匹配或生成候选结果。"}}
+INFO:     Started server process [70141]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:60374 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60378 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60379 - "GET /api/v1/atlas HTTP/1.1" 501 Not Implemented
+INFO:     127.0.0.1:60380 - "POST /api/v1/evaluate HTTP/1.1" 501 Not Implemented
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [70141]
+PASSED: 本地 HTTP 冒烟结束，临时服务已关闭。
+
+EXIT_CODE: 0

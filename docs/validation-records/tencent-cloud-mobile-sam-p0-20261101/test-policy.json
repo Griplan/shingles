@@ -1,0 +1,33 @@
+{
+  "memory_max_bytes": 1610612736,
+  "memory_high_bytes": 1342177280,
+  "memory_stop_ratio": 0.9,
+  "cpu_quota_one_core_percent": 100,
+  "cpu_period_usec": 100000,
+  "nice": 15,
+  "swap_max_bytes": 0,
+  "sample_interval_seconds": 0.5,
+  "health_interval_seconds": 2,
+  "runtime_seconds": {
+    "install": 900,
+    "per_test": 90
+  },
+  "stops": [
+    "health/ready failure or readiness false",
+    "production PID/restart/starttime/state change",
+    "host available <1GiB",
+    "host swap grows >1MiB or any test swap",
+    "test current memory >=90% of 1.5GiB",
+    "cgroup OOM",
+    "test sustained >90% of one core for >20s (model stages)",
+    "host 1min load >=3",
+    "resource properties not enforced",
+    "load RSS >1150MiB or HWM >1280MiB before image phases",
+    "any increase in host pswpin/pswpout after stage start"
+  ],
+  "no_concurrent_models": true,
+  "no_api_listener": true,
+  "source_only_public_cdc": true,
+  "static_swap_baseline_limit_bytes": 1048576,
+  "policy_revision_note": "Initial absolute-zero precheck blocked at 12KiB. Static <=1MiB is acceptable only after sampled zero I/O/PSI and healthy service; stop on any new swap I/O. Hard resource limits unchanged."
+}

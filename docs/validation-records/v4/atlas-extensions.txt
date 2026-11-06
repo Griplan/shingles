@@ -1,0 +1,12 @@
+COMMAND: ["/Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/bin/python", "scripts/test_atlas_extensions.py"]
+test_geometry_and_parent_archival_integrity (__main__.LocalRegistrationTests.test_geometry_and_parent_archival_integrity) ... ok
+test_hole_and_tiny_island_survive_without_area_filter (__main__.LocalRegistrationTests.test_hole_and_tiny_island_survive_without_area_filter) ... ok
+test_landmark_knots_and_no_folding (__main__.LocalRegistrationTests.test_landmark_knots_and_no_folding) ... ok
+test_original_face_knots_map_to_declared_target_landmarks (__main__.LocalRegistrationTests.test_original_face_knots_map_to_declared_target_landmarks) ... ok
+test_original_label_leaders_are_inside_audited_source_fills (__main__.LocalRegistrationTests.test_original_label_leaders_are_inside_audited_source_fills) ... ok
+test_reference_sites_and_explicit_unsupported_surfaces (__main__.LocalRegistrationTests.test_reference_sites_and_explicit_unsupported_surfaces) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.104s
+
+OK

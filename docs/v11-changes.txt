@@ -1,0 +1,51 @@
+V1.1 file changes compared with pre-V1.1 source snapshot
+Date: 2026-10-18 Asia/Shanghai
+Excludes ignored dependencies, generated JS, private tool settings and Git metadata.
+Status and experiments live only in ../task.md. No commits/pushes.
+
+NEW: 15
+docs/v11-changes.txt
+docs/validation-records/v11-confirmed-2026-10-18.txt
+docs/validation-records/v11-final-tests-2026-10-18.txt
+docs/validation-records/v11-first-2026-10-18.txt
+docs/validation-records/v11-gui-2026-10-18.txt
+docs/validation-records/v11-model-preview-2026-10-18.png
+docs/validation-records/v11-model-preview-2026-10-18.svg
+docs/validation-records/v11-repaired-2026-10-18.txt
+docs/validation-records/v11-static-2026-10-18.txt
+miniprogram/assets/body/neutral-v2.ts
+miniprogram/data/body-models.ts
+miniprogram/utils/body-debug.ts
+miniprogram/utils/body-path.ts
+scripts/preview_body.cjs
+tests/miniprogram/body-debug.test.cjs
+
+MODIFIED: 24
+AGENTS.md
+README.md
+data/references.md
+docs/architecture.md
+docs/atlas-spec.md
+docs/requirements.md
+docs/validation.md
+miniprogram/assets/body/README.md
+miniprogram/assets/body/model.ts
+miniprogram/components/body-canvas/body-canvas.ts
+miniprogram/components/body-canvas/body-canvas.wxml
+miniprogram/components/body-canvas/body-canvas.wxss
+miniprogram/components/body-canvas/render.ts
+miniprogram/data/body-regions.ts
+miniprogram/pages/index/index.wxml
+miniprogram/pages/select/select.ts
+miniprogram/pages/select/select.wxml
+miniprogram/pages/select/select.wxss
+miniprogram/types/dermatome.ts
+miniprogram/utils/coordinate.ts
+scripts/check_project.py
+task.md
+tests/miniprogram/canvas.test.cjs
+tests/miniprogram/coordinate.test.cjs
+
+DELETED: 0
+(none)
+

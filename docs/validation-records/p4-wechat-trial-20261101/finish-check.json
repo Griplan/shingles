@@ -1,0 +1,12 @@
+{
+  "test_script_in_memory_compile": "PASSED",
+  "initial_py_compile": "FAILED due inherited macOS cache prefix outside writable workspace; no permission expanded",
+  "temporary_photo_directories": 0,
+  "active_invites": 0,
+  "active_access_sessions": 0,
+  "model_inference_and_busy": "PASSED",
+  "production_services_preserved": true,
+  "tunnel_and_deployment_watch": "stopped",
+  "new_service": "left running",
+  "https_phone_platform_upload": "NOT_RUN"
+}

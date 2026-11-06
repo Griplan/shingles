@@ -1,0 +1,118 @@
+[
+  {
+    "file": "a-male.svg",
+    "width": "812.94",
+    "height": "946.13",
+    "viewBox": "0 0 812.94 946.13",
+    "elements": {
+      "svg": 1,
+      "defs": 1,
+      "linearGradient": 142,
+      "stop": 63,
+      "radialGradient": 388,
+      "g": 14,
+      "path": 560,
+      "circle": 2
+    },
+    "external_or_embedded_refs": [],
+    "root_children": [
+      [
+        "g",
+        null
+      ],
+      [
+        "g",
+        null
+      ]
+    ],
+    "path_commands": {
+      "m": 625,
+      "c": 2404,
+      "l": 146,
+      "s": 1577,
+      "v": 104,
+      "z": 426,
+      "h": 2,
+      "a": 4
+    }
+  },
+  {
+    "file": "a-female.svg",
+    "width": "896.64",
+    "height": "945.5",
+    "viewBox": "0 0 896.64 945.5",
+    "elements": {
+      "svg": 1,
+      "defs": 1,
+      "linearGradient": 137,
+      "stop": 80,
+      "radialGradient": 349,
+      "g": 17,
+      "path": 519,
+      "circle": 2
+    },
+    "external_or_embedded_refs": [],
+    "root_children": [
+      [
+        "g",
+        null
+      ],
+      [
+        "g",
+        null
+      ]
+    ],
+    "path_commands": {
+      "m": 534,
+      "c": 1794,
+      "z": 339,
+      "l": 120,
+      "s": 1130,
+      "v": 24,
+      "h": 20,
+      "a": 4
+    }
+  },
+  {
+    "file": "b-original.svg",
+    "width": "446.4267",
+    "height": "917.72388",
+    "viewBox": null,
+    "elements": {
+      "svg": 1,
+      "title": 4,
+      "defs": 1,
+      "namedview": 1,
+      "metadata": 1,
+      "RDF": 1,
+      "Work": 1,
+      "format": 1,
+      "type": 1,
+      "date": 1,
+      "creator": 1,
+      "Agent": 2,
+      "contributor": 1,
+      "subject": 1,
+      "Bag": 1,
+      "li": 2,
+      "source": 1,
+      "license": 1,
+      "License": 1,
+      "permits": 3,
+      "g": 5,
+      "path": 256
+    },
+    "external_or_embedded_refs": [],
+    "root_children": [
+      [
+        "g",
+        "layer1"
+      ]
+    ],
+    "path_commands": {
+      "m": 259,
+      "c": 249,
+      "z": 38
+    }
+  }
+]

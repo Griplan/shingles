@@ -1,0 +1,26 @@
+[
+  {
+    "source": "docs/validation-records/v5-oversegmentation/previews/high-score-failure.jpg",
+    "copy": "figures/evidence/high-score-failure.jpg",
+    "sha256": "9f39b27beaddd68e290f9994c504b6ec9a3ce7118d4c59a6a5720004d1df9bb7",
+    "modified": false
+  },
+  {
+    "source": "docs/validation-records/v5-oversegmentation/previews/B_box-comparison.jpg",
+    "copy": "figures/evidence/B_box-comparison.jpg",
+    "sha256": "76f2a193f81628f9b7069f981009eaeb7ac4eb96bf9123cd97ce214a26690156",
+    "modified": false
+  },
+  {
+    "source": "docs/validation-records/v5-oversegmentation/previews/brush-comparison.jpg",
+    "copy": "figures/evidence/brush-comparison.jpg",
+    "sha256": "7ae6a7cc38a8edc440a212a68d9bfa9c7124ac99935f320c6058698877a41842",
+    "modified": false
+  },
+  {
+    "source": "docs/validation-records/v3-atlas/source-registration-comparison.png",
+    "copy": "figures/evidence/source-registration-comparison.png",
+    "sha256": "28b93f0926ecf9751d6cfddea4e39329e1064c164ad4c43354d21af7fa75dc60",
+    "modified": false
+  }
+]

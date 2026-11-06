@@ -1,0 +1,3273 @@
+[
+  {
+    "file": "Dermatomes_labeled,_female-male_front-back_3d-shaded.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_female-male_front-back_3d-shaded.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Dermatomes_labeled%2C_female-male_front-back_3d-shaded.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T15:03:32Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T15:03:32Z",
+        "sha1": "a0cd6c438e3f4d9c2777250d23db2c57561af4bc"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      1723,
+      947
+    ],
+    "sha1_official": "a0cd6c438e3f4d9c2777250d23db2c57561af4bc",
+    "sha256": "df07faf34def2872b0775aa1f5bed0c1c2e6e5c200b885c0049e67f7d96641b4",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "1723",
+      "height": "946.58",
+      "version": "1.1",
+      "viewBox": "0 0 1723 946.58"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "marker": 8,
+      "path": 1794,
+      "linearGradient": 281,
+      "stop": 80,
+      "radialGradient": 891,
+      "g": 54,
+      "image": 1,
+      "text": 142,
+      "tspan": 146,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": null,
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-5.2916 -42.43)",
+        "style": ""
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": null,
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": null,
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": null,
+        "style": ""
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-5.2916 -42.43)",
+        "style": ""
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": null,
+        "style": "display:none"
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": null,
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/9",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": null,
+        "style": ""
+      },
+      {
+        "route": "root/10",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-5.2916 -42.43)",
+        "style": ""
+      },
+      {
+        "route": "root/11",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(899.47)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/12",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(899.47)",
+        "style": ""
+      },
+      {
+        "route": "root/13",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": null,
+        "style": ""
+      },
+      {
+        "route": "root/14",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-5.2916 -42.43)",
+        "style": ""
+      },
+      {
+        "route": "root/15",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(899.47)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/16",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(899.47)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/17",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": null,
+        "style": ""
+      },
+      {
+        "route": "root/18",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": null,
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": [
+      "C 1",
+      "C 2",
+      "C 3",
+      "C 4",
+      "C 5",
+      "C 6",
+      "C 6-8",
+      "C 7",
+      "C 8",
+      "C 8, T 1",
+      "C 8T 1",
+      "C6-8",
+      "L 1",
+      "L 2",
+      "L 3",
+      "L 4",
+      "L 5",
+      "S 1",
+      "S 2",
+      "S 3",
+      "S 4",
+      "S 5",
+      "T 1",
+      "T 1,2",
+      "T 10",
+      "T 11",
+      "T 12",
+      "T 2",
+      "T 3",
+      "T 4",
+      "T 5",
+      "T 6",
+      "T 7",
+      "T 8",
+      "T 9",
+      "V 1",
+      "V 2",
+      "V 3"
+    ]
+  },
+  {
+    "file": "Dermatomes_labeled,_female_back_3d-shaded.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_female_back_3d-shaded.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Dermatomes_labeled%2C_female_back_3d-shaded.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T15:23:11Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T15:23:11Z",
+        "sha1": "a356050253ff2a102282b389f285ae15638bfb77"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      465,
+      955
+    ],
+    "sha1_official": "a356050253ff2a102282b389f285ae15638bfb77",
+    "sha256": "f1c1d4bbcd3c58261a2c05270bd978b871b27a65de984b5410726c1a6081f44c",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "464.73",
+      "height": "954.58",
+      "version": "1.1",
+      "viewBox": "0 0 464.73 954.58"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "marker": 6,
+      "path": 572,
+      "linearGradient": 74,
+      "stop": 70,
+      "radialGradient": 190,
+      "g": 24,
+      "image": 1,
+      "text": 37,
+      "tspan": 38,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-437.96 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-443.25 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-437.96 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-443.25 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-437.96 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-437.96 4)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-437.96 4)",
+        "style": ""
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-443.25 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/9",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(461.51 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/10",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(461.51 4)",
+        "style": ""
+      },
+      {
+        "route": "root/11",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-443.25 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/12",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(461.51 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/13",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-437.96 4)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": [
+      "C 1",
+      "C 2",
+      "C 3",
+      "C 4",
+      "C 5",
+      "C 6",
+      "C 7",
+      "C 8",
+      "C 8T 1",
+      "C6-8",
+      "L 1",
+      "L 2",
+      "L 3",
+      "L 4",
+      "L 5",
+      "S 1",
+      "S 2",
+      "S 3",
+      "S 4",
+      "S 5",
+      "T 1",
+      "T 1,2",
+      "T 10",
+      "T 11",
+      "T 12",
+      "T 2",
+      "T 3",
+      "T 4",
+      "T 5",
+      "T 6",
+      "T 7",
+      "T 8",
+      "T 9",
+      "V 1",
+      "V 2",
+      "V 3"
+    ]
+  },
+  {
+    "file": "Dermatomes_labeled,_female_back_3d-shaded_lying.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_female_back_3d-shaded_lying.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Dermatomes_labeled%2C_female_back_3d-shaded_lying.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T17:09:01Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T17:09:01Z",
+        "sha1": "81ec899ba761599435d0fa2d8d4069dee9b0342f"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      1816,
+      866
+    ],
+    "sha1_official": "81ec899ba761599435d0fa2d8d4069dee9b0342f",
+    "sha256": "e9e78ae20473b141f4e0121693e641d672da41f65948f9c7bea1abf0f2ca3e7e",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "1816.4",
+      "height": "866.35",
+      "version": "1.1",
+      "viewBox": "0 0 1816.4 866.35"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "marker": 6,
+      "path": 572,
+      "linearGradient": 74,
+      "stop": 70,
+      "radialGradient": 190,
+      "g": 21,
+      "image": 1,
+      "text": 37,
+      "tspan": 38,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-194.71 163.73)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-194.71 163.73)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-194.71 163.73)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "matrix(0 -1.9247 1.9247 0 -11.295 880.73)",
+        "style": ""
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(704.76 163.73)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(704.76 163.73)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-194.71 163.73)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": [
+      "C 1",
+      "C 2",
+      "C 3",
+      "C 4",
+      "C 5",
+      "C 6",
+      "C 7",
+      "C 8",
+      "C 8T 1",
+      "C6-8",
+      "L 1",
+      "L 2",
+      "L 3",
+      "L 4",
+      "L 5",
+      "S 1",
+      "S 2",
+      "S 3",
+      "S 4",
+      "S 5",
+      "T 1",
+      "T 1,2",
+      "T 10",
+      "T 11",
+      "T 12",
+      "T 2",
+      "T 3",
+      "T 4",
+      "T 5",
+      "T 6",
+      "T 7",
+      "T 8",
+      "T 9",
+      "V 1",
+      "V 2",
+      "V 3"
+    ]
+  },
+  {
+    "file": "Dermatomes_labeled,_female_front-back_3d-shaded.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_female_front-back_3d-shaded.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Dermatomes_labeled%2C_female_front-back_3d-shaded.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T15:15:51Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T15:15:51Z",
+        "sha1": "13434a11fb142a2645d5635e177a802489cd0071"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      903,
+      951
+    ],
+    "sha1_official": "13434a11fb142a2645d5635e177a802489cd0071",
+    "sha256": "e181f01c23c885af94f5fbe991039af3bf0562aa21cb0a9ba3d32935e37bce81",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "902.69",
+      "height": "950.58",
+      "version": "1.1",
+      "viewBox": "0 0 902.69 950.58"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "marker": 8,
+      "path": 991,
+      "linearGradient": 155,
+      "stop": 81,
+      "radialGradient": 429,
+      "g": 34,
+      "image": 1,
+      "text": 71,
+      "tspan": 73,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(2,2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-3.2916 -40.43)",
+        "style": ""
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(2,2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(2,2)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(2,2)",
+        "style": ""
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-3.2916 -40.43)",
+        "style": ""
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(2,2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(2,2)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/9",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(2,2)",
+        "style": ""
+      },
+      {
+        "route": "root/10",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-3.2916 -40.43)",
+        "style": ""
+      },
+      {
+        "route": "root/11",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(901.47 2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/12",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(901.47 2)",
+        "style": ""
+      },
+      {
+        "route": "root/13",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-3.2916 -40.43)",
+        "style": ""
+      },
+      {
+        "route": "root/14",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(901.47 2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/15",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(2,2)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": [
+      "C 1",
+      "C 2",
+      "C 3",
+      "C 4",
+      "C 5",
+      "C 6",
+      "C 6-8",
+      "C 7",
+      "C 8",
+      "C 8, T 1",
+      "C 8T 1",
+      "C6-8",
+      "L 1",
+      "L 2",
+      "L 3",
+      "L 4",
+      "L 5",
+      "S 1",
+      "S 2",
+      "S 3",
+      "S 4",
+      "S 5",
+      "T 1",
+      "T 1,2",
+      "T 10",
+      "T 11",
+      "T 12",
+      "T 2",
+      "T 3",
+      "T 4",
+      "T 5",
+      "T 6",
+      "T 7",
+      "T 8",
+      "T 9",
+      "V 1",
+      "V 2",
+      "V 3"
+    ]
+  },
+  {
+    "file": "Dermatomes_labeled,_female_front_3d-shaded.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_female_front_3d-shaded.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Dermatomes_labeled%2C_female_front_3d-shaded.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T15:21:01Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T15:21:01Z",
+        "sha1": "e1248403eca2eb6580c383a823580d9c002a673f"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      457,
+      955
+    ],
+    "sha1_official": "e1248403eca2eb6580c383a823580d9c002a673f",
+    "sha256": "3b1039828f5d37454a8d0fd3685037c9ce3ad914d120734e1d37a837c590d007",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "457.06",
+      "height": "954.58",
+      "version": "1.1",
+      "viewBox": "0 0 457.07 954.58"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "marker": 3,
+      "path": 644,
+      "linearGradient": 91,
+      "stop": 72,
+      "radialGradient": 239,
+      "g": 23,
+      "image": 1,
+      "text": 34,
+      "tspan": 35,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(4 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-1.2916 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(4 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(4 4)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(4 4)",
+        "style": ""
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-1.2916 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(4 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-1.2916 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/9",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(903.47 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/10",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(903.47 4)",
+        "style": ""
+      },
+      {
+        "route": "root/11",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-1.2916 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/12",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(903.47 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/13",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(4 4)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": [
+      "C 2",
+      "C 3",
+      "C 4",
+      "C 5",
+      "C 6",
+      "C 6-8",
+      "C 8, T 1",
+      "C 8T 1",
+      "C6-8",
+      "L 1",
+      "L 2",
+      "L 3",
+      "L 4",
+      "L 5",
+      "S 1",
+      "S 3",
+      "S 4",
+      "T 1",
+      "T 10",
+      "T 11",
+      "T 12",
+      "T 2",
+      "T 3",
+      "T 4",
+      "T 5",
+      "T 6",
+      "T 7",
+      "T 8",
+      "T 9",
+      "V 1",
+      "V 2",
+      "V 3"
+    ]
+  },
+  {
+    "file": "Dermatomes_labeled,_female_front_3d-shaded_lying.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_female_front_3d-shaded_lying.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Dermatomes_labeled%2C_female_front_3d-shaded_lying.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T17:05:39Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T17:05:39Z",
+        "sha1": "219dcb6501ef1b6473bf2594e3fcedf6dc79ba8f"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      1817,
+      855
+    ],
+    "sha1_official": "219dcb6501ef1b6473bf2594e3fcedf6dc79ba8f",
+    "sha256": "951750508749579b015687d33ab1a3acd122d6634b6e29b1ae7433cea2f51ec4",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "1817.1",
+      "height": "855.07",
+      "version": "1.1",
+      "viewBox": "0 0 1817.1 855.07"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "radialGradient": 239,
+      "linearGradient": 91,
+      "stop": 72,
+      "marker": 3,
+      "path": 420,
+      "g": 13,
+      "text": 34,
+      "tspan": 35
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(10.365 3.0163)",
+        "style": ""
+      }
+    ],
+    "visibleLabels": [
+      "C 2",
+      "C 3",
+      "C 4",
+      "C 5",
+      "C 6",
+      "C 6-8",
+      "C 8, T 1",
+      "C 8T 1",
+      "C6-8",
+      "L 1",
+      "L 2",
+      "L 3",
+      "L 4",
+      "L 5",
+      "S 1",
+      "S 3",
+      "S 4",
+      "T 1",
+      "T 10",
+      "T 11",
+      "T 12",
+      "T 2",
+      "T 3",
+      "T 4",
+      "T 5",
+      "T 6",
+      "T 7",
+      "T 8",
+      "T 9",
+      "V 1",
+      "V 2",
+      "V 3"
+    ]
+  },
+  {
+    "file": "Dermatomes_labeled,_male_back_3d-shaded.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_back_3d-shaded.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Dermatomes_labeled%2C_male_back_3d-shaded.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T15:30:41Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T15:30:41Z",
+        "sha1": "261566ce5128fdc2cc536945c148ac1c8f62e66d"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      424,
+      955
+    ],
+    "sha1_official": "261566ce5128fdc2cc536945c148ac1c8f62e66d",
+    "sha256": "740f95044e749a05242abeb7a52699acd4e51909e1ec5bce6917a2806cbb04b9",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "423.6",
+      "height": "954.58",
+      "version": "1.1",
+      "viewBox": "0 0 423.6 954.58"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "marker": 6,
+      "path": 596,
+      "linearGradient": 80,
+      "stop": 67,
+      "radialGradient": 202,
+      "g": 23,
+      "image": 1,
+      "text": 37,
+      "tspan": 38,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-1303.4 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-1308.7 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-1303.4 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-1308.7 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-1303.4 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-1308.7 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-403.89 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-403.89 4)",
+        "style": ""
+      },
+      {
+        "route": "root/9",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-1308.7 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/10",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-403.89 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/11",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-403.89 4)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/12",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-1303.4 4)",
+        "style": ""
+      },
+      {
+        "route": "root/13",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-1303.4 4)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": [
+      "C 1",
+      "C 2",
+      "C 3",
+      "C 4",
+      "C 5",
+      "C 6",
+      "C 7",
+      "C 8",
+      "C 8T 1",
+      "C6-8",
+      "L 1",
+      "L 2",
+      "L 3",
+      "L 4",
+      "L 5",
+      "S 1",
+      "S 2",
+      "S 3",
+      "S 4",
+      "S 5",
+      "T 1",
+      "T 1,2",
+      "T 10",
+      "T 11",
+      "T 12",
+      "T 2",
+      "T 3",
+      "T 4",
+      "T 5",
+      "T 6",
+      "T 7",
+      "T 8",
+      "T 9",
+      "V 1",
+      "V 2",
+      "V 3"
+    ]
+  },
+  {
+    "file": "Dermatomes_labeled,_male_back_3d-shaded_lying.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_back_3d-shaded_lying.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Dermatomes_labeled%2C_male_back_3d-shaded_lying.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T17:11:32Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T17:11:32Z",
+        "sha1": "7b08a9ded520c132eb18451cb57dde11504d9f82"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      1814,
+      785
+    ],
+    "sha1_official": "7b08a9ded520c132eb18451cb57dde11504d9f82",
+    "sha256": "e7fd6b25320b3ab1a60d27cd1ea29fa88aa054ba7a0881a6be2ba0e7f1aeb7ba",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "1814",
+      "height": "785.03",
+      "version": "1.1",
+      "viewBox": "0 0 1814 785.03"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "marker": 6,
+      "path": 596,
+      "linearGradient": 80,
+      "stop": 67,
+      "radialGradient": 202,
+      "g": 20,
+      "image": 1,
+      "text": 37,
+      "tspan": 38,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-722.45 -34.436)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-722.45 -34.436)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-722.45 -34.436)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(177.06 -34.436)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(177.06 -34.436)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "matrix(0 -1.9245 1.9245 0 -12.23 804.23)",
+        "style": ""
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-722.45 -34.436)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": [
+      "C 1",
+      "C 2",
+      "C 3",
+      "C 4",
+      "C 5",
+      "C 6",
+      "C 7",
+      "C 8",
+      "C 8T 1",
+      "C6-8",
+      "L 1",
+      "L 2",
+      "L 3",
+      "L 4",
+      "L 5",
+      "S 1",
+      "S 2",
+      "S 3",
+      "S 4",
+      "S 5",
+      "T 1",
+      "T 1,2",
+      "T 10",
+      "T 11",
+      "T 12",
+      "T 2",
+      "T 3",
+      "T 4",
+      "T 5",
+      "T 6",
+      "T 7",
+      "T 8",
+      "T 9",
+      "V 1",
+      "V 2",
+      "V 3"
+    ]
+  },
+  {
+    "file": "Dermatomes_labeled,_male_front-back_3d-shaded.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front-back_3d-shaded.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Dermatomes_labeled%2C_male_front-back_3d-shaded.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T15:25:03Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T15:25:03Z",
+        "sha1": "963f506188fe53fd5b4ccb6535b33d2f616fea7a"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      844,
+      951
+    ],
+    "sha1_official": "963f506188fe53fd5b4ccb6535b33d2f616fea7a",
+    "sha256": "034533ba24489cc4787c58b34c76e34723b37526b6d897baa67f731222f7a778",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "843.81",
+      "height": "950.58",
+      "version": "1.1",
+      "viewBox": "0 0 843.81 950.58"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "marker": 8,
+      "path": 1035,
+      "linearGradient": 154,
+      "stop": 73,
+      "radialGradient": 465,
+      "g": 33,
+      "image": 1,
+      "text": 71,
+      "tspan": 73,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-881.15 2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-886.44 -40.43)",
+        "style": ""
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-881.15 2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-886.44 -40.43)",
+        "style": ""
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-881.15 2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-886.44 -40.43)",
+        "style": ""
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(18.322 2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(18.322 2)",
+        "style": ""
+      },
+      {
+        "route": "root/9",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-881.15 2)",
+        "style": ""
+      },
+      {
+        "route": "root/10",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-886.44 -40.43)",
+        "style": ""
+      },
+      {
+        "route": "root/11",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(18.322 2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/12",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(18.322 2)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/13",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-881.15 2)",
+        "style": ""
+      },
+      {
+        "route": "root/14",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-881.15 2)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": [
+      "C 1",
+      "C 2",
+      "C 3",
+      "C 4",
+      "C 5",
+      "C 6",
+      "C 6-8",
+      "C 7",
+      "C 8",
+      "C 8, T 1",
+      "C 8T 1",
+      "C6-8",
+      "L 1",
+      "L 2",
+      "L 3",
+      "L 4",
+      "L 5",
+      "S 1",
+      "S 2",
+      "S 3",
+      "S 4",
+      "S 5",
+      "T 1",
+      "T 1,2",
+      "T 10",
+      "T 11",
+      "T 12",
+      "T 2",
+      "T 3",
+      "T 4",
+      "T 5",
+      "T 6",
+      "T 7",
+      "T 8",
+      "T 9",
+      "V 1",
+      "V 2",
+      "V 3"
+    ]
+  },
+  {
+    "file": "Dermatomes_labeled,_male_front_3d-shaded.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Dermatomes_labeled%2C_male_front_3d-shaded.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T15:29:00Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T15:29:00Z",
+        "sha1": "d20be473843591779be22c102e193d8c1407861d"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      440,
+      955
+    ],
+    "sha1_official": "d20be473843591779be22c102e193d8c1407861d",
+    "sha256": "b03a312817818d0370f3633986554b9fc12a5d2261e3aca30859f0b4e392f18d",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "439.97",
+      "height": "954.58",
+      "version": "1.1",
+      "viewBox": "0 0 439.97 954.58"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "marker": 3,
+      "path": 664,
+      "linearGradient": 93,
+      "stop": 70,
+      "radialGradient": 266,
+      "g": 23,
+      "image": 1,
+      "text": 34,
+      "tspan": 35,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-879.15 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-884.44 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-879.15 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-884.44 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-879.15 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-884.44 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(20.322 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(20.322 4)",
+        "style": ""
+      },
+      {
+        "route": "root/9",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-879.15 4)",
+        "style": ""
+      },
+      {
+        "route": "root/10",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-884.44 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/11",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(20.322 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/12",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-879.15 4)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": [
+      "C 2",
+      "C 3",
+      "C 4",
+      "C 5",
+      "C 6",
+      "C 6-8",
+      "C 8, T 1",
+      "C 8T 1",
+      "C6-8",
+      "L 1",
+      "L 2",
+      "L 3",
+      "L 4",
+      "L 5",
+      "S 1",
+      "S 3",
+      "S 4",
+      "T 1",
+      "T 10",
+      "T 11",
+      "T 12",
+      "T 2",
+      "T 3",
+      "T 4",
+      "T 5",
+      "T 6",
+      "T 7",
+      "T 8",
+      "T 9",
+      "V 1",
+      "V 2",
+      "V 3"
+    ]
+  },
+  {
+    "file": "Dermatomes_labeled,_male_front_3d-shaded_lying.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded_lying.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Dermatomes_labeled%2C_male_front_3d-shaded_lying.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T17:10:18Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T17:10:18Z",
+        "sha1": "a0d1a9625df8f0f969e60ae5be06edafe28d5ec8"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      1819,
+      801
+    ],
+    "sha1_official": "a0d1a9625df8f0f969e60ae5be06edafe28d5ec8",
+    "sha256": "c243000aabc560f6de295a03ab255b66188d7035f9a2e5fccd366394ccf5d863",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "1818.5",
+      "height": "800.54",
+      "version": "1.1",
+      "viewBox": "0 0 1818.5 800.54"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "marker": 3,
+      "path": 664,
+      "linearGradient": 93,
+      "stop": 70,
+      "radialGradient": 266,
+      "g": 21,
+      "image": 1,
+      "text": 34,
+      "tspan": 35,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-297.04 60.032)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-297.04 60.032)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-297.04 60.032)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(602.43 60.032)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "matrix(0 -1.9238 1.9238 0 -9.3916 833.55)",
+        "style": ""
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(602.43 60.032)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-297.04 60.032)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": [
+      "C 2",
+      "C 3",
+      "C 4",
+      "C 5",
+      "C 6",
+      "C 6-8",
+      "C 8, T 1",
+      "C 8T 1",
+      "C6-8",
+      "L 1",
+      "L 2",
+      "L 3",
+      "L 4",
+      "L 5",
+      "S 1",
+      "S 3",
+      "S 4",
+      "T 1",
+      "T 10",
+      "T 11",
+      "T 12",
+      "T 2",
+      "T 3",
+      "T 4",
+      "T 5",
+      "T 6",
+      "T 7",
+      "T 8",
+      "T 9",
+      "V 1",
+      "V 2",
+      "V 3"
+    ]
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female-male_front-back_3d-shaded.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_unlabeled,_female-male_front-back_3d-shaded.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Dermatomes_unlabeled%2C_female-male_front-back_3d-shaded.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T15:38:00Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T15:38:00Z",
+        "sha1": "b9068d078c90f3d5e25b9a13b0b17e3762df82b0"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      1723,
+      947
+    ],
+    "sha1_official": "b9068d078c90f3d5e25b9a13b0b17e3762df82b0",
+    "sha256": "723d51fd9b89af61b2da4ec3ec2bc514bbfeb7ec0a09d57f9299dd28b28c4803",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "1723",
+      "height": "946.58",
+      "version": "1.1",
+      "viewBox": "0 0 1723 946.58"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "linearGradient": 281,
+      "stop": 80,
+      "radialGradient": 891,
+      "g": 50,
+      "image": 1,
+      "path": 1692,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": null,
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-5.2916 -42.43)",
+        "style": ""
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": null,
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": null,
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-5.2916 -42.43)",
+        "style": ""
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": null,
+        "style": "display:none"
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": null,
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-5.2916 -42.43)",
+        "style": ""
+      },
+      {
+        "route": "root/9",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(899.47)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/10",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(899.47)",
+        "style": ""
+      },
+      {
+        "route": "root/11",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-5.2916 -42.43)",
+        "style": ""
+      },
+      {
+        "route": "root/12",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(899.47)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/13",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(899.47)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/14",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": null,
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": []
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female_back_3d-shaded.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_unlabeled,_female_back_3d-shaded.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Dermatomes_unlabeled%2C_female_back_3d-shaded.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T15:45:25Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T15:45:25Z",
+        "sha1": "3f1ca8edff8f9560adca1ab0a288256c8f055780"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      465,
+      955
+    ],
+    "sha1_official": "3f1ca8edff8f9560adca1ab0a288256c8f055780",
+    "sha256": "c82f309da345c726093d8a2036788ff1590a79170b7876d396a977ea831e1754",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "464.73",
+      "height": "954.58",
+      "version": "1.1",
+      "viewBox": "0 0 464.73 954.58"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "linearGradient": 74,
+      "stop": 70,
+      "radialGradient": 190,
+      "g": 19,
+      "image": 1,
+      "path": 539,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-437.96 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-437.96 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-443.25 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-437.96 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-437.96 4)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(461.51 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(461.51 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-437.96 4)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": []
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female_back_3d-shaded_lying.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_unlabeled,_female_back_3d-shaded_lying.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Dermatomes_unlabeled%2C_female_back_3d-shaded_lying.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T17:16:01Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T17:16:01Z",
+        "sha1": "1b23573a17c9a052d3dee4f1bcc0bfb512010b44"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      1816,
+      866
+    ],
+    "sha1_official": "1b23573a17c9a052d3dee4f1bcc0bfb512010b44",
+    "sha256": "440729cd068aec40b812fe2ffbbbe0d4ad3c287136100e05e8f6e87b08989f00",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "1816.4",
+      "height": "866.35",
+      "version": "1.1",
+      "viewBox": "0 0 1816.4 866.35"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "linearGradient": 74,
+      "stop": 70,
+      "radialGradient": 190,
+      "g": 19,
+      "image": 1,
+      "path": 539,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-194.71 163.73)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-194.71 163.73)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-194.71 163.73)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "matrix(0 -1.9247 1.9247 0 -85.261 1733.9)",
+        "style": ""
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "matrix(0 -1.9247 1.9247 0 -3.5959 1723.7)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(704.76 163.73)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(704.76 163.73)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-194.71 163.73)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": []
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female_front-back_3d-shaded.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_unlabeled,_female_front-back_3d-shaded.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Dermatomes_unlabeled%2C_female_front-back_3d-shaded.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T15:41:09Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T15:41:09Z",
+        "sha1": "8076ccdb8e187b28cd3576d213c3464198834ab8"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      903,
+      951
+    ],
+    "sha1_official": "8076ccdb8e187b28cd3576d213c3464198834ab8",
+    "sha256": "c6dd30bc4c97f858930b01bddf8676a3e557d5cebf41c0af1a050f3ddb9c701a",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "902.69",
+      "height": "950.58",
+      "version": "1.1",
+      "viewBox": "0 0 902.69 950.58"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "linearGradient": 155,
+      "stop": 81,
+      "radialGradient": 429,
+      "g": 29,
+      "image": 1,
+      "path": 936,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(2,2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-3.2916 -40.43)",
+        "style": ""
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(2,2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(2,2)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-3.2916 -40.43)",
+        "style": ""
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(2,2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(2,2)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(901.47 2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/9",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(901.47 2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/10",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(2,2)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": []
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female_front_3d-shaded.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_unlabeled,_female_front_3d-shaded.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Dermatomes_unlabeled%2C_female_front_3d-shaded.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T15:42:55Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T15:42:55Z",
+        "sha1": "5ef07e42a9bf7618e617467e31fd9d104e7aaf09"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      457,
+      955
+    ],
+    "sha1_official": "5ef07e42a9bf7618e617467e31fd9d104e7aaf09",
+    "sha256": "0a47ca1efa66f8d44b7630dde68e3c72456eabd2bdc87cb6cb867a01afeaf314",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "457.06",
+      "height": "954.58",
+      "version": "1.1",
+      "viewBox": "0 0 457.07 954.58"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "linearGradient": 91,
+      "stop": 72,
+      "radialGradient": 239,
+      "g": 18,
+      "image": 1,
+      "path": 621,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(4 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-1.2916 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(4 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(4 4)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(4 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(903.47 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(903.47 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(4 4)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": []
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female_front_3d-shaded_lying.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_unlabeled,_female_front_3d-shaded_lying.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Dermatomes_unlabeled%2C_female_front_3d-shaded_lying.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T17:14:38Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T17:14:38Z",
+        "sha1": "a3b5e239138b79710871e79d8ddf4d8b8fd07ccc"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      1817,
+      855
+    ],
+    "sha1_official": "a3b5e239138b79710871e79d8ddf4d8b8fd07ccc",
+    "sha256": "5e310c36ef8ff506c300b0d9eed68557e52e9c9fd6c9e20dc4126623ac86e0a0",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "1817.1",
+      "height": "855.07",
+      "version": "1.1",
+      "viewBox": "0 0 1817.1 855.07"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "radialGradient": 239,
+      "linearGradient": 91,
+      "stop": 72,
+      "g": 11,
+      "path": 397
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(10.365 3.0163)",
+        "style": ""
+      }
+    ],
+    "visibleLabels": []
+  },
+  {
+    "file": "Dermatomes_unlabeled,_male_back_3d-shaded.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_unlabeled,_male_back_3d-shaded.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Dermatomes_unlabeled%2C_male_back_3d-shaded.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T15:49:47Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T15:49:47Z",
+        "sha1": "9ad943908fb967e3c05d08f9c32fc790f763973c"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      424,
+      955
+    ],
+    "sha1_official": "9ad943908fb967e3c05d08f9c32fc790f763973c",
+    "sha256": "6fb4872ad4615a0a21b6cd81fcaac817fc595e00de65f41f0c1acfd7fbc02a4e",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "423.6",
+      "height": "954.58",
+      "version": "1.1",
+      "viewBox": "0 0 423.6 954.58"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "linearGradient": 80,
+      "stop": 67,
+      "radialGradient": 202,
+      "g": 18,
+      "image": 1,
+      "path": 563,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-1303.4 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-1303.4 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-1303.4 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-403.89 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-1308.7 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-403.89 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-403.89 4)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-1303.4 4)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": []
+  },
+  {
+    "file": "Dermatomes_unlabeled,_male_back_3d-shaded_lying.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_unlabeled,_male_back_3d-shaded_lying.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Dermatomes_unlabeled%2C_male_back_3d-shaded_lying.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T17:18:32Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T17:18:32Z",
+        "sha1": "8c6da7e32d48dc097965d411d704872fc27bab44"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      1814,
+      785
+    ],
+    "sha1_official": "8c6da7e32d48dc097965d411d704872fc27bab44",
+    "sha256": "938dab37149d8c7c1df92b4cfc8b3db21ab85f996680edfff75c321233f98e5e",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "1814",
+      "height": "785.03",
+      "version": "1.1",
+      "viewBox": "0 0 1814 785.03"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "linearGradient": 80,
+      "stop": 67,
+      "radialGradient": 202,
+      "g": 18,
+      "image": 1,
+      "path": 563,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-722.45 -34.436)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-722.45 -34.436)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-722.45 -34.436)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(177.06 -34.436)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(177.06 -34.436)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "matrix(0 -1.9245 1.9245 0 -86.187 3322.8)",
+        "style": ""
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "matrix(0 -1.9245 1.9245 0 -4.5321 1581.5)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-722.45 -34.436)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": []
+  },
+  {
+    "file": "Dermatomes_unlabeled,_male_front-back_3d-shaded.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_unlabeled,_male_front-back_3d-shaded.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Dermatomes_unlabeled%2C_male_front-back_3d-shaded.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T15:46:51Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T15:46:51Z",
+        "sha1": "34cbb0ecf02e333798b9bbb2361341ea2d923925"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      844,
+      951
+    ],
+    "sha1_official": "34cbb0ecf02e333798b9bbb2361341ea2d923925",
+    "sha256": "c6cfd20024ab197d4b6e0ee6b9df0cd8a99ce6bc8c5f40f4aa09f9bcf036b13c",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "843.81",
+      "height": "950.58",
+      "version": "1.1",
+      "viewBox": "0 0 843.81 950.58"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "linearGradient": 153,
+      "stop": 73,
+      "radialGradient": 465,
+      "g": 29,
+      "image": 1,
+      "path": 980,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-881.15 2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-881.15 2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-881.15 2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-886.44 -40.43)",
+        "style": ""
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(18.322 2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(18.322 2)",
+        "style": ""
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-886.44 -40.43)",
+        "style": ""
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(18.322 2)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/9",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(18.322 2)",
+        "style": "mix-blend-mode:overlay"
+      },
+      {
+        "route": "root/10",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-881.15 2)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": []
+  },
+  {
+    "file": "Dermatomes_unlabeled,_male_front_3d-shaded.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_unlabeled,_male_front_3d-shaded.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Dermatomes_unlabeled%2C_male_front_3d-shaded.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T15:48:22Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T15:48:22Z",
+        "sha1": "bde6a702f199e86da4edf0bd7eaab2a42b057d7b"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      440,
+      955
+    ],
+    "sha1_official": "bde6a702f199e86da4edf0bd7eaab2a42b057d7b",
+    "sha256": "571b9b5b0a513655566f9f11a93170ec7ba4db18a6fd9970fc07ebb661045346",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "439.97",
+      "height": "954.58",
+      "version": "1.1",
+      "viewBox": "0 0 439.97 954.58"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "linearGradient": 93,
+      "stop": 70,
+      "radialGradient": 266,
+      "g": 19,
+      "image": 1,
+      "path": 641,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-879.15 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-879.15 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-879.15 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(-884.44 -38.43)",
+        "style": ""
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(20.322 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "translate(20.322 4)",
+        "style": ""
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(20.322 4)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-879.15 4)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": []
+  },
+  {
+    "file": "Dermatomes_unlabeled,_male_front_3d-shaded_lying.svg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dermatomes_unlabeled,_male_front_3d-shaded_lying.svg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Dermatomes_unlabeled%2C_male_front_3d-shaded_lying.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "<a href=\"//commons.wikimedia.org/wiki/User:Goran_tek-en\" title=\"User:Goran tek-en\">Goran_tek-en</a>",
+    "date": "2022-09-24",
+    "timestamp": "2022-09-24T17:17:15Z",
+    "fileHistory": [
+      {
+        "timestamp": "2022-09-24T17:17:15Z",
+        "sha1": "460938ad6a42351df61016212149095934a6c52c"
+      }
+    ],
+    "license": "CC BY-SA 4.0",
+    "dimensions": [
+      1819,
+      801
+    ],
+    "sha1_official": "460938ad6a42351df61016212149095934a6c52c",
+    "sha256": "a2acab46e34e23d777a0703afd7aee8c0f8fe90438dfd97df9b1d781806cb0ef",
+    "status": "BYTES_VERIFIED",
+    "relation": "shared male/female family; source geometry comparison in version-path-comparison.json",
+    "svg": {
+      "width": "1818.5",
+      "height": "800.54",
+      "version": "1.1",
+      "viewBox": "0 0 1818.5 800.54"
+    },
+    "tagCounts": {
+      "svg": 1,
+      "defs": 1,
+      "linearGradient": 93,
+      "stop": 70,
+      "radialGradient": 266,
+      "g": 19,
+      "image": 1,
+      "path": 641,
+      "rect": 1
+    },
+    "topGroups": [
+      {
+        "route": "root/1",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-297.04 60.032)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/2",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-297.04 60.032)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/3",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-297.04 60.032)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/4",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(602.43 60.032)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/5",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "matrix(0 -1.9238 1.9238 0 -83.325 2535.1)",
+        "style": ""
+      },
+      {
+        "route": "root/6",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": false,
+        "inDefs": false,
+        "transform": "matrix(0 -1.9238 1.9238 0 -1.6963 794.46)",
+        "style": ""
+      },
+      {
+        "route": "root/7",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(602.43 60.032)",
+        "style": "display:none"
+      },
+      {
+        "route": "root/8",
+        "tag": "g",
+        "id": null,
+        "hiddenByDisplay": true,
+        "inDefs": false,
+        "transform": "translate(-297.04 60.032)",
+        "style": "display:none"
+      }
+    ],
+    "visibleLabels": []
+  }
+]

@@ -1,0 +1,84 @@
+{
+  "source": "https://wwwn.cdc.gov/phil/Details.aspx?pid=21505",
+  "kind": "actual WeChat pointer strokes; engineer review, no expert truth",
+  "strokes": [
+    {
+      "mode": "erase",
+      "radius": 0.02,
+      "points": [
+        {
+          "x": 0.5150753768844221,
+          "y": 0.6634531352414245
+        },
+        {
+          "x": 0.5690954773869347,
+          "y": 0.6711000655451169
+        }
+      ]
+    },
+    {
+      "mode": "add",
+      "radius": 0.02,
+      "points": [
+        {
+          "x": 0.3253768844221106,
+          "y": 0.8125682761634259
+        },
+        {
+          "x": 0.3417085427135679,
+          "y": 0.8202152064671182
+        }
+      ]
+    }
+  ],
+  "raw_area_pixels": 15982,
+  "edited_area_pixels": 15621,
+  "added_pixels": 479,
+  "removed_pixels": 840,
+  "replay_seconds": 0.00015145799989113584,
+  "pixel_polygon_roundtrip_exact": true,
+  "clinical_accuracy": "NOT_MEASURED",
+  "operator_time": "NOT_MEASURED; interrupted engineering verification",
+  "original_candidate": {
+    "status": "ok",
+    "component_count": 9,
+    "hole_count": 27,
+    "quality": {
+      "area_ratio": 0.04963354037267081,
+      "box_pixel_area": 39480,
+      "mask_to_box_ratio": 0.40481256332320165,
+      "outside_box_ratio": 0.0,
+      "foreground_contained": [],
+      "background_excluded": [],
+      "prompt_penalty": 0,
+      "warnings": [],
+      "policy": "prompt_adherence_v1_not_medical_quality",
+      "candidate_differences": [
+        {
+          "candidate_id": "candidate-1",
+          "mask_iou": 0.7192619261926193
+        },
+        {
+          "candidate_id": "candidate-2",
+          "mask_iou": 0.5620142771741041
+        }
+      ]
+    }
+  },
+  "corrected_candidate": {
+    "status": "ok",
+    "component_count": 12,
+    "hole_count": 20,
+    "quality": {
+      "area_ratio": 0.04851242236024845,
+      "box_pixel_area": 39480,
+      "mask_to_box_ratio": 0.39566869300911856,
+      "outside_box_ratio": 0.0,
+      "foreground_contained": [],
+      "background_excluded": [],
+      "prompt_penalty": 0,
+      "warnings": [],
+      "policy": "prompt_adherence_v1_not_medical_quality"
+    }
+  }
+}

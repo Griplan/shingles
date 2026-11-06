@@ -1,0 +1,546 @@
+{
+  "utc": "2026-11-01T11:19:37.061076+00:00",
+  "services": {
+    "acupuncture": {
+      "MainPID": "3480408",
+      "NRestarts": "0",
+      "ExecMainStartTimestamp": "Sat 2026-10-31 23:51:02 CST",
+      "ActiveState": "active",
+      "SubState": "running"
+    },
+    "nginx": {
+      "MainPID": "12643",
+      "NRestarts": "0",
+      "ExecMainStartTimestamp": "Thu 2026-10-08 13:25:29 CST",
+      "ActiveState": "active",
+      "SubState": "running"
+    }
+  },
+  "acupuncture_rss_kib": 275960,
+  "memory_kib": {
+    "MemTotal": 3812564,
+    "MemAvailable": 2912416,
+    "SwapTotal": 2035708,
+    "SwapFree": 2035696
+  },
+  "load": [
+    0.01904296875,
+    0.08203125,
+    0.04150390625
+  ],
+  "cpu_count": 4,
+  "disk_available_bytes": 31638220800,
+  "swap_oom_counters": {
+    "pswpin": 0,
+    "pswpout": 1,
+    "oom_kill": 0
+  },
+  "pressure_memory": "some avg10=0.00 avg60=0.00 avg300=0.00 total=29492\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=28392\n",
+  "health": [
+    {
+      "path": "/health",
+      "status": 200,
+      "ms": 31.437,
+      "ready": {
+        "ai_ready": true
+      }
+    },
+    {
+      "path": "/ready",
+      "status": 200,
+      "ms": 1.043,
+      "ready": {
+        "ai_ready": true,
+        "model_ready": true,
+        "results_ready": true
+      }
+    }
+  ],
+  "protected_hashes": {
+    "/etc/systemd/system/acupuncture.service": "833ab4b2bfd63c264b26719004f5e169b50c973f23bb16e891ae488c489af89a",
+    "/etc/nginx/nginx.conf": "48c6a4ec1e1fd28ccf968490f07e34a1d7f755793b2108a3ed8670b1ee2a0aa2",
+    "/etc/nginx/sites-enabled/acupuncture-domain": "eb56f9f42003fd9df8fad1cd296c05728fbcb1d9bc3451ccacf7903a8b27ae78",
+    "/etc/nginx/sites-enabled/acupuncture": "db30b2164afcf41b2fdbf8ae4d2464deca988f3d1312063e99bd5d34123c79c8",
+    "/srv/acupuncture/backend/main.py": "e2e362ec2cee00d6441b84d3428a248745162e856d20de28f913dc499e4d8b8e",
+    "/srv/acupuncture/.venv/pyvenv.cfg": "11cb0ba728576bfdfb7cc6cd7fb333c2ef832f750fcc126a45c7a6db758e8b69"
+  },
+  "transient_units": "",
+  "remaining_test_pids": {
+    "^/srv/dermatome-preflight-20261101-p0/.venv/bin/python": [],
+    "^python3 -B /srv/dermatome-preflight-20261101-p0/scripts": [],
+    "^python3 -B scripts/guard.py": []
+  },
+  "listeners": "LISTEN 0      4096   127.0.0.53%lo:53   0.0.0.0:*\nLISTEN 0      4096         0.0.0.0:22   0.0.0.0:*\nLISTEN 0      511          0.0.0.0:80   0.0.0.0:*\nLISTEN 0      511          0.0.0.0:443  0.0.0.0:*\nLISTEN 0      4096      127.0.0.54:53   0.0.0.0:*\nLISTEN 0      2048       127.0.0.1:8000 0.0.0.0:*\nLISTEN 0      4096            [::]:22      [::]:*\nLISTEN 0      511             [::]:80      [::]:*\nLISTEN 0      511             [::]:443     [::]:*",
+  "new_directory_sizes_kib": {
+    ".venv": 999204,
+    "model": 255876,
+    "samples": 1808,
+    "scripts": 24,
+    "outputs": 18052,
+    "logs": 1608,
+    "ai": 88
+  },
+  "tests": {
+    "load": {
+      "status": "MODEL_LOADED",
+      "load_seconds": 1.761499177198857,
+      "import_load_seconds": 3.1025087668094784,
+      "rss_after_load_bytes": 397475840,
+      "ru_maxrss_bytes": 407486464,
+      "final_rss_bytes": 397475840,
+      "total_seconds": 3.102973500965163,
+      "process_cpu_seconds": 2.861917133,
+      "preprocess_seconds": null,
+      "segment_seconds": null,
+      "model_inference_seconds": null,
+      "polygon_seconds": null,
+      "export_seconds": null,
+      "image": null,
+      "candidates": null,
+      "monitor_summary": {
+        "max_cgroup_memory_peak_bytes": 356737024,
+        "max_sampled_process_tree_rss_bytes": 388313088,
+        "max_sampled_cpu_one_core_pct": 99.98,
+        "min_host_available_bytes": 2689748992,
+        "elapsed_seconds": 4.135,
+        "health_check_rounds": 3
+      },
+      "monitor_stop": null,
+      "health_all_ok": true,
+      "swap_before": 12288,
+      "swap_after": 12288
+    },
+    "A": {
+      "status": "PASSED_ENGINEERING_REQUIRES_USER_CONFIRMATION",
+      "load_seconds": 1.4676232249476016,
+      "import_load_seconds": 2.6710889178793877,
+      "rss_after_load_bytes": 397307904,
+      "ru_maxrss_bytes": 691585024,
+      "final_rss_bytes": 513925120,
+      "total_seconds": 7.088423071894795,
+      "process_cpu_seconds": 7.051760989000001,
+      "preprocess_seconds": 0.01007626298815012,
+      "segment_seconds": 3.9207808929495513,
+      "model_inference_seconds": 3.8130308480467647,
+      "polygon_seconds": 0.10501451906748116,
+      "export_seconds": 0.45196170592680573,
+      "image": {
+        "width": 300,
+        "height": 410,
+        "source": "cdc-18254-neck-crop.png",
+        "derivation": "Documented neck crop from CDC18254; no face."
+      },
+      "candidates": [
+        {
+          "candidate_id": "candidate-0",
+          "status": "ok",
+          "component_count": 22,
+          "hole_count": 101,
+          "model_score": 0.8918704986572266,
+          "quality": {
+            "area_ratio": 0.07483739837398375,
+            "box_pixel_area": 12075,
+            "mask_to_box_ratio": 0.7623188405797101,
+            "outside_box_ratio": 0.002824551873981532,
+            "foreground_contained": [
+              true
+            ],
+            "background_excluded": [],
+            "prompt_penalty": 0,
+            "warnings": [],
+            "policy": "prompt_adherence_v1_not_medical_quality",
+            "candidate_differences": [
+              {
+                "candidate_id": "candidate-1",
+                "mask_iou": 0.6958197898556202
+              },
+              {
+                "candidate_id": "candidate-2",
+                "mask_iou": 0.6674642883039663
+              }
+            ]
+          },
+          "mask_shape": [
+            410,
+            300
+          ],
+          "mask_foreground_pixels": 9205,
+          "geometry_valid": true,
+          "area_error_pixels": 2.3646862246096134e-11
+        },
+        {
+          "candidate_id": "candidate-1",
+          "status": "ok",
+          "component_count": 21,
+          "hole_count": 7,
+          "model_score": 0.9578957557678223,
+          "quality": {
+            "area_ratio": 0.10755284552845529,
+            "box_pixel_area": 12075,
+            "mask_to_box_ratio": 1.095569358178054,
+            "outside_box_ratio": 0.09146571925315594,
+            "foreground_contained": [
+              true
+            ],
+            "background_excluded": [],
+            "prompt_penalty": 0,
+            "warnings": [],
+            "policy": "prompt_adherence_v1_not_medical_quality",
+            "candidate_differences": [
+              {
+                "candidate_id": "candidate-0",
+                "mask_iou": 0.6958197898556202
+              },
+              {
+                "candidate_id": "candidate-2",
+                "mask_iou": 0.9374731105693389
+              }
+            ]
+          },
+          "mask_shape": [
+            410,
+            300
+          ],
+          "mask_foreground_pixels": 13229,
+          "geometry_valid": true,
+          "area_error_pixels": 1.8189894035458565e-12
+        },
+        {
+          "candidate_id": "candidate-2",
+          "status": "ok",
+          "component_count": 38,
+          "hole_count": 24,
+          "model_score": 0.9692380428314209,
+          "quality": {
+            "area_ratio": 0.1121219512195122,
+            "box_pixel_area": 12075,
+            "mask_to_box_ratio": 1.142111801242236,
+            "outside_box_ratio": 0.12544413022986006,
+            "foreground_contained": [
+              true
+            ],
+            "background_excluded": [],
+            "prompt_penalty": 0,
+            "warnings": [],
+            "policy": "prompt_adherence_v1_not_medical_quality",
+            "candidate_differences": [
+              {
+                "candidate_id": "candidate-0",
+                "mask_iou": 0.6674642883039663
+              },
+              {
+                "candidate_id": "candidate-1",
+                "mask_iou": 0.9374731105693389
+              }
+            ]
+          },
+          "mask_shape": [
+            410,
+            300
+          ],
+          "mask_foreground_pixels": 13791,
+          "geometry_valid": true,
+          "area_error_pixels": 9.094947017729282e-12
+        }
+      ],
+      "monitor_summary": {
+        "max_cgroup_memory_peak_bytes": 586313728,
+        "max_sampled_process_tree_rss_bytes": 616714240,
+        "max_sampled_cpu_one_core_pct": 100.17,
+        "min_host_available_bytes": 2474663936,
+        "elapsed_seconds": 8.208,
+        "health_check_rounds": 5
+      },
+      "monitor_stop": null,
+      "health_all_ok": true,
+      "swap_before": 12288,
+      "swap_after": 12288
+    },
+    "B": {
+      "status": "PASSED_ENGINEERING_REQUIRES_USER_CONFIRMATION",
+      "load_seconds": 1.598537971964106,
+      "import_load_seconds": 2.8090561910066754,
+      "rss_after_load_bytes": 397348864,
+      "ru_maxrss_bytes": 691982336,
+      "final_rss_bytes": 498298880,
+      "total_seconds": 8.087849754840136,
+      "process_cpu_seconds": 7.9929047540000004,
+      "preprocess_seconds": 0.012498098192736506,
+      "segment_seconds": 4.198751226067543,
+      "model_inference_seconds": 4.0649213150609285,
+      "polygon_seconds": 0.1307775580789894,
+      "export_seconds": 1.0251194289885461,
+      "image": {
+        "width": 700,
+        "height": 460,
+        "source": "cdc-21505.jpg",
+        "derivation": "Original public CDC21505."
+      },
+      "candidates": [
+        {
+          "candidate_id": "candidate-0",
+          "status": "ok",
+          "component_count": 16,
+          "hole_count": 25,
+          "model_score": 0.9273743033409119,
+          "quality": {
+            "area_ratio": 0.047683229813664595,
+            "box_pixel_area": 39200,
+            "mask_to_box_ratio": 0.39168367346938776,
+            "outside_box_ratio": 0,
+            "foreground_contained": [],
+            "background_excluded": [],
+            "prompt_penalty": 0,
+            "warnings": [],
+            "policy": "prompt_adherence_v1_not_medical_quality",
+            "candidate_differences": [
+              {
+                "candidate_id": "candidate-1",
+                "mask_iou": 0.6973702139256029
+              },
+              {
+                "candidate_id": "candidate-2",
+                "mask_iou": 0.5430238726790451
+              }
+            ]
+          },
+          "mask_shape": [
+            460,
+            700
+          ],
+          "mask_foreground_pixels": 15354,
+          "geometry_valid": true,
+          "area_error_pixels": 2.1827872842550278e-11
+        },
+        {
+          "candidate_id": "candidate-1",
+          "status": "ok",
+          "component_count": 9,
+          "hole_count": 22,
+          "model_score": 0.9637655019760132,
+          "quality": {
+            "area_ratio": 0.06837577639751553,
+            "box_pixel_area": 39200,
+            "mask_to_box_ratio": 0.5616581632653062,
+            "outside_box_ratio": 0.000454194486078939,
+            "foreground_contained": [],
+            "background_excluded": [],
+            "prompt_penalty": 0,
+            "warnings": [],
+            "policy": "prompt_adherence_v1_not_medical_quality",
+            "candidate_differences": [
+              {
+                "candidate_id": "candidate-0",
+                "mask_iou": 0.6973702139256029
+              },
+              {
+                "candidate_id": "candidate-2",
+                "mask_iou": 0.7786737400530503
+              }
+            ]
+          },
+          "mask_shape": [
+            460,
+            700
+          ],
+          "mask_foreground_pixels": 22017,
+          "geometry_valid": true,
+          "area_error_pixels": 1.4551915228366852e-11
+        },
+        {
+          "candidate_id": "candidate-2",
+          "status": "ok",
+          "component_count": 5,
+          "hole_count": 22,
+          "model_score": 0.9707448482513428,
+          "quality": {
+            "area_ratio": 0.08781055900621118,
+            "box_pixel_area": 39200,
+            "mask_to_box_ratio": 0.7213010204081632,
+            "outside_box_ratio": 0.007144120247568523,
+            "foreground_contained": [],
+            "background_excluded": [],
+            "prompt_penalty": 0,
+            "warnings": [],
+            "policy": "prompt_adherence_v1_not_medical_quality",
+            "candidate_differences": [
+              {
+                "candidate_id": "candidate-0",
+                "mask_iou": 0.5430238726790451
+              },
+              {
+                "candidate_id": "candidate-1",
+                "mask_iou": 0.7786737400530503
+              }
+            ]
+          },
+          "mask_shape": [
+            460,
+            700
+          ],
+          "mask_foreground_pixels": 28275,
+          "geometry_valid": true,
+          "area_error_pixels": 0
+        }
+      ],
+      "monitor_summary": {
+        "max_cgroup_memory_peak_bytes": 588181504,
+        "max_sampled_process_tree_rss_bytes": 605376512,
+        "max_sampled_cpu_one_core_pct": 100.07,
+        "min_host_available_bytes": 2478170112,
+        "elapsed_seconds": 9.233,
+        "health_check_rounds": 5
+      },
+      "monitor_stop": null,
+      "health_all_ok": true,
+      "swap_before": 12288,
+      "swap_after": 12288
+    },
+    "C": {
+      "status": "PASSED_ENGINEERING_REQUIRES_USER_CONFIRMATION",
+      "load_seconds": 1.479992520995438,
+      "import_load_seconds": 2.681141837965697,
+      "rss_after_load_bytes": 397324288,
+      "ru_maxrss_bytes": 692523008,
+      "final_rss_bytes": 572370944,
+      "total_seconds": 13.291655877837911,
+      "process_cpu_seconds": 13.282829038,
+      "preprocess_seconds": 0.13480039592832327,
+      "segment_seconds": 3.5166119430214167,
+      "model_inference_seconds": 3.2099099149927497,
+      "polygon_seconds": 0.3035998430568725,
+      "export_seconds": 6.171984899789095,
+      "image": {
+        "width": 1400,
+        "height": 2126,
+        "source": "cdc-21506-derived-1400x2126.png",
+        "derivation": "CDC21506 enlarged 2x for bounded memory/capacity test only; not new medical sample."
+      },
+      "candidates": [
+        {
+          "candidate_id": "candidate-0",
+          "status": "ok",
+          "component_count": 10,
+          "hole_count": 4,
+          "model_score": 0.7127979397773743,
+          "quality": {
+            "area_ratio": 0.019161739013573445,
+            "box_pixel_area": 79200,
+            "mask_to_box_ratio": 0.7201136363636363,
+            "outside_box_ratio": 0.012974944330475338,
+            "foreground_contained": [
+              true
+            ],
+            "background_excluded": [],
+            "prompt_penalty": 0,
+            "warnings": [],
+            "policy": "prompt_adherence_v1_not_medical_quality",
+            "candidate_differences": [
+              {
+                "candidate_id": "candidate-1",
+                "mask_iou": 0.7843409616019364
+              },
+              {
+                "candidate_id": "candidate-2",
+                "mask_iou": 0.6449945716095178
+              }
+            ]
+          },
+          "mask_shape": [
+            2126,
+            1400
+          ],
+          "mask_foreground_pixels": 57033,
+          "geometry_valid": true,
+          "area_error_pixels": 2.1827872842550278e-11
+        },
+        {
+          "candidate_id": "candidate-1",
+          "status": "ok",
+          "component_count": 3,
+          "hole_count": 4,
+          "model_score": 0.8421869277954102,
+          "quality": {
+            "area_ratio": 0.02442884020964924,
+            "box_pixel_area": 79200,
+            "mask_to_box_ratio": 0.9180555555555555,
+            "outside_box_ratio": 0.0864805391280429,
+            "foreground_contained": [
+              true
+            ],
+            "background_excluded": [],
+            "prompt_penalty": 0,
+            "warnings": [],
+            "policy": "prompt_adherence_v1_not_medical_quality",
+            "candidate_differences": [
+              {
+                "candidate_id": "candidate-0",
+                "mask_iou": 0.7843409616019364
+              },
+              {
+                "candidate_id": "candidate-2",
+                "mask_iou": 0.8101079544816275
+              }
+            ]
+          },
+          "mask_shape": [
+            2126,
+            1400
+          ],
+          "mask_foreground_pixels": 72710,
+          "geometry_valid": true,
+          "area_error_pixels": 0
+        },
+        {
+          "candidate_id": "candidate-2",
+          "status": "ok",
+          "component_count": 3,
+          "hole_count": 4,
+          "model_score": 0.8477727174758911,
+          "quality": {
+            "area_ratio": 0.02970837253057385,
+            "box_pixel_area": 79200,
+            "mask_to_box_ratio": 1.1164646464646464,
+            "outside_box_ratio": 0.12919569347688412,
+            "foreground_contained": [
+              true
+            ],
+            "background_excluded": [],
+            "prompt_penalty": 0,
+            "warnings": [],
+            "policy": "prompt_adherence_v1_not_medical_quality",
+            "candidate_differences": [
+              {
+                "candidate_id": "candidate-0",
+                "mask_iou": 0.6449945716095178
+              },
+              {
+                "candidate_id": "candidate-1",
+                "mask_iou": 0.8101079544816275
+              }
+            ]
+          },
+          "mask_shape": [
+            2126,
+            1400
+          ],
+          "mask_foreground_pixels": 88424,
+          "geometry_valid": true,
+          "area_error_pixels": 1.3096723705530167e-10
+        }
+      ],
+      "monitor_summary": {
+        "max_cgroup_memory_peak_bytes": 587710464,
+        "max_sampled_process_tree_rss_bytes": 576520192,
+        "max_sampled_cpu_one_core_pct": 100.12,
+        "min_host_available_bytes": 2484310016,
+        "elapsed_seconds": 14.334,
+        "health_check_rounds": 8
+      },
+      "monitor_stop": null,
+      "health_all_ok": true,
+      "swap_before": 12288,
+      "swap_after": 12288
+    }
+  }
+}

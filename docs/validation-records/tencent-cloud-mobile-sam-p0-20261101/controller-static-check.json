@@ -1,0 +1,16 @@
+{
+  "kind": "AST assertions, not live resource enforcement; enforcement was verified separately by transient probe",
+  "checks": {
+    "finite_unit_namespace": true,
+    "memory_limit_configured": true,
+    "cpu_quota_configured": true,
+    "swap_disabled": true,
+    "child_process_cleanup": true,
+    "finite_runtime": true,
+    "production_health_guard": true,
+    "production_identity_guard": true,
+    "near_limit_guard": true,
+    "host_swap_guard": true,
+    "no_background_api": true
+  }
+}

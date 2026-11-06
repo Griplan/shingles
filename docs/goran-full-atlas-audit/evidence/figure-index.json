@@ -1,0 +1,298 @@
+[
+  {
+    "figure": "left-hand-paths",
+    "view": "front",
+    "viewport": [
+      315,
+      420,
+      124,
+      135
+    ],
+    "paths": [
+      [
+        28,
+        "C5"
+      ],
+      [
+        29,
+        "C6-C8"
+      ],
+      [
+        30,
+        "C6-C8"
+      ],
+      [
+        31,
+        "C8/T1"
+      ],
+      [
+        32,
+        "C8/T1"
+      ],
+      [
+        33,
+        "L1"
+      ],
+      [
+        34,
+        "L2"
+      ]
+    ],
+    "routes": "See path-inventory.csv; crop edges are not nerve boundaries."
+  },
+  {
+    "figure": "left-hand-paths",
+    "view": "back",
+    "viewport": [
+      10,
+      420,
+      124,
+      135
+    ],
+    "paths": [
+      [
+        13,
+        "T12"
+      ],
+      [
+        18,
+        "L1"
+      ],
+      [
+        19,
+        "L2"
+      ],
+      [
+        20,
+        "C7"
+      ],
+      [
+        28,
+        "C6-C8"
+      ],
+      [
+        29,
+        "C6-C8"
+      ],
+      [
+        39,
+        "C8/T1"
+      ],
+      [
+        41,
+        "T1/T2"
+      ],
+      [
+        47,
+        "C6-C8"
+      ]
+    ],
+    "routes": "See path-inventory.csv; crop edges are not nerve boundaries."
+  },
+  {
+    "figure": "left-foot-paths",
+    "view": "front",
+    "viewport": [
+      235,
+      835,
+      110,
+      115
+    ],
+    "paths": [
+      [
+        36,
+        "L4"
+      ],
+      [
+        37,
+        "S1"
+      ],
+      [
+        38,
+        "S1"
+      ],
+      [
+        41,
+        "L5"
+      ]
+    ],
+    "routes": "See path-inventory.csv; crop edges are not nerve boundaries."
+  },
+  {
+    "figure": "left-foot-paths",
+    "view": "back",
+    "viewport": [
+      110,
+      835,
+      110,
+      115
+    ],
+    "paths": [
+      [
+        36,
+        "L4"
+      ],
+      [
+        43,
+        "L5"
+      ],
+      [
+        44,
+        "S1"
+      ],
+      [
+        49,
+        "S2"
+      ]
+    ],
+    "routes": "See path-inventory.csv; crop edges are not nerve boundaries."
+  },
+  {
+    "figure": "right-hand-paths",
+    "view": "front",
+    "viewport": [
+      20,
+      420,
+      124,
+      135
+    ],
+    "paths": [
+      [
+        28,
+        "C5"
+      ],
+      [
+        29,
+        "C6-C8"
+      ],
+      [
+        30,
+        "C6-C8"
+      ],
+      [
+        31,
+        "C8/T1"
+      ],
+      [
+        32,
+        "C8/T1"
+      ],
+      [
+        34,
+        "L2"
+      ]
+    ],
+    "routes": "See path-inventory.csv; crop edges are not nerve boundaries."
+  },
+  {
+    "figure": "right-hand-paths",
+    "view": "back",
+    "viewport": [
+      300,
+      420,
+      124,
+      135
+    ],
+    "paths": [
+      [
+        13,
+        "T12"
+      ],
+      [
+        17,
+        "T11"
+      ],
+      [
+        18,
+        "L1"
+      ],
+      [
+        19,
+        "L2"
+      ],
+      [
+        20,
+        "C7"
+      ],
+      [
+        30,
+        "C6-C8"
+      ],
+      [
+        31,
+        "C6-C8"
+      ],
+      [
+        41,
+        "T1/T2"
+      ],
+      [
+        42,
+        "C8/T1"
+      ],
+      [
+        48,
+        "C6-C8"
+      ]
+    ],
+    "routes": "See path-inventory.csv; crop edges are not nerve boundaries."
+  },
+  {
+    "figure": "right-foot-paths",
+    "view": "front",
+    "viewport": [
+      120,
+      835,
+      110,
+      115
+    ],
+    "paths": [
+      [
+        36,
+        "L4"
+      ],
+      [
+        37,
+        "S1"
+      ],
+      [
+        38,
+        "S1"
+      ],
+      [
+        41,
+        "L5"
+      ]
+    ],
+    "routes": "See path-inventory.csv; crop edges are not nerve boundaries."
+  },
+  {
+    "figure": "right-foot-paths",
+    "view": "back",
+    "viewport": [
+      235,
+      835,
+      110,
+      115
+    ],
+    "paths": [
+      [
+        36,
+        "L4"
+      ],
+      [
+        43,
+        "L5"
+      ],
+      [
+        44,
+        "S1"
+      ],
+      [
+        49,
+        "S2"
+      ]
+    ],
+    "routes": "See path-inventory.csv; crop edges are not nerve boundaries."
+  }
+]

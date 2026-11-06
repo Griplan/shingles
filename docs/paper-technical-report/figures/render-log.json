@@ -1,0 +1,128 @@
+[
+  {
+    "file": "ai-segmentation-pipeline.mmd",
+    "format": "png",
+    "exit_code": 0,
+    "seconds": 1.159,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "ai-segmentation-pipeline.mmd",
+    "format": "svg",
+    "exit_code": 0,
+    "seconds": 1.074,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "api-sequence.mmd",
+    "format": "png",
+    "exit_code": 0,
+    "seconds": 1.222,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "api-sequence.mmd",
+    "format": "svg",
+    "exit_code": 0,
+    "seconds": 0.774,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "atlas-registration.mmd",
+    "format": "png",
+    "exit_code": 0,
+    "seconds": 1.016,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "atlas-registration.mmd",
+    "format": "svg",
+    "exit_code": 0,
+    "seconds": 0.891,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "complete-workflow.mmd",
+    "format": "png",
+    "exit_code": 0,
+    "seconds": 0.993,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "complete-workflow.mmd",
+    "format": "svg",
+    "exit_code": 0,
+    "seconds": 0.925,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "coordinate-transform.mmd",
+    "format": "png",
+    "exit_code": 0,
+    "seconds": 1.057,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "coordinate-transform.mmd",
+    "format": "svg",
+    "exit_code": 0,
+    "seconds": 0.897,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "dermatome-matching.mmd",
+    "format": "png",
+    "exit_code": 0,
+    "seconds": 1.135,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "dermatome-matching.mmd",
+    "format": "svg",
+    "exit_code": 0,
+    "seconds": 0.989,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "manual-workflow.mmd",
+    "format": "png",
+    "exit_code": 0,
+    "seconds": 0.96,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "manual-workflow.mmd",
+    "format": "svg",
+    "exit_code": 0,
+    "seconds": 0.904,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "page-modules.mmd",
+    "format": "png",
+    "exit_code": 0,
+    "seconds": 1.08,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "page-modules.mmd",
+    "format": "svg",
+    "exit_code": 0,
+    "seconds": 0.873,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "system-architecture.mmd",
+    "format": "png",
+    "exit_code": 0,
+    "seconds": 1.058,
+    "output": "Generating single mermaid chart\n"
+  },
+  {
+    "file": "system-architecture.mmd",
+    "format": "svg",
+    "exit_code": 0,
+    "seconds": 0.917,
+    "output": "Generating single mermaid chart\n"
+  }
+]

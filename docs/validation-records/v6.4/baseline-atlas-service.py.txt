@@ -1,0 +1,84 @@
+"""Read only fixed registry datasets, checked on every evaluation (no stale cache)."""
+import hashlib
+import json
+from dataclasses import dataclass
+from pathlib import Path
+from shapely.geometry import shape
+from shapely.errors import ShapelyError
+from app.schemas.evaluate import Identity
+from app.utils.geometry import EvaluationError
+
+ROOT = Path(__file__).resolve().parents[3]
+ATLAS_ID = 'goran-2022'
+ATLAS_VERSION = 'goran-2022-commons-template4-preview.2'
+ATLAS_DIR = ROOT/'data/atlas/goran-2022-preview-v2'
+BODY_FILE = ROOT/'data/body/commons-template4.json'
+INPUTS = ['front.json','back.json','source-map.json','registration.json','sources.json','coverage.json','local-registration.json']
+
+@dataclass(frozen=True)
+class Dataset:
+    identity: Identity
+    manifest: dict
+    regions: tuple
+    bodies: dict
+
+def valid_geometry(raw):
+    if raw.get('type') not in ('Polygon','MultiPolygon'): raise ValueError('unsupported geometry')
+    parts=[raw['coordinates']] if raw['type']=='Polygon' else raw['coordinates']
+    if not parts: raise ValueError('empty geometry')
+    for part in parts:
+        if not part: raise ValueError('empty polygon')
+        for ring in part:
+            if len(ring)<4 or ring[0]!=ring[-1]: raise ValueError('unclosed ring')
+            for point in ring:
+                if len(point)!=2 or any(type(x) not in (int,float) or not 0<=x<=1 for x in point): raise ValueError('invalid coordinate')
+    geom=shape(raw)
+    if not geom.is_valid or geom.is_empty or geom.area<=0: raise ValueError('invalid geometry')
+    return geom
+
+def load_dataset(identity: Identity) -> Dataset:
+    # The local-view loader has its own fixed files/identity and readiness gate.
+    # Never interpret palm coordinates using the full-body atlas.
+    if identity.atlas_id == 'palm-dermatomes-v1':
+        from app.services.palm_atlas_service import load_palm_dataset
+        return load_palm_dataset(identity)
+    if identity.atlas_id != ATLAS_ID:
+        raise EvaluationError('ATLAS_NOT_FOUND','未配置该图谱标识',404)
+    if identity.atlas_version != ATLAS_VERSION:
+        raise EvaluationError('VERSION_MISMATCH','图谱版本不一致，请更新客户端',409)
+    try:
+        blobs={n:(ATLAS_DIR/n).read_bytes() for n in INPUTS}
+        manifest=json.loads((ATLAS_DIR/'manifest.json').read_bytes())
+        h=hashlib.sha256()
+        for n in INPUTS:h.update(n.encode()+b'\0'+blobs[n]+b'\0')
+        if h.hexdigest()!=manifest['contentSHA256']:raise ValueError('atlas checksum')
+        if manifest['atlasVersion']!=ATLAS_VERSION or manifest['sourceLicenseStatus']!='verified' or manifest['medicalReviewStatus']!='pending' or manifest['mappingEnabled'] is not False or manifest['technicalValidationStatus']!='passed_offline_geometry':raise ValueError('atlas readiness')
+        body_blob=BODY_FILE.read_bytes();body_data=json.loads(body_blob)
+        if body_data['coordinateSystem']!='normalized_2d_top_left' or set(body_data['sourceSHA256'])!={'miniprogram/data/body-models.ts','miniprogram/assets/body/commons-v1.ts'}:raise ValueError('body provenance')
+        for f,digest in body_data['sourceSHA256'].items():
+            # Export provenance is local configuration, never request-derived paths.
+            if f not in ('miniprogram/data/body-models.ts','miniprogram/assets/body/commons-v1.ts'):raise ValueError('body source')
+            if hashlib.sha256((ROOT/f).read_bytes()).hexdigest()!=digest:raise ValueError('stale body export')
+        front=body_data['views']['front']
+        actual=Identity(template_id=manifest['templateId'],template_version=manifest['templateVersion'],geometry_id=manifest['geometryId'],region_set_id=front['regionSetId'],atlas_id=ATLAS_ID,atlas_version=ATLAS_VERSION,atlas_content_sha256=h.hexdigest(),body_content_sha256=hashlib.sha256(body_blob).hexdigest(),coordinate_system='normalized_2d_top_left')
+        bodies={}
+        for v in ('front','back'):
+            b=body_data['views'][v]
+            if (b['templateId'],b['templateVersion'],b['geometryId'],b['regionSetId'])!=(actual.template_id,actual.template_version,actual.geometry_id,actual.region_set_id):raise ValueError('body binding')
+            bodies[v]=valid_geometry(b['geometry'])
+        regions=[];ids=set()
+        for v in ('front','back'):
+            data=json.loads(blobs[v+'.json'])
+            if data['atlasVersion']!=ATLAS_VERSION:raise ValueError('view version')
+            for r in data['regions']:
+                if r['id'] in ids or r['view']!=v or r['atlasVersion']!=ATLAS_VERSION:raise ValueError('instance binding')
+                if (r['templateId'],r['templateVersion'],r['geometryId'])!=(actual.template_id,actual.template_version,actual.geometry_id):raise ValueError('template binding')
+                if r['partitionType'] not in ('trigeminal_sensory','spinal_dermatome','spinal_dermatome_composite') or r['side'] not in ('left','right','unspecified') or not r['labelId'] or not r['sourceRefs']:raise ValueError('region metadata')
+                if r['medicalReviewStatus']!='pending':raise ValueError('review state')
+                regions.append({**r,'shape':valid_geometry(r['geometry'])});ids.add(r['id'])
+        if not regions:raise ValueError('empty atlas')
+    except (OSError,ValueError,KeyError,TypeError,AttributeError,IndexError,ShapelyError) as exc:
+        raise EvaluationError('ATLAS_UNAVAILABLE','图谱或人体数据缺失、损坏或尚未同步',503) from exc
+    if identity!=actual:
+        raise EvaluationError('VERSION_MISMATCH','人体、图谱或内容校验不一致，请同步更新后重试',409)
+    return Dataset(actual,manifest,tuple(regions),bodies)

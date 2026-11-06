@@ -1,0 +1,14 @@
+[Unit]
+Description=Expire only dermatome temporary photo sessions
+[Service]
+Type=oneshot
+User=dermatome
+Group=dermatome
+ExecStart=/usr/bin/python3 /srv/dermatome-mapper/deployment/cleanup.py
+CPUQuota=10%
+MemoryMax=128M
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/srv/dermatome-mapper/runtime
+UMask=0077

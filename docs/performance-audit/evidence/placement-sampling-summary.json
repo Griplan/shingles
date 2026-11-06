@@ -1,0 +1,155 @@
+{
+  "note": "CPU sampling separate from unprofiled timing runs; compiled line numbers; all phases together",
+  "rows": [
+    {
+      "function": "",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 50,
+      "sampled_self_ms": 900.799
+    },
+    {
+      "function": "",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 50,
+      "sampled_self_ms": 547.665
+    },
+    {
+      "function": "",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 50,
+      "sampled_self_ms": 487.788
+    },
+    {
+      "function": "",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 50,
+      "sampled_self_ms": 475.666
+    },
+    {
+      "function": "",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 50,
+      "sampled_self_ms": 473.248
+    },
+    {
+      "function": "locatePoint",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 37,
+      "sampled_self_ms": 258.245
+    },
+    {
+      "function": "onSegment",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 31,
+      "sampled_self_ms": 216.201
+    },
+    {
+      "function": "(program)",
+      "file": "",
+      "line": 0,
+      "sampled_self_ms": 182.751
+    },
+    {
+      "function": "locatePoint",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 37,
+      "sampled_self_ms": 148.914
+    },
+    {
+      "function": "onSegment",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 31,
+      "sampled_self_ms": 141.211
+    },
+    {
+      "function": "onSegment",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 31,
+      "sampled_self_ms": 128.212
+    },
+    {
+      "function": "onSegment",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 31,
+      "sampled_self_ms": 112.836
+    },
+    {
+      "function": "pointInBody",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 49,
+      "sampled_self_ms": 112.711
+    },
+    {
+      "function": "locatePoint",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 37,
+      "sampled_self_ms": 107.129
+    },
+    {
+      "function": "",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 50,
+      "sampled_self_ms": 106.458
+    },
+    {
+      "function": "onSegment",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 31,
+      "sampled_self_ms": 103.874
+    },
+    {
+      "function": "locatePoint",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 37,
+      "sampled_self_ms": 102.544
+    },
+    {
+      "function": "locatePoint",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 37,
+      "sampled_self_ms": 98.749
+    },
+    {
+      "function": "locatePoint",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 37,
+      "sampled_self_ms": 83.251
+    },
+    {
+      "function": "pointInBody",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 49,
+      "sampled_self_ms": 79.918
+    },
+    {
+      "function": "pointInBody",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 49,
+      "sampled_self_ms": 69.248
+    },
+    {
+      "function": "intervals",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/placement-geometry.js",
+      "line": 64,
+      "sampled_self_ms": 65.835
+    },
+    {
+      "function": "pointInBody",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 49,
+      "sampled_self_ms": 65.625
+    },
+    {
+      "function": "pointInBody",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 49,
+      "sampled_self_ms": 61.665
+    },
+    {
+      "function": "locatePoint",
+      "file": "file:///private/tmp/dermatome-p5-build/utils/annotation-geometry.js",
+      "line": 37,
+      "sampled_self_ms": 52.291
+    }
+  ]
+}

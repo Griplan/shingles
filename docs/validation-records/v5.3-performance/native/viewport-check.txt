@@ -1,0 +1,1 @@
+																					645 text VIEWPORT_CHECK {"sameTransform":true,"fullBody":true,"valid":true,"ready":true}

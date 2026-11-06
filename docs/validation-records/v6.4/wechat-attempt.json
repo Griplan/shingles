@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-05",
+  "status": "NOT_RUN",
+  "app": "Shingles / WeChat Devtools Stable 2.01.2510290",
+  "attempts": [
+    {
+      "action": "read AX",
+      "result": "project identity visible; stale palm page title"
+    },
+    {
+      "action": "click Compile AX 21",
+      "result": "Computer Use server error -10005: invalid element ID"
+    },
+    {
+      "action": "getScreenshot",
+      "result": "216x290 distorted transitional window image, not a readable live simulator"
+    }
+  ],
+  "not_verified": [
+    "native sole rendering",
+    "native annotation and calculation",
+    "device touch and screen-size acceptance"
+  ],
+  "note": "No native success claimed; no screenshot substituted for runtime evidence. No upload, deployment or production access."
+}

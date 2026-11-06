@@ -1,0 +1,6 @@
+private-data/v5-ai-sessions/test
+ai/models/MobileSAM-source/weights/mobile_sam.pt
+ai/experiments/inputs/cdc-21505.jpg
+ai/experiments/outputs/v52-http-20261027/confirmed.json
+ai/.venv/bin/python
+miniprogram/project.private.config.json

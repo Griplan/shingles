@@ -1,0 +1,244 @@
+import { getBodyModel } from "../../data/body-models";
+import { BodyModelConfig, CanvasRect, DebugPoint, NormalizedRect, ViewportTransform } from "../../types/dermatome";
+import { AtlasLayer } from "../../types/atlas";
+import { fitViewport, focusViewport } from "../../utils/coordinate";
+import { InputTouch, probeTouch, readTouch } from "../../utils/body-debug";
+import { drawBody } from "./render";
+import { hitTestRegion } from "../../utils/body-hit-test";
+import { AnnotationLayer } from "../../types/annotation";
+import { bodyGeometry, pointInBody } from "../../utils/annotation-geometry";
+import { modelBasis, sameBasis } from "../../state/annotation-session";
+
+interface Runtime {
+  mounted: boolean;
+  visible: boolean;
+  pending: boolean;
+  generation: number;
+  probeSequence: number;
+  model: BodyModelConfig | null;
+  viewport: ViewportTransform | null;
+  point: DebugPoint | null;
+  touch: InputTouch | null;
+  moved: boolean;
+  images: Map<string, {node:WechatMiniprogram.Canvas; image:WechatMiniprogram.Image; ready:boolean; failed:boolean}>;
+}
+interface CanvasMeasurement { node: WechatMiniprogram.Canvas; width: number; height: number }
+// Canvas 节点/异步生命周期状态不进入 setData，不注册全局监听器。
+const runtimes = new WeakMap<object, Runtime>();
+
+Component({
+  properties: {
+    view: { type: String, value: "front" },
+    selectedRegion: { type: String, value: "" },
+    zoomRegion: { type: String, value: "" },
+    debugEnabled: { type: Boolean, value: false },
+    interactionBlocked: { type: Boolean, value: false },
+    layoutRevision: { type: Number, value: 0 },
+    interactionMode: { type: String, value: "select" },
+    annotation: { type: null, value: null as AnnotationLayer|null },
+    atlas: { type: null, value: null as AtlasLayer|null },
+    focusBounds: { type: null, value: null as NormalizedRect|null },
+  },
+  data: { loading: true, error: "" },
+  observers: {
+    "view,selectedRegion,zoomRegion,debugEnabled,interactionBlocked,layoutRevision,interactionMode,annotation,atlas,focusBounds"() {
+      const state=runtimes.get(this);
+      if(!state)return;
+      if(!this.properties.debugEnabled || state.model?.view!==this.properties.view) state.point=null;
+      state.touch=null; this.refreshCanvas();
+    },
+  },
+  lifetimes: {
+    created() {
+      runtimes.set(this, { mounted:false,visible:true,pending:false,generation:0,probeSequence:0,
+        model:null,viewport:null,point:null,touch:null,moved:false,images:new Map() });
+    },
+    ready() {
+      const state = runtimes.get(this);
+      if (state) { state.mounted = true; this.queueDraw(); }
+    },
+    detached() { runtimes.delete(this); },
+  },
+  pageLifetimes: {
+    show() {
+      const state = runtimes.get(this);
+      if (state) { state.visible = true; this.refreshCanvas(); }
+    },
+    hide() {
+      const state = runtimes.get(this);
+      if (state) {
+        state.visible=false;state.generation++;state.probeSequence++;state.pending=false;
+        state.viewport=null;state.touch=null;
+      }
+    },
+    resize() { this.refreshCanvas(); },
+  },
+  methods: {
+    refreshCanvas() {
+      const state = runtimes.get(this);
+      if (!state) return;
+      state.generation++; state.pending = false;
+      state.probeSequence++; state.viewport=null;
+      this.queueDraw();
+    },
+    failCanvas() {
+      const state=runtimes.get(this);if(state)state.viewport=null;
+      this.setData({
+        loading: false,
+        error: "人体画布暂时无法显示。请重试；如仍失败，请更新微信或开发者工具基础库。",
+      });
+      this.triggerEvent("rendererror");
+    },
+    queueDraw() {
+      const state = runtimes.get(this);
+      if (!state || !state.mounted || !state.visible || state.pending || this.properties.interactionBlocked) return;
+      state.pending = true;
+      const generation = state.generation;
+      wx.nextTick(() => {
+        if (runtimes.get(this) !== state || generation !== state.generation || !state.visible) return;
+        try {
+          this.createSelectorQuery().select("#body-canvas").fields({ node: true, size: true })
+            .exec((results: unknown[]) => {
+              if (runtimes.get(this) !== state || generation !== state.generation || !state.visible) return;
+              state.pending = false;
+              try {
+                const measured = results[0] as Partial<CanvasMeasurement> | undefined;
+                if (!measured || !measured.node || typeof measured.node.getContext !== "function" ||
+                    typeof measured.width !== "number" || typeof measured.height !== "number") {
+                  throw new Error("Canvas 节点不可用");
+                }
+                const { node, width, height } = measured as CanvasMeasurement;
+                const view = this.properties.view;
+                if (view !== "front" && view !== "back") throw new Error("无效视图");
+                const model=getBodyModel(view);
+                const dpr = wx.getWindowInfo().pixelRatio;
+                if (!Number.isFinite(dpr) || dpr <= 0) throw new Error("无效 DPR");
+                const base = fitViewport(width, height, model);
+                const target = model.regions.find(r=>r.id===this.properties.zoomRegion);
+                const viewport = this.properties.focusBounds ? focusViewport(base,this.properties.focusBounds) :
+                  target ? focusViewport(base, target.bounds) : base;
+                const physicalWidth = Math.round(width * dpr), physicalHeight = Math.round(height * dpr);
+                if (node.width !== physicalWidth) node.width = physicalWidth;
+                if (node.height !== physicalHeight) node.height = physicalHeight;
+                const ctx = node.getContext("2d");
+                if (!ctx) throw new Error("Canvas 2D 上下文不可用");
+                // 每次重绘设绝对变换，避免 show/resize/切换时累计缩放。
+                state.model=model;
+                let image:WechatMiniprogram.Image|null=null;
+                if(model.visual.imagePath) {
+                  const src=model.visual.imagePath;
+                  let entry=state.images.get(src);
+                  if(!entry || entry.node!==node || entry.failed) {
+                    const next={node,image:node.createImage(),ready:false,failed:false};
+                    entry=next;state.images.set(src,next);
+                    const active=()=>runtimes.get(this)===state && state.images.get(src)===next &&
+                      state.visible && this.properties.view===model.view;
+                    next.image.onload=()=>{
+                      next.ready=next.image.width>0 && next.image.height>0;
+                      next.failed=!next.ready;
+                      if(active()) {if(next.ready)this.refreshCanvas();else this.failCanvas();}
+                    };
+                    next.image.onerror=()=>{next.failed=true;if(active())this.failCanvas();};
+                    next.image.src=src;
+                  }
+                  if(!entry.ready) {
+                    state.viewport=null;ctx.clearRect(0,0,node.width,node.height);
+                    this.setData({loading:true,error:""});return;
+                  }
+                  image=entry.image;
+                }
+                ctx.setTransform(dpr,0,0,dpr,0,0);
+                state.viewport=viewport;
+                const markerCanvas=drawBody(ctx,viewport,model,
+                  model.regions.find(r=>r.id===this.properties.selectedRegion),
+                  this.properties.debugEnabled?state.point:null,image,this.properties.annotation,this.properties.atlas);
+                this.setData({ loading: false, error: "" });
+                this.triggerEvent("viewportchange", {view,modelId:model.id,modelVersion:model.version,
+                  visualId:model.visual.id,viewport,dpr,physicalWidth,physicalHeight,markerCanvas});
+              } catch {
+                this.failCanvas();
+              }
+            });
+        } catch {
+          state.pending = false;
+          this.failCanvas();
+        }
+      });
+    },
+    onCanvasStart(event:unknown) {
+      const state=runtimes.get(this);if(!state)return;
+      state.touch=null;
+      if(this.properties.interactionBlocked || (!this.properties.debugEnabled &&
+        (this.properties.interactionMode==="readonly" ||
+          (this.properties.interactionMode!=="draw" && this.properties.zoomRegion))))return;
+      state.touch=readTouch(event);state.moved=false;
+    },
+    onCanvasMove(event:unknown) {
+      const state=runtimes.get(this);if(!state?.touch)return;
+      const next=readTouch(event);
+      if(!next||next.kind!==state.touch.kind||
+        Math.hypot(next.point.x-state.touch.point.x,next.point.y-state.touch.point.y)>8)state.moved=true;
+    },
+    onCanvasCancel() { const state=runtimes.get(this);if(state)state.touch=null; },
+    onCanvasEnd(event:unknown) {
+      const state=runtimes.get(this),input=readTouch(event);
+      if(!state)return;
+      const start=state.touch;state.touch=null;
+      if(this.properties.interactionBlocked||!state.visible||!start||state.moved||!input)return;
+      const debugging=this.properties.debugEnabled;
+      const drawing=this.properties.interactionMode==="draw",layer=this.properties.annotation;
+      const mode=this.properties.interactionMode;
+      if(!debugging && (mode==="readonly" || (!drawing && this.properties.zoomRegion)))return;
+      if(input.kind!==start.kind||Math.hypot(input.point.x-start.point.x,input.point.y-start.point.y)>8)return;
+      const viewport=state.viewport,model=state.model;
+      if(!viewport||!model)return;
+      const generation=state.generation,sequence=++state.probeSequence;
+      // 每次点击重新测量可见矩形，不缓存滚动前的top，不读取DOM或设备物理屏幕坐标。
+      const current=()=>runtimes.get(this)===state && generation===state.generation &&
+        sequence===state.probeSequence && state.visible && !this.properties.interactionBlocked &&
+        this.properties.debugEnabled===debugging && this.properties.interactionMode===mode &&
+        this.properties.annotation?.revision===layer?.revision &&
+        this.properties.annotation?.sessionId===layer?.sessionId &&
+        (debugging || drawing || !this.properties.zoomRegion);
+      const annotationProbe=(status:string,normalized:unknown)=>{
+        if(layer && layer.view===model.view && sameBasis(layer.basis,modelBasis(model)))
+          this.triggerEvent("annotationpoint",{sessionId:layer.sessionId,revision:layer.revision,
+            view:model.view,basis:modelBasis(model),status,normalized});
+      };
+      const unavailable=()=>{
+        if(!current())return;
+        if(debugging) {
+          state.point=null;
+          this.triggerEvent("debugprobe",{status:"unavailable",view:model.view,modelId:model.id,
+            modelVersion:model.version,screen:null,canvas:null,normalized:null});
+        } else if(drawing)annotationProbe("unavailable",null);
+        else this.triggerEvent("regionprobe",{status:"unavailable",view:model.view,modelId:model.id,
+          modelVersion:model.version,regionIds:[]});
+        this.queueDraw();
+      };
+      try {
+        this.createSelectorQuery().select("#body-canvas").fields({rect:true,size:true}).exec((results:unknown[])=>{
+          if(!current())return;
+          const rect=results[0] as CanvasRect | undefined;
+          if(!rect){unavailable();return;}
+          const probe=probeTouch(input,rect,viewport,model);
+          if(debugging) {
+            state.point=probe.status==="valid"&&probe.normalized ? {
+              view:model.view,modelId:model.id,modelVersion:model.version,normalized:probe.normalized,
+            }:null;
+            this.triggerEvent("debugprobe",probe);
+          } else if(drawing) {
+            const valid=probe.status==="valid" && probe.normalized && pointInBody(probe.normalized,bodyGeometry(model));
+            annotationProbe(valid?"valid":probe.status==="valid"?"outside-body":probe.status,valid?probe.normalized:null);
+          } else {
+            const hit=probe.status==="valid"&&probe.normalized ? hitTestRegion(probe.normalized,model) :
+              {status:probe.status,regionIds:[]};
+            this.triggerEvent("regionprobe",Object.assign({view:model.view,modelId:model.id,
+              modelVersion:model.version},hit));
+          }
+          if(probe.status==="unavailable")this.refreshCanvas();else if(debugging)this.queueDraw();
+        });
+      } catch {unavailable();}
+    },
+  },
+});

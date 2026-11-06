@@ -1,0 +1,43 @@
+{
+  "original_files_unchanged": 6,
+  "original_processes_unchanged": true,
+  "local_protected_files_unchanged": 39,
+  "watch_rounds": 274,
+  "original_health_failures": 0,
+  "watch_stops": [
+    {
+      "time": 1793543273.4699922,
+      "health": 200,
+      "ready": 200,
+      "vm": {
+        "pswpin": 0,
+        "pswpout": 4,
+        "oom_kill": 0
+      },
+      "available": 2806501376,
+      "stop_reasons": [
+        "new_swap_or_OOM"
+      ]
+    }
+  ],
+  "min_available_bytes": 2413289472,
+  "max_observed_b_cgroup_bytes": 730591232,
+  "final_b_rss": {
+    "VmHWM": "729144 kB",
+    "VmRSS": "556624 kB",
+    "Threads": "3"
+  },
+  "final_b_limits": {
+    "memory.max": "1610612736",
+    "memory.high": "1342177280",
+    "memory.current": "449425408",
+    "memory.peak": "627687424",
+    "memory.swap.current": "0",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+    "cpu.max": "100000 100000",
+    "cpu.stat": "usage_usec 12277290\nuser_usec 10847934\nsystem_usec 1429356\ncore_sched.force_idle_usec 0\nnr_periods 287\nnr_throttled 16\nthrottled_usec 13275\nnr_bursts 0\nburst_usec 0"
+  },
+  "original_business_vision": "NOT_RUN",
+  "public_B_https": "NOT_RUN: user confirmed no domain",
+  "native_end_to_end": "NOT_RUN: user deferred credential input"
+}

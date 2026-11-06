@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/griplan/project/extra/Shingles‌/dermatome-mapper/scripts/test_cloud_lifecycle.py", line 33, in <module>
+    else:raise AssertionError('B still serving while stopped')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: B still serving while stopped

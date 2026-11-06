@@ -1,0 +1,46 @@
+{
+  "commands": [
+    {
+      "name": "typecheck",
+      "exitCode": 0
+    },
+    {
+      "name": "old-axilla-reproduction",
+      "exitCode": 0
+    },
+    {
+      "name": "sole-reproduction",
+      "exitCode": 0
+    },
+    {
+      "name": "wholebody-atlas",
+      "exitCode": 0
+    },
+    {
+      "name": "wcc",
+      "exitCode": 0,
+      "bytes": 53920
+    },
+    {
+      "name": "wcsc",
+      "exitCode": 0,
+      "bytes": 3241
+    }
+  ],
+  "protectedFiles": 214,
+  "intentionalChangedFiles": [
+    "backend/app/api/routes/evaluate.py",
+    "backend/app/schemas/evaluate.py",
+    "backend/app/services/atlas_service.py",
+    "miniprogram/data/local-models.ts",
+    "miniprogram/pages/local-surface/local-surface.ts",
+    "miniprogram/pages/local-surface/local-surface.wxml",
+    "miniprogram/state/matching-session.ts",
+    "miniprogram/types/atlas.ts",
+    "miniprogram/types/evaluate.ts",
+    "miniprogram/types/local-surface.ts"
+  ],
+  "unchangedProtectedFiles": 204,
+  "medicalReview": "NOT_RUN",
+  "wechatRuntime": "NOT_RUN"
+}

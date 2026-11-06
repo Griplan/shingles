@@ -1,0 +1,295 @@
+{
+  "date": "2026-11-01",
+  "environment": {
+    "app": "WeChat DevTools Stable 2.01.2510290",
+    "baseLibrary": "3.17.4",
+    "simulator": "iPhone 12/13 Pro Max",
+    "host": "Apple M4, macOS",
+    "clock": "performance.now",
+    "unit": "ms"
+  },
+  "input": {
+    "file": "ai/experiments/inputs/cdc-21505.jpg",
+    "imageSize": [
+      700,
+      460
+    ],
+    "samples": 1,
+    "model": "existing MobileSAM",
+    "geometry": {
+      "pieces": 27,
+      "holes": 36,
+      "vertices": 2207
+    }
+  },
+  "measurements": {
+    "REAL_DRAG": {
+      "overlay.layoutQuery": {
+        "count": 2,
+        "totalMs": 0.10000000055879354,
+        "maxMs": 0.10000000055879354
+      },
+      "page.setData.sync": {
+        "count": 5,
+        "totalMs": 24.299999998882413,
+        "maxMs": 7.199999999254942
+      },
+      "drag.event.start": {
+        "count": 1,
+        "totalMs": 7.199999999254942,
+        "maxMs": 7.199999999254942
+      },
+      "preview.parameters": {
+        "count": 1,
+        "totalMs": 0,
+        "maxMs": 0
+      },
+      "update.scalars": {
+        "count": 1,
+        "totalMs": 5.7000000001862645,
+        "maxMs": 5.7000000001862645
+      },
+      "drag.event.move": {
+        "count": 1,
+        "totalMs": 5.7999999998137355,
+        "maxMs": 5.7999999998137355
+      },
+      "settle.transform+validation+sync": {
+        "count": 1,
+        "totalMs": 633.4000000003725,
+        "maxMs": 633.4000000003725
+      },
+      "drag.event.end": {
+        "count": 1,
+        "totalMs": 636.7999999998137,
+        "maxMs": 636.7999999998137
+      },
+      "canvas.setTransform": {
+        "count": 1,
+        "totalMs": 0,
+        "maxMs": 0
+      },
+      "overlay.draw.sync": {
+        "count": 1,
+        "totalMs": 0.7000000001862645,
+        "maxMs": 0.7000000001862645
+      }
+    },
+    "NATIVE_TOTAL": {
+      "overlay.layoutQuery": {
+        "count": 2,
+        "totalMs": 0.10000000055879354,
+        "maxMs": 0.10000000055879354
+      },
+      "page.setData.sync": {
+        "count": 10,
+        "totalMs": 53.30000000074506,
+        "maxMs": 8.299999999813735
+      },
+      "drag.event.start": {
+        "count": 1,
+        "totalMs": 7.199999999254942,
+        "maxMs": 7.199999999254942
+      },
+      "preview.parameters": {
+        "count": 2,
+        "totalMs": 0.09999999962747097,
+        "maxMs": 0.09999999962747097
+      },
+      "update.scalars": {
+        "count": 2,
+        "totalMs": 14.5,
+        "maxMs": 8.799999999813735
+      },
+      "drag.event.move": {
+        "count": 1,
+        "totalMs": 5.7999999998137355,
+        "maxMs": 5.7999999998137355
+      },
+      "settle.transform+validation+sync": {
+        "count": 3,
+        "totalMs": 1893.7000000011176,
+        "maxMs": 647.2000000001863
+      },
+      "drag.event.end": {
+        "count": 1,
+        "totalMs": 636.7999999998137,
+        "maxMs": 636.7999999998137
+      },
+      "canvas.setTransform": {
+        "count": 3,
+        "totalMs": 0,
+        "maxMs": 0
+      },
+      "overlay.draw.sync": {
+        "count": 3,
+        "totalMs": 2.6000000005587935,
+        "maxMs": 1.2000000001862645
+      },
+      "rotate.event": {
+        "count": 1,
+        "totalMs": 9.299999999813735,
+        "maxMs": 9.299999999813735
+      }
+    },
+    "REPLAY_DRAG": {
+      "page.setData.sync": {
+        "count": 5,
+        "totalMs": 31.300000000745058,
+        "maxMs": 9.799999999813735
+      },
+      "drag.event.start": {
+        "count": 1,
+        "totalMs": 9.899999999441206,
+        "maxMs": 9.899999999441206
+      },
+      "preview.parameters": {
+        "count": 60,
+        "totalMs": 3.1999999955296516,
+        "maxMs": 0.20000000018626451
+      },
+      "update.scalars": {
+        "count": 60,
+        "totalMs": 13.99999999254942,
+        "maxMs": 5.599999999627471
+      },
+      "drag.event.move": {
+        "count": 60,
+        "totalMs": 16.49999999254942,
+        "maxMs": 5.699999999254942
+      },
+      "canvas.setTransform": {
+        "count": 61,
+        "totalMs": 0.7000000001862645,
+        "maxMs": 0.10000000055879354
+      },
+      "canvas.drawImage": {
+        "count": 60,
+        "totalMs": 2.999999998137355,
+        "maxMs": 0.20000000018626451
+      },
+      "overlay.draw.sync": {
+        "count": 61,
+        "totalMs": 29.7000000057742,
+        "maxMs": 1
+      },
+      "settle.transform+validation+sync": {
+        "count": 1,
+        "totalMs": 578.0999999996275,
+        "maxMs": 578.0999999996275
+      },
+      "drag.event.end": {
+        "count": 1,
+        "totalMs": 581.5,
+        "maxMs": 581.5
+      }
+    },
+    "REPLAY_scale": {
+      "page.setData.sync": {
+        "count": 11,
+        "totalMs": 60.30000000074506,
+        "maxMs": 10
+      },
+      "preview.parameters": {
+        "count": 40,
+        "totalMs": 1.3999999994412065,
+        "maxMs": 0.30000000074505806
+      },
+      "update.scalars": {
+        "count": 40,
+        "totalMs": 16.400000002235174,
+        "maxMs": 10.600000000558794
+      },
+      "scale.event": {
+        "count": 40,
+        "totalMs": 19.70000000204891,
+        "maxMs": 11.100000000558794
+      },
+      "canvas.setTransform": {
+        "count": 41,
+        "totalMs": 0.7999999998137355,
+        "maxMs": 0.10000000055879354
+      },
+      "canvas.drawImage": {
+        "count": 40,
+        "totalMs": 1.9999999981373549,
+        "maxMs": 0.20000000018626451
+      },
+      "overlay.draw.sync": {
+        "count": 41,
+        "totalMs": 21.899999995715916,
+        "maxMs": 1.2000000001862645
+      },
+      "settle.transform+validation+sync": {
+        "count": 1,
+        "totalMs": 609.2000000001863,
+        "maxMs": 609.2000000001863
+      }
+    },
+    "REPLAY_angle": {
+      "page.setData.sync": {
+        "count": 11,
+        "totalMs": 61.299999999813735,
+        "maxMs": 7.2000000001862645
+      },
+      "preview.parameters": {
+        "count": 40,
+        "totalMs": 1.5999999986961484,
+        "maxMs": 0.10000000055879354
+      },
+      "update.scalars": {
+        "count": 40,
+        "totalMs": 10.899999999441206,
+        "maxMs": 5.400000000372529
+      },
+      "rotate.event": {
+        "count": 40,
+        "totalMs": 13.69999999832362,
+        "maxMs": 5.5
+      },
+      "canvas.setTransform": {
+        "count": 41,
+        "totalMs": 0.2999999988824129,
+        "maxMs": 0.09999999962747097
+      },
+      "canvas.drawImage": {
+        "count": 40,
+        "totalMs": 1.8999999985098839,
+        "maxMs": 0.20000000018626451
+      },
+      "overlay.draw.sync": {
+        "count": 41,
+        "totalMs": 21.099999996833503,
+        "maxMs": 1.1000000005587935
+      },
+      "settle.transform+validation+sync": {
+        "count": 1,
+        "totalMs": 583.6999999992549,
+        "maxMs": 583.6999999992549
+      }
+    }
+  },
+  "limits": [
+    "Native JS and synchronous Canvas command submission only, not GPU completion or FPS.",
+    "Actual CUA drag sends one move; continuous series explicitly replay component handlers in native simulator.",
+    "Nested timings cannot be summed.",
+    "First wx.getPerformance.now probe rejected for nonmonotonic samples; per-lineTo instrumentation removed.",
+    "One console error caused by diagnostic p.holes assumption; corrected to ring arrays, no production code changed.",
+    "No native before/after comparison; same-input paired comparison remains Node adapter results."
+  ],
+  "verification": {
+    "actualUploadBoxSegmentConfirm": true,
+    "actualDrag": true,
+    "actualScalePercent": 162,
+    "actualRotationDegrees": 44,
+    "cacheDrawObserved": true,
+    "fullViewTransformUnchanged": true,
+    "nativeConfirmationSaved": true,
+    "v2StateRestored": true,
+    "v2FullGeometryEquality": true,
+    "v4MatchingAllowed": false,
+    "nativeOutsideBodyBranch": "NOT_RUN: noWindowsAvailable recurred",
+    "nativeV2FinalScreenshot": "NOT_RUN: stale placement image despite actual annotate route/data",
+    "phoneAndFrameRate": "NOT_RUN"
+  }
+}

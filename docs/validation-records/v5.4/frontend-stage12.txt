@@ -1,0 +1,23 @@
+✔ V5.4 wire retains all pieces/holes and excludes photos, masks and model information (28.278083ms)
+✔ V5.4 edit is isolated until atomic replacement, stable ID and repeat confirmation (49.66475ms)
+✔ V5.4 saved placement remains editable/matchable after photo TTL and cleanup without network (47.148375ms)
+✔ V5.4 failed/canceled editing and stale replacement leave saved geometry untouched (37.04925ms)
+✔ V5.4 late old AI response and network retry never insert additional annotations (46.820917ms)
+✔ snapshot blocks missing/empty/draft/wrong basis; excludes only display changes (0.855292ms)
+✔ loading locks duplicate calls, snapshot is immutable; failures preserve annotations and retry succeeds (0.867625ms)
+✔ late A cannot replace B after geometry edit; display changes keep B (0.184625ms)
+✔ add/delete/clear/atlas content/template mutations invalidate results (5.918625ms)
+✔ hide/cancel discards late responses and allows retry; draft never submitted (0.147959ms)
+✔ response association rejects foreign identity, revision, candidate instances and scope; tiny display never becomes zero (0.313042ms)
+✔ API client separately denies release/trial, requires phone URL, and maps backend/network errors (0.512375ms)
+✔ draft-to-completed edit keeps stale reminder until explicit recalculation (0.160708ms)
+✔ matching snapshot and overlay positions survive three screen sizes, focus and reset (0.653458ms)
+✔ API distinguishes WeChat domain rejection from timeout and unavailable service without echoing raw details (0.2035ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 252.996291

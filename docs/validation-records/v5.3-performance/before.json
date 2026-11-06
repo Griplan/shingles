@@ -1,0 +1,5514 @@
+{
+  "date": "2026-10-31T16:42:50.614Z",
+  "environment": {
+    "node": "v24.11.1",
+    "platform": "darwin",
+    "cpu": "Apple M4",
+    "memory": 17179869184
+  },
+  "kind": "production JS with wx/Canvas command recorder; no raster/GPU/bridge latency/FPS; nested method times not additive",
+  "cases": [
+    {
+      "vertices": 100,
+      "multi": false,
+      "width": 375,
+      "height": 500,
+      "dpr": 2,
+      "initialCounts": {
+        "page.setData": 6,
+        "canvas.query": 1,
+        "canvas.context": 1,
+        "canvas.width": 1,
+        "canvas.height": 1,
+        "canvas.setTransform": 1,
+        "canvas.clearRect": 1,
+        "canvas.save": 1,
+        "canvas.beginPath": 4,
+        "canvas.rect": 1,
+        "canvas.clip": 1,
+        "canvas.moveTo": 3,
+        "canvas.lineTo": 101,
+        "canvas.closePath": 1,
+        "canvas.fill": 2,
+        "canvas.stroke": 3,
+        "canvas.arc": 1,
+        "canvas.restore": 1,
+        "event.renderstate": 1
+      },
+      "phases": [
+        {
+          "name": "drag-120-events-30-frame-opportunities",
+          "wall_ms": 9.146666000000003,
+          "counters": {
+            "bounds.query": 121,
+            "event.placementdrag": 121,
+            "page.setData": 241,
+            "canvas.context": 121,
+            "canvas.setTransform": 121,
+            "canvas.clearRect": 121,
+            "canvas.save": 121,
+            "canvas.beginPath": 484,
+            "canvas.rect": 121,
+            "canvas.clip": 121,
+            "canvas.moveTo": 363,
+            "canvas.lineTo": 12221,
+            "canvas.closePath": 121,
+            "canvas.fill": 242,
+            "canvas.stroke": 363,
+            "canvas.setLineDash": 242,
+            "canvas.strokeRect": 121,
+            "canvas.arc": 121,
+            "canvas.restore": 121,
+            "event.renderstate": 121
+          },
+          "calls": {
+            "overlay.cancelGesture": 1,
+            "overlay.syncInput": 483,
+            "overlay.point": 121,
+            "overlay.queueTouch": 121,
+            "overlay.touchStart": 1,
+            "page.setData.serialize": 241,
+            "page.onDrag": 121,
+            "overlay.queueDraw": 241,
+            "transformPhotoPolygonToBody": 241,
+            "page.onOverlayReady": 121,
+            "overlay.redraw": 121,
+            "overlay.touchMove": 120,
+            "page.syncDraft": 120,
+            "page.update": 120
+          },
+          "timings": {
+            "overlay.cancelGesture": {
+              "count": 1,
+              "total_ms": 0.0032500000000013074,
+              "median_ms": 0.0032500000000013074,
+              "p95_ms": 0.0032500000000013074,
+              "max_ms": 0.0032500000000013074
+            },
+            "overlay.syncInput": {
+              "count": 483,
+              "total_ms": 0.35103700000000515,
+              "median_ms": 0.0006669999999999732,
+              "p95_ms": 0.0010000000000047748,
+              "max_ms": 0.003917000000001281
+            },
+            "overlay.point": {
+              "count": 121,
+              "total_ms": 0.20744900000003952,
+              "median_ms": 0.0007080000000030395,
+              "p95_ms": 0.004708000000000823,
+              "max_ms": 0.05654100000000284
+            },
+            "overlay.queueTouch": {
+              "count": 121,
+              "total_ms": 0.4005810000000025,
+              "median_ms": 0.0018340000000023338,
+              "p95_ms": 0.007457999999999743,
+              "max_ms": 0.09162500000000051
+            },
+            "overlay.touchStart": {
+              "count": 1,
+              "total_ms": 0.10266700000000384,
+              "median_ms": 0.10266700000000384,
+              "p95_ms": 0.10266700000000384,
+              "max_ms": 0.10266700000000384
+            },
+            "page.setData.serialize": {
+              "count": 241,
+              "total_ms": 0.6275319999999667,
+              "median_ms": 0.0027079999999983784,
+              "p95_ms": 0.005292000000004293,
+              "max_ms": 0.022207999999999117
+            },
+            "page.onDrag": {
+              "count": 121,
+              "total_ms": 2.771457999999953,
+              "median_ms": 0.019042000000006,
+              "p95_ms": 0.041665999999999315,
+              "max_ms": 0.1127919999999989
+            },
+            "overlay.queueDraw": {
+              "count": 241,
+              "total_ms": 0.09808300000003811,
+              "median_ms": 0.0003330000000048017,
+              "p95_ms": 0.0007080000000030395,
+              "max_ms": 0.007916000000001588
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 241,
+              "total_ms": 0.7007899999999481,
+              "median_ms": 0.002375000000000682,
+              "p95_ms": 0.007584000000001367,
+              "max_ms": 0.019666999999998325
+            },
+            "page.onOverlayReady": {
+              "count": 121,
+              "total_ms": 0.07087699999998165,
+              "median_ms": 0.00041699999999877946,
+              "p95_ms": 0.0013339999999999463,
+              "max_ms": 0.006458000000002073
+            },
+            "overlay.redraw": {
+              "count": 121,
+              "total_ms": 4.734046999999983,
+              "median_ms": 0.03224999999999767,
+              "p95_ms": 0.08916699999999622,
+              "max_ms": 0.32720799999999883
+            },
+            "overlay.touchMove": {
+              "count": 120,
+              "total_ms": 0.3427120000000201,
+              "median_ms": 0.002082999999998947,
+              "p95_ms": 0.007958999999999605,
+              "max_ms": 0.012000000000000455
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.7466230000000209,
+              "median_ms": 0.004750000000001364,
+              "p95_ms": 0.017874999999996533,
+              "max_ms": 0.02487499999999443
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 2.5744989999999746,
+              "median_ms": 0.018082999999997185,
+              "p95_ms": 0.03949999999999676,
+              "max_ms": 0.10624999999999574
+            }
+          }
+        },
+        {
+          "name": "drag-end-validation",
+          "wall_ms": 9.552084,
+          "counters": {
+            "bounds.query": 1,
+            "event.placementdrag": 1,
+            "page.setData": 3,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 4,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 3,
+            "canvas.lineTo": 101,
+            "canvas.closePath": 1,
+            "canvas.fill": 2,
+            "canvas.stroke": 3,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "overlay.syncInput": 4,
+            "overlay.point": 1,
+            "overlay.queueTouch": 1,
+            "overlay.touchEnd": 1,
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.queueDraw": 2,
+            "page.setData.serialize": 3,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.onDrag": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "overlay.syncInput": {
+              "count": 4,
+              "total_ms": 0.0069179999999988695,
+              "median_ms": 0.0011669999999952552,
+              "p95_ms": 0.004041999999998325,
+              "max_ms": 0.004041999999998325
+            },
+            "overlay.point": {
+              "count": 1,
+              "total_ms": 0.005250000000003752,
+              "median_ms": 0.005250000000003752,
+              "p95_ms": 0.005250000000003752,
+              "max_ms": 0.005250000000003752
+            },
+            "overlay.queueTouch": {
+              "count": 1,
+              "total_ms": 0.01287500000000108,
+              "median_ms": 0.01287500000000108,
+              "p95_ms": 0.01287500000000108,
+              "max_ms": 0.01287500000000108
+            },
+            "overlay.touchEnd": {
+              "count": 1,
+              "total_ms": 0.020542000000006055,
+              "median_ms": 0.020542000000006055,
+              "p95_ms": 0.020542000000006055,
+              "max_ms": 0.020542000000006055
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.006291999999987752,
+              "median_ms": 0.004374999999996021,
+              "p95_ms": 0.004374999999996021,
+              "max_ms": 0.004374999999996021
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 9.433957999999997,
+              "median_ms": 9.433957999999997,
+              "p95_ms": 9.433957999999997,
+              "max_ms": 9.433957999999997
+            },
+            "overlay.queueDraw": {
+              "count": 2,
+              "total_ms": 0.0015000000000071623,
+              "median_ms": 0.001333000000002471,
+              "p95_ms": 0.001333000000002471,
+              "max_ms": 0.001333000000002471
+            },
+            "page.setData.serialize": {
+              "count": 3,
+              "total_ms": 0.008125999999990086,
+              "median_ms": 0.0007920000000041227,
+              "p95_ms": 0.006583999999989487,
+              "max_ms": 0.006583999999989487
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.009957999999997469,
+              "median_ms": 0.009957999999997469,
+              "p95_ms": 0.009957999999997469,
+              "max_ms": 0.009957999999997469
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 9.464915999999995,
+              "median_ms": 9.464915999999995,
+              "p95_ms": 9.464915999999995,
+              "max_ms": 9.464915999999995
+            },
+            "page.onDrag": {
+              "count": 1,
+              "total_ms": 9.470833000000006,
+              "median_ms": 9.470833000000006,
+              "p95_ms": 9.470833000000006,
+              "max_ms": 9.470833000000006
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.0008750000000077307,
+              "median_ms": 0.0008750000000077307,
+              "p95_ms": 0.0008750000000077307,
+              "max_ms": 0.0008750000000077307
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.01624999999999943,
+              "median_ms": 0.01624999999999943,
+              "p95_ms": 0.01624999999999943,
+              "max_ms": 0.01624999999999943
+            }
+          }
+        },
+        {
+          "name": "scale-120-events-30-frame-opportunities",
+          "wall_ms": 2.8289160000000066,
+          "counters": {
+            "page.setData": 150,
+            "canvas.context": 30,
+            "canvas.setTransform": 30,
+            "canvas.clearRect": 30,
+            "canvas.save": 30,
+            "canvas.beginPath": 120,
+            "canvas.rect": 30,
+            "canvas.clip": 30,
+            "canvas.moveTo": 90,
+            "canvas.lineTo": 3030,
+            "canvas.closePath": 30,
+            "canvas.fill": 60,
+            "canvas.stroke": 90,
+            "canvas.arc": 30,
+            "canvas.restore": 30,
+            "event.renderstate": 30
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 150,
+            "overlay.syncInput": 120,
+            "overlay.queueDraw": 120,
+            "page.setData.serialize": 150,
+            "page.syncDraft": 120,
+            "page.update": 120,
+            "page.slider": 120,
+            "page.scaleChanging": 120,
+            "page.onOverlayReady": 30,
+            "overlay.redraw": 30
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 150,
+              "total_ms": 0.49658300000007216,
+              "median_ms": 0.002375000000000682,
+              "p95_ms": 0.009124999999997385,
+              "max_ms": 0.013084000000006313
+            },
+            "overlay.syncInput": {
+              "count": 120,
+              "total_ms": 0.08213400000001059,
+              "median_ms": 0.0005830000000059954,
+              "p95_ms": 0.0010000000000047748,
+              "max_ms": 0.006500000000002615
+            },
+            "overlay.queueDraw": {
+              "count": 120,
+              "total_ms": 0.0256660000000295,
+              "median_ms": 0.00012499999999704414,
+              "p95_ms": 0.0005409999999983484,
+              "max_ms": 0.0027500000000060254
+            },
+            "page.setData.serialize": {
+              "count": 150,
+              "total_ms": 0.34942200000004675,
+              "median_ms": 0.002334000000004721,
+              "p95_ms": 0.0036249999999995453,
+              "max_ms": 0.008708000000012817
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.4371649999999647,
+              "median_ms": 0.003333999999995285,
+              "p95_ms": 0.005542000000005487,
+              "max_ms": 0.010082999999994513
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 2.0479229999999546,
+              "median_ms": 0.014542000000005828,
+              "p95_ms": 0.02779099999999346,
+              "max_ms": 0.07562500000000227
+            },
+            "page.slider": {
+              "count": 120,
+              "total_ms": 2.147788000000105,
+              "median_ms": 0.015000000000000568,
+              "p95_ms": 0.028833999999989146,
+              "max_ms": 0.0761669999999981
+            },
+            "page.scaleChanging": {
+              "count": 120,
+              "total_ms": 2.1818380000000133,
+              "median_ms": 0.015250000000008868,
+              "p95_ms": 0.029084000000011656,
+              "max_ms": 0.07645799999998815
+            },
+            "page.onOverlayReady": {
+              "count": 30,
+              "total_ms": 0.022165000000029522,
+              "median_ms": 0.0003750000000053433,
+              "p95_ms": 0.004249999999998977,
+              "max_ms": 0.004290999999994938
+            },
+            "overlay.redraw": {
+              "count": 30,
+              "total_ms": 0.41641600000001233,
+              "median_ms": 0.012124999999997499,
+              "p95_ms": 0.023624999999995566,
+              "max_ms": 0.027208000000001675
+            }
+          }
+        },
+        {
+          "name": "scale-end-validation",
+          "wall_ms": 9.637459000000007,
+          "counters": {
+            "page.setData": 2,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 4,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 3,
+            "canvas.lineTo": 101,
+            "canvas.closePath": 1,
+            "canvas.fill": 2,
+            "canvas.stroke": 3,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.syncInput": 1,
+            "overlay.queueDraw": 1,
+            "page.setData.serialize": 2,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.slider": 1,
+            "page.scaleChanged": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.005499999999983629,
+              "median_ms": 0.0028329999999954225,
+              "p95_ms": 0.0028329999999954225,
+              "max_ms": 0.0028329999999954225
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 9.551083000000006,
+              "median_ms": 9.551083000000006,
+              "p95_ms": 9.551083000000006,
+              "max_ms": 9.551083000000006
+            },
+            "overlay.syncInput": {
+              "count": 1,
+              "total_ms": 0.002291999999997074,
+              "median_ms": 0.002291999999997074,
+              "p95_ms": 0.002291999999997074,
+              "max_ms": 0.002291999999997074
+            },
+            "overlay.queueDraw": {
+              "count": 1,
+              "total_ms": 0.0024579999999900792,
+              "median_ms": 0.0024579999999900792,
+              "p95_ms": 0.0024579999999900792,
+              "max_ms": 0.0024579999999900792
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.012250000000008754,
+              "median_ms": 0.011166000000002896,
+              "p95_ms": 0.011166000000002896,
+              "max_ms": 0.011166000000002896
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.015917000000001735,
+              "median_ms": 0.015917000000001735,
+              "p95_ms": 0.015917000000001735,
+              "max_ms": 0.015917000000001735
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 9.588125000000005,
+              "median_ms": 9.588125000000005,
+              "p95_ms": 9.588125000000005,
+              "max_ms": 9.588125000000005
+            },
+            "page.slider": {
+              "count": 1,
+              "total_ms": 9.589874999999992,
+              "median_ms": 9.589874999999992,
+              "p95_ms": 9.589874999999992,
+              "max_ms": 9.589874999999992
+            },
+            "page.scaleChanged": {
+              "count": 1,
+              "total_ms": 9.596167000000008,
+              "median_ms": 9.596167000000008,
+              "p95_ms": 9.596167000000008,
+              "max_ms": 9.596167000000008
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.001041999999998211,
+              "median_ms": 0.001041999999998211,
+              "p95_ms": 0.001041999999998211,
+              "max_ms": 0.001041999999998211
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.019540999999989594,
+              "median_ms": 0.019540999999989594,
+              "p95_ms": 0.019540999999989594,
+              "max_ms": 0.019540999999989594
+            }
+          }
+        },
+        {
+          "name": "rotate-120-events-30-frame-opportunities",
+          "wall_ms": 2.369249999999994,
+          "counters": {
+            "page.setData": 150,
+            "canvas.context": 30,
+            "canvas.setTransform": 30,
+            "canvas.clearRect": 30,
+            "canvas.save": 30,
+            "canvas.beginPath": 120,
+            "canvas.rect": 30,
+            "canvas.clip": 30,
+            "canvas.moveTo": 90,
+            "canvas.lineTo": 3030,
+            "canvas.closePath": 30,
+            "canvas.fill": 60,
+            "canvas.stroke": 90,
+            "canvas.arc": 30,
+            "canvas.restore": 30,
+            "event.renderstate": 30
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 150,
+            "overlay.syncInput": 120,
+            "overlay.queueDraw": 120,
+            "page.setData.serialize": 150,
+            "page.syncDraft": 120,
+            "page.update": 120,
+            "page.slider": 120,
+            "page.angleChanging": 120,
+            "page.onOverlayReady": 30,
+            "overlay.redraw": 30
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 150,
+              "total_ms": 0.2261259999999794,
+              "median_ms": 0.0013750000000101181,
+              "p95_ms": 0.001958999999999378,
+              "max_ms": 0.00633400000000961
+            },
+            "overlay.syncInput": {
+              "count": 120,
+              "total_ms": 0.07304799999997158,
+              "median_ms": 0.0005830000000059954,
+              "p95_ms": 0.0008330000000000837,
+              "max_ms": 0.0010830000000083828
+            },
+            "overlay.queueDraw": {
+              "count": 120,
+              "total_ms": 0.021585000000015953,
+              "median_ms": 0.00012499999999704414,
+              "p95_ms": 0.00041699999999877946,
+              "max_ms": 0.0007079999999888287
+            },
+            "page.setData.serialize": {
+              "count": 150,
+              "total_ms": 0.3401699999999721,
+              "median_ms": 0.002291999999997074,
+              "p95_ms": 0.0034999999999882903,
+              "max_ms": 0.010334000000000287
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.41320600000004504,
+              "median_ms": 0.003082999999989511,
+              "p95_ms": 0.006292000000001963,
+              "max_ms": 0.011250000000003979
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 1.678412000000037,
+              "median_ms": 0.013165999999998235,
+              "p95_ms": 0.01983299999999133,
+              "max_ms": 0.023375000000001478
+            },
+            "page.slider": {
+              "count": 120,
+              "total_ms": 1.725791999999899,
+              "median_ms": 0.013499999999993406,
+              "p95_ms": 0.020625000000009663,
+              "max_ms": 0.02375000000000682
+            },
+            "page.angleChanging": {
+              "count": 120,
+              "total_ms": 1.7595420000000104,
+              "median_ms": 0.013707999999994058,
+              "p95_ms": 0.020832999999996105,
+              "max_ms": 0.031542000000001735
+            },
+            "page.onOverlayReady": {
+              "count": 30,
+              "total_ms": 0.011581999999961567,
+              "median_ms": 0.0003749999999911324,
+              "p95_ms": 0.0006669999999928677,
+              "max_ms": 0.001041999999998211
+            },
+            "overlay.redraw": {
+              "count": 30,
+              "total_ms": 0.34912300000000585,
+              "median_ms": 0.010874999999998636,
+              "p95_ms": 0.015500000000002956,
+              "max_ms": 0.02266699999999844
+            }
+          }
+        },
+        {
+          "name": "rotate-end-validation",
+          "wall_ms": 9.661208000000002,
+          "counters": {
+            "page.setData": 2,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 4,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 3,
+            "canvas.lineTo": 101,
+            "canvas.closePath": 1,
+            "canvas.fill": 2,
+            "canvas.stroke": 3,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.syncInput": 1,
+            "overlay.queueDraw": 1,
+            "page.setData.serialize": 2,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.slider": 1,
+            "page.angleChanged": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.004041999999998325,
+              "median_ms": 0.002124999999992383,
+              "p95_ms": 0.002124999999992383,
+              "max_ms": 0.002124999999992383
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 9.600750000000005,
+              "median_ms": 9.600750000000005,
+              "p95_ms": 9.600750000000005,
+              "max_ms": 9.600750000000005
+            },
+            "overlay.syncInput": {
+              "count": 1,
+              "total_ms": 0.0009160000000036916,
+              "median_ms": 0.0009160000000036916,
+              "p95_ms": 0.0009160000000036916,
+              "max_ms": 0.0009160000000036916
+            },
+            "overlay.queueDraw": {
+              "count": 1,
+              "total_ms": 0.0007090000000005148,
+              "median_ms": 0.0007090000000005148,
+              "p95_ms": 0.0007090000000005148,
+              "max_ms": 0.0007090000000005148
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.006874000000010483,
+              "median_ms": 0.005958000000006791,
+              "p95_ms": 0.005958000000006791,
+              "max_ms": 0.005958000000006791
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.00766699999999787,
+              "median_ms": 0.00766699999999787,
+              "p95_ms": 0.00766699999999787,
+              "max_ms": 0.00766699999999787
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 9.621542000000005,
+              "median_ms": 9.621542000000005,
+              "p95_ms": 9.621542000000005,
+              "max_ms": 9.621542000000005
+            },
+            "page.slider": {
+              "count": 1,
+              "total_ms": 9.622250000000008,
+              "median_ms": 9.622250000000008,
+              "p95_ms": 9.622250000000008,
+              "max_ms": 9.622250000000008
+            },
+            "page.angleChanged": {
+              "count": 1,
+              "total_ms": 9.628541999999996,
+              "median_ms": 9.628541999999996,
+              "p95_ms": 9.628541999999996,
+              "max_ms": 9.628541999999996
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.0009170000000011669,
+              "median_ms": 0.0009170000000011669,
+              "p95_ms": 0.0009170000000011669,
+              "max_ms": 0.0009170000000011669
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.015749999999997044,
+              "median_ms": 0.015749999999997044,
+              "p95_ms": 0.015749999999997044,
+              "max_ms": 0.015749999999997044
+            }
+          }
+        },
+        {
+          "name": "viewport-full-focus",
+          "wall_ms": 0.11620800000000031,
+          "counters": {
+            "page.setData": 6,
+            "canvas.context": 2,
+            "canvas.setTransform": 2,
+            "canvas.clearRect": 2,
+            "canvas.save": 2,
+            "canvas.beginPath": 8,
+            "canvas.rect": 2,
+            "canvas.clip": 2,
+            "canvas.moveTo": 6,
+            "canvas.lineTo": 202,
+            "canvas.closePath": 2,
+            "canvas.fill": 4,
+            "canvas.stroke": 6,
+            "canvas.arc": 2,
+            "canvas.restore": 2,
+            "event.renderstate": 2
+          },
+          "calls": {
+            "overlay.cancelGesture": 4,
+            "overlay.syncInput": 4,
+            "overlay.queueDraw": 4,
+            "page.setData.serialize": 6,
+            "page.toggleFocus": 2,
+            "page.checkCurrent": 2,
+            "page.onViewport": 2,
+            "transformPhotoPolygonToBody": 2,
+            "page.onOverlayReady": 2,
+            "overlay.redraw": 2
+          },
+          "timings": {
+            "overlay.cancelGesture": {
+              "count": 4,
+              "total_ms": 0.0039989999999932024,
+              "median_ms": 0.0006659999999953925,
+              "p95_ms": 0.002332999999993035,
+              "max_ms": 0.002332999999993035
+            },
+            "overlay.syncInput": {
+              "count": 4,
+              "total_ms": 0.019207999999991898,
+              "median_ms": 0.0024999999999977263,
+              "p95_ms": 0.014375000000001137,
+              "max_ms": 0.014375000000001137
+            },
+            "overlay.queueDraw": {
+              "count": 4,
+              "total_ms": 0.0014999999999929514,
+              "median_ms": 0.0003339999999951715,
+              "p95_ms": 0.0009579999999971278,
+              "max_ms": 0.0009579999999971278
+            },
+            "page.setData.serialize": {
+              "count": 6,
+              "total_ms": 0.028709000000006313,
+              "median_ms": 0.0024999999999977263,
+              "p95_ms": 0.018084000000001765,
+              "max_ms": 0.018084000000001765
+            },
+            "page.toggleFocus": {
+              "count": 2,
+              "total_ms": 0.03366699999999412,
+              "median_ms": 0.03012499999999818,
+              "p95_ms": 0.03012499999999818,
+              "max_ms": 0.03012499999999818
+            },
+            "page.checkCurrent": {
+              "count": 2,
+              "total_ms": 0.001958999999999378,
+              "median_ms": 0.0015420000000005984,
+              "p95_ms": 0.0015420000000005984,
+              "max_ms": 0.0015420000000005984
+            },
+            "page.onViewport": {
+              "count": 2,
+              "total_ms": 0.01445900000000222,
+              "median_ms": 0.009792000000004464,
+              "p95_ms": 0.009792000000004464,
+              "max_ms": 0.009792000000004464
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.0038329999999859865,
+              "median_ms": 0.00216700000000003,
+              "p95_ms": 0.00216700000000003,
+              "max_ms": 0.00216700000000003
+            },
+            "page.onOverlayReady": {
+              "count": 2,
+              "total_ms": 0.001041999999998211,
+              "median_ms": 0.0007499999999964757,
+              "p95_ms": 0.0007499999999964757,
+              "max_ms": 0.0007499999999964757
+            },
+            "overlay.redraw": {
+              "count": 2,
+              "total_ms": 0.025958000000002812,
+              "median_ms": 0.013999999999995794,
+              "p95_ms": 0.013999999999995794,
+              "max_ms": 0.013999999999995794
+            }
+          }
+        },
+        {
+          "name": "confirm",
+          "wall_ms": 10.424042,
+          "counters": {
+            "page.setData": 2
+          },
+          "calls": {
+            "preparePhotoGeometry": 1,
+            "transformPhotoPolygonToBody": 1,
+            "validatePlacementGeometry": 1,
+            "page.setData.serialize": 2,
+            "page.guardExit": 1,
+            "page.syncDraft": 1,
+            "page.confirmPosition": 1
+          },
+          "timings": {
+            "preparePhotoGeometry": {
+              "count": 1,
+              "total_ms": 0.16745799999999633,
+              "median_ms": 0.16745799999999633,
+              "p95_ms": 0.16745799999999633,
+              "max_ms": 0.16745799999999633
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 1,
+              "total_ms": 0.0027499999999918145,
+              "median_ms": 0.0027499999999918145,
+              "p95_ms": 0.0027499999999918145,
+              "max_ms": 0.0027499999999918145
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 9.604666000000009,
+              "median_ms": 9.604666000000009,
+              "p95_ms": 9.604666000000009,
+              "max_ms": 9.604666000000009
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.06691599999999198,
+              "median_ms": 0.05533299999999031,
+              "p95_ms": 0.05533299999999031,
+              "max_ms": 0.05533299999999031
+            },
+            "page.guardExit": {
+              "count": 1,
+              "total_ms": 0.01141699999999446,
+              "median_ms": 0.01141699999999446,
+              "p95_ms": 0.01141699999999446,
+              "max_ms": 0.01141699999999446
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.11783400000000199,
+              "median_ms": 0.11783400000000199,
+              "p95_ms": 0.11783400000000199,
+              "max_ms": 0.11783400000000199
+            },
+            "page.confirmPosition": {
+              "count": 1,
+              "total_ms": 10.405417,
+              "median_ms": 10.405417,
+              "p95_ms": 10.405417,
+              "max_ms": 10.405417
+            }
+          }
+        }
+      ]
+    },
+    {
+      "vertices": 100,
+      "multi": true,
+      "width": 375,
+      "height": 500,
+      "dpr": 2,
+      "initialCounts": {
+        "page.setData": 6,
+        "canvas.query": 1,
+        "canvas.context": 1,
+        "canvas.width": 1,
+        "canvas.height": 1,
+        "canvas.setTransform": 1,
+        "canvas.clearRect": 1,
+        "canvas.save": 1,
+        "canvas.beginPath": 8,
+        "canvas.rect": 1,
+        "canvas.clip": 1,
+        "canvas.moveTo": 12,
+        "canvas.lineTo": 92,
+        "canvas.closePath": 10,
+        "canvas.fill": 6,
+        "canvas.stroke": 7,
+        "canvas.arc": 1,
+        "canvas.restore": 1,
+        "event.renderstate": 1
+      },
+      "phases": [
+        {
+          "name": "drag-120-events-30-frame-opportunities",
+          "wall_ms": 4.885541999999987,
+          "counters": {
+            "bounds.query": 121,
+            "event.placementdrag": 121,
+            "page.setData": 241,
+            "canvas.context": 121,
+            "canvas.setTransform": 121,
+            "canvas.clearRect": 121,
+            "canvas.save": 121,
+            "canvas.beginPath": 968,
+            "canvas.rect": 121,
+            "canvas.clip": 121,
+            "canvas.moveTo": 1452,
+            "canvas.lineTo": 11132,
+            "canvas.closePath": 1210,
+            "canvas.fill": 726,
+            "canvas.stroke": 847,
+            "canvas.setLineDash": 242,
+            "canvas.strokeRect": 121,
+            "canvas.arc": 121,
+            "canvas.restore": 121,
+            "event.renderstate": 121
+          },
+          "calls": {
+            "overlay.cancelGesture": 1,
+            "overlay.syncInput": 483,
+            "overlay.point": 121,
+            "overlay.queueTouch": 121,
+            "overlay.touchStart": 1,
+            "page.setData.serialize": 241,
+            "page.onDrag": 121,
+            "overlay.queueDraw": 241,
+            "transformPhotoPolygonToBody": 241,
+            "page.onOverlayReady": 121,
+            "overlay.redraw": 121,
+            "overlay.touchMove": 120,
+            "page.syncDraft": 120,
+            "page.update": 120
+          },
+          "timings": {
+            "overlay.cancelGesture": {
+              "count": 1,
+              "total_ms": 0.001958999999999378,
+              "median_ms": 0.001958999999999378,
+              "p95_ms": 0.001958999999999378,
+              "max_ms": 0.001958999999999378
+            },
+            "overlay.syncInput": {
+              "count": 483,
+              "total_ms": 0.33835099999984664,
+              "median_ms": 0.0006249999999994316,
+              "p95_ms": 0.0007920000000041227,
+              "max_ms": 0.022542000000001394
+            },
+            "overlay.point": {
+              "count": 121,
+              "total_ms": 0.08670799999997314,
+              "median_ms": 0.0005829999999917845,
+              "p95_ms": 0.0009579999999971278,
+              "max_ms": 0.006416999999999007
+            },
+            "overlay.queueTouch": {
+              "count": 121,
+              "total_ms": 0.22337899999999422,
+              "median_ms": 0.0015840000000082455,
+              "p95_ms": 0.0026250000000089813,
+              "max_ms": 0.008875000000003297
+            },
+            "overlay.touchStart": {
+              "count": 1,
+              "total_ms": 0.008749999999992042,
+              "median_ms": 0.008749999999992042,
+              "p95_ms": 0.008749999999992042,
+              "max_ms": 0.008749999999992042
+            },
+            "page.setData.serialize": {
+              "count": 241,
+              "total_ms": 0.4492029999999687,
+              "median_ms": 0.0013749999999959073,
+              "p95_ms": 0.0035829999999918982,
+              "max_ms": 0.012082999999989852
+            },
+            "page.onDrag": {
+              "count": 121,
+              "total_ms": 1.8679550000000802,
+              "median_ms": 0.014124999999992838,
+              "p95_ms": 0.01958299999999724,
+              "max_ms": 0.08866700000000094
+            },
+            "overlay.queueDraw": {
+              "count": 241,
+              "total_ms": 0.05395400000006134,
+              "median_ms": 0.00016700000000469117,
+              "p95_ms": 0.0004160000000013042,
+              "max_ms": 0.0031250000000113687
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 241,
+              "total_ms": 0.5087119999999459,
+              "median_ms": 0.0017080000000078144,
+              "p95_ms": 0.002291999999997074,
+              "max_ms": 0.0746249999999975
+            },
+            "page.onOverlayReady": {
+              "count": 121,
+              "total_ms": 0.032917000000026064,
+              "median_ms": 0.0002499999999940883,
+              "p95_ms": 0.00041699999999877946,
+              "max_ms": 0.0013339999999999463
+            },
+            "overlay.redraw": {
+              "count": 121,
+              "total_ms": 2.0577089999999316,
+              "median_ms": 0.016582999999997128,
+              "p95_ms": 0.022999999999996135,
+              "max_ms": 0.04154200000000685
+            },
+            "overlay.touchMove": {
+              "count": 120,
+              "total_ms": 0.2394119999999873,
+              "median_ms": 0.0017919999999946867,
+              "p95_ms": 0.0030409999999960746,
+              "max_ms": 0.009041000000010513
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.5014139999999259,
+              "median_ms": 0.0039159999999895945,
+              "p95_ms": 0.006208999999998355,
+              "max_ms": 0.016542000000001167
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 1.7768719999999973,
+              "median_ms": 0.01345799999999997,
+              "p95_ms": 0.018749999999997158,
+              "max_ms": 0.0880419999999873
+            }
+          }
+        },
+        {
+          "name": "drag-end-validation",
+          "wall_ms": 9.422624999999996,
+          "counters": {
+            "bounds.query": 1,
+            "event.placementdrag": 1,
+            "page.setData": 3,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 8,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 12,
+            "canvas.lineTo": 92,
+            "canvas.closePath": 10,
+            "canvas.fill": 6,
+            "canvas.stroke": 7,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "overlay.syncInput": 4,
+            "overlay.point": 1,
+            "overlay.queueTouch": 1,
+            "overlay.touchEnd": 1,
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.queueDraw": 2,
+            "page.setData.serialize": 3,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.onDrag": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "overlay.syncInput": {
+              "count": 4,
+              "total_ms": 0.0064990000000051396,
+              "median_ms": 0.000999999999990564,
+              "p95_ms": 0.004417000000017879,
+              "max_ms": 0.004417000000017879
+            },
+            "overlay.point": {
+              "count": 1,
+              "total_ms": 0.0012499999999988631,
+              "median_ms": 0.0012499999999988631,
+              "p95_ms": 0.0012499999999988631,
+              "max_ms": 0.0012499999999988631
+            },
+            "overlay.queueTouch": {
+              "count": 1,
+              "total_ms": 0.0029170000000107166,
+              "median_ms": 0.0029170000000107166,
+              "p95_ms": 0.0029170000000107166,
+              "max_ms": 0.0029170000000107166
+            },
+            "overlay.touchEnd": {
+              "count": 1,
+              "total_ms": 0.003791000000006761,
+              "median_ms": 0.003791000000006761,
+              "p95_ms": 0.003791000000006761,
+              "max_ms": 0.003791000000006761
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.007876000000010208,
+              "median_ms": 0.006042000000007874,
+              "p95_ms": 0.006042000000007874,
+              "max_ms": 0.006042000000007874
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 9.282999999999987,
+              "median_ms": 9.282999999999987,
+              "p95_ms": 9.282999999999987,
+              "max_ms": 9.282999999999987
+            },
+            "overlay.queueDraw": {
+              "count": 2,
+              "total_ms": 0.006043000000033771,
+              "median_ms": 0.005834000000021433,
+              "p95_ms": 0.005834000000021433,
+              "max_ms": 0.005834000000021433
+            },
+            "page.setData.serialize": {
+              "count": 3,
+              "total_ms": 0.02379099999998857,
+              "median_ms": 0.0013329999999882602,
+              "p95_ms": 0.021332999999998492,
+              "max_ms": 0.021332999999998492
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.034791999999981726,
+              "median_ms": 0.034791999999981726,
+              "p95_ms": 0.034791999999981726,
+              "max_ms": 0.034791999999981726
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 9.358332999999988,
+              "median_ms": 9.358332999999988,
+              "p95_ms": 9.358332999999988,
+              "max_ms": 9.358332999999988
+            },
+            "page.onDrag": {
+              "count": 1,
+              "total_ms": 9.36541600000001,
+              "median_ms": 9.36541600000001,
+              "p95_ms": 9.36541600000001,
+              "max_ms": 9.36541600000001
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.0007500000000106866,
+              "median_ms": 0.0007500000000106866,
+              "p95_ms": 0.0007500000000106866,
+              "max_ms": 0.0007500000000106866
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.03054199999999696,
+              "median_ms": 0.03054199999999696,
+              "p95_ms": 0.03054199999999696,
+              "max_ms": 0.03054199999999696
+            }
+          }
+        },
+        {
+          "name": "scale-120-events-30-frame-opportunities",
+          "wall_ms": 2.2934999999999945,
+          "counters": {
+            "page.setData": 150,
+            "canvas.context": 30,
+            "canvas.setTransform": 30,
+            "canvas.clearRect": 30,
+            "canvas.save": 30,
+            "canvas.beginPath": 240,
+            "canvas.rect": 30,
+            "canvas.clip": 30,
+            "canvas.moveTo": 360,
+            "canvas.lineTo": 2760,
+            "canvas.closePath": 300,
+            "canvas.fill": 180,
+            "canvas.stroke": 210,
+            "canvas.arc": 30,
+            "canvas.restore": 30,
+            "event.renderstate": 30
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 150,
+            "overlay.syncInput": 120,
+            "overlay.queueDraw": 120,
+            "page.setData.serialize": 150,
+            "page.syncDraft": 120,
+            "page.update": 120,
+            "page.slider": 120,
+            "page.scaleChanging": 120,
+            "page.onOverlayReady": 30,
+            "overlay.redraw": 30
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 150,
+              "total_ms": 0.2838769999998192,
+              "median_ms": 0.0017080000000078144,
+              "p95_ms": 0.002583000000015545,
+              "max_ms": 0.003375000000005457
+            },
+            "overlay.syncInput": {
+              "count": 120,
+              "total_ms": 0.08063500000017143,
+              "median_ms": 0.0006249999999852207,
+              "p95_ms": 0.000916999999986956,
+              "max_ms": 0.003542000000010148
+            },
+            "overlay.queueDraw": {
+              "count": 120,
+              "total_ms": 0.017379000000090628,
+              "median_ms": 0.00008400000001529406,
+              "p95_ms": 0.0002920000000017353,
+              "max_ms": 0.0007500000000106866
+            },
+            "page.setData.serialize": {
+              "count": 150,
+              "total_ms": 0.35104300000003263,
+              "median_ms": 0.0023339999999905103,
+              "p95_ms": 0.003542000000010148,
+              "max_ms": 0.013790999999997666
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.43754500000011376,
+              "median_ms": 0.0032910000000185846,
+              "p95_ms": 0.005041000000005624,
+              "max_ms": 0.014624999999995225
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 1.5467159999999467,
+              "median_ms": 0.012416999999999234,
+              "p95_ms": 0.01737499999998704,
+              "max_ms": 0.02816699999999628
+            },
+            "page.slider": {
+              "count": 120,
+              "total_ms": 1.595583999999775,
+              "median_ms": 0.012792000000018788,
+              "p95_ms": 0.017750000000006594,
+              "max_ms": 0.02862500000000523
+            },
+            "page.scaleChanging": {
+              "count": 120,
+              "total_ms": 1.6154240000001323,
+              "median_ms": 0.012958999999995058,
+              "p95_ms": 0.017957999999993035,
+              "max_ms": 0.028833999999989146
+            },
+            "page.onOverlayReady": {
+              "count": 30,
+              "total_ms": 0.008084999999880438,
+              "median_ms": 0.0002499999999940883,
+              "p95_ms": 0.00041699999999877946,
+              "max_ms": 0.0005419999999958236
+            },
+            "overlay.redraw": {
+              "count": 30,
+              "total_ms": 0.4934570000000065,
+              "median_ms": 0.013749999999987494,
+              "p95_ms": 0.017250000000018417,
+              "max_ms": 0.09925000000001205
+            }
+          }
+        },
+        {
+          "name": "scale-end-validation",
+          "wall_ms": 9.305957999999976,
+          "counters": {
+            "page.setData": 2,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 8,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 12,
+            "canvas.lineTo": 92,
+            "canvas.closePath": 10,
+            "canvas.fill": 6,
+            "canvas.stroke": 7,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.syncInput": 1,
+            "overlay.queueDraw": 1,
+            "page.setData.serialize": 2,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.slider": 1,
+            "page.scaleChanged": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.005500000000012051,
+              "median_ms": 0.003500000000002501,
+              "p95_ms": 0.003500000000002501,
+              "max_ms": 0.003500000000002501
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 9.235582999999991,
+              "median_ms": 9.235582999999991,
+              "p95_ms": 9.235582999999991,
+              "max_ms": 9.235582999999991
+            },
+            "overlay.syncInput": {
+              "count": 1,
+              "total_ms": 0.0017499999999870397,
+              "median_ms": 0.0017499999999870397,
+              "p95_ms": 0.0017499999999870397,
+              "max_ms": 0.0017499999999870397
+            },
+            "overlay.queueDraw": {
+              "count": 1,
+              "total_ms": 0.0014999999999929514,
+              "median_ms": 0.0014999999999929514,
+              "p95_ms": 0.0014999999999929514,
+              "max_ms": 0.0014999999999929514
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.009458999999992557,
+              "median_ms": 0.008624999999994998,
+              "p95_ms": 0.008624999999994998,
+              "max_ms": 0.008624999999994998
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.013999999999981583,
+              "median_ms": 0.013999999999981583,
+              "p95_ms": 0.013999999999981583,
+              "max_ms": 0.013999999999981583
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 9.269583000000011,
+              "median_ms": 9.269583000000011,
+              "p95_ms": 9.269583000000011,
+              "max_ms": 9.269583000000011
+            },
+            "page.slider": {
+              "count": 1,
+              "total_ms": 9.270499999999998,
+              "median_ms": 9.270499999999998,
+              "p95_ms": 9.270499999999998,
+              "max_ms": 9.270499999999998
+            },
+            "page.scaleChanged": {
+              "count": 1,
+              "total_ms": 9.272041999999999,
+              "median_ms": 9.272041999999999,
+              "p95_ms": 9.272041999999999,
+              "max_ms": 9.272041999999999
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.00045800000000895125,
+              "median_ms": 0.00045800000000895125,
+              "p95_ms": 0.00045800000000895125,
+              "max_ms": 0.00045800000000895125
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.020624999999995453,
+              "median_ms": 0.020624999999995453,
+              "p95_ms": 0.020624999999995453,
+              "max_ms": 0.020624999999995453
+            }
+          }
+        },
+        {
+          "name": "rotate-120-events-30-frame-opportunities",
+          "wall_ms": 2.1466250000000002,
+          "counters": {
+            "page.setData": 150,
+            "canvas.context": 30,
+            "canvas.setTransform": 30,
+            "canvas.clearRect": 30,
+            "canvas.save": 30,
+            "canvas.beginPath": 240,
+            "canvas.rect": 30,
+            "canvas.clip": 30,
+            "canvas.moveTo": 360,
+            "canvas.lineTo": 2760,
+            "canvas.closePath": 300,
+            "canvas.fill": 180,
+            "canvas.stroke": 210,
+            "canvas.arc": 30,
+            "canvas.restore": 30,
+            "event.renderstate": 30
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 150,
+            "overlay.syncInput": 120,
+            "overlay.queueDraw": 120,
+            "page.setData.serialize": 150,
+            "page.syncDraft": 120,
+            "page.update": 120,
+            "page.slider": 120,
+            "page.angleChanging": 120,
+            "page.onOverlayReady": 30,
+            "overlay.redraw": 30
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 150,
+              "total_ms": 0.2635820000001843,
+              "median_ms": 0.0016670000000260643,
+              "p95_ms": 0.0022919999999828633,
+              "max_ms": 0.010041000000001077
+            },
+            "overlay.syncInput": {
+              "count": 120,
+              "total_ms": 0.07608599999994681,
+              "median_ms": 0.0006250000000136424,
+              "p95_ms": 0.0007090000000005148,
+              "max_ms": 0.0009579999999971278
+            },
+            "overlay.queueDraw": {
+              "count": 120,
+              "total_ms": 0.016670999999917058,
+              "median_ms": 0.00008400000001529406,
+              "p95_ms": 0.0002919999999733136,
+              "max_ms": 0.0004590000000064265
+            },
+            "page.setData.serialize": {
+              "count": 150,
+              "total_ms": 0.3177060000001575,
+              "median_ms": 0.002417000000008329,
+              "p95_ms": 0.0027919999999994616,
+              "max_ms": 0.0037499999999965894
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.39474399999997445,
+              "median_ms": 0.003250000000008413,
+              "p95_ms": 0.003917000000001281,
+              "max_ms": 0.005084000000010747
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 1.5131310000001292,
+              "median_ms": 0.012042000000008102,
+              "p95_ms": 0.01387500000001296,
+              "max_ms": 0.0865840000000162
+            },
+            "page.slider": {
+              "count": 120,
+              "total_ms": 1.5578309999998794,
+              "median_ms": 0.012416000000001759,
+              "p95_ms": 0.014208999999993921,
+              "max_ms": 0.08708400000000438
+            },
+            "page.angleChanging": {
+              "count": 120,
+              "total_ms": 1.578711999999939,
+              "median_ms": 0.0125420000000247,
+              "p95_ms": 0.014375000000001137,
+              "max_ms": 0.08729100000002177
+            },
+            "page.onOverlayReady": {
+              "count": 30,
+              "total_ms": 0.007832000000121297,
+              "median_ms": 0.0002499999999940883,
+              "p95_ms": 0.0003330000000119071,
+              "max_ms": 0.00033400000000938235
+            },
+            "overlay.redraw": {
+              "count": 30,
+              "total_ms": 0.4102119999999445,
+              "median_ms": 0.013208999999989146,
+              "p95_ms": 0.023416999999994914,
+              "max_ms": 0.028209000000003925
+            }
+          }
+        },
+        {
+          "name": "rotate-end-validation",
+          "wall_ms": 9.19704200000001,
+          "counters": {
+            "page.setData": 2,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 8,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 12,
+            "canvas.lineTo": 92,
+            "canvas.closePath": 10,
+            "canvas.fill": 6,
+            "canvas.stroke": 7,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.syncInput": 1,
+            "overlay.queueDraw": 1,
+            "page.setData.serialize": 2,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.slider": 1,
+            "page.angleChanged": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.00362400000000207,
+              "median_ms": 0.0018330000000048585,
+              "p95_ms": 0.0018330000000048585,
+              "max_ms": 0.0018330000000048585
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 9.156833000000006,
+              "median_ms": 9.156833000000006,
+              "p95_ms": 9.156833000000006,
+              "max_ms": 9.156833000000006
+            },
+            "overlay.syncInput": {
+              "count": 1,
+              "total_ms": 0.000916999999986956,
+              "median_ms": 0.000916999999986956,
+              "p95_ms": 0.000916999999986956,
+              "max_ms": 0.000916999999986956
+            },
+            "overlay.queueDraw": {
+              "count": 1,
+              "total_ms": 0.00033400000000938235,
+              "median_ms": 0.00033400000000938235,
+              "p95_ms": 0.00033400000000938235,
+              "max_ms": 0.00033400000000938235
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.004376000000007707,
+              "median_ms": 0.0037090000000148393,
+              "p95_ms": 0.0037090000000148393,
+              "max_ms": 0.0037090000000148393
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.00533300000000736,
+              "median_ms": 0.00533300000000736,
+              "p95_ms": 0.00533300000000736,
+              "max_ms": 0.00533300000000736
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 9.173417,
+              "median_ms": 9.173417,
+              "p95_ms": 9.173417,
+              "max_ms": 9.173417
+            },
+            "page.slider": {
+              "count": 1,
+              "total_ms": 9.174207999999993,
+              "median_ms": 9.174207999999993,
+              "p95_ms": 9.174207999999993,
+              "max_ms": 9.174207999999993
+            },
+            "page.angleChanged": {
+              "count": 1,
+              "total_ms": 9.175083999999998,
+              "median_ms": 9.175083999999998,
+              "p95_ms": 9.175083999999998,
+              "max_ms": 9.175083999999998
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.0002920000000017353,
+              "median_ms": 0.0002920000000017353,
+              "p95_ms": 0.0002920000000017353,
+              "max_ms": 0.0002920000000017353
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.013958000000002357,
+              "median_ms": 0.013958000000002357,
+              "p95_ms": 0.013958000000002357,
+              "max_ms": 0.013958000000002357
+            }
+          }
+        },
+        {
+          "name": "viewport-full-focus",
+          "wall_ms": 0.07254199999999855,
+          "counters": {
+            "page.setData": 6,
+            "canvas.context": 2,
+            "canvas.setTransform": 2,
+            "canvas.clearRect": 2,
+            "canvas.save": 2,
+            "canvas.beginPath": 16,
+            "canvas.rect": 2,
+            "canvas.clip": 2,
+            "canvas.moveTo": 24,
+            "canvas.lineTo": 184,
+            "canvas.closePath": 20,
+            "canvas.fill": 12,
+            "canvas.stroke": 14,
+            "canvas.arc": 2,
+            "canvas.restore": 2,
+            "event.renderstate": 2
+          },
+          "calls": {
+            "overlay.cancelGesture": 4,
+            "overlay.syncInput": 4,
+            "overlay.queueDraw": 4,
+            "page.setData.serialize": 6,
+            "page.toggleFocus": 2,
+            "page.checkCurrent": 2,
+            "page.onViewport": 2,
+            "transformPhotoPolygonToBody": 2,
+            "page.onOverlayReady": 2,
+            "overlay.redraw": 2
+          },
+          "timings": {
+            "overlay.cancelGesture": {
+              "count": 4,
+              "total_ms": 0.003083999999972775,
+              "median_ms": 0.0004590000000064265,
+              "p95_ms": 0.002166999999985819,
+              "max_ms": 0.002166999999985819
+            },
+            "overlay.syncInput": {
+              "count": 4,
+              "total_ms": 0.00562600000000657,
+              "median_ms": 0.0011669999999810443,
+              "p95_ms": 0.0029169999999965057,
+              "max_ms": 0.0029169999999965057
+            },
+            "overlay.queueDraw": {
+              "count": 4,
+              "total_ms": 0.0006659999999953925,
+              "median_ms": 0.00020799999998644125,
+              "p95_ms": 0.0002499999999940883,
+              "max_ms": 0.0002499999999940883
+            },
+            "page.setData.serialize": {
+              "count": 6,
+              "total_ms": 0.0126669999999649,
+              "median_ms": 0.002124999999978172,
+              "p95_ms": 0.004833999999988237,
+              "max_ms": 0.004833999999988237
+            },
+            "page.toggleFocus": {
+              "count": 2,
+              "total_ms": 0.011375000000015234,
+              "median_ms": 0.008500000000026375,
+              "p95_ms": 0.008500000000026375,
+              "max_ms": 0.008500000000026375
+            },
+            "page.checkCurrent": {
+              "count": 2,
+              "total_ms": 0.0016250000000184173,
+              "median_ms": 0.001167000000009466,
+              "p95_ms": 0.001167000000009466,
+              "max_ms": 0.001167000000009466
+            },
+            "page.onViewport": {
+              "count": 2,
+              "total_ms": 0.011208000000010543,
+              "median_ms": 0.007082999999994399,
+              "p95_ms": 0.007082999999994399,
+              "max_ms": 0.007082999999994399
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.0031660000000215405,
+              "median_ms": 0.0016660000000001673,
+              "p95_ms": 0.0016660000000001673,
+              "max_ms": 0.0016660000000001673
+            },
+            "page.onOverlayReady": {
+              "count": 2,
+              "total_ms": 0.0004999999999881766,
+              "median_ms": 0.0002499999999940883,
+              "p95_ms": 0.0002499999999940883,
+              "max_ms": 0.0002499999999940883
+            },
+            "overlay.redraw": {
+              "count": 2,
+              "total_ms": 0.02483399999999847,
+              "median_ms": 0.012833999999998014,
+              "p95_ms": 0.012833999999998014,
+              "max_ms": 0.012833999999998014
+            }
+          }
+        },
+        {
+          "name": "confirm",
+          "wall_ms": 9.738375000000019,
+          "counters": {
+            "page.setData": 2
+          },
+          "calls": {
+            "preparePhotoGeometry": 1,
+            "transformPhotoPolygonToBody": 1,
+            "validatePlacementGeometry": 1,
+            "page.setData.serialize": 2,
+            "page.guardExit": 1,
+            "page.syncDraft": 1,
+            "page.confirmPosition": 1
+          },
+          "timings": {
+            "preparePhotoGeometry": {
+              "count": 1,
+              "total_ms": 0.2023749999999893,
+              "median_ms": 0.2023749999999893,
+              "p95_ms": 0.2023749999999893,
+              "max_ms": 0.2023749999999893
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 1,
+              "total_ms": 0.0015830000000107702,
+              "median_ms": 0.0015830000000107702,
+              "p95_ms": 0.0015830000000107702,
+              "max_ms": 0.0015830000000107702
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 9.107292000000001,
+              "median_ms": 9.107292000000001,
+              "p95_ms": 9.107292000000001,
+              "max_ms": 9.107292000000001
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.11066599999998061,
+              "median_ms": 0.10345799999998917,
+              "p95_ms": 0.10345799999998917,
+              "max_ms": 0.10345799999998917
+            },
+            "page.guardExit": {
+              "count": 1,
+              "total_ms": 0.0019580000000019027,
+              "median_ms": 0.0019580000000019027,
+              "p95_ms": 0.0019580000000019027,
+              "max_ms": 0.0019580000000019027
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.12408299999998462,
+              "median_ms": 0.12408299999998462,
+              "p95_ms": 0.12408299999998462,
+              "max_ms": 0.12408299999998462
+            },
+            "page.confirmPosition": {
+              "count": 1,
+              "total_ms": 9.728291999999982,
+              "median_ms": 9.728291999999982,
+              "p95_ms": 9.728291999999982,
+              "max_ms": 9.728291999999982
+            }
+          }
+        }
+      ]
+    },
+    {
+      "vertices": 500,
+      "multi": false,
+      "width": 375,
+      "height": 500,
+      "dpr": 2,
+      "initialCounts": {
+        "page.setData": 6,
+        "canvas.query": 1,
+        "canvas.context": 1,
+        "canvas.width": 1,
+        "canvas.height": 1,
+        "canvas.setTransform": 1,
+        "canvas.clearRect": 1,
+        "canvas.save": 1,
+        "canvas.beginPath": 4,
+        "canvas.rect": 1,
+        "canvas.clip": 1,
+        "canvas.moveTo": 3,
+        "canvas.lineTo": 501,
+        "canvas.closePath": 1,
+        "canvas.fill": 2,
+        "canvas.stroke": 3,
+        "canvas.arc": 1,
+        "canvas.restore": 1,
+        "event.renderstate": 1
+      },
+      "phases": [
+        {
+          "name": "drag-120-events-30-frame-opportunities",
+          "wall_ms": 10.563458999999995,
+          "counters": {
+            "bounds.query": 121,
+            "event.placementdrag": 121,
+            "page.setData": 241,
+            "canvas.context": 121,
+            "canvas.setTransform": 121,
+            "canvas.clearRect": 121,
+            "canvas.save": 121,
+            "canvas.beginPath": 484,
+            "canvas.rect": 121,
+            "canvas.clip": 121,
+            "canvas.moveTo": 363,
+            "canvas.lineTo": 60621,
+            "canvas.closePath": 121,
+            "canvas.fill": 242,
+            "canvas.stroke": 363,
+            "canvas.setLineDash": 242,
+            "canvas.strokeRect": 121,
+            "canvas.arc": 121,
+            "canvas.restore": 121,
+            "event.renderstate": 121
+          },
+          "calls": {
+            "overlay.cancelGesture": 1,
+            "overlay.syncInput": 483,
+            "overlay.point": 121,
+            "overlay.queueTouch": 121,
+            "overlay.touchStart": 1,
+            "page.setData.serialize": 241,
+            "page.onDrag": 121,
+            "overlay.queueDraw": 241,
+            "transformPhotoPolygonToBody": 241,
+            "page.onOverlayReady": 121,
+            "overlay.redraw": 121,
+            "overlay.touchMove": 120,
+            "page.syncDraft": 120,
+            "page.update": 120
+          },
+          "timings": {
+            "overlay.cancelGesture": {
+              "count": 1,
+              "total_ms": 0.0007080000000030395,
+              "median_ms": 0.0007080000000030395,
+              "p95_ms": 0.0007080000000030395,
+              "max_ms": 0.0007080000000030395
+            },
+            "overlay.syncInput": {
+              "count": 483,
+              "total_ms": 0.30409200000039505,
+              "median_ms": 0.0005830000000059954,
+              "p95_ms": 0.0007500000000106866,
+              "max_ms": 0.013833000000005313
+            },
+            "overlay.point": {
+              "count": 121,
+              "total_ms": 0.07624700000002349,
+              "median_ms": 0.0005000000000165983,
+              "p95_ms": 0.0009589999999946031,
+              "max_ms": 0.0037079999999889424
+            },
+            "overlay.queueTouch": {
+              "count": 121,
+              "total_ms": 0.20117099999993115,
+              "median_ms": 0.0014170000000035543,
+              "p95_ms": 0.002375000000000682,
+              "max_ms": 0.008624999999994998
+            },
+            "overlay.touchStart": {
+              "count": 1,
+              "total_ms": 0.00795800000000213,
+              "median_ms": 0.00795800000000213,
+              "p95_ms": 0.00795800000000213,
+              "max_ms": 0.00795800000000213
+            },
+            "page.setData.serialize": {
+              "count": 241,
+              "total_ms": 0.42974299999994514,
+              "median_ms": 0.002415999999982432,
+              "p95_ms": 0.003208999999998241,
+              "max_ms": 0.016084000000006426
+            },
+            "page.onDrag": {
+              "count": 121,
+              "total_ms": 3.5900440000000913,
+              "median_ms": 0.028542000000015832,
+              "p95_ms": 0.03516700000000128,
+              "max_ms": 0.054000000000002046
+            },
+            "overlay.queueDraw": {
+              "count": 241,
+              "total_ms": 0.03933099999989054,
+              "median_ms": 0.00016700000000469117,
+              "p95_ms": 0.00025000000002251,
+              "max_ms": 0.0008339999999975589
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 241,
+              "total_ms": 1.384226999999811,
+              "median_ms": 0.004832999999990761,
+              "p95_ms": 0.005791999999985364,
+              "max_ms": 0.12766700000000242
+            },
+            "page.onOverlayReady": {
+              "count": 121,
+              "total_ms": 0.03213200000007532,
+              "median_ms": 0.0002499999999940883,
+              "p95_ms": 0.00037500000001955414,
+              "max_ms": 0.0014999999999929514
+            },
+            "overlay.redraw": {
+              "count": 121,
+              "total_ms": 6.011213000000083,
+              "median_ms": 0.04620900000000461,
+              "p95_ms": 0.06687499999998181,
+              "max_ms": 0.17866599999999266
+            },
+            "overlay.touchMove": {
+              "count": 120,
+              "total_ms": 0.21541699999997377,
+              "median_ms": 0.0015839999999798238,
+              "p95_ms": 0.0026670000000024174,
+              "max_ms": 0.009042000000022199
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.46737800000005336,
+              "median_ms": 0.003417000000013104,
+              "p95_ms": 0.005832999999995536,
+              "max_ms": 0.02008299999999963
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 3.5086279999998737,
+              "median_ms": 0.027999999999991587,
+              "p95_ms": 0.03591700000001197,
+              "max_ms": 0.051208000000002585
+            }
+          }
+        },
+        {
+          "name": "drag-end-validation",
+          "wall_ms": 47.49520799999999,
+          "counters": {
+            "bounds.query": 1,
+            "event.placementdrag": 1,
+            "page.setData": 3,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 4,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 3,
+            "canvas.lineTo": 501,
+            "canvas.closePath": 1,
+            "canvas.fill": 2,
+            "canvas.stroke": 3,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "overlay.syncInput": 4,
+            "overlay.point": 1,
+            "overlay.queueTouch": 1,
+            "overlay.touchEnd": 1,
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.queueDraw": 2,
+            "page.setData.serialize": 3,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.onDrag": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "overlay.syncInput": {
+              "count": 4,
+              "total_ms": 0.004499000000009801,
+              "median_ms": 0.0014579999999853044,
+              "p95_ms": 0.001625000000046839,
+              "max_ms": 0.001625000000046839
+            },
+            "overlay.point": {
+              "count": 1,
+              "total_ms": 0.0018750000000125056,
+              "median_ms": 0.0018750000000125056,
+              "p95_ms": 0.0018750000000125056,
+              "max_ms": 0.0018750000000125056
+            },
+            "overlay.queueTouch": {
+              "count": 1,
+              "total_ms": 0.004375000000010232,
+              "median_ms": 0.004375000000010232,
+              "p95_ms": 0.004375000000010232,
+              "max_ms": 0.004375000000010232
+            },
+            "overlay.touchEnd": {
+              "count": 1,
+              "total_ms": 0.005374999999986585,
+              "median_ms": 0.005374999999986585,
+              "p95_ms": 0.005374999999986585,
+              "max_ms": 0.005374999999986585
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.013415999999978112,
+              "median_ms": 0.006833000000000311,
+              "p95_ms": 0.006833000000000311,
+              "max_ms": 0.006833000000000311
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 47.36087500000002,
+              "median_ms": 47.36087500000002,
+              "p95_ms": 47.36087500000002,
+              "max_ms": 47.36087500000002
+            },
+            "overlay.queueDraw": {
+              "count": 2,
+              "total_ms": 0.002292000000011285,
+              "median_ms": 0.002166999999985819,
+              "p95_ms": 0.002166999999985819,
+              "max_ms": 0.002166999999985819
+            },
+            "page.setData.serialize": {
+              "count": 3,
+              "total_ms": 0.011165999999946052,
+              "median_ms": 0.0007909999999924366,
+              "p95_ms": 0.00970799999998917,
+              "max_ms": 0.00970799999998917
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.016374999999982265,
+              "median_ms": 0.016374999999982265,
+              "p95_ms": 0.016374999999982265,
+              "max_ms": 0.016374999999982265
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 47.41749999999999,
+              "median_ms": 47.41749999999999,
+              "p95_ms": 47.41749999999999,
+              "max_ms": 47.41749999999999
+            },
+            "page.onDrag": {
+              "count": 1,
+              "total_ms": 47.419790999999975,
+              "median_ms": 47.419790999999975,
+              "p95_ms": 47.419790999999975,
+              "max_ms": 47.419790999999975
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.0004589999999780048,
+              "median_ms": 0.0004589999999780048,
+              "p95_ms": 0.0004589999999780048,
+              "max_ms": 0.0004589999999780048
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.04666700000001356,
+              "median_ms": 0.04666700000001356,
+              "p95_ms": 0.04666700000001356,
+              "max_ms": 0.04666700000001356
+            }
+          }
+        },
+        {
+          "name": "scale-120-events-30-frame-opportunities",
+          "wall_ms": 5.097291999999982,
+          "counters": {
+            "page.setData": 150,
+            "canvas.context": 30,
+            "canvas.setTransform": 30,
+            "canvas.clearRect": 30,
+            "canvas.save": 30,
+            "canvas.beginPath": 120,
+            "canvas.rect": 30,
+            "canvas.clip": 30,
+            "canvas.moveTo": 90,
+            "canvas.lineTo": 15030,
+            "canvas.closePath": 30,
+            "canvas.fill": 60,
+            "canvas.stroke": 90,
+            "canvas.arc": 30,
+            "canvas.restore": 30,
+            "event.renderstate": 30
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 150,
+            "overlay.syncInput": 120,
+            "overlay.queueDraw": 120,
+            "page.setData.serialize": 150,
+            "page.syncDraft": 120,
+            "page.update": 120,
+            "page.slider": 120,
+            "page.scaleChanging": 120,
+            "page.onOverlayReady": 30,
+            "overlay.redraw": 30
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 150,
+              "total_ms": 0.7815770000001976,
+              "median_ms": 0.004916999999977634,
+              "p95_ms": 0.006666999999993095,
+              "max_ms": 0.009540999999956057
+            },
+            "overlay.syncInput": {
+              "count": 120,
+              "total_ms": 0.07454399999971884,
+              "median_ms": 0.0005419999999958236,
+              "p95_ms": 0.0009170000000153777,
+              "max_ms": 0.002207999999995991
+            },
+            "overlay.queueDraw": {
+              "count": 120,
+              "total_ms": 0.01562999999987369,
+              "median_ms": 0.00008400000001529406,
+              "p95_ms": 0.0002920000000017353,
+              "max_ms": 0.00050000000004502
+            },
+            "page.setData.serialize": {
+              "count": 150,
+              "total_ms": 0.3332130000001712,
+              "median_ms": 0.0022919999999544416,
+              "p95_ms": 0.0037499999999681677,
+              "max_ms": 0.008832999999981439
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.4052099999997836,
+              "median_ms": 0.002874999999960437,
+              "p95_ms": 0.00541699999996581,
+              "max_ms": 0.014999999999986358
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 3.553042999999775,
+              "median_ms": 0.026833000000010543,
+              "p95_ms": 0.03804200000001856,
+              "max_ms": 0.13462499999997135
+            },
+            "page.slider": {
+              "count": 120,
+              "total_ms": 3.6014560000000415,
+              "median_ms": 0.027207999999973254,
+              "p95_ms": 0.038875000000018645,
+              "max_ms": 0.13508300000000872
+            },
+            "page.scaleChanging": {
+              "count": 120,
+              "total_ms": 3.6182530000000384,
+              "median_ms": 0.027291999999988548,
+              "p95_ms": 0.039041999999994914,
+              "max_ms": 0.1353330000000028
+            },
+            "page.onOverlayReady": {
+              "count": 30,
+              "total_ms": 0.01421200000004319,
+              "median_ms": 0.0002499999999940883,
+              "p95_ms": 0.0014170000000035543,
+              "max_ms": 0.0043330000000310065
+            },
+            "overlay.redraw": {
+              "count": 30,
+              "total_ms": 1.3187079999999582,
+              "median_ms": 0.03937500000000682,
+              "p95_ms": 0.05341700000002447,
+              "max_ms": 0.13112499999999727
+            }
+          }
+        },
+        {
+          "name": "scale-end-validation",
+          "wall_ms": 47.661790999999994,
+          "counters": {
+            "page.setData": 2,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 4,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 3,
+            "canvas.lineTo": 501,
+            "canvas.closePath": 1,
+            "canvas.fill": 2,
+            "canvas.stroke": 3,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.syncInput": 1,
+            "overlay.queueDraw": 1,
+            "page.setData.serialize": 2,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.slider": 1,
+            "page.scaleChanged": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.011666999999988548,
+              "median_ms": 0.006416999999999007,
+              "p95_ms": 0.006416999999999007,
+              "max_ms": 0.006416999999999007
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 47.549666,
+              "median_ms": 47.549666,
+              "p95_ms": 47.549666,
+              "max_ms": 47.549666
+            },
+            "overlay.syncInput": {
+              "count": 1,
+              "total_ms": 0.001791999999966265,
+              "median_ms": 0.001791999999966265,
+              "p95_ms": 0.001791999999966265,
+              "max_ms": 0.001791999999966265
+            },
+            "overlay.queueDraw": {
+              "count": 1,
+              "total_ms": 0.0015420000000290202,
+              "median_ms": 0.0015420000000290202,
+              "p95_ms": 0.0015420000000290202,
+              "max_ms": 0.0015420000000290202
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.010540999999989253,
+              "median_ms": 0.0095410000000129,
+              "p95_ms": 0.0095410000000129,
+              "max_ms": 0.0095410000000129
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.013917000000049029,
+              "median_ms": 0.013917000000049029,
+              "p95_ms": 0.013917000000049029,
+              "max_ms": 0.013917000000049029
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 47.59870900000004,
+              "median_ms": 47.59870900000004,
+              "p95_ms": 47.59870900000004,
+              "max_ms": 47.59870900000004
+            },
+            "page.slider": {
+              "count": 1,
+              "total_ms": 47.599625,
+              "median_ms": 47.599625,
+              "p95_ms": 47.599625,
+              "max_ms": 47.599625
+            },
+            "page.scaleChanged": {
+              "count": 1,
+              "total_ms": 47.60108300000002,
+              "median_ms": 47.60108300000002,
+              "p95_ms": 47.60108300000002,
+              "max_ms": 47.60108300000002
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.00041699999997035775,
+              "median_ms": 0.00041699999997035775,
+              "p95_ms": 0.00041699999997035775,
+              "max_ms": 0.00041699999997035775
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.04779200000001538,
+              "median_ms": 0.04779200000001538,
+              "p95_ms": 0.04779200000001538,
+              "max_ms": 0.04779200000001538
+            }
+          }
+        },
+        {
+          "name": "rotate-120-events-30-frame-opportunities",
+          "wall_ms": 4.719833999999992,
+          "counters": {
+            "page.setData": 150,
+            "canvas.context": 30,
+            "canvas.setTransform": 30,
+            "canvas.clearRect": 30,
+            "canvas.save": 30,
+            "canvas.beginPath": 120,
+            "canvas.rect": 30,
+            "canvas.clip": 30,
+            "canvas.moveTo": 90,
+            "canvas.lineTo": 15030,
+            "canvas.closePath": 30,
+            "canvas.fill": 60,
+            "canvas.stroke": 90,
+            "canvas.arc": 30,
+            "canvas.restore": 30,
+            "event.renderstate": 30
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 150,
+            "overlay.syncInput": 120,
+            "overlay.queueDraw": 120,
+            "page.setData.serialize": 150,
+            "page.syncDraft": 120,
+            "page.update": 120,
+            "page.slider": 120,
+            "page.angleChanging": 120,
+            "page.onOverlayReady": 30,
+            "overlay.redraw": 30
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 150,
+              "total_ms": 0.7827449999998635,
+              "median_ms": 0.0049999999999954525,
+              "p95_ms": 0.006332999999983713,
+              "max_ms": 0.014667000000031294
+            },
+            "overlay.syncInput": {
+              "count": 120,
+              "total_ms": 0.0673379999996655,
+              "median_ms": 0.0005419999999958236,
+              "p95_ms": 0.0007500000000391083,
+              "max_ms": 0.0010419999999840002
+            },
+            "overlay.queueDraw": {
+              "count": 120,
+              "total_ms": 0.013245999999810465,
+              "median_ms": 0.00008300000001781882,
+              "p95_ms": 0.0002499999999940883,
+              "max_ms": 0.00037500000001955414
+            },
+            "page.setData.serialize": {
+              "count": 150,
+              "total_ms": 0.31771800000007033,
+              "median_ms": 0.002207999999995991,
+              "p95_ms": 0.003834000000040305,
+              "max_ms": 0.009000000000014552
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.3662479999998709,
+              "median_ms": 0.0027499999999918145,
+              "p95_ms": 0.00533300000000736,
+              "max_ms": 0.010457999999971435
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 3.290922000000023,
+              "median_ms": 0.02570799999995188,
+              "p95_ms": 0.03216599999996106,
+              "max_ms": 0.10366699999997309
+            },
+            "page.slider": {
+              "count": 120,
+              "total_ms": 3.3364169999999262,
+              "median_ms": 0.025958000000002812,
+              "p95_ms": 0.03670899999997346,
+              "max_ms": 0.10395899999997482
+            },
+            "page.angleChanging": {
+              "count": 120,
+              "total_ms": 3.353380000000186,
+              "median_ms": 0.026083000000028278,
+              "p95_ms": 0.03691600000001927,
+              "max_ms": 0.10412500000001046
+            },
+            "page.onOverlayReady": {
+              "count": 30,
+              "total_ms": 0.007082000000195876,
+              "median_ms": 0.00016700000003311288,
+              "p95_ms": 0.0007919999999899119,
+              "max_ms": 0.0007920000000467553
+            },
+            "overlay.redraw": {
+              "count": 30,
+              "total_ms": 1.2257119999999304,
+              "median_ms": 0.03716699999995399,
+              "p95_ms": 0.05145799999996825,
+              "max_ms": 0.1114170000000172
+            }
+          }
+        },
+        {
+          "name": "rotate-end-validation",
+          "wall_ms": 47.96341699999999,
+          "counters": {
+            "page.setData": 2,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 4,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 3,
+            "canvas.lineTo": 501,
+            "canvas.closePath": 1,
+            "canvas.fill": 2,
+            "canvas.stroke": 3,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.syncInput": 1,
+            "overlay.queueDraw": 1,
+            "page.setData.serialize": 2,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.slider": 1,
+            "page.angleChanged": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.012707999999975073,
+              "median_ms": 0.006832999999971889,
+              "p95_ms": 0.006832999999971889,
+              "max_ms": 0.006832999999971889
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 47.82775000000004,
+              "median_ms": 47.82775000000004,
+              "p95_ms": 47.82775000000004,
+              "max_ms": 47.82775000000004
+            },
+            "overlay.syncInput": {
+              "count": 1,
+              "total_ms": 0.0016249999999899956,
+              "median_ms": 0.0016249999999899956,
+              "p95_ms": 0.0016249999999899956,
+              "max_ms": 0.0016249999999899956
+            },
+            "overlay.queueDraw": {
+              "count": 1,
+              "total_ms": 0.002208999999993466,
+              "median_ms": 0.002208999999993466,
+              "p95_ms": 0.002208999999993466,
+              "max_ms": 0.002208999999993466
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.011792000000014013,
+              "median_ms": 0.010709000000019842,
+              "p95_ms": 0.010709000000019842,
+              "max_ms": 0.010709000000019842
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.016665999999986525,
+              "median_ms": 0.016665999999986525,
+              "p95_ms": 0.016665999999986525,
+              "max_ms": 0.016665999999986525
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 47.88133400000004,
+              "median_ms": 47.88133400000004,
+              "p95_ms": 47.88133400000004,
+              "max_ms": 47.88133400000004
+            },
+            "page.slider": {
+              "count": 1,
+              "total_ms": 47.88225,
+              "median_ms": 47.88225,
+              "p95_ms": 47.88225,
+              "max_ms": 47.88225
+            },
+            "page.angleChanged": {
+              "count": 1,
+              "total_ms": 47.88945799999999,
+              "median_ms": 47.88945799999999,
+              "p95_ms": 47.88945799999999,
+              "max_ms": 47.88945799999999
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.0007079999999746178,
+              "median_ms": 0.0007079999999746178,
+              "p95_ms": 0.0007079999999746178,
+              "max_ms": 0.0007079999999746178
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.05958299999997507,
+              "median_ms": 0.05958299999997507,
+              "p95_ms": 0.05958299999997507,
+              "max_ms": 0.05958299999997507
+            }
+          }
+        },
+        {
+          "name": "viewport-full-focus",
+          "wall_ms": 0.16316699999998718,
+          "counters": {
+            "page.setData": 6,
+            "canvas.context": 2,
+            "canvas.setTransform": 2,
+            "canvas.clearRect": 2,
+            "canvas.save": 2,
+            "canvas.beginPath": 8,
+            "canvas.rect": 2,
+            "canvas.clip": 2,
+            "canvas.moveTo": 6,
+            "canvas.lineTo": 1002,
+            "canvas.closePath": 2,
+            "canvas.fill": 4,
+            "canvas.stroke": 6,
+            "canvas.arc": 2,
+            "canvas.restore": 2,
+            "event.renderstate": 2
+          },
+          "calls": {
+            "overlay.cancelGesture": 4,
+            "overlay.syncInput": 4,
+            "overlay.queueDraw": 4,
+            "page.setData.serialize": 6,
+            "page.toggleFocus": 2,
+            "page.checkCurrent": 2,
+            "page.onViewport": 2,
+            "transformPhotoPolygonToBody": 2,
+            "page.onOverlayReady": 2,
+            "overlay.redraw": 2
+          },
+          "timings": {
+            "overlay.cancelGesture": {
+              "count": 4,
+              "total_ms": 0.003500000000030923,
+              "median_ms": 0.0007500000000391083,
+              "p95_ms": 0.0020830000000273685,
+              "max_ms": 0.0020830000000273685
+            },
+            "overlay.syncInput": {
+              "count": 4,
+              "total_ms": 0.005583000000001448,
+              "median_ms": 0.001125000000001819,
+              "p95_ms": 0.0026249999999663487,
+              "max_ms": 0.0026249999999663487
+            },
+            "overlay.queueDraw": {
+              "count": 4,
+              "total_ms": 0.0007089999999720931,
+              "median_ms": 0.0002089999999839165,
+              "p95_ms": 0.0002920000000017353,
+              "max_ms": 0.0002920000000017353
+            },
+            "page.setData.serialize": {
+              "count": 6,
+              "total_ms": 0.014041999999960808,
+              "median_ms": 0.0027499999999918145,
+              "p95_ms": 0.004792000000009011,
+              "max_ms": 0.004792000000009011
+            },
+            "page.toggleFocus": {
+              "count": 2,
+              "total_ms": 0.013791000000026088,
+              "median_ms": 0.010291000000052009,
+              "p95_ms": 0.010291000000052009,
+              "max_ms": 0.010291000000052009
+            },
+            "page.checkCurrent": {
+              "count": 2,
+              "total_ms": 0.0015000000000213731,
+              "median_ms": 0.0010000000000331966,
+              "p95_ms": 0.0010000000000331966,
+              "max_ms": 0.0010000000000331966
+            },
+            "page.onViewport": {
+              "count": 2,
+              "total_ms": 0.015209000000027117,
+              "median_ms": 0.008250000000032287,
+              "p95_ms": 0.008250000000032287,
+              "max_ms": 0.008250000000032287
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.013292000000035387,
+              "median_ms": 0.008167000000014468,
+              "p95_ms": 0.008167000000014468,
+              "max_ms": 0.008167000000014468
+            },
+            "page.onOverlayReady": {
+              "count": 2,
+              "total_ms": 0.0007090000000289365,
+              "median_ms": 0.00037500000001955414,
+              "p95_ms": 0.00037500000001955414,
+              "max_ms": 0.00037500000001955414
+            },
+            "overlay.redraw": {
+              "count": 2,
+              "total_ms": 0.09429099999999835,
+              "median_ms": 0.04795799999999417,
+              "p95_ms": 0.04795799999999417,
+              "max_ms": 0.04795799999999417
+            }
+          }
+        },
+        {
+          "name": "confirm",
+          "wall_ms": 49.00804199999999,
+          "counters": {
+            "page.setData": 2
+          },
+          "calls": {
+            "preparePhotoGeometry": 1,
+            "transformPhotoPolygonToBody": 1,
+            "validatePlacementGeometry": 1,
+            "page.setData.serialize": 2,
+            "page.guardExit": 1,
+            "page.syncDraft": 1,
+            "page.confirmPosition": 1
+          },
+          "timings": {
+            "preparePhotoGeometry": {
+              "count": 1,
+              "total_ms": 0.328207999999961,
+              "median_ms": 0.328207999999961,
+              "p95_ms": 0.328207999999961,
+              "max_ms": 0.328207999999961
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 1,
+              "total_ms": 0.005083999999953903,
+              "median_ms": 0.005083999999953903,
+              "p95_ms": 0.005083999999953903,
+              "max_ms": 0.005083999999953903
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 47.892416999999966,
+              "median_ms": 47.892416999999966,
+              "p95_ms": 47.892416999999966,
+              "max_ms": 47.892416999999966
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.32362600000004704,
+              "median_ms": 0.3171670000000404,
+              "p95_ms": 0.3171670000000404,
+              "max_ms": 0.3171670000000404
+            },
+            "page.guardExit": {
+              "count": 1,
+              "total_ms": 0.0020420000000171967,
+              "median_ms": 0.0020420000000171967,
+              "p95_ms": 0.0020420000000171967,
+              "max_ms": 0.0020420000000171967
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.33237499999995634,
+              "median_ms": 0.33237499999995634,
+              "p95_ms": 0.33237499999995634,
+              "max_ms": 0.33237499999995634
+            },
+            "page.confirmPosition": {
+              "count": 1,
+              "total_ms": 48.996083,
+              "median_ms": 48.996083,
+              "p95_ms": 48.996083,
+              "max_ms": 48.996083
+            }
+          }
+        }
+      ]
+    },
+    {
+      "vertices": 500,
+      "multi": true,
+      "width": 375,
+      "height": 500,
+      "dpr": 2,
+      "initialCounts": {
+        "page.setData": 6,
+        "canvas.query": 1,
+        "canvas.context": 1,
+        "canvas.width": 1,
+        "canvas.height": 1,
+        "canvas.setTransform": 1,
+        "canvas.clearRect": 1,
+        "canvas.save": 1,
+        "canvas.beginPath": 8,
+        "canvas.rect": 1,
+        "canvas.clip": 1,
+        "canvas.moveTo": 12,
+        "canvas.lineTo": 492,
+        "canvas.closePath": 10,
+        "canvas.fill": 6,
+        "canvas.stroke": 7,
+        "canvas.arc": 1,
+        "canvas.restore": 1,
+        "event.renderstate": 1
+      },
+      "phases": [
+        {
+          "name": "drag-120-events-30-frame-opportunities",
+          "wall_ms": 9.757583000000011,
+          "counters": {
+            "bounds.query": 121,
+            "event.placementdrag": 121,
+            "page.setData": 241,
+            "canvas.context": 121,
+            "canvas.setTransform": 121,
+            "canvas.clearRect": 121,
+            "canvas.save": 121,
+            "canvas.beginPath": 968,
+            "canvas.rect": 121,
+            "canvas.clip": 121,
+            "canvas.moveTo": 1452,
+            "canvas.lineTo": 59532,
+            "canvas.closePath": 1210,
+            "canvas.fill": 726,
+            "canvas.stroke": 847,
+            "canvas.setLineDash": 242,
+            "canvas.strokeRect": 121,
+            "canvas.arc": 121,
+            "canvas.restore": 121,
+            "event.renderstate": 121
+          },
+          "calls": {
+            "overlay.cancelGesture": 1,
+            "overlay.syncInput": 483,
+            "overlay.point": 121,
+            "overlay.queueTouch": 121,
+            "overlay.touchStart": 1,
+            "page.setData.serialize": 241,
+            "page.onDrag": 121,
+            "overlay.queueDraw": 241,
+            "transformPhotoPolygonToBody": 241,
+            "page.onOverlayReady": 121,
+            "overlay.redraw": 121,
+            "overlay.touchMove": 120,
+            "page.syncDraft": 120,
+            "page.update": 120
+          },
+          "timings": {
+            "overlay.cancelGesture": {
+              "count": 1,
+              "total_ms": 0.0009169999999585343,
+              "median_ms": 0.0009169999999585343,
+              "p95_ms": 0.0009169999999585343,
+              "max_ms": 0.0009169999999585343
+            },
+            "overlay.syncInput": {
+              "count": 483,
+              "total_ms": 0.2552349999997432,
+              "median_ms": 0.00050000000004502,
+              "p95_ms": 0.0006250000000136424,
+              "max_ms": 0.0017909999999687898
+            },
+            "overlay.point": {
+              "count": 121,
+              "total_ms": 0.07682499999998527,
+              "median_ms": 0.0004999999999881766,
+              "p95_ms": 0.0009580000000255495,
+              "max_ms": 0.005375000000015007
+            },
+            "overlay.queueTouch": {
+              "count": 121,
+              "total_ms": 0.1795400000003724,
+              "median_ms": 0.0013329999999882602,
+              "p95_ms": 0.002082999999970525,
+              "max_ms": 0.006250000000022737
+            },
+            "overlay.touchStart": {
+              "count": 1,
+              "total_ms": 0.007416000000034728,
+              "median_ms": 0.007416000000034728,
+              "p95_ms": 0.007416000000034728,
+              "max_ms": 0.007416000000034728
+            },
+            "page.setData.serialize": {
+              "count": 241,
+              "total_ms": 0.37226000000015347,
+              "median_ms": 0.0012080000000196378,
+              "p95_ms": 0.0028330000000096334,
+              "max_ms": 0.008125000000006821
+            },
+            "page.onDrag": {
+              "count": 121,
+              "total_ms": 3.7354950000003555,
+              "median_ms": 0.028375000000039563,
+              "p95_ms": 0.03345799999999599,
+              "max_ms": 0.14758299999999736
+            },
+            "overlay.queueDraw": {
+              "count": 241,
+              "total_ms": 0.03627900000003592,
+              "median_ms": 0.00016599999997879422,
+              "p95_ms": 0.0002500000000509317,
+              "max_ms": 0.0009579999999687061
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 241,
+              "total_ms": 1.2899999999993383,
+              "median_ms": 0.005249999999989541,
+              "p95_ms": 0.006249999999965894,
+              "max_ms": 0.008332999999993262
+            },
+            "page.onOverlayReady": {
+              "count": 121,
+              "total_ms": 0.023091000000135864,
+              "median_ms": 0.00016700000003311288,
+              "p95_ms": 0.0002910000000042601,
+              "max_ms": 0.0005419999999958236
+            },
+            "overlay.redraw": {
+              "count": 121,
+              "total_ms": 5.2928689999994845,
+              "median_ms": 0.04241700000000037,
+              "p95_ms": 0.04854199999999764,
+              "max_ms": 0.06958299999996598
+            },
+            "overlay.touchMove": {
+              "count": 120,
+              "total_ms": 0.18955199999987826,
+              "median_ms": 0.001458000000013726,
+              "p95_ms": 0.002250000000003638,
+              "max_ms": 0.006375000000048203
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.37645500000007814,
+              "median_ms": 0.0029170000000249274,
+              "p95_ms": 0.004541000000017448,
+              "max_ms": 0.010333000000002812
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 3.6622520000004215,
+              "median_ms": 0.027916000000004715,
+              "p95_ms": 0.03316699999999173,
+              "max_ms": 0.14691699999997354
+            }
+          }
+        },
+        {
+          "name": "drag-end-validation",
+          "wall_ms": 47.56174999999996,
+          "counters": {
+            "bounds.query": 1,
+            "event.placementdrag": 1,
+            "page.setData": 3,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 8,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 12,
+            "canvas.lineTo": 492,
+            "canvas.closePath": 10,
+            "canvas.fill": 6,
+            "canvas.stroke": 7,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "overlay.syncInput": 4,
+            "overlay.point": 1,
+            "overlay.queueTouch": 1,
+            "overlay.touchEnd": 1,
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.queueDraw": 2,
+            "page.setData.serialize": 3,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.onDrag": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "overlay.syncInput": {
+              "count": 4,
+              "total_ms": 0.004331999999976688,
+              "median_ms": 0.001125000000001819,
+              "p95_ms": 0.002165999999988344,
+              "max_ms": 0.002165999999988344
+            },
+            "overlay.point": {
+              "count": 1,
+              "total_ms": 0.0013339999999857355,
+              "median_ms": 0.0013339999999857355,
+              "p95_ms": 0.0013339999999857355,
+              "max_ms": 0.0013339999999857355
+            },
+            "overlay.queueTouch": {
+              "count": 1,
+              "total_ms": 0.0034160000000156288,
+              "median_ms": 0.0034160000000156288,
+              "p95_ms": 0.0034160000000156288,
+              "max_ms": 0.0034160000000156288
+            },
+            "overlay.touchEnd": {
+              "count": 1,
+              "total_ms": 0.004166999999995369,
+              "median_ms": 0.004166999999995369,
+              "p95_ms": 0.004166999999995369,
+              "max_ms": 0.004166999999995369
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.013709000000062588,
+              "median_ms": 0.008167000000071312,
+              "p95_ms": 0.008167000000071312,
+              "max_ms": 0.008167000000071312
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 47.41804199999996,
+              "median_ms": 47.41804199999996,
+              "p95_ms": 47.41804199999996,
+              "max_ms": 47.41804199999996
+            },
+            "overlay.queueDraw": {
+              "count": 2,
+              "total_ms": 0.003041000000052918,
+              "median_ms": 0.002916000000027452,
+              "p95_ms": 0.002916000000027452,
+              "max_ms": 0.002916000000027452
+            },
+            "page.setData.serialize": {
+              "count": 3,
+              "total_ms": 0.01400100000000748,
+              "median_ms": 0.0009169999999585343,
+              "p95_ms": 0.012249999999994543,
+              "max_ms": 0.012249999999994543
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.01929199999995035,
+              "median_ms": 0.01929199999995035,
+              "p95_ms": 0.01929199999995035,
+              "max_ms": 0.01929199999995035
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 47.483333000000016,
+              "median_ms": 47.483333000000016,
+              "p95_ms": 47.483333000000016,
+              "max_ms": 47.483333000000016
+            },
+            "page.onDrag": {
+              "count": 1,
+              "total_ms": 47.48629199999999,
+              "median_ms": 47.48629199999999,
+              "p95_ms": 47.48629199999999,
+              "max_ms": 47.48629199999999
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.0007909999999355932,
+              "median_ms": 0.0007909999999355932,
+              "p95_ms": 0.0007909999999355932,
+              "max_ms": 0.0007909999999355932
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.05345800000009149,
+              "median_ms": 0.05345800000009149,
+              "p95_ms": 0.05345800000009149,
+              "max_ms": 0.05345800000009149
+            }
+          }
+        },
+        {
+          "name": "scale-120-events-30-frame-opportunities",
+          "wall_ms": 4.970291999999972,
+          "counters": {
+            "page.setData": 150,
+            "canvas.context": 30,
+            "canvas.setTransform": 30,
+            "canvas.clearRect": 30,
+            "canvas.save": 30,
+            "canvas.beginPath": 240,
+            "canvas.rect": 30,
+            "canvas.clip": 30,
+            "canvas.moveTo": 360,
+            "canvas.lineTo": 14760,
+            "canvas.closePath": 300,
+            "canvas.fill": 180,
+            "canvas.stroke": 210,
+            "canvas.arc": 30,
+            "canvas.restore": 30,
+            "event.renderstate": 30
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 150,
+            "overlay.syncInput": 120,
+            "overlay.queueDraw": 120,
+            "page.setData.serialize": 150,
+            "page.syncDraft": 120,
+            "page.update": 120,
+            "page.slider": 120,
+            "page.scaleChanging": 120,
+            "page.onOverlayReady": 30,
+            "overlay.redraw": 30
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 150,
+              "total_ms": 0.8829659999994419,
+              "median_ms": 0.00541699999996581,
+              "p95_ms": 0.006250000000022737,
+              "max_ms": 0.07691599999998289
+            },
+            "overlay.syncInput": {
+              "count": 120,
+              "total_ms": 0.07133099999998649,
+              "median_ms": 0.0005830000000059954,
+              "p95_ms": 0.0007919999999330685,
+              "max_ms": 0.0015409999999747015
+            },
+            "overlay.queueDraw": {
+              "count": 120,
+              "total_ms": 0.01412599999912345,
+              "median_ms": 0.00008300000001781882,
+              "p95_ms": 0.0002500000000509317,
+              "max_ms": 0.0006249999998999556
+            },
+            "page.setData.serialize": {
+              "count": 150,
+              "total_ms": 0.31303500000035456,
+              "median_ms": 0.002250000000003638,
+              "p95_ms": 0.0028330000000096334,
+              "max_ms": 0.012833999999998014
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.3568760000001703,
+              "median_ms": 0.0028340000000071086,
+              "p95_ms": 0.0039579999998977655,
+              "max_ms": 0.013500000000021828
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 3.436086999999816,
+              "median_ms": 0.028791999999953077,
+              "p95_ms": 0.03491699999995035,
+              "max_ms": 0.042416000000002896
+            },
+            "page.slider": {
+              "count": 120,
+              "total_ms": 3.4746610000001965,
+              "median_ms": 0.029166000000032,
+              "p95_ms": 0.035124999999993634,
+              "max_ms": 0.04291599999999107
+            },
+            "page.scaleChanging": {
+              "count": 120,
+              "total_ms": 3.492125999999189,
+              "median_ms": 0.029374999999959073,
+              "p95_ms": 0.0352500000000191,
+              "max_ms": 0.04316700000003948
+            },
+            "page.onOverlayReady": {
+              "count": 30,
+              "total_ms": 0.006917000000385087,
+              "median_ms": 0.00020800000004328467,
+              "p95_ms": 0.00033399999995253893,
+              "max_ms": 0.0004999999999881766
+            },
+            "overlay.redraw": {
+              "count": 30,
+              "total_ms": 1.3382469999997966,
+              "median_ms": 0.042416000000002896,
+              "p95_ms": 0.05112500000007003,
+              "max_ms": 0.11837500000001455
+            }
+          }
+        },
+        {
+          "name": "scale-end-validation",
+          "wall_ms": 47.52704200000005,
+          "counters": {
+            "page.setData": 2,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 8,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 12,
+            "canvas.lineTo": 492,
+            "canvas.closePath": 10,
+            "canvas.fill": 6,
+            "canvas.stroke": 7,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.syncInput": 1,
+            "overlay.queueDraw": 1,
+            "page.setData.serialize": 2,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.slider": 1,
+            "page.scaleChanged": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.01645799999994324,
+              "median_ms": 0.011041999999974905,
+              "p95_ms": 0.011041999999974905,
+              "max_ms": 0.011041999999974905
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 47.35887500000001,
+              "median_ms": 47.35887500000001,
+              "p95_ms": 47.35887500000001,
+              "max_ms": 47.35887500000001
+            },
+            "overlay.syncInput": {
+              "count": 1,
+              "total_ms": 0.003165999999964697,
+              "median_ms": 0.003165999999964697,
+              "p95_ms": 0.003165999999964697,
+              "max_ms": 0.003165999999964697
+            },
+            "overlay.queueDraw": {
+              "count": 1,
+              "total_ms": 0.005291000000056556,
+              "median_ms": 0.005291000000056556,
+              "p95_ms": 0.005291000000056556,
+              "max_ms": 0.005291000000056556
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.020792000000028565,
+              "median_ms": 0.019292000000064036,
+              "p95_ms": 0.019292000000064036,
+              "max_ms": 0.019292000000064036
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.029625000000010004,
+              "median_ms": 0.029625000000010004,
+              "p95_ms": 0.029625000000010004,
+              "max_ms": 0.029625000000010004
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 47.441208000000074,
+              "median_ms": 47.441208000000074,
+              "p95_ms": 47.441208000000074,
+              "max_ms": 47.441208000000074
+            },
+            "page.slider": {
+              "count": 1,
+              "total_ms": 47.441958,
+              "median_ms": 47.441958,
+              "p95_ms": 47.441958,
+              "max_ms": 47.441958
+            },
+            "page.scaleChanged": {
+              "count": 1,
+              "total_ms": 47.44399999999996,
+              "median_ms": 47.44399999999996,
+              "p95_ms": 47.44399999999996,
+              "max_ms": 47.44399999999996
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.0007079999999177744,
+              "median_ms": 0.0007079999999177744,
+              "p95_ms": 0.0007079999999177744,
+              "max_ms": 0.0007079999999177744
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.061542000000031294,
+              "median_ms": 0.061542000000031294,
+              "p95_ms": 0.061542000000031294,
+              "max_ms": 0.061542000000031294
+            }
+          }
+        },
+        {
+          "name": "rotate-120-events-30-frame-opportunities",
+          "wall_ms": 5.143000000000029,
+          "counters": {
+            "page.setData": 150,
+            "canvas.context": 30,
+            "canvas.setTransform": 30,
+            "canvas.clearRect": 30,
+            "canvas.save": 30,
+            "canvas.beginPath": 240,
+            "canvas.rect": 30,
+            "canvas.clip": 30,
+            "canvas.moveTo": 360,
+            "canvas.lineTo": 14760,
+            "canvas.closePath": 300,
+            "canvas.fill": 180,
+            "canvas.stroke": 210,
+            "canvas.arc": 30,
+            "canvas.restore": 30,
+            "event.renderstate": 30
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 150,
+            "overlay.syncInput": 120,
+            "overlay.queueDraw": 120,
+            "page.setData.serialize": 150,
+            "page.syncDraft": 120,
+            "page.update": 120,
+            "page.slider": 120,
+            "page.angleChanging": 120,
+            "page.onOverlayReady": 30,
+            "overlay.redraw": 30
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 150,
+              "total_ms": 0.8650450000000092,
+              "median_ms": 0.005583999999998923,
+              "p95_ms": 0.006250000000022737,
+              "max_ms": 0.022542000000044027
+            },
+            "overlay.syncInput": {
+              "count": 120,
+              "total_ms": 0.07246300000019801,
+              "median_ms": 0.0005840000000034706,
+              "p95_ms": 0.0007080000000314612,
+              "max_ms": 0.001125000000001819
+            },
+            "overlay.queueDraw": {
+              "count": 120,
+              "total_ms": 0.014792000000170447,
+              "median_ms": 0.00008300000001781882,
+              "p95_ms": 0.0002500000000509317,
+              "max_ms": 0.0005830000000059954
+            },
+            "page.setData.serialize": {
+              "count": 150,
+              "total_ms": 0.3222950000009632,
+              "median_ms": 0.002334000000018932,
+              "p95_ms": 0.0029590000000325745,
+              "max_ms": 0.010333999999943444
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.36917399999992995,
+              "median_ms": 0.002916000000027452,
+              "p95_ms": 0.0037499999999681677,
+              "max_ms": 0.010874999999941792
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 3.6981619999991153,
+              "median_ms": 0.029208000000039647,
+              "p95_ms": 0.03758400000003803,
+              "max_ms": 0.10658299999988685
+            },
+            "page.slider": {
+              "count": 120,
+              "total_ms": 3.73600699999929,
+              "median_ms": 0.02949999999998454,
+              "p95_ms": 0.03795800000000327,
+              "max_ms": 0.10691699999995308
+            },
+            "page.angleChanging": {
+              "count": 120,
+              "total_ms": 3.7559569999996256,
+              "median_ms": 0.029666000000020176,
+              "p95_ms": 0.03812500000003638,
+              "max_ms": 0.10708399999998619
+            },
+            "page.onOverlayReady": {
+              "count": 30,
+              "total_ms": 0.00687899999968522,
+              "median_ms": 0.00020900000004075991,
+              "p95_ms": 0.0003749999999627107,
+              "max_ms": 0.0004589999999780048
+            },
+            "overlay.redraw": {
+              "count": 30,
+              "total_ms": 1.2424969999999576,
+              "median_ms": 0.04187500000000455,
+              "p95_ms": 0.045833000000016,
+              "max_ms": 0.04658400000005258
+            }
+          }
+        },
+        {
+          "name": "rotate-end-validation",
+          "wall_ms": 47.564416999999935,
+          "counters": {
+            "page.setData": 2,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 8,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 12,
+            "canvas.lineTo": 492,
+            "canvas.closePath": 10,
+            "canvas.fill": 6,
+            "canvas.stroke": 7,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.syncInput": 1,
+            "overlay.queueDraw": 1,
+            "page.setData.serialize": 2,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.slider": 1,
+            "page.angleChanged": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.01320799999996325,
+              "median_ms": 0.007749999999987267,
+              "p95_ms": 0.007749999999987267,
+              "max_ms": 0.007749999999987267
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 47.428208999999924,
+              "median_ms": 47.428208999999924,
+              "p95_ms": 47.428208999999924,
+              "max_ms": 47.428208999999924
+            },
+            "overlay.syncInput": {
+              "count": 1,
+              "total_ms": 0.0015000000000782165,
+              "median_ms": 0.0015000000000782165,
+              "p95_ms": 0.0015000000000782165,
+              "max_ms": 0.0015000000000782165
+            },
+            "overlay.queueDraw": {
+              "count": 1,
+              "total_ms": 0.002250000000003638,
+              "median_ms": 0.002250000000003638,
+              "p95_ms": 0.002250000000003638,
+              "max_ms": 0.002250000000003638
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.011541000000079293,
+              "median_ms": 0.010250000000041837,
+              "p95_ms": 0.010250000000041837,
+              "max_ms": 0.010250000000041837
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.014999999999986358,
+              "median_ms": 0.014999999999986358,
+              "p95_ms": 0.014999999999986358,
+              "max_ms": 0.014999999999986358
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 47.48395800000003,
+              "median_ms": 47.48395800000003,
+              "p95_ms": 47.48395800000003,
+              "max_ms": 47.48395800000003
+            },
+            "page.slider": {
+              "count": 1,
+              "total_ms": 47.48479199999997,
+              "median_ms": 47.48479199999997,
+              "p95_ms": 47.48479199999997,
+              "max_ms": 47.48479199999997
+            },
+            "page.angleChanged": {
+              "count": 1,
+              "total_ms": 47.48687499999994,
+              "median_ms": 47.48687499999994,
+              "p95_ms": 47.48687499999994,
+              "max_ms": 47.48687499999994
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.0004999999999881766,
+              "median_ms": 0.0004999999999881766,
+              "p95_ms": 0.0004999999999881766,
+              "max_ms": 0.0004999999999881766
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.06141600000000835,
+              "median_ms": 0.06141600000000835,
+              "p95_ms": 0.06141600000000835,
+              "max_ms": 0.06141600000000835
+            }
+          }
+        },
+        {
+          "name": "viewport-full-focus",
+          "wall_ms": 0.12491699999998218,
+          "counters": {
+            "page.setData": 6,
+            "canvas.context": 2,
+            "canvas.setTransform": 2,
+            "canvas.clearRect": 2,
+            "canvas.save": 2,
+            "canvas.beginPath": 16,
+            "canvas.rect": 2,
+            "canvas.clip": 2,
+            "canvas.moveTo": 24,
+            "canvas.lineTo": 984,
+            "canvas.closePath": 20,
+            "canvas.fill": 12,
+            "canvas.stroke": 14,
+            "canvas.arc": 2,
+            "canvas.restore": 2,
+            "event.renderstate": 2
+          },
+          "calls": {
+            "overlay.cancelGesture": 4,
+            "overlay.syncInput": 4,
+            "overlay.queueDraw": 4,
+            "page.setData.serialize": 6,
+            "page.toggleFocus": 2,
+            "page.checkCurrent": 2,
+            "page.onViewport": 2,
+            "transformPhotoPolygonToBody": 2,
+            "page.onOverlayReady": 2,
+            "overlay.redraw": 2
+          },
+          "timings": {
+            "overlay.cancelGesture": {
+              "count": 4,
+              "total_ms": 0.00275099999998929,
+              "median_ms": 0.00029200000005857873,
+              "p95_ms": 0.0020419999999603533,
+              "max_ms": 0.0020419999999603533
+            },
+            "overlay.syncInput": {
+              "count": 4,
+              "total_ms": 0.00483299999996234,
+              "median_ms": 0.0008749999999508873,
+              "p95_ms": 0.0026660000000902073,
+              "max_ms": 0.0026660000000902073
+            },
+            "overlay.queueDraw": {
+              "count": 4,
+              "total_ms": 0.0007500000000391083,
+              "median_ms": 0.00020900000004075991,
+              "p95_ms": 0.0003329999999550637,
+              "max_ms": 0.0003329999999550637
+            },
+            "page.setData.serialize": {
+              "count": 6,
+              "total_ms": 0.011625000000094587,
+              "median_ms": 0.0019590000000562213,
+              "p95_ms": 0.004625000000032742,
+              "max_ms": 0.004625000000032742
+            },
+            "page.toggleFocus": {
+              "count": 2,
+              "total_ms": 0.012165999999979249,
+              "median_ms": 0.009415999999987434,
+              "p95_ms": 0.009415999999987434,
+              "max_ms": 0.009415999999987434
+            },
+            "page.checkCurrent": {
+              "count": 2,
+              "total_ms": 0.0014579999999568827,
+              "median_ms": 0.001082999999994172,
+              "p95_ms": 0.001082999999994172,
+              "max_ms": 0.001082999999994172
+            },
+            "page.onViewport": {
+              "count": 2,
+              "total_ms": 0.010457999999971435,
+              "median_ms": 0.007082999999965978,
+              "p95_ms": 0.007082999999965978,
+              "max_ms": 0.007082999999965978
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.010375000000067303,
+              "median_ms": 0.005208000000038737,
+              "p95_ms": 0.005208000000038737,
+              "max_ms": 0.005208000000038737
+            },
+            "page.onOverlayReady": {
+              "count": 2,
+              "total_ms": 0.0004989999999907013,
+              "median_ms": 0.0002910000000611035,
+              "p95_ms": 0.0002910000000611035,
+              "max_ms": 0.0002910000000611035
+            },
+            "overlay.redraw": {
+              "count": 2,
+              "total_ms": 0.08083399999998164,
+              "median_ms": 0.04108399999995527,
+              "p95_ms": 0.04108399999995527,
+              "max_ms": 0.04108399999995527
+            }
+          }
+        },
+        {
+          "name": "confirm",
+          "wall_ms": 49.583166000000006,
+          "counters": {
+            "page.setData": 2
+          },
+          "calls": {
+            "preparePhotoGeometry": 1,
+            "transformPhotoPolygonToBody": 1,
+            "validatePlacementGeometry": 1,
+            "page.setData.serialize": 2,
+            "page.guardExit": 1,
+            "page.syncDraft": 1,
+            "page.confirmPosition": 1
+          },
+          "timings": {
+            "preparePhotoGeometry": {
+              "count": 1,
+              "total_ms": 1.7701250000000073,
+              "median_ms": 1.7701250000000073,
+              "p95_ms": 1.7701250000000073,
+              "max_ms": 1.7701250000000073
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 1,
+              "total_ms": 0.005916999999953987,
+              "median_ms": 0.005916999999953987,
+              "p95_ms": 0.005916999999953987,
+              "max_ms": 0.005916999999953987
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 46.76266599999997,
+              "median_ms": 46.76266599999997,
+              "p95_ms": 46.76266599999997,
+              "max_ms": 46.76266599999997
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.60125000000005,
+              "median_ms": 0.5956250000000409,
+              "p95_ms": 0.5956250000000409,
+              "max_ms": 0.5956250000000409
+            },
+            "page.guardExit": {
+              "count": 1,
+              "total_ms": 0.0016669999999976426,
+              "median_ms": 0.0016669999999976426,
+              "p95_ms": 0.0016669999999976426,
+              "max_ms": 0.0016669999999976426
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.6139580000000251,
+              "median_ms": 0.6139580000000251,
+              "p95_ms": 0.6139580000000251,
+              "max_ms": 0.6139580000000251
+            },
+            "page.confirmPosition": {
+              "count": 1,
+              "total_ms": 49.573582999999985,
+              "median_ms": 49.573582999999985,
+              "p95_ms": 49.573582999999985,
+              "max_ms": 49.573582999999985
+            }
+          }
+        }
+      ]
+    },
+    {
+      "vertices": 2000,
+      "multi": false,
+      "width": 375,
+      "height": 500,
+      "dpr": 2,
+      "initialCounts": {
+        "page.setData": 6,
+        "canvas.query": 1,
+        "canvas.context": 1,
+        "canvas.width": 1,
+        "canvas.height": 1,
+        "canvas.setTransform": 1,
+        "canvas.clearRect": 1,
+        "canvas.save": 1,
+        "canvas.beginPath": 4,
+        "canvas.rect": 1,
+        "canvas.clip": 1,
+        "canvas.moveTo": 3,
+        "canvas.lineTo": 2001,
+        "canvas.closePath": 1,
+        "canvas.fill": 2,
+        "canvas.stroke": 3,
+        "canvas.arc": 1,
+        "canvas.restore": 1,
+        "event.renderstate": 1
+      },
+      "phases": [
+        {
+          "name": "drag-120-events-30-frame-opportunities",
+          "wall_ms": 32.11979199999996,
+          "counters": {
+            "bounds.query": 121,
+            "event.placementdrag": 121,
+            "page.setData": 241,
+            "canvas.context": 121,
+            "canvas.setTransform": 121,
+            "canvas.clearRect": 121,
+            "canvas.save": 121,
+            "canvas.beginPath": 484,
+            "canvas.rect": 121,
+            "canvas.clip": 121,
+            "canvas.moveTo": 363,
+            "canvas.lineTo": 242121,
+            "canvas.closePath": 121,
+            "canvas.fill": 242,
+            "canvas.stroke": 363,
+            "canvas.setLineDash": 242,
+            "canvas.strokeRect": 121,
+            "canvas.arc": 121,
+            "canvas.restore": 121,
+            "event.renderstate": 121
+          },
+          "calls": {
+            "overlay.cancelGesture": 1,
+            "overlay.syncInput": 483,
+            "overlay.point": 121,
+            "overlay.queueTouch": 121,
+            "overlay.touchStart": 1,
+            "page.setData.serialize": 241,
+            "page.onDrag": 121,
+            "overlay.queueDraw": 241,
+            "transformPhotoPolygonToBody": 241,
+            "page.onOverlayReady": 121,
+            "overlay.redraw": 121,
+            "overlay.touchMove": 120,
+            "page.syncDraft": 120,
+            "page.update": 120
+          },
+          "timings": {
+            "overlay.cancelGesture": {
+              "count": 1,
+              "total_ms": 0.0007499999999254214,
+              "median_ms": 0.0007499999999254214,
+              "p95_ms": 0.0007499999999254214,
+              "max_ms": 0.0007499999999254214
+            },
+            "overlay.syncInput": {
+              "count": 483,
+              "total_ms": 0.2666289999997389,
+              "median_ms": 0.0005419999999958236,
+              "p95_ms": 0.0007080000000314612,
+              "max_ms": 0.0014999999999645297
+            },
+            "overlay.point": {
+              "count": 121,
+              "total_ms": 0.09890900000004876,
+              "median_ms": 0.00045799999998052954,
+              "p95_ms": 0.002207999999995991,
+              "max_ms": 0.01491600000008475
+            },
+            "overlay.queueTouch": {
+              "count": 121,
+              "total_ms": 0.2064940000001343,
+              "median_ms": 0.0012910000000374566,
+              "p95_ms": 0.003500000000030923,
+              "max_ms": 0.01595899999995254
+            },
+            "overlay.touchStart": {
+              "count": 1,
+              "total_ms": 0.007875000000012733,
+              "median_ms": 0.007875000000012733,
+              "p95_ms": 0.007875000000012733,
+              "max_ms": 0.007875000000012733
+            },
+            "page.setData.serialize": {
+              "count": 241,
+              "total_ms": 0.40550100000098155,
+              "median_ms": 0.0019579999999450592,
+              "p95_ms": 0.003207999999972344,
+              "max_ms": 0.014375000000086402
+            },
+            "page.onDrag": {
+              "count": 121,
+              "total_ms": 11.165462000000048,
+              "median_ms": 0.0882090000000062,
+              "p95_ms": 0.10733300000003965,
+              "max_ms": 0.24266599999998562
+            },
+            "overlay.queueDraw": {
+              "count": 241,
+              "total_ms": 0.036095000000614164,
+              "median_ms": 0.0001659999999219508,
+              "p95_ms": 0.0002500000000509317,
+              "max_ms": 0.0008340000000544023
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 241,
+              "total_ms": 4.837580000000912,
+              "median_ms": 0.018707999999946878,
+              "p95_ms": 0.02412499999991269,
+              "max_ms": 0.16945799999996325
+            },
+            "page.onOverlayReady": {
+              "count": 121,
+              "total_ms": 0.026994999999146785,
+              "median_ms": 0.00020799999992959783,
+              "p95_ms": 0.00037500000007639755,
+              "max_ms": 0.0013330000000451037
+            },
+            "overlay.redraw": {
+              "count": 121,
+              "total_ms": 20.12783499999955,
+              "median_ms": 0.15654099999994742,
+              "p95_ms": 0.24679200000002766,
+              "max_ms": 0.304416999999944
+            },
+            "overlay.touchMove": {
+              "count": 120,
+              "total_ms": 0.21928900000023077,
+              "median_ms": 0.0013750000000527507,
+              "p95_ms": 0.004249999999956344,
+              "max_ms": 0.016166999999995824
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.4094159999997373,
+              "median_ms": 0.0030829999999468782,
+              "p95_ms": 0.005625000000009095,
+              "max_ms": 0.014999999999986358
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 11.08320500000002,
+              "median_ms": 0.08770799999990686,
+              "p95_ms": 0.10729200000002947,
+              "max_ms": 0.2420830000000933
+            }
+          }
+        },
+        {
+          "name": "drag-end-validation",
+          "wall_ms": 189.606084,
+          "counters": {
+            "bounds.query": 1,
+            "event.placementdrag": 1,
+            "page.setData": 3,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 4,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 3,
+            "canvas.lineTo": 2001,
+            "canvas.closePath": 1,
+            "canvas.fill": 2,
+            "canvas.stroke": 3,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "overlay.syncInput": 4,
+            "overlay.point": 1,
+            "overlay.queueTouch": 1,
+            "overlay.touchEnd": 1,
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.queueDraw": 2,
+            "page.setData.serialize": 3,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.onDrag": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "overlay.syncInput": {
+              "count": 4,
+              "total_ms": 0.005542000000332337,
+              "median_ms": 0.001042000000097687,
+              "p95_ms": 0.003417000000126791,
+              "max_ms": 0.003417000000126791
+            },
+            "overlay.point": {
+              "count": 1,
+              "total_ms": 0.002207999999995991,
+              "median_ms": 0.002207999999995991,
+              "p95_ms": 0.002207999999995991,
+              "max_ms": 0.002207999999995991
+            },
+            "overlay.queueTouch": {
+              "count": 1,
+              "total_ms": 0.0041669999999385254,
+              "median_ms": 0.0041669999999385254,
+              "p95_ms": 0.0041669999999385254,
+              "max_ms": 0.0041669999999385254
+            },
+            "overlay.touchEnd": {
+              "count": 1,
+              "total_ms": 0.0050420000000030996,
+              "median_ms": 0.0050420000000030996,
+              "p95_ms": 0.0050420000000030996,
+              "max_ms": 0.0050420000000030996
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.1804579999999305,
+              "median_ms": 0.1614999999999327,
+              "p95_ms": 0.1614999999999327,
+              "max_ms": 0.1614999999999327
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 188.9710419999999,
+              "median_ms": 188.9710419999999,
+              "p95_ms": 188.9710419999999,
+              "max_ms": 188.9710419999999
+            },
+            "overlay.queueDraw": {
+              "count": 2,
+              "total_ms": 0.004707999999936874,
+              "median_ms": 0.004541999999901236,
+              "p95_ms": 0.004541999999901236,
+              "max_ms": 0.004541999999901236
+            },
+            "page.setData.serialize": {
+              "count": 3,
+              "total_ms": 0.022459000000026208,
+              "median_ms": 0.0016250000001036824,
+              "p95_ms": 0.01925000000005639,
+              "max_ms": 0.01925000000005639
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.028542000000015832,
+              "median_ms": 0.028542000000015832,
+              "p95_ms": 0.028542000000015832,
+              "max_ms": 0.028542000000015832
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 189.11187500000005,
+              "median_ms": 189.11187500000005,
+              "p95_ms": 189.11187500000005,
+              "max_ms": 189.11187500000005
+            },
+            "page.onDrag": {
+              "count": 1,
+              "total_ms": 189.11566699999992,
+              "median_ms": 189.11566699999992,
+              "p95_ms": 189.11566699999992,
+              "max_ms": 189.11566699999992
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.0010419999998703133,
+              "median_ms": 0.0010419999998703133,
+              "p95_ms": 0.0010419999998703133,
+              "max_ms": 0.0010419999998703133
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.46212500000001455,
+              "median_ms": 0.46212500000001455,
+              "p95_ms": 0.46212500000001455,
+              "max_ms": 0.46212500000001455
+            }
+          }
+        },
+        {
+          "name": "scale-120-events-30-frame-opportunities",
+          "wall_ms": 19.84462499999995,
+          "counters": {
+            "page.setData": 150,
+            "canvas.context": 30,
+            "canvas.setTransform": 30,
+            "canvas.clearRect": 30,
+            "canvas.save": 30,
+            "canvas.beginPath": 120,
+            "canvas.rect": 30,
+            "canvas.clip": 30,
+            "canvas.moveTo": 90,
+            "canvas.lineTo": 60030,
+            "canvas.closePath": 30,
+            "canvas.fill": 60,
+            "canvas.stroke": 90,
+            "canvas.arc": 30,
+            "canvas.restore": 30,
+            "event.renderstate": 30
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 150,
+            "overlay.syncInput": 120,
+            "overlay.queueDraw": 120,
+            "page.setData.serialize": 150,
+            "page.syncDraft": 120,
+            "page.update": 120,
+            "page.slider": 120,
+            "page.scaleChanging": 120,
+            "page.onOverlayReady": 30,
+            "overlay.redraw": 30
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 150,
+              "total_ms": 4.4642869999991035,
+              "median_ms": 0.0211659999999938,
+              "p95_ms": 0.05791699999986122,
+              "max_ms": 0.17695900000012443
+            },
+            "overlay.syncInput": {
+              "count": 120,
+              "total_ms": 0.09041999999976724,
+              "median_ms": 0.0006670000000212895,
+              "p95_ms": 0.001374999999825377,
+              "max_ms": 0.002499999999827196
+            },
+            "overlay.queueDraw": {
+              "count": 120,
+              "total_ms": 0.020050999998829866,
+              "median_ms": 0.00012500000002546585,
+              "p95_ms": 0.00041699999997035775,
+              "max_ms": 0.0007499999999254214
+            },
+            "page.setData.serialize": {
+              "count": 150,
+              "total_ms": 0.42791300000089905,
+              "median_ms": 0.0027499999998781277,
+              "p95_ms": 0.005500000000211003,
+              "max_ms": 0.0104159999998501
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.5156680000000051,
+              "median_ms": 0.003500000000030923,
+              "p95_ms": 0.009209000000055312,
+              "max_ms": 0.015083000000004176
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 12.925118999998858,
+              "median_ms": 0.0970830000001115,
+              "p95_ms": 0.2303750000000946,
+              "max_ms": 0.30475000000001273
+            },
+            "page.slider": {
+              "count": 120,
+              "total_ms": 12.987702999999556,
+              "median_ms": 0.09745900000007168,
+              "p95_ms": 0.2326660000001084,
+              "max_ms": 0.3053749999999127
+            },
+            "page.scaleChanging": {
+              "count": 120,
+              "total_ms": 13.015045000000555,
+              "median_ms": 0.09758299999998599,
+              "p95_ms": 0.2333329999999023,
+              "max_ms": 0.30558300000006966
+            },
+            "page.onOverlayReady": {
+              "count": 30,
+              "total_ms": 0.012711000000081185,
+              "median_ms": 0.0002500000000509317,
+              "p95_ms": 0.0014579999999568827,
+              "max_ms": 0.0017920000000231084
+            },
+            "overlay.redraw": {
+              "count": 30,
+              "total_ms": 6.515664000000015,
+              "median_ms": 0.16504100000020117,
+              "p95_ms": 0.44450000000006185,
+              "max_ms": 0.5669580000001133
+            }
+          }
+        },
+        {
+          "name": "scale-end-validation",
+          "wall_ms": 192.03791699999988,
+          "counters": {
+            "page.setData": 2,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 4,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 3,
+            "canvas.lineTo": 2001,
+            "canvas.closePath": 1,
+            "canvas.fill": 2,
+            "canvas.stroke": 3,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.syncInput": 1,
+            "overlay.queueDraw": 1,
+            "page.setData.serialize": 2,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.slider": 1,
+            "page.scaleChanged": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.0494579999999587,
+              "median_ms": 0.027000000000043656,
+              "p95_ms": 0.027000000000043656,
+              "max_ms": 0.027000000000043656
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 191.65787499999988,
+              "median_ms": 191.65787499999988,
+              "p95_ms": 191.65787499999988,
+              "max_ms": 191.65787499999988
+            },
+            "overlay.syncInput": {
+              "count": 1,
+              "total_ms": 0.003249999999979991,
+              "median_ms": 0.003249999999979991,
+              "p95_ms": 0.003249999999979991,
+              "max_ms": 0.003249999999979991
+            },
+            "overlay.queueDraw": {
+              "count": 1,
+              "total_ms": 0.004166999999824839,
+              "median_ms": 0.004166999999824839,
+              "p95_ms": 0.004166999999824839,
+              "max_ms": 0.004166999999824839
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.02412499999991269,
+              "median_ms": 0.02254100000004655,
+              "p95_ms": 0.02254100000004655,
+              "max_ms": 0.02254100000004655
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.038291999999955806,
+              "median_ms": 0.038291999999955806,
+              "p95_ms": 0.038291999999955806,
+              "max_ms": 0.038291999999955806
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 191.84462499999995,
+              "median_ms": 191.84462499999995,
+              "p95_ms": 191.84462499999995,
+              "max_ms": 191.84462499999995
+            },
+            "page.slider": {
+              "count": 1,
+              "total_ms": 191.84562499999993,
+              "median_ms": 191.84562499999993,
+              "p95_ms": 191.84562499999993,
+              "max_ms": 191.84562499999993
+            },
+            "page.scaleChanged": {
+              "count": 1,
+              "total_ms": 191.8487500000001,
+              "median_ms": 191.8487500000001,
+              "p95_ms": 191.8487500000001,
+              "max_ms": 191.8487500000001
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.0007500000001527951,
+              "median_ms": 0.0007500000001527951,
+              "p95_ms": 0.0007500000001527951,
+              "max_ms": 0.0007500000001527951
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.16675000000009277,
+              "median_ms": 0.16675000000009277,
+              "p95_ms": 0.16675000000009277,
+              "max_ms": 0.16675000000009277
+            }
+          }
+        },
+        {
+          "name": "rotate-120-events-30-frame-opportunities",
+          "wall_ms": 16.277250000000095,
+          "counters": {
+            "page.setData": 150,
+            "canvas.context": 30,
+            "canvas.setTransform": 30,
+            "canvas.clearRect": 30,
+            "canvas.save": 30,
+            "canvas.beginPath": 120,
+            "canvas.rect": 30,
+            "canvas.clip": 30,
+            "canvas.moveTo": 90,
+            "canvas.lineTo": 60030,
+            "canvas.closePath": 30,
+            "canvas.fill": 60,
+            "canvas.stroke": 90,
+            "canvas.arc": 30,
+            "canvas.restore": 30,
+            "event.renderstate": 30
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 150,
+            "overlay.syncInput": 120,
+            "overlay.queueDraw": 120,
+            "page.setData.serialize": 150,
+            "page.syncDraft": 120,
+            "page.update": 120,
+            "page.slider": 120,
+            "page.angleChanging": 120,
+            "page.onOverlayReady": 30,
+            "overlay.redraw": 30
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 150,
+              "total_ms": 3.2168680000004315,
+              "median_ms": 0.02070800000001327,
+              "p95_ms": 0.023500000000012733,
+              "max_ms": 0.16716700000006313
+            },
+            "overlay.syncInput": {
+              "count": 120,
+              "total_ms": 0.0802490000007765,
+              "median_ms": 0.0006249999998999556,
+              "p95_ms": 0.0009999999999763531,
+              "max_ms": 0.0020839999999680003
+            },
+            "overlay.queueDraw": {
+              "count": 120,
+              "total_ms": 0.018490000000610962,
+              "median_ms": 0.00008400000001529406,
+              "p95_ms": 0.00037500000007639755,
+              "max_ms": 0.0008329999998295534
+            },
+            "page.setData.serialize": {
+              "count": 150,
+              "total_ms": 0.36741900000038186,
+              "median_ms": 0.0024580000001606095,
+              "p95_ms": 0.004209000000173546,
+              "max_ms": 0.014332999999851381
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.4254619999985607,
+              "median_ms": 0.0031249999999545253,
+              "p95_ms": 0.006459000000177184,
+              "max_ms": 0.015000000000100044
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 11.442635000000337,
+              "median_ms": 0.09329100000013568,
+              "p95_ms": 0.106708000000026,
+              "max_ms": 0.2449579999999969
+            },
+            "page.slider": {
+              "count": 120,
+              "total_ms": 11.494127000000844,
+              "median_ms": 0.09362499999997453,
+              "p95_ms": 0.10725000000002183,
+              "max_ms": 0.2452499999999418
+            },
+            "page.angleChanging": {
+              "count": 120,
+              "total_ms": 11.530547999997452,
+              "median_ms": 0.09375,
+              "p95_ms": 0.11154199999987213,
+              "max_ms": 0.24541699999986122
+            },
+            "page.onOverlayReady": {
+              "count": 30,
+              "total_ms": 0.011291999999684776,
+              "median_ms": 0.0002080000001569715,
+              "p95_ms": 0.0014999999998508429,
+              "max_ms": 0.0016249999998763087
+            },
+            "overlay.redraw": {
+              "count": 30,
+              "total_ms": 4.566542999999683,
+              "median_ms": 0.1421660000000884,
+              "p95_ms": 0.258167000000185,
+              "max_ms": 0.26887499999998
+            }
+          }
+        },
+        {
+          "name": "rotate-end-validation",
+          "wall_ms": 193.8522499999999,
+          "counters": {
+            "page.setData": 2,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 4,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 3,
+            "canvas.lineTo": 2001,
+            "canvas.closePath": 1,
+            "canvas.fill": 2,
+            "canvas.stroke": 3,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.syncInput": 1,
+            "overlay.queueDraw": 1,
+            "page.setData.serialize": 2,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.slider": 1,
+            "page.angleChanged": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.04262600000015482,
+              "median_ms": 0.022292000000106782,
+              "p95_ms": 0.022292000000106782,
+              "max_ms": 0.022292000000106782
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 193.53158400000007,
+              "median_ms": 193.53158400000007,
+              "p95_ms": 193.53158400000007,
+              "max_ms": 193.53158400000007
+            },
+            "overlay.syncInput": {
+              "count": 1,
+              "total_ms": 0.0027090000000953296,
+              "median_ms": 0.0027090000000953296,
+              "p95_ms": 0.0027090000000953296,
+              "max_ms": 0.0027090000000953296
+            },
+            "overlay.queueDraw": {
+              "count": 1,
+              "total_ms": 0.0035410000000410946,
+              "median_ms": 0.0035410000000410946,
+              "p95_ms": 0.0035410000000410946,
+              "max_ms": 0.0035410000000410946
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.016376000000036584,
+              "median_ms": 0.015417000000070402,
+              "p95_ms": 0.015417000000070402,
+              "max_ms": 0.015417000000070402
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.02549999999996544,
+              "median_ms": 0.02549999999996544,
+              "p95_ms": 0.02549999999996544,
+              "max_ms": 0.02549999999996544
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 193.66891600000008,
+              "median_ms": 193.66891600000008,
+              "p95_ms": 193.66891600000008,
+              "max_ms": 193.66891600000008
+            },
+            "page.slider": {
+              "count": 1,
+              "total_ms": 193.6696669999999,
+              "median_ms": 193.6696669999999,
+              "p95_ms": 193.6696669999999,
+              "max_ms": 193.6696669999999
+            },
+            "page.angleChanged": {
+              "count": 1,
+              "total_ms": 193.671333,
+              "median_ms": 193.671333,
+              "p95_ms": 193.671333,
+              "max_ms": 193.671333
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.0007080000000314612,
+              "median_ms": 0.0007080000000314612,
+              "p95_ms": 0.0007080000000314612,
+              "max_ms": 0.0007080000000314612
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.15570899999988796,
+              "median_ms": 0.15570899999988796,
+              "p95_ms": 0.15570899999988796,
+              "max_ms": 0.15570899999988796
+            }
+          }
+        },
+        {
+          "name": "viewport-full-focus",
+          "wall_ms": 0.36295800000016243,
+          "counters": {
+            "page.setData": 6,
+            "canvas.context": 2,
+            "canvas.setTransform": 2,
+            "canvas.clearRect": 2,
+            "canvas.save": 2,
+            "canvas.beginPath": 8,
+            "canvas.rect": 2,
+            "canvas.clip": 2,
+            "canvas.moveTo": 6,
+            "canvas.lineTo": 4002,
+            "canvas.closePath": 2,
+            "canvas.fill": 4,
+            "canvas.stroke": 6,
+            "canvas.arc": 2,
+            "canvas.restore": 2,
+            "event.renderstate": 2
+          },
+          "calls": {
+            "overlay.cancelGesture": 4,
+            "overlay.syncInput": 4,
+            "overlay.queueDraw": 4,
+            "page.setData.serialize": 6,
+            "page.toggleFocus": 2,
+            "page.checkCurrent": 2,
+            "page.onViewport": 2,
+            "transformPhotoPolygonToBody": 2,
+            "page.onOverlayReady": 2,
+            "overlay.redraw": 2
+          },
+          "timings": {
+            "overlay.cancelGesture": {
+              "count": 4,
+              "total_ms": 0.002207999999882304,
+              "median_ms": 0.0003749999998490239,
+              "p95_ms": 0.0012910000000374566,
+              "max_ms": 0.0012910000000374566
+            },
+            "overlay.syncInput": {
+              "count": 4,
+              "total_ms": 0.005250000000160071,
+              "median_ms": 0.0009999999999763531,
+              "p95_ms": 0.0026669999999739957,
+              "max_ms": 0.0026669999999739957
+            },
+            "overlay.queueDraw": {
+              "count": 4,
+              "total_ms": 0.0009170000000722212,
+              "median_ms": 0.00024999999982355803,
+              "p95_ms": 0.0004170000001977314,
+              "max_ms": 0.0004170000001977314
+            },
+            "page.setData.serialize": {
+              "count": 6,
+              "total_ms": 0.013710000000401124,
+              "median_ms": 0.002124999999978172,
+              "p95_ms": 0.005542000000104963,
+              "max_ms": 0.005542000000104963
+            },
+            "page.toggleFocus": {
+              "count": 2,
+              "total_ms": 0.027791999999863037,
+              "median_ms": 0.02162499999985812,
+              "p95_ms": 0.02162499999985812,
+              "max_ms": 0.02162499999985812
+            },
+            "page.checkCurrent": {
+              "count": 2,
+              "total_ms": 0.0018760000000384025,
+              "median_ms": 0.001458999999840671,
+              "p95_ms": 0.001458999999840671,
+              "max_ms": 0.001458999999840671
+            },
+            "page.onViewport": {
+              "count": 2,
+              "total_ms": 0.010541999999986729,
+              "median_ms": 0.00691699999993034,
+              "p95_ms": 0.00691699999993034,
+              "max_ms": 0.00691699999993034
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.040291000000024724,
+              "median_ms": 0.02091599999994287,
+              "p95_ms": 0.02091599999994287,
+              "max_ms": 0.02091599999994287
+            },
+            "page.onOverlayReady": {
+              "count": 2,
+              "total_ms": 0.0007079999998040876,
+              "median_ms": 0.00041599999985919567,
+              "p95_ms": 0.00041599999985919567,
+              "max_ms": 0.00041599999985919567
+            },
+            "overlay.redraw": {
+              "count": 2,
+              "total_ms": 0.2992500000000291,
+              "median_ms": 0.15037499999993997,
+              "p95_ms": 0.15037499999993997,
+              "max_ms": 0.15037499999993997
+            }
+          }
+        },
+        {
+          "name": "confirm",
+          "wall_ms": 192.08391700000016,
+          "counters": {
+            "page.setData": 2
+          },
+          "calls": {
+            "preparePhotoGeometry": 1,
+            "transformPhotoPolygonToBody": 1,
+            "validatePlacementGeometry": 1,
+            "page.setData.serialize": 2,
+            "page.guardExit": 1,
+            "page.syncDraft": 1,
+            "page.confirmPosition": 1
+          },
+          "timings": {
+            "preparePhotoGeometry": {
+              "count": 1,
+              "total_ms": 1.6801670000002105,
+              "median_ms": 1.6801670000002105,
+              "p95_ms": 1.6801670000002105,
+              "max_ms": 1.6801670000002105
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 1,
+              "total_ms": 0.022208999999975276,
+              "median_ms": 0.022208999999975276,
+              "p95_ms": 0.022208999999975276,
+              "max_ms": 0.022208999999975276
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 187.4357080000002,
+              "median_ms": 187.4357080000002,
+              "p95_ms": 187.4357080000002,
+              "max_ms": 187.4357080000002
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 1.3712500000001455,
+              "median_ms": 1.36200000000008,
+              "p95_ms": 1.36200000000008,
+              "max_ms": 1.36200000000008
+            },
+            "page.guardExit": {
+              "count": 1,
+              "total_ms": 0.00437499999998181,
+              "median_ms": 0.00437499999998181,
+              "p95_ms": 0.00437499999998181,
+              "max_ms": 0.00437499999998181
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 1.3842500000000655,
+              "median_ms": 1.3842500000000655,
+              "p95_ms": 1.3842500000000655,
+              "max_ms": 1.3842500000000655
+            },
+            "page.confirmPosition": {
+              "count": 1,
+              "total_ms": 192.0718750000001,
+              "median_ms": 192.0718750000001,
+              "p95_ms": 192.0718750000001,
+              "max_ms": 192.0718750000001
+            }
+          }
+        }
+      ]
+    },
+    {
+      "vertices": 2000,
+      "multi": true,
+      "width": 375,
+      "height": 500,
+      "dpr": 2,
+      "initialCounts": {
+        "page.setData": 6,
+        "canvas.query": 1,
+        "canvas.context": 1,
+        "canvas.width": 1,
+        "canvas.height": 1,
+        "canvas.setTransform": 1,
+        "canvas.clearRect": 1,
+        "canvas.save": 1,
+        "canvas.beginPath": 8,
+        "canvas.rect": 1,
+        "canvas.clip": 1,
+        "canvas.moveTo": 12,
+        "canvas.lineTo": 1992,
+        "canvas.closePath": 10,
+        "canvas.fill": 6,
+        "canvas.stroke": 7,
+        "canvas.arc": 1,
+        "canvas.restore": 1,
+        "event.renderstate": 1
+      },
+      "phases": [
+        {
+          "name": "drag-120-events-30-frame-opportunities",
+          "wall_ms": 31.91604099999995,
+          "counters": {
+            "bounds.query": 121,
+            "event.placementdrag": 121,
+            "page.setData": 241,
+            "canvas.context": 121,
+            "canvas.setTransform": 121,
+            "canvas.clearRect": 121,
+            "canvas.save": 121,
+            "canvas.beginPath": 968,
+            "canvas.rect": 121,
+            "canvas.clip": 121,
+            "canvas.moveTo": 1452,
+            "canvas.lineTo": 241032,
+            "canvas.closePath": 1210,
+            "canvas.fill": 726,
+            "canvas.stroke": 847,
+            "canvas.setLineDash": 242,
+            "canvas.strokeRect": 121,
+            "canvas.arc": 121,
+            "canvas.restore": 121,
+            "event.renderstate": 121
+          },
+          "calls": {
+            "overlay.cancelGesture": 1,
+            "overlay.syncInput": 483,
+            "overlay.point": 121,
+            "overlay.queueTouch": 121,
+            "overlay.touchStart": 1,
+            "page.setData.serialize": 241,
+            "page.onDrag": 121,
+            "overlay.queueDraw": 241,
+            "transformPhotoPolygonToBody": 241,
+            "page.onOverlayReady": 121,
+            "overlay.redraw": 121,
+            "overlay.touchMove": 120,
+            "page.syncDraft": 120,
+            "page.update": 120
+          },
+          "timings": {
+            "overlay.cancelGesture": {
+              "count": 1,
+              "total_ms": 0.0009999999999763531,
+              "median_ms": 0.0009999999999763531,
+              "p95_ms": 0.0009999999999763531,
+              "max_ms": 0.0009999999999763531
+            },
+            "overlay.syncInput": {
+              "count": 483,
+              "total_ms": 0.2704450000012457,
+              "median_ms": 0.0005419999999958236,
+              "p95_ms": 0.0006670000000212895,
+              "max_ms": 0.0017500000001291482
+            },
+            "overlay.point": {
+              "count": 121,
+              "total_ms": 0.08066799999892282,
+              "median_ms": 0.00045799999998052954,
+              "p95_ms": 0.001042000000097687,
+              "max_ms": 0.011999999999943611
+            },
+            "overlay.queueTouch": {
+              "count": 121,
+              "total_ms": 0.1832989999993515,
+              "median_ms": 0.0012910000000374566,
+              "p95_ms": 0.002124999999978172,
+              "max_ms": 0.012833000000000538
+            },
+            "overlay.touchStart": {
+              "count": 1,
+              "total_ms": 0.008874999999989086,
+              "median_ms": 0.008874999999989086,
+              "p95_ms": 0.008874999999989086,
+              "max_ms": 0.008874999999989086
+            },
+            "page.setData.serialize": {
+              "count": 241,
+              "total_ms": 0.39762000000018816,
+              "median_ms": 0.0017499999999017746,
+              "p95_ms": 0.003167000000075859,
+              "max_ms": 0.008542000000034022
+            },
+            "page.onDrag": {
+              "count": 121,
+              "total_ms": 11.54508000000169,
+              "median_ms": 0.09379100000001017,
+              "p95_ms": 0.106708000000026,
+              "max_ms": 0.23804100000006656
+            },
+            "overlay.queueDraw": {
+              "count": 241,
+              "total_ms": 0.04107899999848996,
+              "median_ms": 0.00020799999992959783,
+              "p95_ms": 0.00029200000017226557,
+              "max_ms": 0.0009170000000722212
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 241,
+              "total_ms": 4.977102999999261,
+              "median_ms": 0.020125000000007276,
+              "p95_ms": 0.022832999999991443,
+              "max_ms": 0.03220899999996618
+            },
+            "page.onOverlayReady": {
+              "count": 121,
+              "total_ms": 0.02582999999981439,
+              "median_ms": 0.00020799999992959783,
+              "p95_ms": 0.0003329999999550637,
+              "max_ms": 0.0013330000001587905
+            },
+            "overlay.redraw": {
+              "count": 121,
+              "total_ms": 19.61275100000148,
+              "median_ms": 0.15837499999997817,
+              "p95_ms": 0.17399999999997817,
+              "max_ms": 0.36229099999991377
+            },
+            "overlay.touchMove": {
+              "count": 120,
+              "total_ms": 0.19341400000030262,
+              "median_ms": 0.0014160000000629225,
+              "p95_ms": 0.0024580000001606095,
+              "max_ms": 0.012999999999919964
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.4142029999982242,
+              "median_ms": 0.0032089999999698193,
+              "p95_ms": 0.004958999999871594,
+              "max_ms": 0.011457999999947788
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 11.472872000002553,
+              "median_ms": 0.09345900000016627,
+              "p95_ms": 0.10841699999991761,
+              "max_ms": 0.23733400000014626
+            }
+          }
+        },
+        {
+          "name": "drag-end-validation",
+          "wall_ms": 207.15487499999995,
+          "counters": {
+            "bounds.query": 1,
+            "event.placementdrag": 1,
+            "page.setData": 3,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 8,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 12,
+            "canvas.lineTo": 1992,
+            "canvas.closePath": 10,
+            "canvas.fill": 6,
+            "canvas.stroke": 7,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "overlay.syncInput": 4,
+            "overlay.point": 1,
+            "overlay.queueTouch": 1,
+            "overlay.touchEnd": 1,
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.queueDraw": 2,
+            "page.setData.serialize": 3,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.onDrag": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "overlay.syncInput": {
+              "count": 4,
+              "total_ms": 0.004584000000249944,
+              "median_ms": 0.001209000000017113,
+              "p95_ms": 0.002292000000124972,
+              "max_ms": 0.002292000000124972
+            },
+            "overlay.point": {
+              "count": 1,
+              "total_ms": 0.003333999999995285,
+              "median_ms": 0.003333999999995285,
+              "p95_ms": 0.003333999999995285,
+              "max_ms": 0.003333999999995285
+            },
+            "overlay.queueTouch": {
+              "count": 1,
+              "total_ms": 0.007124999999859938,
+              "median_ms": 0.007124999999859938,
+              "p95_ms": 0.007124999999859938,
+              "max_ms": 0.007124999999859938
+            },
+            "overlay.touchEnd": {
+              "count": 1,
+              "total_ms": 0.008292000000210464,
+              "median_ms": 0.008292000000210464,
+              "p95_ms": 0.008292000000210464,
+              "max_ms": 0.008292000000210464
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.05162600000016937,
+              "median_ms": 0.03191700000024866,
+              "p95_ms": 0.03191700000024866,
+              "max_ms": 0.03191700000024866
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 206.8297910000001,
+              "median_ms": 206.8297910000001,
+              "p95_ms": 206.8297910000001,
+              "max_ms": 206.8297910000001
+            },
+            "overlay.queueDraw": {
+              "count": 2,
+              "total_ms": 0.0027090000003227033,
+              "median_ms": 0.0025840000002972374,
+              "p95_ms": 0.0025840000002972374,
+              "max_ms": 0.0025840000002972374
+            },
+            "page.setData.serialize": {
+              "count": 3,
+              "total_ms": 0.01295700000036959,
+              "median_ms": 0.0008330000000569271,
+              "p95_ms": 0.011457999999947788,
+              "max_ms": 0.011457999999947788
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.018791999999848485,
+              "median_ms": 0.018791999999848485,
+              "p95_ms": 0.018791999999848485,
+              "max_ms": 0.018791999999848485
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 206.96050000000014,
+              "median_ms": 206.96050000000014,
+              "p95_ms": 206.96050000000014,
+              "max_ms": 206.96050000000014
+            },
+            "page.onDrag": {
+              "count": 1,
+              "total_ms": 206.96241600000008,
+              "median_ms": 206.96241600000008,
+              "p95_ms": 206.96241600000008,
+              "max_ms": 206.96241600000008
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.0006249999996725819,
+              "median_ms": 0.0006249999996725819,
+              "p95_ms": 0.0006249999996725819,
+              "max_ms": 0.0006249999996725819
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.16470799999979135,
+              "median_ms": 0.16470799999979135,
+              "p95_ms": 0.16470799999979135,
+              "max_ms": 0.16470799999979135
+            }
+          }
+        },
+        {
+          "name": "scale-120-events-30-frame-opportunities",
+          "wall_ms": 16.305917000000136,
+          "counters": {
+            "page.setData": 150,
+            "canvas.context": 30,
+            "canvas.setTransform": 30,
+            "canvas.clearRect": 30,
+            "canvas.save": 30,
+            "canvas.beginPath": 240,
+            "canvas.rect": 30,
+            "canvas.clip": 30,
+            "canvas.moveTo": 360,
+            "canvas.lineTo": 59760,
+            "canvas.closePath": 300,
+            "canvas.fill": 180,
+            "canvas.stroke": 210,
+            "canvas.arc": 30,
+            "canvas.restore": 30,
+            "event.renderstate": 30
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 150,
+            "overlay.syncInput": 120,
+            "overlay.queueDraw": 120,
+            "page.setData.serialize": 150,
+            "page.syncDraft": 120,
+            "page.update": 120,
+            "page.slider": 120,
+            "page.scaleChanging": 120,
+            "page.onOverlayReady": 30,
+            "overlay.redraw": 30
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 150,
+              "total_ms": 3.0815020000000004,
+              "median_ms": 0.02062500000010914,
+              "p95_ms": 0.022249999999985448,
+              "max_ms": 0.03195800000003146
+            },
+            "overlay.syncInput": {
+              "count": 120,
+              "total_ms": 0.0749610000038956,
+              "median_ms": 0.0006249999996725819,
+              "p95_ms": 0.0008339999999407155,
+              "max_ms": 0.0016669999999976426
+            },
+            "overlay.queueDraw": {
+              "count": 120,
+              "total_ms": 0.01666400000522117,
+              "median_ms": 0.00008400000024266774,
+              "p95_ms": 0.0003329999999550637,
+              "max_ms": 0.0007500000001527951
+            },
+            "page.setData.serialize": {
+              "count": 150,
+              "total_ms": 0.32950500000060856,
+              "median_ms": 0.002415999999811902,
+              "p95_ms": 0.003250000000207365,
+              "max_ms": 0.010208000000147877
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.3857940000025337,
+              "median_ms": 0.003000000000156433,
+              "p95_ms": 0.004541000000244821,
+              "max_ms": 0.010999999999967258
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 11.603170000000318,
+              "median_ms": 0.09383299999990413,
+              "p95_ms": 0.10575000000017099,
+              "max_ms": 0.24608299999999872
+            },
+            "page.slider": {
+              "count": 120,
+              "total_ms": 11.644335999996201,
+              "median_ms": 0.09416700000019773,
+              "p95_ms": 0.10608400000000984,
+              "max_ms": 0.24654199999986304
+            },
+            "page.scaleChanging": {
+              "count": 120,
+              "total_ms": 11.66546000000335,
+              "median_ms": 0.09470800000008239,
+              "p95_ms": 0.10620800000015151,
+              "max_ms": 0.24675000000024738
+            },
+            "page.onOverlayReady": {
+              "count": 30,
+              "total_ms": 0.006499999999505235,
+              "median_ms": 0.00020799999992959783,
+              "p95_ms": 0.00037500000007639755,
+              "max_ms": 0.0004170000001977314
+            },
+            "overlay.redraw": {
+              "count": 30,
+              "total_ms": 4.480454999999438,
+              "median_ms": 0.1474169999996775,
+              "p95_ms": 0.16274999999995998,
+              "max_ms": 0.1797910000000229
+            }
+          }
+        },
+        {
+          "name": "scale-end-validation",
+          "wall_ms": 206.86183400000027,
+          "counters": {
+            "page.setData": 2,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 8,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 12,
+            "canvas.lineTo": 1992,
+            "canvas.closePath": 10,
+            "canvas.fill": 6,
+            "canvas.stroke": 7,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.syncInput": 1,
+            "overlay.queueDraw": 1,
+            "page.setData.serialize": 2,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.slider": 1,
+            "page.scaleChanged": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.05095800000026429,
+              "median_ms": 0.031458000000384345,
+              "p95_ms": 0.031458000000384345,
+              "max_ms": 0.031458000000384345
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 206.54595800000016,
+              "median_ms": 206.54595800000016,
+              "p95_ms": 206.54595800000016,
+              "max_ms": 206.54595800000016
+            },
+            "overlay.syncInput": {
+              "count": 1,
+              "total_ms": 0.002749999999650754,
+              "median_ms": 0.002749999999650754,
+              "p95_ms": 0.002749999999650754,
+              "max_ms": 0.002749999999650754
+            },
+            "overlay.queueDraw": {
+              "count": 1,
+              "total_ms": 0.0027500000001055014,
+              "median_ms": 0.0027500000001055014,
+              "p95_ms": 0.0027500000001055014,
+              "max_ms": 0.0027500000001055014
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.015458000000307948,
+              "median_ms": 0.01445800000010422,
+              "p95_ms": 0.01445800000010422,
+              "max_ms": 0.01445800000010422
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.022167000000081316,
+              "median_ms": 0.022167000000081316,
+              "p95_ms": 0.022167000000081316,
+              "max_ms": 0.022167000000081316
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 206.678625,
+              "median_ms": 206.678625,
+              "p95_ms": 206.678625,
+              "max_ms": 206.678625
+            },
+            "page.slider": {
+              "count": 1,
+              "total_ms": 206.67933300000004,
+              "median_ms": 206.67933300000004,
+              "p95_ms": 206.67933300000004,
+              "max_ms": 206.67933300000004
+            },
+            "page.scaleChanged": {
+              "count": 1,
+              "total_ms": 206.68150000000014,
+              "median_ms": 206.68150000000014,
+              "p95_ms": 206.68150000000014,
+              "max_ms": 206.68150000000014
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.0005830000000059954,
+              "median_ms": 0.0005830000000059954,
+              "p95_ms": 0.0005830000000059954,
+              "max_ms": 0.0005830000000059954
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.16170800000008967,
+              "median_ms": 0.16170800000008967,
+              "p95_ms": 0.16170800000008967,
+              "max_ms": 0.16170800000008967
+            }
+          }
+        },
+        {
+          "name": "rotate-120-events-30-frame-opportunities",
+          "wall_ms": 16.23104199999989,
+          "counters": {
+            "page.setData": 150,
+            "canvas.context": 30,
+            "canvas.setTransform": 30,
+            "canvas.clearRect": 30,
+            "canvas.save": 30,
+            "canvas.beginPath": 240,
+            "canvas.rect": 30,
+            "canvas.clip": 30,
+            "canvas.moveTo": 360,
+            "canvas.lineTo": 59760,
+            "canvas.closePath": 300,
+            "canvas.fill": 180,
+            "canvas.stroke": 210,
+            "canvas.arc": 30,
+            "canvas.restore": 30,
+            "event.renderstate": 30
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 150,
+            "overlay.syncInput": 120,
+            "overlay.queueDraw": 120,
+            "page.setData.serialize": 150,
+            "page.syncDraft": 120,
+            "page.update": 120,
+            "page.slider": 120,
+            "page.angleChanging": 120,
+            "page.onOverlayReady": 30,
+            "overlay.redraw": 30
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 150,
+              "total_ms": 3.211416000001009,
+              "median_ms": 0.020250000000032742,
+              "p95_ms": 0.022625000000061846,
+              "max_ms": 0.13379200000008495
+            },
+            "overlay.syncInput": {
+              "count": 120,
+              "total_ms": 0.07287300000007235,
+              "median_ms": 0.0005840000003445311,
+              "p95_ms": 0.0007079999995767139,
+              "max_ms": 0.0008330000000569271
+            },
+            "overlay.queueDraw": {
+              "count": 120,
+              "total_ms": 0.016042000003380963,
+              "median_ms": 0.00008400000024266774,
+              "p95_ms": 0.00029200000017226557,
+              "max_ms": 0.00041599999985919567
+            },
+            "page.setData.serialize": {
+              "count": 150,
+              "total_ms": 0.31209299999773066,
+              "median_ms": 0.002415999999811902,
+              "p95_ms": 0.002749999999650754,
+              "max_ms": 0.004500000000007276
+            },
+            "page.syncDraft": {
+              "count": 120,
+              "total_ms": 0.36329899999964255,
+              "median_ms": 0.0029999999997016857,
+              "p95_ms": 0.0037089999996169354,
+              "max_ms": 0.005458999999973457
+            },
+            "page.update": {
+              "count": 120,
+              "total_ms": 11.413411999999425,
+              "median_ms": 0.09379199999966659,
+              "p95_ms": 0.10529199999973571,
+              "max_ms": 0.20620899999994435
+            },
+            "page.slider": {
+              "count": 120,
+              "total_ms": 11.451625000002878,
+              "median_ms": 0.09408399999983885,
+              "p95_ms": 0.10629199999993943,
+              "max_ms": 0.20675000000028376
+            },
+            "page.angleChanging": {
+              "count": 120,
+              "total_ms": 11.46870299999955,
+              "median_ms": 0.09425000000010186,
+              "p95_ms": 0.10720900000023903,
+              "max_ms": 0.20695800000021336
+            },
+            "page.onOverlayReady": {
+              "count": 30,
+              "total_ms": 0.0074640000002546,
+              "median_ms": 0.00020899999981338624,
+              "p95_ms": 0.0005419999997684499,
+              "max_ms": 0.0007919999998193816
+            },
+            "overlay.redraw": {
+              "count": 30,
+              "total_ms": 4.592999000000418,
+              "median_ms": 0.14750000000003638,
+              "p95_ms": 0.1779590000001008,
+              "max_ms": 0.27695800000037707
+            }
+          }
+        },
+        {
+          "name": "rotate-end-validation",
+          "wall_ms": 209.15162499999997,
+          "counters": {
+            "page.setData": 2,
+            "canvas.context": 1,
+            "canvas.setTransform": 1,
+            "canvas.clearRect": 1,
+            "canvas.save": 1,
+            "canvas.beginPath": 8,
+            "canvas.rect": 1,
+            "canvas.clip": 1,
+            "canvas.moveTo": 12,
+            "canvas.lineTo": 1992,
+            "canvas.closePath": 10,
+            "canvas.fill": 6,
+            "canvas.stroke": 7,
+            "canvas.arc": 1,
+            "canvas.restore": 1,
+            "event.renderstate": 1
+          },
+          "calls": {
+            "transformPhotoPolygonToBody": 2,
+            "validatePlacementGeometry": 1,
+            "overlay.syncInput": 1,
+            "overlay.queueDraw": 1,
+            "page.setData.serialize": 2,
+            "page.syncDraft": 1,
+            "page.update": 1,
+            "page.slider": 1,
+            "page.angleChanged": 1,
+            "page.onOverlayReady": 1,
+            "overlay.redraw": 1
+          },
+          "timings": {
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.056081999999605614,
+              "median_ms": 0.034165999999913765,
+              "p95_ms": 0.034165999999913765,
+              "max_ms": 0.034165999999913765
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 208.79716700000017,
+              "median_ms": 208.79716700000017,
+              "p95_ms": 208.79716700000017,
+              "max_ms": 208.79716700000017
+            },
+            "overlay.syncInput": {
+              "count": 1,
+              "total_ms": 0.0035000000002582965,
+              "median_ms": 0.0035000000002582965,
+              "p95_ms": 0.0035000000002582965,
+              "max_ms": 0.0035000000002582965
+            },
+            "overlay.queueDraw": {
+              "count": 1,
+              "total_ms": 0.005125000000134605,
+              "median_ms": 0.005125000000134605,
+              "p95_ms": 0.005125000000134605,
+              "max_ms": 0.005125000000134605
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 0.019790999999713677,
+              "median_ms": 0.018708000000060565,
+              "p95_ms": 0.018708000000060565,
+              "max_ms": 0.018708000000060565
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 0.02687500000001819,
+              "median_ms": 0.02687500000001819,
+              "p95_ms": 0.02687500000001819,
+              "max_ms": 0.02687500000001819
+            },
+            "page.update": {
+              "count": 1,
+              "total_ms": 208.94500000000016,
+              "median_ms": 208.94500000000016,
+              "p95_ms": 208.94500000000016,
+              "max_ms": 208.94500000000016
+            },
+            "page.slider": {
+              "count": 1,
+              "total_ms": 208.94583399999965,
+              "median_ms": 208.94583399999965,
+              "p95_ms": 208.94583399999965,
+              "max_ms": 208.94583399999965
+            },
+            "page.angleChanged": {
+              "count": 1,
+              "total_ms": 208.9482079999998,
+              "median_ms": 208.9482079999998,
+              "p95_ms": 208.9482079999998,
+              "max_ms": 208.9482079999998
+            },
+            "page.onOverlayReady": {
+              "count": 1,
+              "total_ms": 0.000792000000274129,
+              "median_ms": 0.000792000000274129,
+              "p95_ms": 0.000792000000274129,
+              "max_ms": 0.000792000000274129
+            },
+            "overlay.redraw": {
+              "count": 1,
+              "total_ms": 0.18424999999979264,
+              "median_ms": 0.18424999999979264,
+              "p95_ms": 0.18424999999979264,
+              "max_ms": 0.18424999999979264
+            }
+          }
+        },
+        {
+          "name": "viewport-full-focus",
+          "wall_ms": 0.3596660000002885,
+          "counters": {
+            "page.setData": 6,
+            "canvas.context": 2,
+            "canvas.setTransform": 2,
+            "canvas.clearRect": 2,
+            "canvas.save": 2,
+            "canvas.beginPath": 16,
+            "canvas.rect": 2,
+            "canvas.clip": 2,
+            "canvas.moveTo": 24,
+            "canvas.lineTo": 3984,
+            "canvas.closePath": 20,
+            "canvas.fill": 12,
+            "canvas.stroke": 14,
+            "canvas.arc": 2,
+            "canvas.restore": 2,
+            "event.renderstate": 2
+          },
+          "calls": {
+            "overlay.cancelGesture": 4,
+            "overlay.syncInput": 4,
+            "overlay.queueDraw": 4,
+            "page.setData.serialize": 6,
+            "page.toggleFocus": 2,
+            "page.checkCurrent": 2,
+            "page.onViewport": 2,
+            "transformPhotoPolygonToBody": 2,
+            "page.onOverlayReady": 2,
+            "overlay.redraw": 2
+          },
+          "timings": {
+            "overlay.cancelGesture": {
+              "count": 4,
+              "total_ms": 0.002207999999882304,
+              "median_ms": 0.0003329999999550637,
+              "p95_ms": 0.0014160000000629225,
+              "max_ms": 0.0014160000000629225
+            },
+            "overlay.syncInput": {
+              "count": 4,
+              "total_ms": 0.004374999999527063,
+              "median_ms": 0.0010000000002037268,
+              "p95_ms": 0.0019579999998313724,
+              "max_ms": 0.0019579999998313724
+            },
+            "overlay.queueDraw": {
+              "count": 4,
+              "total_ms": 0.0014599999994970858,
+              "median_ms": 0.00020899999981338624,
+              "p95_ms": 0.0010419999998703133,
+              "max_ms": 0.0010419999998703133
+            },
+            "page.setData.serialize": {
+              "count": 6,
+              "total_ms": 0.012291000000459462,
+              "median_ms": 0.0019160000001647859,
+              "p95_ms": 0.005000000000109139,
+              "max_ms": 0.005000000000109139
+            },
+            "page.toggleFocus": {
+              "count": 2,
+              "total_ms": 0.012832999999773165,
+              "median_ms": 0.010832999999820458,
+              "p95_ms": 0.010832999999820458,
+              "max_ms": 0.010832999999820458
+            },
+            "page.checkCurrent": {
+              "count": 2,
+              "total_ms": 0.0017499999994470272,
+              "median_ms": 0.001374999999825377,
+              "p95_ms": 0.001374999999825377,
+              "max_ms": 0.001374999999825377
+            },
+            "page.onViewport": {
+              "count": 2,
+              "total_ms": 0.009332999999514868,
+              "median_ms": 0.005957999999736785,
+              "p95_ms": 0.005957999999736785,
+              "max_ms": 0.005957999999736785
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 2,
+              "total_ms": 0.04470900000023903,
+              "median_ms": 0.024750000000040018,
+              "p95_ms": 0.024750000000040018,
+              "max_ms": 0.024750000000040018
+            },
+            "page.onOverlayReady": {
+              "count": 2,
+              "total_ms": 0.0005000000001018634,
+              "median_ms": 0.0002500000000509317,
+              "p95_ms": 0.0002500000000509317,
+              "max_ms": 0.0002500000000509317
+            },
+            "overlay.redraw": {
+              "count": 2,
+              "total_ms": 0.3122080000002825,
+              "median_ms": 0.161750000000211,
+              "p95_ms": 0.161750000000211,
+              "max_ms": 0.161750000000211
+            }
+          }
+        },
+        {
+          "name": "confirm",
+          "wall_ms": 233.4955,
+          "counters": {
+            "page.setData": 2
+          },
+          "calls": {
+            "preparePhotoGeometry": 1,
+            "transformPhotoPolygonToBody": 1,
+            "validatePlacementGeometry": 1,
+            "page.setData.serialize": 2,
+            "page.guardExit": 1,
+            "page.syncDraft": 1,
+            "page.confirmPosition": 1
+          },
+          "timings": {
+            "preparePhotoGeometry": {
+              "count": 1,
+              "total_ms": 21.660417000000052,
+              "median_ms": 21.660417000000052,
+              "p95_ms": 21.660417000000052,
+              "max_ms": 21.660417000000052
+            },
+            "transformPhotoPolygonToBody": {
+              "count": 1,
+              "total_ms": 0.024499999999989086,
+              "median_ms": 0.024499999999989086,
+              "p95_ms": 0.024499999999989086,
+              "max_ms": 0.024499999999989086
+            },
+            "validatePlacementGeometry": {
+              "count": 1,
+              "total_ms": 208.15695800000003,
+              "median_ms": 208.15695800000003,
+              "p95_ms": 208.15695800000003,
+              "max_ms": 208.15695800000003
+            },
+            "page.setData.serialize": {
+              "count": 2,
+              "total_ms": 2.19466599999987,
+              "median_ms": 2.186833000000206,
+              "p95_ms": 2.186833000000206,
+              "max_ms": 2.186833000000206
+            },
+            "page.guardExit": {
+              "count": 1,
+              "total_ms": 0.0015830000002097222,
+              "median_ms": 0.0015830000002097222,
+              "p95_ms": 0.0015830000002097222,
+              "max_ms": 0.0015830000002097222
+            },
+            "page.syncDraft": {
+              "count": 1,
+              "total_ms": 2.2026670000000195,
+              "median_ms": 2.2026670000000195,
+              "p95_ms": 2.2026670000000195,
+              "max_ms": 2.2026670000000195
+            },
+            "page.confirmPosition": {
+              "count": 1,
+              "total_ms": 233.48599999999988,
+              "median_ms": 233.48599999999988,
+              "p95_ms": 233.48599999999988,
+              "max_ms": 233.48599999999988
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

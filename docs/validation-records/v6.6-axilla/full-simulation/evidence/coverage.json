@@ -1,0 +1,32 @@
+{
+  "axilla-right": {
+    "skinArea": 0.40950890084991454,
+    "unionArea": 0.40950890084991454,
+    "coveredRatio": 1.0,
+    "missingArea": 2.405573570202213e-19,
+    "outsideArea": 7.389215646827187e-20,
+    "overlapArea": 0.0,
+    "rawAreaSumMinusUnion": -1.6653345369377348e-16,
+    "gridSpacing": 0.005,
+    "skinGridPoints": 16357,
+    "missedGridPoints": 0,
+    "boundaryTolerance": 1e-12,
+    "undefinedArea": 0,
+    "undefinedRegions": 0
+  },
+  "axilla-left": {
+    "skinArea": 0.40950890084991454,
+    "unionArea": 0.4095089008499147,
+    "coveredRatio": 1.0000000000000004,
+    "missingArea": 1.2197274440461925e-19,
+    "outsideArea": 0.0,
+    "overlapArea": 0.0,
+    "rawAreaSumMinusUnion": -2.7755575615628914e-16,
+    "gridSpacing": 0.005,
+    "skinGridPoints": 16357,
+    "missedGridPoints": 0,
+    "boundaryTolerance": 1e-12,
+    "undefinedArea": 0,
+    "undefinedRegions": 0
+  }
+}

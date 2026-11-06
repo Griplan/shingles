@@ -1,0 +1,11 @@
+{
+  "stopped_response": 502,
+  "bearer_and_photo_survive_restart": true,
+  "real_inference_seconds": 6.34555354200711,
+  "real_candidates": 3,
+  "status": "PASSED",
+  "original_a_unchanged": true,
+  "temporary_photo_deleted": true,
+  "access_revoked": true,
+  "kind": "real cloud loopback via SSH; not phone or HTTPS"
+}

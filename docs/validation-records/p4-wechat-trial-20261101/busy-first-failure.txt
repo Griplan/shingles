@@ -1,0 +1,3 @@
+Actual supplementary busy-check command returned exit 1: httpx.ReadTimeout.
+Trace included httpcore/_sync/http_proxy.py. It inherited the local proxy environment rather than explicitly connecting to the administrator SSH loopback tunnel.
+This run did not write trial-busy.json and is not counted PASSED. Exact raw credential/request bodies were not logged. Retest uses trust_env=False for explicit loopback HTTP clients; server configuration is unchanged.

@@ -1,0 +1,71 @@
+{
+  "time": "2026-11-05T16:08:58.600172+08:00",
+  "commands": [
+    {
+      "name": "axilla-reproduction",
+      "command": [
+        "/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/ai/.venv/bin/python",
+        "/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/scripts/build_axilla.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "source-audit",
+      "command": [
+        "/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/ai/.venv/bin/python",
+        "/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/scripts/audit_axilla_sources.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "sole-reproduction",
+      "command": [
+        "/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/ai/.venv/bin/python",
+        "/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/scripts/build_sole_atlas.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "wholebody-atlas-check",
+      "command": [
+        "/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/ai/.venv/bin/python",
+        "/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/scripts/check_preview_atlas.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "project-check",
+      "command": [
+        "/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/ai/.venv/bin/python",
+        "/Users/griplan/project/extra/Shingles\u200c/dermatome-mapper/scripts/check_project.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "wechat-wcc",
+      "command": [
+        "/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/node_modules/wcc-exec/wcc",
+        "pages/special-parts/special-parts.wxml",
+        "pages/local-surface/local-surface.wxml",
+        "components/local-surface-canvas/local-surface-canvas.wxml",
+        "-o",
+        "/var/folders/vn/20gd7kbn4k70bmt4jhqgpg5h0000gn/T/v66-wx-zznwq39f/wcc.js"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "wechat-wcsc",
+      "command": [
+        "/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/node_modules/wcc-exec/wcsc",
+        "pages/special-parts/special-parts.wxss",
+        "pages/local-surface/local-surface.wxss",
+        "components/local-surface-canvas/local-surface-canvas.wxss",
+        "-o",
+        "/var/folders/vn/20gd7kbn4k70bmt4jhqgpg5h0000gn/T/v66-wx-zznwq39f/wcsc.js"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "protectedFiles": 50,
+  "protectedChanges": []
+}

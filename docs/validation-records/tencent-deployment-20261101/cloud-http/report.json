@@ -1,0 +1,237 @@
+{
+  "kind": "real cloud API through SSH, not public HTTPS or native UI",
+  "checks": {
+    "health": {
+      "status": 200,
+      "expected": 200
+    },
+    "authentication": {
+      "status": 401,
+      "expected": 401
+    },
+    "ready": {
+      "status": 200,
+      "expected": 200
+    },
+    "private/docs": {
+      "status": 404,
+      "expected": 404
+    },
+    "private/redoc": {
+      "status": 404,
+      "expected": 404
+    },
+    "private/openapi.json": {
+      "status": 404,
+      "expected": 404
+    },
+    "cors": {
+      "status": 403,
+      "expected": 403
+    },
+    "corrupt_image": {
+      "status": 422,
+      "expected": 422
+    },
+    "pixel_limit": {
+      "status": 422,
+      "expected": 422
+    },
+    "request_limit": {
+      "status": 413,
+      "expected": 413
+    },
+    "exif": {
+      "status": 200,
+      "expected": 200
+    },
+    "delete_exif": {
+      "status": 204,
+      "expected": 204
+    },
+    "public_upload": {
+      "status": 200,
+      "expected": 200
+    },
+    "single_inference": {
+      "status": 429,
+      "expected": 429
+    },
+    "inference": {
+      "status": 200,
+      "expected": 200
+    },
+    "confirm": {
+      "status": 200,
+      "expected": 200
+    },
+    "mask": {
+      "status": 200,
+      "expected": 200
+    },
+    "alpha": {
+      "status": 200,
+      "expected": 200
+    },
+    "photo": {
+      "status": 200,
+      "expected": 200
+    },
+    "foreign_session": {
+      "status": 410,
+      "expected": 410
+    }
+  },
+  "sample": "CDC PHIL 21505, public educational fixture",
+  "medical_accuracy": "NOT_MEASURED",
+  "identity": {
+    "template_id": "commons-neutral-v1",
+    "template_version": "4.0.0",
+    "geometry_id": "commons-blank-cc0-v1",
+    "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+    "atlas_id": "goran-2022",
+    "atlas_version": "goran-2022-commons-template4-preview.2",
+    "atlas_content_sha256": "8689fca1aa50cff0b1b7d7cd1adcd80cf244cd1a93ed580e91406d0cc2fb2056",
+    "body_content_sha256": "59979433be334f53a705f90a484aadc312a426387f4c1a3b59a718393fbf426a",
+    "coordinate_system": "normalized_2d_top_left"
+  },
+  "inference_seconds": 3.5788351250084816,
+  "candidates": [
+    {
+      "candidate_id": "candidate-0",
+      "status": "ok",
+      "area_ratio": 0.047683229813664595,
+      "outside_box_ratio": 0.0,
+      "component_count": 16,
+      "hole_count": 25,
+      "warnings": [],
+      "display_priority": 0,
+      "edit_revision": 0,
+      "quality": {
+        "area_ratio": 0.047683229813664595,
+        "box_pixel_area": 39200,
+        "mask_to_box_ratio": 0.39168367346938776,
+        "outside_box_ratio": 0.0,
+        "foreground_contained": [],
+        "background_excluded": [],
+        "prompt_penalty": 0,
+        "warnings": [],
+        "policy": "prompt_adherence_v1_not_medical_quality",
+        "candidate_differences": [
+          {
+            "candidate_id": "candidate-1",
+            "mask_iou": 0.6973702139256029
+          },
+          {
+            "candidate_id": "candidate-2",
+            "mask_iou": 0.5430238726790451
+          }
+        ]
+      }
+    },
+    {
+      "candidate_id": "candidate-1",
+      "status": "ok",
+      "area_ratio": 0.06837577639751553,
+      "outside_box_ratio": 0.000454194486078939,
+      "component_count": 9,
+      "hole_count": 22,
+      "warnings": [],
+      "display_priority": 1,
+      "edit_revision": 0,
+      "quality": {
+        "area_ratio": 0.06837577639751553,
+        "box_pixel_area": 39200,
+        "mask_to_box_ratio": 0.5616581632653062,
+        "outside_box_ratio": 0.000454194486078939,
+        "foreground_contained": [],
+        "background_excluded": [],
+        "prompt_penalty": 0,
+        "warnings": [],
+        "policy": "prompt_adherence_v1_not_medical_quality",
+        "candidate_differences": [
+          {
+            "candidate_id": "candidate-0",
+            "mask_iou": 0.6973702139256029
+          },
+          {
+            "candidate_id": "candidate-2",
+            "mask_iou": 0.7786737400530503
+          }
+        ]
+      }
+    },
+    {
+      "candidate_id": "candidate-2",
+      "status": "ok",
+      "area_ratio": 0.08781055900621118,
+      "outside_box_ratio": 0.007144120247568523,
+      "component_count": 5,
+      "hole_count": 22,
+      "warnings": [],
+      "display_priority": 2,
+      "edit_revision": 0,
+      "quality": {
+        "area_ratio": 0.08781055900621118,
+        "box_pixel_area": 39200,
+        "mask_to_box_ratio": 0.7213010204081632,
+        "outside_box_ratio": 0.007144120247568523,
+        "foreground_contained": [],
+        "background_excluded": [],
+        "prompt_penalty": 0,
+        "warnings": [],
+        "policy": "prompt_adherence_v1_not_medical_quality",
+        "candidate_differences": [
+          {
+            "candidate_id": "candidate-0",
+            "mask_iou": 0.5430238726790451
+          },
+          {
+            "candidate_id": "candidate-1",
+            "mask_iou": 0.7786737400530503
+          }
+        ]
+      }
+    }
+  ],
+  "mask_polygon": {
+    "equal": true,
+    "width": 700,
+    "height": 460,
+    "polygons": 16,
+    "holes": 25
+  },
+  "model": {
+    "name": "MobileSAM",
+    "variant": "vit_t",
+    "package_version": "1.0",
+    "source_commit": "f706ad9c4eb7f219c00d9050e46328518ffb65d2",
+    "license": "Apache-2.0",
+    "weights_sha256": "6dbb90523a35330fedd7f1d3dfc66f995213d81b29a5ca8108dbcdd4e37d6c2f",
+    "weights_bytes": 40728226,
+    "device": "cpu",
+    "dtype": "float32",
+    "torch": "2.5.1+cpu",
+    "threads": 1,
+    "load_seconds": 1.938217586837709,
+    "source": "https://github.com/ChaoningZhang/MobileSAM"
+  },
+  "ready_after": {
+    "status": "ready",
+    "identity": {
+      "template_id": "commons-neutral-v1",
+      "template_version": "4.0.0",
+      "geometry_id": "commons-blank-cc0-v1",
+      "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+      "atlas_id": "goran-2022",
+      "atlas_version": "goran-2022-commons-template4-preview.2",
+      "atlas_content_sha256": "8689fca1aa50cff0b1b7d7cd1adcd80cf244cd1a93ed580e91406d0cc2fb2056",
+      "body_content_sha256": "59979433be334f53a705f90a484aadc312a426387f4c1a3b59a718393fbf426a",
+      "coordinate_system": "normalized_2d_top_left"
+    },
+    "ai_model_loaded": true,
+    "ai_device": "cpu",
+    "medical_review": "pending",
+    "diagnosis_enabled": false
+  }
+}

@@ -1,0 +1,1 @@
+First staging validation failed before service stop: KeyError atlasId on legacy full-body manifest. First backup/staging retained. Use registered goran-2022 identity for this legacy manifest; retry uses r2 staging/backup. No running source changed by first attempt.

@@ -1,0 +1,85 @@
+{
+  "load": {
+    "status": "MODEL_LOADED",
+    "image": null,
+    "load_seconds": 1.761499177198857,
+    "model_inference_seconds": null,
+    "segment_seconds": null,
+    "export_seconds": null,
+    "ru_maxrss_bytes": 407486464,
+    "monitor_summary": {
+      "max_cgroup_memory_peak_bytes": 356737024,
+      "max_sampled_process_tree_rss_bytes": 388313088,
+      "max_sampled_cpu_one_core_pct": 99.98,
+      "min_host_available_bytes": 2689748992,
+      "elapsed_seconds": 4.135,
+      "health_check_rounds": 3
+    }
+  },
+  "A": {
+    "status": "PASSED_ENGINEERING_REQUIRES_USER_CONFIRMATION",
+    "image": {
+      "width": 300,
+      "height": 410,
+      "source": "cdc-18254-neck-crop.png",
+      "derivation": "Documented neck crop from CDC18254; no face."
+    },
+    "load_seconds": 1.4676232249476016,
+    "model_inference_seconds": 3.8130308480467647,
+    "segment_seconds": 3.9207808929495513,
+    "export_seconds": 0.45196170592680573,
+    "ru_maxrss_bytes": 691585024,
+    "monitor_summary": {
+      "max_cgroup_memory_peak_bytes": 586313728,
+      "max_sampled_process_tree_rss_bytes": 616714240,
+      "max_sampled_cpu_one_core_pct": 100.17,
+      "min_host_available_bytes": 2474663936,
+      "elapsed_seconds": 8.208,
+      "health_check_rounds": 5
+    }
+  },
+  "B": {
+    "status": "PASSED_ENGINEERING_REQUIRES_USER_CONFIRMATION",
+    "image": {
+      "width": 700,
+      "height": 460,
+      "source": "cdc-21505.jpg",
+      "derivation": "Original public CDC21505."
+    },
+    "load_seconds": 1.598537971964106,
+    "model_inference_seconds": 4.0649213150609285,
+    "segment_seconds": 4.198751226067543,
+    "export_seconds": 1.0251194289885461,
+    "ru_maxrss_bytes": 691982336,
+    "monitor_summary": {
+      "max_cgroup_memory_peak_bytes": 588181504,
+      "max_sampled_process_tree_rss_bytes": 605376512,
+      "max_sampled_cpu_one_core_pct": 100.07,
+      "min_host_available_bytes": 2478170112,
+      "elapsed_seconds": 9.233,
+      "health_check_rounds": 5
+    }
+  },
+  "C": {
+    "status": "PASSED_ENGINEERING_REQUIRES_USER_CONFIRMATION",
+    "image": {
+      "width": 1400,
+      "height": 2126,
+      "source": "cdc-21506-derived-1400x2126.png",
+      "derivation": "CDC21506 enlarged 2x for bounded memory/capacity test only; not new medical sample."
+    },
+    "load_seconds": 1.479992520995438,
+    "model_inference_seconds": 3.2099099149927497,
+    "segment_seconds": 3.5166119430214167,
+    "export_seconds": 6.171984899789095,
+    "ru_maxrss_bytes": 692523008,
+    "monitor_summary": {
+      "max_cgroup_memory_peak_bytes": 587710464,
+      "max_sampled_process_tree_rss_bytes": 576520192,
+      "max_sampled_cpu_one_core_pct": 100.12,
+      "min_host_available_bytes": 2484310016,
+      "elapsed_seconds": 14.334,
+      "health_check_rounds": 8
+    }
+  }
+}

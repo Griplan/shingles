@@ -1,0 +1,37 @@
+{
+  "utc": "2026-11-01T10:32:27.180345+00:00",
+  "sysstat": [
+    {
+      "day_local": "2026-10-31",
+      "samples": 143,
+      "min_memavailable_kib": 2954980,
+      "max_swap_used_kib": 0
+    },
+    {
+      "day_local": "2026-11-01",
+      "samples": 111,
+      "min_memavailable_kib": 2930204,
+      "max_swap_used_kib": 0
+    }
+  ],
+  "last24h": {
+    "samples": 143,
+    "interval_seconds": 600,
+    "max_10minute_mean_cpu_busy_pct": 1.2099999999999937,
+    "min_sampled_memavailable_kib": 2930204,
+    "max_sampled_swap_used_kib": 0,
+    "first_utc": {
+      "date": "2026-10-31",
+      "time": "10:40:01",
+      "utc": 1,
+      "interval": 600
+    },
+    "last_utc": {
+      "date": "2026-11-01",
+      "time": "10:30:01",
+      "utc": 1,
+      "interval": 600
+    }
+  },
+  "manager_events": []
+}

@@ -1,0 +1,82 @@
+import {getBodyModel} from "../../data/body-models";
+import {NormalizedPoint,ViewportTransform} from "../../types/dermatome";
+import {BodyMultiPolygon,PlacementTransform,PreparedPhotoGeometry} from "../../types/placement";
+import {canvasToNormalized,projectNormalizedToCanvas} from "../../utils/coordinate";
+import {readTouch} from "../../utils/body-debug";
+import {placementBounds,pointInPlacement,transformPhotoPolygonToBody} from "../../utils/placement-geometry";
+interface Runtime {alive:boolean;visible:boolean;pending:boolean;epoch:number;inputKey:string;queue:Promise<void>;
+ node:WechatMiniprogram.Canvas|null;width:number;height:number;geometry:BodyMultiPolygon|null;start:NormalizedPoint|null;delta:NormalizedPoint;dragging:boolean}
+const states=new WeakMap<object,Runtime>();
+Component({
+ properties:{view:{type:String,value:"front"},prepared:{type:null,value:null as PreparedPhotoGeometry|null},
+  transform:{type:null,value:null as PlacementTransform|null},viewport:{type:null,value:null as ViewportTransform|null},
+  interactionKey:String,revision:Number,disabled:Boolean},
+ observers:{"view,prepared,transform,viewport,interactionKey,revision,disabled"(){this.syncInput();this.queueDraw();}},
+ lifetimes:{created(){states.set(this,{alive:false,visible:true,pending:false,epoch:0,inputKey:"",queue:Promise.resolve(),node:null,width:0,height:0,geometry:null,start:null,delta:{x:0,y:0},dragging:false});},
+  ready(){const s=states.get(this);if(s)s.alive=true;this.queueDraw();},
+  detached(){this.cancelGesture();states.delete(this);}},
+ pageLifetimes:{hide(){this.cancelGesture();const s=states.get(this);if(s)s.visible=false;},show(){const s=states.get(this);if(s)s.visible=true;this.queueDraw();}},
+ methods:{
+  syncInput(){const s=states.get(this);if(!s)return;const key=JSON.stringify([this.properties.view,this.properties.viewport,this.properties.interactionKey,!!this.properties.disabled]);
+   if(key!==s.inputKey){this.cancelGesture();s.inputKey=key;}
+  },
+  cancelGesture(){const s=states.get(this);if(s){s.epoch++;s.start=null;s.dragging=false;s.delta={x:0,y:0};s.queue=Promise.resolve();}},
+  queueDraw(){const s=states.get(this);if(!s?.alive||!s.visible||s.pending)return;s.pending=true;
+   wx.nextTick(()=>{if(states.get(this)!==s)return;s.pending=false;void this.redraw();});
+  },
+  async redraw(){const s=states.get(this);if(!s?.alive||!s.visible)return;
+   const key=this.properties.interactionKey,revision=this.properties.revision;
+   try {
+    if(!s.node){const m=await new Promise<{node:WechatMiniprogram.Canvas;width:number;height:number}>(resolve=>this.createSelectorQuery().select("#placement").fields({node:true,size:true}).exec((r:unknown[])=>resolve(r[0] as never)));
+     if(states.get(this)!==s||!s.visible)return;if(!m?.node)throw Error();s.node=m.node;}
+    const v=this.properties.viewport,p=this.properties.prepared,t=this.properties.transform;
+    const node=s.node,ctx=node.getContext("2d");
+    if(!v||!p||!t){ctx.clearRect(0,0,node.width,node.height);return;}
+    if(key!==this.properties.interactionKey||revision!==this.properties.revision){this.queueDraw();return;}
+    const dpr=wx.getWindowInfo().pixelRatio||1,w=Math.round(v.viewportWidth*dpr),h=Math.round(v.viewportHeight*dpr);
+    if(node.width!==w)node.width=w;if(node.height!==h)node.height=h;s.width=v.viewportWidth;s.height=v.viewportHeight;
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,v.viewportWidth,v.viewportHeight);
+    const geometry=transformPhotoPolygonToBody(p,t,getBodyModel(this.properties.view==="back"?"back":"front"));s.geometry=geometry;
+    const project=(q:NormalizedPoint)=>projectNormalizedToCanvas(q,v);
+    ctx.save();ctx.beginPath();ctx.rect(0,0,v.viewportWidth,v.viewportHeight);ctx.clip();ctx.lineJoin="round";
+    for(const polygon of geometry.coordinates){ctx.beginPath();polygon.forEach((ring,i)=>{
+      let area=0;for(let k=1;k+1<ring.length;k++)area+=(ring[k].x-ring[0].x)*(ring[k+1].y-ring[0].y)-(ring[k+1].x-ring[0].x)*(ring[k].y-ring[0].y);
+      const points=(area>0)===(i===0)?ring:[...ring].reverse();
+      points.forEach((q,k)=>{const a=project(q);if(k===0)ctx.moveTo(a.x,a.y);else ctx.lineTo(a.x,a.y);});ctx.closePath();
+     });ctx.fillStyle="rgba(208,91,47,0.30)";ctx.fill();ctx.lineWidth=s.dragging?2.4:1.6;ctx.strokeStyle="#ab4c2d";ctx.stroke();}
+    if(s.dragging){const b=placementBounds(geometry),a=project(b),z=project({x:b.x+b.width,y:b.y+b.height});ctx.setLineDash([4,4]);ctx.strokeRect(a.x-3,a.y-3,z.x-a.x+6,z.y-a.y+6);ctx.setLineDash([]);}
+    const handle=project(t.translation);ctx.beginPath();ctx.arc(handle.x,handle.y,14,0,Math.PI*2);ctx.fillStyle="rgba(255,255,255,0.92)";ctx.fill();ctx.lineWidth=1.4;ctx.strokeStyle="#ab4c2d";ctx.stroke();
+    ctx.beginPath();ctx.moveTo(handle.x-7,handle.y);ctx.lineTo(handle.x+7,handle.y);ctx.moveTo(handle.x,handle.y-7);ctx.lineTo(handle.x,handle.y+7);ctx.stroke();ctx.restore();
+    this.triggerEvent("renderstate",{key,revision,viewportKey:JSON.stringify(v),ready:true});
+   }catch{this.triggerEvent("renderstate",{key,revision,viewportKey:JSON.stringify(this.properties.viewport),ready:false});}
+  },
+  async point(event:unknown){const s=states.get(this),input=readTouch(event),v=this.properties.viewport;if(!s||!input||!v||this.properties.disabled)return null;
+   const epoch=s.epoch;let x=input.point.x,y=input.point.y;
+   if(input.kind==="client"){
+    const rect=await new Promise<WechatMiniprogram.BoundingClientRectCallbackResult>(resolve=>this.createSelectorQuery().select("#placement").boundingClientRect(r=>resolve(r as WechatMiniprogram.BoundingClientRectCallbackResult)).exec());
+    this.syncInput();if(states.get(this)!==s||s.epoch!==epoch||!rect)return null;x-=rect.left;y-=rect.top;
+   }
+   return canvasToNormalized({x,y},v);
+  },
+  queueTouch(kind:string,event:unknown):Promise<void>{
+   this.syncInput();const s=states.get(this);if(!s?.visible||this.properties.disabled)return Promise.resolve();
+   const epoch=s.epoch,key=this.properties.interactionKey,position=this.point(event).catch(()=>null);
+   const work=s.queue.then(async()=>{const p=await position;this.syncInput();if(states.get(this)!==s||s.epoch!==epoch||!s.visible||this.properties.disabled)return;
+    const v=this.properties.viewport,t=this.properties.transform;if(!v||!t)return;
+    if(kind==="start"){
+     if(!p||!s.geometry)return;const a=projectNormalizedToCanvas(p,v),h=projectNormalizedToCanvas(t.translation,v);
+     if(!pointInPlacement(p,s.geometry)&&Math.hypot(a.x-h.x,a.y-h.y)>24)return;
+     s.start=p;s.delta={x:0,y:0};s.dragging=true;this.triggerEvent("placementdrag",{key,phase:"start",delta:s.delta});this.queueDraw();return;
+    }
+    if(!s.start)return;
+    if(p)s.delta={x:p.x-s.start.x,y:p.y-s.start.y};
+    const end=kind==="end";if(end){s.start=null;s.dragging=false;}
+    this.triggerEvent("placementdrag",{key,phase:end?"end":"move",delta:s.delta});this.queueDraw();
+   });s.queue=work;return work;
+  },
+  touchStart(event:unknown){this.cancelGesture();return this.queueTouch("start",event);},
+  touchMove(event:unknown){return this.queueTouch("move",event);},
+  touchEnd(event:unknown){return this.queueTouch("end",event);},
+  touchCancel(){const s=states.get(this);if(s?.start)this.triggerEvent("placementdrag",{key:this.properties.interactionKey,phase:"cancel",delta:s.delta});this.cancelGesture();this.queueDraw();},
+ }
+});

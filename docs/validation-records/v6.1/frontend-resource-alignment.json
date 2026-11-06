@@ -1,0 +1,36 @@
+{
+  "palm-right": {
+    "pixelSize": [
+      880,
+      1400
+    ],
+    "logicalSize": [
+      440,
+      700
+    ],
+    "ratioMatch": true,
+    "sampledInterior": 8831,
+    "opaqueInterior": 8831,
+    "sampledExterior": 9685,
+    "transparentExterior": 9685,
+    "excludedBoundarySamples": 734,
+    "scope": "Static resource alpha/outline alignment; not WeChat rendering or medical registration."
+  },
+  "palm-left": {
+    "pixelSize": [
+      880,
+      1400
+    ],
+    "logicalSize": [
+      440,
+      700
+    ],
+    "ratioMatch": true,
+    "sampledInterior": 8825,
+    "opaqueInterior": 8825,
+    "sampledExterior": 9684,
+    "transparentExterior": 9684,
+    "excludedBoundarySamples": 741,
+    "scope": "Static resource alpha/outline alignment; not WeChat rendering or medical registration."
+  }
+}

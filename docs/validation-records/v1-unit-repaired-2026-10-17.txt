@@ -1,0 +1,154 @@
+Date: 2026-10-17 Asia/Shanghai
+CWD: miniprogram
+Reason for rerun: reject invalid/corrupted viewport objects and prevent non-finite conversion output.
+
+COMMAND: npm run typecheck
+
+> dermatome-mapper-miniprogram@0.0.0 typecheck
+> tsc --noEmit
+
+
+EXIT_CODE: 0
+
+COMMAND: npm test
+
+> dermatome-mapper-miniprogram@0.0.0 test
+> node ../scripts/test_miniprogram.cjs
+
+TAP version 13
+# Subtest: Canvas 正背面使用不同路径细节且绘图状态成对恢复
+ok 1 - Canvas 正背面使用不同路径细节且绘图状态成对恢复
+  ---
+  duration_ms: 1.1255
+  ...
+# Subtest: 区域高亮裁剪于人体轮廓，跨视图区域不会误画
+ok 2 - 区域高亮裁剪于人体轮廓，跨视图区域不会误画
+  ---
+  duration_ms: 0.178542
+  ...
+# Subtest: 初始化/尺寸适配/DPR 280×460×1
+ok 3 - 初始化/尺寸适配/DPR 280×460×1
+  ---
+  duration_ms: 0.410916
+  ...
+# Subtest: 初始化/尺寸适配/DPR 343×540×2
+ok 4 - 初始化/尺寸适配/DPR 343×540×2
+  ---
+  duration_ms: 0.39
+  ...
+# Subtest: 初始化/尺寸适配/DPR 700×570×3
+ok 5 - 初始化/尺寸适配/DPR 700×570×3
+  ---
+  duration_ms: 0.073958
+  ...
+# Subtest: 反复切换、区域放大与复位不累加 DPR/模型缩放
+ok 6 - 反复切换、区域放大与复位不累加 DPR/模型缩放
+  ---
+  duration_ms: 0.973208
+  ...
+# Subtest: hide/show、resize 重测尺寸；detached 后忽略异步结果
+ok 7 - hide/show、resize 重测尺寸；detached 后忽略异步结果
+  ---
+  duration_ms: 0.211459
+  ...
+# Subtest: 初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口
+ok 8 - 初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口
+  ---
+  duration_ms: 0.150541
+  ...
+# Subtest: 页面选择校验、换面清理、区域切换与复位状态
+ok 9 - 页面选择校验、换面清理、区域切换与复位状态
+  ---
+  duration_ms: 0.393541
+  ...
+# Subtest: A 标准坐标正向转换：独立手算 0.5 比例与 16px 留白
+ok 10 - A 标准坐标正向转换：独立手算 0.5 比例与 16px 留白
+  ---
+  duration_ms: 0.605583
+  ...
+# Subtest: B CSS 坐标逆向转换：手算容器中心
+ok 11 - B CSS 坐标逆向转换：手算容器中心
+  ---
+  duration_ms: 0.060292
+  ...
+# Subtest: C 三种尺寸 11×11 参考点往返，最大允许误差 1e-9
+ok 12 - C 三种尺寸 11×11 参考点往返，最大允许误差 1e-9
+  ---
+  duration_ms: 1.303875
+  ...
+# Subtest: D 宽/窄容器始终等比例，分别产生上下和左右留白
+ok 13 - D 宽/窄容器始终等比例，分别产生上下和左右留白
+  ---
+  duration_ms: 0.049791
+  ...
+# Subtest: E 留白、Canvas 外部以及非有限点击拒绝，不吸附边缘
+ok 14 - E 留白、Canvas 外部以及非有限点击拒绝，不吸附边缘
+  ---
+  duration_ms: 0.072542
+  ...
+# Subtest: F 区域放大居中、四角留在容器内，标准位置保持一致
+ok 15 - F 区域放大居中、四角留在容器内，标准位置保持一致
+  ---
+  duration_ms: 0.168666
+  ...
+# Subtest: G 复位恢复原全身视口，放大不会修改原始点或区域
+ok 16 - G 复位恢复原全身视口，放大不会修改原始点或区域
+  ---
+  duration_ms: 0.244625
+  ...
+# Subtest: H 拒绝非法容器尺寸 0
+ok 17 - H 拒绝非法容器尺寸 0
+  ---
+  duration_ms: 0.1825
+  ...
+# Subtest: H 拒绝非法容器尺寸 -1
+ok 18 - H 拒绝非法容器尺寸 -1
+  ---
+  duration_ms: 0.116042
+  ...
+# Subtest: H 拒绝非法容器尺寸 NaN
+ok 19 - H 拒绝非法容器尺寸 NaN
+  ---
+  duration_ms: 0.179042
+  ...
+# Subtest: H 拒绝非法容器尺寸 Infinity
+ok 20 - H 拒绝非法容器尺寸 Infinity
+  ---
+  duration_ms: 0.09325
+  ...
+# Subtest: H 拒绝非法容器尺寸 -Infinity
+ok 21 - H 拒绝非法容器尺寸 -Infinity
+  ---
+  duration_ms: 0.033208
+  ...
+# Subtest: H 拒绝异常模型、留白、区域和标准点数值
+ok 22 - H 拒绝异常模型、留白、区域和标准点数值
+  ---
+  duration_ms: 0.22775
+  ...
+# Subtest: I 边界点 (0,0)、(1,1) 与全画布放大复位
+ok 23 - I 边界点 (0,0)、(1,1) 与全画布放大复位
+  ---
+  duration_ms: 0.075125
+  ...
+# Subtest: H 拒绝调用方构造的无效视口，不返回 NaN 或伪造坐标
+ok 24 - H 拒绝调用方构造的无效视口，不返回 NaN 或伪造坐标
+  ---
+  duration_ms: 0.115458
+  ...
+# Subtest: J 正背面区域独立、ID唯一、解剖学左右正确，区域中心可往返
+ok 25 - J 正背面区域独立、ID唯一、解剖学左右正确，区域中心可往返
+  ---
+  duration_ms: 0.358708
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 49.332333
+
+EXIT_CODE: 0

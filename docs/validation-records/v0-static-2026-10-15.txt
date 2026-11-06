@@ -1,0 +1,41 @@
+Date: 2026-10-15 Asia/Shanghai
+Environment: project Python 3.12.14, macOS arm64
+
+COMMAND: backend/.venv/bin/python scripts/check_atlas.py
+PASSED: V0 图谱 JSON/元数据符合约束；正背面为空、未验证、不可用于医学映射。
+此检查不验证多边形几何、来源真实性或医学准确性。
+EXIT_CODE: 0
+
+COMMAND: backend/.venv/bin/python scripts/check_project.py
+PASSED: V0 必要文件、预留目录、JSON、四页注册/文件路径及导航目标完整。
+此检查不代表 WXML/WXSS 编译、页面导航交互或真机验证通过。
+EXIT_CODE: 0
+
+COMMAND: git check-ignore --stdin
+Ignored examples:
+backend/.venv/example
+backend/__pycache__/example.pyc
+miniprogram/node_modules/example
+miniprogram/pages/index/index.js
+.env
+.env.local
+credentials-test.json
+private.pem
+miniprogram/project.private.config.json
+data/private/patient.jpg
+data/patients/patient.jpg
+data/uploads/patient.jpg
+ai/models/weights.bin
+sample.safetensors
+sample.pt
+Allowed examples:
+ai/models/.gitkeep
+.env.example
+docs/validation-records/v0-backend-2026-10-15.txt
+PASSED: all 15 sensitive/generated path examples excluded; 3 required examples not ignored. No actual patient data created.
+
+CHECK: Markdown relative links across source Markdown files
+PASSED: 39 relative link targets exist.
+Inventory: docs/file-inventory.txt; 85 files.
+
+LIMIT: These are static checks, not WeChat compilation/navigation, geometry or medical validation.

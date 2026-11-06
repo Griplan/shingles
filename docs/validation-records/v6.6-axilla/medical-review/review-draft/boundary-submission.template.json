@@ -1,0 +1,31 @@
+{
+  "schema": "axilla_boundary_review_submission_v1",
+  "status": "review-draft",
+  "runtimeEligible": false,
+  "viewId": null,
+  "allowedViews": [
+    "axilla-left",
+    "axilla-right"
+  ],
+  "side": null,
+  "templateId": "commons-axilla-v1",
+  "templateVersion": "1.0.0",
+  "geometryId": "cc0-raised-axilla-outline-v1",
+  "templateContentSHA256": "d606be12993d015c43c27e65c2e3749b2ace6e4df0b304142a776a5464e45d72",
+  "coordinateSpace": "review_template_normalized_v1",
+  "logicalSize": [
+    400,
+    360
+  ],
+  "label": null,
+  "partitionType": "spinal_dermatome",
+  "geometry": null,
+  "sourceRefs": [],
+  "sourceGeometry": null,
+  "registration": null,
+  "uncertaintyGeometry": null,
+  "excludedSurfaceGeometry": null,
+  "boundaryReview": null,
+  "approval": null,
+  "instructions": "Copy to a new signed submission. Geometry/label/view/approval remain null until actually supplied; not a runtime atlas. Never infer a region from key sensory points or peripheral nerve territories."
+}

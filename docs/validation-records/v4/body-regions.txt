@@ -1,0 +1,8 @@
+COMMAND: ["/Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/bin/python", "scripts/check_body_regions.py"]
+front left torso/arm source-body overlap: old=2054.254475, new=0.000000 logical square units
+front right torso/arm source-body overlap: old=2054.503216, new=0.000000 logical square units
+PASSED: front: 8 valid closed simple polygons, 28 pairs zero interior overlap, shared torso/arm edges, focus containment, source-body coverage (unassigned area=0.00000000).
+back left torso/arm source-body overlap: old=2123.218952, new=0.000000 logical square units
+back right torso/arm source-body overlap: old=2183.434057, new=0.000000 logical square units
+PASSED: back: 8 valid closed simple polygons, 28 pairs zero interior overlap, shared torso/arm edges, focus containment, source-body coverage (unassigned area=0.00000000).
+Engineering UI geometry only; no medical or real-WeChat acceptance claim.

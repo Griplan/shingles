@@ -1,0 +1,66 @@
+{
+  "boundarySystem": "spinal_dermatome",
+  "boundaryLicenseStatus": "verified",
+  "sources": [
+    {
+      "id": "commons-goran-2022-plantar",
+      "purpose": "dermatome_boundaries",
+      "licenseStatus": "verified",
+      "title": "Dermatomes labeled, male back 3d-shaded — plantar detail",
+      "url": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_back_3d-shaded.svg",
+      "author": "Goran_tek-en",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Goran_tek-en (2022), CC BY-SA 4.0；从原背图独立提取两足足底，移除标签和皮节底色，旋转180°并等比例放大；两侧均为原侧，未镜像。",
+      "boundaryEvidence": [
+        {
+          "label": "L5",
+          "route": "root/9/1/43",
+          "sourceElementId": null,
+          "pathD_SHA256": "812758333ec5a27860b94d54bbc2f761ef840d533056b1da714d430714c39d8d",
+          "leaderRoute": "root/12/62",
+          "accumulatedSVGMatrix": [
+            1,
+            0,
+            0,
+            1,
+            -403.94000000000005,
+            4.0
+          ],
+          "sourceBounds": [
+            135.57889999999975,
+            894.18,
+            299.22241999999994,
+            945.3186046874998
+          ],
+          "identityEvidence": "Pinned whole-file SHA1 + actual element route/tag + d SHA256 + V6.3 visible leader trace; not index alone"
+        },
+        {
+          "label": "S1",
+          "route": "root/9/1/44",
+          "sourceElementId": null,
+          "pathD_SHA256": "7fae8e48c95f7301cd835bffa11ea936e68cbda79dd264f75f801a21ec75b739",
+          "leaderRoute": "root/12/47",
+          "accumulatedSVGMatrix": [
+            1,
+            0,
+            0,
+            1,
+            -403.94000000000005,
+            4.0
+          ],
+          "sourceBounds": [
+            124.13433999999984,
+            847.016175,
+            310.6570499999999,
+            939.1335799999999
+          ],
+          "identityEvidence": "Pinned whole-file SHA1 + actual element route/tag + d SHA256 + V6.3 visible leader trace; not index alone"
+        }
+      ],
+      "licenseEvidence": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_back_3d-shaded.svg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceFile": "docs/research/v3-atlas/goran-back.original.svg",
+      "sourceSHA256": "740f95044e749a05242abeb7a52699acd4e51909e1ec5bce6917a2806cbb04b9"
+    }
+  ]
+}

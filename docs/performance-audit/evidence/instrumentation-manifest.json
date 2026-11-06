@@ -1,0 +1,52 @@
+[
+  {
+    "file": "docs/performance-audit/scripts/cloud_probe.py",
+    "added_lines": 50,
+    "production_file_changed": false
+  },
+  {
+    "file": "docs/performance-audit/scripts/frontend_profile.cjs",
+    "added_lines": 82,
+    "production_file_changed": false
+  },
+  {
+    "file": "docs/performance-audit/scripts/nginx_timing_check.py",
+    "added_lines": 9,
+    "production_file_changed": false
+  },
+  {
+    "file": "docs/performance-audit/scripts/photo_profile.cjs",
+    "added_lines": 20,
+    "production_file_changed": false
+  },
+  {
+    "file": "docs/performance-audit/scripts/placement_profile.cjs",
+    "added_lines": 67,
+    "production_file_changed": false
+  },
+  {
+    "file": "docs/performance-audit/scripts/profile_ai.py",
+    "added_lines": 48,
+    "production_file_changed": false
+  },
+  {
+    "file": "docs/performance-audit/scripts/profile_backend.py",
+    "added_lines": 36,
+    "production_file_changed": false
+  },
+  {
+    "file": "docs/performance-audit/scripts/server_snapshot.py",
+    "added_lines": 37,
+    "production_file_changed": false
+  },
+  {
+    "file": "docs/performance-audit/scripts/summarize.py",
+    "added_lines": 31,
+    "production_file_changed": false
+  },
+  {
+    "file": "docs/performance-audit/scripts/write_report.py",
+    "added_lines": 480,
+    "production_file_changed": false
+  }
+]

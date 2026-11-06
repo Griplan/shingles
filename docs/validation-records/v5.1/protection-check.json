@@ -1,0 +1,19 @@
+{
+  "protected_count": 180,
+  "changed_protected_files": [],
+  "protected_prefixes": [
+    "backend/",
+    "miniprogram/",
+    "data/",
+    "scripts/",
+    "tests/"
+  ],
+  "ignored_check": [
+    "ai/.venv/pyvenv.cfg",
+    "ai/models/MobileSAM-source/weights/mobile_sam.pt",
+    "ai/experiments/inputs/cdc-21505.jpg",
+    "ai/experiments/outputs/v51-cpu-20261027/B_box/result.json"
+  ],
+  "all_sensitive_examples_ignored": true,
+  "baseline": "/private/tmp/dermatome-v51-baseline.json"
+}

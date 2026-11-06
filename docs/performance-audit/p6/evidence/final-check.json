@@ -1,0 +1,21 @@
+{
+  "report_links": "PASSED",
+  "python_script_syntax": "PASSED",
+  "placement_transform_and_validation_source": "UNCHANGED",
+  "production_files_changed": [
+    "miniprogram/utils/annotation-geometry.ts",
+    "backend/app/services/dermatome_matcher.py"
+  ],
+  "tests": {
+    "typescript": "PASSED",
+    "frontend": 303,
+    "backend_and_ai": 197,
+    "python_warnings": 7,
+    "annotation_oracle": 2421,
+    "placement_oracle": 1341,
+    "indexed_placement_oracle": 1341
+  },
+  "native_wechat": "NOT_RUN",
+  "server_deploy": "NOT_RUN",
+  "confirmation_requested": false
+}

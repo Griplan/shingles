@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-05",
+  "python": "3.12.14 (main, Aug 12 2026, 13:57:54) [Clang 17.0.0 (clang-1700.6.4.2)]",
+  "platform": "macOS-15.6.1-arm64-arm-64bit",
+  "tests": [
+    {
+      "name": "audit-final",
+      "command": "ai/.venv/bin/python docs/goran-full-atlas-audit/scripts/test_audit.py",
+      "exitCode": 0,
+      "result": "8 passed",
+      "log": "test-audit-final.log"
+    },
+    {
+      "name": "svg",
+      "command": "ai/.venv/bin/python scripts/test_atlas_geometry.py",
+      "exitCode": 0,
+      "result": "5 passed",
+      "log": "test-svg.log"
+    },
+    {
+      "name": "extensions",
+      "command": "ai/.venv/bin/python scripts/test_atlas_extensions.py",
+      "exitCode": 0,
+      "result": "6 passed",
+      "log": "test-extensions.log"
+    },
+    {
+      "name": "sync",
+      "command": "python3 scripts/sync_atlas.py --check",
+      "exitCode": 0,
+      "result": "same atlas",
+      "log": "test-sync.log"
+    },
+    {
+      "name": "palm-sync",
+      "command": "ai/.venv/bin/python scripts/sync_palm.py --check",
+      "exitCode": 0,
+      "result": "same palm",
+      "log": "test-palm-sync.log"
+    },
+    {
+      "name": "body-sync",
+      "command": "python3 scripts/sync_matching_body.py --check",
+      "exitCode": 1,
+      "result": "FAILED: system interpreter lacks Shapely",
+      "log": "test-body-sync.log"
+    },
+    {
+      "name": "body-sync-retry",
+      "command": "ai/.venv/bin/python scripts/sync_matching_body.py --check",
+      "exitCode": 0,
+      "result": "same body",
+      "log": "test-body-sync-retry.log"
+    },
+    {
+      "name": "preview-readonly",
+      "command": "import check_preview_atlas; check_preview_atlas.check()",
+      "exitCode": 0,
+      "result": "readonly validation, no main/write",
+      "log": "test-preview-readonly.log"
+    }
+  ],
+  "comparison": {
+    "command": "ai/.venv/bin/python docs/goran-full-atlas-audit/scripts/compare_unlabeled.py",
+    "result": "8 groups passed",
+    "log": "unlabeled-comparison.log"
+  },
+  "medicalReview": "NOT_RUN",
+  "wechat": "NOT_RUN",
+  "production": "NOT_RUN"
+}

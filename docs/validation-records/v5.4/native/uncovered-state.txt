@@ -1,0 +1,1 @@
++																					751 text V54_UNCOVERED_OK {"route":"pages/annotate/annotate","result":true,"labels":0,"regions":0,"savedCount":1,"scale":0.17,"selected":""}

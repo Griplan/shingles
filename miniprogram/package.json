@@ -1,0 +1,14 @@
+{
+  "name": "dermatome-mapper-miniprogram",
+  "version": "0.0.0",
+  "private": true,
+  "description": "dermatome-mapper 原生微信小程序 V1 人体展示",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node ../scripts/test_miniprogram.cjs"
+  },
+  "devDependencies": {
+    "miniprogram-api-typings": "5.2.3",
+    "typescript": "5.9.3"
+  }
+}

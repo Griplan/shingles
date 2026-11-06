@@ -1,0 +1,22 @@
+[
+  {
+    "view": "front",
+    "standaloneGroup": "root/6/1",
+    "parentGroup": "root/10/1",
+    "standalonePaths": 42,
+    "parentPaths": 42,
+    "orderedPathDataIdentical": true,
+    "standaloneTransform": "translate(-884.44 -38.43)",
+    "parentTransform": "translate(-5.2916 -42.43)"
+  },
+  {
+    "view": "back",
+    "standaloneGroup": "root/9/1",
+    "parentGroup": "root/14/1",
+    "standalonePaths": 50,
+    "parentPaths": 50,
+    "orderedPathDataIdentical": true,
+    "standaloneTransform": "translate(-1308.7 -38.43)",
+    "parentTransform": "translate(-5.2916 -42.43)"
+  }
+]

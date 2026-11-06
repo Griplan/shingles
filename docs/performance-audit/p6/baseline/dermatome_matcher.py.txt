@@ -1,0 +1,59 @@
+"""Pure 2D reference geometry, independent of HTTP; no inference or diagnosis."""
+import hashlib
+import json
+from collections import defaultdict
+from shapely.ops import unary_union
+from app.schemas.evaluate import Candidate, Coverage, EvaluateResponse, SourceInfo
+from app.utils.geometry import EvaluationError, annotation_geometry
+
+def area_tolerance(area):
+    # At most 1e-12 relative for ordinary lesions, 1e-18 absolute for numerical noise.
+    return max(1e-18, area*1e-12)
+
+def candidates_for(regions, view):
+    groups=defaultdict(list)
+    for r in regions:
+        if r['view']==view:groups[(r['partitionType'],r['labelId'],r['side'],view)].append(r)
+    output=[]
+    for key,items in sorted(groups.items()):
+        first=items[0]
+        output.append(({'candidate_id':hashlib.sha256(json.dumps(key,separators=(',',':')).encode()).hexdigest(),
+            'region_ids':sorted(r['id'] for r in items),'partition_type':key[0],'label':key[1],
+            'source_label':first['sourceLabel'],'display_name':first.get('displayName',key[1]),'side':key[2],'view':view},
+            unary_union([r['shape'] for r in items])))
+    return output
+
+def coverage(lesion, view, ids, candidates):
+    area=lesion.area;eps=area_tolerance(area);matches=[]
+    atlas=unary_union([g for _,g in candidates])
+    covered=lesion.intersection(atlas).area
+    uncovered=lesion.difference(atlas).area
+    if abs(covered+uncovered-area)>max(1e-16,area*1e-10):
+        raise EvaluationError('COMPUTATION_ERROR','几何面积一致性检查失败',500)
+    for meta,geom in candidates:
+        intersection=lesion.intersection(geom).area
+        if intersection>eps:matches.append(Candidate(**meta,intersection_area=intersection,lesion_coverage_ratio=intersection/area))
+    matches.sort(key=lambda c:(-c.lesion_coverage_ratio,c.partition_type,c.label,c.side,c.candidate_id))
+    return Coverage(view=view,lesion_ids=ids,annotation_area=area,covered_area=covered,uncovered_area=uncovered,
+        covered_ratio=covered/area,uncovered_ratio=uncovered/area,
+        coverage_status='none' if covered<=eps else 'full' if uncovered<=eps else 'partial',candidates=matches)
+
+def evaluate(request, dataset):
+    if len({l.id for l in request.lesions})!=len(request.lesions):
+        raise EvaluationError('INVALID_ANNOTATION','标注ID重复')
+    by_view=defaultdict(list)
+    for l in request.lesions:
+        if l.view not in dataset.bodies:raise EvaluationError('VIEW_UNSUPPORTED','当前图谱不支持该视图',409)
+        by_view[l.view].append((l.id,annotation_geometry(l,dataset.bodies[l.view])))
+    if any(len(items)>20 for items in by_view.values()):raise EvaluationError('LIMIT_EXCEEDED','每个视图最多20片标注')
+    individual=[];summaries=[]
+    for view,items in sorted(by_view.items()):
+        candidates=candidates_for(dataset.regions,view)
+        individual.extend(coverage(poly,view,[rid],candidates) for rid,poly in items)
+        summaries.append(coverage(unary_union([p for _,p in items]),view,[rid for rid,_ in items],candidates))
+    m=dataset.manifest
+    return EvaluateResponse(request_id=request.request_id,annotation_revision=request.annotation_revision,identity=dataset.identity,
+        method='manual_annotation_reference_geometry',area_unit='normalized_template_area',
+        source=SourceInfo(title=m['sourceTitle'],url=m['sourceUrl'],attribution=m['attribution'],license='CC BY-SA 4.0',
+                          medical_review_status='pending',preview=True,coverage_note=m['coverageNote']),
+        lesions=individual,views=summaries,warnings=['开发测试参考图谱，医学审核待完成。','比例仅为当前二维模板的几何覆盖，不是诊断概率或真实皮肤面积。','当前图谱未覆盖不代表没有感觉神经；不同候选可能重叠，不能累加候选比例。'])

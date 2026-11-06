@@ -1,0 +1,6 @@
+COMMAND: npm --prefix miniprogram run typecheck
+EXIT: 0
+
+> dermatome-mapper-miniprogram@0.0.0 typecheck
+> tsc --noEmit
+

@@ -1,0 +1,1 @@
+{"status": "PASSED", "checks": 20, "inference_seconds": 3.5788351250084816, "model_threads": 1, "mask_polygon_equal": true}

@@ -1,0 +1,15 @@
+<view class="page">
+  <view class="version">人工标注与参考图谱</view>
+  <view class="title">人体病灶辅助定位</view>
+  <view class="description">选择人体部位，进入标注页沿范围边缘逐点圈选。</view>
+  <view class="panel">
+    <view class="panel-title">当前可以体验</view>
+    <view>独立正背面 · 多片标注 · 撤销删除 · 范围复核</view>
+    <view class="footnote">人体使用 Commons 开放素材。标注仅在本次运行内暂存，关闭或重启可能丢失。完成标注后可查看对应参考区域，在线功能仅供测试。</view>
+  </view>
+  <view class="notice">本系统不提供临床确诊。当前参考图谱尚待医学审核；几何覆盖比例不代表医学置信度。</view>
+  <navigator class="action" url="/pages/select/select">进入人体模型</navigator>
+  <view wx:if="{{atlasPreviewAllowed}}" class="atlas-test-entry" aria-role="button" bindtap="openAtlasPreview">神经图谱测试 · 开发预览</view>
+  <view wx:if="{{atlasPreviewAllowed}}" class="atlas-test-entry" aria-role="button" bindtap="connectTest">{{controlled ? '受控云端测试模式 · 切回本机' : '连接受控云端测试服务'}}</view>
+  <view class="footnote">手动匹配仅发送标注坐标和版本信息。AI辅助入口会在您同意后上传照片至配置后端；临时会话30分钟失效，过期后定期清理。当前仅允许公开或合成测试图片，不采集患者照片或身份信息。</view>
+</view>

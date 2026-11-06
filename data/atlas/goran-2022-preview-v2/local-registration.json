@@ -1,0 +1,388 @@
+{
+  "atlasVersion": "goran-2022-commons-template4-preview.2",
+  "parentAtlasVersion": "goran-2022-commons-template4-preview.1",
+  "parentContentSHA256": "ae4bc65f60d8aba519d46fa3c4687a68f02a7ea7c1331aebdc9a1034e4133cd7",
+  "parentFileSHA256": {
+    "sources.json": "bed13c66fdfd9b9cd4cc6c63b9eee4272f7cc9912405a482f09acca1c8196252",
+    "registration-report.json": "709cec15b0b2a6d10905645ad3ac2faef29397542a71c45a99969639e26e0853",
+    "front.json": "b68954b9c0af82b4ebdf052933b98a45efb8dcc74c84e4a181733cc50c11a80d",
+    "registration.json": "8a997410d8e92d6133079cea4c228c990234dfbb896bd849f41c06b2a2b46066",
+    "back.json": "aea2085c93560dc434bc9b0bb62cb7ef7d2df91023f19200e54816357f003bbb",
+    "validation.json": "6ae9778a09972c2e4b24ffc66a1fa5a68000191cc79e37837f1f295014a1da7d",
+    "manifest.json": "c27b03c330ef5ce69480778c8fea2479608ff2dd347d34dfe6fc40e3fa758568",
+    "coverage.json": "d79d88c3f892a436e33345b39229330bb2730c8b39a80ad5320b804504dfdfa1",
+    "source-map.json": "ceea8c7896c586d2067a2f302f34ce85cb87b631698cead36485f3fb0b413573",
+    "NOTICE.md": "7bbe18d36fb9440c6b4b580e636668d5fefdb9061bbf8e633dc4cab34868f2b7"
+  },
+  "method": "Local monotone landmark-row warp of original visible SVG vector fills; independent front face and each dorsal foot; no new medical boundaries; immutable parent geometry retained above ankle.",
+  "face": {
+    "id": "front-face-landmarks-v1",
+    "view": "front",
+    "pathLabels": {
+      "13": "V1",
+      "14": "V2",
+      "16": "V3"
+    },
+    "sourceDomain": [
+      185,
+      9,
+      282,
+      130
+    ],
+    "rows": [
+      {
+        "sourceY": 9,
+        "targetY": 31,
+        "sourceX": [
+          188,
+          209,
+          223,
+          233,
+          243,
+          257,
+          281
+        ],
+        "targetX": [
+          157,
+          178,
+          193,
+          200,
+          207,
+          224,
+          247
+        ],
+        "landmark": "frontal head silhouette top, no lateral inset"
+      },
+      {
+        "sourceY": 55,
+        "targetY": 94,
+        "sourceX": [
+          188,
+          209,
+          223,
+          233,
+          243,
+          257,
+          281
+        ],
+        "targetX": [
+          160,
+          178,
+          192,
+          200,
+          209,
+          224,
+          245
+        ],
+        "landmark": "eyebrows"
+      },
+      {
+        "sourceY": 66.5,
+        "targetY": 102,
+        "sourceX": [
+          188,
+          209.16,
+          223.06,
+          233,
+          242.724,
+          257.496,
+          281
+        ],
+        "targetX": [
+          161,
+          177.453,
+          191.611,
+          200,
+          208.452,
+          224.449,
+          244
+        ],
+        "landmark": "outer/inner eye corners from vector paths; separate left/right"
+      },
+      {
+        "sourceY": 90.5,
+        "targetY": 123,
+        "sourceX": [
+          188,
+          210,
+          227.96,
+          233,
+          237.285,
+          257,
+          281
+        ],
+        "targetX": [
+          161,
+          181,
+          192.853,
+          200,
+          205.968,
+          222,
+          243
+        ],
+        "landmark": "nasal tip/nostrils"
+      },
+      {
+        "sourceY": 104,
+        "targetY": 135,
+        "sourceX": [
+          188,
+          219.96,
+          227.96,
+          233,
+          237.285,
+          248.96,
+          281
+        ],
+        "targetX": [
+          163,
+          186.594,
+          194,
+          200,
+          204,
+          209.247,
+          240
+        ],
+        "landmark": "mouth opening/lips"
+      },
+      {
+        "sourceY": 129.386,
+        "targetY": 160.6,
+        "sourceX": [
+          188,
+          210,
+          223,
+          233,
+          243,
+          257,
+          281
+        ],
+        "targetX": [
+          165,
+          181,
+          193,
+          200,
+          207,
+          221,
+          237
+        ],
+        "landmark": "chin and head-neck transition"
+      }
+    ],
+    "targetSurfaceExclusions": {
+      "mouthInterior": [
+        [
+          186.594,
+          134.376
+        ],
+        [
+          198,
+          134.376
+        ],
+        [
+          209.247,
+          134.7
+        ],
+        [
+          209.247,
+          135.469
+        ],
+        [
+          198,
+          135.469
+        ],
+        [
+          186.594,
+          135.3
+        ]
+      ],
+      "note": "Conservative display-only exclusions: original closed hair silhouette path4145; left/right ear windows and visible eye openings bounded by actual target linework; closed-mouth opening. These are unsupported surface masks, not trigeminal boundaries. Eyelid/ocular detail and ear transition require specialist review; no ocular or oral-interior coverage claimed.",
+      "hairPathId": "path4145",
+      "targetSVGSHA256": "6906420e124c03816d19b53ec22ac61916b9cc4bc74b1ceb75ec4b7fddae94b0",
+      "earAndEyeWindows": [
+        [
+          [
+            155,
+            94
+          ],
+          [
+            173,
+            94
+          ],
+          [
+            173,
+            128
+          ],
+          [
+            155,
+            128
+          ]
+        ],
+        [
+          [
+            231,
+            94
+          ],
+          [
+            247,
+            94
+          ],
+          [
+            247,
+            128
+          ],
+          [
+            231,
+            128
+          ]
+        ],
+        [
+          [
+            177.453,
+            101
+          ],
+          [
+            183,
+            99.501
+          ],
+          [
+            189,
+            101
+          ],
+          [
+            191.611,
+            104.121
+          ],
+          [
+            183,
+            104.121
+          ]
+        ],
+        [
+          [
+            208.452,
+            104.568
+          ],
+          [
+            211,
+            100.5
+          ],
+          [
+            217,
+            99.898
+          ],
+          [
+            224.449,
+            102
+          ],
+          [
+            218,
+            104.568
+          ]
+        ]
+      ],
+      "minimumVisibleFaceY": 61
+    },
+    "sourceEvidence": {
+      "V1": {
+        "route": "root/6/1/13",
+        "leader": "root/9/29",
+        "endpoint": [
+          219.435,
+          41.934
+        ]
+      },
+      "V2": {
+        "route": "root/6/1/14",
+        "leader": "root/9/31",
+        "endpoint": [
+          219.44,
+          76.242
+        ]
+      },
+      "V3": {
+        "route": "root/6/1/16",
+        "leader": "root/9/33",
+        "endpoint": [
+          205.53,
+          88.723
+        ]
+      }
+    }
+  },
+  "feet": {
+    "id": "front-dorsal-feet-landmarks-v1",
+    "view": "front",
+    "pathLabels": {
+      "36": "L4",
+      "37": "S1",
+      "38": "S1",
+      "41": "L5"
+    },
+    "sourceStartY": 842,
+    "targetStartY": 820,
+    "sourceRows": [
+      [
+        842,
+        820
+      ],
+      [
+        860,
+        831
+      ],
+      [
+        890,
+        843
+      ],
+      [
+        916,
+        854
+      ],
+      [
+        934,
+        865
+      ],
+      [
+        945.5,
+        869
+      ]
+    ],
+    "method": "Separate original dorsal-foot silhouettes and original target foot silhouette; ankle seam, malleolar level, forefoot and toe tips aligned independently. Dense transverse rows follow visible contour and retain source L4/L5/S1 divisions. Not lower-leg extrapolation; no sole/heel mapping.",
+    "sourceEndY": 945.5,
+    "targetEndY": 869,
+    "rowSpacing": 0.2
+  },
+  "exclusions": [
+    {
+      "view": "back",
+      "labels": [
+        "V1"
+      ],
+      "sourcePresent": true,
+      "reason": "Main back source V1 scalp path21 exists, but target hair-covered posterior head lacks reliable matching landmarks. Not copied from front."
+    },
+    {
+      "view": "back",
+      "labels": [
+        "V2",
+        "V3"
+      ],
+      "sourcePresent": false,
+      "reason": "Only source lateral-head inset; no corresponding posterior face surface."
+    },
+    {
+      "view": "back",
+      "labels": [
+        "L5",
+        "S1"
+      ],
+      "sourcePresent": true,
+      "reason": "Source feet show plantar sole and toe pads; target shows posterior heel/Achilles and small side. No reliable projection correspondence."
+    }
+  ],
+  "limits": [
+    "Engineering preview pending medical review.",
+    "No averaging or invented medical boundaries, no hidden extension of C2/C3.",
+    "Source/target illustration differences and tiny source SVG seams remain; masks express unsupported surfaces, not diagnoses."
+  ]
+}

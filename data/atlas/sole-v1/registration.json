@@ -1,0 +1,147 @@
+{
+  "templateId": "goran-sole-v1",
+  "templateVersion": "1.0.0",
+  "geometryId": "goran-plantar-outline-v1",
+  "regionSetId": "goran-sole-ui-v1",
+  "status": "passed_offline_geometry",
+  "method": "same_source_similarity_180_no_mirror",
+  "sourceFile": "docs/research/v3-atlas/goran-back.original.svg",
+  "curveToleranceOriginalUnits": 0.02,
+  "simplification": null,
+  "numericalPrecisionNormalized": 1e-12,
+  "mirrored": false,
+  "clipOrMaskInOriginal": false,
+  "bodyDefinition": "Original full-body silhouette root/9/0/0 below y=880 plus its intersection with original S1 heel cap above y=880. Only a plantar display-domain seam, not an added dermatome border.",
+  "views": {
+    "left": {
+      "sourceToLogicalSVGMatrix": [
+        -5.6,
+        0,
+        0,
+        -5.6,
+        973.8695950000066,
+        5338.579999999999
+      ],
+      "sourceToNormalizedShapelyMatrix": [
+        -0.017499999999999998,
+        0,
+        0,
+        -0.008749999999999999,
+        3.0433424843750205,
+        8.34153125
+      ]
+    },
+    "right": {
+      "sourceToLogicalSVGMatrix": [
+        -5.6,
+        0,
+        0,
+        -5.6,
+        1780.166380000012,
+        5338.579999999999
+      ],
+      "sourceToNormalizedShapelyMatrix": [
+        -0.017499999999999998,
+        0,
+        0,
+        -0.008749999999999999,
+        5.563019937500037,
+        8.34153125
+      ]
+    }
+  },
+  "sourceElements": [
+    {
+      "label": "L5",
+      "route": "root/9/1/43",
+      "sourceElementId": null,
+      "pathD_SHA256": "812758333ec5a27860b94d54bbc2f761ef840d533056b1da714d430714c39d8d",
+      "leaderRoute": "root/12/62",
+      "accumulatedSVGMatrix": [
+        1,
+        0,
+        0,
+        1,
+        -403.94000000000005,
+        4.0
+      ],
+      "sourceBounds": [
+        135.57889999999975,
+        894.18,
+        299.22241999999994,
+        945.3186046874998
+      ],
+      "identityEvidence": "Pinned whole-file SHA1 + actual element route/tag + d SHA256 + V6.3 visible leader trace; not index alone"
+    },
+    {
+      "label": "S1",
+      "route": "root/9/1/44",
+      "sourceElementId": null,
+      "pathD_SHA256": "7fae8e48c95f7301cd835bffa11ea936e68cbda79dd264f75f801a21ec75b739",
+      "leaderRoute": "root/12/47",
+      "accumulatedSVGMatrix": [
+        1,
+        0,
+        0,
+        1,
+        -403.94000000000005,
+        4.0
+      ],
+      "sourceBounds": [
+        124.13433999999984,
+        847.016175,
+        310.6570499999999,
+        939.1335799999999
+      ],
+      "identityEvidence": "Pinned whole-file SHA1 + actual element route/tag + d SHA256 + V6.3 visible leader trace; not index alone"
+    }
+  ],
+  "unconfiguredAdjacentSourceFragments": [
+    {
+      "side": "left",
+      "sourceElementId": "root/9/1/49",
+      "sourceLabel": "S2",
+      "areaOriginalSVGUnits": 0.1466428817707382,
+      "bounds": [
+        131.8154800000001,
+        848.2651612445711,
+        149.18847992685266,
+        878.1077899999999
+      ],
+      "ratioOfSkin": 4.7501915477249995e-05,
+      "status": "unconfigured",
+      "reason": "Proximal ankle/heel seam fragment; not confirmed as an independent plantar area. Keep uncovered, no extrapolation."
+    },
+    {
+      "side": "right",
+      "sourceElementId": "root/9/1/49",
+      "sourceLabel": "S2",
+      "areaOriginalSVGUnits": 0.06371484635236395,
+      "bounds": [
+        284.19820000000004,
+        848.3753297991391,
+        290.2812991802061,
+        850.973580445361
+      ],
+      "ratioOfSkin": 2.0348072951330102e-05,
+      "status": "unconfigured",
+      "reason": "Proximal ankle/heel seam fragment; not confirmed as an independent plantar area. Keep uncovered, no extrapolation."
+    },
+    {
+      "side": "left",
+      "sourceElementId": "root/9/1/36",
+      "sourceLabel": "L4",
+      "areaOriginalSVGUnits": 1.2935494890838138e-15,
+      "bounds": [
+        150.15796718749993,
+        847.4834197279669,
+        151.93997746569912,
+        847.9401957812499
+      ],
+      "ratioOfSkin": 4.1901848732190195e-19,
+      "status": "unconfigured",
+      "reason": "Numerical boundary-only residue, no measurable plantar area."
+    }
+  ],
+  "medicalReviewStatus": "pending"
+}

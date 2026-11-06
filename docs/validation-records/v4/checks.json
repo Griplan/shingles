@@ -1,0 +1,63 @@
+[
+  {
+    "name": "backend-final",
+    "exit_code": 0,
+    "status": "PASSED"
+  },
+  {
+    "name": "frontend-final",
+    "exit_code": 0,
+    "status": "PASSED"
+  },
+  {
+    "name": "final-typecheck",
+    "exit_code": 0,
+    "status": "PASSED"
+  },
+  {
+    "name": "body-sync",
+    "exit_code": 0,
+    "status": "PASSED"
+  },
+  {
+    "name": "atlas-sync",
+    "exit_code": 0,
+    "status": "PASSED"
+  },
+  {
+    "name": "atlas-extensions",
+    "exit_code": 0,
+    "status": "PASSED"
+  },
+  {
+    "name": "atlas-geometry",
+    "exit_code": 0,
+    "status": "PASSED"
+  },
+  {
+    "name": "preview-atlas",
+    "exit_code": 0,
+    "status": "PASSED"
+  },
+  {
+    "name": "annotation-regression",
+    "exit_code": 0,
+    "status": "PASSED"
+  },
+  {
+    "name": "body-regions",
+    "exit_code": 0,
+    "status": "PASSED"
+  },
+  {
+    "name": "formal-atlas",
+    "exit_code": 0,
+    "status": "PASSED"
+  },
+  {
+    "name": "project",
+    "exit_code": 0,
+    "status": "PASSED",
+    "previous_failure": "first-project-failure.txt"
+  }
+]

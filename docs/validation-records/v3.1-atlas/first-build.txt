@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/griplan/project/extra/Shingles‌/dermatome-mapper/scripts/prepare_atlas_extensions.py", line 261, in <module>
+    main()
+  File "/Users/griplan/project/extra/Shingles‌/dermatome-mapper/scripts/prepare_atlas_extensions.py", line 225, in main
+    region['geometry'] = normalized(logical(region).union(added))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/griplan/project/extra/Shingles‌/dermatome-mapper/scripts/prepare_atlas_extensions.py", line 91, in normalized
+    assert shape(result).is_valid, explain_validity(shape(result))
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Self-intersection[0.3833064163 0.9111111111]

@@ -1,0 +1,689 @@
+{
+  "kind": "Node wx adapter; images synthetic dimension objects, no image decode/raster/native bridge; no backend request",
+  "cases": [
+    {
+      "width": 320,
+      "rep": 0,
+      "initial": {
+        "event.renderstate": 2,
+        "measure": 1,
+        "context": 1,
+        "clearRect": 2,
+        "images": 2,
+        "widthWrites": 1,
+        "heightWrites": 1,
+        "setTransform": 1,
+        "drawImage": 2,
+        "setData": 1,
+        "setDataBytes": 12
+      },
+      "phases": [
+        {
+          "traceId": "photo-320-0-box-120-moves",
+          "name": "box-120-moves",
+          "wall_ms": 2.3464170000000024,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 240,
+            "measure": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "traceId": "photo-320-0-brush-120-moves",
+          "name": "brush-120-moves",
+          "wall_ms": 1.1234999999999928,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 242,
+            "measure": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "traceId": "photo-320-0-candidate-switch-10",
+          "name": "candidate-switch-10",
+          "wall_ms": 0.14700000000000557,
+          "counts": {
+            "event.renderstate": 20,
+            "measure": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "rep": 1,
+      "initial": {
+        "event.renderstate": 2,
+        "measure": 1,
+        "context": 1,
+        "clearRect": 2,
+        "images": 2,
+        "widthWrites": 1,
+        "heightWrites": 1,
+        "setTransform": 1,
+        "drawImage": 2,
+        "setData": 1,
+        "setDataBytes": 12
+      },
+      "phases": [
+        {
+          "traceId": "photo-320-1-box-120-moves",
+          "name": "box-120-moves",
+          "wall_ms": 0.6102499999999935,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 240,
+            "measure": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "traceId": "photo-320-1-brush-120-moves",
+          "name": "brush-120-moves",
+          "wall_ms": 2.5352089999999947,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 242,
+            "measure": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "traceId": "photo-320-1-candidate-switch-10",
+          "name": "candidate-switch-10",
+          "wall_ms": 0.05658300000000338,
+          "counts": {
+            "event.renderstate": 20,
+            "measure": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "rep": 2,
+      "initial": {
+        "event.renderstate": 2,
+        "measure": 1,
+        "context": 1,
+        "clearRect": 2,
+        "images": 2,
+        "widthWrites": 1,
+        "heightWrites": 1,
+        "setTransform": 1,
+        "drawImage": 2,
+        "setData": 1,
+        "setDataBytes": 12
+      },
+      "phases": [
+        {
+          "traceId": "photo-320-2-box-120-moves",
+          "name": "box-120-moves",
+          "wall_ms": 0.945999999999998,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 240,
+            "measure": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "traceId": "photo-320-2-brush-120-moves",
+          "name": "brush-120-moves",
+          "wall_ms": 1.132249999999999,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 242,
+            "measure": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "traceId": "photo-320-2-candidate-switch-10",
+          "name": "candidate-switch-10",
+          "wall_ms": 0.05533299999999031,
+          "counts": {
+            "event.renderstate": 20,
+            "measure": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "rep": 0,
+      "initial": {
+        "event.renderstate": 2,
+        "measure": 1,
+        "context": 1,
+        "clearRect": 2,
+        "images": 2,
+        "widthWrites": 1,
+        "heightWrites": 1,
+        "setTransform": 1,
+        "drawImage": 2,
+        "setData": 1,
+        "setDataBytes": 12
+      },
+      "phases": [
+        {
+          "traceId": "photo-375-0-box-120-moves",
+          "name": "box-120-moves",
+          "wall_ms": 2.167625000000001,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 240,
+            "measure": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "traceId": "photo-375-0-brush-120-moves",
+          "name": "brush-120-moves",
+          "wall_ms": 1.051084000000003,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 242,
+            "measure": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "traceId": "photo-375-0-candidate-switch-10",
+          "name": "candidate-switch-10",
+          "wall_ms": 0.05070899999999767,
+          "counts": {
+            "event.renderstate": 20,
+            "measure": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "rep": 1,
+      "initial": {
+        "event.renderstate": 2,
+        "measure": 1,
+        "context": 1,
+        "clearRect": 2,
+        "images": 2,
+        "widthWrites": 1,
+        "heightWrites": 1,
+        "setTransform": 1,
+        "drawImage": 2,
+        "setData": 1,
+        "setDataBytes": 12
+      },
+      "phases": [
+        {
+          "traceId": "photo-375-1-box-120-moves",
+          "name": "box-120-moves",
+          "wall_ms": 0.5461250000000035,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 240,
+            "measure": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "traceId": "photo-375-1-brush-120-moves",
+          "name": "brush-120-moves",
+          "wall_ms": 1.0148750000000035,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 242,
+            "measure": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "traceId": "photo-375-1-candidate-switch-10",
+          "name": "candidate-switch-10",
+          "wall_ms": 0.038792000000000826,
+          "counts": {
+            "event.renderstate": 20,
+            "measure": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "rep": 2,
+      "initial": {
+        "event.renderstate": 2,
+        "measure": 1,
+        "context": 1,
+        "clearRect": 2,
+        "images": 2,
+        "widthWrites": 1,
+        "heightWrites": 1,
+        "setTransform": 1,
+        "drawImage": 2,
+        "setData": 1,
+        "setDataBytes": 12
+      },
+      "phases": [
+        {
+          "traceId": "photo-375-2-box-120-moves",
+          "name": "box-120-moves",
+          "wall_ms": 0.7383750000000049,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 240,
+            "measure": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "traceId": "photo-375-2-brush-120-moves",
+          "name": "brush-120-moves",
+          "wall_ms": 0.7943750000000023,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 242,
+            "measure": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "traceId": "photo-375-2-candidate-switch-10",
+          "name": "candidate-switch-10",
+          "wall_ms": 0.2149169999999998,
+          "counts": {
+            "event.renderstate": 20,
+            "measure": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "rep": 0,
+      "initial": {
+        "event.renderstate": 2,
+        "measure": 1,
+        "context": 1,
+        "clearRect": 2,
+        "images": 2,
+        "widthWrites": 1,
+        "heightWrites": 1,
+        "setTransform": 1,
+        "drawImage": 2,
+        "setData": 1,
+        "setDataBytes": 12
+      },
+      "phases": [
+        {
+          "traceId": "photo-430-0-box-120-moves",
+          "name": "box-120-moves",
+          "wall_ms": 0.7209160000000026,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 240,
+            "measure": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "traceId": "photo-430-0-brush-120-moves",
+          "name": "brush-120-moves",
+          "wall_ms": 0.8103749999999934,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 242,
+            "measure": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "traceId": "photo-430-0-candidate-switch-10",
+          "name": "candidate-switch-10",
+          "wall_ms": 0.055832999999992694,
+          "counts": {
+            "event.renderstate": 20,
+            "measure": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "rep": 1,
+      "initial": {
+        "event.renderstate": 2,
+        "measure": 1,
+        "context": 1,
+        "clearRect": 2,
+        "images": 2,
+        "widthWrites": 1,
+        "heightWrites": 1,
+        "setTransform": 1,
+        "drawImage": 2,
+        "setData": 1,
+        "setDataBytes": 12
+      },
+      "phases": [
+        {
+          "traceId": "photo-430-1-box-120-moves",
+          "name": "box-120-moves",
+          "wall_ms": 0.43300000000000693,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 240,
+            "measure": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "traceId": "photo-430-1-brush-120-moves",
+          "name": "brush-120-moves",
+          "wall_ms": 0.5769999999999982,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 242,
+            "measure": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "traceId": "photo-430-1-candidate-switch-10",
+          "name": "candidate-switch-10",
+          "wall_ms": 0.023874999999989654,
+          "counts": {
+            "event.renderstate": 20,
+            "measure": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "rep": 2,
+      "initial": {
+        "event.renderstate": 2,
+        "measure": 1,
+        "context": 1,
+        "clearRect": 2,
+        "images": 2,
+        "widthWrites": 1,
+        "heightWrites": 1,
+        "setTransform": 1,
+        "drawImage": 2,
+        "setData": 1,
+        "setDataBytes": 12
+      },
+      "phases": [
+        {
+          "traceId": "photo-430-2-box-120-moves",
+          "name": "box-120-moves",
+          "wall_ms": 0.3718329999999952,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 240,
+            "measure": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "traceId": "photo-430-2-brush-120-moves",
+          "name": "brush-120-moves",
+          "wall_ms": 0.5786250000000024,
+          "counts": {
+            "bounds": 122,
+            "event.renderstate": 242,
+            "measure": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "traceId": "photo-430-2-candidate-switch-10",
+          "name": "candidate-switch-10",
+          "wall_ms": 0.030000000000001137,
+          "counts": {
+            "event.renderstate": 20,
+            "measure": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    }
+  ]
+}

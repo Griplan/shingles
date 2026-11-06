@@ -1,0 +1,44 @@
+# NOT INSTALLED. Replace __TRIAL_HOST__ only after explicit domain/DNS authorization.
+# Add as an independent site; keep A untouched. Verify certificate then nginx -t.
+limit_req_zone $binary_remote_addr zone=dermatome_api:1m rate=2r/s;
+server {
+    listen 80;
+    server_name __TRIAL_HOST__;
+    location ^~ /.well-known/acme-challenge/ { root /var/www/dermatome-acme; }
+    location / { return 308 https://$host$request_uri; }
+}
+server {
+    listen 443 ssl;
+    server_name __TRIAL_HOST__;
+    ssl_certificate /etc/letsencrypt/live/__TRIAL_HOST__/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/__TRIAL_HOST__/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    client_max_body_size 11m;
+    client_body_timeout 15s;
+    send_timeout 65s;
+    access_log off;
+    location /api/v1/ {
+        limit_req zone=dermatome_api burst=12 nodelay;
+        limit_req_status 429;
+        proxy_pass http://127.0.0.1:8001;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Test-Access-Key "";
+        proxy_set_header Authorization $http_authorization;
+        proxy_set_header X-AI-Session-Key $http_x_ai_session_key;
+        proxy_connect_timeout 3s;
+        proxy_read_timeout 65s;
+        proxy_send_timeout 65s;
+        proxy_request_buffering off;
+        proxy_intercept_errors on;
+        error_page 502 504 =503 @unavailable;
+        add_header Cache-Control "no-store, private" always;
+    }
+    location @unavailable {
+        default_type application/json;
+        add_header Cache-Control "no-store" always;
+        return 503 '{"error":{"code":"SERVICE_UNAVAILABLE","message":"Service temporarily unavailable"}}';
+    }
+    location / { return 404; }
+}

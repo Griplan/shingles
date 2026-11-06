@@ -1,0 +1,43 @@
+[
+  {
+    "command": [
+      "/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/node_modules/wcc-exec/wcc",
+      "miniprogram/components/body-canvas/body-canvas.wxml",
+      "miniprogram/components/photo-canvas/photo-canvas.wxml",
+      "miniprogram/components/placement-overlay/placement-overlay.wxml",
+      "miniprogram/components/region-picker/region-picker.wxml",
+      "miniprogram/pages/ai-annotate/ai-annotate.wxml",
+      "miniprogram/pages/annotate/annotate.wxml",
+      "miniprogram/pages/atlas-debug/atlas-debug.wxml",
+      "miniprogram/pages/index/index.wxml",
+      "miniprogram/pages/placement/placement.wxml",
+      "miniprogram/pages/result/result.wxml",
+      "miniprogram/pages/select/select.wxml",
+      "-o",
+      "/private/tmp/v54-native-wxml.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/node_modules/wcc-exec/wcsc",
+      "miniprogram/app.wxss",
+      "miniprogram/components/body-canvas/body-canvas.wxss",
+      "miniprogram/components/photo-canvas/photo-canvas.wxss",
+      "miniprogram/components/placement-overlay/placement-overlay.wxss",
+      "miniprogram/components/region-picker/region-picker.wxss",
+      "miniprogram/pages/ai-annotate/ai-annotate.wxss",
+      "miniprogram/pages/annotate/annotate.wxss",
+      "miniprogram/pages/atlas-debug/atlas-debug.wxss",
+      "miniprogram/pages/index/index.wxss",
+      "miniprogram/pages/placement/placement.wxss",
+      "miniprogram/pages/result/result.wxss",
+      "miniprogram/pages/select/select.wxss",
+      "-o",
+      "/private/tmp/v54-native-wxss.js"
+    ],
+    "exit_code": 0,
+    "output": ""
+  }
+]

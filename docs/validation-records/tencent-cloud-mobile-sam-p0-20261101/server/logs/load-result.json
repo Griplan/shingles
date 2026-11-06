@@ -1,0 +1,46 @@
+{
+  "stage": "load",
+  "kind": "Linux single-process CPU preflight; no medical accuracy labels",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "before": {
+    "available_bytes": 2987511808,
+    "swap_used_bytes": 12288
+  },
+  "model": {
+    "name": "MobileSAM",
+    "variant": "vit_t",
+    "package_version": "1.0",
+    "source_commit": "f706ad9c4eb7f219c00d9050e46328518ffb65d2",
+    "license": "Apache-2.0",
+    "weights_sha256": "6dbb90523a35330fedd7f1d3dfc66f995213d81b29a5ca8108dbcdd4e37d6c2f",
+    "weights_bytes": 40728226,
+    "device": "cpu",
+    "dtype": "float32",
+    "torch": "2.5.1+cpu",
+    "threads": 1,
+    "load_seconds": 1.761478828964755,
+    "source": "https://github.com/ChaoningZhang/MobileSAM"
+  },
+  "model_load_call_seconds": 1.761499177198857,
+  "import_and_load_seconds": 3.1025087668094784,
+  "after_load": {
+    "VmRSS": 397475840,
+    "VmHWM": 407486464
+  },
+  "threads": {
+    "intra": 1,
+    "inter": 1
+  },
+  "status": "MODEL_LOADED",
+  "after": {
+    "available_bytes": 2691104768,
+    "swap_used_bytes": 12288
+  },
+  "final_memory": {
+    "VmRSS": 397475840,
+    "VmHWM": 407486464
+  },
+  "total_seconds": 3.102973500965163,
+  "process_cpu_seconds": 2.861917133,
+  "ru_maxrss_bytes": 407486464
+}

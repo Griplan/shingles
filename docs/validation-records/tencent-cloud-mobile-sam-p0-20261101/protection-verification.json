@@ -1,0 +1,16 @@
+{
+  "local_application_code_files_unchanged": 276,
+  "remote_protected_files_hash_equal": 6,
+  "service_identity_unchanged": [
+    "acupuncture",
+    "nginx"
+  ],
+  "remaining_remote_test_processes": 0,
+  "remaining_transient_units": 0,
+  "port_8001_listening": false,
+  "real_model_load": "PASSED",
+  "real_image_runs": 3,
+  "single_model_and_serial_execution": true,
+  "long_term_dual_service_stability": "NOT_RUN",
+  "production_web_service_deployment": false
+}

@@ -1,0 +1,2 @@
+COMMAND ['/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/node_modules/wcc-exec/wcc', 'components/body-canvas/body-canvas.wxml', 'components/region-picker/region-picker.wxml', 'pages/annotate/annotate.wxml', 'pages/atlas-debug/atlas-debug.wxml', 'pages/index/index.wxml', 'pages/result/result.wxml', 'pages/select/select.wxml', '-o', '/private/tmp/v4-experience-completion-wxml.js']
+EXIT 0

@@ -1,0 +1,1 @@
+PASSED: canonical hash and generated package copy agree

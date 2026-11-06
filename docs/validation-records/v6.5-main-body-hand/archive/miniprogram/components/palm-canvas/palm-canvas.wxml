@@ -1,0 +1,5 @@
+<view class="canvas-shell">
+ <canvas id="palm" type="2d" hidden="{{interactionBlocked}}" class="palm-canvas" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" bindtouchcancel="touchCancel" aria-label="{{view === 'sole-left' ? '左脚足底' : view === 'sole-right' ? '右脚足底' : view === 'palm-left' ? '左手掌侧' : '右手掌侧'}}"></canvas>
+ <view wx:if="{{loading && !error}}" class="canvas-message">正在准备当前部位…</view>
+ <view wx:if="{{error}}" class="canvas-message"><text>{{error}}</text><button bindtap="retry">重新显示</button></view>
+</view>

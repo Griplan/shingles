@@ -1,0 +1,97 @@
+{
+  "executed_on": "local Mac after downloading real Linux masks; no additional server inference",
+  "candidate_count": 9,
+  "medical_accuracy": "NOT_MEASURED",
+  "checks": [
+    {
+      "stage": "A",
+      "candidate": "candidate-0",
+      "original_hw": [
+        410,
+        300
+      ],
+      "valid": true,
+      "exact_pixel_roundtrip": true
+    },
+    {
+      "stage": "A",
+      "candidate": "candidate-1",
+      "original_hw": [
+        410,
+        300
+      ],
+      "valid": true,
+      "exact_pixel_roundtrip": true
+    },
+    {
+      "stage": "A",
+      "candidate": "candidate-2",
+      "original_hw": [
+        410,
+        300
+      ],
+      "valid": true,
+      "exact_pixel_roundtrip": true
+    },
+    {
+      "stage": "B",
+      "candidate": "candidate-0",
+      "original_hw": [
+        460,
+        700
+      ],
+      "valid": true,
+      "exact_pixel_roundtrip": true
+    },
+    {
+      "stage": "B",
+      "candidate": "candidate-1",
+      "original_hw": [
+        460,
+        700
+      ],
+      "valid": true,
+      "exact_pixel_roundtrip": true
+    },
+    {
+      "stage": "B",
+      "candidate": "candidate-2",
+      "original_hw": [
+        460,
+        700
+      ],
+      "valid": true,
+      "exact_pixel_roundtrip": true
+    },
+    {
+      "stage": "C",
+      "candidate": "candidate-0",
+      "original_hw": [
+        2126,
+        1400
+      ],
+      "valid": true,
+      "exact_pixel_roundtrip": true
+    },
+    {
+      "stage": "C",
+      "candidate": "candidate-1",
+      "original_hw": [
+        2126,
+        1400
+      ],
+      "valid": true,
+      "exact_pixel_roundtrip": true
+    },
+    {
+      "stage": "C",
+      "candidate": "candidate-2",
+      "original_hw": [
+        2126,
+        1400
+      ],
+      "valid": true,
+      "exact_pixel_roundtrip": true
+    }
+  ]
+}

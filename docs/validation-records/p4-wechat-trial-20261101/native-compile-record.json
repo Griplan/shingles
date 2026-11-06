@@ -1,0 +1,16 @@
+{
+  "tool": "cua_repl",
+  "app": "Shingles 微信开发者工具 Stable v2.01.2510290",
+  "project_path": "/Users/griplan/project/extra/Shingles‌/dermatome-mapper/miniprogram",
+  "appid_visible_in_project_information": "wx951711e2fa1da5ff",
+  "compile": "PASSED",
+  "observations": [
+    "Updated homepage wording visible",
+    "After clicking Compile, debugger reported Errors 0 / Warnings 3"
+  ],
+  "limitations": [
+    "AX element ID became stale, refreshed full tree before clicking",
+    "Precompile/hot-update error count was 6; after compile it cleared to 0",
+    "Not uploaded; not a native phone/trial test"
+  ]
+}

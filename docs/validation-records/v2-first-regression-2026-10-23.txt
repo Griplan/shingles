@@ -1,0 +1,560 @@
+
+> dermatome-mapper-miniprogram@0.0.0 test
+> node ../scripts/test_miniprogram.cjs
+
+TAP version 13
+# Subtest: V1.2历史：新几何独立版本；前后同骨架、旧视觉与旧区域不静默迁移
+ok 1 - V1.2历史：新几何独立版本；前后同骨架、旧视觉与旧区域不静默迁移
+  ---
+  duration_ms: 1.222083
+  ...
+# Subtest: V1.2历史：设计比例单独检查：约7.5～8头身、裆50～54%、膝72～76%，不是医学准确率
+ok 2 - V1.2历史：设计比例单独检查：约7.5～8头身、裆50～54%、膝72～76%，不是医学准确率
+  ---
+  duration_ms: 0.160792
+  ...
+# Subtest: V1.2历史：轮廓本身胸肩加宽、腰髋收放：不只修改参考点或全图缩放
+ok 3 - V1.2历史：轮廓本身胸肩加宽、腰髋收放：不只修改参考点或全图缩放
+  ---
+  duration_ms: 1.503292
+  ...
+# {"chestY":270,"oldChest":107.83838028169015,"chest":129.48642533936652,"waist":100.56126482213438,"hip":158.43705572116485}
+# Subtest: V1.2历史：躯干、髋膝踝、肘腕与手足参考点在两面同源轮廓内；关节高度有序
+ok 4 - V1.2历史：躯干、髋膝踝、肘腕与手足参考点在两面同源轮廓内；关节高度有序
+  ---
+  duration_ms: 8.496333
+  ...
+# Subtest: V1.2历史：16区域与新几何配准：肩肘腕手指、髋膝踝足均落在应属UI多边形内
+ok 5 - V1.2历史：16区域与新几何配准：肩肘腕手指、髋膝踝足均落在应属UI多边形内
+  ---
+  duration_ms: 0.698917
+  ...
+# Subtest: V1.2历史：前后膝部实际细节路径靠近同一设计关节，避免只下移膝标签
+ok 6 - V1.2历史：前后膝部实际细节路径靠近同一设计关节，避免只下移膝标签
+  ---
+  duration_ms: 0.167375
+  ...
+# Subtest: V1.2历史：新关节参考点实际探测→十字重投影：三尺寸、前后、放大复位保持同一标准位置
+ok 7 - V1.2历史：新关节参考点实际探测→十字重投影：三尺寸、前后、放大复位保持同一标准位置
+  ---
+  duration_ms: 7.238167
+  ...
+# Subtest: V2 geometry UI-A-triangle
+ok 8 - V2 geometry UI-A-triangle
+  ---
+  duration_ms: 1.140292
+  ...
+# Subtest: V2 geometry UI-B-convex
+ok 9 - V2 geometry UI-B-convex
+  ---
+  duration_ms: 0.312083
+  ...
+# Subtest: V2 geometry UI-C-concave
+ok 10 - V2 geometry UI-C-concave
+  ---
+  duration_ms: 0.089584
+  ...
+# Subtest: V2 geometry UI-D-too-few
+ok 11 - V2 geometry UI-D-too-few
+  ---
+  duration_ms: 0.035583
+  ...
+# Subtest: V2 geometry UI-E-repeat
+ok 12 - V2 geometry UI-E-repeat
+  ---
+  duration_ms: 0.02975
+  ...
+# Subtest: V2 geometry UI-F-collinear
+ok 13 - V2 geometry UI-F-collinear
+  ---
+  duration_ms: 0.024666
+  ...
+# Subtest: V2 geometry UI-G-cross
+ok 14 - V2 geometry UI-G-cross
+  ---
+  duration_ms: 0.072541
+  ...
+# Subtest: V2 geometry UI-H-touch
+ok 15 - V2 geometry UI-H-touch
+  ---
+  duration_ms: 0.02475
+  ...
+# Subtest: V2 geometry UI-I-fold
+ok 16 - V2 geometry UI-I-fold
+  ---
+  duration_ms: 0.125833
+  ...
+# Subtest: V2 geometry UI-J-background-edge
+ok 17 - V2 geometry UI-J-background-edge
+  ---
+  duration_ms: 0.182958
+  ...
+# Subtest: V2 geometry UI-K-background-closing-edge
+ok 18 - V2 geometry UI-K-background-closing-edge
+  ---
+  duration_ms: 0.118833
+  ...
+# Subtest: V2 geometry UI-L-fill-hole
+ok 19 - V2 geometry UI-L-fill-hole
+  ---
+  duration_ms: 0.1125
+  ...
+# Subtest: V2 geometry UI-M-safe-beside-hole
+ok 20 - V2 geometry UI-M-safe-beside-hole
+  ---
+  duration_ms: 0.208708
+  ...
+# Subtest: V2 geometry UI-N-on-outer
+ok 21 - V2 geometry UI-N-on-outer
+  ---
+  duration_ms: 0.085292
+  ...
+# Subtest: V2 geometry UI-O-outside-near-edge
+ok 22 - V2 geometry UI-O-outside-near-edge
+  ---
+  duration_ms: 0.023583
+  ...
+# Subtest: V2 geometry UI-P-inside-near-edge
+ok 23 - V2 geometry UI-P-inside-near-edge
+  ---
+  duration_ms: 0.047875
+  ...
+# Subtest: V2 geometry UI-Q-disconnected-bridge
+ok 24 - V2 geometry UI-Q-disconnected-bridge
+  ---
+  duration_ms: 0.030792
+  ...
+# Subtest: V2 geometry UI-R-one-part
+ok 25 - V2 geometry UI-R-one-part
+  ---
+  duration_ms: 0.062084
+  ...
+# Subtest: V2 geometry UI-S-hole-boundary-fill
+ok 26 - V2 geometry UI-S-hole-boundary-fill
+  ---
+  duration_ms: 0.05975
+  ...
+# Subtest: V2 geometry UI-T-sub-area
+ok 27 - V2 geometry UI-T-sub-area
+  ---
+  duration_ms: 1.362166
+  ...
+# Subtest: V2 geometry UI-U-tiny-valid
+ok 28 - V2 geometry UI-U-tiny-valid
+  ---
+  duration_ms: 0.433584
+  ...
+# Subtest: V2 malformed finite/type/range, unsupported nested/explicit closure and resource limits
+ok 29 - V2 malformed finite/type/range, unsupported nested/explicit closure and resource limits
+  ---
+  duration_ms: 0.212875
+  ...
+# Subtest: V2 actual bound body: central shape and crossing entry chest→abdomen accepted; air bridge rejected
+ok 30 - V2 actual bound body: central shape and crossing entry chest→abdomen accepted; air bridge rejected
+  ---
+  duration_ms: 25.139083
+  ...
+# Subtest: V2 full interval containment finds a narrow notch missed by sparse edge samples
+ok 31 - V2 full interval containment finds a narrow notch missed by sparse edge samples
+  ---
+  duration_ms: 0.107709
+  ...
+# Subtest: V2.1 valid entry, unique immutable authority, immediate draft sync and stale token rejection
+ok 32 - V2.1 valid entry, unique immutable authority, immediate draft sync and stale token rejection
+  ---
+  duration_ms: 2.731666
+  ...
+# Subtest: V2.1 expired process/session and changed template/geometry/region version retain original data
+ok 33 - V2.1 expired process/session and changed template/geometry/region version retain original data
+  ---
+  duration_ms: 0.410083
+  ...
+# Subtest: V2.2 invalid close preserves draft; undo and cancel affect only current draft
+ok 34 - V2.2 invalid close preserves draft; undo and cancel affect only current draft
+  ---
+  duration_ms: 10.936458
+  ...
+# Subtest: V2.3 multiple overlapping regions stay independent; selected delete changes only target
+ok 35 - V2.3 multiple overlapping regions stay independent; selected delete changes only target
+  ---
+  duration_ms: 6.802834
+  ...
+# Subtest: V2.3 draft switch is atomic: cancel/invalid close retain; discard or valid close switch; views isolated
+ok 36 - V2.3 draft switch is atomic: cancel/invalid close retain; discard or valid close switch; views isolated
+  ---
+  duration_ms: 7.25925
+  ...
+# Subtest: V2.4 reentry restores nonempty draft and its view; review guards zero/draft and continues same session
+ok 37 - V2.4 reentry restores nonempty draft and its view; review guards zero/draft and continues same session
+  ---
+  duration_ms: 2.59725
+  ...
+# Subtest: V2.5 focus is presentation only; entry navigation is not a polygon fence
+ok 38 - V2.5 focus is presentation only; entry navigation is not a polygon fence
+  ---
+  duration_ms: 3.2255
+  ...
+# Subtest: V2 resource limits fail without truncation and IDs never reuse on cancel/delete
+ok 39 - V2 resource limits fail without truncation and IDs never reuse on cancel/delete
+  ---
+  duration_ms: 21.553042
+  ...
+# Subtest: 新模板正背面资源、逻辑比例、版本及区域显式绑定，源文件存在
+ok 40 - 新模板正背面资源、逻辑比例、版本及区域显式绑定，源文件存在
+  ---
+  duration_ms: 1.636917
+  ...
+# Subtest: 每面8个独立UI区域、16个唯一ID，头颈存在且能居中放大
+ok 41 - 每面8个独立UI区域、16个唯一ID，头颈存在且能居中放大
+  ---
+  duration_ms: 4.617667
+  ...
+# Subtest: 几何不变可更换配色/线条资源；几何、视图、尺寸或区域错版明确拒绝
+ok 42 - 几何不变可更换配色/线条资源；几何、视图、尺寸或区域错版明确拒绝
+  ---
+  duration_ms: 3.084042
+  ...
+# Subtest: 连续人体轮廓命中头颈躯干/双臂手/双腿足，拒绝臂躯间隙与腿间留白
+ok 43 - 连续人体轮廓命中头颈躯干/双臂手/双腿足，拒绝臂躯间隙与腿间留白
+  ---
+  duration_ms: 14.262375
+  ...
+# Subtest: 外部素材保留自然非对称及独立正背面，全身轮廓适配Canvas
+ok 44 - 外部素材保留自然非对称及独立正背面，全身轮廓适配Canvas
+  ---
+  duration_ms: 4.394875
+  ...
+# Subtest: 同一二次曲线路径细分命中，边缘容差不吸附，开放路径拒绝
+ok 45 - 同一二次曲线路径细分命中，边缘容差不吸附，开放路径拒绝
+  ---
+  duration_ms: 0.208792
+  ...
+# Subtest: 原生Canvas本地触点和client触点识别，不猜测page坐标或DPR
+ok 46 - 原生Canvas本地触点和client触点识别，不猜测page坐标或DPR
+  ---
+  duration_ms: 0.334042
+  ...
+# Subtest: 真实矩形处理页面滚动：两种事件基准得到相同标准点
+ok 47 - 真实矩形处理页面滚动：两种事件基准得到相同标准点
+  ---
+  duration_ms: 1.2295
+  ...
+# Subtest: 三种尺寸区分有效人体、逻辑画布内留白、模型范围外；无效点不产生标准点
+ok 48 - 三种尺寸区分有效人体、逻辑画布内留白、模型范围外；无效点不产生标准点
+  ---
+  duration_ms: 1.378125
+  ...
+# Subtest: 归一化单点在放大、复位、尺寸变化时重投影；超出可见范围隐藏，不贴边
+ok 49 - 归一化单点在放大、复位、尺寸变化时重投影；超出可见范围隐藏，不贴边
+  ---
+  duration_ms: 0.781208
+  ...
+# Subtest: Canvas 正背面使用不同PNG资源且绘图状态成对恢复
+ok 50 - Canvas 正背面使用不同PNG资源且绘图状态成对恢复
+  ---
+  duration_ms: 3.234958
+  ...
+# Subtest: 区域高亮裁剪于人体轮廓，跨视图区域不会误画
+ok 51 - 区域高亮裁剪于人体轮廓，跨视图区域不会误画
+  ---
+  duration_ms: 2.471292
+  ...
+# Subtest: 初始化/尺寸适配/DPR 280×460×1
+ok 52 - 初始化/尺寸适配/DPR 280×460×1
+  ---
+  duration_ms: 1.397209
+  ...
+# Subtest: 初始化/尺寸适配/DPR 343×540×2
+ok 53 - 初始化/尺寸适配/DPR 343×540×2
+  ---
+  duration_ms: 0.198208
+  ...
+# Subtest: 初始化/尺寸适配/DPR 700×570×3
+ok 54 - 初始化/尺寸适配/DPR 700×570×3
+  ---
+  duration_ms: 1.191084
+  ...
+# Subtest: 反复切换、区域放大与复位不累加 DPR/模型缩放
+ok 55 - 反复切换、区域放大与复位不累加 DPR/模型缩放
+  ---
+  duration_ms: 6.9425
+  ...
+# Subtest: hide/show、resize 重测尺寸；detached 后忽略异步结果
+ok 56 - hide/show、resize 重测尺寸；detached 后忽略异步结果
+  ---
+  duration_ms: 3.225208
+  ...
+# Subtest: 初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口
+ok 57 - 初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口
+  ---
+  duration_ms: 0.367667
+  ...
+# Subtest: 页面选择校验、换面清理、区域切换与复位状态
+ok 58 - 页面选择校验、换面清理、区域切换与复位状态
+  ---
+  duration_ms: 0.814375
+  ...
+# Subtest: 调试默认关闭，不采集坐标；开启后实际触点形成单个十字和真实事件
+ok 59 - 调试默认关闭，不采集坐标；开启后实际触点形成单个十字和真实事件
+  ---
+  duration_ms: 2.928708
+  ...
+# Subtest: DPR1/2/3不会进入点击归一化，client触点与Canvas触点一致
+ok 60 - DPR1/2/3不会进入点击归一化，client触点与Canvas触点一致
+  ---
+  duration_ms: 8.274875
+  ...
+# Subtest: 十字随区域放大、复位及resize重投影；原标准坐标不变，出视口时隐藏
+ok 61 - 十字随区域放大、复位及resize重投影；原标准坐标不变，出视口时隐藏
+  ---
+  duration_ms: 4.840416
+  ...
+# Subtest: 留白及模型外点击清除旧十字，不伪造标准点，不改变所选区域
+ok 62 - 留白及模型外点击清除旧十字，不伪造标准点，不改变所选区域
+  ---
+  duration_ms: 2.862084
+  ...
+# Subtest: 关闭调试或换面清除单点，重新开启/换回不复用另一视图的点
+ok 63 - 关闭调试或换面清除单点，重新开启/换回不复用另一视图的点
+  ---
+  duration_ms: 1.001584
+  ...
+# Subtest: 拖动/滚动、取消触摸和多触点不当作点击；不会创建病灶集合
+ok 64 - 拖动/滚动、取消触摸和多触点不当作点击；不会创建病灶集合
+  ---
+  duration_ms: 0.338584
+  ...
+# Subtest: 点击查询期间切换视口或detach丢弃旧结果；查询失败明确提示且不保留标记
+ok 65 - 点击查询期间切换视口或detach丢弃旧结果；查询失败明确提示且不保留标记
+  ---
+  duration_ms: 0.466
+  ...
+# Subtest: 调试面板显示四位标准坐标及实际运行状态；关闭、换面和错版事件隔离
+ok 66 - 调试面板显示四位标准坐标及实际运行状态；关闭、换面和错版事件隔离
+  ---
+  duration_ms: 0.479583
+  ...
+# Subtest: 真实图片绘制分支：PNG未提供时拒绝画旧人体，正常帧确实调用drawImage
+ok 67 - 真实图片绘制分支：PNG未提供时拒绝画旧人体，正常帧确实调用drawImage
+  ---
+  duration_ms: 0.34575
+  ...
+# Subtest: 本地PNG异步加载期间不产生视口，旧面onload不会误画，新面成功后可复用缓存
+ok 68 - 本地PNG异步加载期间不产生视口，旧面onload不会误画，新面成功后可复用缓存
+  ---
+  duration_ms: 0.675792
+  ...
+# Subtest: PNG加载失败明确报错且不回退，重试成功；detach后的图片事件被丢弃
+ok 69 - PNG加载失败明确报错且不回退，重试成功；detach后的图片事件被丢弃
+  ---
+  duration_ms: 0.242
+  ...
+# Subtest: 真实组件正常轻触经rect与统一逆变换报告选区一次，不放大、不生成调试点
+ok 70 - 真实组件正常轻触经rect与统一逆变换报告选区一次，不放大、不生成调试点
+  ---
+  duration_ms: 0.55575
+  ...
+# Subtest: 选择、局部、调试与弹层优先级隔离；弹层中途打开会废弃待返回的触摸结果
+ok 71 - 选择、局部、调试与弹层优先级隔离；弹层中途打开会废弃待返回的触摸结果
+  ---
+  duration_ms: 0.916666
+  ...
+# Subtest: 正常模式拖动、多指、取消也不误选，布局变更后旧尺寸拒绝并重新测量
+ok 72 - 正常模式拖动、多指、取消也不误选，布局变更后旧尺寸拒绝并重新测量
+  ---
+  duration_ms: 0.378708
+  ...
+# Subtest: 正常选择区分重叠和人体外，查询失败不伪造选区；换面丢弃旧触点
+ok 73 - 正常选择区分重叠和人体外，查询失败不伪造选区；换面丢弃旧触点
+  ---
+  duration_ms: 2.659292
+  ...
+# Subtest: 320/375/430宽及矮屏节点重测：独立手算胸点选择、放大/复位和双侧无漂移
+ok 74 - 320/375/430宽及矮屏节点重测：独立手算胸点选择、放大/复位和双侧无漂移
+  ---
+  duration_ms: 4.935625
+  ...
+# Subtest: 弹层隐藏期间停止测量绘图；关闭后同一模板、图片缓存、局部视口和调试标准点恢复
+ok 75 - 弹层隐藏期间停止测量绘图；关闭后同一模板、图片缓存、局部视口和调试标准点恢复
+  ---
+  duration_ms: 0.852584
+  ...
+# Subtest: 实际启用Commons新模板与真实PNG，原SVG和许可来源可核对，拒绝旧几何
+ok 76 - 实际启用Commons新模板与真实PNG，原SVG和许可来源可核对，拒绝旧几何
+  ---
+  duration_ms: 5.091583
+  ...
+# Subtest: 16个新区域独立配准源图参考点；旧头部边界不能直接复用
+ok 77 - 16个新区域独立配准源图参考点；旧头部边界不能直接复用
+  ---
+  duration_ms: 6.013625
+  ...
+# Subtest: 实际PNG透明度与命中轮廓密集抽样一致，含四肢间隙，不能仅用矩形命中
+ok 78 - 实际PNG透明度与命中轮廓密集抽样一致，含四肢间隙，不能仅用矩形命中
+  ---
+  duration_ms: 723.940292
+  ...
+# Subtest: 头颈胸腹背及四肢全部放大范围，三种容器/DPR下同点探测与复位不变
+ok 79 - 头颈胸腹背及四肢全部放大范围，三种容器/DPR下同点探测与复位不变
+  ---
+  duration_ms: 9.329458
+  ...
+# Subtest: 前后使用同一尺度与画布，保持原视图差异，历史点明确失效
+ok 80 - 前后使用同一尺度与画布，保持原视图差异，历史点明确失效
+  ---
+  duration_ms: 0.232167
+  ...
+# Subtest: A 标准坐标正向转换：独立手算 0.5 比例与 16px 留白
+ok 81 - A 标准坐标正向转换：独立手算 0.5 比例与 16px 留白
+  ---
+  duration_ms: 0.675458
+  ...
+# Subtest: B CSS 坐标逆向转换：手算容器中心
+ok 82 - B CSS 坐标逆向转换：手算容器中心
+  ---
+  duration_ms: 0.06775
+  ...
+# Subtest: C 三种尺寸 11×11 参考点往返，最大允许误差 1e-9
+ok 83 - C 三种尺寸 11×11 参考点往返，最大允许误差 1e-9
+  ---
+  duration_ms: 0.728417
+  ...
+# Subtest: D 宽/窄容器始终等比例，分别产生上下和左右留白
+ok 84 - D 宽/窄容器始终等比例，分别产生上下和左右留白
+  ---
+  duration_ms: 0.048625
+  ...
+# Subtest: E 留白、Canvas 外部以及非有限点击拒绝，不吸附边缘
+ok 85 - E 留白、Canvas 外部以及非有限点击拒绝，不吸附边缘
+  ---
+  duration_ms: 0.069792
+  ...
+# Subtest: F 区域放大居中、四角留在容器内，标准位置保持一致
+ok 86 - F 区域放大居中、四角留在容器内，标准位置保持一致
+  ---
+  duration_ms: 0.19375
+  ...
+# Subtest: G 复位恢复原全身视口，放大不会修改原始点或区域
+ok 87 - G 复位恢复原全身视口，放大不会修改原始点或区域
+  ---
+  duration_ms: 0.271792
+  ...
+# Subtest: H 拒绝非法容器尺寸 0
+ok 88 - H 拒绝非法容器尺寸 0
+  ---
+  duration_ms: 0.199583
+  ...
+# Subtest: H 拒绝非法容器尺寸 -1
+ok 89 - H 拒绝非法容器尺寸 -1
+  ---
+  duration_ms: 0.140333
+  ...
+# Subtest: H 拒绝非法容器尺寸 NaN
+ok 90 - H 拒绝非法容器尺寸 NaN
+  ---
+  duration_ms: 0.18525
+  ...
+# Subtest: H 拒绝非法容器尺寸 Infinity
+ok 91 - H 拒绝非法容器尺寸 Infinity
+  ---
+  duration_ms: 0.09275
+  ...
+# Subtest: H 拒绝非法容器尺寸 -Infinity
+ok 92 - H 拒绝非法容器尺寸 -Infinity
+  ---
+  duration_ms: 0.032708
+  ...
+# Subtest: H 拒绝异常模型、留白、区域和标准点数值
+ok 93 - H 拒绝异常模型、留白、区域和标准点数值
+  ---
+  duration_ms: 0.226959
+  ...
+# Subtest: I 边界点 (0,0)、(1,1) 与全画布放大复位
+ok 94 - I 边界点 (0,0)、(1,1) 与全画布放大复位
+  ---
+  duration_ms: 0.079084
+  ...
+# Subtest: H 拒绝调用方构造的无效视口，不返回 NaN 或伪造坐标
+ok 95 - H 拒绝调用方构造的无效视口，不返回 NaN 或伪造坐标
+  ---
+  duration_ms: 0.154375
+  ...
+# Subtest: J 正背面区域独立、ID唯一、解剖学左右正确，区域中心可往返
+ok 96 - J 正背面区域独立、ID唯一、解剖学左右正确，区域中心可往返
+  ---
+  duration_ms: 1.750208
+  ...
+# Subtest: 人工非医学夹具：唯一、重叠、边界、人体外和人体内无配置分别报告
+ok 97 - 人工非医学夹具：唯一、重叠、边界、人体外和人体内无配置分别报告
+  ---
+  duration_ms: 1.066459
+  ...
+# Subtest: 真实区域使用多边形且保留独立前后与解剖学左右，唯一点不会串面
+ok 98 - 真实区域使用多边形且保留独立前后与解剖学左右，唯一点不会串面
+  ---
+  duration_ms: 7.490167
+  ...
+# Subtest: 真实头颈/颈胸/胸腹边界有明确候选，不通过扩大包围盒吞掉人体间隙
+ok 99 - 真实头颈/颈胸/胸腹边界有明确候选，不通过扩大包围盒吞掉人体间隙
+  ---
+  duration_ms: 1.367042
+  ...
+# Subtest: V1.6源图人工参考点：胸侧/双上臂/肩界两侧/颈腹与公共边界，不从命中函数产生期望
+ok 100 - V1.6源图人工参考点：胸侧/双上臂/肩界两侧/颈腹与公共边界，不从命中函数产生期望
+  ---
+  duration_ms: 4.764125
+  ...
+# Subtest: 旧胸/上背上臂混选复现；新配置同点只属对应上肢，focus留白不参与最终判定
+ok 101 - 旧胸/上背上臂混选复现；新配置同点只属对应上肢，focus留白不参与最终判定
+  ---
+  duration_ms: 1.120042
+  ...
+# Subtest: 高亮实际fill路径就是命中outline，轻实线宽度始终1 CSS px；源图裁切状态恢复
+ok 102 - 高亮实际fill路径就是命中outline，轻实线宽度始终1 CSS px；源图裁切状态恢复
+  ---
+  duration_ms: 4.953
+  ...
+# Subtest: 手工源图参考点跨全身/胸部focus/复位及320/375/430/矮容器归属不变
+ok 103 - 手工源图参考点跨全身/胸部focus/复位及320/375/430/矮容器归属不变
+  ---
+  duration_ms: 41.056
+  ...
+# Subtest: 初始无默认选择、不可放大；人体唯一命中只高亮，确认后才进入focused
+ok 104 - 初始无默认选择、不可放大；人体唯一命中只高亮，确认后才进入focused
+  ---
+  duration_ms: 0.903
+  ...
+# Subtest: 从列表和人体选中相同状态，focused换部位回overview，取消弹层不改选择/视口
+ok 105 - 从列表和人体选中相同状态，focused换部位回overview，取消弹层不改选择/视口
+  ---
+  duration_ms: 0.297042
+  ...
+# Subtest: 人体外/未配置保留原选择并提示；边界弹候选，取消不抢占，候选选中后不放大
+ok 106 - 人体外/未配置保留原选择并提示；边界弹候选，取消不抢占，候选选中后不放大
+  ---
+  duration_ms: 0.332917
+  ...
+# Subtest: 调试/弹层/说明/错版隔离正常选区，切面清空选择缩放与调试，拒绝跨面列表ID
+ok 107 - 调试/弹层/说明/错版隔离正常选区，切面清空选择缩放与调试，拒绝跨面列表ID
+  ---
+  duration_ms: 0.17075
+  ...
+# Subtest: 开发调试低干扰入口可关闭并清点；说明是真实许可，不调用未来评估或标注接口
+ok 108 - 开发调试低干扰入口可关闭并清点；说明是真实许可，不调用未来评估或标注接口
+  ---
+  duration_ms: 0.186833
+  ...
+# Subtest: region-picker只展示配置并发送已知ID，关闭/遮罩不偷偷选择
+ok 109 - region-picker只展示配置并发送已知ID，关闭/遮罩不偷偷选择
+  ---
+  duration_ms: 0.312666
+  ...
+1..109
+# tests 109
+# suites 0
+# pass 109
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1012.499042

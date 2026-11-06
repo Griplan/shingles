@@ -1,0 +1,22 @@
+flowchart TB
+  IDX["index / select
+视图与部位上下文"] --> ANN["annotate
+手工编辑 + 计算结果"]
+  IDX --> AI["ai-annotate
+AIPhotoFlow"]
+  AI -->|"确认照片几何"| PL["placement
+PlacementSession"]
+  PL -->|"确认位置 / 编辑"| CAN["annotationSession
+唯一正式标注状态"]
+  ANN --> CAN
+  CAN --> MAT["matchingSession
+快照 / 失效 / 请求序号"]
+  MAT --> ANN
+  CAN --> CV["body-canvas
+人体 / 标注 / 参考覆盖"]
+  ANN --> CV
+  PL --> CV
+  OLD["result
+兼容重定向"] --> ANN
+  DBG["atlas-debug
+仅开发"] --> CV

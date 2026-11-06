@@ -1,0 +1,19 @@
+{
+  "atlasType": "SCHEMATIC",
+  "reviewStatus": "NOT_MEDICALLY_VALIDATED",
+  "intendedUse": "INTERACTIVE_SIMULATION",
+  "sourceType": "ARTIFICIALLY_CONSTRUCTED",
+  "boundarySystem": "schematic_skin_partition",
+  "boundaryLicenseStatus": "verified",
+  "sources": [
+    {
+      "id": "project-artificial-axilla-design-v1",
+      "purpose": "artificial_partition_design",
+      "licenseStatus": "verified",
+      "license": "CC0-1.0",
+      "author": "dermatome-mapper project",
+      "url": "docs/validation-records/v6.6-axilla/full-simulation/region-design.md",
+      "boundaryEvidence": "Artificial UI partition, NOT medical boundary evidence; Goran only contextual direction, no SVG extraction"
+    }
+  ]
+}

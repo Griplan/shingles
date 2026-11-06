@@ -1,0 +1,8 @@
+<view class="canvas-shell">
+  <canvas id="body-canvas" type="2d" hidden="{{interactionBlocked}}" class="body-canvas" bindtouchstart="onCanvasStart" bindtouchmove="onCanvasMove" bindtouchend="onCanvasEnd" bindtouchcancel="onCanvasCancel" aria-label="{{view === 'front' ? '人体正面示意模型' : '人体背面示意模型'}}"></canvas>
+  <view wx:if="{{!interactionBlocked && loading && !error}}" class="canvas-message">正在准备人体模型…</view>
+  <view wx:if="{{!interactionBlocked && error}}" class="canvas-message canvas-error">
+    <view>{{error}}</view>
+    <button class="retry-button" bindtap="refreshCanvas">重新显示</button>
+  </view>
+</view>

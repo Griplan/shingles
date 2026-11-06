@@ -1,0 +1,46 @@
+V1 file changes against source snapshot taken before V1, 2026-10-17
+Excludes .git, dependencies, generated JS and ignored private settings. No commits or pushes.
+This inventory is not a progress tracker; see ../task.md for status and evidence.
+
+NEW: 18
+docs/v1-changes.txt
+docs/validation-records/v1-final-static-2026-10-17.txt
+docs/validation-records/v1-gui-2026-10-17.txt
+docs/validation-records/v1-invalid-viewport-failed-2026-10-17.txt
+docs/validation-records/v1-regression-2026-10-17.txt
+docs/validation-records/v1-unit-2026-10-17.txt
+docs/validation-records/v1-unit-repaired-2026-10-17.txt
+miniprogram/assets/body/README.md
+miniprogram/assets/body/model.ts
+miniprogram/components/body-canvas/body-canvas.json
+miniprogram/components/body-canvas/body-canvas.ts
+miniprogram/components/body-canvas/body-canvas.wxml
+miniprogram/components/body-canvas/body-canvas.wxss
+miniprogram/components/body-canvas/render.ts
+miniprogram/data/body-regions.ts
+scripts/test_miniprogram.cjs
+tests/miniprogram/canvas.test.cjs
+tests/miniprogram/coordinate.test.cjs
+
+MODIFIED: 18
+AGENTS.md
+README.md
+data/references.md
+docs/architecture.md
+docs/atlas-spec.md
+docs/requirements.md
+docs/validation.md
+miniprogram/package.json
+miniprogram/pages/index/index.ts
+miniprogram/pages/index/index.wxml
+miniprogram/pages/select/select.json
+miniprogram/pages/select/select.ts
+miniprogram/pages/select/select.wxml
+miniprogram/pages/select/select.wxss
+miniprogram/types/dermatome.ts
+miniprogram/utils/coordinate.ts
+scripts/check_project.py
+task.md
+
+DELETED: 0
+(none)

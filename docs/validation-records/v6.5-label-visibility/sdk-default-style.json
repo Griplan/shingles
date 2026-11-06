@@ -1,0 +1,6 @@
+{
+  "source": "Installed WeChat toolkit/browser/dist/WAWebview.js",
+  "sha256": "c17035e4f660ed830419ef156cc5c51457046a30e7708d0c1dfcd3f8d33fb8c6",
+  "styleRule": "wx-button:not([size=mini]){margin-left:auto;margin-right:auto;width:184px}",
+  "cause": "SDK selector specificity 0,1,1 beats old single class 0,1,0; scoped rail selector 0,2,0 restores actual narrow width. Labels data were present."
+}

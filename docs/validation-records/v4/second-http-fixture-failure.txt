@@ -1,0 +1,17 @@
+PASS real HTTP: V2 polygon -> auto evaluate -> results -> exact atlas instances + unchanged annotation -> focus/reset/resize
+PASS real HTTP: return edit/add -> old overlay cleared -> recalculate -> independent lesions + union summary + single scope
+PASS real HTTP: back polygon -> isolated back response/overlay -> switch front clears back selection
+PASS network adapter failure: annotation retained, retry returns real HTTP result
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'partial'
+- 'none'
+    at main (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/scripts/test_matching_http.cjs:36:398)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'partial',
+  expected: 'none',
+  operator: 'strictEqual'
+}

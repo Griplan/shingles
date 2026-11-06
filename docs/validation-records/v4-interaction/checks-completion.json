@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-26",
+  "automated": [
+    {
+      "check": "frontend-completion",
+      "command": "npm test --prefix miniprogram",
+      "status": "PASSED",
+      "exit_code": 0,
+      "count": 149,
+      "evidence": "frontend-completion.txt"
+    },
+    {
+      "check": "typecheck-completion",
+      "command": "npm run typecheck --prefix miniprogram",
+      "status": "PASSED",
+      "exit_code": 0,
+      "count": null,
+      "evidence": "typecheck-completion.txt"
+    },
+    {
+      "check": "backend",
+      "command": "backend/.venv/bin/python -m pytest backend/tests -q",
+      "status": "PASSED",
+      "exit_code": 0,
+      "count": 47,
+      "evidence": "backend.txt"
+    },
+    {
+      "check": "atlas-sync",
+      "command": "backend/.venv/bin/python scripts/sync_atlas.py --check",
+      "status": "PASSED",
+      "exit_code": 0,
+      "count": null,
+      "evidence": "atlas-sync.txt"
+    },
+    {
+      "check": "body-sync",
+      "command": "backend/.venv/bin/python scripts/sync_matching_body.py --check",
+      "status": "PASSED",
+      "exit_code": 0,
+      "count": null,
+      "evidence": "body-sync.txt"
+    },
+    {
+      "check": "project",
+      "command": "backend/.venv/bin/python scripts/check_project.py",
+      "status": "PASSED",
+      "exit_code": 0,
+      "count": null,
+      "evidence": "project.txt"
+    },
+    {
+      "check": "native-compile-final",
+      "command": "wcc/wcsc; exact invocations in log",
+      "status": "PASSED",
+      "exit_code": 0,
+      "count": null,
+      "evidence": "native-compile-final.txt"
+    },
+    {
+      "check": "http-check",
+      "command": "node scripts/test_matching_http.cjs",
+      "status": "PASSED",
+      "exit_code": 0,
+      "count": null,
+      "evidence": "http-check.txt"
+    }
+  ],
+  "protected_files": {
+    "count": 93,
+    "status": "PASSED",
+    "evidence": "protection-check.json"
+  },
+  "gui": {
+    "390x844": "PASSED for recorded scenarios",
+    "320x568": "PARTIAL; layout/scroll passed after refresh, canvas/navigation failures require retest",
+    "375x667_result": "NOT_RUN",
+    "430_result": "NOT_RUN",
+    "480_short_screen": "NOT_RUN",
+    "physical_device": "NOT_RUN",
+    "evidence": "gui-validation.md"
+  }
+}

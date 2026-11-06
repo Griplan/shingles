@@ -1,0 +1,155 @@
+{
+  "environment": {
+    "developer_tools": "Stable 2.01.2510290",
+    "base_library": "3.17.4",
+    "simulator": "iPhone 12/13 Pro Max"
+  },
+  "method": "real native UI clicks/drags/sliders and real loopback HTTP; read-only diagnostics/request timing, not injected geometry or responses",
+  "sample": "existing public CDC PHIL 21505; no new clinical sample",
+  "metrics": {
+    "cancel-state": {
+      "tag": "V54_CANCEL_OK",
+      "value": {
+        "route": "pages/annotate/annotate",
+        "unchanged": true,
+        "resultMode": true,
+        "labels": 6,
+        "requestRestored": true
+      }
+    },
+    "draft-state": {
+      "tag": "V54_DRAFT",
+      "value": {
+        "requests": 1,
+        "formalUnchanged": true,
+        "oldResultStillReady": true
+      }
+    },
+    "edit-layer-state": {
+      "tag": "V54_GHOST_FIXED",
+      "value": {
+        "route": "pages/placement/placement",
+        "editing": true,
+        "backgroundCount": 0,
+        "confirmed": false
+      }
+    },
+    "edited-state": {
+      "tag": "V54_EDITED",
+      "value": {
+        "route": "pages/annotate/annotate",
+        "requests": 2,
+        "httpMs": [
+          125,
+          135
+        ],
+        "savedCount": 1,
+        "sameId": true,
+        "geometryChanged": true,
+        "photoUnchanged": true,
+        "requestEqualsSaved": true,
+        "selected": "",
+        "labels": [
+          "T7",
+          "T6",
+          "T5",
+          "T8",
+          "T7"
+        ],
+        "ready": "ready"
+      }
+    },
+    "first-state": {
+      "tag": "V54_NATIVE_FIRST",
+      "value": {
+        "route": "pages/annotate/annotate",
+        "requests": 1,
+        "httpMs": [
+          125
+        ],
+        "status": "ready",
+        "selected": "",
+        "regions": 5,
+        "labels": 5,
+        "pieces": 8,
+        "holes": 5,
+        "vertices": 1015,
+        "scale": 0.72,
+        "angle": 28,
+        "cameraRetained": true,
+        "photoNotSent": true
+      }
+    },
+    "manual-state": {
+      "tag": "V54_MANUAL_OK",
+      "value": {
+        "requests": 3,
+        "httpMs": [
+          125,
+          135,
+          170
+        ],
+        "lesions": [
+          {
+            "source": "manual",
+            "view": "front",
+            "fullGeometry": false
+          },
+          {
+            "source": "ai_assisted",
+            "view": "back",
+            "fullGeometry": true
+          }
+        ],
+        "labels": 4
+      }
+    },
+    "retry-state": {
+      "tag": "V54_RETRY_OK",
+      "value": {
+        "calls": [
+          {
+            "failed": true,
+            "ms": 21
+          },
+          {
+            "status": 200,
+            "failed": false,
+            "ms": 105
+          }
+        ],
+        "sameLesions": true,
+        "savedCount": 1,
+        "labels": 6,
+        "photoSent": false
+      }
+    },
+    "uncovered-state": {
+      "tag": "V54_UNCOVERED_OK",
+      "value": {
+        "route": "pages/annotate/annotate",
+        "result": true,
+        "labels": 0,
+        "regions": 0,
+        "savedCount": 1,
+        "scale": 0.17,
+        "selected": ""
+      }
+    }
+  },
+  "not_run": [
+    "physical phones",
+    "camera",
+    "native multi-device screens",
+    "rapid navigation concurrency stress",
+    "20000-vertex native worst case",
+    "frame-by-frame transition recording",
+    "clinical accuracy"
+  ],
+  "diagnostic_notes": [
+    "initial hot reload module error resolved by full compile",
+    "read-only diagnostics initially used two incorrect field names; corrected and recorded",
+    "real backend disconnect intentionally produced connection failure",
+    "request wrappers restored after measurement"
+  ]
+}

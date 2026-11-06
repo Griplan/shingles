@@ -1,0 +1,12 @@
+{
+  "status": "APPLIED",
+  "changed": [
+    "backend/app/services/access.py",
+    "deployment/rollback.md",
+    "backend/app/api/routes/access.py",
+    "backend/app/services/trial_access.py"
+  ],
+  "public_test_access": true,
+  "rollback_backup": "/srv/dermatome-mapper/deployment/backups/p42-no-invitation-20261102",
+  "A_and_nginx_not_changed": true
+}

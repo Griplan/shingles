@@ -1,0 +1,122 @@
+[
+  {
+    "file": "LICENSE",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "README.md",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/__init__.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/automatic_mask_generator.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/build_sam.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/modeling/__init__.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/modeling/common.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/modeling/image_encoder.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/modeling/mask_decoder.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/modeling/prompt_encoder.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/modeling/sam.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/modeling/tiny_vit_sam.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/modeling/transformer.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/predictor.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/utils/__init__.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/utils/amg.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/utils/onnx.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "mobile_sam/utils/transforms.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "setup.py",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  },
+  {
+    "file": "weights/mobile_sam.pt",
+    "exit": 35,
+    "bytes": 0,
+    "error": "curl: (35) Recv failure: Connection reset by peer\n"
+  }
+]

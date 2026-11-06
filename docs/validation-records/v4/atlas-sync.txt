@@ -1,0 +1,2 @@
+COMMAND: ["/Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/bin/python", "scripts/sync_atlas.py", "--check"]
+PASSED: canonical hash and generated package copy agree

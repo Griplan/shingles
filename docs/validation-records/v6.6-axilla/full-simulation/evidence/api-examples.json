@@ -1,0 +1,586 @@
+[
+  {
+    "request": {
+      "request_id": "schematic-example-left",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-axilla-v1",
+        "template_version": "1.0.0",
+        "geometry_id": "cc0-raised-axilla-outline-v1",
+        "region_set_id": "commons-axilla-ui-v1",
+        "atlas_id": "axilla-schematic-v1",
+        "atlas_version": "axilla-schematic.1",
+        "atlas_content_sha256": "9a2b375308d3e64ece4135215a46b304d425e15fe6e76ad7fd47764caaab1b0b",
+        "body_content_sha256": "d606be12993d015c43c27e65c2e3749b2ace6e4df0b304142a776a5464e45d72",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "lesions": [
+        {
+          "id": "synthetic-0",
+          "view": "axilla-left",
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinateSpace": "body_template_normalized_v1",
+            "coordinates": [
+              [
+                [
+                  {
+                    "x": 0.43799999999999994,
+                    "y": 0.4447
+                  },
+                  {
+                    "x": 0.46199999999999997,
+                    "y": 0.4447
+                  },
+                  {
+                    "x": 0.44999999999999996,
+                    "y": 0.4687
+                  },
+                  {
+                    "x": 0.43799999999999994,
+                    "y": 0.4447
+                  }
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "id": "synthetic-1",
+          "view": "axilla-left",
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinateSpace": "body_template_normalized_v1",
+            "coordinates": [
+              [
+                [
+                  {
+                    "x": 0.606,
+                    "y": 0.22299999999999998
+                  },
+                  {
+                    "x": 0.63,
+                    "y": 0.22299999999999998
+                  },
+                  {
+                    "x": 0.618,
+                    "y": 0.247
+                  },
+                  {
+                    "x": 0.606,
+                    "y": 0.22299999999999998
+                  }
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "id": "synthetic-2",
+          "view": "axilla-left",
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinateSpace": "body_template_normalized_v1",
+            "coordinates": [
+              [
+                [
+                  {
+                    "x": 0.28049999999999997,
+                    "y": 0.643
+                  },
+                  {
+                    "x": 0.3045,
+                    "y": 0.643
+                  },
+                  {
+                    "x": 0.2925,
+                    "y": 0.667
+                  },
+                  {
+                    "x": 0.28049999999999997,
+                    "y": 0.643
+                  }
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    "response": {
+      "request_id": "schematic-example-left",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-axilla-v1",
+        "template_version": "1.0.0",
+        "geometry_id": "cc0-raised-axilla-outline-v1",
+        "region_set_id": "commons-axilla-ui-v1",
+        "atlas_id": "axilla-schematic-v1",
+        "atlas_version": "axilla-schematic.1",
+        "atlas_content_sha256": "9a2b375308d3e64ece4135215a46b304d425e15fe6e76ad7fd47764caaab1b0b",
+        "body_content_sha256": "d606be12993d015c43c27e65c2e3749b2ace6e4df0b304142a776a5464e45d72",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "method": "manual_annotation_reference_geometry",
+      "area_unit": "normalized_template_area",
+      "source": {
+        "atlas_type": "SCHEMATIC",
+        "review_status": "NOT_MEDICALLY_VALIDATED",
+        "intended_use": "INTERACTIVE_SIMULATION",
+        "source_type": "ARTIFICIALLY_CONSTRUCTED",
+        "disclaimer": "本区域使用人为构建的神经皮节示意分区，边界未经医学验证，仅供交互模拟和科普，不用于判断实际受累神经，不能代替就医。",
+        "title": "腋下人工模拟分区 · SCHEMATIC",
+        "url": "docs/validation-records/v6.6-axilla/full-simulation/region-design.md",
+        "attribution": "项目人工构建模拟分区（CC0-1.0）；皮肤底图为Roquex CC0照片衍生。不是Goran原始边界。",
+        "license": "CC0-1.0",
+        "medical_review_status": "pending",
+        "preview": true,
+        "coverage_note": "本区域使用人为构建的神经皮节示意分区，边界未经医学验证，仅供交互模拟和科普，不用于判断实际受累神经，不能代替就医。"
+      },
+      "lesions": [
+        {
+          "view": "axilla-left",
+          "lesion_ids": [
+            "synthetic-0"
+          ],
+          "annotation_area": 0.0002880000000000005,
+          "covered_area": 0.0002880000000000005,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "1544b8408d746ce48858c271ccb6b649ed6fd5749b4fd1ff781a12d678da46d4",
+              "region_ids": [
+                "axilla-left-schematic-T2"
+              ],
+              "partition_type": "schematic_region",
+              "label": "T2",
+              "source_label": "T2",
+              "display_name": "模拟 T2",
+              "side": "left",
+              "view": "axilla-left",
+              "intersection_area": 0.0002880000000000005,
+              "lesion_coverage_ratio": 1.0
+            }
+          ]
+        },
+        {
+          "view": "axilla-left",
+          "lesion_ids": [
+            "synthetic-1"
+          ],
+          "annotation_area": 0.0002880000000000005,
+          "covered_area": 0.0002880000000000005,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "a6493472400b7d15e4bcd11e31fb77967cc8c16e67f2b143c806d9ec04be5159",
+              "region_ids": [
+                "axilla-left-schematic-T1"
+              ],
+              "partition_type": "schematic_region",
+              "label": "T1",
+              "source_label": "T1",
+              "display_name": "模拟 T1",
+              "side": "left",
+              "view": "axilla-left",
+              "intersection_area": 0.0002880000000000005,
+              "lesion_coverage_ratio": 1.0
+            }
+          ]
+        },
+        {
+          "view": "axilla-left",
+          "lesion_ids": [
+            "synthetic-2"
+          ],
+          "annotation_area": 0.0002880000000000005,
+          "covered_area": 0.0002880000000000005,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "82806d9b54269c2b4d265c423df95ac9c8acba70e0743907571bd87e5602b84a",
+              "region_ids": [
+                "axilla-left-schematic-T3"
+              ],
+              "partition_type": "schematic_region",
+              "label": "T3",
+              "source_label": "T3",
+              "display_name": "模拟 T3",
+              "side": "left",
+              "view": "axilla-left",
+              "intersection_area": 0.0002880000000000005,
+              "lesion_coverage_ratio": 1.0
+            }
+          ]
+        }
+      ],
+      "views": [
+        {
+          "view": "axilla-left",
+          "lesion_ids": [
+            "synthetic-0",
+            "synthetic-1",
+            "synthetic-2"
+          ],
+          "annotation_area": 0.0008640000000000015,
+          "covered_area": 0.0008640000000000015,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "a6493472400b7d15e4bcd11e31fb77967cc8c16e67f2b143c806d9ec04be5159",
+              "region_ids": [
+                "axilla-left-schematic-T1"
+              ],
+              "partition_type": "schematic_region",
+              "label": "T1",
+              "source_label": "T1",
+              "display_name": "模拟 T1",
+              "side": "left",
+              "view": "axilla-left",
+              "intersection_area": 0.0002880000000000005,
+              "lesion_coverage_ratio": 0.3333333333333333
+            },
+            {
+              "candidate_id": "1544b8408d746ce48858c271ccb6b649ed6fd5749b4fd1ff781a12d678da46d4",
+              "region_ids": [
+                "axilla-left-schematic-T2"
+              ],
+              "partition_type": "schematic_region",
+              "label": "T2",
+              "source_label": "T2",
+              "display_name": "模拟 T2",
+              "side": "left",
+              "view": "axilla-left",
+              "intersection_area": 0.0002880000000000005,
+              "lesion_coverage_ratio": 0.3333333333333333
+            },
+            {
+              "candidate_id": "82806d9b54269c2b4d265c423df95ac9c8acba70e0743907571bd87e5602b84a",
+              "region_ids": [
+                "axilla-left-schematic-T3"
+              ],
+              "partition_type": "schematic_region",
+              "label": "T3",
+              "source_label": "T3",
+              "display_name": "模拟 T3",
+              "side": "left",
+              "view": "axilla-left",
+              "intersection_area": 0.0002880000000000005,
+              "lesion_coverage_ratio": 0.3333333333333333
+            }
+          ]
+        }
+      ],
+      "warnings": [
+        "本区域使用人为构建的神经皮节示意分区，边界未经医学验证，仅供交互模拟和科普，不用于判断实际受累神经，不能代替就医。",
+        "开发测试参考图谱，医学审核待完成。",
+        "比例仅为当前二维模板的几何覆盖，不是诊断概率或真实皮肤面积。",
+        "当前图谱未覆盖不代表没有感觉神经；不同候选可能重叠，不能累加候选比例。"
+      ]
+    }
+  },
+  {
+    "request": {
+      "request_id": "schematic-example-right",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-axilla-v1",
+        "template_version": "1.0.0",
+        "geometry_id": "cc0-raised-axilla-outline-v1",
+        "region_set_id": "commons-axilla-ui-v1",
+        "atlas_id": "axilla-schematic-v1",
+        "atlas_version": "axilla-schematic.1",
+        "atlas_content_sha256": "9a2b375308d3e64ece4135215a46b304d425e15fe6e76ad7fd47764caaab1b0b",
+        "body_content_sha256": "d606be12993d015c43c27e65c2e3749b2ace6e4df0b304142a776a5464e45d72",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "lesions": [
+        {
+          "id": "synthetic-0",
+          "view": "axilla-right",
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinateSpace": "body_template_normalized_v1",
+            "coordinates": [
+              [
+                [
+                  {
+                    "x": 0.538,
+                    "y": 0.4447
+                  },
+                  {
+                    "x": 0.562,
+                    "y": 0.4447
+                  },
+                  {
+                    "x": 0.55,
+                    "y": 0.4687
+                  },
+                  {
+                    "x": 0.538,
+                    "y": 0.4447
+                  }
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "id": "synthetic-1",
+          "view": "axilla-right",
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinateSpace": "body_template_normalized_v1",
+            "coordinates": [
+              [
+                [
+                  {
+                    "x": 0.37,
+                    "y": 0.22299999999999998
+                  },
+                  {
+                    "x": 0.394,
+                    "y": 0.22299999999999998
+                  },
+                  {
+                    "x": 0.382,
+                    "y": 0.247
+                  },
+                  {
+                    "x": 0.37,
+                    "y": 0.22299999999999998
+                  }
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "id": "synthetic-2",
+          "view": "axilla-right",
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinateSpace": "body_template_normalized_v1",
+            "coordinates": [
+              [
+                [
+                  {
+                    "x": 0.6955,
+                    "y": 0.643
+                  },
+                  {
+                    "x": 0.7195,
+                    "y": 0.643
+                  },
+                  {
+                    "x": 0.7075,
+                    "y": 0.667
+                  },
+                  {
+                    "x": 0.6955,
+                    "y": 0.643
+                  }
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    "response": {
+      "request_id": "schematic-example-right",
+      "annotation_revision": 1,
+      "identity": {
+        "template_id": "commons-axilla-v1",
+        "template_version": "1.0.0",
+        "geometry_id": "cc0-raised-axilla-outline-v1",
+        "region_set_id": "commons-axilla-ui-v1",
+        "atlas_id": "axilla-schematic-v1",
+        "atlas_version": "axilla-schematic.1",
+        "atlas_content_sha256": "9a2b375308d3e64ece4135215a46b304d425e15fe6e76ad7fd47764caaab1b0b",
+        "body_content_sha256": "d606be12993d015c43c27e65c2e3749b2ace6e4df0b304142a776a5464e45d72",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "method": "manual_annotation_reference_geometry",
+      "area_unit": "normalized_template_area",
+      "source": {
+        "atlas_type": "SCHEMATIC",
+        "review_status": "NOT_MEDICALLY_VALIDATED",
+        "intended_use": "INTERACTIVE_SIMULATION",
+        "source_type": "ARTIFICIALLY_CONSTRUCTED",
+        "disclaimer": "本区域使用人为构建的神经皮节示意分区，边界未经医学验证，仅供交互模拟和科普，不用于判断实际受累神经，不能代替就医。",
+        "title": "腋下人工模拟分区 · SCHEMATIC",
+        "url": "docs/validation-records/v6.6-axilla/full-simulation/region-design.md",
+        "attribution": "项目人工构建模拟分区（CC0-1.0）；皮肤底图为Roquex CC0照片衍生。不是Goran原始边界。",
+        "license": "CC0-1.0",
+        "medical_review_status": "pending",
+        "preview": true,
+        "coverage_note": "本区域使用人为构建的神经皮节示意分区，边界未经医学验证，仅供交互模拟和科普，不用于判断实际受累神经，不能代替就医。"
+      },
+      "lesions": [
+        {
+          "view": "axilla-right",
+          "lesion_ids": [
+            "synthetic-0"
+          ],
+          "annotation_area": 0.0002880000000000005,
+          "covered_area": 0.0002880000000000005,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "3931c95411498ea80c5bbb1ae9153177a7b82a7239d0394c6a33d04a983e5445",
+              "region_ids": [
+                "axilla-right-schematic-T2"
+              ],
+              "partition_type": "schematic_region",
+              "label": "T2",
+              "source_label": "T2",
+              "display_name": "模拟 T2",
+              "side": "right",
+              "view": "axilla-right",
+              "intersection_area": 0.0002880000000000005,
+              "lesion_coverage_ratio": 1.0
+            }
+          ]
+        },
+        {
+          "view": "axilla-right",
+          "lesion_ids": [
+            "synthetic-1"
+          ],
+          "annotation_area": 0.0002880000000000005,
+          "covered_area": 0.0002880000000000005,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "2eb3f705e459feb302497d168a24218a3d1bf9b2da513f40b1f3a7d1960943f5",
+              "region_ids": [
+                "axilla-right-schematic-T1"
+              ],
+              "partition_type": "schematic_region",
+              "label": "T1",
+              "source_label": "T1",
+              "display_name": "模拟 T1",
+              "side": "right",
+              "view": "axilla-right",
+              "intersection_area": 0.0002880000000000005,
+              "lesion_coverage_ratio": 1.0
+            }
+          ]
+        },
+        {
+          "view": "axilla-right",
+          "lesion_ids": [
+            "synthetic-2"
+          ],
+          "annotation_area": 0.0002880000000000005,
+          "covered_area": 0.0002880000000000005,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "e5e61f6b7c30190e803b8c519e72eb86140a4b324b3908b4a2189775792a118c",
+              "region_ids": [
+                "axilla-right-schematic-T3"
+              ],
+              "partition_type": "schematic_region",
+              "label": "T3",
+              "source_label": "T3",
+              "display_name": "模拟 T3",
+              "side": "right",
+              "view": "axilla-right",
+              "intersection_area": 0.0002880000000000005,
+              "lesion_coverage_ratio": 1.0
+            }
+          ]
+        }
+      ],
+      "views": [
+        {
+          "view": "axilla-right",
+          "lesion_ids": [
+            "synthetic-0",
+            "synthetic-1",
+            "synthetic-2"
+          ],
+          "annotation_area": 0.0008640000000000015,
+          "covered_area": 0.0008640000000000015,
+          "uncovered_area": 0.0,
+          "covered_ratio": 1.0,
+          "uncovered_ratio": 0.0,
+          "coverage_status": "full",
+          "candidates": [
+            {
+              "candidate_id": "2eb3f705e459feb302497d168a24218a3d1bf9b2da513f40b1f3a7d1960943f5",
+              "region_ids": [
+                "axilla-right-schematic-T1"
+              ],
+              "partition_type": "schematic_region",
+              "label": "T1",
+              "source_label": "T1",
+              "display_name": "模拟 T1",
+              "side": "right",
+              "view": "axilla-right",
+              "intersection_area": 0.0002880000000000005,
+              "lesion_coverage_ratio": 0.3333333333333333
+            },
+            {
+              "candidate_id": "3931c95411498ea80c5bbb1ae9153177a7b82a7239d0394c6a33d04a983e5445",
+              "region_ids": [
+                "axilla-right-schematic-T2"
+              ],
+              "partition_type": "schematic_region",
+              "label": "T2",
+              "source_label": "T2",
+              "display_name": "模拟 T2",
+              "side": "right",
+              "view": "axilla-right",
+              "intersection_area": 0.0002880000000000005,
+              "lesion_coverage_ratio": 0.3333333333333333
+            },
+            {
+              "candidate_id": "e5e61f6b7c30190e803b8c519e72eb86140a4b324b3908b4a2189775792a118c",
+              "region_ids": [
+                "axilla-right-schematic-T3"
+              ],
+              "partition_type": "schematic_region",
+              "label": "T3",
+              "source_label": "T3",
+              "display_name": "模拟 T3",
+              "side": "right",
+              "view": "axilla-right",
+              "intersection_area": 0.0002880000000000005,
+              "lesion_coverage_ratio": 0.3333333333333333
+            }
+          ]
+        }
+      ],
+      "warnings": [
+        "本区域使用人为构建的神经皮节示意分区，边界未经医学验证，仅供交互模拟和科普，不用于判断实际受累神经，不能代替就医。",
+        "开发测试参考图谱，医学审核待完成。",
+        "比例仅为当前二维模板的几何覆盖，不是诊断概率或真实皮肤面积。",
+        "当前图谱未覆盖不代表没有感觉神经；不同候选可能重叠，不能累加候选比例。"
+      ]
+    }
+  }
+]

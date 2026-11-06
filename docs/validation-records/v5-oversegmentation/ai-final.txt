@@ -1,0 +1,75 @@
+..................................................................FF.... [ 72%]
+............................                                             [100%]
+=================================== FAILURES ===================================
+__________ test_empty_edit_refuses_confirmation_and_restore_keeps_raw __________
+
+client = <starlette.testclient.TestClient object at 0x108ccf560>
+
+    def test_empty_edit_refuses_confirmation_and_restore_keeps_raw(client):
+        url,h,p=start(client);r=client.post(url+'/segment',headers=h,json=payload(p)).json()
+        q=dict(photo_id=p['photo_id'],result_id=r['result_id'],candidate_id='candidate-0',prompt_revision=1,edit_revision=1)
+        strokes=[stroke('erase',.1,[{'x':x/32,'y':y/24} for x in range(0,11)]) for y in (0,3,6,9)]
+        strokes.append(stroke('erase',.1,[{'x':1,'y':1}]))
+>       edited=client.post(url+'/edit',headers=h,json={**q,'strokes':strokes});assert edited.status_code==200,edited.text
+E       AssertionError: {"error":{"code":"INVALID_INPUT","message":"请求字段、坐标、数量或格式不合法"}}
+E       assert 422 == 200
+E        +  where 422 = <Response [422 Unprocessable Content]>.status_code
+
+ai/tests/test_oversegmentation.py:129: AssertionError
+__________ test_deleted_session_during_brush_does_not_recreate_files ___________
+
+service = (<app.services.ai_sessions.AISessions object at 0x108c58da0>, <test_service.SyntheticModel object at 0x108c58890>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x108c58c50>
+
+    def test_deleted_session_during_brush_does_not_recreate_files(service,monkeypatch):
+        from test_service import png
+        from app.schemas.ai import SegmentRequest,EditRequest
+        from app.services.ai_sessions import AIError
+        from concurrent.futures import ThreadPoolExecutor
+        import threading
+        import ai.postprocessing.brush as brush_module
+        s,_=service;c=s.create();p=s.upload(c['session_id'],c['session_token'],png());r=s.segment(c['session_id'],c['session_token'],SegmentRequest(**payload(p)))
+        entered=threading.Event();release=threading.Event();actual=brush_module.apply_strokes
+        def delayed(*args):entered.set();release.wait(3);return actual(*args)
+        monkeypatch.setattr(brush_module,'apply_strokes',delayed)
+>       q=EditRequest(photo_id=p['photo_id'],result_id=r['result_id'],candidate_id='candidate-0',prompt_revision=1,edit_revision=1,strokes=[stroke()])
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for EditRequest
+E       coordinate_space
+E         Field required [type=missing, input_value={'photo_id': 'e9797f09f0c...'x': 0.25, 'y': 0.5}]}]}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.14/v/missing
+
+ai/tests/test_oversegmentation.py:146: ValidationError
+=============================== warnings summary ===============================
+ai/tests/test_pipeline.py::test_missing_model_and_wrong_model
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+    warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+
+ai/tests/test_pipeline.py::test_missing_model_and_wrong_model
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+    warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+
+ai/tests/test_pipeline.py::test_missing_model_and_wrong_model
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_5m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_5m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+    return register_model(fn_wrapper)
+
+ai/tests/test_pipeline.py::test_missing_model_and_wrong_model
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_11m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_11m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+    return register_model(fn_wrapper)
+
+ai/tests/test_pipeline.py::test_missing_model_and_wrong_model
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+    return register_model(fn_wrapper)
+
+ai/tests/test_pipeline.py::test_missing_model_and_wrong_model
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_384 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_384. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+    return register_model(fn_wrapper)
+
+ai/tests/test_pipeline.py::test_missing_model_and_wrong_model
+  /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_512 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_512. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+    return register_model(fn_wrapper)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED ai/tests/test_oversegmentation.py::test_empty_edit_refuses_confirmation_and_restore_keeps_raw
+FAILED ai/tests/test_oversegmentation.py::test_deleted_session_during_brush_does_not_recreate_files
+2 failed, 98 passed, 7 warnings in 1.86s

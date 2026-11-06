@@ -1,0 +1,1 @@
+<view class="stage"><canvas id="photo" type="2d" class="canvas" disable-scroll="true" catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd" bindtouchcancel="touchCancel"></canvas><view wx:if="{{error}}" class="error">{{error}}</view></view>

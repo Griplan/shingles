@@ -1,0 +1,42 @@
+V1.3 真实素材调查与预览操作记录（工程观察摘要；不是逐字终端转录）
+日期：2026-10-22 Asia/Shanghai
+输入：当前本地原创人体、公开文件页及许可明确的开放素材。没有患者数据。
+边界：现有miniprogram/backend/data-atlas不改；等待用户选定才实施。
+
+开发前读取：AGENTS.md、task.md、README.md、docs/architecture.md、docs/atlas-spec.md；检查active neutral-v3.ts、body-models.ts、body-regions.ts、render/body-canvas、coordinate/body-path/body-debug实现。当前active neutral-body-v3/3.0.0、400x900。原图是本地TS路径，离线SVG并非独立成熟原画。
+基线：132个非忽略文件SHA-256保存于本机临时目录/private/tmp/dermatome-v13-baseline.json。
+
+检索范围：Wikimedia Commons SVG anatomical position/front-back/3d-shaded/silhouette；Servier male silhouette及musculature；OpenStax人体区域教学；Creative Market Irina Mir人体图、官方应用许可；GitHub react-body-highlighter及相关人体图项目。没有安装框架/下载不明许可路径。
+主证据URL、作者和许可逐项见docs/v13-material-review.md及NOTICE.md；CC官方BY-SA4.0、CC0、BY4.0均实际打开核对。
+
+获取真实结果：
+- 默认受限网络首次urllib请求失败：URLError [Errno 8] nodename nor servname provided, or not known。
+- 获准网络访问后，经Commons公开文件链接取得a-male.svg 1,002,501字节、a-female.svg 1,181,556字节、b-original.svg 363,932字节；均HTTP200。
+- b-neutral原文件请求HTTP429 Too many requests (f061ab2)。未绕过限流或伪造其预览，未重试循环。B正式预览使用已获取原四视图的男性前后，并明确标注。
+- Servier公开PNG正面361,607字节、背面291,332字节，HTTP200。官方许可FAQ明确移动应用可用、要署名；图像实际为肌肉，排除作表面底图。
+- 下载最终URL/字节/sha256与429失败保存fetch-record.json；原SVG保持下载原字节。
+- 浏览器工具对部分SVG/付费图库图片返回Internal Error，Servier PPTX链接返回不支持该内容类型。未声称下载/检查PPTX，也未据此推断可编辑矢量结构。
+- Creative Market商品预览未成功取得，未编造视觉评价；其高级应用条款和商品EPS/PNG说明仅作待购买调查。未下载付费原文件，未购买、接受协议或联系作者。
+
+SVG结构实际检查：
+- a-male：560 path，142 linearGradient、388 radialGradient；支持源格式可编辑，但不适合粘进当前M/L/C/Q/Z重放器。
+- a-female：519 path，137 linearGradient、349 radialGradient。
+- b-original：256 path，4个原人物组；没有渐变。
+- 三份SVG未发现script/foreignObject/image或外部href。A含相对m/c/l/s/v/h/a等命令；B主要相对m/c/z。当前renderer不解析完整SVG/transform。
+
+预览实际操作：
+1. 环境已有Sharp将三份完整原SVG渲染为1100px高源预览。实际view_image查看A男女和B；B黑线透明在查看器深底不易辨，另生成白底检查，没有改源。
+2. 从A根层两个人物组分别提取front/back；B男性g5423(front)、g4158(back)从原图抽取，不翻转、不重画。
+3. 首次node preview.cjs运行FAILED，exit1：Error: Input file contains unsupported image format。派生XML根节点序列化为ns0:svg；注册默认SVG命名空间后重新生成派生SVG，修复识别问题，原文件未改。
+4. 重跑成功，生成六个透明PNG和1980x1020组合图；第一版人体680px高已看图，女性手侧留白较紧，最终统一650px高改善周围留白，原比例未变。最终结果见preview-record.json。
+5. 最终六图高度650px、白底一致；组合图1980x1020。实际view_image查看全部：A1手足/关节更细致，A2同风格，B是无阴影粗线稿；均完整显示，前后为原图独立视图。650px指比较显示高度，不是最终模型逻辑尺寸或医学测量。
+6. Servier正背面另排900x1030真实对照图，实际view_image查看：去皮肌肉纤维与腱膜太重，明确标EXCLUDED，不作为表面底图正式候选。
+
+复现（已有公开原文件在research目录，不需要再次联网）：
+python3 docs/research/v13-materials/extract_views.py
+node docs/research/v13-materials/preview.cjs <环境已安装Sharp的绝对路径>
+依赖未加入项目package.json。预览为素材比较，不进入小程序，也不是微信Canvas兼容性测试。
+
+许可：A原图与适用预览改编保留Goran tek-en署名、原文件链接、BY-SA4.0及改动说明；B原图CC0仍登记作者；C署名Servier Medical Art/BY4.0。没有宣称CC许可代表医学审核或所有其他权利。商业发包尚未执行。
+
+NOT_RUN：新素材微信显示、原生图片加载/内存性能、点击命中、坐标配准、区域放大/复位、不同模拟器、真机与医学审核。原因：本轮必须等待用户选定，不能实施替换；不继承V1.2单测/GUI通过作为新素材证据。

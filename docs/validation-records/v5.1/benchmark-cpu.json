@@ -1,0 +1,68 @@
+{
+  "model": {
+    "name": "MobileSAM",
+    "variant": "vit_t",
+    "package_version": "1.0",
+    "source_commit": "f706ad9c4eb7f219c00d9050e46328518ffb65d2",
+    "license": "Apache-2.0",
+    "weights_sha256": "6dbb90523a35330fedd7f1d3dfc66f995213d81b29a5ca8108dbcdd4e37d6c2f",
+    "weights_bytes": 40728226,
+    "device": "cpu",
+    "dtype": "float32",
+    "torch": "2.5.1",
+    "threads": 4,
+    "load_seconds": 1.2884937080089003,
+    "source": "https://github.com/ChaoningZhang/MobileSAM"
+  },
+  "records": [
+    {
+      "iteration": 0,
+      "kind": "cold",
+      "encode_seconds": 0.4180823329370469,
+      "decode_seconds": 0.027052083052694798,
+      "inference_seconds": 0.4451344159897417,
+      "cpu_seconds": 1.7581560000000003,
+      "wall_seconds": 0.44563479209318757,
+      "rss_bytes": 921026560,
+      "process_peak_rss_macos_bytes": 921026560,
+      "masks_sha256": "6acfe5ccb756d5da8027e3466bbcd521c3383cc37660e9c8e021e1a0161ee6c1"
+    },
+    {
+      "iteration": 1,
+      "kind": "warm",
+      "encode_seconds": 0.40116254216991365,
+      "decode_seconds": 0.024925915990024805,
+      "inference_seconds": 0.42608845815993845,
+      "cpu_seconds": 1.6988869999999996,
+      "wall_seconds": 0.42633366608060896,
+      "rss_bytes": 926400512,
+      "process_peak_rss_macos_bytes": 926400512,
+      "masks_sha256": "6acfe5ccb756d5da8027e3466bbcd521c3383cc37660e9c8e021e1a0161ee6c1"
+    },
+    {
+      "iteration": 2,
+      "kind": "warm",
+      "encode_seconds": 0.4026702498085797,
+      "decode_seconds": 0.02464250009506941,
+      "inference_seconds": 0.4273127499036491,
+      "cpu_seconds": 1.6984700000000004,
+      "wall_seconds": 0.42762550013139844,
+      "rss_bytes": 947322880,
+      "process_peak_rss_macos_bytes": 947322880,
+      "masks_sha256": "6acfe5ccb756d5da8027e3466bbcd521c3383cc37660e9c8e021e1a0161ee6c1"
+    },
+    {
+      "iteration": 3,
+      "kind": "warm",
+      "encode_seconds": 0.3983728748280555,
+      "decode_seconds": 0.024521291023120284,
+      "inference_seconds": 0.4228941658511758,
+      "cpu_seconds": 1.6882859999999988,
+      "wall_seconds": 0.4235415000002831,
+      "rss_bytes": 959905792,
+      "process_peak_rss_macos_bytes": 959905792,
+      "masks_sha256": "6acfe5ccb756d5da8027e3466bbcd521c3383cc37660e9c8e021e1a0161ee6c1"
+    }
+  ],
+  "gpu_utilization": "NOT_MEASURED"
+}

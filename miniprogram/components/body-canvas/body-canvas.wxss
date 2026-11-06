@@ -1,0 +1,7 @@
+:host { display: block; width: 100%; height:100%; }
+.canvas-shell { position: relative; width: 100%; height: 100%; min-height: 240px; overflow: hidden; background: #faf8f4; border-radius: 18rpx; }
+.body-canvas { display: block; width: 100%; height: 100%; }
+.canvas-message { position: absolute; top: 0; right: 0; bottom: 0; left: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 36rpx; box-sizing: border-box; color: #587166; text-align: center; background: #f5f7f4; font-size: 26rpx; }
+.canvas-error { color: #80512f; }
+.retry-button { margin-top: 28rpx; min-height: 44px; padding: 16rpx 30rpx; border-radius: 12rpx; background: #236b57; color: #fff; font-size: 26rpx; }
+.retry-button::after { border: 0; }

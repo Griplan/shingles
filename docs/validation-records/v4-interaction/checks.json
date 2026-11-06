@@ -1,0 +1,22 @@
+[
+  {
+    "check": "typecheck",
+    "exit_code": 0
+  },
+  {
+    "check": "frontend-final",
+    "exit_code": 0
+  },
+  {
+    "check": "atlas-sync",
+    "exit_code": 0
+  },
+  {
+    "check": "body-sync",
+    "exit_code": 0
+  },
+  {
+    "check": "project",
+    "exit_code": 0
+  }
+]

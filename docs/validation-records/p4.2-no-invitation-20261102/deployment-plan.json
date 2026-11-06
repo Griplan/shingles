@@ -1,0 +1,18 @@
+{
+  "authorized_change": "User explicitly requested removal of invitation requirement. This public test opening is not identity authentication. Other internet clients can open it.",
+  "files": [
+    "backend/app/services/access.py",
+    "deployment/rollback.md",
+    "backend/app/api/routes/access.py",
+    "backend/app/services/trial_access.py"
+  ],
+  "setting": "ENABLE_PUBLIC_TEST_ACCESS=1; controlled only",
+  "unchanged": "A service/venv, Nginx, weights/model, atlas/body, matching/placement algorithms, resource limits",
+  "rollback": "Stop only dermatome; restore listed files, prior service.env and release-manifest from B backup; start dermatome. Never restart A/Nginx.",
+  "backup": "/srv/dermatome-mapper/deployment/backups/p42-no-invitation-20261102",
+  "tests_before_deploy": {
+    "frontend": 298,
+    "python": 180
+  },
+  "preparation_failure": "Initial allowlist assertion found the previously changed local B rollback document too; deploy explicitly includes this document. Initial deployment helper stopped before code/env changes because plan file was absent; guard alone had started."
+}

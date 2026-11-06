@@ -1,0 +1,94 @@
+Obtaining file:///Users/griplan/project/extra/Shingles%E2%80%8C/dermatome-mapper/backend
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Collecting fastapi<1,>=0.115 (from dermatome-mapper-backend==0.0.0)
+  Downloading fastapi-0.143.1-py3-none-any.whl.metadata (26 kB)
+Collecting pydantic<3,>=2.9 (from dermatome-mapper-backend==0.0.0)
+  Downloading pydantic-2.14.1-py3-none-any.whl.metadata (133 kB)
+Collecting shapely<3,>=2.0 (from dermatome-mapper-backend==0.0.0)
+  Downloading shapely-2.2.0-cp312-cp312-macosx_11_0_arm64.whl.metadata (6.7 kB)
+Collecting uvicorn<1,>=0.30 (from dermatome-mapper-backend==0.0.0)
+  Downloading uvicorn-0.54.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting pytest<10,>=8 (from dermatome-mapper-backend==0.0.0)
+  Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting httpx<1,>=0.27 (from dermatome-mapper-backend==0.0.0)
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting starlette>=0.46.0 (from fastapi<1,>=0.115->dermatome-mapper-backend==0.0.0)
+  Downloading starlette-1.8.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting typing-extensions>=4.8.0 (from fastapi<1,>=0.115->dermatome-mapper-backend==0.0.0)
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting typing-inspection>=0.4.2 (from fastapi<1,>=0.115->dermatome-mapper-backend==0.0.0)
+  Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting annotated-doc>=0.0.2 (from fastapi<1,>=0.115->dermatome-mapper-backend==0.0.0)
+  Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+Collecting opentelemetry-api>=1.44.0 (from fastapi<1,>=0.115->dermatome-mapper-backend==0.0.0)
+  Downloading opentelemetry_api-1.45.1-py3-none-any.whl.metadata (1.4 kB)
+Collecting anyio (from httpx<1,>=0.27->dermatome-mapper-backend==0.0.0)
+  Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting certifi (from httpx<1,>=0.27->dermatome-mapper-backend==0.0.0)
+  Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+Collecting httpcore==1.* (from httpx<1,>=0.27->dermatome-mapper-backend==0.0.0)
+  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting idna (from httpx<1,>=0.27->dermatome-mapper-backend==0.0.0)
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx<1,>=0.27->dermatome-mapper-backend==0.0.0)
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting annotated-types>=0.6.0 (from pydantic<3,>=2.9->dermatome-mapper-backend==0.0.0)
+  Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.50.1 (from pydantic<3,>=2.9->dermatome-mapper-backend==0.0.0)
+  Downloading pydantic_core-2.50.1-cp312-cp312-macosx_11_0_arm64.whl.metadata (6.5 kB)
+Collecting iniconfig>=1.0.1 (from pytest<10,>=8->dermatome-mapper-backend==0.0.0)
+  Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting packaging>=22 (from pytest<10,>=8->dermatome-mapper-backend==0.0.0)
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pluggy<2,>=1.5 (from pytest<10,>=8->dermatome-mapper-backend==0.0.0)
+  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pygments>=2.7.2 (from pytest<10,>=8->dermatome-mapper-backend==0.0.0)
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting numpy>=1.26 (from shapely<3,>=2.0->dermatome-mapper-backend==0.0.0)
+  Downloading numpy-2.5.4-cp312-cp312-macosx_14_0_arm64.whl.metadata (6.6 kB)
+Collecting click>=7.0 (from uvicorn<1,>=0.30->dermatome-mapper-backend==0.0.0)
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Downloading fastapi-0.143.1-py3-none-any.whl (144 kB)
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading pydantic-2.14.1-py3-none-any.whl (488 kB)
+Downloading pydantic_core-2.50.1-cp312-cp312-macosx_11_0_arm64.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 6.9 MB/s  0:00:00
+Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Downloading shapely-2.2.0-cp312-cp312-macosx_11_0_arm64.whl (1.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 14.0 MB/s  0:00:00
+Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
+Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Downloading numpy-2.5.4-cp312-cp312-macosx_14_0_arm64.whl (5.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 8.6 MB/s  0:00:00
+Downloading opentelemetry_api-1.45.1-py3-none-any.whl (60 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 8.9 MB/s  0:00:00
+Downloading starlette-1.8.0-py3-none-any.whl (79 kB)
+Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+Building wheels for collected packages: dermatome-mapper-backend
+  Building editable for dermatome-mapper-backend (pyproject.toml): started
+  Building editable for dermatome-mapper-backend (pyproject.toml): finished with status 'done'
+  Created wheel for dermatome-mapper-backend: filename=dermatome_mapper_backend-0.0.0-0.editable-py3-none-any.whl size=3099 sha256=1f2e1a5952d5098923541445ea9fca608c2db7ccb7ddab9166e97cb8825d1257
+  Stored in directory: /private/var/folders/vn/20gd7kbn4k70bmt4jhqgpg5h0000gn/T/pip-ephem-wheel-cache-qn4xqohz/wheels/19/0e/e3/96f31bdc7d961cd06992a4fa724d6796358ecf61ce9c99b2d2
+Successfully built dermatome-mapper-backend
+Installing collected packages: typing-extensions, pygments, pluggy, packaging, numpy, iniconfig, idna, h11, click, certifi, annotated-types, annotated-doc, uvicorn, typing-inspection, shapely, pytest, pydantic-core, opentelemetry-api, httpcore, anyio, starlette, pydantic, httpx, fastapi, dermatome-mapper-backend
+
+Successfully installed annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 certifi-2026.7.22 click-8.5.0 dermatome-mapper-backend-0.0.0 fastapi-0.143.1 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.20 iniconfig-2.3.1 numpy-2.5.4 opentelemetry-api-1.45.1 packaging-26.3 pluggy-1.6.0 pydantic-2.14.1 pydantic-core-2.50.1 pygments-2.21.0 pytest-9.1.1 shapely-2.2.0 starlette-1.8.0 typing-extensions-4.16.0 typing-inspection-0.4.4 uvicorn-0.54.0

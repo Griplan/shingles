@@ -1,0 +1,1 @@
++																					694 text V2_RESTORED {"view":"back","completed":1,"front":0,"back":1,"labels":["AI标注 1"],"hasAIPlacement":true,"matchingAllowed":false,"error":"","geometryPreserved":true}

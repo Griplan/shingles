@@ -1,0 +1,27 @@
+{
+  "release_files": 117,
+  "manifest_verified": true,
+  "acupuncture": {
+    "pid": 611289,
+    "restarts": 0,
+    "started": "2026-11-04 23:53:58 CST",
+    "status": "active",
+    "health": 200,
+    "ready": 200,
+    "https_health": 200
+  },
+  "nginx": {
+    "pid": 12643,
+    "restarts": 0,
+    "started": "2026-10-08 13:25:29 CST",
+    "status": "active"
+  },
+  "dermatome": {
+    "pid": 813352,
+    "restarts": 0,
+    "started": "2026-11-05 14:40:26 CST",
+    "status": "active"
+  },
+  "mem_available_mib": 2738,
+  "source": "Actual SSH verification output from this turn"
+}

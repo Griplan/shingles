@@ -1,0 +1,55 @@
+{
+  "stage": "load",
+  "utc": "2026-11-01T11:11:24.906030+00:00",
+  "before": {
+    "service": {
+      "MainPID": "3480408",
+      "Result": "success",
+      "NRestarts": "0",
+      "ExecMainStartTimestamp": "Sat 2026-10-31 23:51:02 CST",
+      "ExecMainStatus": "0",
+      "ControlGroup": "/system.slice/acupuncture.service",
+      "ActiveState": "active",
+      "SubState": "running"
+    },
+    "host": {
+      "available_bytes": 2994233344,
+      "swap_used_bytes": 12288,
+      "load": [
+        0.1904296875,
+        0.1318359375,
+        0.037109375
+      ]
+    },
+    "health": [
+      {
+        "path": "/health",
+        "status": 200,
+        "ms": 32.088,
+        "ready": {
+          "ai_ready": true
+        }
+      },
+      {
+        "path": "/ready",
+        "status": 200,
+        "ms": 0.994,
+        "ready": {
+          "ai_ready": true,
+          "model_ready": true,
+          "results_ready": true
+        }
+      }
+    ]
+  },
+  "limits": {
+    "memory_max": 1610612736,
+    "memory_high": 1342177280,
+    "swap_max": 0,
+    "cpu_quota_percent": 100,
+    "nice": 15,
+    "runtime_seconds": 90
+  },
+  "samples": [],
+  "stop_reason": "PRECHECK_UNSAFE"
+}

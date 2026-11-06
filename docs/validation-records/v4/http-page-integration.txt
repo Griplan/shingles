@@ -1,0 +1,6 @@
+PASS real HTTP: V2 polygon -> auto evaluate -> results -> exact atlas instances + unchanged annotation -> focus/reset/resize
+PASS real HTTP: return edit/add -> old overlay cleared -> recalculate -> independent lesions + union summary + single scope
+PASS real HTTP: back polygon -> isolated back response/overlay -> switch front clears back selection
+PASS network adapter failure: annotation retained, retry returns real HTTP result
+PASS real HTTP: manually specified unconfigured hair marker -> normal none coverage, no invented candidate
+All integration assertions PASSED. Synthetic markers; no patient data; wx platform adapter, NOT real GUI.

@@ -1,0 +1,2503 @@
+{
+  "model": {
+    "name": "MobileSAM",
+    "variant": "vit_t",
+    "package_version": "1.0",
+    "source_commit": "f706ad9c4eb7f219c00d9050e46328518ffb65d2",
+    "license": "Apache-2.0",
+    "weights_sha256": "6dbb90523a35330fedd7f1d3dfc66f995213d81b29a5ca8108dbcdd4e37d6c2f",
+    "weights_bytes": 40728226,
+    "device": "cpu",
+    "dtype": "float32",
+    "torch": "2.5.1",
+    "threads": 4,
+    "load_seconds": 1.3616264580014104,
+    "source": "https://github.com/ChaoningZhang/MobileSAM"
+  },
+  "cases": [
+    {
+      "id": "A_single_fg",
+      "image": "cdc-21505.jpg",
+      "intent": "Central visible cluster; single foreground point",
+      "runs": {
+        "full_image": {
+          "seconds": 0.5260812079995958,
+          "actual_strategy": "full_image",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.8193069100379944,
+              "status": "ok",
+              "component_count": 1,
+              "hole_count": 0,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.0004875776397515528,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.09423769507803122
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.0004906740674067406
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.7725331783294678,
+              "status": "ok",
+              "component_count": 1,
+              "hole_count": 1,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.0051739130434782605,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.09423769507803122
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.005206770677067707
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.7719770669937134,
+              "status": "ok",
+              "component_count": 2,
+              "hole_count": 43,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.9936894409937889,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 5,
+                "warnings": [
+                  "LARGE_MASK"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.0004906740674067406
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.005206770677067707
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 8.526512829121202e-14
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 0.0
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 1.7462298274040222e-10
+            }
+          ]
+        },
+        "context_crop": {
+          "seconds": 0.5044874589984829,
+          "actual_strategy": "full_image",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.8193069100379944,
+              "status": "ok",
+              "component_count": 1,
+              "hole_count": 0,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.0004875776397515528,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.09423769507803122
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.0004906740674067406
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.7725331783294678,
+              "status": "ok",
+              "component_count": 1,
+              "hole_count": 1,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.0051739130434782605,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.09423769507803122
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.005206770677067707
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.7719770669937134,
+              "status": "ok",
+              "component_count": 2,
+              "hole_count": 43,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.9936894409937889,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 5,
+                "warnings": [
+                  "LARGE_MASK"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.0004906740674067406
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.005206770677067707
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 8.526512829121202e-14
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 0.0
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 1.7462298274040222e-10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "B_box",
+      "image": "cdc-21505.jpg",
+      "intent": "Same central cluster; bounding box includes some surrounding skin",
+      "runs": {
+        "full_image": {
+          "seconds": 0.49496374999944237,
+          "actual_strategy": "full_image",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.9311621785163879,
+              "status": "ok",
+              "component_count": 7,
+              "hole_count": 1,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.040559006211180124,
+                "box_pixel_area": 39200,
+                "mask_to_box_ratio": 0.33316326530612245,
+                "outside_box_ratio": 0.0,
+                "foreground_contained": [],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.7873635979984325
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.5242453436095055
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.9614551067352295,
+              "status": "ok",
+              "component_count": 4,
+              "hole_count": 2,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.051512422360248444,
+                "box_pixel_area": 39200,
+                "mask_to_box_ratio": 0.4231377551020408,
+                "outside_box_ratio": 0.0025923916320009645,
+                "foreground_contained": [],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.7873635979984325
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.6658236994219653
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.9648224115371704,
+              "status": "ok",
+              "component_count": 7,
+              "hole_count": 14,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.07736645962732919,
+                "box_pixel_area": 39200,
+                "mask_to_box_ratio": 0.6355102040816326,
+                "outside_box_ratio": 0.006262042389210019,
+                "foreground_contained": [],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.5242453436095055
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.6658236994219653
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 1.4551915228366852e-11
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 3.2741809263825417e-11
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 1.4551915228366852e-11
+            }
+          ]
+        },
+        "context_crop": {
+          "seconds": 0.5134957080008462,
+          "actual_strategy": "context_crop",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.9273747801780701,
+              "status": "ok",
+              "component_count": 16,
+              "hole_count": 25,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.047683229813664595,
+                "box_pixel_area": 39200,
+                "mask_to_box_ratio": 0.39168367346938776,
+                "outside_box_ratio": 0.0,
+                "foreground_contained": [],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.6973702139256029
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.5430238726790451
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.9637656211853027,
+              "status": "ok",
+              "component_count": 9,
+              "hole_count": 22,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.06837577639751553,
+                "box_pixel_area": 39200,
+                "mask_to_box_ratio": 0.5616581632653062,
+                "outside_box_ratio": 0.000454194486078939,
+                "foreground_contained": [],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.6973702139256029
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.7786737400530503
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.9707448482513428,
+              "status": "ok",
+              "component_count": 5,
+              "hole_count": 22,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.08781055900621118,
+                "box_pixel_area": 39200,
+                "mask_to_box_ratio": 0.7213010204081632,
+                "outside_box_ratio": 0.007144120247568523,
+                "foreground_contained": [],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.5430238726790451
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.7786737400530503
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 2.3646862246096134e-11
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 1.8189894035458565e-11
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 0.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "C_multi_fg",
+      "image": "cdc-21505.jpg",
+      "intent": "Several central cluster components",
+      "runs": {
+        "full_image": {
+          "seconds": 0.48893354199935857,
+          "actual_strategy": "full_image",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.8840190768241882,
+              "status": "ok",
+              "component_count": 8,
+              "hole_count": 3,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.028857142857142856,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.6703217428942433
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.028924513618677043
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.9612215757369995,
+              "status": "ok",
+              "component_count": 7,
+              "hole_count": 4,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.04304968944099379,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.6703217428942433
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.043150194552529185
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.9697321653366089,
+              "status": "ok",
+              "component_count": 1,
+              "hole_count": 0,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.9976708074534162,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 5,
+                "warnings": [
+                  "LARGE_MASK"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.028924513618677043
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.043150194552529185
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 1.2732925824820995e-11
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 1.2732925824820995e-11
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 5.820766091346741e-11
+            }
+          ]
+        },
+        "context_crop": {
+          "seconds": 0.48935024999991583,
+          "actual_strategy": "full_image",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.8840190768241882,
+              "status": "ok",
+              "component_count": 8,
+              "hole_count": 3,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.028857142857142856,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.6703217428942433
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.028924513618677043
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.9612215757369995,
+              "status": "ok",
+              "component_count": 7,
+              "hole_count": 4,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.04304968944099379,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.6703217428942433
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.043150194552529185
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.9697321653366089,
+              "status": "ok",
+              "component_count": 1,
+              "hole_count": 0,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.9976708074534162,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 5,
+                "warnings": [
+                  "LARGE_MASK"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.028924513618677043
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.043150194552529185
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 1.2732925824820995e-11
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 1.2732925824820995e-11
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 5.820766091346741e-11
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "D_fg_bg",
+      "image": "cdc-21505.jpg",
+      "intent": "Same as C, add normal-looking gap/background exclusion prompts",
+      "runs": {
+        "full_image": {
+          "seconds": 0.8918495830002939,
+          "actual_strategy": "full_image",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.8815361857414246,
+              "status": "ok",
+              "component_count": 3,
+              "hole_count": 2,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.024279503105590062,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [
+                  true,
+                  true,
+                  true
+                ],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.7503599193780593
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.03592038520914504
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.9485383033752441,
+              "status": "ok",
+              "component_count": 6,
+              "hole_count": 1,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.032357142857142855,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [
+                  true,
+                  true,
+                  true
+                ],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.7503599193780593
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.04787087407189591
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.9455082416534424,
+              "status": "ok",
+              "component_count": 986,
+              "hole_count": 678,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.6759254658385093,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [
+                  false,
+                  false,
+                  false
+                ],
+                "prompt_penalty": 306,
+                "warnings": [
+                  "LARGE_MASK",
+                  "BACKGROUND_INCLUDED",
+                  "FRAGMENTED"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.03592038520914504
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.04787087407189591
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 1.8189894035458565e-12
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 1.2732925824820995e-11
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 7.566995918750763e-10
+            }
+          ]
+        },
+        "context_crop": {
+          "seconds": 0.9057620420007879,
+          "actual_strategy": "full_image",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.8815361857414246,
+              "status": "ok",
+              "component_count": 3,
+              "hole_count": 2,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.024279503105590062,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [
+                  true,
+                  true,
+                  true
+                ],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.7503599193780593
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.03592038520914504
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.9485383033752441,
+              "status": "ok",
+              "component_count": 6,
+              "hole_count": 1,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.032357142857142855,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [
+                  true,
+                  true,
+                  true
+                ],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.7503599193780593
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.04787087407189591
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.9455082416534424,
+              "status": "ok",
+              "component_count": 986,
+              "hole_count": 678,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.6759254658385093,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [
+                  false,
+                  false,
+                  false
+                ],
+                "prompt_penalty": 306,
+                "warnings": [
+                  "LARGE_MASK",
+                  "BACKGROUND_INCLUDED",
+                  "FRAGMENTED"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.03592038520914504
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.04787087407189591
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 1.8189894035458565e-12
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 1.2732925824820995e-11
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 7.566995918750763e-10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "E_disconnected",
+      "image": "cdc-21505.jpg",
+      "intent": "Three separated visible targets; do not force a convex hull",
+      "runs": {
+        "full_image": {
+          "seconds": 0.6249190409998846,
+          "actual_strategy": "full_image",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.7233009934425354,
+              "status": "ok",
+              "component_count": 28,
+              "hole_count": 2,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.05485403726708075,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.06138335841306138
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.0549017779435534
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.973784327507019,
+              "status": "ok",
+              "component_count": 38,
+              "hole_count": 42,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.8936304347826087,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 5,
+                "warnings": [
+                  "LARGE_MASK"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.06138335841306138
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.8944081810269799
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.9940730333328247,
+              "status": "ok",
+              "component_count": 1,
+              "hole_count": 0,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.9991304347826087,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 5,
+                "warnings": [
+                  "LARGE_MASK"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.0549017779435534
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.8944081810269799
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 3.2741809263825417e-11
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 1.7462298274040222e-10
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 5.820766091346741e-11
+            }
+          ]
+        },
+        "context_crop": {
+          "seconds": 0.5297942500001227,
+          "actual_strategy": "full_image",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.7233009934425354,
+              "status": "ok",
+              "component_count": 28,
+              "hole_count": 2,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.05485403726708075,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.06138335841306138
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.0549017779435534
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.973784327507019,
+              "status": "ok",
+              "component_count": 38,
+              "hole_count": 42,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.8936304347826087,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 5,
+                "warnings": [
+                  "LARGE_MASK"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.06138335841306138
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.8944081810269799
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.9940730333328247,
+              "status": "ok",
+              "component_count": 1,
+              "hole_count": 0,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.9991304347826087,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 5,
+                "warnings": [
+                  "LARGE_MASK"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.0549017779435534
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.8944081810269799
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 3.2741809263825417e-11
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 1.7462298274040222e-10
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 5.820766091346741e-11
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "F_unclear",
+      "image": "cdc-21506.jpg",
+      "intent": "Faint peripheral patch in distant image; boundary uncertain",
+      "runs": {
+        "full_image": {
+          "seconds": 0.5413837500000227,
+          "actual_strategy": "full_image",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.7106695771217346,
+              "status": "ok",
+              "component_count": 8,
+              "hole_count": 3,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.01953904045155221,
+                "box_pixel_area": 19800,
+                "mask_to_box_ratio": 0.7342929292929293,
+                "outside_box_ratio": 0.023866840910654104,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.7922686876397143
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.6529100053888989
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.840528130531311,
+              "status": "ok",
+              "component_count": 3,
+              "hole_count": 4,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.024637817497648165,
+                "box_pixel_area": 19800,
+                "mask_to_box_ratio": 0.9259090909090909,
+                "outside_box_ratio": 0.09043800796378115,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.7922686876397143
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.8143265707391187
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.8465921878814697,
+              "status": "ok",
+              "component_count": 3,
+              "hole_count": 2,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.029926085203601665,
+                "box_pixel_area": 19800,
+                "mask_to_box_ratio": 1.1246464646464647,
+                "outside_box_ratio": 0.13454284174600323,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.6529100053888989
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.8143265707391187
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 4.547473508864641e-11
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 4.729372449219227e-11
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 3.2741809263825417e-11
+            }
+          ]
+        },
+        "context_crop": {
+          "seconds": 0.5006439589997171,
+          "actual_strategy": "context_crop",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.914298951625824,
+              "status": "ok",
+              "component_count": 20,
+              "hole_count": 38,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.019837387447923665,
+                "box_pixel_area": 19800,
+                "mask_to_box_ratio": 0.7455050505050506,
+                "outside_box_ratio": 0.005826163539055619,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.7520379050336254
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.6849969836187294
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.9522174596786499,
+              "status": "ok",
+              "component_count": 3,
+              "hole_count": 5,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.026378174976481657,
+                "box_pixel_area": 19800,
+                "mask_to_box_ratio": 0.9913131313131314,
+                "outside_box_ratio": 0.03815977175463623,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.7520379050336254
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.9108543319875633
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.965294599533081,
+              "status": "ok",
+              "component_count": 3,
+              "hole_count": 3,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.028959817228867087,
+                "box_pixel_area": 19800,
+                "mask_to_box_ratio": 1.0883333333333334,
+                "outside_box_ratio": 0.09466796603090631,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.6849969836187294
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.9108543319875633
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 5.4569682106375694e-12
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 1.4551915228366852e-11
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 2.9103830456733704e-11
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "G_neck_crop",
+      "image": "cdc-18254-neck-crop.png",
+      "intent": "Local neck patch; source face and jaw excluded by documented crop",
+      "runs": {
+        "full_image": {
+          "seconds": 0.4832577500001207,
+          "actual_strategy": "full_image",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.9260686039924622,
+              "status": "ok",
+              "component_count": 1,
+              "hole_count": 0,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.01661788617886179,
+                "box_pixel_area": 12075,
+                "mask_to_box_ratio": 0.16927536231884058,
+                "outside_box_ratio": 0.0,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.6942934782608695
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.2764029749830967
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.943845272064209,
+              "status": "ok",
+              "component_count": 11,
+              "hole_count": 2,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.023934959349593495,
+                "box_pixel_area": 12075,
+                "mask_to_box_ratio": 0.2438095238095238,
+                "outside_box_ratio": 0.0,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.6942934782608695
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.39810682893847193
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.9479256868362427,
+              "status": "ok",
+              "component_count": 33,
+              "hole_count": 10,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.06012195121951219,
+                "box_pixel_area": 12075,
+                "mask_to_box_ratio": 0.6124223602484472,
+                "outside_box_ratio": 0.002839756592292089,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.2764029749830967
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.39810682893847193
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 1.3642420526593924e-12
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 9.094947017729282e-13
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 9.094947017729282e-13
+            }
+          ]
+        },
+        "context_crop": {
+          "seconds": 0.5014504170012515,
+          "actual_strategy": "context_crop",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.8918706774711609,
+              "status": "ok",
+              "component_count": 22,
+              "hole_count": 101,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.07483739837398375,
+                "box_pixel_area": 12075,
+                "mask_to_box_ratio": 0.7623188405797101,
+                "outside_box_ratio": 0.002824551873981532,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.6958197898556202
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.6674642883039663
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.9578957557678223,
+              "status": "ok",
+              "component_count": 21,
+              "hole_count": 7,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.10755284552845529,
+                "box_pixel_area": 12075,
+                "mask_to_box_ratio": 1.095569358178054,
+                "outside_box_ratio": 0.09146571925315594,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.6958197898556202
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.9374731105693389
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.9692380428314209,
+              "status": "ok",
+              "component_count": 38,
+              "hole_count": 24,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.1121219512195122,
+                "box_pixel_area": 12075,
+                "mask_to_box_ratio": 1.142111801242236,
+                "outside_box_ratio": 0.12544413022986006,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.6674642883039663
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.9374731105693389
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 2.9103830456733704e-11
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 0.0
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 3.637978807091713e-12
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "H_synthetic_disconnected",
+      "image": "synthetic-disconnected.png",
+      "intent": "Technical non-medical two-object test",
+      "runs": {
+        "full_image": {
+          "seconds": 0.5755067919999419,
+          "actual_strategy": "full_image",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.9441262483596802,
+              "status": "ok",
+              "component_count": 2,
+              "hole_count": 1,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.09608072916666667,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [
+                  "SIMILAR_CANDIDATES"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.9862317871942253
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.23764774268552605
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.9976378679275513,
+              "status": "ok",
+              "component_count": 2,
+              "hole_count": 0,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.09739583333333333,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [
+                  "SIMILAR_CANDIDATES"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.9862317871942253
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.24014845893174117
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.9574258327484131,
+              "status": "ok",
+              "component_count": 389,
+              "hole_count": 301,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.40294270833333334,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 1,
+                "warnings": [
+                  "FRAGMENTED"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.23764774268552605
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.24014845893174117
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 1.8189894035458565e-12
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 9.094947017729282e-13
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 6.184563972055912e-11
+            }
+          ]
+        },
+        "context_crop": {
+          "seconds": 0.60827983299896,
+          "actual_strategy": "full_image",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.9441262483596802,
+              "status": "ok",
+              "component_count": 2,
+              "hole_count": 1,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.09608072916666667,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [
+                  "SIMILAR_CANDIDATES"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.9862317871942253
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.23764774268552605
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.9976378679275513,
+              "status": "ok",
+              "component_count": 2,
+              "hole_count": 0,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.09739583333333333,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [
+                  "SIMILAR_CANDIDATES"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.9862317871942253
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.24014845893174117
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.9574258327484131,
+              "status": "ok",
+              "component_count": 389,
+              "hole_count": 301,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.40294270833333334,
+                "box_pixel_area": null,
+                "mask_to_box_ratio": null,
+                "outside_box_ratio": null,
+                "foreground_contained": [
+                  true,
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 1,
+                "warnings": [
+                  "FRAGMENTED"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.23764774268552605
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.24014845893174117
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 1.8189894035458565e-12
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 9.094947017729282e-13
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 6.184563972055912e-11
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "I_synthetic_low_contrast",
+      "image": "synthetic-low-contrast.png",
+      "intent": "Technical non-medical faint ellipse",
+      "runs": {
+        "full_image": {
+          "seconds": 0.4722200830001384,
+          "actual_strategy": "full_image",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.9905576109886169,
+              "status": "ok",
+              "component_count": 1,
+              "hole_count": 0,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.17143229166666665,
+                "box_pixel_area": 16900,
+                "mask_to_box_ratio": 0.7790532544378698,
+                "outside_box_ratio": 0.0,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [
+                  "SIMILAR_CANDIDATES"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.9971976066045596
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.9940354850887128
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 1.0091290473937988,
+              "status": "ok",
+              "component_count": 1,
+              "hole_count": 0,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.1719140625,
+                "box_pixel_area": 16900,
+                "mask_to_box_ratio": 0.7812426035502958,
+                "outside_box_ratio": 0.0,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [
+                  "SIMILAR_CANDIDATES"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.9971976066045596
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.9968289920724802
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 1.0068230628967285,
+              "status": "ok",
+              "component_count": 1,
+              "hole_count": 0,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.1724609375,
+                "box_pixel_area": 16900,
+                "mask_to_box_ratio": 0.7837278106508876,
+                "outside_box_ratio": 0.0,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [
+                  "SIMILAR_CANDIDATES"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.9940354850887128
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.9968289920724802
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 0.0
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 1.2732925824820995e-11
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 0.0
+            }
+          ]
+        },
+        "context_crop": {
+          "seconds": 0.4777340839991666,
+          "actual_strategy": "context_crop",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 1.0102074146270752,
+              "status": "ok",
+              "component_count": 1,
+              "hole_count": 0,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.17065104166666667,
+                "box_pixel_area": 16900,
+                "mask_to_box_ratio": 0.7755029585798816,
+                "outside_box_ratio": 0.0,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [
+                  "SIMILAR_CANDIDATES"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.9946873102610807
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.991826850310277
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 1.0076208114624023,
+              "status": "ok",
+              "component_count": 1,
+              "hole_count": 0,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.1715625,
+                "box_pixel_area": 16900,
+                "mask_to_box_ratio": 0.7796449704142012,
+                "outside_box_ratio": 0.00015179113539769278,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [
+                  "SIMILAR_CANDIDATES"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.9946873102610807
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.9971242621462085
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 1.0039646625518799,
+              "status": "ok",
+              "component_count": 1,
+              "hole_count": 0,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.17205729166666667,
+                "box_pixel_area": 16900,
+                "mask_to_box_ratio": 0.7818934911242603,
+                "outside_box_ratio": 0.0009081277433025579,
+                "foreground_contained": [
+                  true
+                ],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [
+                  "SIMILAR_CANDIDATES"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.991826850310277
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.9971242621462085
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 9.094947017729282e-12
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 1.0913936421275139e-11
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 1.8189894035458565e-12
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "J_three_local_boxes",
+      "image": "cdc-21505.jpg",
+      "intent": "Three explicitly chosen local clusters; never a convex hull.",
+      "runs": {
+        "context_crop": {
+          "seconds": 1.4873599579987058,
+          "actual_strategy": "context_crop",
+          "display_order": [
+            "candidate-0",
+            "candidate-1",
+            "candidate-2"
+          ],
+          "candidates": [
+            {
+              "candidate_id": "candidate-0",
+              "model_score": 0.8509674270947775,
+              "status": "ok",
+              "component_count": 70,
+              "hole_count": 88,
+              "display_priority": 0,
+              "quality": {
+                "area_ratio": 0.06970186335403726,
+                "box_pixel_area": 55550,
+                "mask_to_box_ratio": 0.404032403240324,
+                "outside_box_ratio": 0.05881304580288719,
+                "foreground_contained": [],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [
+                  "CROP_EDGE"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.5984321254299656
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.484733655647023
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-1",
+              "model_score": 0.9238290389378866,
+              "status": "ok",
+              "component_count": 50,
+              "hole_count": 60,
+              "display_priority": 1,
+              "quality": {
+                "area_ratio": 0.11646583850931677,
+                "box_pixel_area": 55550,
+                "mask_to_box_ratio": 0.6751035103510351,
+                "outside_box_ratio": 0.054157111620713565,
+                "foreground_contained": [],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [
+                  "CROP_EDGE"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.5984321254299656
+                  },
+                  {
+                    "candidate_id": "candidate-2",
+                    "mask_iou": 0.7908257670295624
+                  }
+                ]
+              }
+            },
+            {
+              "candidate_id": "candidate-2",
+              "model_score": 0.9456842740376791,
+              "status": "ok",
+              "component_count": 36,
+              "hole_count": 44,
+              "display_priority": 2,
+              "quality": {
+                "area_ratio": 0.1420248447204969,
+                "box_pixel_area": 55550,
+                "mask_to_box_ratio": 0.8232583258325833,
+                "outside_box_ratio": 0.04720983119041371,
+                "foreground_contained": [],
+                "background_excluded": [],
+                "prompt_penalty": 0,
+                "warnings": [
+                  "CROP_EDGE"
+                ],
+                "policy": "prompt_adherence_v1_not_medical_quality",
+                "candidate_differences": [
+                  {
+                    "candidate_id": "candidate-0",
+                    "mask_iou": 0.484733655647023
+                  },
+                  {
+                    "candidate_id": "candidate-1",
+                    "mask_iou": 0.7908257670295624
+                  }
+                ]
+              }
+            }
+          ],
+          "roundtrip": [
+            {
+              "candidate": "candidate-0",
+              "same_pixels": true,
+              "area_error_pixels": 1.4551915228366852e-11
+            },
+            {
+              "candidate": "candidate-1",
+              "same_pixels": true,
+              "area_error_pixels": 1.4551915228366852e-11
+            },
+            {
+              "candidate": "candidate-2",
+              "same_pixels": true,
+              "area_error_pixels": 2.9103830456733704e-11
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "medical_accuracy": "NOT_MEASURED_NO_EXPERT_MASKS"
+}

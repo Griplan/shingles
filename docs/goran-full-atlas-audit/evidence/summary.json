@@ -1,0 +1,119 @@
+{
+  "front": {
+    "paintedPathsIncludingInset": 42,
+    "mainBodyPaths": 35,
+    "mainKnownLabels": 30,
+    "currentRegions": 54,
+    "currentLabels": 27,
+    "currentPolygonParts": 63,
+    "currentHoles": 15,
+    "currentAllValid": true,
+    "representedMainPaths": 30,
+    "whollyUnrepresentedMainPaths": [
+      29,
+      30,
+      31,
+      39,
+      40
+    ],
+    "visibleSourceParts": 61,
+    "sourceDomainUsedFraction": 0.912721407414234,
+    "sourceSmallFragmentsBelowExistingThreshold": [
+      {
+        "path": 2,
+        "area": 3.2832903957783806e-09
+      },
+      {
+        "path": 6,
+        "area": 6.768583800323267e-05
+      },
+      {
+        "path": 10,
+        "area": 1.000100028886214e-08
+      },
+      {
+        "path": 15,
+        "area": 1.657554673197059e-08
+      },
+      {
+        "path": 15,
+        "area": 6.405043281931357e-09
+      },
+      {
+        "path": 16,
+        "area": 5.922558322165692e-08
+      },
+      {
+        "path": 19,
+        "area": 1.2107818739813038e-08
+      },
+      {
+        "path": 35,
+        "area": 4.848834761886127e-07
+      }
+    ],
+    "targetVisibleSurfaceArea": 0.3350430576852079,
+    "targetAtlasUnionArea": 0.29727244149846316,
+    "targetSurfaceCoveredFraction": 0.8872663705243392,
+    "targetOutsideArea": 3.736733206348832e-09,
+    "internalOverlapAreaSumMinusUnion": 1.1435504678747321e-06,
+    "notMedicalCoverage": true
+  },
+  "back": {
+    "paintedPathsIncludingInset": 50,
+    "mainBodyPaths": 43,
+    "mainKnownLabels": 33,
+    "currentRegions": 60,
+    "currentLabels": 30,
+    "currentPolygonParts": 71,
+    "currentHoles": 2,
+    "currentAllValid": true,
+    "representedMainPaths": 33,
+    "whollyUnrepresentedMainPaths": [
+      21,
+      28,
+      29,
+      30,
+      31,
+      35,
+      39,
+      42,
+      43,
+      44
+    ],
+    "visibleSourceParts": 65,
+    "sourceDomainUsedFraction": 0.8830579348745314,
+    "sourceSmallFragmentsBelowExistingThreshold": [
+      {
+        "path": 25,
+        "area": 3.192908789278728e-08
+      },
+      {
+        "path": 32,
+        "area": 1.831892859627278e-13
+      },
+      {
+        "path": 47,
+        "area": 1.2727532999771178e-07
+      },
+      {
+        "path": 48,
+        "area": 2.0751753626924273e-09
+      },
+      {
+        "path": 49,
+        "area": 9.687052086674272e-06
+      },
+      {
+        "path": 49,
+        "area": 1.7773569750798875e-06
+      }
+    ],
+    "targetVisibleSurfaceArea": 0.3530442742745689,
+    "targetAtlasUnionArea": 0.31935015275414413,
+    "targetSurfaceCoveredFraction": 0.9045611966945638,
+    "targetOutsideArea": 1.530177046877969e-09,
+    "internalOverlapAreaSumMinusUnion": 1.1947580770832467e-06,
+    "notMedicalCoverage": true
+  }
+}

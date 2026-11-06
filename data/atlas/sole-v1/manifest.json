@@ -1,0 +1,18 @@
+{
+  "templateId": "goran-sole-v1",
+  "templateVersion": "1.0.0",
+  "geometryId": "goran-plantar-outline-v1",
+  "regionSetId": "goran-sole-ui-v1",
+  "atlasId": "goran-sole-v1",
+  "atlasVersion": "goran-sole-preview.1",
+  "contentSHA256": "fa6298008344ead0011d64cfdc7f8748f24b645a39ff7b08b057d5ffffc8a0b6",
+  "sourceTitle": "Dermatomes labeled, male back 3d-shaded — plantar detail",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_back_3d-shaded.svg",
+  "attribution": "Goran_tek-en (2022), CC BY-SA 4.0；从原背图独立提取两足足底，移除标签和皮节底色，旋转180°并等比例放大；两侧均为原侧，未镜像。",
+  "license": "CC BY-SA 4.0",
+  "sourceLicenseStatus": "verified",
+  "mappingEnabled": false,
+  "medicalReviewStatus": "pending",
+  "technicalValidationStatus": "passed_offline_geometry",
+  "coverageNote": "仅 Goran 原图可见足底投影的 L5/S1；原图细缝及未配置表面不补齐。非完整足部周向、外周神经分布或诊断；医学审核待完成。"
+}

@@ -1,0 +1,34 @@
+V1 actual WeChat developer tool UI verification
+Date: 2026-10-17 Asia/Shanghai
+Tool: WeChat DevTools Stable 2.01.2510290, macOS; library 3.17.4 (2026.10.14)
+Evidence source: actual CUA accessibility states and screenshots in this chat. This is an operator transcript, not a fabricated compiler log or a hardware-device test.
+UI actions: getApp(com.tencent.webplusdevtools), project reopen, compile, native button/link clicks, simulator device menu selection, page scroll and visual observation.
+Sensitive internal extension URLs, session tokens, AppID/account identifiers are intentionally omitted.
+
+Initial failures / repairs:
+- Initial existing simulator was still showing V0 and reported its application channel disconnected/retry limit reached. A path-bound coordinate interaction failed noWindowsAvailable; display-name binding was invalid. Binding the observed application bundle ID succeeded.
+- Reopened only the current Shingles project and clicked Compile: V1 home rendered, application error count returned to 0.
+- First canvas used 1080rpx / max570px height; body feet extended below the initial phone viewport. GUI check FAILED for the intended at-a-glance full-body view. Changed canvas wrapper to 50vh, min260px, max440px; remeasurement/redraw showed the complete body at uniform proportions.
+- During WXSS hot update the CSS height changed before the old backing canvas was remeasured; switching/re-entering/compiling redraws at the measured size. Recorded in README/validation instructions; no persisted coordinates were changed.
+- Simulator route animation/compositing briefly left a stale canvas surface in one reentry capture. Scrolling and returning to page top showed the canvas aligned inside its card. This is retained as a tool observation, not claimed as a passed hardware rendering guarantee.
+
+Actual observed scenarios:
+PASS: initial front full-body path; head, trunk, both arms/hands and legs/feet rendered.
+PASS: back switch; posterior details differ from front; left/right labels change with the anatomical convention.
+PASS: upper-back region button selected, name changed, highlight clipped to silhouette.
+PASS: upper-back focus view; target centered and visibly magnified without changing proportions.
+PASS: full-body reset; full body restored, selected highlight retained.
+PASS: 320x568 / DPR2 / iPhone5 simulator: full front model; chest selection; focused chest; reset. Controls could be reached by vertical scrolling; no observed horizontal overflow or overlap.
+PASS: 390x844 / DPR3 / iPhone12/13 Pro simulator: front/back, upper-back highlight, focus and reset.
+PASS: 430x932 / DPR3 / iPhone14 Pro Max simulator: front/back, anatomical left arm selection (screen left for back), magnification, reset.
+PASS: switching back/front repeatedly clears selection/zoom; current region becomes unselected and zoom button disabled.
+PASS: navigate to V0 annotate placeholder, then result placeholder; medical boundary and future-version text remain.
+PASS: result reLaunch to index; reenter select with default front/full state; canvas recreated and repaint visually checked after scrolling to top.
+Restored the original iPhone12/13 Pro simulator device selection after the size tests.
+
+Warnings observed from the developer tool/library: automatic hot reload notices, SharedArrayBuffer deprecation, platform/getSystemInfo guidance and worker reportRealtimeAction unsupported. Counts accumulated across navigation; these are not reported as zero warnings. No application error was observed at the completed checkpoints after compilation.
+NOT_RUN: actual phone hardware; real renderer initialization fault injection; orientation/rotation matrix; untested older base libraries; manual pixel-level screen-error measurement.
+N/A: image download/decode failure because the body is imported original path data and no image loader exists. Initialization failure/retry is covered by Canvas-node unit doubles.
+The simulator sessions are not clinical or medical-atlas validation.
+
+Final smoke after invalid-viewport hardening: compiled final source, entered original 390x844/DPR3 simulator, visually verified complete front model, chest selection/focus/reset, switched back then front and observed selection cleared with zoom button disabled. Tool helper initially expected a differently spaced label and reported a mismatch; actual AX state showed front chest-local view, so the literal expected text was corrected for observation. Original device and front/full unselected state left in place.

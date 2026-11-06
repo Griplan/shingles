@@ -1,0 +1,122 @@
+[
+  {
+    "file": "LICENSE",
+    "exit": 0,
+    "bytes": 11357,
+    "error": ""
+  },
+  {
+    "file": "README.md",
+    "exit": 0,
+    "bytes": 10854,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/__init__.py",
+    "exit": 0,
+    "bytes": 448,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/automatic_mask_generator.py",
+    "exit": 0,
+    "bytes": 15148,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/build_sam.py",
+    "exit": 0,
+    "bytes": 4695,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/modeling/__init__.py",
+    "exit": 0,
+    "bytes": 419,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/modeling/common.py",
+    "exit": 0,
+    "bytes": 1479,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/modeling/image_encoder.py",
+    "exit": 0,
+    "bytes": 14420,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/modeling/mask_decoder.py",
+    "exit": 0,
+    "bytes": 6615,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/modeling/prompt_encoder.py",
+    "exit": 0,
+    "bytes": 8594,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/modeling/sam.py",
+    "exit": 0,
+    "bytes": 7283,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/modeling/tiny_vit_sam.py",
+    "exit": 0,
+    "bytes": 24809,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/modeling/transformer.py",
+    "exit": 0,
+    "bytes": 8397,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/predictor.py",
+    "exit": 0,
+    "bytes": 11680,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/utils/__init__.py",
+    "exit": 0,
+    "bytes": 197,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/utils/amg.py",
+    "exit": 0,
+    "bytes": 12712,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/utils/onnx.py",
+    "exit": 0,
+    "bytes": 5812,
+    "error": ""
+  },
+  {
+    "file": "mobile_sam/utils/transforms.py",
+    "exit": 0,
+    "bytes": 3972,
+    "error": ""
+  },
+  {
+    "file": "setup.py",
+    "exit": 0,
+    "bytes": 535,
+    "error": ""
+  },
+  {
+    "file": "weights/mobile_sam.pt",
+    "exit": 28,
+    "bytes": 0,
+    "error": "curl: (28) Operation timed out after 300003 milliseconds with 23756800 bytes received\n"
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "atlasVersion": "goran-2022-commons-template4-preview.3",
+  "templateId": "commons-neutral-v1",
+  "templateVersion": "4.0.1",
+  "geometryId": "commons-blank-cc0-hands-v2",
+  "sourceLicenseStatus": "verified",
+  "technicalValidationStatus": "passed_offline_geometry",
+  "medicalReviewStatus": "pending",
+  "mappingEnabled": false,
+  "sourceTitle": "Goran_tek-en · Dermatomes labeled, male front/back (2022)",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg",
+  "attribution": "Goran_tek-en / Wikimedia Commons / CC BY-SA 4.0；提取、配准、排除部分体表并简化曲线。衍生图谱数据沿用 CC BY-SA 4.0。 V3.1新增三叉神经及可见正面足部局部配准，保留父版。 V6.5以原始手部Path分别配准四个主人体手表面；保留组合标签，修正CC0底图指缝命中轮廓。",
+  "coverageNote": "主人体正面掌侧、背面手背已加入Goran实际组合参考区C6–8、C8/T1及源腕部过渡；不等于独立C6/C7/C8掌侧边界。源描边缝、目标表面适配余量、手指隐面仍未覆盖。其余面部/足部和未配置范围沿用父版。仅教学参考，医学审核待完成。",
+  "contentSHA256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+  "inheritedParentVersion": "goran-2022-commons-template4-preview.2"
+}

@@ -1,0 +1,830 @@
+[
+  {
+    "id": "front-right-palm",
+    "view": "front",
+    "side": "right",
+    "position": "palm",
+    "logical": [
+      65,
+      473
+    ],
+    "normalized": [
+      0.1625,
+      0.5255555555555556
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-right-ulnar_palm",
+    "view": "front",
+    "side": "right",
+    "position": "ulnar_palm",
+    "logical": [
+      82,
+      475
+    ],
+    "normalized": [
+      0.205,
+      0.5277777777777778
+    ],
+    "expectedLabel": "C8/T1",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-right-thumb",
+    "view": "front",
+    "side": "right",
+    "position": "thumb",
+    "logical": [
+      33,
+      465
+    ],
+    "normalized": [
+      0.0825,
+      0.5166666666666667
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-right-index",
+    "view": "front",
+    "side": "right",
+    "position": "index",
+    "logical": [
+      43,
+      503
+    ],
+    "normalized": [
+      0.1075,
+      0.5588888888888889
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-right-middle",
+    "view": "front",
+    "side": "right",
+    "position": "middle",
+    "logical": [
+      54,
+      512
+    ],
+    "normalized": [
+      0.135,
+      0.5688888888888889
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-right-ring",
+    "view": "front",
+    "side": "right",
+    "position": "ring",
+    "logical": [
+      63,
+      514
+    ],
+    "normalized": [
+      0.1575,
+      0.5711111111111111
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-right-little",
+    "view": "front",
+    "side": "right",
+    "position": "little",
+    "logical": [
+      77,
+      503
+    ],
+    "normalized": [
+      0.1925,
+      0.5588888888888889
+    ],
+    "expectedLabel": "C8/T1",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-right-index_tip",
+    "view": "front",
+    "side": "right",
+    "position": "index_tip",
+    "logical": [
+      41,
+      511
+    ],
+    "normalized": [
+      0.1025,
+      0.5677777777777778
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-right-palm_root",
+    "view": "front",
+    "side": "right",
+    "position": "palm_root",
+    "logical": [
+      72,
+      451
+    ],
+    "normalized": [
+      0.18,
+      0.5011111111111111
+    ],
+    "expectedLabel": "C8/T1",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-right-index_middle_air",
+    "view": "front",
+    "side": "right",
+    "position": "index_middle_air",
+    "logical": [
+      48.5,
+      500
+    ],
+    "normalized": [
+      0.12125,
+      0.5555555555555556
+    ],
+    "expectedLabel": null,
+    "expectedSkin": false,
+    "status": "air",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-right-thumb_web_air",
+    "view": "front",
+    "side": "right",
+    "position": "thumb_web_air",
+    "logical": [
+      46,
+      467
+    ],
+    "normalized": [
+      0.115,
+      0.5188888888888888
+    ],
+    "expectedLabel": null,
+    "expectedSkin": false,
+    "status": "air",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-left-palm",
+    "view": "front",
+    "side": "left",
+    "position": "palm",
+    "logical": [
+      335,
+      473
+    ],
+    "normalized": [
+      0.8375,
+      0.5255555555555556
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-left-ulnar_palm",
+    "view": "front",
+    "side": "left",
+    "position": "ulnar_palm",
+    "logical": [
+      318,
+      475
+    ],
+    "normalized": [
+      0.795,
+      0.5277777777777778
+    ],
+    "expectedLabel": "C8/T1",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-left-thumb",
+    "view": "front",
+    "side": "left",
+    "position": "thumb",
+    "logical": [
+      367,
+      465
+    ],
+    "normalized": [
+      0.9175,
+      0.5166666666666667
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-left-index",
+    "view": "front",
+    "side": "left",
+    "position": "index",
+    "logical": [
+      356,
+      503
+    ],
+    "normalized": [
+      0.89,
+      0.5588888888888889
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-left-middle",
+    "view": "front",
+    "side": "left",
+    "position": "middle",
+    "logical": [
+      346,
+      512
+    ],
+    "normalized": [
+      0.865,
+      0.5688888888888889
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-left-ring",
+    "view": "front",
+    "side": "left",
+    "position": "ring",
+    "logical": [
+      335,
+      514
+    ],
+    "normalized": [
+      0.8375,
+      0.5711111111111111
+    ],
+    "expectedLabel": "C8/T1",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-left-little",
+    "view": "front",
+    "side": "left",
+    "position": "little",
+    "logical": [
+      323,
+      503
+    ],
+    "normalized": [
+      0.8075,
+      0.5588888888888889
+    ],
+    "expectedLabel": "C8/T1",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-left-index_tip",
+    "view": "front",
+    "side": "left",
+    "position": "index_tip",
+    "logical": [
+      359,
+      511
+    ],
+    "normalized": [
+      0.8975,
+      0.5677777777777778
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-left-palm_root",
+    "view": "front",
+    "side": "left",
+    "position": "palm_root",
+    "logical": [
+      328,
+      451
+    ],
+    "normalized": [
+      0.82,
+      0.5011111111111111
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-left-index_middle_air",
+    "view": "front",
+    "side": "left",
+    "position": "index_middle_air",
+    "logical": [
+      351.5,
+      500
+    ],
+    "normalized": [
+      0.87875,
+      0.5555555555555556
+    ],
+    "expectedLabel": null,
+    "expectedSkin": false,
+    "status": "air",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-left-thumb_web_air",
+    "view": "front",
+    "side": "left",
+    "position": "thumb_web_air",
+    "logical": [
+      354,
+      467
+    ],
+    "normalized": [
+      0.885,
+      0.5188888888888888
+    ],
+    "expectedLabel": null,
+    "expectedSkin": false,
+    "status": "air",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-left-dorsum",
+    "view": "back",
+    "side": "left",
+    "position": "dorsum",
+    "logical": [
+      68,
+      475
+    ],
+    "normalized": [
+      0.17,
+      0.5277777777777778
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-left-ulnar_dorsum",
+    "view": "back",
+    "side": "left",
+    "position": "ulnar_dorsum",
+    "logical": [
+      85,
+      478
+    ],
+    "normalized": [
+      0.2125,
+      0.5311111111111111
+    ],
+    "expectedLabel": "C8/T1",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-left-thumb",
+    "view": "back",
+    "side": "left",
+    "position": "thumb",
+    "logical": [
+      37,
+      478
+    ],
+    "normalized": [
+      0.0925,
+      0.5311111111111111
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-left-index",
+    "view": "back",
+    "side": "left",
+    "position": "index",
+    "logical": [
+      49,
+      502
+    ],
+    "normalized": [
+      0.1225,
+      0.5577777777777778
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-left-middle",
+    "view": "back",
+    "side": "left",
+    "position": "middle",
+    "logical": [
+      59,
+      510
+    ],
+    "normalized": [
+      0.1475,
+      0.5666666666666667
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-left-ring",
+    "view": "back",
+    "side": "left",
+    "position": "ring",
+    "logical": [
+      70,
+      511
+    ],
+    "normalized": [
+      0.175,
+      0.5677777777777778
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-left-little",
+    "view": "back",
+    "side": "left",
+    "position": "little",
+    "logical": [
+      85,
+      503
+    ],
+    "normalized": [
+      0.2125,
+      0.5588888888888889
+    ],
+    "expectedLabel": "C8/T1",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-left-index_tip",
+    "view": "back",
+    "side": "left",
+    "position": "index_tip",
+    "logical": [
+      49,
+      510
+    ],
+    "normalized": [
+      0.1225,
+      0.5666666666666667
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-left-root",
+    "view": "back",
+    "side": "left",
+    "position": "root",
+    "logical": [
+      72,
+      454
+    ],
+    "normalized": [
+      0.18,
+      0.5044444444444445
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-left-index_middle_air",
+    "view": "back",
+    "side": "left",
+    "position": "index_middle_air",
+    "logical": [
+      55.4,
+      501
+    ],
+    "normalized": [
+      0.13849999999999998,
+      0.5566666666666666
+    ],
+    "expectedLabel": null,
+    "expectedSkin": false,
+    "status": "air",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-left-thumb_web_air",
+    "view": "back",
+    "side": "left",
+    "position": "thumb_web_air",
+    "logical": [
+      46,
+      479
+    ],
+    "normalized": [
+      0.115,
+      0.5322222222222223
+    ],
+    "expectedLabel": null,
+    "expectedSkin": false,
+    "status": "air",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-right-dorsum",
+    "view": "back",
+    "side": "right",
+    "position": "dorsum",
+    "logical": [
+      340,
+      477
+    ],
+    "normalized": [
+      0.85,
+      0.53
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-right-ulnar_dorsum",
+    "view": "back",
+    "side": "right",
+    "position": "ulnar_dorsum",
+    "logical": [
+      319,
+      478
+    ],
+    "normalized": [
+      0.7975,
+      0.5311111111111111
+    ],
+    "expectedLabel": "C8/T1",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-right-thumb",
+    "view": "back",
+    "side": "right",
+    "position": "thumb",
+    "logical": [
+      363,
+      496
+    ],
+    "normalized": [
+      0.9075,
+      0.5511111111111111
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-right-index",
+    "view": "back",
+    "side": "right",
+    "position": "index",
+    "logical": [
+      355,
+      509
+    ],
+    "normalized": [
+      0.8875,
+      0.5655555555555556
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-right-middle",
+    "view": "back",
+    "side": "right",
+    "position": "middle",
+    "logical": [
+      345,
+      515
+    ],
+    "normalized": [
+      0.8625,
+      0.5722222222222222
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-right-ring",
+    "view": "back",
+    "side": "right",
+    "position": "ring",
+    "logical": [
+      335,
+      514
+    ],
+    "normalized": [
+      0.8375,
+      0.5711111111111111
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-right-little",
+    "view": "back",
+    "side": "right",
+    "position": "little",
+    "logical": [
+      321,
+      510
+    ],
+    "normalized": [
+      0.8025,
+      0.5666666666666667
+    ],
+    "expectedLabel": "C8/T1",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-right-index_tip",
+    "view": "back",
+    "side": "right",
+    "position": "index_tip",
+    "logical": [
+      356,
+      517
+    ],
+    "normalized": [
+      0.89,
+      0.5744444444444444
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-right-root",
+    "view": "back",
+    "side": "right",
+    "position": "root",
+    "logical": [
+      335,
+      459
+    ],
+    "normalized": [
+      0.8375,
+      0.51
+    ],
+    "expectedLabel": "C6-C8",
+    "expectedSkin": true,
+    "status": "A",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-right-index_middle_air",
+    "view": "back",
+    "side": "right",
+    "position": "index_middle_air",
+    "logical": [
+      348.8,
+      505
+    ],
+    "normalized": [
+      0.872,
+      0.5611111111111111
+    ],
+    "expectedLabel": null,
+    "expectedSkin": false,
+    "status": "air",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "back-right-thumb_web_air",
+    "view": "back",
+    "side": "right",
+    "position": "thumb_web_air",
+    "logical": [
+      359,
+      498
+    ],
+    "normalized": [
+      0.8975,
+      0.5533333333333333
+    ],
+    "expectedLabel": null,
+    "expectedSkin": false,
+    "status": "air",
+    "referenceMethod": "Manual reading of original ink and source/registered crop; initial point grid retained. Not inferred by matching."
+  },
+  {
+    "id": "front-right-source_seam",
+    "view": "front",
+    "side": "right",
+    "logical": [
+      64,
+      514
+    ],
+    "normalized": [
+      0.16,
+      0.5711111111111111
+    ],
+    "expectedSkin": true,
+    "expectedLabel": null,
+    "status": "B",
+    "position": "source composite boundary seam",
+    "referenceMethod": "Ambiguous original fixed point retained as partial-coverage case; do not fill the source seam."
+  },
+  {
+    "id": "back-right-source_seam",
+    "view": "back",
+    "side": "right",
+    "logical": [
+      334,
+      514
+    ],
+    "normalized": [
+      0.835,
+      0.5711111111111111
+    ],
+    "expectedSkin": true,
+    "expectedLabel": null,
+    "status": "B",
+    "position": "source composite boundary seam",
+    "referenceMethod": "Ambiguous original fixed point retained as partial-coverage case; do not fill the source seam."
+  }
+]

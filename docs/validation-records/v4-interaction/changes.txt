@@ -1,0 +1,42 @@
+Comparison with pre-task SHA baseline; repository was already untracked. This is not a Git change attribution.
+
+MODIFIED README.md
+MODIFIED docs/architecture.md
+MODIFIED docs/v4-matching.md
+MODIFIED miniprogram/components/body-canvas/lesion-render.ts
+MODIFIED miniprogram/pages/annotate/annotate.ts
+MODIFIED miniprogram/pages/annotate/annotate.wxml
+MODIFIED miniprogram/pages/annotate/annotate.wxss
+MODIFIED miniprogram/pages/result/result.ts
+MODIFIED miniprogram/pages/result/result.wxml
+MODIFIED miniprogram/pages/result/result.wxss
+MODIFIED miniprogram/state/matching-session.ts
+MODIFIED miniprogram/types/annotation.ts
+MODIFIED scripts/test_matching_http.cjs
+MODIFIED task.md
+MODIFIED tests/miniprogram/canvas.test.cjs
+
+NEW docs/v4-interaction.md
+NEW docs/validation-records/v4-interaction/atlas-sync.txt
+NEW docs/validation-records/v4-interaction/backend.txt
+NEW docs/validation-records/v4-interaction/body-sync.txt
+NEW docs/validation-records/v4-interaction/changes.txt
+NEW docs/validation-records/v4-interaction/checks-completion.json
+NEW docs/validation-records/v4-interaction/checks.json
+NEW docs/validation-records/v4-interaction/frontend-completion.txt
+NEW docs/validation-records/v4-interaction/frontend-final.txt
+NEW docs/validation-records/v4-interaction/frontend-first.txt
+NEW docs/validation-records/v4-interaction/frontend-second.txt
+NEW docs/validation-records/v4-interaction/gui-validation.md
+NEW docs/validation-records/v4-interaction/http-check.txt
+NEW docs/validation-records/v4-interaction/http-first.txt
+NEW docs/validation-records/v4-interaction/native-compile-final.txt
+NEW docs/validation-records/v4-interaction/native-compile-first.txt
+NEW docs/validation-records/v4-interaction/native-compile.txt
+NEW docs/validation-records/v4-interaction/project.txt
+NEW docs/validation-records/v4-interaction/protection-check.json
+NEW docs/validation-records/v4-interaction/report.md
+NEW docs/validation-records/v4-interaction/typecheck-completion.txt
+NEW docs/validation-records/v4-interaction/typecheck.txt
+NEW miniprogram/utils/matching-presentation.ts
+NEW tests/miniprogram/matching-presentation.test.cjs

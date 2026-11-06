@@ -1,0 +1,73 @@
+page {
+  background: #f5f8f7;
+  color: #203b36;
+  font-size: 30rpx;
+  line-height: 1.65;
+}
+
+.page {
+  padding: 48rpx 36rpx 72rpx;
+}
+
+.version {
+  display: inline-block;
+  margin-bottom: 24rpx;
+  padding: 6rpx 20rpx;
+  border-radius: 12rpx;
+  background: #e3eeea;
+  color: #42685e;
+  font-size: 24rpx;
+}
+
+.title {
+  margin-bottom: 20rpx;
+  font-size: 44rpx;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.description {
+  color: #5c6e69;
+}
+
+.panel {
+  margin-top: 36rpx;
+  padding: 30rpx;
+  border: 1rpx solid #dce6e1;
+  border-radius: 20rpx;
+  background: #ffffff;
+}
+
+.panel-title {
+  margin-bottom: 12rpx;
+  font-weight: 600;
+}
+
+.notice {
+  margin-top: 32rpx;
+  padding: 24rpx;
+  border-radius: 16rpx;
+  background: #fff3de;
+  color: #745627;
+  font-size: 26rpx;
+}
+
+.action {
+  margin-top: 24rpx;
+  padding: 22rpx 24rpx;
+  border-radius: 16rpx;
+  background: #236b57;
+  color: #ffffff;
+  text-align: center;
+}
+
+.action-secondary {
+  background: #e3eeea;
+  color: #294e42;
+}
+
+.footnote {
+  margin-top: 28rpx;
+  color: #677972;
+  font-size: 24rpx;
+}

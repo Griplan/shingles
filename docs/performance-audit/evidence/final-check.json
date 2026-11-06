@@ -1,0 +1,14 @@
+{
+  "documentation_links": "PASSED",
+  "issues": [],
+  "script_syntax": "PASSED",
+  "protected_files": 161,
+  "core_changed": [],
+  "test_results": {
+    "typescript": "PASSED",
+    "miniprogram": 298,
+    "python": 180,
+    "native_fps": "NOT_MEASURED",
+    "phone": "NOT_RUN"
+  }
+}

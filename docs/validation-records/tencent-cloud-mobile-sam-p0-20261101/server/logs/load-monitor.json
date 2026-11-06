@@ -1,0 +1,425 @@
+{
+  "stage": "load",
+  "utc": "2026-11-01T11:13:25.198964+00:00",
+  "before": {
+    "service": {
+      "MainPID": "3480408",
+      "Result": "success",
+      "NRestarts": "0",
+      "ExecMainStartTimestamp": "Sat 2026-10-31 23:51:02 CST",
+      "ExecMainStatus": "0",
+      "ControlGroup": "/system.slice/acupuncture.service",
+      "ActiveState": "active",
+      "SubState": "running"
+    },
+    "host": {
+      "available_bytes": 2999123968,
+      "swap_used_bytes": 12288,
+      "load": [
+        0.09912109375,
+        0.1123046875,
+        0.03662109375
+      ],
+      "swap_io_pages": {
+        "pswpin": 0,
+        "pswpout": 1
+      }
+    },
+    "health": [
+      {
+        "path": "/health",
+        "status": 200,
+        "ms": 26.76,
+        "ready": {
+          "ai_ready": true
+        }
+      },
+      {
+        "path": "/ready",
+        "status": 200,
+        "ms": 1.005,
+        "ready": {
+          "ai_ready": true,
+          "model_ready": true,
+          "results_ready": true
+        }
+      }
+    ]
+  },
+  "swap_baseline_policy": "<=1MiB static usage allowed only after zero observed swap I/O; test swap always zero",
+  "limits": {
+    "memory_max": 1610612736,
+    "memory_high": 1342177280,
+    "swap_max": 0,
+    "cpu_quota_percent": 100,
+    "nice": 15,
+    "runtime_seconds": 90
+  },
+  "samples": [
+    {
+      "elapsed_s": 0.024,
+      "state": "running",
+      "available_bytes": 2993704960,
+      "swap_used_bytes": 12288,
+      "load": [
+        0.09912109375,
+        0.1123046875,
+        0.03662109375
+      ],
+      "swap_io_pages": {
+        "pswpin": 0,
+        "pswpout": 1
+      },
+      "memory.current": "3031040",
+      "memory.peak": "3031040",
+      "memory.swap.current": "0",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "cpu.stat": "usage_usec 7064\nuser_usec 3532\nsystem_usec 3532\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "100000 100000",
+      "memory.max": "1610612736",
+      "memory.swap.max": "0",
+      "tree_rss_bytes": 10514432
+    },
+    {
+      "elapsed_s": 0.541,
+      "state": "running",
+      "available_bytes": 2931941376,
+      "swap_used_bytes": 12288,
+      "load": [
+        0.09912109375,
+        0.1123046875,
+        0.03662109375
+      ],
+      "swap_io_pages": {
+        "pswpin": 0,
+        "pswpout": 1
+      },
+      "memory.current": "71888896",
+      "memory.peak": "71888896",
+      "memory.swap.current": "0",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "cpu.stat": "usage_usec 453899\nuser_usec 406386\nsystem_usec 47512\ncore_sched.force_idle_usec 0\nnr_periods 5\nnr_throttled 1\nthrottled_usec 498\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "100000 100000",
+      "memory.max": "1610612736",
+      "memory.swap.max": "0",
+      "test_cpu_one_core_pct": 86.38,
+      "tree_rss_bytes": 137506816
+    },
+    {
+      "elapsed_s": 1.049,
+      "state": "running",
+      "available_bytes": 2879234048,
+      "swap_used_bytes": 12288,
+      "load": [
+        0.09912109375,
+        0.1123046875,
+        0.03662109375
+      ],
+      "swap_io_pages": {
+        "pswpin": 0,
+        "pswpout": 1
+      },
+      "memory.current": "120045568",
+      "memory.peak": "120045568",
+      "memory.swap.current": "0",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "cpu.stat": "usage_usec 938201\nuser_usec 844581\nsystem_usec 93620\ncore_sched.force_idle_usec 0\nnr_periods 10\nnr_throttled 1\nthrottled_usec 498\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "100000 100000",
+      "memory.max": "1610612736",
+      "memory.swap.max": "0",
+      "test_cpu_one_core_pct": 95.4,
+      "tree_rss_bytes": 193798144
+    },
+    {
+      "elapsed_s": 1.557,
+      "state": "running",
+      "available_bytes": 2843447296,
+      "swap_used_bytes": 12288,
+      "load": [
+        0.09912109375,
+        0.1123046875,
+        0.03662109375
+      ],
+      "swap_io_pages": {
+        "pswpin": 0,
+        "pswpout": 1
+      },
+      "memory.current": "160960512",
+      "memory.peak": "160960512",
+      "memory.swap.current": "0",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "cpu.stat": "usage_usec 1443873\nuser_usec 1322291\nsystem_usec 121581\ncore_sched.force_idle_usec 0\nnr_periods 16\nnr_throttled 1\nthrottled_usec 498\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "100000 100000",
+      "memory.max": "1610612736",
+      "memory.swap.max": "0",
+      "test_cpu_one_core_pct": 99.51,
+      "tree_rss_bytes": 235831296
+    },
+    {
+      "elapsed_s": 2.064,
+      "state": "running",
+      "available_bytes": 2812964864,
+      "swap_used_bytes": 12288,
+      "load": [
+        0.09912109375,
+        0.1123046875,
+        0.03662109375
+      ],
+      "swap_io_pages": {
+        "pswpin": 0,
+        "pswpout": 1
+      },
+      "memory.current": "190455808",
+      "memory.peak": "190455808",
+      "memory.swap.current": "0",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "cpu.stat": "usage_usec 1927850\nuser_usec 1749215\nsystem_usec 178635\ncore_sched.force_idle_usec 0\nnr_periods 21\nnr_throttled 1\nthrottled_usec 498\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "100000 100000",
+      "memory.max": "1610612736",
+      "memory.swap.max": "0",
+      "test_cpu_one_core_pct": 95.47,
+      "tree_rss_bytes": 271355904
+    },
+    {
+      "elapsed_s": 2.58,
+      "state": "running",
+      "available_bytes": 2779734016,
+      "swap_used_bytes": 12288,
+      "load": [
+        0.09912109375,
+        0.1123046875,
+        0.03662109375
+      ],
+      "swap_io_pages": {
+        "pswpin": 0,
+        "pswpout": 1
+      },
+      "memory.current": "224448512",
+      "memory.peak": "224448512",
+      "memory.swap.current": "0",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "cpu.stat": "usage_usec 2444245\nuser_usec 2238719\nsystem_usec 205525\ncore_sched.force_idle_usec 0\nnr_periods 26\nnr_throttled 1\nthrottled_usec 498\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "100000 100000",
+      "memory.max": "1610612736",
+      "memory.swap.max": "0",
+      "test_cpu_one_core_pct": 99.98,
+      "tree_rss_bytes": 306225152
+    },
+    {
+      "elapsed_s": 3.088,
+      "state": "running",
+      "available_bytes": 2692911104,
+      "swap_used_bytes": 12288,
+      "load": [
+        0.09912109375,
+        0.1123046875,
+        0.03662109375
+      ],
+      "swap_io_pages": {
+        "pswpin": 0,
+        "pswpout": 1
+      },
+      "memory.current": "323182592",
+      "memory.peak": "347918336",
+      "memory.swap.current": "0",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "cpu.stat": "usage_usec 2828262\nuser_usec 2542730\nsystem_usec 285531\ncore_sched.force_idle_usec 0\nnr_periods 31\nnr_throttled 1\nthrottled_usec 498\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "100000 100000",
+      "memory.max": "1610612736",
+      "memory.swap.max": "0",
+      "test_cpu_one_core_pct": 75.72,
+      "tree_rss_bytes": 376061952
+    },
+    {
+      "elapsed_s": 3.596,
+      "state": "running",
+      "available_bytes": 2689748992,
+      "swap_used_bytes": 12288,
+      "load": [
+        0.09912109375,
+        0.1123046875,
+        0.03662109375
+      ],
+      "swap_io_pages": {
+        "pswpin": 0,
+        "pswpout": 1
+      },
+      "memory.current": "335306752",
+      "memory.peak": "356737024",
+      "memory.swap.current": "0",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+      "cpu.stat": "usage_usec 3336241\nuser_usec 3032764\nsystem_usec 303476\ncore_sched.force_idle_usec 0\nnr_periods 36\nnr_throttled 1\nthrottled_usec 498\nnr_bursts 0\nburst_usec 0",
+      "cpu.max": "100000 100000",
+      "memory.max": "1610612736",
+      "memory.swap.max": "0",
+      "test_cpu_one_core_pct": 99.98,
+      "tree_rss_bytes": 388313088
+    },
+    {
+      "elapsed_s": 4.103,
+      "state": "exited",
+      "available_bytes": 2936373248,
+      "swap_used_bytes": 12288,
+      "load": [
+        0.0908203125,
+        0.1103515625,
+        0.0361328125
+      ],
+      "swap_io_pages": {
+        "pswpin": 0,
+        "pswpout": 1
+      }
+    }
+  ],
+  "stop_reason": null,
+  "unit_result": {
+    "MainPID": "0",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestamp": "Sun 2026-11-01 19:13:25 CST",
+    "ExecMainStatus": "0",
+    "ControlGroup": "",
+    "ActiveState": "active",
+    "SubState": "exited"
+  },
+  "after": {
+    "service": {
+      "MainPID": "3480408",
+      "Result": "success",
+      "NRestarts": "0",
+      "ExecMainStartTimestamp": "Sat 2026-10-31 23:51:02 CST",
+      "ExecMainStatus": "0",
+      "ControlGroup": "/system.slice/acupuncture.service",
+      "ActiveState": "active",
+      "SubState": "running"
+    },
+    "host": {
+      "available_bytes": 2936373248,
+      "swap_used_bytes": 12288,
+      "load": [
+        0.0908203125,
+        0.1103515625,
+        0.0361328125
+      ],
+      "swap_io_pages": {
+        "pswpin": 0,
+        "pswpout": 1
+      }
+    },
+    "health": [
+      {
+        "path": "/health",
+        "status": 200,
+        "ms": 1.209,
+        "ready": {
+          "ai_ready": true
+        }
+      },
+      {
+        "path": "/ready",
+        "status": 200,
+        "ms": 0.768,
+        "ready": {
+          "ai_ready": true,
+          "model_ready": true,
+          "results_ready": true
+        }
+      }
+    ],
+    "test_unit": {
+      "MainPID": "0",
+      "Result": "success",
+      "NRestarts": "0",
+      "ExecMainStartTimestamp": "",
+      "ExecMainStatus": "0",
+      "ControlGroup": "",
+      "ActiveState": "inactive",
+      "SubState": "dead"
+    }
+  },
+  "health_samples": [
+    {
+      "elapsed_s": 0.024,
+      "checks": [
+        {
+          "path": "/health",
+          "status": 200,
+          "ms": 1.618,
+          "ready": {
+            "ai_ready": true
+          }
+        },
+        {
+          "path": "/ready",
+          "status": 200,
+          "ms": 1.311,
+          "ready": {
+            "ai_ready": true,
+            "model_ready": true,
+            "results_ready": true
+          }
+        }
+      ],
+      "mainpid": "3480408",
+      "restarts": "0"
+    },
+    {
+      "elapsed_s": 2.064,
+      "checks": [
+        {
+          "path": "/health",
+          "status": 200,
+          "ms": 1.273,
+          "ready": {
+            "ai_ready": true
+          }
+        },
+        {
+          "path": "/ready",
+          "status": 200,
+          "ms": 0.933,
+          "ready": {
+            "ai_ready": true,
+            "model_ready": true,
+            "results_ready": true
+          }
+        }
+      ],
+      "mainpid": "3480408",
+      "restarts": "0"
+    },
+    {
+      "elapsed_s": 4.103,
+      "checks": [
+        {
+          "path": "/health",
+          "status": 200,
+          "ms": 1.402,
+          "ready": {
+            "ai_ready": true
+          }
+        },
+        {
+          "path": "/ready",
+          "status": 200,
+          "ms": 0.815,
+          "ready": {
+            "ai_ready": true,
+            "model_ready": true,
+            "results_ready": true
+          }
+        }
+      ],
+      "mainpid": "3480408",
+      "restarts": "0"
+    }
+  ],
+  "summary": {
+    "max_cgroup_memory_peak_bytes": 356737024,
+    "max_sampled_process_tree_rss_bytes": 388313088,
+    "max_sampled_cpu_one_core_pct": 99.98,
+    "min_host_available_bytes": 2689748992,
+    "elapsed_seconds": 4.135,
+    "health_check_rounds": 3
+  }
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "path": "/health",
+    "status": 200,
+    "ms": 267.09,
+    "tls_verify": true,
+    "readiness_boolean_fields": {
+      "ai_ready": true
+    }
+  },
+  {
+    "path": "/ready",
+    "status": 200,
+    "ms": 73,
+    "tls_verify": true,
+    "readiness_boolean_fields": {
+      "ai_ready": true,
+      "model_ready": true,
+      "results_ready": true
+    }
+  }
+]

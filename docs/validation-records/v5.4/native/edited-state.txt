@@ -1,0 +1,1 @@
++																					803 text V54_EDITED {"route":"pages/annotate/annotate","requests":2,"httpMs":[125,135],"savedCount":1,"sameId":true,"geometryChanged":true,"photoUnchanged":true,"requestEqualsSaved":true,"selected":"","labels":["T7","T6","T5","T8","T7"],"ready":"ready"}

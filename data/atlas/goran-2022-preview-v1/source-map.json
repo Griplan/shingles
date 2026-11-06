@@ -1,0 +1,654 @@
+{
+  "sourceId": "commons-goran-2022",
+  "method": "Manually audited SVG evenodd filled-path order -> source label. T/L torso text points and limb leader endpoints checked against original vector paths; labels are not inferred from numbering or colors alone. Face inset excluded. Combined source labels retained as combined labels.",
+  "views": {
+    "front": [
+      {
+        "pathIndex": 0,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 1,
+        "labelId": "T1",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T1"
+      },
+      {
+        "pathIndex": 2,
+        "labelId": "T2",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T2"
+      },
+      {
+        "pathIndex": 3,
+        "labelId": "T3",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T3"
+      },
+      {
+        "pathIndex": 4,
+        "labelId": "T4",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T4"
+      },
+      {
+        "pathIndex": 5,
+        "labelId": "T5",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T5"
+      },
+      {
+        "pathIndex": 6,
+        "labelId": "T6",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T6"
+      },
+      {
+        "pathIndex": 7,
+        "labelId": "T7",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T7"
+      },
+      {
+        "pathIndex": 8,
+        "labelId": "T8",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T8"
+      },
+      {
+        "pathIndex": 9,
+        "labelId": "T9",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T9"
+      },
+      {
+        "pathIndex": 10,
+        "labelId": "T10",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T10"
+      },
+      {
+        "pathIndex": 11,
+        "labelId": "T11",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T11"
+      },
+      {
+        "pathIndex": 12,
+        "labelId": "T12",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T12"
+      },
+      {
+        "pathIndex": 13,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 14,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 15,
+        "labelId": "C2",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C2"
+      },
+      {
+        "pathIndex": 16,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 17,
+        "labelId": "C3",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C3"
+      },
+      {
+        "pathIndex": 18,
+        "labelId": "C4",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C4"
+      },
+      {
+        "pathIndex": 19,
+        "labelId": "T1",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T1"
+      },
+      {
+        "pathIndex": 20,
+        "labelId": "T2",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T2"
+      },
+      {
+        "pathIndex": 21,
+        "labelId": "C6",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C6"
+      },
+      {
+        "pathIndex": 22,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 23,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 24,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 25,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 26,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 27,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 28,
+        "labelId": "C5",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C5"
+      },
+      {
+        "pathIndex": 29,
+        "labelId": "C6-C8",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C 6-8"
+      },
+      {
+        "pathIndex": 30,
+        "labelId": "C6-C8",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C 6-8"
+      },
+      {
+        "pathIndex": 31,
+        "labelId": "C8/T1",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C 8 / T 1"
+      },
+      {
+        "pathIndex": 32,
+        "labelId": "C8/T1",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C 8 / T 1"
+      },
+      {
+        "pathIndex": 33,
+        "labelId": "L1",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "L1"
+      },
+      {
+        "pathIndex": 34,
+        "labelId": "L2",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "L2"
+      },
+      {
+        "pathIndex": 35,
+        "labelId": "L3",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "L3"
+      },
+      {
+        "pathIndex": 36,
+        "labelId": "L4",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "L4"
+      },
+      {
+        "pathIndex": 37,
+        "labelId": "S1",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "S1"
+      },
+      {
+        "pathIndex": 38,
+        "labelId": "S1",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "S1"
+      },
+      {
+        "pathIndex": 39,
+        "labelId": "S4",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "S4"
+      },
+      {
+        "pathIndex": 40,
+        "labelId": "S3",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "S3"
+      },
+      {
+        "pathIndex": 41,
+        "labelId": "L5",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "L5"
+      }
+    ],
+    "back": [
+      {
+        "pathIndex": 0,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 1,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 2,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 3,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 4,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 5,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 6,
+        "labelId": "T1",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T1"
+      },
+      {
+        "pathIndex": 7,
+        "labelId": "T2",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T2"
+      },
+      {
+        "pathIndex": 8,
+        "labelId": "T3",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T3"
+      },
+      {
+        "pathIndex": 9,
+        "labelId": "T4",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T4"
+      },
+      {
+        "pathIndex": 10,
+        "labelId": "T5",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T5"
+      },
+      {
+        "pathIndex": 11,
+        "labelId": "T6",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T6"
+      },
+      {
+        "pathIndex": 12,
+        "labelId": "T7",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T7"
+      },
+      {
+        "pathIndex": 13,
+        "labelId": "T12",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T12"
+      },
+      {
+        "pathIndex": 14,
+        "labelId": "T8",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T8"
+      },
+      {
+        "pathIndex": 15,
+        "labelId": "T9",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T9"
+      },
+      {
+        "pathIndex": 16,
+        "labelId": "T10",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T10"
+      },
+      {
+        "pathIndex": 17,
+        "labelId": "T11",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T11"
+      },
+      {
+        "pathIndex": 18,
+        "labelId": "L1",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "L1"
+      },
+      {
+        "pathIndex": 19,
+        "labelId": "L2",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "L2"
+      },
+      {
+        "pathIndex": 20,
+        "labelId": "C7",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C7"
+      },
+      {
+        "pathIndex": 21,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 22,
+        "labelId": "C2",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C2"
+      },
+      {
+        "pathIndex": 23,
+        "labelId": "C3",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C3"
+      },
+      {
+        "pathIndex": 24,
+        "labelId": "C4",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C4"
+      },
+      {
+        "pathIndex": 25,
+        "labelId": "C8",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C8"
+      },
+      {
+        "pathIndex": 26,
+        "labelId": "C6",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C6"
+      },
+      {
+        "pathIndex": 27,
+        "labelId": "C8",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C8"
+      },
+      {
+        "pathIndex": 28,
+        "labelId": "C6-C8",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C 6-8"
+      },
+      {
+        "pathIndex": 29,
+        "labelId": "C6-C8",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C 6-8"
+      },
+      {
+        "pathIndex": 30,
+        "labelId": "C6-C8",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C 6-8"
+      },
+      {
+        "pathIndex": 31,
+        "labelId": "C6-C8",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C 6-8"
+      },
+      {
+        "pathIndex": 32,
+        "labelId": "S3",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "S3"
+      },
+      {
+        "pathIndex": 33,
+        "labelId": "S4",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "S4"
+      },
+      {
+        "pathIndex": 34,
+        "labelId": "S5",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "S5"
+      },
+      {
+        "pathIndex": 35,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Source C1 points to coccygeal location; C1 vs Co1 cannot be safely normalized, pending expert clarification.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 36,
+        "labelId": "L4",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "L4"
+      },
+      {
+        "pathIndex": 37,
+        "labelId": "L3",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "L3"
+      },
+      {
+        "pathIndex": 38,
+        "labelId": "L5",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "L5"
+      },
+      {
+        "pathIndex": 39,
+        "labelId": "C8/T1",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C 8 / T 1"
+      },
+      {
+        "pathIndex": 40,
+        "labelId": "C8",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C8"
+      },
+      {
+        "pathIndex": 41,
+        "labelId": "T1/T2",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "T 1,2"
+      },
+      {
+        "pathIndex": 42,
+        "labelId": "C8/T1",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C 8 / T 1"
+      },
+      {
+        "pathIndex": 43,
+        "labelId": "L5",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "L5"
+      },
+      {
+        "pathIndex": 44,
+        "labelId": "S1",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "S1"
+      },
+      {
+        "pathIndex": 45,
+        "labelId": null,
+        "status": "excluded",
+        "reason": "Cranial V1/V2/V3 or separate lateral-head inset; excluded from spinal-dermatome dataset.",
+        "sourceLabel": null
+      },
+      {
+        "pathIndex": 46,
+        "labelId": "C5",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C5"
+      },
+      {
+        "pathIndex": 47,
+        "labelId": "C6-C8",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C 6-8"
+      },
+      {
+        "pathIndex": 48,
+        "labelId": "C6-C8",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "C 6-8"
+      },
+      {
+        "pathIndex": 49,
+        "labelId": "S2",
+        "status": "included",
+        "reason": "Source label verified; geometry will be limited to registered visible surface, distal hands/feet excluded.",
+        "sourceLabel": "S2"
+      }
+    ]
+  }
+}

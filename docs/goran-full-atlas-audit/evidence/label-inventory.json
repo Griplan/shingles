@@ -1,0 +1,396 @@
+[
+  {
+    "label": "T1",
+    "frontPaths": [
+      1,
+      19
+    ],
+    "backPaths": [
+      6
+    ],
+    "sourceSideInstances": 6,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "T2",
+    "frontPaths": [
+      2,
+      20
+    ],
+    "backPaths": [
+      7
+    ],
+    "sourceSideInstances": 6,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "T3",
+    "frontPaths": [
+      3
+    ],
+    "backPaths": [
+      8
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "T4",
+    "frontPaths": [
+      4
+    ],
+    "backPaths": [
+      9
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "T5",
+    "frontPaths": [
+      5
+    ],
+    "backPaths": [
+      10
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "T6",
+    "frontPaths": [
+      6
+    ],
+    "backPaths": [
+      11
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "T7",
+    "frontPaths": [
+      7
+    ],
+    "backPaths": [
+      12
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "T8",
+    "frontPaths": [
+      8
+    ],
+    "backPaths": [
+      14
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "T9",
+    "frontPaths": [
+      9
+    ],
+    "backPaths": [
+      15
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "T10",
+    "frontPaths": [
+      10
+    ],
+    "backPaths": [
+      16
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "T11",
+    "frontPaths": [
+      11
+    ],
+    "backPaths": [
+      17
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "T12",
+    "frontPaths": [
+      12
+    ],
+    "backPaths": [
+      13
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "V1",
+    "frontPaths": [
+      13
+    ],
+    "backPaths": [
+      21
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 2
+  },
+  {
+    "label": "V2",
+    "frontPaths": [
+      14
+    ],
+    "backPaths": [],
+    "sourceSideInstances": 2,
+    "currentRegionCount": 2
+  },
+  {
+    "label": "C2",
+    "frontPaths": [
+      15
+    ],
+    "backPaths": [
+      22
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "V3",
+    "frontPaths": [
+      16
+    ],
+    "backPaths": [],
+    "sourceSideInstances": 2,
+    "currentRegionCount": 2
+  },
+  {
+    "label": "C3",
+    "frontPaths": [
+      17
+    ],
+    "backPaths": [
+      23
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "C4",
+    "frontPaths": [
+      18
+    ],
+    "backPaths": [
+      24
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "C6",
+    "frontPaths": [
+      21
+    ],
+    "backPaths": [
+      26
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "C5",
+    "frontPaths": [
+      28
+    ],
+    "backPaths": [
+      46
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "C6-C8",
+    "frontPaths": [
+      29,
+      30
+    ],
+    "backPaths": [
+      28,
+      29,
+      30,
+      31,
+      47,
+      48
+    ],
+    "sourceSideInstances": 10,
+    "currentRegionCount": 2
+  },
+  {
+    "label": "C8/T1",
+    "frontPaths": [
+      31,
+      32
+    ],
+    "backPaths": [
+      39,
+      42
+    ],
+    "sourceSideInstances": 6,
+    "currentRegionCount": 2
+  },
+  {
+    "label": "L1",
+    "frontPaths": [
+      33
+    ],
+    "backPaths": [
+      18
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "L2",
+    "frontPaths": [
+      34
+    ],
+    "backPaths": [
+      19
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "L3",
+    "frontPaths": [
+      35
+    ],
+    "backPaths": [
+      37
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "L4",
+    "frontPaths": [
+      36
+    ],
+    "backPaths": [
+      36
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "S1",
+    "frontPaths": [
+      37,
+      38
+    ],
+    "backPaths": [
+      44
+    ],
+    "sourceSideInstances": 6,
+    "currentRegionCount": 2
+  },
+  {
+    "label": "S4",
+    "frontPaths": [
+      39
+    ],
+    "backPaths": [
+      33
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 2
+  },
+  {
+    "label": "S3",
+    "frontPaths": [
+      40
+    ],
+    "backPaths": [
+      32
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 2
+  },
+  {
+    "label": "L5",
+    "frontPaths": [
+      41
+    ],
+    "backPaths": [
+      38,
+      43
+    ],
+    "sourceSideInstances": 6,
+    "currentRegionCount": 4
+  },
+  {
+    "label": "C7",
+    "frontPaths": [],
+    "backPaths": [
+      20
+    ],
+    "sourceSideInstances": 2,
+    "currentRegionCount": 2
+  },
+  {
+    "label": "C8",
+    "frontPaths": [],
+    "backPaths": [
+      25,
+      27,
+      40
+    ],
+    "sourceSideInstances": 4,
+    "currentRegionCount": 2
+  },
+  {
+    "label": "S5",
+    "frontPaths": [],
+    "backPaths": [
+      34
+    ],
+    "sourceSideInstances": 2,
+    "currentRegionCount": 2
+  },
+  {
+    "label": "C1 (source literal; meaning UNKNOWN)",
+    "frontPaths": [],
+    "backPaths": [
+      35
+    ],
+    "sourceSideInstances": 2,
+    "currentRegionCount": 0
+  },
+  {
+    "label": "T1/T2",
+    "frontPaths": [],
+    "backPaths": [
+      41
+    ],
+    "sourceSideInstances": 2,
+    "currentRegionCount": 2
+  },
+  {
+    "label": "S2",
+    "frontPaths": [],
+    "backPaths": [
+      49
+    ],
+    "sourceSideInstances": 2,
+    "currentRegionCount": 2
+  }
+]

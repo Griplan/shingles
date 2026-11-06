@@ -1,0 +1,5 @@
+COMMAND: ["/Users/griplan/project/extra/Shingles‌/dermatome-mapper/backend/.venv/bin/python", "scripts/check_annotation_geometry.py"]
+PASSED actual front: valid simple single outer body, no holes; 1563 source vertices
+PASSED actual back: valid simple single outer body, no holes; 1487 source vertices
+PASSED: 2421 deterministic fixture/random cases agree with independent Shapely validity and covers; seed 20261023, 400 cases/body, 6 bodies.
+Node geometry audit only; not WeChat runtime, clinical accuracy or handset performance.

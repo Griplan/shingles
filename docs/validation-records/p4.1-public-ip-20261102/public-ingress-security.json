@@ -1,0 +1,96 @@
+{
+  "status": "PASSED",
+  "endpoint": "http://212.64.26.206/dermatome-test/api/v1",
+  "transport": "HTTP unencrypted; public/synthetic inputs only",
+  "phone": "NOT_RUN",
+  "checks": {
+    "minimal_public_health": {
+      "expected": 200,
+      "actual": 200
+    },
+    "anonymous_evaluate": {
+      "expected": 401,
+      "actual": 401
+    },
+    "anonymous_photo_creation": {
+      "expected": 401,
+      "actual": 401
+    },
+    "synthetic_legacy_header_rejected": {
+      "expected": 401,
+      "actual": 401
+    },
+    "origin_rejected": {
+      "expected": 403,
+      "actual": 403
+    },
+    "exchange_body_bound": {
+      "expected": 413,
+      "actual": 413
+    },
+    "invitation_exchange": {
+      "expected": 200,
+      "actual": 200
+    },
+    "authenticated_ready": {
+      "expected": 200,
+      "actual": 200
+    },
+    "session": {
+      "expected": 200,
+      "actual": 200
+    },
+    "non_image_rejected": {
+      "expected": 422,
+      "actual": 422
+    },
+    "over_3mp_rejected": {
+      "expected": 422,
+      "actual": 422
+    },
+    "backend_upload_size_bound": {
+      "expected": 413,
+      "actual": 413
+    },
+    "nginx_body_size_bound": {
+      "expected": 413,
+      "actual": 413
+    },
+    "cancel": {
+      "expected": 204,
+      "actual": 204
+    },
+    "revoke": {
+      "expected": 204,
+      "actual": 204
+    },
+    "public_ingress_rate_limit": {
+      "requests": 20,
+      "max_parallel": 4,
+      "statuses": {
+        "200": 13,
+        "429": 7
+      }
+    }
+  },
+  "readiness": {
+    "status": "ready",
+    "identity": {
+      "template_id": "commons-neutral-v1",
+      "template_version": "4.0.0",
+      "geometry_id": "commons-blank-cc0-v1",
+      "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+      "atlas_id": "goran-2022",
+      "atlas_version": "goran-2022-commons-template4-preview.2",
+      "atlas_content_sha256": "8689fca1aa50cff0b1b7d7cd1adcd80cf244cd1a93ed580e91406d0cc2fb2056",
+      "body_content_sha256": "59979433be334f53a705f90a484aadc312a426387f4c1a3b59a718393fbf426a",
+      "coordinate_system": "normalized_2d_top_left"
+    },
+    "ai_model_loaded": true,
+    "ai_device": "cpu",
+    "medical_review": "pending",
+    "diagnosis_enabled": false
+  },
+  "temporary_data_deleted": true,
+  "legacy_header_note": "Synthetic rejection alone does not prove stripping. Deployed Nginx configuration explicitly removes X-Test-Access-Key; real admin key is never sent publicly."
+}

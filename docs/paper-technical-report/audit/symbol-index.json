@@ -1,0 +1,3097 @@
+[
+  {
+    "path": "ai/cli.py",
+    "line": 14,
+    "declaration": "def main(argv=None):"
+  },
+  {
+    "path": "ai/errors.py",
+    "line": 1,
+    "declaration": "class SegmentationError(Exception):"
+  },
+  {
+    "path": "ai/errors.py",
+    "line": 4,
+    "declaration": "def __init__(self, code: str, message: str):"
+  },
+  {
+    "path": "ai/errors.py",
+    "line": 8,
+    "declaration": "def as_dict(self):"
+  },
+  {
+    "path": "ai/experiments/benchmark.py",
+    "line": 13,
+    "declaration": "def main():"
+  },
+  {
+    "path": "ai/experiments/download_model.py",
+    "line": 15,
+    "declaration": "def fetch(url, binary=False):"
+  },
+  {
+    "path": "ai/experiments/download_model.py",
+    "line": 24,
+    "declaration": "def main():"
+  },
+  {
+    "path": "ai/experiments/export_public_correction.py",
+    "line": 13,
+    "declaration": "def main():"
+  },
+  {
+    "path": "ai/experiments/oversegmentation.py",
+    "line": 14,
+    "declaration": "def main():"
+  },
+  {
+    "path": "ai/experiments/prepare_inputs.py",
+    "line": 8,
+    "declaration": "def main():"
+  },
+  {
+    "path": "ai/experiments/preview.py",
+    "line": 8,
+    "declaration": "def main():"
+  },
+  {
+    "path": "ai/experiments/run_suite.py",
+    "line": 13,
+    "declaration": "def main():"
+  },
+  {
+    "path": "ai/export.py",
+    "line": 10,
+    "declaration": "def export_result(result: SegmentationResult, output: str | Path) -> Path:"
+  },
+  {
+    "path": "ai/inference/local_regions.py",
+    "line": 8,
+    "declaration": "def checked_predict(model, rgb, prompts):"
+  },
+  {
+    "path": "ai/inference/local_regions.py",
+    "line": 17,
+    "declaration": "def predict_regions(model, rgb, prompts, strategy):"
+  },
+  {
+    "path": "ai/inference/mobile_sam.py",
+    "line": 14,
+    "declaration": "class MobileSAM:"
+  },
+  {
+    "path": "ai/inference/mobile_sam.py",
+    "line": 17,
+    "declaration": "def __init__(self, checkpoint: str | Path, device: str = \"cpu\", threads: int = 4):"
+  },
+  {
+    "path": "ai/inference/mobile_sam.py",
+    "line": 63,
+    "declaration": "def sync(self):"
+  },
+  {
+    "path": "ai/inference/mobile_sam.py",
+    "line": 69,
+    "declaration": "def predict(self, rgb: np.ndarray, prompts: dict):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/build_sam.py",
+    "line": 14,
+    "declaration": "def build_sam_vit_h(checkpoint=None):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/build_sam.py",
+    "line": 27,
+    "declaration": "def build_sam_vit_l(checkpoint=None):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/build_sam.py",
+    "line": 37,
+    "declaration": "def build_sam_vit_b(checkpoint=None):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/build_sam.py",
+    "line": 47,
+    "declaration": "def build_sam_vit_t(checkpoint=None):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/build_sam.py",
+    "line": 105,
+    "declaration": "def _build_sam("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/mask_decoder.py",
+    "line": 16,
+    "declaration": "class MaskDecoder(nn.Module):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/mask_decoder.py",
+    "line": 17,
+    "declaration": "def __init__("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/mask_decoder.py",
+    "line": 71,
+    "declaration": "def forward("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/mask_decoder.py",
+    "line": 112,
+    "declaration": "def predict_masks("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/mask_decoder.py",
+    "line": 154,
+    "declaration": "class MLP(nn.Module):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/mask_decoder.py",
+    "line": 155,
+    "declaration": "def __init__("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/mask_decoder.py",
+    "line": 171,
+    "declaration": "def forward(self, x):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/prompt_encoder.py",
+    "line": 16,
+    "declaration": "class PromptEncoder(nn.Module):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/prompt_encoder.py",
+    "line": 17,
+    "declaration": "def __init__("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/prompt_encoder.py",
+    "line": 62,
+    "declaration": "def get_dense_pe(self) -> torch.Tensor:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/prompt_encoder.py",
+    "line": 73,
+    "declaration": "def _embed_points("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/prompt_encoder.py",
+    "line": 93,
+    "declaration": "def _embed_boxes(self, boxes: torch.Tensor) -> torch.Tensor:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/prompt_encoder.py",
+    "line": 102,
+    "declaration": "def _embed_masks(self, masks: torch.Tensor) -> torch.Tensor:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/prompt_encoder.py",
+    "line": 107,
+    "declaration": "def _get_batch_size("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/prompt_encoder.py",
+    "line": 125,
+    "declaration": "def _get_device(self) -> torch.device:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/prompt_encoder.py",
+    "line": 128,
+    "declaration": "def forward("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/prompt_encoder.py",
+    "line": 171,
+    "declaration": "class PositionEmbeddingRandom(nn.Module):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/prompt_encoder.py",
+    "line": 176,
+    "declaration": "def __init__(self, num_pos_feats: int = 64, scale: Optional[float] = None) -> None:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/prompt_encoder.py",
+    "line": 185,
+    "declaration": "def _pe_encoding(self, coords: torch.Tensor) -> torch.Tensor:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/prompt_encoder.py",
+    "line": 194,
+    "declaration": "def forward(self, size: Tuple[int, int]) -> torch.Tensor:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/prompt_encoder.py",
+    "line": 207,
+    "declaration": "def forward_with_coords("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/sam.py",
+    "line": 19,
+    "declaration": "class Sam(nn.Module):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/sam.py",
+    "line": 23,
+    "declaration": "def __init__("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/sam.py",
+    "line": 51,
+    "declaration": "def device(self) -> Any:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/sam.py",
+    "line": 55,
+    "declaration": "def forward("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/sam.py",
+    "line": 134,
+    "declaration": "def postprocess_masks("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/sam.py",
+    "line": 165,
+    "declaration": "def preprocess(self, x: torch.Tensor) -> torch.Tensor:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 21,
+    "declaration": "class Conv2d_BN(torch.nn.Sequential):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 22,
+    "declaration": "def __init__(self, a, b, ks=1, stride=1, pad=0, dilation=1,"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 33,
+    "declaration": "def fuse(self):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 46,
+    "declaration": "class DropPath(TimmDropPath):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 47,
+    "declaration": "def __init__(self, drop_prob=None):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 51,
+    "declaration": "def __repr__(self):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 57,
+    "declaration": "class PatchEmbed(nn.Module):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 58,
+    "declaration": "def __init__(self, in_chans, embed_dim, resolution, activation):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 73,
+    "declaration": "def forward(self, x):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 77,
+    "declaration": "class MBConv(nn.Module):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 78,
+    "declaration": "def __init__(self, in_chans, out_chans, expand_ratio,"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 99,
+    "declaration": "def forward(self, x):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 118,
+    "declaration": "class PatchMerging(nn.Module):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 119,
+    "declaration": "def __init__(self, input_resolution, dim, out_dim, activation):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 133,
+    "declaration": "def forward(self, x):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 150,
+    "declaration": "class ConvLayer(nn.Module):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 151,
+    "declaration": "def __init__(self, dim, input_resolution, depth,"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 178,
+    "declaration": "def forward(self, x):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 189,
+    "declaration": "class Mlp(nn.Module):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 190,
+    "declaration": "def __init__(self, in_features, hidden_features=None,"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 201,
+    "declaration": "def forward(self, x):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 212,
+    "declaration": "class Attention(torch.nn.Module):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 213,
+    "declaration": "def __init__(self, dim, key_dim, num_heads=8,"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 251,
+    "declaration": "def train(self, mode=True):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 260,
+    "declaration": "def forward(self, x):  # x (B,N,C)"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 287,
+    "declaration": "class TinyViTBlock(nn.Module):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 303,
+    "declaration": "def __init__(self, dim, input_resolution, num_heads, window_size=7,"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 335,
+    "declaration": "def forward(self, x):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 378,
+    "declaration": "def extra_repr(self) -> str:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 383,
+    "declaration": "class BasicLayer(nn.Module):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 402,
+    "declaration": "def __init__(self, dim, input_resolution, depth, num_heads, window_size,"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 436,
+    "declaration": "def forward(self, x):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 446,
+    "declaration": "def extra_repr(self) -> str:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 449,
+    "declaration": "class LayerNorm2d(nn.Module):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 450,
+    "declaration": "def __init__(self, num_channels: int, eps: float = 1e-6) -> None:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 456,
+    "declaration": "def forward(self, x: torch.Tensor) -> torch.Tensor:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 462,
+    "declaration": "class TinyViT(nn.Module):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 463,
+    "declaration": "def __init__(self, img_size=224, in_chans=3, num_classes=1000,"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 553,
+    "declaration": "def set_layer_lr_decay(self, layer_lr_decay):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 587,
+    "declaration": "def _init_weights(self, m):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 597,
+    "declaration": "def no_weight_decay_keywords(self):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 600,
+    "declaration": "def forward_features(self, x):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 616,
+    "declaration": "def forward(self, x):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 634,
+    "declaration": "def register_tiny_vit_model(fn):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 638,
+    "declaration": "def fn_wrapper(pretrained=False, **kwargs):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 660,
+    "declaration": "def tiny_vit_5m_224(pretrained=False, num_classes=1000, drop_path_rate=0.0):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 672,
+    "declaration": "def tiny_vit_11m_224(pretrained=False, num_classes=1000, drop_path_rate=0.1):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 684,
+    "declaration": "def tiny_vit_21m_224(pretrained=False, num_classes=1000, drop_path_rate=0.2):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 696,
+    "declaration": "def tiny_vit_21m_384(pretrained=False, num_classes=1000, drop_path_rate=0.1):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/modeling/tiny_vit_sam.py",
+    "line": 709,
+    "declaration": "def tiny_vit_21m_512(pretrained=False, num_classes=1000, drop_path_rate=0.1):"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/predictor.py",
+    "line": 17,
+    "declaration": "class SamPredictor:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/predictor.py",
+    "line": 18,
+    "declaration": "def __init__("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/predictor.py",
+    "line": 34,
+    "declaration": "def set_image("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/predictor.py",
+    "line": 63,
+    "declaration": "def set_torch_image("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/predictor.py",
+    "line": 93,
+    "declaration": "def predict("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/predictor.py",
+    "line": 170,
+    "declaration": "def predict_torch("
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/predictor.py",
+    "line": 246,
+    "declaration": "def get_image_embedding(self) -> torch.Tensor:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/predictor.py",
+    "line": 260,
+    "declaration": "def device(self) -> torch.device:"
+  },
+  {
+    "path": "ai/models/MobileSAM-source/mobile_sam/predictor.py",
+    "line": 263,
+    "declaration": "def reset_image(self) -> None:"
+  },
+  {
+    "path": "ai/postprocessing/brush.py",
+    "line": 6,
+    "declaration": "def apply_strokes(original, strokes):"
+  },
+  {
+    "path": "ai/postprocessing/polygons.py",
+    "line": 12,
+    "declaration": "def mask_to_polygons(mask: np.ndarray, simplify_px: float = 0.0) -> dict:"
+  },
+  {
+    "path": "ai/postprocessing/quality.py",
+    "line": 5,
+    "declaration": "def inspect_mask(mask, prompts, component_count=0):"
+  },
+  {
+    "path": "ai/postprocessing/quality.py",
+    "line": 34,
+    "declaration": "def inspect_candidates(candidates, masks, prompts):"
+  },
+  {
+    "path": "ai/preprocessing/image.py",
+    "line": 17,
+    "declaration": "class PreparedImage:"
+  },
+  {
+    "path": "ai/preprocessing/image.py",
+    "line": 22,
+    "declaration": "def prepare_image(path: str | Path, *, max_bytes=None, max_pixels=None) -> PreparedImage:"
+  },
+  {
+    "path": "ai/preprocessing/image.py",
+    "line": 69,
+    "declaration": "def validate_prompts(prompts: dict, width: int, height: int) -> dict:"
+  },
+  {
+    "path": "ai/preprocessing/image.py",
+    "line": 71,
+    "declaration": "def fail():"
+  },
+  {
+    "path": "ai/preprocessing/image.py",
+    "line": 74,
+    "declaration": "def finite(v):"
+  },
+  {
+    "path": "ai/segmentation.py",
+    "line": 21,
+    "declaration": "class SegmentationResult:"
+  },
+  {
+    "path": "ai/segmentation.py",
+    "line": 28,
+    "declaration": "def segment_image(image, prompts: dict, *, model, simplify_px: float = 0.0, strategy: str = 'full_image') -> SegmentationResult:"
+  },
+  {
+    "path": "ai/tests/test_geometry.py",
+    "line": 11,
+    "declaration": "def geometry(mask, tolerance=0):"
+  },
+  {
+    "path": "ai/tests/test_geometry.py",
+    "line": 26,
+    "declaration": "def test_single_pixel_at_image_edge_and_entire_mask():"
+  },
+  {
+    "path": "ai/tests/test_geometry.py",
+    "line": 36,
+    "declaration": "def test_disconnected_hole_and_island_are_not_hull():"
+  },
+  {
+    "path": "ai/tests/test_geometry.py",
+    "line": 48,
+    "declaration": "def test_corner_touch_remains_two_components():"
+  },
+  {
+    "path": "ai/tests/test_geometry.py",
+    "line": 53,
+    "declaration": "def test_lossy_simplification_falls_back_instead_of_dropping_small_parts():"
+  },
+  {
+    "path": "ai/tests/test_geometry.py",
+    "line": 62,
+    "declaration": "def test_seeded_fragmented_masks_exact_pixel_reconstruction(seed):"
+  },
+  {
+    "path": "ai/tests/test_geometry.py",
+    "line": 66,
+    "declaration": "def test_empty_mask_explicit_state():"
+  },
+  {
+    "path": "ai/tests/test_geometry.py",
+    "line": 72,
+    "declaration": "def test_invalid_masks(mask):"
+  },
+  {
+    "path": "ai/tests/test_geometry.py",
+    "line": 77,
+    "declaration": "def test_fragmentation_limit_is_failure(monkeypatch):"
+  },
+  {
+    "path": "ai/tests/test_geometry.py",
+    "line": 85,
+    "declaration": "def test_invalid_simplification(value):"
+  },
+  {
+    "path": "ai/tests/test_inputs.py",
+    "line": 10,
+    "declaration": "def test_exif_rotation_and_metadata_stripping(tmp_path):"
+  },
+  {
+    "path": "ai/tests/test_inputs.py",
+    "line": 25,
+    "declaration": "def test_alpha_uses_same_white_background(tmp_path):"
+  },
+  {
+    "path": "ai/tests/test_inputs.py",
+    "line": 33,
+    "declaration": "def test_bad_images(tmp_path, kind, code):"
+  },
+  {
+    "path": "ai/tests/test_inputs.py",
+    "line": 43,
+    "declaration": "def test_oversize_checked_before_decode(tmp_path, monkeypatch):"
+  },
+  {
+    "path": "ai/tests/test_inputs.py",
+    "line": 50,
+    "declaration": "def test_dimension_limit_before_decode(tmp_path, monkeypatch):"
+  },
+  {
+    "path": "ai/tests/test_inputs.py",
+    "line": 66,
+    "declaration": "def test_invalid_prompts(prompts):"
+  },
+  {
+    "path": "ai/tests/test_inputs.py",
+    "line": 74,
+    "declaration": "def test_box_only_and_fg_bg_valid():"
+  },
+  {
+    "path": "ai/tests/test_inputs.py",
+    "line": 80,
+    "declaration": "def test_invalid_image_type():"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 16,
+    "declaration": "class PixelModel:"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 18,
+    "declaration": "def __init__(self): self.calls=[]"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 19,
+    "declaration": "def predict(self,rgb,p):"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 23,
+    "declaration": "def raster(geometry,h,w):"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 27,
+    "declaration": "def test_context_offsets_preserve_holes_islands_and_original_prompt():"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 40,
+    "declaration": "def test_crop_photo_edges_and_foreground_outside_box_are_mapped_exactly(box):"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 47,
+    "declaration": "def test_point_only_fallback_and_multiple_boxes_reject_full_image():"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 52,
+    "declaration": "def test_quality_deprioritizes_prompt_violations_not_model_score_and_keeps_masks():"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 61,
+    "declaration": "def stroke(mode='add',radius=.1,points=None):return {'mode':mode,'radius':radius,'points':points or [{'x':.25,'y':.5}]}"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 63,
+    "declaration": "def test_brush_uses_pixel_metric_preserves_original_and_replays_undo():"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 76,
+    "declaration": "def test_invalid_brush_is_explicit(bad):"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 79,
+    "declaration": "def test_brush_touching_border_and_one_pixel_component_survive():"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 84,
+    "declaration": "def test_edit_confirm_undo_exact_masks_private_assets_and_no_extra_inference(client):"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 110,
+    "declaration": "def test_edit_invalid_contract(client,change):"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 115,
+    "declaration": "def test_crop_edge_is_reported_without_shrinking_prediction():"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 124,
+    "declaration": "def test_empty_edit_refuses_confirmation_and_restore_keeps_raw(client):"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 135,
+    "declaration": "def test_deleted_session_during_brush_does_not_recreate_files(service,monkeypatch):"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 144,
+    "declaration": "def delayed(*args):entered.set();release.wait(3);return actual(*args)"
+  },
+  {
+    "path": "ai/tests/test_oversegmentation.py",
+    "line": 152,
+    "declaration": "def test_normalized_roundtrip_does_not_move_integer_crop_edges_by_a_pixel():"
+  },
+  {
+    "path": "ai/tests/test_pipeline.py",
+    "line": 16,
+    "declaration": "class SyntheticPredictor:"
+  },
+  {
+    "path": "ai/tests/test_pipeline.py",
+    "line": 18,
+    "declaration": "def predict(self, image, prompts):"
+  },
+  {
+    "path": "ai/tests/test_pipeline.py",
+    "line": 25,
+    "declaration": "def photo(tmp_path):"
+  },
+  {
+    "path": "ai/tests/test_pipeline.py",
+    "line": 30,
+    "declaration": "def test_contract_and_export_alignment(photo, tmp_path):"
+  },
+  {
+    "path": "ai/tests/test_pipeline.py",
+    "line": 44,
+    "declaration": "def test_contour_failure_retains_original_mask(photo, monkeypatch):"
+  },
+  {
+    "path": "ai/tests/test_pipeline.py",
+    "line": 45,
+    "declaration": "def fail(*args): raise SegmentationError(\"CONTOUR_FAILED\", \"Test failure\")"
+  },
+  {
+    "path": "ai/tests/test_pipeline.py",
+    "line": 53,
+    "declaration": "def test_empty_mask_not_success(photo):"
+  },
+  {
+    "path": "ai/tests/test_pipeline.py",
+    "line": 61,
+    "declaration": "def test_inference_failure_propagates(photo):"
+  },
+  {
+    "path": "ai/tests/test_pipeline.py",
+    "line": 68,
+    "declaration": "def test_bad_mask_dimensions_not_success(photo):"
+  },
+  {
+    "path": "ai/tests/test_pipeline.py",
+    "line": 76,
+    "declaration": "def test_cli_failure_json_and_no_sensitive_path(photo, tmp_path, capsys):"
+  },
+  {
+    "path": "ai/tests/test_pipeline.py",
+    "line": 85,
+    "declaration": "def test_missing_model_and_wrong_model(tmp_path):"
+  },
+  {
+    "path": "ai/tests/test_pipeline.py",
+    "line": 93,
+    "declaration": "def test_inference_oom_is_explicit():"
+  },
+  {
+    "path": "ai/tests/test_pipeline.py",
+    "line": 105,
+    "declaration": "def test_cli_existing_file_output_and_invalid_tolerance(photo, tmp_path):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 13,
+    "declaration": "class SyntheticModel:"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 15,
+    "declaration": "def __init__(self): self.calls=[]; self.wait=None"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 16,
+    "declaration": "def predict(self,rgb,prompts):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 24,
+    "declaration": "def png(exif=False):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 32,
+    "declaration": "def service(tmp_path):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 38,
+    "declaration": "def client(tmp_path,monkeypatch):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 44,
+    "declaration": "def start(c,photo=None):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 49,
+    "declaration": "def payload(photo,revision=1):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 54,
+    "declaration": "def test_upload_exif_private_and_delete(client):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 66,
+    "declaration": "def test_reject_corrupt_or_unsupported(client,blob):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 70,
+    "declaration": "def test_actual_bytes_limit(client):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 74,
+    "declaration": "def test_candidates_confirm_exact_geometry_model_cached(client):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 96,
+    "declaration": "def test_invalid_prompt_contract(client,change):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 100,
+    "declaration": "def test_failure_explicit_and_manual_health_still_available(client):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 101,
+    "declaration": "def fail(): raise ImportError('private/path')"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 107,
+    "declaration": "def test_ttl_and_restart_cleanup(tmp_path):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 113,
+    "declaration": "def test_cancel_during_prediction_does_not_recreate_files(service):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 122,
+    "declaration": "def test_timeout_invalidates_only_request_and_late_result(service):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 132,
+    "declaration": "def test_http_timeout(client,monkeypatch):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 136,
+    "declaration": "def slow(*args):time.sleep(.05)"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 140,
+    "declaration": "def test_production_disabled_before_upload(client,monkeypatch):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 143,
+    "declaration": "def test_single_owner(service):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 147,
+    "declaration": "def test_fragmented_similar_masks_are_warned_without_edit(service):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 149,
+    "declaration": "def predict(rgb,prompts):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 158,
+    "declaration": "def test_wrong_photo_and_older_revision_rejected(client):"
+  },
+  {
+    "path": "ai/tests/test_service.py",
+    "line": 164,
+    "declaration": "def test_oriented_prepared_input_does_not_apply_upload_cap_twice(service):"
+  },
+  {
+    "path": "backend/app/api/routes/access.py",
+    "line": 8,
+    "declaration": "class ExchangeRequest(BaseModel):"
+  },
+  {
+    "path": "backend/app/api/routes/access.py",
+    "line": 12,
+    "declaration": "class PublicTestRequest(BaseModel):"
+  },
+  {
+    "path": "backend/app/api/routes/access.py",
+    "line": 15,
+    "declaration": "def runtime(request):"
+  },
+  {
+    "path": "backend/app/api/routes/access.py",
+    "line": 21,
+    "declaration": "def exchange(payload:ExchangeRequest,request:Request):"
+  },
+  {
+    "path": "backend/app/api/routes/access.py",
+    "line": 25,
+    "declaration": "def public_session(payload:PublicTestRequest,request:Request):"
+  },
+  {
+    "path": "backend/app/api/routes/access.py",
+    "line": 29,
+    "declaration": "def revoke(request:Request):"
+  },
+  {
+    "path": "backend/app/api/routes/ai.py",
+    "line": 10,
+    "declaration": "def runtime(request):"
+  },
+  {
+    "path": "backend/app/api/routes/ai.py",
+    "line": 15,
+    "declaration": "def auth(request,sid):"
+  },
+  {
+    "path": "backend/app/api/routes/ai.py",
+    "line": 24,
+    "declaration": "def create(request:Request): return runtime(request).create(request.scope.get('trial_principal'))"
+  },
+  {
+    "path": "backend/app/api/routes/ai.py",
+    "line": 27,
+    "declaration": "async def upload(sid:str,request:Request):"
+  },
+  {
+    "path": "backend/app/api/routes/ai.py",
+    "line": 40,
+    "declaration": "async def segment(sid:str,payload:SegmentRequest,request:Request):"
+  },
+  {
+    "path": "backend/app/api/routes/ai.py",
+    "line": 49,
+    "declaration": "def confirm(sid:str,payload:ConfirmRequest,request:Request):"
+  },
+  {
+    "path": "backend/app/api/routes/ai.py",
+    "line": 53,
+    "declaration": "async def edit(sid:str,payload:EditRequest,request:Request):"
+  },
+  {
+    "path": "backend/app/api/routes/ai.py",
+    "line": 62,
+    "declaration": "def asset(sid:str,name:str,request:Request,result_id:str|None=None):"
+  },
+  {
+    "path": "backend/app/api/routes/ai.py",
+    "line": 68,
+    "declaration": "def delete(sid:str,request:Request):"
+  },
+  {
+    "path": "backend/app/api/routes/atlas.py",
+    "line": 17,
+    "declaration": "def get_atlas() -> ErrorResponse:"
+  },
+  {
+    "path": "backend/app/api/routes/evaluate.py",
+    "line": 11,
+    "declaration": "def evaluate_annotations(payload: EvaluateRequest):"
+  },
+  {
+    "path": "backend/app/api/routes/health.py",
+    "line": 14,
+    "declaration": "def get_health() -> HealthResponse:"
+  },
+  {
+    "path": "backend/app/api/routes/health.py",
+    "line": 18,
+    "declaration": "def ready(request:Request):"
+  },
+  {
+    "path": "backend/app/main.py",
+    "line": 14,
+    "declaration": "def error_response(code,message,status):"
+  },
+  {
+    "path": "backend/app/main.py",
+    "line": 17,
+    "declaration": "def matching_enabled():"
+  },
+  {
+    "path": "backend/app/main.py",
+    "line": 20,
+    "declaration": "class EvaluationBoundary:"
+  },
+  {
+    "path": "backend/app/main.py",
+    "line": 22,
+    "declaration": "def __init__(self,app):self.app=app"
+  },
+  {
+    "path": "backend/app/main.py",
+    "line": 23,
+    "declaration": "async def __call__(self,scope,receive,send):"
+  },
+  {
+    "path": "backend/app/main.py",
+    "line": 50,
+    "declaration": "async def ai_error(_request:Request,exc:AIError):"
+  },
+  {
+    "path": "backend/app/main.py",
+    "line": 54,
+    "declaration": "async def evaluation_error(_request:Request,exc:EvaluationError):"
+  },
+  {
+    "path": "backend/app/main.py",
+    "line": 58,
+    "declaration": "async def invalid_request(_request:Request,exc:RequestValidationError):"
+  },
+  {
+    "path": "backend/app/main.py",
+    "line": 64,
+    "declaration": "async def unexpected(_request:Request,_exc:Exception):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 7,
+    "declaration": "class StrictModel(BaseModel):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 9,
+    "declaration": "class PhotoPoint(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 14,
+    "declaration": "def inside(self):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 17,
+    "declaration": "class PhotoBox(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 23,
+    "declaration": "def ordered(self):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 26,
+    "declaration": "class PhotoPrompts(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 32,
+    "declaration": "def valid_prompt(self):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 36,
+    "declaration": "class SegmentRequest(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 42,
+    "declaration": "class ConfirmRequest(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 48,
+    "declaration": "class BrushPoint(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 51,
+    "declaration": "class BrushStroke(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 55,
+    "declaration": "class EditRequest(ConfirmRequest):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 60,
+    "declaration": "def bounded(self):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 63,
+    "declaration": "class SessionCreated(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 68,
+    "declaration": "class PhotoUploaded(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 73,
+    "declaration": "class Candidate(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 84,
+    "declaration": "class EditedCandidate(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 91,
+    "declaration": "class SegmentResponse(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 101,
+    "declaration": "class PhotoGeometry(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/ai.py",
+    "line": 104,
+    "declaration": "class ConfirmedPhoto(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/common.py",
+    "line": 8,
+    "declaration": "class HealthResponse(BaseModel):"
+  },
+  {
+    "path": "backend/app/schemas/common.py",
+    "line": 18,
+    "declaration": "class ErrorDetail(BaseModel):"
+  },
+  {
+    "path": "backend/app/schemas/common.py",
+    "line": 27,
+    "declaration": "class ErrorResponse(BaseModel):"
+  },
+  {
+    "path": "backend/app/schemas/evaluate.py",
+    "line": 10,
+    "declaration": "class StrictModel(BaseModel):"
+  },
+  {
+    "path": "backend/app/schemas/evaluate.py",
+    "line": 13,
+    "declaration": "class Point(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/evaluate.py",
+    "line": 17,
+    "declaration": "class Identity(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/evaluate.py",
+    "line": 31,
+    "declaration": "class PolygonGeometry(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/evaluate.py",
+    "line": 36,
+    "declaration": "class MultiPolygonGeometry(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/evaluate.py",
+    "line": 41,
+    "declaration": "class Lesion(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/evaluate.py",
+    "line": 50,
+    "declaration": "def exclusive_geometry(self):"
+  },
+  {
+    "path": "backend/app/schemas/evaluate.py",
+    "line": 57,
+    "declaration": "def vertex_count(self):"
+  },
+  {
+    "path": "backend/app/schemas/evaluate.py",
+    "line": 63,
+    "declaration": "class EvaluateRequest(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/evaluate.py",
+    "line": 70,
+    "declaration": "def geometry_budget(self):"
+  },
+  {
+    "path": "backend/app/schemas/evaluate.py",
+    "line": 75,
+    "declaration": "class Candidate(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/evaluate.py",
+    "line": 87,
+    "declaration": "class Coverage(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/evaluate.py",
+    "line": 98,
+    "declaration": "class SourceInfo(StrictModel):"
+  },
+  {
+    "path": "backend/app/schemas/evaluate.py",
+    "line": 107,
+    "declaration": "class EvaluateResponse(StrictModel):"
+  },
+  {
+    "path": "backend/app/services/access.py",
+    "line": 8,
+    "declaration": "def controlled():"
+  },
+  {
+    "path": "backend/app/services/access.py",
+    "line": 11,
+    "declaration": "def feature_enabled(name):"
+  },
+  {
+    "path": "backend/app/services/access.py",
+    "line": 16,
+    "declaration": "def upload_limit():"
+  },
+  {
+    "path": "backend/app/services/access.py",
+    "line": 19,
+    "declaration": "class AccessBoundary:"
+  },
+  {
+    "path": "backend/app/services/access.py",
+    "line": 20,
+    "declaration": "def __init__(self, app):"
+  },
+  {
+    "path": "backend/app/services/access.py",
+    "line": 27,
+    "declaration": "async def __call__(self, scope, receive, send):"
+  },
+  {
+    "path": "backend/app/services/ai_boundary.py",
+    "line": 8,
+    "declaration": "async def lifespan(app):"
+  },
+  {
+    "path": "backend/app/services/ai_boundary.py",
+    "line": 30,
+    "declaration": "class AIBoundary:"
+  },
+  {
+    "path": "backend/app/services/ai_boundary.py",
+    "line": 31,
+    "declaration": "def __init__(self,app):self.app=app;self.uploads=asyncio.Semaphore(2)"
+  },
+  {
+    "path": "backend/app/services/ai_boundary.py",
+    "line": 32,
+    "declaration": "async def __call__(self,scope,receive,send):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 20,
+    "declaration": "class AIError(Exception):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 21,
+    "declaration": "def __init__(self, code, message, status=422):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 24,
+    "declaration": "def enabled():"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 27,
+    "declaration": "def load_model():"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 36,
+    "declaration": "class AISessions:"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 37,
+    "declaration": "def __init__(self, root=None, model_factory=load_model, clock=time.time, ttl=TTL):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 68,
+    "declaration": "def _persist(self,sid,s):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 75,
+    "declaration": "def sweep(self):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 80,
+    "declaration": "def _delete(self,sid):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 84,
+    "declaration": "def close(self):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 92,
+    "declaration": "def create(self,owner_id=None):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 104,
+    "declaration": "def get(self,sid,token):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 112,
+    "declaration": "def delete(self,sid,token):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 116,
+    "declaration": "def upload(self,sid,token,data):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 136,
+    "declaration": "def segment(self,sid,token,payload):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 180,
+    "declaration": "def invalidate(self,sid,token,request_id):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 189,
+    "declaration": "def _publish(self,sid,s,payload,result):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 220,
+    "declaration": "def edit(self,sid,token,p):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 277,
+    "declaration": "def confirm(self,sid,token,p):"
+  },
+  {
+    "path": "backend/app/services/ai_sessions.py",
+    "line": 304,
+    "declaration": "def asset(self,sid,token,name,result_id=None):"
+  },
+  {
+    "path": "backend/app/services/atlas_service.py",
+    "line": 19,
+    "declaration": "class Dataset:"
+  },
+  {
+    "path": "backend/app/services/atlas_service.py",
+    "line": 25,
+    "declaration": "def valid_geometry(raw):"
+  },
+  {
+    "path": "backend/app/services/atlas_service.py",
+    "line": 39,
+    "declaration": "def load_dataset(identity: Identity) -> Dataset:"
+  },
+  {
+    "path": "backend/app/services/dermatome_matcher.py",
+    "line": 9,
+    "declaration": "def area_tolerance(area):"
+  },
+  {
+    "path": "backend/app/services/dermatome_matcher.py",
+    "line": 13,
+    "declaration": "def candidates_for(regions, view):"
+  },
+  {
+    "path": "backend/app/services/dermatome_matcher.py",
+    "line": 26,
+    "declaration": "def coverage(lesion, view, ids, candidates):"
+  },
+  {
+    "path": "backend/app/services/dermatome_matcher.py",
+    "line": 41,
+    "declaration": "def evaluate(request, dataset):"
+  },
+  {
+    "path": "backend/app/services/trial_access.py",
+    "line": 21,
+    "declaration": "class TrialAccess:"
+  },
+  {
+    "path": "backend/app/services/trial_access.py",
+    "line": 22,
+    "declaration": "def __init__(self, root=None, clock=time.time):"
+  },
+  {
+    "path": "backend/app/services/trial_access.py",
+    "line": 31,
+    "declaration": "def digest(value):"
+  },
+  {
+    "path": "backend/app/services/trial_access.py",
+    "line": 35,
+    "declaration": "def transaction(self):"
+  },
+  {
+    "path": "backend/app/services/trial_access.py",
+    "line": 53,
+    "declaration": "def issue(self):"
+  },
+  {
+    "path": "backend/app/services/trial_access.py",
+    "line": 60,
+    "declaration": "def exchange(self,code):"
+  },
+  {
+    "path": "backend/app/services/trial_access.py",
+    "line": 69,
+    "declaration": "def public_session(self):"
+  },
+  {
+    "path": "backend/app/services/trial_access.py",
+    "line": 76,
+    "declaration": "def _new_session(self,state,kind):"
+  },
+  {
+    "path": "backend/app/services/trial_access.py",
+    "line": 82,
+    "declaration": "def verify(self,token):"
+  },
+  {
+    "path": "backend/app/services/trial_access.py",
+    "line": 88,
+    "declaration": "def revoke(self,token):"
+  },
+  {
+    "path": "backend/app/utils/geometry.py",
+    "line": 4,
+    "declaration": "class EvaluationError(Exception):"
+  },
+  {
+    "path": "backend/app/utils/geometry.py",
+    "line": 5,
+    "declaration": "def __init__(self, code, message, status=422):"
+  },
+  {
+    "path": "backend/app/utils/geometry.py",
+    "line": 12,
+    "declaration": "def annotation_polygon(vertices, body):"
+  },
+  {
+    "path": "backend/app/utils/geometry.py",
+    "line": 27,
+    "declaration": "def annotation_geometry(lesion, body):"
+  },
+  {
+    "path": "backend/tests/test_ai_matching_integration.py",
+    "line": 12,
+    "declaration": "def geometry(shape):"
+  },
+  {
+    "path": "backend/tests/test_ai_matching_integration.py",
+    "line": 18,
+    "declaration": "def request(shape, source='ai_assisted', view='front'):"
+  },
+  {
+    "path": "backend/tests/test_ai_matching_integration.py",
+    "line": 26,
+    "declaration": "def test_same_body_geometry_manual_ai_are_identical(shape):"
+  },
+  {
+    "path": "backend/tests/test_ai_matching_integration.py",
+    "line": 35,
+    "declaration": "def test_hole_is_excluded_and_multiple_pieces_count_once():"
+  },
+  {
+    "path": "backend/tests/test_ai_matching_integration.py",
+    "line": 44,
+    "declaration": "def test_overlapping_annotations_union_without_source_weight_or_duplicate_http():"
+  },
+  {
+    "path": "backend/tests/test_ai_matching_integration.py",
+    "line": 55,
+    "declaration": "def test_coverage_cases_are_actual_intersections(shape,status,count):"
+  },
+  {
+    "path": "backend/tests/test_ai_matching_integration.py",
+    "line": 60,
+    "declaration": "def test_invalid_multi_is_not_repaired_and_whole_body_boundary_is_checked():"
+  },
+  {
+    "path": "backend/tests/test_ai_matching_integration.py",
+    "line": 69,
+    "declaration": "def test_wire_contract_and_existing_atlas(client):"
+  },
+  {
+    "path": "backend/tests/test_ai_matching_integration.py",
+    "line": 85,
+    "declaration": "def test_nonclosed_and_outside_geometry_rejected_without_echo(client):"
+  },
+  {
+    "path": "backend/tests/test_ai_matching_integration.py",
+    "line": 91,
+    "declaration": "def test_complexity_limits_reject_instead_of_simplifying():"
+  },
+  {
+    "path": "backend/tests/test_api.py",
+    "line": 11,
+    "declaration": "def test_atlas_is_not_implemented() -> None:"
+  },
+  {
+    "path": "backend/tests/test_api.py",
+    "line": 25,
+    "declaration": "def test_evaluate_default_disabled_before_parsing(payload, monkeypatch):"
+  },
+  {
+    "path": "backend/tests/test_api.py",
+    "line": 34,
+    "declaration": "def test_openapi_declares_v4_request_and_real_response():"
+  },
+  {
+    "path": "backend/tests/test_controlled.py",
+    "line": 11,
+    "declaration": "def controlled(tmp_path,monkeypatch):"
+  },
+  {
+    "path": "backend/tests/test_controlled.py",
+    "line": 20,
+    "declaration": "def test_controlled_auth_schema_and_origin(controlled):"
+  },
+  {
+    "path": "backend/tests/test_controlled.py",
+    "line": 33,
+    "declaration": "def test_controlled_fail_closed_missing_hash(controlled,monkeypatch):"
+  },
+  {
+    "path": "backend/tests/test_controlled.py",
+    "line": 37,
+    "declaration": "def test_controlled_rate_limit(controlled):"
+  },
+  {
+    "path": "backend/tests/test_controlled.py",
+    "line": 45,
+    "declaration": "def test_controlled_pixels_and_private_session_restart(controlled):"
+  },
+  {
+    "path": "backend/tests/test_controlled.py",
+    "line": 62,
+    "declaration": "def test_controlled_actual_upload_bytes(controlled):"
+  },
+  {
+    "path": "backend/tests/test_controlled.py",
+    "line": 68,
+    "declaration": "def test_controlled_expiry_and_cleanup_respects_lock(controlled):"
+  },
+  {
+    "path": "backend/tests/test_controlled.py",
+    "line": 89,
+    "declaration": "def test_controlled_invalidation_is_durable(controlled):"
+  },
+  {
+    "path": "backend/tests/test_controlled.py",
+    "line": 99,
+    "declaration": "def test_controlled_authenticated_request_rate(controlled):"
+  },
+  {
+    "path": "backend/tests/test_evaluate_api.py",
+    "line": 11,
+    "declaration": "def client(monkeypatch):"
+  },
+  {
+    "path": "backend/tests/test_evaluate_api.py",
+    "line": 15,
+    "declaration": "def identity():"
+  },
+  {
+    "path": "backend/tests/test_evaluate_api.py",
+    "line": 21,
+    "declaration": "def payload(x=.4875,y=.0967,view='front'):"
+  },
+  {
+    "path": "backend/tests/test_evaluate_api.py",
+    "line": 24,
+    "declaration": "def test_actual_face_and_unconfigured_hair(client):"
+  },
+  {
+    "path": "backend/tests/test_evaluate_api.py",
+    "line": 36,
+    "declaration": "def test_identity_conflicts(client,field,value,code,status):"
+  },
+  {
+    "path": "backend/tests/test_evaluate_api.py",
+    "line": 41,
+    "declaration": "def test_invalid_coordinates(client,value):"
+  },
+  {
+    "path": "backend/tests/test_evaluate_api.py",
+    "line": 46,
+    "declaration": "def test_nonfinite_json(client,raw):"
+  },
+  {
+    "path": "backend/tests/test_evaluate_api.py",
+    "line": 52,
+    "declaration": "def test_invalid_duplicate_limits_and_view(client):"
+  },
+  {
+    "path": "backend/tests/test_evaluate_api.py",
+    "line": 59,
+    "declaration": "def test_corruption_not_cached_or_fallback(client,monkeypatch,tmp_path):"
+  },
+  {
+    "path": "backend/tests/test_evaluate_api.py",
+    "line": 68,
+    "declaration": "def test_server_gate_cannot_be_bypassed(client,monkeypatch,env,flag):"
+  },
+  {
+    "path": "backend/tests/test_evaluate_api.py",
+    "line": 72,
+    "declaration": "def test_real_atlas_each_region_smoke_is_geometric_not_clinical(client):"
+  },
+  {
+    "path": "backend/tests/test_evaluate_api.py",
+    "line": 83,
+    "declaration": "def test_manual_reference_locations(client):"
+  },
+  {
+    "path": "backend/tests/test_evaluate_api.py",
+    "line": 93,
+    "declaration": "def test_invalid_body_export_and_internal_error(client,monkeypatch,tmp_path):"
+  },
+  {
+    "path": "backend/tests/test_health.py",
+    "line": 8,
+    "declaration": "def test_health_returns_exact_v0_contract() -> None:"
+  },
+  {
+    "path": "backend/tests/test_matching.py",
+    "line": 13,
+    "declaration": "def region(name,geom,side='left',view='front',kind='spinal_dermatome',rid=None):"
+  },
+  {
+    "path": "backend/tests/test_matching.py",
+    "line": 15,
+    "declaration": "def request(polys):"
+  },
+  {
+    "path": "backend/tests/test_matching.py",
+    "line": 17,
+    "declaration": "def dataset(regions):return Dataset(IDENTITY,MANIFEST,tuple(regions),{'front':box(0,0,1,1),'back':box(0,0,1,1)})"
+  },
+  {
+    "path": "backend/tests/test_matching.py",
+    "line": 19,
+    "declaration": "def test_contained_small_lesion_is_full_not_iou():"
+  },
+  {
+    "path": "backend/tests/test_matching.py",
+    "line": 24,
+    "declaration": "def test_hand_computable_partial_and_union(name,expected):"
+  },
+  {
+    "path": "backend/tests/test_matching.py",
+    "line": 30,
+    "declaration": "def test_boundary_contact_is_not_candidate_and_no_nearest_fallback():"
+  },
+  {
+    "path": "backend/tests/test_matching.py",
+    "line": 34,
+    "declaration": "def test_overlapping_lesions_union_per_view_only():"
+  },
+  {
+    "path": "backend/tests/test_matching.py",
+    "line": 42,
+    "declaration": "def test_multiparts_holes_and_same_candidate_union():"
+  },
+  {
+    "path": "backend/tests/test_matching.py",
+    "line": 49,
+    "declaration": "def test_identity_types_sides_views_composite_not_split_and_stable_ties():"
+  },
+  {
+    "path": "backend/tests/test_matching.py",
+    "line": 56,
+    "declaration": "def test_tiny_intersections_are_retained_above_declared_numeric_tolerance():"
+  },
+  {
+    "path": "backend/tests/test_matching.py",
+    "line": 62,
+    "declaration": "def test_invalid_shapes_and_whole_polygon_body_constraint(pts):"
+  },
+  {
+    "path": "backend/tests/test_matching.py",
+    "line": 66,
+    "declaration": "def test_body_hole_or_between_limbs_not_just_vertices():"
+  },
+  {
+    "path": "backend/tests/test_matching.py",
+    "line": 71,
+    "declaration": "def test_duplicate_ids_and_per_view_limits():"
+  },
+  {
+    "path": "backend/tests/test_trial_access.py",
+    "line": 13,
+    "declaration": "def client(tmp_path,monkeypatch):"
+  },
+  {
+    "path": "backend/tests/test_trial_access.py",
+    "line": 22,
+    "declaration": "def login(client):"
+  },
+  {
+    "path": "backend/tests/test_trial_access.py",
+    "line": 28,
+    "declaration": "def test_invitation_exchange_identity_is_server_issued_and_replay_rejected(client):"
+  },
+  {
+    "path": "backend/tests/test_trial_access.py",
+    "line": 42,
+    "declaration": "def test_invitation_atomic_single_use_and_access_survives_service_restart(tmp_path):"
+  },
+  {
+    "path": "backend/tests/test_trial_access.py",
+    "line": 45,
+    "declaration": "def consume(service):"
+  },
+  {
+    "path": "backend/tests/test_trial_access.py",
+    "line": 57,
+    "declaration": "def test_revoke_and_server_expiry(client):"
+  },
+  {
+    "path": "backend/tests/test_trial_access.py",
+    "line": 64,
+    "declaration": "def test_every_photo_action_is_bound_to_the_authorized_principal(client):"
+  },
+  {
+    "path": "backend/tests/test_trial_access.py",
+    "line": 83,
+    "declaration": "def test_invitation_body_origin_and_request_rate(client):"
+  },
+  {
+    "path": "backend/tests/test_trial_access.py",
+    "line": 90,
+    "declaration": "def test_trial_service_capacity_is_bounded(tmp_path):"
+  },
+  {
+    "path": "backend/tests/test_trial_access.py",
+    "line": 96,
+    "declaration": "def test_public_test_requires_explicit_server_switch_and_does_not_accept_client_identity(client,monkeypatch):"
+  },
+  {
+    "path": "backend/tests/test_trial_access.py",
+    "line": 110,
+    "declaration": "def test_public_sessions_keep_distinct_photo_owners(client,monkeypatch):"
+  },
+  {
+    "path": "backend/tests/test_trial_access.py",
+    "line": 122,
+    "declaration": "def test_public_session_body_origin_and_opening_rate_are_bounded(client,monkeypatch):"
+  },
+  {
+    "path": "backend/tests/test_trial_access.py",
+    "line": 130,
+    "declaration": "def test_public_test_capacity_expiry_and_production_rejection(tmp_path,monkeypatch):"
+  },
+  {
+    "path": "deployment/cleanup.py",
+    "line": 8,
+    "declaration": "def cleanup(root,now=None):"
+  },
+  {
+    "path": "deployment/snapshot.py",
+    "line": 4,
+    "declaration": "def cmd(*args):return subprocess.run(args,capture_output=True,text=True,timeout=15).stdout.strip()"
+  },
+  {
+    "path": "deployment/snapshot.py",
+    "line": 5,
+    "declaration": "def props(unit):"
+  },
+  {
+    "path": "deployment/watch.py",
+    "line": 5,
+    "declaration": "def show():"
+  },
+  {
+    "path": "miniprogram/assets/body/commons-v1.ts",
+    "line": 7,
+    "declaration": "function visual(view:BodyView,outline:readonly PathCommand[]):BodyVisual {"
+  },
+  {
+    "path": "miniprogram/assets/body/neutral-v2.ts",
+    "line": 27,
+    "declaration": "function reflectReturn(path: readonly PathCommand[]): PathCommand[] {"
+  },
+  {
+    "path": "miniprogram/assets/body/neutral-v2.ts",
+    "line": 92,
+    "declaration": "function freezePaths(paths: readonly (readonly PathCommand[])[]): readonly (readonly PathCommand[])[] {"
+  },
+  {
+    "path": "miniprogram/assets/body/neutral-v3.ts",
+    "line": 41,
+    "declaration": "function reflectReturn(path:readonly PathCommand[]):PathCommand[] {"
+  },
+  {
+    "path": "miniprogram/assets/body/neutral-v3.ts",
+    "line": 108,
+    "declaration": "function freezePaths(paths:readonly (readonly PathCommand[])[]):readonly (readonly PathCommand[])[] {"
+  },
+  {
+    "path": "miniprogram/components/body-canvas/atlas-render.ts",
+    "line": 9,
+    "declaration": "function project(region:AtlasRegion,v:ViewportTransform) {"
+  },
+  {
+    "path": "miniprogram/components/body-canvas/atlas-render.ts",
+    "line": 15,
+    "declaration": "export function drawAtlas(ctx:BodyContext,viewport:ViewportTransform,model:BodyModelConfig,layer:AtlasLayer|null,opacity?:ReadonlyMap<string,number>):void {"
+  },
+  {
+    "path": "miniprogram/components/body-canvas/lesion-render.ts",
+    "line": 8,
+    "declaration": "export function drawLesions(ctx:BodyContext,viewport:ViewportTransform,model:BodyModelConfig,layer:AnnotationLayer|null):void {"
+  },
+  {
+    "path": "miniprogram/components/body-canvas/render.ts",
+    "line": 9,
+    "declaration": "function trace(ctx: BodyContext, commands: readonly PathCommand[]): void {"
+  },
+  {
+    "path": "miniprogram/components/body-canvas/render.ts",
+    "line": 23,
+    "declaration": "export function drawBody("
+  },
+  {
+    "path": "miniprogram/components/placement-overlay/preview.ts",
+    "line": 9,
+    "declaration": "export class PlacementPreview {"
+  },
+  {
+    "path": "miniprogram/config/ai.ts",
+    "line": 4,
+    "declaration": "export function canUseAI():boolean {"
+  },
+  {
+    "path": "miniprogram/config/ai.ts",
+    "line": 7,
+    "declaration": "export function canPlaceAI():boolean {return currentCapabilities().aiPlacement;}"
+  },
+  {
+    "path": "miniprogram/config/ai.ts",
+    "line": 8,
+    "declaration": "export function photoByteLimit():number {return currentEnvironment()===\"trial\"||controlledServerActive()?10*1024*1024:AI_CONFIG.maxBytes;}"
+  },
+  {
+    "path": "miniprogram/config/api.ts",
+    "line": 6,
+    "declaration": "export function apiBaseUrl():string {"
+  },
+  {
+    "path": "miniprogram/config/controlled.ts",
+    "line": 5,
+    "declaration": "export function useControlledServer(value:string):void {"
+  },
+  {
+    "path": "miniprogram/config/controlled.ts",
+    "line": 10,
+    "declaration": "export function clearControlledServer():void {key=\"\";}"
+  },
+  {
+    "path": "miniprogram/config/controlled.ts",
+    "line": 11,
+    "declaration": "export function controlledServerActive():boolean {try{return !!key&&currentEnvironment()===\"develop\"&&wx.getSystemInfoSync().platform===\"devtools\";}catch{return false;}}"
+  },
+  {
+    "path": "miniprogram/config/controlled.ts",
+    "line": 12,
+    "declaration": "export function accessHeaders():Record<string,string> {return controlledServerActive()?{\"x-test-access-key\":key}:{};}"
+  },
+  {
+    "path": "miniprogram/config/development.ts",
+    "line": 4,
+    "declaration": "export function isAtlasPreviewEnvironment(account:unknown,enabled:boolean=DEVELOPMENT_FEATURES.atlasPreview):boolean {"
+  },
+  {
+    "path": "miniprogram/config/development.ts",
+    "line": 7,
+    "declaration": "export function canPreviewAtlas():boolean {"
+  },
+  {
+    "path": "miniprogram/config/development.ts",
+    "line": 12,
+    "declaration": "export function canMatchReference():boolean {"
+  },
+  {
+    "path": "miniprogram/config/environment.ts",
+    "line": 10,
+    "declaration": "export function environmentOf(account:unknown):AppEnvironment {"
+  },
+  {
+    "path": "miniprogram/config/environment.ts",
+    "line": 16,
+    "declaration": "export function currentEnvironment():AppEnvironment {try{return environmentOf(wx.getAccountInfoSync());}catch{return \"unknown\";}}"
+  },
+  {
+    "path": "miniprogram/config/environment.ts",
+    "line": 17,
+    "declaration": "export function capabilities(account:unknown){return POLICY[environmentOf(account)];}"
+  },
+  {
+    "path": "miniprogram/config/environment.ts",
+    "line": 18,
+    "declaration": "export function currentCapabilities(){return POLICY[currentEnvironment()];}"
+  },
+  {
+    "path": "miniprogram/config/environment.ts",
+    "line": 19,
+    "declaration": "export function canUseDeveloperTools():boolean {return currentCapabilities().coordinateDebug;}"
+  },
+  {
+    "path": "miniprogram/config/servers.ts",
+    "line": 7,
+    "declaration": "export function trialServiceBase():string {"
+  },
+  {
+    "path": "miniprogram/config/servers.ts",
+    "line": 11,
+    "declaration": "export function usingPublicIpDebug():boolean {return SERVERS.trialPublicIpDebug&&SERVERS.trialBaseUrl===PUBLIC_IP_TEST_BASE;}"
+  },
+  {
+    "path": "miniprogram/config/servers.ts",
+    "line": 12,
+    "declaration": "export function validatedHttpsBase(value:string):string {"
+  },
+  {
+    "path": "miniprogram/data/body-models.ts",
+    "line": 7,
+    "declaration": "export function validateBodyModel(model: BodyModelConfig): void {"
+  },
+  {
+    "path": "miniprogram/data/body-models.ts",
+    "line": 34,
+    "declaration": "function model(view: BodyView): BodyModelConfig {"
+  },
+  {
+    "path": "miniprogram/data/body-models.ts",
+    "line": 48,
+    "declaration": "export function withBodyVisual(model:BodyModelConfig,visual:BodyVisual):BodyModelConfig {"
+  },
+  {
+    "path": "miniprogram/data/body-regions-v15.ts",
+    "line": 7,
+    "declaration": "function region("
+  },
+  {
+    "path": "miniprogram/data/body-regions-v15.ts",
+    "line": 39,
+    "declaration": "export function getBodyRegion(view: BodyView, id: string): BodyRegion | undefined {"
+  },
+  {
+    "path": "miniprogram/data/body-regions-v2.ts",
+    "line": 7,
+    "declaration": "function region("
+  },
+  {
+    "path": "miniprogram/data/body-regions-v2.ts",
+    "line": 56,
+    "declaration": "export function getBodyRegion(view: BodyView, id: string): BodyRegion | undefined {"
+  },
+  {
+    "path": "miniprogram/data/body-regions-v3.ts",
+    "line": 7,
+    "declaration": "function region("
+  },
+  {
+    "path": "miniprogram/data/body-regions-v3.ts",
+    "line": 56,
+    "declaration": "export function getBodyRegion(view: BodyView, id: string): BodyRegion | undefined {"
+  },
+  {
+    "path": "miniprogram/data/body-regions.ts",
+    "line": 8,
+    "declaration": "function region(view:BodyView,key:string,name:string,side:BodyRegion[\"side\"],points:readonly Vertex[]):BodyRegion {"
+  },
+  {
+    "path": "miniprogram/data/body-regions.ts",
+    "line": 65,
+    "declaration": "export function getBodyRegion(view:BodyView,id:string):BodyRegion|undefined {"
+  },
+  {
+    "path": "miniprogram/services/ai.ts",
+    "line": 15,
+    "declaration": "function failure(status:number,data:unknown):Error {const code=(data as {error?:{code?:string}})?.error?.code||\"\";"
+  },
+  {
+    "path": "miniprogram/services/ai.ts",
+    "line": 18,
+    "declaration": "function network(e:{errMsg?:string}):Error {return new Error(/timeout|timed out/i.test(e.errMsg||\"\")?\"请求超时，提示已保留，请稍后重试\":\"当前网络连接失败，请稍后重试或返回手动标注\");}"
+  },
+  {
+    "path": "miniprogram/services/ai.ts",
+    "line": 19,
+    "declaration": "function base(){if(!canUseAI())throw new Error(ERRORS.AI_DISABLED);return apiBaseUrl()+\"/api/v1/ai/sessions\";}"
+  },
+  {
+    "path": "miniprogram/services/ai.ts",
+    "line": 20,
+    "declaration": "async function request<T>(path:string,method:\"POST\"|\"DELETE\",data:unknown,key=\"\"):Promise<T>{"
+  },
+  {
+    "path": "miniprogram/services/ai.ts",
+    "line": 30,
+    "declaration": "function forget(path:string){if(!downloads.delete(path))return;wx.getFileSystemManager().unlink({filePath:path,fail:()=>{}});}"
+  },
+  {
+    "path": "miniprogram/services/ai.ts",
+    "line": 31,
+    "declaration": "async function download(s:PhotoSession,name:string,resultId=\"\"):Promise<string>{"
+  },
+  {
+    "path": "miniprogram/services/api.ts",
+    "line": 8,
+    "declaration": "export function requestTiming(){return latestTiming;}"
+  },
+  {
+    "path": "miniprogram/services/api.ts",
+    "line": 18,
+    "declaration": "export function networkErrorText(error:unknown):string {"
+  },
+  {
+    "path": "miniprogram/services/api.ts",
+    "line": 29,
+    "declaration": "export async function evaluateAnnotations(payload:EvaluateRequest):Promise<unknown> {"
+  },
+  {
+    "path": "miniprogram/services/trial-access.ts",
+    "line": 6,
+    "declaration": "export function needsTrialAccess():boolean {"
+  },
+  {
+    "path": "miniprogram/services/trial-access.ts",
+    "line": 12,
+    "declaration": "export function trialAccessActive():boolean {return !!session&&session.expires>Date.now()/1000;}"
+  },
+  {
+    "path": "miniprogram/services/trial-access.ts",
+    "line": 13,
+    "declaration": "export function trialHeaders():Record<string,string> {return trialAccessActive()?{authorization:\"Bearer \"+session!.token}:{};}"
+  },
+  {
+    "path": "miniprogram/services/trial-access.ts",
+    "line": 15,
+    "declaration": "export function invalidateTrialAccess(authorization?:string):void {"
+  },
+  {
+    "path": "miniprogram/services/trial-access.ts",
+    "line": 20,
+    "declaration": "export function ensureTrialAccess():Promise<void> {"
+  },
+  {
+    "path": "miniprogram/services/trial-access.ts",
+    "line": 38,
+    "declaration": "export async function endTrialAccess():Promise<void> {"
+  },
+  {
+    "path": "miniprogram/state/ai-session.ts",
+    "line": 9,
+    "declaration": "export function samePhoto(r:PhotoResult,s:PhotoSession,revision:number,requestId:string):boolean {"
+  },
+  {
+    "path": "miniprogram/state/ai-session.ts",
+    "line": 13,
+    "declaration": "export class AIPhotoFlow {"
+  },
+  {
+    "path": "miniprogram/state/annotation-session.ts",
+    "line": 25,
+    "declaration": "export function modelBasis(model:BodyModelConfig):AnnotationBasis {"
+  },
+  {
+    "path": "miniprogram/state/annotation-session.ts",
+    "line": 28,
+    "declaration": "export function sameBasis(a:AnnotationBasis,b:AnnotationBasis):boolean {"
+  },
+  {
+    "path": "miniprogram/state/annotation-session.ts",
+    "line": 32,
+    "declaration": "export function sessionToken(s:AnnotationSession):AnnotationToken {"
+  },
+  {
+    "path": "miniprogram/state/annotation-session.ts",
+    "line": 35,
+    "declaration": "function freeze<T>(value:T):T {"
+  },
+  {
+    "path": "miniprogram/state/annotation-session.ts",
+    "line": 47,
+    "declaration": "export class AnnotationSessionStore {"
+  },
+  {
+    "path": "miniprogram/state/matching-session.ts",
+    "line": 10,
+    "declaration": "export function matchingIdentity():MatchingIdentity {"
+  },
+  {
+    "path": "miniprogram/state/matching-session.ts",
+    "line": 15,
+    "declaration": "export function identityEqual(a:MatchingIdentity,b:MatchingIdentity):boolean {"
+  },
+  {
+    "path": "miniprogram/state/matching-session.ts",
+    "line": 18,
+    "declaration": "function frozen<T>(value:T):T {"
+  },
+  {
+    "path": "miniprogram/state/matching-session.ts",
+    "line": 22,
+    "declaration": "export function lesionForMatching(p:CompletedPolygon):EvaluateLesion {"
+  },
+  {
+    "path": "miniprogram/state/matching-session.ts",
+    "line": 32,
+    "declaration": "export function snapshotKey(s:AnnotationSession|null,identity:MatchingIdentity):string {"
+  },
+  {
+    "path": "miniprogram/state/matching-session.ts",
+    "line": 44,
+    "declaration": "function requireValue(ok:unknown):asserts ok {if(!ok)throw new Error(\"响应数据或图谱身份不一致，已阻止结果叠加，请更新或重试\");}"
+  },
+  {
+    "path": "miniprogram/state/matching-session.ts",
+    "line": 45,
+    "declaration": "export function checkedResponse(raw:unknown,request:EvaluateRequest):EvaluateResponse {"
+  },
+  {
+    "path": "miniprogram/state/matching-session.ts",
+    "line": 76,
+    "declaration": "export class MatchingSessionStore {"
+  },
+  {
+    "path": "miniprogram/state/matching-session.ts",
+    "line": 104,
+    "declaration": "export function coverageText(value:number):string {"
+  },
+  {
+    "path": "miniprogram/state/placement-navigation.ts",
+    "line": 6,
+    "declaration": "export function retainPlacementView(value:ResultView):void {pending={...value,viewport:{...value.viewport}};}"
+  },
+  {
+    "path": "miniprogram/state/placement-navigation.ts",
+    "line": 7,
+    "declaration": "export function consumePlacementView(sessionId:string,requestId:string|undefined):ResultView|null {"
+  },
+  {
+    "path": "miniprogram/state/placement-session.ts",
+    "line": 21,
+    "declaration": "function freeze<T>(v:T):T {if(v&&typeof v===\"object\"&&!Object.isFrozen(v)){Object.values(v).forEach(freeze);Object.freeze(v);}return v;}"
+  },
+  {
+    "path": "miniprogram/state/placement-session.ts",
+    "line": 24,
+    "declaration": "export class PlacementSessionStore {"
+  },
+  {
+    "path": "miniprogram/utils/annotation-geometry.ts",
+    "line": 15,
+    "declaration": "export function validPoint(p:unknown):p is Point {"
+  },
+  {
+    "path": "miniprogram/utils/annotation-geometry.ts",
+    "line": 21,
+    "declaration": "function openRing(ring:readonly Point[]):readonly Point[] {"
+  },
+  {
+    "path": "miniprogram/utils/annotation-geometry.ts",
+    "line": 24,
+    "declaration": "function onSegment(p:Point,a:Point,b:Point):boolean {"
+  },
+  {
+    "path": "miniprogram/utils/annotation-geometry.ts",
+    "line": 30,
+    "declaration": "export function locatePoint(p:Point,ring:readonly Point[]):-1|0|1 {"
+  },
+  {
+    "path": "miniprogram/utils/annotation-geometry.ts",
+    "line": 40,
+    "declaration": "export function pointInBody(p:Point,body:BodyGeometry):boolean {"
+  },
+  {
+    "path": "miniprogram/utils/annotation-geometry.ts",
+    "line": 45,
+    "declaration": "export function bodyGeometry(model:BodyModelConfig):BodyGeometry {"
+  },
+  {
+    "path": "miniprogram/utils/annotation-geometry.ts",
+    "line": 56,
+    "declaration": "export function intersectionParameters(a:Point,b:Point,c:Point,d:Point):number[] {"
+  },
+  {
+    "path": "miniprogram/utils/annotation-geometry.ts",
+    "line": 72,
+    "declaration": "export function edges(ring:readonly Point[]):readonly [Point,Point][] {"
+  },
+  {
+    "path": "miniprogram/utils/annotation-geometry.ts",
+    "line": 76,
+    "declaration": "export function area(r:readonly Point[]):number {"
+  },
+  {
+    "path": "miniprogram/utils/annotation-geometry.ts",
+    "line": 82,
+    "declaration": "export function interiorPoint(ring:readonly Point[]):Point {"
+  },
+  {
+    "path": "miniprogram/utils/annotation-geometry.ts",
+    "line": 94,
+    "declaration": "export function validatePolygon(input:readonly Point[],body:BodyGeometry):GeometryResult {"
+  },
+  {
+    "path": "miniprogram/utils/atlas-view.ts",
+    "line": 5,
+    "declaration": "export function atlasRegionInGroup(region:AtlasRegion,group:AtlasGroupFilter):boolean {"
+  },
+  {
+    "path": "miniprogram/utils/atlas-view.ts",
+    "line": 9,
+    "declaration": "export function atlasLabelName(regions:readonly AtlasRegion[],labelId:string):string {"
+  },
+  {
+    "path": "miniprogram/utils/atlas-view.ts",
+    "line": 14,
+    "declaration": "export function atlasRegionsForView(regions:readonly AtlasRegion[],view:BodyView,side:AtlasSideFilter,"
+  },
+  {
+    "path": "miniprogram/utils/atlas-view.ts",
+    "line": 21,
+    "declaration": "export function atlasFocusBounds(regions:readonly AtlasRegion[]):NormalizedRect|null {"
+  },
+  {
+    "path": "miniprogram/utils/atlas-view.ts",
+    "line": 28,
+    "declaration": "export function atlasLabelOptions(regions:readonly AtlasRegion[],view:BodyView,side:AtlasSideFilter,"
+  },
+  {
+    "path": "miniprogram/utils/atlas-view.ts",
+    "line": 40,
+    "declaration": "export function atlasLocalFocusBounds(model:BodyModelConfig,target:AtlasLocalFocus):NormalizedRect|null {"
+  },
+  {
+    "path": "miniprogram/utils/body-debug.ts",
+    "line": 6,
+    "declaration": "function object(value:unknown): Record<string,unknown> | null {"
+  },
+  {
+    "path": "miniprogram/utils/body-debug.ts",
+    "line": 10,
+    "declaration": "export function readTouch(event:unknown): InputTouch | null {"
+  },
+  {
+    "path": "miniprogram/utils/body-debug.ts",
+    "line": 23,
+    "declaration": "export function probeTouch(input: InputTouch, rect:CanvasRect, viewport:ViewportTransform, model:BodyModelConfig): DebugProbe {"
+  },
+  {
+    "path": "miniprogram/utils/body-debug.ts",
+    "line": 36,
+    "declaration": "export function projectDebugPoint(point:DebugPoint|null,model:BodyModelConfig,viewport:ViewportTransform):CanvasPoint|null {"
+  },
+  {
+    "path": "miniprogram/utils/body-hit-test.ts",
+    "line": 5,
+    "declaration": "export function hitTestRegion(point: NormalizedPoint, model: BodyModelConfig): BodyRegionHit {"
+  },
+  {
+    "path": "miniprogram/utils/body-path.ts",
+    "line": 7,
+    "declaration": "function distance(p: CanvasPoint, a: CanvasPoint, b: CanvasPoint): number {"
+  },
+  {
+    "path": "miniprogram/utils/body-path.ts",
+    "line": 14,
+    "declaration": "export function flattenOutline(commands: readonly PathCommand[]): readonly CanvasPoint[] {"
+  },
+  {
+    "path": "miniprogram/utils/body-path.ts",
+    "line": 40,
+    "declaration": "export function pointInOutline(point: CanvasPoint, outline: readonly CanvasPoint[]): boolean {"
+  },
+  {
+    "path": "miniprogram/utils/coordinate.ts",
+    "line": 8,
+    "declaration": "function positive(value: number, name: string): void {"
+  },
+  {
+    "path": "miniprogram/utils/coordinate.ts",
+    "line": 12,
+    "declaration": "function validViewport(viewport: ViewportTransform): boolean {"
+  },
+  {
+    "path": "miniprogram/utils/coordinate.ts",
+    "line": 24,
+    "declaration": "function requireViewport(viewport: ViewportTransform): void {"
+  },
+  {
+    "path": "miniprogram/utils/coordinate.ts",
+    "line": 28,
+    "declaration": "function validRect(rect: NormalizedRect): void {"
+  },
+  {
+    "path": "miniprogram/utils/coordinate.ts",
+    "line": 37,
+    "declaration": "function fit("
+  },
+  {
+    "path": "miniprogram/utils/coordinate.ts",
+    "line": 64,
+    "declaration": "export function fitViewport("
+  },
+  {
+    "path": "miniprogram/utils/coordinate.ts",
+    "line": 70,
+    "declaration": "export function focusViewport(viewport: ViewportTransform, region: NormalizedRect): ViewportTransform {"
+  },
+  {
+    "path": "miniprogram/utils/coordinate.ts",
+    "line": 78,
+    "declaration": "export function resetViewport(viewport: ViewportTransform): ViewportTransform {"
+  },
+  {
+    "path": "miniprogram/utils/coordinate.ts",
+    "line": 83,
+    "declaration": "export function reframeViewport(previous:ViewportTransform,width:number,height:number):ViewportTransform {"
+  },
+  {
+    "path": "miniprogram/utils/coordinate.ts",
+    "line": 92,
+    "declaration": "export function normalizedToCanvas(point: NormalizedPoint, viewport: ViewportTransform): CanvasPoint {"
+  },
+  {
+    "path": "miniprogram/utils/coordinate.ts",
+    "line": 101,
+    "declaration": "export function projectNormalizedToCanvas(point: NormalizedPoint, viewport: ViewportTransform): CanvasPoint {"
+  },
+  {
+    "path": "miniprogram/utils/coordinate.ts",
+    "line": 113,
+    "declaration": "export function canvasToNormalized(point: CanvasPoint, viewport: ViewportTransform): NormalizedPoint | null {"
+  },
+  {
+    "path": "miniprogram/utils/matching-presentation.ts",
+    "line": 14,
+    "declaration": "export function screenSide(side:string,view:BodyView):\"left\"|\"right\"|\"unspecified\" {"
+  },
+  {
+    "path": "miniprogram/utils/matching-presentation.ts",
+    "line": 19,
+    "declaration": "export function candidateRegions(candidate:MatchCandidate,regions:readonly AtlasRegion[],view:BodyView):AtlasRegion[] {"
+  },
+  {
+    "path": "miniprogram/utils/matching-presentation.ts",
+    "line": 27,
+    "declaration": "export function presentation(candidates:readonly MatchCandidate[],regions:readonly AtlasRegion[],view:BodyView,selected:string) {"
+  },
+  {
+    "path": "miniprogram/utils/matching-presentation.ts",
+    "line": 45,
+    "declaration": "export function placeLabels(labels:readonly CandidateLabel[],height:number,viewport:ViewportTransform|null):LabelRail {"
+  },
+  {
+    "path": "miniprogram/utils/matching-presentation.ts",
+    "line": 61,
+    "declaration": "export function stageHeight(windowHeight:number):number {"
+  },
+  {
+    "path": "miniprogram/utils/overlay-transition.ts",
+    "line": 3,
+    "declaration": "export class OverlayTransition {"
+  },
+  {
+    "path": "miniprogram/utils/photo-coordinate.ts",
+    "line": 3,
+    "declaration": "export function fitPhoto(width:number,height:number,containerWidth:number,containerHeight:number):PhotoRect {"
+  },
+  {
+    "path": "miniprogram/utils/photo-coordinate.ts",
+    "line": 8,
+    "declaration": "export function photoTouch(x:number,y:number,rect:PhotoRect):{x:number;y:number}|null {"
+  },
+  {
+    "path": "miniprogram/utils/photo-coordinate.ts",
+    "line": 12,
+    "declaration": "export function dragBox(a:{x:number;y:number},b:{x:number;y:number}):PhotoBox|null {"
+  },
+  {
+    "path": "miniprogram/utils/photo-coordinate.ts",
+    "line": 17,
+    "declaration": "export function usablePhotoBox(box:PhotoBox):boolean {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 14,
+    "declaration": "export class PlacementError extends Error {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 17,
+    "declaration": "function reject(code:string,message:string):never{throw new PlacementError(code,message);}"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 20,
+    "declaration": "function uniqueRing(r:PlacementRing):PlacementRing{return r.slice(0,-1);}"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 21,
+    "declaration": "function boundsOf(points:readonly Point[]):NormalizedRect {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 27,
+    "declaration": "function locateInPolygon(p:Point,polygon:PlacementPolygon):-1|0|1 {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 32,
+    "declaration": "export function pointInPlacement(p:Point,geometry:BodyMultiPolygon):boolean {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 35,
+    "declaration": "export function pointInPhotoPlacement(p:Point,photo:PreparedPhotoGeometry):boolean {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 39,
+    "declaration": "function intervals(a:Point,b:Point,boundaries:readonly (readonly [Point,Point])[]):Point[] {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 53,
+    "declaration": "function polygonInterior(polygon:PlacementPolygon):Point {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 65,
+    "declaration": "function validateRing(ring:PlacementRing):void {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 88,
+    "declaration": "function ringsShareEdge(a:PlacementRing,b:PlacementRing):boolean {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 95,
+    "declaration": "function validateInteriorConnectivity(polygon:PlacementPolygon):void {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 121,
+    "declaration": "function polygonsOverlap(a:PlacementPolygon,b:PlacementPolygon):boolean {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 127,
+    "declaration": "function validatePolygons(polygons:readonly PlacementPolygon[]):number {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 159,
+    "declaration": "function freeze<T>(value:T):T {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 162,
+    "declaration": "export function preparePhotoGeometry(source:ConfirmedPhoto):PreparedPhotoGeometry {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 191,
+    "declaration": "export function initialPlacement(photo:PreparedPhotoGeometry,model:BodyModelConfig,region:BodyRegion):PlacementTransform {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 200,
+    "declaration": "export function placementSimilarity(photo:PreparedPhotoGeometry,t:PlacementTransform,model:BodyModelConfig):{c:number;s:number;k:number} {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 213,
+    "declaration": "export function transformPhotoPolygonToBody(photo:PreparedPhotoGeometry,t:PlacementTransform,model:BodyModelConfig):BodyMultiPolygon {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 222,
+    "declaration": "export function placementBounds(geometry:BodyMultiPolygon):NormalizedRect {"
+  },
+  {
+    "path": "miniprogram/utils/placement-geometry.ts",
+    "line": 226,
+    "declaration": "export function validatePlacementGeometry(geometry:BodyMultiPolygon,modelOrBody:BodyModelConfig|BodyGeometry):PlacementValidation {"
+  },
+  {
+    "path": "scripts/check_annotation_geometry.py",
+    "line": 13,
+    "declaration": "def polygon(points):"
+  },
+  {
+    "path": "scripts/check_annotation_geometry.py",
+    "line": 16,
+    "declaration": "def main():"
+  },
+  {
+    "path": "scripts/check_atlas.py",
+    "line": 14,
+    "declaration": "def read_object(path: Path) -> dict[str, Any]:"
+  },
+  {
+    "path": "scripts/check_atlas.py",
+    "line": 22,
+    "declaration": "def check_v0_atlas(directory: Path) -> list[str]:"
+  },
+  {
+    "path": "scripts/check_atlas.py",
+    "line": 66,
+    "declaration": "def main() -> int:"
+  },
+  {
+    "path": "scripts/check_body_regions.py",
+    "line": 11,
+    "declaration": "def main():"
+  },
+  {
+    "path": "scripts/check_placement_geometry.py",
+    "line": 21,
+    "declaration": "def points(ring):"
+  },
+  {
+    "path": "scripts/check_placement_geometry.py",
+    "line": 25,
+    "declaration": "def coordinates(shape):"
+  },
+  {
+    "path": "scripts/check_placement_geometry.py",
+    "line": 34,
+    "declaration": "def body_part(outer, holes=()):"
+  },
+  {
+    "path": "scripts/check_placement_geometry.py",
+    "line": 38,
+    "declaration": "def box(x0, y0, x1, y1):"
+  },
+  {
+    "path": "scripts/check_placement_geometry.py",
+    "line": 42,
+    "declaration": "def shape_from_parts(parts):"
+  },
+  {
+    "path": "scripts/check_placement_geometry.py",
+    "line": 48,
+    "declaration": "def main():"
+  },
+  {
+    "path": "scripts/check_preview_atlas.py",
+    "line": 43,
+    "declaration": "def read_json(path):"
+  },
+  {
+    "path": "scripts/check_preview_atlas.py",
+    "line": 47,
+    "declaration": "def validate_geometry(geometry):"
+  },
+  {
+    "path": "scripts/check_preview_atlas.py",
+    "line": 70,
+    "declaration": "def validate_inherited_region(parent, current):"
+  },
+  {
+    "path": "scripts/check_preview_atlas.py",
+    "line": 96,
+    "declaration": "def validate_parent_files():"
+  },
+  {
+    "path": "scripts/check_preview_atlas.py",
+    "line": 106,
+    "declaration": "def check():"
+  },
+  {
+    "path": "scripts/check_preview_atlas.py",
+    "line": 227,
+    "declaration": "def validate_extensions(config, report, added_regions, model_data):"
+  },
+  {
+    "path": "scripts/check_project.py",
+    "line": 71,
+    "declaration": "def main() -> int:"
+  },
+  {
+    "path": "scripts/prepare_atlas.py",
+    "line": 25,
+    "declaration": "def read(name):return json.loads((ATLAS/name).read_text())"
+  },
+  {
+    "path": "scripts/prepare_atlas.py",
+    "line": 26,
+    "declaration": "def write(name,data): (ATLAS/name).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\\n')"
+  },
+  {
+    "path": "scripts/prepare_atlas.py",
+    "line": 27,
+    "declaration": "def interpolate(x,rows):"
+  },
+  {
+    "path": "scripts/prepare_atlas.py",
+    "line": 30,
+    "declaration": "def spans(poly,y):"
+  },
+  {
+    "path": "scripts/prepare_atlas.py",
+    "line": 32,
+    "declaration": "def walk(g):"
+  },
+  {
+    "path": "scripts/prepare_atlas.py",
+    "line": 44,
+    "declaration": "def source_paths(view):"
+  },
+  {
+    "path": "scripts/prepare_atlas.py",
+    "line": 49,
+    "declaration": "def walk(e,m,route):"
+  },
+  {
+    "path": "scripts/prepare_atlas.py",
+    "line": 59,
+    "declaration": "def source_outline(view):"
+  },
+  {
+    "path": "scripts/prepare_atlas.py",
+    "line": 64,
+    "declaration": "def models():"
+  },
+  {
+    "path": "scripts/prepare_atlas.py",
+    "line": 72,
+    "declaration": "def main():"
+  },
+  {
+    "path": "scripts/prepare_atlas_extensions.py",
+    "line": 28,
+    "declaration": "def read(path):"
+  },
+  {
+    "path": "scripts/prepare_atlas_extensions.py",
+    "line": 32,
+    "declaration": "def write(name, value):"
+  },
+  {
+    "path": "scripts/prepare_atlas_extensions.py",
+    "line": 36,
+    "declaration": "def row_warp(rows):"
+  },
+  {
+    "path": "scripts/prepare_atlas_extensions.py",
+    "line": 46,
+    "declaration": "def warp(x, y):"
+  },
+  {
+    "path": "scripts/prepare_atlas_extensions.py",
+    "line": 58,
+    "declaration": "def warp_geometry(geometry, warp):"
+  },
+  {
+    "path": "scripts/prepare_atlas_extensions.py",
+    "line": 60,
+    "declaration": "def ring(source):"
+  },
+  {
+    "path": "scripts/prepare_atlas_extensions.py",
+    "line": 83,
+    "declaration": "def normalized(geometry):"
+  },
+  {
+    "path": "scripts/prepare_atlas_extensions.py",
+    "line": 96,
+    "declaration": "def logical(region):"
+  },
+  {
+    "path": "scripts/prepare_atlas_extensions.py",
+    "line": 100,
+    "declaration": "def visible_paths():"
+  },
+  {
+    "path": "scripts/prepare_atlas_extensions.py",
+    "line": 115,
+    "declaration": "def target_path_geometry(path_id):"
+  },
+  {
+    "path": "scripts/prepare_atlas_extensions.py",
+    "line": 119,
+    "declaration": "def walk(element, matrix, nested=False):"
+  },
+  {
+    "path": "scripts/prepare_atlas_extensions.py",
+    "line": 134,
+    "declaration": "def foot_rows(config, source_body, target_body, screen_side):"
+  },
+  {
+    "path": "scripts/prepare_atlas_extensions.py",
+    "line": 156,
+    "declaration": "def main():"
+  },
+  {
+    "path": "scripts/prepare_commons_body.py",
+    "line": 17,
+    "declaration": "def extract(directory):"
+  },
+  {
+    "path": "scripts/prepare_commons_body.py",
+    "line": 32,
+    "declaration": "def fill_enclosed(directory):"
+  },
+  {
+    "path": "scripts/prepare_commons_body.py",
+    "line": 50,
+    "declaration": "def trace_geometry(D):"
+  },
+  {
+    "path": "scripts/prepare_commons_body.py",
+    "line": 93,
+    "declaration": "def main():"
+  },
+  {
+    "path": "scripts/preview_atlas.py",
+    "line": 7,
+    "declaration": "def image(path,x,y,w,h):"
+  },
+  {
+    "path": "scripts/preview_atlas.py",
+    "line": 9,
+    "declaration": "def overlay(view,labels=True):"
+  },
+  {
+    "path": "scripts/preview_atlas_extensions.py",
+    "line": 12,
+    "declaration": "def source(view):"
+  },
+  {
+    "path": "scripts/preview_atlas_extensions.py",
+    "line": 24,
+    "declaration": "def target(view, version='v2', selected=None):"
+  },
+  {
+    "path": "scripts/preview_atlas_extensions.py",
+    "line": 37,
+    "declaration": "def panel(x, y, width, height, bounds, title, contents):"
+  },
+  {
+    "path": "scripts/preview_atlas_extensions.py",
+    "line": 41,
+    "declaration": "def save(name, width, height, content):"
+  },
+  {
+    "path": "scripts/preview_atlas_extensions.py",
+    "line": 45,
+    "declaration": "def main():"
+  },
+  {
+    "path": "scripts/preview_matching.py",
+    "line": 19,
+    "declaration": "def path(ring):return 'M'+' L'.join(f'{x*400},{y*900}' for x,y in ring)+' Z'"
+  },
+  {
+    "path": "scripts/preview_matching.py",
+    "line": 20,
+    "declaration": "def panel(index,marker,viewbox,title):"
+  },
+  {
+    "path": "scripts/smoke_backend.py",
+    "line": 19,
+    "declaration": "def request_json(url: str, method: str = \"GET\") -> tuple[int, object]:"
+  },
+  {
+    "path": "scripts/smoke_backend.py",
+    "line": 34,
+    "declaration": "def main() -> int:"
+  },
+  {
+    "path": "scripts/svg_geometry.py",
+    "line": 11,
+    "declaration": "def multiply(a,b):"
+  },
+  {
+    "path": "scripts/svg_geometry.py",
+    "line": 15,
+    "declaration": "def transform(text):"
+  },
+  {
+    "path": "scripts/svg_geometry.py",
+    "line": 26,
+    "declaration": "def project(p,m):return (m[0]*p[0]+m[2]*p[1]+m[4],m[1]*p[0]+m[3]*p[1]+m[5])"
+  },
+  {
+    "path": "scripts/svg_geometry.py",
+    "line": 27,
+    "declaration": "def mid(a,b):return ((a[0]+b[0])/2,(a[1]+b[1])/2)"
+  },
+  {
+    "path": "scripts/svg_geometry.py",
+    "line": 28,
+    "declaration": "def distance(p,a,b):"
+  },
+  {
+    "path": "scripts/svg_geometry.py",
+    "line": 32,
+    "declaration": "def cubic(a,b,c,d,out,tolerance,depth=0):"
+  },
+  {
+    "path": "scripts/svg_geometry.py",
+    "line": 37,
+    "declaration": "def path_rings(d,m=IDENTITY,tolerance=.12):"
+  },
+  {
+    "path": "scripts/svg_geometry.py",
+    "line": 69,
+    "declaration": "def filled_geometry(rings,fill_rule='nonzero'):"
+  },
+  {
+    "path": "scripts/svg_geometry.py",
+    "line": 72,
+    "declaration": "def winding(p,ring):"
+  },
+  {
+    "path": "scripts/svg_geometry.py",
+    "line": 80,
+    "declaration": "def inside(p):"
+  },
+  {
+    "path": "scripts/svg_geometry.py",
+    "line": 85,
+    "declaration": "def flatten_geometry(geometry):"
+  },
+  {
+    "path": "scripts/sync_atlas.py",
+    "line": 8,
+    "declaration": "def content_hash():"
+  },
+  {
+    "path": "scripts/sync_atlas.py",
+    "line": 12,
+    "declaration": "def render():"
+  },
+  {
+    "path": "scripts/sync_atlas.py",
+    "line": 18,
+    "declaration": "def main():"
+  },
+  {
+    "path": "scripts/sync_matching_body.py",
+    "line": 11,
+    "declaration": "def render():"
+  },
+  {
+    "path": "scripts/test_atlas_extensions.py",
+    "line": 11,
+    "declaration": "class LocalRegistrationTests(unittest.TestCase):"
+  },
+  {
+    "path": "scripts/test_atlas_extensions.py",
+    "line": 13,
+    "declaration": "def setUpClass(cls):"
+  },
+  {
+    "path": "scripts/test_atlas_extensions.py",
+    "line": 18,
+    "declaration": "def test_landmark_knots_and_no_folding(self):"
+  },
+  {
+    "path": "scripts/test_atlas_extensions.py",
+    "line": 29,
+    "declaration": "def test_hole_and_tiny_island_survive_without_area_filter(self):"
+  },
+  {
+    "path": "scripts/test_atlas_extensions.py",
+    "line": 37,
+    "declaration": "def test_original_label_leaders_are_inside_audited_source_fills(self):"
+  },
+  {
+    "path": "scripts/test_atlas_extensions.py",
+    "line": 43,
+    "declaration": "def test_original_face_knots_map_to_declared_target_landmarks(self):"
+  },
+  {
+    "path": "scripts/test_atlas_extensions.py",
+    "line": 51,
+    "declaration": "def test_reference_sites_and_explicit_unsupported_surfaces(self):"
+  },
+  {
+    "path": "scripts/test_atlas_extensions.py",
+    "line": 63,
+    "declaration": "def test_geometry_and_parent_archival_integrity(self):"
+  },
+  {
+    "path": "scripts/test_atlas_geometry.py",
+    "line": 7,
+    "declaration": "class SvgTests(unittest.TestCase):"
+  },
+  {
+    "path": "scripts/test_cloud_http.py",
+    "line": 19,
+    "declaration": "def request(method,path,headers=None,**kwargs):"
+  },
+  {
+    "path": "scripts/test_cloud_http.py",
+    "line": 21,
+    "declaration": "def check(name,r,status):"
+  },
+  {
+    "path": "scripts/test_cloud_lifecycle.py",
+    "line": 10,
+    "declaration": "def remote(command):return subprocess.check_output(ssh+[command],text=True,timeout=70)"
+  },
+  {
+    "path": "scripts/test_cloud_lifecycle.py",
+    "line": 11,
+    "declaration": "def snapshot(name):"
+  },
+  {
+    "path": "scripts/test_cloud_lifecycle.py",
+    "line": 13,
+    "declaration": "def original_ok(r,baseline):"
+  },
+  {
+    "path": "scripts/test_cloud_lifecycle.py",
+    "line": 17,
+    "declaration": "def req(method,path,**kwargs):return httpx.request(method,base+path,headers=h,timeout=60,trust_env=False,**kwargs)"
+  },
+  {
+    "path": "scripts/test_cloud_lifecycle.py",
+    "line": 18,
+    "declaration": "def wait_ready():"
+  },
+  {
+    "path": "scripts/test_public_ip_ingress.py",
+    "line": 11,
+    "declaration": "def call(name,method,path,expected,**kw):"
+  },
+  {
+    "path": "scripts/test_public_ip_ingress.py",
+    "line": 40,
+    "declaration": "def health(_):return httpx.get(BASE+'/health',timeout=10,trust_env=False).status_code"
+  },
+  {
+    "path": "scripts/test_public_test_access.py",
+    "line": 11,
+    "declaration": "def call(name,method,path,status,**kw):"
+  },
+  {
+    "path": "scripts/test_trial_cloud_access.py",
+    "line": 10,
+    "declaration": "def call(name,method,path,status,**kw):"
+  },
+  {
+    "path": "scripts/test_trial_cloud_restart.py",
+    "line": 7,
+    "declaration": "def remote(cmd):return subprocess.check_output(ssh+[cmd],text=True,timeout=70)"
+  },
+  {
+    "path": "scripts/test_trial_cloud_restart.py",
+    "line": 8,
+    "declaration": "def snap(name):"
+  },
+  {
+    "path": "scripts/test_trial_cloud_restart.py",
+    "line": 10,
+    "declaration": "def a_ok(r,old):"
+  },
+  {
+    "path": "scripts/test_trial_cloud_restart.py",
+    "line": 17,
+    "declaration": "def call(method,path,**kw):return httpx.request(method,base+path,headers=h,timeout=60,trust_env=False,**kw)"
+  }
+]

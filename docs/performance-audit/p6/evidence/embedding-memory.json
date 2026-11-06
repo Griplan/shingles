@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-03T14:39:51+0800",
+  "purpose": "Feature memory sizing only; no clinical accuracy or new performance baseline",
+  "input": "Synthetic RGB rectangle, 700x460, no external images",
+  "environment": {
+    "python": "3.12.14 (main, Aug 12 2026, 13:57:54) [Clang 17.0.0 (clang-1700.6.4.2)]",
+    "platform": "macOS-15.6.1-arm64-arm-64bit",
+    "model": {
+      "name": "MobileSAM",
+      "variant": "vit_t",
+      "package_version": "1.0",
+      "source_commit": "f706ad9c4eb7f219c00d9050e46328518ffb65d2",
+      "license": "Apache-2.0",
+      "weights_sha256": "6dbb90523a35330fedd7f1d3dfc66f995213d81b29a5ca8108dbcdd4e37d6c2f",
+      "weights_bytes": 40728226,
+      "device": "cpu",
+      "dtype": "float32",
+      "torch": "2.5.1",
+      "threads": 4,
+      "load_seconds": 1.4631121669954155,
+      "source": "https://github.com/ChaoningZhang/MobileSAM"
+    }
+  },
+  "load_ms": 1463.129999989178,
+  "feature_before_existing_reset": {
+    "shape": [
+      1,
+      256,
+      64,
+      64
+    ],
+    "dtype": "torch.float32",
+    "device": "cpu",
+    "elements": 1048576,
+    "element_bytes": 4,
+    "tensor_bytes": 4194304,
+    "storage_bytes": 4194304,
+    "input_size": [
+      673,
+      1024
+    ],
+    "original_size": [
+      460,
+      700
+    ]
+  },
+  "reset_cleared_features": true,
+  "candidate_count": 3,
+  "timings": {
+    "encode_seconds": 0.4910078330140095,
+    "decode_seconds": 0.03344870900036767,
+    "inference_seconds": 0.5244565420143772
+  },
+  "process_rss": 866746368,
+  "max_rss_bytes": 866746368
+}

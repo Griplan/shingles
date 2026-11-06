@@ -1,0 +1,1170 @@
+{
+  "atlasVersion": "goran-2022-commons-template4-preview.2",
+  "entries": [
+    {
+      "labelId": "C2",
+      "sourceLabel": "C2",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        15
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "C3",
+      "sourceLabel": "C3",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        17
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "C4",
+      "sourceLabel": "C4",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        18
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "C5",
+      "sourceLabel": "C5",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        28
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "C6",
+      "sourceLabel": "C6",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        21
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "C6-C8",
+      "sourceLabel": "C 6-8",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        29,
+        30
+      ],
+      "configuredSides": [],
+      "partCount": 0,
+      "status": "unconfigured",
+      "excludedPathReasons": [
+        "Distal hand/wrist surface has incompatible palm orientation; excluded entirely, including residual slivers.",
+        "Distal hand/wrist surface has incompatible palm orientation; excluded entirely, including residual slivers."
+      ],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "C8/T1",
+      "sourceLabel": "C 8 / T 1",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        32
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [
+        "Distal hand/wrist surface has incompatible palm orientation; excluded entirely, including residual slivers."
+      ],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "L1",
+      "sourceLabel": "L1",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        33
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "L2",
+      "sourceLabel": "L2",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        34
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "L3",
+      "sourceLabel": "L3",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        35
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "L4",
+      "sourceLabel": "L4",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        36
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only independently registered front visible surface. No hair-covered scalp, ocular opening, complex ear transition, lateral-head inset, oral interior, sole, inferred posterior face or heel.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "L5",
+      "sourceLabel": "L5",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        41
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only independently registered front visible surface. No hair-covered scalp, ocular opening, complex ear transition, lateral-head inset, oral interior, sole, inferred posterior face or heel.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "S1",
+      "sourceLabel": "S1",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        37,
+        38
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 4,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only independently registered front visible surface. No hair-covered scalp, ocular opening, complex ear transition, lateral-head inset, oral interior, sole, inferred posterior face or heel.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "S3",
+      "sourceLabel": "S3",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        40
+      ],
+      "configuredSides": [],
+      "partCount": 0,
+      "status": "unconfigured",
+      "excludedPathReasons": [
+        "Anterior perineum is not reliably visible on the neutral template."
+      ],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "S4",
+      "sourceLabel": "S4",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        39
+      ],
+      "configuredSides": [],
+      "partCount": 0,
+      "status": "unconfigured",
+      "excludedPathReasons": [
+        "Anterior perineum is not reliably visible on the neutral template."
+      ],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T1",
+      "sourceLabel": "T1",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        1,
+        19
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T10",
+      "sourceLabel": "T10",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        10
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T11",
+      "sourceLabel": "T11",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        11
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T12",
+      "sourceLabel": "T12",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        12
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T2",
+      "sourceLabel": "T2",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        2,
+        20
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 4,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T3",
+      "sourceLabel": "T3",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        3
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T4",
+      "sourceLabel": "T4",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        4
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T5",
+      "sourceLabel": "T5",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        5
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T6",
+      "sourceLabel": "T6",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        6
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 3,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T7",
+      "sourceLabel": "T7",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        7
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T8",
+      "sourceLabel": "T8",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        8
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T9",
+      "sourceLabel": "T9",
+      "view": "front",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        9
+      ],
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "C2",
+      "sourceLabel": "C2",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        22
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "C3",
+      "sourceLabel": "C3",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        23
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "C4",
+      "sourceLabel": "C4",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        24
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "C5",
+      "sourceLabel": "C5",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        46
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "C6",
+      "sourceLabel": "C6",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        26
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "C6-C8",
+      "sourceLabel": "C 6-8",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        47,
+        48
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 6,
+      "status": "registered_preview",
+      "excludedPathReasons": [
+        "Only excluded distal hand/foot surface remains.",
+        "Only excluded distal hand/foot surface remains.",
+        "Only excluded distal hand/foot surface remains.",
+        "Only excluded distal hand/foot surface remains."
+      ],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "C7",
+      "sourceLabel": "C7",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        20
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "C8",
+      "sourceLabel": "C8",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        25,
+        27,
+        40
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 4,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "C8/T1",
+      "sourceLabel": "C 8 / T 1",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        39,
+        42
+      ],
+      "configuredSides": [],
+      "partCount": 0,
+      "status": "unconfigured",
+      "excludedPathReasons": [
+        "Only excluded distal hand/foot surface remains.",
+        "Only excluded distal hand/foot surface remains."
+      ],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "L1",
+      "sourceLabel": "L1",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        18
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "L2",
+      "sourceLabel": "L2",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        19
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "L3",
+      "sourceLabel": "L3",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        37
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "L4",
+      "sourceLabel": "L4",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        36
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "L5",
+      "sourceLabel": "L5",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        38
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [
+        "Only excluded distal hand/foot surface remains."
+      ],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "S1",
+      "sourceLabel": "S1",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        44
+      ],
+      "configuredSides": [],
+      "partCount": 0,
+      "status": "unconfigured",
+      "excludedPathReasons": [
+        "Only excluded distal hand/foot surface remains."
+      ],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "S2",
+      "sourceLabel": "S2",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        49
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 4,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "S3",
+      "sourceLabel": "S3",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        32
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 4,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "S4",
+      "sourceLabel": "S4",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        33
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "S5",
+      "sourceLabel": "S5",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        34
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T1",
+      "sourceLabel": "T1",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        6
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T1/T2",
+      "sourceLabel": "T 1,2",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        41
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T10",
+      "sourceLabel": "T10",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        16
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T11",
+      "sourceLabel": "T11",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        17
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T12",
+      "sourceLabel": "T12",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        13
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T2",
+      "sourceLabel": "T2",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        7
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T3",
+      "sourceLabel": "T3",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        8
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T4",
+      "sourceLabel": "T4",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        9
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T5",
+      "sourceLabel": "T5",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        10
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 3,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T6",
+      "sourceLabel": "T6",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        11
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T7",
+      "sourceLabel": "T7",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        12
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T8",
+      "sourceLabel": "T8",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        14
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "labelId": "T9",
+      "sourceLabel": "T9",
+      "view": "back",
+      "sourcePresent": true,
+      "sourcePathIndices": [
+        15
+      ],
+      "configuredSides": [
+        "left",
+        "right"
+      ],
+      "partCount": 2,
+      "status": "registered_preview",
+      "excludedPathReasons": [],
+      "surfaceLimit": "Only the visible surface before the documented hand/foot cutoff; source seams remain unconfigured. No inferred continuation to another surface.",
+      "medicalReviewStatus": "pending"
+    },
+    {
+      "view": "front",
+      "labelId": "V1",
+      "sourceLabel": "V 1",
+      "sourcePresent": true,
+      "medicalReviewStatus": "pending",
+      "status": "registered_preview",
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 2,
+      "sourcePathIndices": [
+        13
+      ],
+      "surfaceLimit": "Only independently registered front visible surface. No hair-covered scalp, ocular opening, complex ear transition, lateral-head inset, oral interior, sole, inferred posterior face or heel.",
+      "excludedPathReasons": []
+    },
+    {
+      "view": "front",
+      "labelId": "V2",
+      "sourceLabel": "V 2",
+      "sourcePresent": true,
+      "medicalReviewStatus": "pending",
+      "status": "registered_preview",
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 4,
+      "sourcePathIndices": [
+        14
+      ],
+      "surfaceLimit": "Only independently registered front visible surface. No hair-covered scalp, ocular opening, complex ear transition, lateral-head inset, oral interior, sole, inferred posterior face or heel.",
+      "excludedPathReasons": []
+    },
+    {
+      "view": "front",
+      "labelId": "V3",
+      "sourceLabel": "V 3",
+      "sourcePresent": true,
+      "medicalReviewStatus": "pending",
+      "status": "registered_preview",
+      "configuredSides": [
+        "right",
+        "left"
+      ],
+      "partCount": 4,
+      "sourcePathIndices": [
+        16
+      ],
+      "surfaceLimit": "Only independently registered front visible surface. No hair-covered scalp, ocular opening, complex ear transition, lateral-head inset, oral interior, sole, inferred posterior face or heel.",
+      "excludedPathReasons": []
+    }
+  ],
+  "unconfigured": [
+    "Main back source V1 scalp path21 exists, but target hair-covered posterior head lacks reliable matching landmarks. Not copied from front.",
+    "Only source lateral-head inset; no corresponding posterior face surface.",
+    "Source feet show plantar sole and toe pads; target shows posterior heel/Achilles and small side. No reliable projection correspondence.",
+    "Hair-covered scalp, ocular openings, complex ear transition, distal hands/fingers, head-side inset, ear canal/oral interior, ambiguous C1/Co1, anterior perineum remain unconfigured.",
+    "Blank is not absent sensation."
+  ],
+  "surfaceExclusions": [
+    {
+      "view": "back",
+      "labels": [
+        "V1"
+      ],
+      "sourcePresent": true,
+      "reason": "Main back source V1 scalp path21 exists, but target hair-covered posterior head lacks reliable matching landmarks. Not copied from front."
+    },
+    {
+      "view": "back",
+      "labels": [
+        "V2",
+        "V3"
+      ],
+      "sourcePresent": false,
+      "reason": "Only source lateral-head inset; no corresponding posterior face surface."
+    },
+    {
+      "view": "back",
+      "labels": [
+        "L5",
+        "S1"
+      ],
+      "sourcePresent": true,
+      "reason": "Source feet show plantar sole and toe pads; target shows posterior heel/Achilles and small side. No reliable projection correspondence."
+    }
+  ]
+}

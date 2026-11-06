@@ -1,0 +1,146 @@
+{
+  "brush_test": false,
+  "kind": "page/component + real backend HTTP, wx adapters; not native GUI",
+  "sample": "CDC PHIL 21505, public V5.1 test image",
+  "inferences": [
+    {
+      "status": 200,
+      "seconds": 6.716767042000001,
+      "candidates": [
+        {
+          "id": "candidate-0",
+          "status": "ok",
+          "area_ratio": 0.047683229813664595
+        },
+        {
+          "id": "candidate-1",
+          "status": "ok",
+          "area_ratio": 0.06837577639751553
+        },
+        {
+          "id": "candidate-2",
+          "status": "ok",
+          "area_ratio": 0.08781055900621118
+        }
+      ]
+    },
+    {
+      "status": 200,
+      "seconds": 3.665799917,
+      "candidates": [
+        {
+          "id": "candidate-0",
+          "status": "ok",
+          "area_ratio": 0.05117080745341615
+        },
+        {
+          "id": "candidate-1",
+          "status": "ok",
+          "area_ratio": 0.0690807453416149
+        },
+        {
+          "id": "candidate-2",
+          "status": "ok",
+          "area_ratio": 0.08248136645962732
+        }
+      ]
+    }
+  ],
+  "medical_accuracy": "NOT_MEASURED",
+  "endpoint": "http://127.0.0.1:18001",
+  "controlled_access": true,
+  "client_environment": "trial (reliable wx test double)",
+  "https_and_phone": "NOT_RUN: explicit test adapter to SSH loopback; not a shipping trial URL",
+  "invitation_exchange": true,
+  "touch_dispatch": "overlapping client-coordinate events with asynchronous bounds queries",
+  "confirmation": {
+    "schema": "confirmed-photo-segmentation-v1",
+    "coordinate_space": "photo_oriented_normalized_v1",
+    "candidate": "candidate-1",
+    "polygons": 10,
+    "holes": 12,
+    "mask_sha256": "72cd9427525c50c3ee550ed0e647f4387e3c24f987a7162ecc8dec22ad1b30f4",
+    "correction": null
+  },
+  "confirm_sync_ms": 97.34562499999993,
+  "matches": [
+    {
+      "status": 200,
+      "http_ms": 372.135624999999,
+      "views": [
+        {
+          "view": "back",
+          "candidates": 5,
+          "covered_ratio": 0.999941188004784,
+          "uncovered_ratio": 0.00005881199521524601
+        },
+        {
+          "view": "front",
+          "candidates": 10,
+          "covered_ratio": 0.9998513601222073,
+          "uncovered_ratio": 0.00014863987779222584
+        }
+      ]
+    },
+    {
+      "status": 200,
+      "http_ms": 366.9924169999995,
+      "views": [
+        {
+          "view": "back",
+          "candidates": 4,
+          "covered_ratio": 0.9999999999999983,
+          "uncovered_ratio": 0
+        },
+        {
+          "view": "front",
+          "candidates": 10,
+          "covered_ratio": 0.9998513601222073,
+          "uncovered_ratio": 0.00014863987779222584
+        }
+      ]
+    }
+  ],
+  "results": {
+    "all_regions": 5,
+    "labels": 5,
+    "automatic_all": true,
+    "label_and_show_all_no_request": true,
+    "retained_camera": true
+  },
+  "placement": {
+    "view": "back",
+    "coordinate_space": "body_template_normalized_v1",
+    "polygons": 10,
+    "holes": 12,
+    "vertices": 770,
+    "scale": 0.7,
+    "angle": 25,
+    "formal_annotations_front": 1,
+    "formal_annotations_back": 1,
+    "duplicate_confirm_count": 1,
+    "network_requests_during_adjustment": 0,
+    "manual_preserved": true,
+    "full_view_transform_unchanged": true,
+    "v2_restored": true,
+    "photo_source_unchanged": true
+  },
+  "edited": {
+    "stable_id": true,
+    "formal_count": 1,
+    "geometry_changed": true,
+    "original_photo_preserved": true,
+    "request_count": 2
+  },
+  "segment_requests": 2,
+  "frame_draws": 21,
+  "confirmation_requests": 1,
+  "after_delete_status": 410,
+  "equivalence": {
+    "same_body_manual_ai": "exact response equality",
+    "after_photo_cleanup": "PASSED",
+    "photo_sent_to_evaluate": false
+  },
+  "access_revoked_status": 401,
+  "status": "PASSED"
+}

@@ -1,0 +1,10 @@
+{
+  "baseline_files": 968,
+  "protected_files": 356,
+  "protected_changed_or_missing": [],
+  "missing": [],
+  "status": "PASSED",
+  "ignored_runtime_missing_count": 16,
+  "excluded_runtime_prefix": "private-data/",
+  "note": "Code protection only; initial full-tree check included expired temporary sessions (see protection-first.txt)."
+}

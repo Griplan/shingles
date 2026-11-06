@@ -1,0 +1,73 @@
+{
+  "checked_at": "2026-11-02T14:37:08.889504+00:00",
+  "read_only": true,
+  "cpu_count": "4",
+  "cpu": {
+    "Architecture": "x86_64",
+    "Model name": "AMD EPYC 7K62 48-Core Processor"
+  },
+  "os": "PRETTY_NAME=\"Ubuntu 24.04.4 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.4 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo",
+  "memory": "total        used        free      shared  buff/cache   available\nMem:      3904065536  1570201600   285700096     2822144  2364928000  2333863936\nSwap:     2084564992      536576  2084028416",
+  "disk": "Filesystem       1B-blocks       Used   Available Use% Mounted on\n/dev/vda2      42156257280 9829400576 30484996096  25% /",
+  "load": "22:37:08 up 25 days,  9:42,  1 user,  load average: 0.08, 0.02, 0.01",
+  "ports": "State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\nLISTEN 0      4096   127.0.0.53%lo:53        0.0.0.0:*          \nLISTEN 0      4096         0.0.0.0:22        0.0.0.0:*          \nLISTEN 0      511          0.0.0.0:80        0.0.0.0:*          \nLISTEN 0      511          0.0.0.0:443       0.0.0.0:*          \nLISTEN 0      4096      127.0.0.54:53        0.0.0.0:*          \nLISTEN 0      32         127.0.0.1:8001      0.0.0.0:*          \nLISTEN 0      2048       127.0.0.1:8000      0.0.0.0:*          \nLISTEN 0      4096            [::]:22           [::]:*          \nLISTEN 0      511             [::]:80           [::]:*          \nLISTEN 0      511             [::]:443          [::]:*",
+  "services": {
+    "acupuncture.service": {
+      "MainPID": "3480408",
+      "NRestarts": "0",
+      "MemoryCurrent": "159055872",
+      "CPUQuotaPerSecUSec": "infinity",
+      "MemoryHigh": "infinity",
+      "MemoryMax": "infinity",
+      "MemorySwapMax": "infinity",
+      "ActiveState": "active",
+      "ActiveEnterTimestamp": "Sat 2026-10-31 23:51:02 CST"
+    },
+    "dermatome.service": {
+      "MainPID": "3980765",
+      "NRestarts": "0",
+      "MemoryCurrent": "573526016",
+      "CPUQuotaPerSecUSec": "1s",
+      "MemoryHigh": "1342177280",
+      "MemoryMax": "1610612736",
+      "MemorySwapMax": "0",
+      "ActiveState": "active",
+      "ActiveEnterTimestamp": "Mon 2026-11-02 11:29:40 CST"
+    },
+    "nginx.service": {
+      "MainPID": "12643",
+      "NRestarts": "0",
+      "MemoryCurrent": "7483392",
+      "CPUQuotaPerSecUSec": "infinity",
+      "MemoryHigh": "infinity",
+      "MemoryMax": "infinity",
+      "MemorySwapMax": "infinity",
+      "ActiveState": "active",
+      "ActiveEnterTimestamp": "Thu 2026-10-08 13:25:29 CST"
+    }
+  },
+  "a_health": {
+    "status": 200,
+    "body": {
+      "status": "ok",
+      "ai_ready": true
+    }
+  },
+  "a_ready": {
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "ai_ready": true,
+      "model_ready": true,
+      "results_ready": true
+    }
+  },
+  "b_health": {
+    "status": 200,
+    "body": {
+      "status": "ok",
+      "project": "dermatome-mapper",
+      "version": "v0"
+    }
+  }
+}

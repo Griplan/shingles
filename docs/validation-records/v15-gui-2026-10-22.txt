@@ -1,0 +1,31 @@
+V1.5 real WeChat GUI observations — 2026-10-22
+Environment: macOS; WeChat developer tools Stable 2.01.2510290; base library 3.17.4. Existing local project, no backend required, Commons model unchanged.
+Input method: cua_repl native application AX controls and screenshots. Clicking the actual Canvas accessibility container also generated native touch feedback; no page state injection or console script used. Exact coordinate input repeatedly failed with Computer Use -10005 noWindowsAvailable. AX controls sometimes required a second click after focusing; all results below were observed after action, not inferred from click success.
+
+INITIAL FAILURES AND FIXES
+1. New region-picker module ignored by cached dependency analysis; compile Errors8/Warnings4, reopening Errors4/Warnings6. Cleared compilation cache only and compiled again; Errors0/Warnings4. No project filtering/security settings changed.
+2. At iPhone5/320x568/DPR2 the header utility native buttons squeezed the title vertically and overflowed. Explicit widths alone did not solve it; replaced auxiliary controls with accessible button-role views. Screenshot then showed intact horizontal title, utilities, footer list link.
+3. Native Canvas visually covered the bottom sheet despite interaction isolation. Hide the Canvas only while blocked; keep wrapper dimensions and runtime cache/normalized point, skip hidden-node drawing, remeasure on close. Actual sheet then visible.
+4. Native option buttons still made an oversized single-column list; intermediate 50% wrappers alone did not fix it. Final accessible view options in explicit 50% cells and fixed-width close control showed two columns, all eight options, last row and close visibly accessible on the short 320 screen.
+
+OBSERVED AT 320x568/DPR2 (actual screenshots displayed in this Codex conversation)
+PASSED: Full front with no choice, zoom disabled, complete head/feet, no persistent eight-button panel or large current-region card.
+PASSED: Canvas-container center touch in normal overview opened real abdomen/left-leg/right-leg candidate confirmation. No arbitrary selection, no automatic zoom. This is an ambiguous actual touch, not evidence of a unique chest touch.
+PASSED: From list -> chest -> sheet closes -> complete body with clipped chest highlight and footer name, zoom enabled, no automatic focus/marker.
+PASSED: Explicit zoom -> actual chest-focused image and return/change controls. A native AX Canvas-center click while focused retained chest/focus without a new choice or marker.
+PASSED: Focused change -> list -> close retained focused chest; return full retained chest highlight.
+PASSED: List -> head -> full-body head choice; switch back -> independent back image, full-body, choice cleared and correct orientation labels.
+PASSED: Final sheet visibly two columns, all eight options including final leg row, explicit close accessible; sheet choices did not trigger underlying Canvas selection.
+Screenshots of actual full/unselected, selected chest, focused chest and final two-column list were viewed inline through cua_repl. These were actual WeChat runtime images, not offline HTML, but no reliable local PNG export was obtained.
+
+SCREEN CHANGES AND TOOL LIMITS
+375x667/DPR2: device selection and runtime AX state observed; intermediate screenshot had old physical simulator frame / new content mismatch and ghost Canvas after device change. Reopened project and rebound native app; runtime showed iPhone6/7/8 118%, front/chest, Errors0/Warnings5. However subsequent screenshots returned a small distorted window image even after observed window zoom action. Therefore final 375 visual/touch acceptance NOT_RUN, not PASSED.
+430x932/DPR3: no valid final native execution; NOT_RUN.
+Attempted developer-tool menu 模拟操作 -> 截屏; no save dialog/file was confirmed. Attempt to inspect image through Preview timed out after 167s (Computer Use -10005 timeoutReached). No local screenshot file claimed; earlier valid screenshots remain inline conversation evidence.
+
+NOT_RUN actual GUI checks remaining:
+- Unique precise chest touch, arm/torso and leg gaps with exact positions, scrolling/drag and touch-on-backdrop behavior.
+- V1.5 actual debug-mode point/selection isolation and cross pixel position during zoom/reset, including <=2 CSS px measurement.
+- Complete 375 and 430 visual/touch checks; rotation and physical device.
+- Export actual four-state screenshots as local project evidence.
+These paths have automated node/component coverage but that is not real engine/device acceptance. No V1.5 all-pass claim.

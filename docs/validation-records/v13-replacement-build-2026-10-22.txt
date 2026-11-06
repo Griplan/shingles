@@ -1,0 +1,28 @@
+V1.3 实际素材获取与构建摘要 / 2026-10-22 / macOS arm64
+这是操作摘要；下载的精确URL/状态/字节/哈希在 docs/research/v13-replacement/source-fetch.json。
+
+指定文件页及两级来源页实际查看，Licensing均为CC0。指定SVG成功HTTP200，187724 bytes。
+SHA256 486cdc8a89fbfe0ff0a4bb4104efc19bb5c708337c37768be6f9120c4837753a。
+原样复制到研究目录与assets/body/commons-cc0/source.svg。
+实际原预览发现空标签/引线；选择原g5692(front71paths)、g5815(back49paths)，不是重新绘制或变形。
+原始组、path及组内变换保留；同一scale=840/731，translateY=8.16689466484268，各自水平居中。
+400x900逻辑画布，1200x2700 PNG。原墨线加统一#f9f4ee内底，外部透明。
+首次探索构建FAILED：Sharp卷积后的raw意外扩成3通道，单通道长度断言不符（9720000 vs3240000字节）。
+修复：卷积阈值后明确toColourspace('b-w')再raw，重新构建成功；不是改变人体来规避断言。
+
+最终构建命令（项目根目录）：
+backend/.venv/bin/python scripts/prepare_commons_body.py --sharp /Users/griplan/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp
+实际exit0，manifest和PNG/几何均生成；没有增加或安装项目依赖。
+边缘：alpha阈值24，3x3栅格闭运算，外部漫水、栅格边界跟踪、Shapely simplify(.3,preserve_topology=True)。
+front valid=true / vertices1563 / bounds[24.3333,31.3333,375,869.6667]
+back valid=true / vertices1487 / bounds[31.6667,30,368.3333,870.6667]
+
+离线预览：node scripts/preview_body.cjs <新输出.svg> [--comparison]，exit0；环境Sharp转PNG成功。
+普通两面与四栏预览实际查看；四栏源为旧v3路径、新front实际PNG、新back实际PNG、front工程参考。
+参考标签初次髋/裆略拥挤，后移裆文字至右边，重新导出同一新产物；不是调整人体。
+所有PNG/轮廓最终哈希见assets/body/commons-cc0/manifest.json，独立测试逐项核对。
+原始中间raw/rgba已移到专用临时工作目录；仓库保留可复现脚本、原SVG、最终资源、预览与数字记录。
+
+首次类型检查误在项目根目录运行，FAILED exit254/ENOENT（根目录无package.json）；随后在miniprogram执行通过。
+失败和首轮50项通过的完整输出见 v13-replacement-first-tests-2026-10-22.txt。
+扩展58项通过见expanded-tests；后将back.chin工程字段准确命名occiput，重跑最终58项与后端/静态回归均通过，见regression日志。

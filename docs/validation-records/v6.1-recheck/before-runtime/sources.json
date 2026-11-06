@@ -1,0 +1,63 @@
+{
+  "boundarySystem": "spinal_dermatome",
+  "boundaryLicenseStatus": "UNKNOWN",
+  "sources": [
+    {
+      "id": "pmc10982913",
+      "purpose": "concept_reference",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10982913/",
+      "author": "Jajeh et al.",
+      "license": "CC BY-NC-ND 4.0",
+      "licenseStatus": "verified",
+      "commercialAdaptationAllowed": false,
+      "boundaryUseStatus": "rejected_license",
+      "note": "非商业、禁止演绎许可；不得直接商业数字化其图像。"
+    },
+    {
+      "id": "pmc12097171",
+      "purpose": "concept_reference",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12097171/",
+      "author": "Rajendran et al.",
+      "license": "CC BY 4.0",
+      "licenseStatus": "verified",
+      "commercialAdaptationAllowed": true,
+      "boundaryUseStatus": "sensory_test_points_not_boundary_polygons",
+      "note": "全文及 PubMed 图注交叉核实 Figure 1 为 key points for sensory testing，Table 2 也为关键感觉测试点；不能将这些点假定为完整掌侧闭合边界。"
+    },
+    {
+      "id": "nbk535401",
+      "purpose": "concept_reference",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK535401/",
+      "author": "Whitman et al.",
+      "license": "CC BY-NC-ND 4.0",
+      "licenseStatus": "verified",
+      "commercialAdaptationAllowed": false,
+      "boundaryUseStatus": "landmarks_only_not_boundary_polygons",
+      "note": "C6拇指、C7中指、C8小指是典型检查点，不能由这些点补画整个掌侧分区。其图1来源 Grant_1962_663.png 的独立许可仅确认美国未续期公有领域，并提示其他司法辖区可能仍受保护；商业跨司法辖区授权 UNKNOWN，未下载进入工程。"
+    },
+    {
+      "id": "nbk551638",
+      "purpose": "rejected_reference",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK551638/",
+      "author": "UNKNOWN",
+      "license": "UNKNOWN",
+      "licenseStatus": "UNKNOWN",
+      "commercialAdaptationAllowed": false,
+      "boundaryUseStatus": "different_anatomical_system",
+      "note": "条目为内侧前臂皮神经解剖，不能作为掌侧脊神经皮节面积边界。"
+    },
+    {
+      "id": "commons-goran-2022-front",
+      "purpose": "rejected_reference",
+      "url": "https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_front_3d-shaded.svg",
+      "author": "Goran_tek-en",
+      "license": "CC BY-SA 4.0",
+      "licenseStatus": "verified",
+      "commercialAdaptationAllowed": true,
+      "boundaryUseStatus": "merged_source_labels_not_independent_palm_boundaries",
+      "note": "已查看工程保留的原 SVG 手部放大图。source-map 前掌为合并 C6-C8（pathIndex 29、30）与 C8/T1（31），不能拆分改名成独立 C6、C7、C8 掌侧分区。"
+    }
+  ],
+  "note": "展示手掌的许可与皮节边界图的许可不同。尚未核实可数字化的掌侧完整皮节边界；不以典型检查点或外周神经分区代替。",
+  "researchRecord": "docs/validation-records/v6.1-sources.md"
+}

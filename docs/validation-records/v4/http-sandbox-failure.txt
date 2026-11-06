@@ -1,0 +1,8 @@
+AssertionError [ERR_ASSERTION]: 无法连接后端或请求超时；请检查服务和网络，标注已保留，可重试
+    at main (/Users/griplan/project/extra/Shingles‌/dermatome-mapper/scripts/test_matching_http.cjs:22:9) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'error',
+  expected: 'ready',
+  operator: 'strictEqual'
+}

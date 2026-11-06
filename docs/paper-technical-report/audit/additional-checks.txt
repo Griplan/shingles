@@ -1,0 +1,10 @@
+Readonly check_preview_atlas.check(): PASSED (validation.json not rewritten)
+COMMAND: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/bin/python scripts/sync_atlas.py --check
+PASSED: canonical hash and generated package copy agree
+COMMAND: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/bin/python scripts/sync_matching_body.py --check
+PASSED: shared body equals current V2 hitOutline and package identity
+COMMAND: /Users/griplan/project/extra/Shingles‌/dermatome-mapper/ai/.venv/bin/python scripts/check_placement_geometry.py
+PASSED: 1341 MultiPolygon validity/covers cases agree with independent Shapely; seed 20261031, 6 bodies including actual front/back, 220 generated cases/body.
+Includes disconnected pieces, preserved holes, hidden background bridges, invalid topology and boundary contact.
+Synthetic engineering oracle only; not AI segmentation accuracy, anatomical registration, or WeChat runtime.
+ALL ADDITIONAL CHECKS PASSED

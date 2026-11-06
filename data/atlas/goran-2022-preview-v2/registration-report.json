@@ -1,0 +1,1836 @@
+{
+  "front": {
+    "compatibleSurfaceRows": 1573,
+    "preAdaptationBySourcePath": {
+      "1": {
+        "rawArea": 1367.0636157032181,
+        "outsideArea": 0.0,
+        "outsideFraction": 0.0
+      },
+      "2": {
+        "rawArea": 1609.983645000803,
+        "outsideArea": 0.0,
+        "outsideFraction": 0.0
+      },
+      "3": {
+        "rawArea": 1757.5879473885407,
+        "outsideArea": 0.0,
+        "outsideFraction": 0.0
+      },
+      "4": {
+        "rawArea": 1298.8937750153189,
+        "outsideArea": 0.0,
+        "outsideFraction": 0.0
+      },
+      "5": {
+        "rawArea": 3856.904004267862,
+        "outsideArea": 0.0,
+        "outsideFraction": 0.0
+      },
+      "6": {
+        "rawArea": 3017.6264070559087,
+        "outsideArea": 0.37251945989563257,
+        "outsideFraction": 0.00012344783934306643
+      },
+      "7": {
+        "rawArea": 1522.7399216847205,
+        "outsideArea": 0.38315704661789246,
+        "outsideFraction": 0.0002516234329720451
+      },
+      "8": {
+        "rawArea": 1431.1451827688418,
+        "outsideArea": 0.3333068360605286,
+        "outsideFraction": 0.00023289519475283327
+      },
+      "9": {
+        "rawArea": 1885.4143904013458,
+        "outsideArea": 0.34955810797912684,
+        "outsideFraction": 0.0001854012092825476
+      },
+      "10": {
+        "rawArea": 3685.9732421331937,
+        "outsideArea": 0.36087595045939724,
+        "outsideFraction": 9.790520081218671e-05
+      },
+      "11": {
+        "rawArea": 2487.9458957177403,
+        "outsideArea": 0.1470875119711104,
+        "outsideFraction": 5.9120060538405536e-05
+      },
+      "12": {
+        "rawArea": 2883.698701125441,
+        "outsideArea": 0.5780927042520518,
+        "outsideFraction": 0.00020046917662598927
+      },
+      "15": {
+        "rawArea": 526.5110713949131,
+        "outsideArea": 16.907564212521482,
+        "outsideFraction": 0.032112457137373
+      },
+      "17": {
+        "rawArea": 1078.4463264785825,
+        "outsideArea": 0.3406669030494866,
+        "outsideFraction": 0.00031588674807939284
+      },
+      "18": {
+        "rawArea": 2968.2291096749846,
+        "outsideArea": 4.528787828482485,
+        "outsideFraction": 0.0015257541318898992
+      },
+      "19": {
+        "rawArea": 1714.3569688530506,
+        "outsideArea": 0.468061985761252,
+        "outsideFraction": 0.00027302481003964866
+      },
+      "20": {
+        "rawArea": 340.1902303319257,
+        "outsideArea": 0.6427648512123026,
+        "outsideFraction": 0.0018894277198529571
+      },
+      "21": {
+        "rawArea": 3443.4078036064457,
+        "outsideArea": 5.4169847354502805,
+        "outsideFraction": 0.0015731464422473612
+      },
+      "28": {
+        "rawArea": 12081.060298057113,
+        "outsideArea": 4.823891670675764,
+        "outsideFraction": 0.00039929373346903556
+      },
+      "32": {
+        "rawArea": 3905.665065127756,
+        "outsideArea": 1.1119557505024418,
+        "outsideFraction": 0.00028470330454873993
+      },
+      "33": {
+        "rawArea": 3956.073628017119,
+        "outsideArea": 0.7435847907344731,
+        "outsideFraction": 0.00018796030121086903
+      },
+      "34": {
+        "rawArea": 13129.38369766326,
+        "outsideArea": 5.893608573268137,
+        "outsideFraction": 0.00044888691723717923
+      },
+      "35": {
+        "rawArea": 16419.760267611302,
+        "outsideArea": 6.239534260926193,
+        "outsideFraction": 0.0003800015444338702
+      },
+      "36": {
+        "rawArea": 6011.892606902162,
+        "outsideArea": 3.959772938432886,
+        "outsideFraction": 0.0006586566323368337
+      },
+      "41": {
+        "rawArea": 6087.674782989882,
+        "outsideArea": 4.55280544870992,
+        "outsideFraction": 0.0007478726461261239
+      }
+    },
+    "samplingNoding": [],
+    "simplificationToleranceLogicalPx": 0.01,
+    "simplification": [
+      {
+        "label": "T1",
+        "side": "right",
+        "areaDelta": 0.06898388326044369,
+        "hausdorff": 0.009947440302128479,
+        "verticesBefore": 1864,
+        "verticesAfter": 347
+      },
+      {
+        "label": "T1",
+        "side": "left",
+        "areaDelta": 0.041797213134714184,
+        "hausdorff": 0.009993501736216652,
+        "verticesBefore": 1767,
+        "verticesAfter": 301
+      },
+      {
+        "label": "T2",
+        "side": "right",
+        "areaDelta": 0.020758974485602266,
+        "hausdorff": 0.009362219791072601,
+        "verticesBefore": 446,
+        "verticesAfter": 63
+      },
+      {
+        "label": "T2",
+        "side": "right",
+        "areaDelta": 0.019423376086137978,
+        "hausdorff": 0.009439852875878276,
+        "verticesBefore": 750,
+        "verticesAfter": 123
+      },
+      {
+        "label": "T2",
+        "side": "left",
+        "areaDelta": 0.018348022812233467,
+        "hausdorff": 0.007718854251443022,
+        "verticesBefore": 447,
+        "verticesAfter": 63
+      },
+      {
+        "label": "T2",
+        "side": "left",
+        "areaDelta": 0.008997428602697255,
+        "hausdorff": 0.009876358252304682,
+        "verticesBefore": 476,
+        "verticesAfter": 89
+      },
+      {
+        "label": "T3",
+        "side": "right",
+        "areaDelta": 0.008034849879663852,
+        "hausdorff": 0.009499610900548967,
+        "verticesBefore": 409,
+        "verticesAfter": 57
+      },
+      {
+        "label": "T3",
+        "side": "left",
+        "areaDelta": 0.004453366439065576,
+        "hausdorff": 0.007719178098854133,
+        "verticesBefore": 425,
+        "verticesAfter": 56
+      },
+      {
+        "label": "T4",
+        "side": "right",
+        "areaDelta": 0.0038865038821995768,
+        "hausdorff": 0.008636306377910774,
+        "verticesBefore": 362,
+        "verticesAfter": 39
+      },
+      {
+        "label": "T4",
+        "side": "left",
+        "areaDelta": 0.004822190309369034,
+        "hausdorff": 0.00860966236693167,
+        "verticesBefore": 352,
+        "verticesAfter": 34
+      },
+      {
+        "label": "T5",
+        "side": "right",
+        "areaDelta": 0.01808766084400304,
+        "hausdorff": 0.009526873861923583,
+        "verticesBefore": 405,
+        "verticesAfter": 43
+      },
+      {
+        "label": "T5",
+        "side": "left",
+        "areaDelta": 0.00010802766314554901,
+        "hausdorff": 0.004577265028270138,
+        "verticesBefore": 411,
+        "verticesAfter": 44
+      },
+      {
+        "label": "T6",
+        "side": "right",
+        "areaDelta": 0.004774757760515058,
+        "hausdorff": 0.009526873861923583,
+        "verticesBefore": 429,
+        "verticesAfter": 50
+      },
+      {
+        "label": "T6",
+        "side": "right",
+        "areaDelta": 0.00037033445318680703,
+        "hausdorff": 0.008429890574035467,
+        "verticesBefore": 5,
+        "verticesAfter": 4
+      },
+      {
+        "label": "T6",
+        "side": "left",
+        "areaDelta": 0.012120930868604773,
+        "hausdorff": 0.0067556792886109334,
+        "verticesBefore": 447,
+        "verticesAfter": 57
+      },
+      {
+        "label": "T7",
+        "side": "right",
+        "areaDelta": 0.0366688337018104,
+        "hausdorff": 0.007404001050981837,
+        "verticesBefore": 324,
+        "verticesAfter": 29
+      },
+      {
+        "label": "T7",
+        "side": "left",
+        "areaDelta": 0.08834566547113809,
+        "hausdorff": 0.00996620634768656,
+        "verticesBefore": 377,
+        "verticesAfter": 36
+      },
+      {
+        "label": "T8",
+        "side": "right",
+        "areaDelta": 0.0694831875359796,
+        "hausdorff": 0.007402573199582943,
+        "verticesBefore": 344,
+        "verticesAfter": 26
+      },
+      {
+        "label": "T8",
+        "side": "left",
+        "areaDelta": 0.11013131864274328,
+        "hausdorff": 0.00995112662665127,
+        "verticesBefore": 350,
+        "verticesAfter": 24
+      },
+      {
+        "label": "T9",
+        "side": "right",
+        "areaDelta": 0.03645947936252014,
+        "hausdorff": 0.008534527571633279,
+        "verticesBefore": 337,
+        "verticesAfter": 39
+      },
+      {
+        "label": "T9",
+        "side": "left",
+        "areaDelta": 0.004608411895901554,
+        "hausdorff": 0.008702013589335785,
+        "verticesBefore": 366,
+        "verticesAfter": 41
+      },
+      {
+        "label": "T10",
+        "side": "right",
+        "areaDelta": 0.044047694892469735,
+        "hausdorff": 0.00987760647569555,
+        "verticesBefore": 384,
+        "verticesAfter": 56
+      },
+      {
+        "label": "T10",
+        "side": "left",
+        "areaDelta": 0.04830096925456928,
+        "hausdorff": 0.00987075307778925,
+        "verticesBefore": 495,
+        "verticesAfter": 63
+      },
+      {
+        "label": "T11",
+        "side": "right",
+        "areaDelta": 0.0515336211462909,
+        "hausdorff": 0.0098667607733579,
+        "verticesBefore": 438,
+        "verticesAfter": 57
+      },
+      {
+        "label": "T11",
+        "side": "left",
+        "areaDelta": 0.03488200117249107,
+        "hausdorff": 0.009815441538682369,
+        "verticesBefore": 403,
+        "verticesAfter": 50
+      },
+      {
+        "label": "T12",
+        "side": "right",
+        "areaDelta": 0.02447941335867654,
+        "hausdorff": 0.008065922129711427,
+        "verticesBefore": 472,
+        "verticesAfter": 78
+      },
+      {
+        "label": "T12",
+        "side": "left",
+        "areaDelta": 0.03317043586412183,
+        "hausdorff": 0.009884127453731935,
+        "verticesBefore": 465,
+        "verticesAfter": 75
+      },
+      {
+        "label": "C2",
+        "side": "right",
+        "areaDelta": 0.054857746231249394,
+        "hausdorff": 0.009992463841552661,
+        "verticesBefore": 558,
+        "verticesAfter": 139
+      },
+      {
+        "label": "C2",
+        "side": "left",
+        "areaDelta": 0.008922674771696393,
+        "hausdorff": 0.0029604920837373438,
+        "verticesBefore": 723,
+        "verticesAfter": 191
+      },
+      {
+        "label": "C3",
+        "side": "right",
+        "areaDelta": 0.0068024608310111034,
+        "hausdorff": 0.009772835446361875,
+        "verticesBefore": 359,
+        "verticesAfter": 78
+      },
+      {
+        "label": "C3",
+        "side": "left",
+        "areaDelta": 0.00780013648034128,
+        "hausdorff": 0.008424466309042455,
+        "verticesBefore": 460,
+        "verticesAfter": 89
+      },
+      {
+        "label": "C4",
+        "side": "right",
+        "areaDelta": 0.019466358970703368,
+        "hausdorff": 0.009772835446361875,
+        "verticesBefore": 468,
+        "verticesAfter": 115
+      },
+      {
+        "label": "C4",
+        "side": "left",
+        "areaDelta": 0.056637592626884725,
+        "hausdorff": 0.009932137179957935,
+        "verticesBefore": 645,
+        "verticesAfter": 139
+      },
+      {
+        "label": "C6",
+        "side": "right",
+        "areaDelta": 0.027550447409794288,
+        "hausdorff": 0.009991052484608196,
+        "verticesBefore": 934,
+        "verticesAfter": 239
+      },
+      {
+        "label": "C6",
+        "side": "left",
+        "areaDelta": 0.01711374180945313,
+        "hausdorff": 0.002986685580311041,
+        "verticesBefore": 1521,
+        "verticesAfter": 356
+      },
+      {
+        "label": "C5",
+        "side": "right",
+        "areaDelta": 0.022574461177100602,
+        "hausdorff": 0.0095480361772888,
+        "verticesBefore": 2535,
+        "verticesAfter": 506
+      },
+      {
+        "label": "C5",
+        "side": "left",
+        "areaDelta": 0.01927356538908498,
+        "hausdorff": 0.009666727979888295,
+        "verticesBefore": 2995,
+        "verticesAfter": 548
+      },
+      {
+        "label": "C8/T1",
+        "side": "right",
+        "areaDelta": 0.18278472315387262,
+        "hausdorff": 0.0098388054412177,
+        "verticesBefore": 1962,
+        "verticesAfter": 323
+      },
+      {
+        "label": "C8/T1",
+        "side": "left",
+        "areaDelta": 0.00756068853047509,
+        "hausdorff": 0.009752009378270782,
+        "verticesBefore": 1333,
+        "verticesAfter": 248
+      },
+      {
+        "label": "L1",
+        "side": "right",
+        "areaDelta": 0.023321561300463145,
+        "hausdorff": 0.009877817708631196,
+        "verticesBefore": 626,
+        "verticesAfter": 116
+      },
+      {
+        "label": "L1",
+        "side": "left",
+        "areaDelta": 0.030285120609050864,
+        "hausdorff": 0.009995172883457436,
+        "verticesBefore": 684,
+        "verticesAfter": 115
+      },
+      {
+        "label": "L2",
+        "side": "right",
+        "areaDelta": 0.15287125837676285,
+        "hausdorff": 0.009930991909278578,
+        "verticesBefore": 870,
+        "verticesAfter": 166
+      },
+      {
+        "label": "L2",
+        "side": "left",
+        "areaDelta": 0.14352006467197498,
+        "hausdorff": 0.009648079632297881,
+        "verticesBefore": 1286,
+        "verticesAfter": 191
+      },
+      {
+        "label": "L3",
+        "side": "right",
+        "areaDelta": 0.4030456342625257,
+        "hausdorff": 0.009642302536233544,
+        "verticesBefore": 1835,
+        "verticesAfter": 319
+      },
+      {
+        "label": "L3",
+        "side": "left",
+        "areaDelta": 0.10433782555446669,
+        "hausdorff": 0.009958662819228834,
+        "verticesBefore": 1154,
+        "verticesAfter": 272
+      },
+      {
+        "label": "L4",
+        "side": "right",
+        "areaDelta": 0.10941170810701806,
+        "hausdorff": 0.009624959850688251,
+        "verticesBefore": 1738,
+        "verticesAfter": 284
+      },
+      {
+        "label": "L4",
+        "side": "left",
+        "areaDelta": 0.01641100810456919,
+        "hausdorff": 0.009719109809257312,
+        "verticesBefore": 1040,
+        "verticesAfter": 241
+      },
+      {
+        "label": "L5",
+        "side": "right",
+        "areaDelta": 0.01928029788632557,
+        "hausdorff": 0.009624959850688251,
+        "verticesBefore": 1203,
+        "verticesAfter": 282
+      },
+      {
+        "label": "L5",
+        "side": "left",
+        "areaDelta": 0.07424656510238492,
+        "hausdorff": 0.009696161526803209,
+        "verticesBefore": 1759,
+        "verticesAfter": 337
+      }
+    ],
+    "sourcePaths": [
+      {
+        "sourcePath": 1,
+        "elementRoute": "root/6/1/1",
+        "label": "T1",
+        "status": "registered",
+        "sourceVisibleArea": 1732.7927298702605,
+        "mappedArea": 1367.0636157032197
+      },
+      {
+        "sourcePath": 2,
+        "elementRoute": "root/6/1/2",
+        "label": "T2",
+        "status": "registered",
+        "sourceVisibleArea": 2046.4103080049724,
+        "mappedArea": 1609.9836450008024
+      },
+      {
+        "sourcePath": 3,
+        "elementRoute": "root/6/1/3",
+        "label": "T3",
+        "status": "registered",
+        "sourceVisibleArea": 2249.7836188557694,
+        "mappedArea": 1757.58794738854
+      },
+      {
+        "sourcePath": 4,
+        "elementRoute": "root/6/1/4",
+        "label": "T4",
+        "status": "registered",
+        "sourceVisibleArea": 1630.7029899361673,
+        "mappedArea": 1298.8937750153182
+      },
+      {
+        "sourcePath": 5,
+        "elementRoute": "root/6/1/5",
+        "label": "T5",
+        "status": "registered",
+        "sourceVisibleArea": 3562.0902903730453,
+        "mappedArea": 3856.9040042678566
+      },
+      {
+        "sourcePath": 6,
+        "elementRoute": "root/6/1/6",
+        "label": "T6",
+        "status": "registered",
+        "sourceVisibleArea": 3477.4453615458933,
+        "mappedArea": 3017.2538875960136
+      },
+      {
+        "sourcePath": 7,
+        "elementRoute": "root/6/1/7",
+        "label": "T7",
+        "status": "registered",
+        "sourceVisibleArea": 3033.1049831413548,
+        "mappedArea": 1522.356764638104
+      },
+      {
+        "sourcePath": 8,
+        "elementRoute": "root/6/1/8",
+        "label": "T8",
+        "status": "registered",
+        "sourceVisibleArea": 2830.475692724684,
+        "mappedArea": 1430.8118759327783
+      },
+      {
+        "sourcePath": 9,
+        "elementRoute": "root/6/1/9",
+        "label": "T9",
+        "status": "registered",
+        "sourceVisibleArea": 2889.1085747004736,
+        "mappedArea": 1885.0648322933655
+      },
+      {
+        "sourcePath": 10,
+        "elementRoute": "root/6/1/10",
+        "label": "T10",
+        "status": "registered",
+        "sourceVisibleArea": 3814.748959426367,
+        "mappedArea": 3685.612366182733
+      },
+      {
+        "sourcePath": 11,
+        "elementRoute": "root/6/1/11",
+        "label": "T11",
+        "status": "registered",
+        "sourceVisibleArea": 2553.375828204878,
+        "mappedArea": 2487.7988082057736
+      },
+      {
+        "sourcePath": 12,
+        "elementRoute": "root/6/1/12",
+        "label": "T12",
+        "status": "registered",
+        "sourceVisibleArea": 2920.4837332260363,
+        "mappedArea": 2883.1206084211885
+      },
+      {
+        "sourcePath": 15,
+        "elementRoute": "root/6/1/15",
+        "label": "C2",
+        "status": "registered",
+        "sourceVisibleArea": 453.00774134544224,
+        "mappedArea": 509.60350718239044
+      },
+      {
+        "sourcePath": 17,
+        "elementRoute": "root/6/1/17",
+        "label": "C3",
+        "status": "registered",
+        "sourceVisibleArea": 902.5482476129899,
+        "mappedArea": 1078.105659575531
+      },
+      {
+        "sourcePath": 18,
+        "elementRoute": "root/6/1/18",
+        "label": "C4",
+        "status": "registered",
+        "sourceVisibleArea": 2432.3739795241872,
+        "mappedArea": 2963.7003218464965
+      },
+      {
+        "sourcePath": 19,
+        "elementRoute": "root/6/1/19",
+        "label": "T1",
+        "status": "registered",
+        "sourceVisibleArea": 2105.4157643915314,
+        "mappedArea": 1713.8889068672884
+      },
+      {
+        "sourcePath": 20,
+        "elementRoute": "root/6/1/20",
+        "label": "T2",
+        "status": "registered",
+        "sourceVisibleArea": 489.9090563924651,
+        "mappedArea": 339.54746548071364
+      },
+      {
+        "sourcePath": 21,
+        "elementRoute": "root/6/1/21",
+        "label": "C6",
+        "status": "registered",
+        "sourceVisibleArea": 4293.584682089872,
+        "mappedArea": 3437.9908188709987
+      },
+      {
+        "sourcePath": 28,
+        "elementRoute": "root/6/1/23",
+        "label": "C5",
+        "status": "registered",
+        "sourceVisibleArea": 14452.411600560416,
+        "mappedArea": 12076.236406386506
+      },
+      {
+        "sourcePath": 29,
+        "label": "C6-C8",
+        "status": "unconfigured",
+        "reason": "Distal hand/wrist surface has incompatible palm orientation; excluded entirely, including residual slivers."
+      },
+      {
+        "sourcePath": 30,
+        "label": "C6-C8",
+        "status": "unconfigured",
+        "reason": "Distal hand/wrist surface has incompatible palm orientation; excluded entirely, including residual slivers."
+      },
+      {
+        "sourcePath": 31,
+        "label": "C8/T1",
+        "status": "unconfigured",
+        "reason": "Distal hand/wrist surface has incompatible palm orientation; excluded entirely, including residual slivers."
+      },
+      {
+        "sourcePath": 32,
+        "elementRoute": "root/6/1/27",
+        "label": "C8/T1",
+        "status": "registered",
+        "sourceVisibleArea": 4162.164745545893,
+        "mappedArea": 3904.5531093772606
+      },
+      {
+        "sourcePath": 33,
+        "elementRoute": "root/6/1/28",
+        "label": "L1",
+        "status": "registered",
+        "sourceVisibleArea": 5817.112737752979,
+        "mappedArea": 3955.330043226381
+      },
+      {
+        "sourcePath": 34,
+        "elementRoute": "root/6/1/29",
+        "label": "L2",
+        "status": "registered",
+        "sourceVisibleArea": 18379.603212746268,
+        "mappedArea": 13123.490089089984
+      },
+      {
+        "sourcePath": 35,
+        "elementRoute": "root/6/1/30",
+        "label": "L3",
+        "status": "registered",
+        "sourceVisibleArea": 16774.419738359386,
+        "mappedArea": 16413.52073335037
+      },
+      {
+        "sourcePath": 36,
+        "elementRoute": "root/6/1/31",
+        "label": "L4",
+        "status": "registered",
+        "sourceVisibleArea": 6140.481286508857,
+        "mappedArea": 6007.932833963709
+      },
+      {
+        "sourcePath": 37,
+        "label": "S1",
+        "status": "unconfigured",
+        "reason": "Only excluded distal hand/foot surface remains."
+      },
+      {
+        "sourcePath": 38,
+        "label": "S1",
+        "status": "unconfigured",
+        "reason": "Only excluded distal hand/foot surface remains."
+      },
+      {
+        "sourcePath": 39,
+        "label": "S4",
+        "status": "unconfigured",
+        "reason": "Anterior perineum is not reliably visible on the neutral template."
+      },
+      {
+        "sourcePath": 40,
+        "label": "S3",
+        "status": "unconfigured",
+        "reason": "Anterior perineum is not reliably visible on the neutral template."
+      },
+      {
+        "sourcePath": 41,
+        "elementRoute": "root/6/1/36",
+        "label": "L5",
+        "status": "registered",
+        "sourceVisibleArea": 6138.833009747675,
+        "mappedArea": 6083.121977541177
+      }
+    ],
+    "regionCount": 46,
+    "labelCount": 23,
+    "rawOutsideTotal": 58.15458156696285,
+    "note": "All raw outside losses are exposed. Clipping cannot certify anatomical registration; medical review pending."
+  },
+  "back": {
+    "compatibleSurfaceRows": 1546,
+    "preAdaptationBySourcePath": {
+      "6": {
+        "rawArea": 2859.580511032183,
+        "outsideArea": 0.0,
+        "outsideFraction": 0.0
+      },
+      "7": {
+        "rawArea": 2361.9259420628346,
+        "outsideArea": 0.0,
+        "outsideFraction": 0.0
+      },
+      "8": {
+        "rawArea": 2003.7515433269675,
+        "outsideArea": 0.0,
+        "outsideFraction": 0.0
+      },
+      "9": {
+        "rawArea": 2261.3557929100307,
+        "outsideArea": 0.48957426912718166,
+        "outsideFraction": 0.00021649590509469186
+      },
+      "10": {
+        "rawArea": 1574.559313095191,
+        "outsideArea": 10.00111683775578,
+        "outsideFraction": 0.006351692663832446
+      },
+      "11": {
+        "rawArea": 1436.4736638716502,
+        "outsideArea": 1.1741211600124222,
+        "outsideFraction": 0.00081736351284567
+      },
+      "12": {
+        "rawArea": 1898.5010382230316,
+        "outsideArea": 0.6533837199871385,
+        "outsideFraction": 0.0003441576837896785
+      },
+      "13": {
+        "rawArea": 2606.0553188971153,
+        "outsideArea": 2.628618107883291,
+        "outsideFraction": 0.0010086578319433849
+      },
+      "14": {
+        "rawArea": 2007.4474652834417,
+        "outsideArea": 0.676123709296957,
+        "outsideFraction": 0.00033680767292283367
+      },
+      "15": {
+        "rawArea": 2489.4238439269116,
+        "outsideArea": 2.2974304825741108,
+        "outsideFraction": 0.0009228763869113011
+      },
+      "16": {
+        "rawArea": 2333.8123573841663,
+        "outsideArea": 1.4894683586919368,
+        "outsideFraction": 0.0006382125597969645
+      },
+      "17": {
+        "rawArea": 2816.4826295209614,
+        "outsideArea": 1.5407689515443224,
+        "outsideFraction": 0.0005470543064582587
+      },
+      "18": {
+        "rawArea": 3181.765870591442,
+        "outsideArea": 0.7090120585682267,
+        "outsideFraction": 0.00022283602483812932
+      },
+      "19": {
+        "rawArea": 9277.880504707027,
+        "outsideArea": 5.7130944196447375,
+        "outsideFraction": 0.0006157758139637888
+      },
+      "20": {
+        "rawArea": 7783.315471399838,
+        "outsideArea": 2.7476127896264138,
+        "outsideFraction": 0.0003530131599731049
+      },
+      "22": {
+        "rawArea": 4928.740292932985,
+        "outsideArea": 35.72638418787197,
+        "outsideFraction": 0.007248583220969833
+      },
+      "23": {
+        "rawArea": 1406.6973889469334,
+        "outsideArea": 1.0145039718194206,
+        "outsideFraction": 0.0007211956031132522
+      },
+      "24": {
+        "rawArea": 1581.360796642253,
+        "outsideArea": 2.887681208296197,
+        "outsideFraction": 0.001826073603460823
+      },
+      "25": {
+        "rawArea": 132.84636096382152,
+        "outsideArea": 0.0,
+        "outsideFraction": 0.0
+      },
+      "26": {
+        "rawArea": 5849.283458844699,
+        "outsideArea": 7.83522282985709,
+        "outsideFraction": 0.0013395184016957585
+      },
+      "27": {
+        "rawArea": 193.50914517241137,
+        "outsideArea": 0.0,
+        "outsideFraction": 0.0
+      },
+      "32": {
+        "rawArea": 5250.766512734928,
+        "outsideArea": 0.45817222403764907,
+        "outsideFraction": 8.72581599136855e-05
+      },
+      "33": {
+        "rawArea": 1200.310286877305,
+        "outsideArea": 0.0,
+        "outsideFraction": 0.0
+      },
+      "34": {
+        "rawArea": 190.58520640491207,
+        "outsideArea": 0.0,
+        "outsideFraction": 0.0
+      },
+      "36": {
+        "rawArea": 4703.706692745135,
+        "outsideArea": 3.118470340167507,
+        "outsideFraction": 0.0006629814620408513
+      },
+      "37": {
+        "rawArea": 4500.833780937675,
+        "outsideArea": 4.042858495919697,
+        "outsideFraction": 0.0008982465677898093
+      },
+      "38": {
+        "rawArea": 1712.6332445063392,
+        "outsideArea": 5.726983230889255,
+        "outsideFraction": 0.003343963600648216
+      },
+      "40": {
+        "rawArea": 2898.223567811614,
+        "outsideArea": 0.0,
+        "outsideFraction": 0.0
+      },
+      "41": {
+        "rawArea": 4233.490294495163,
+        "outsideArea": 7.74047602016217,
+        "outsideFraction": 0.0018283911103391841
+      },
+      "46": {
+        "rawArea": 1600.5683949158026,
+        "outsideArea": 3.3733232207781003,
+        "outsideFraction": 0.0021075783024914426
+      },
+      "47": {
+        "rawArea": 2016.3747374867187,
+        "outsideArea": 0.11182885261165613,
+        "outsideFraction": 5.546035195374626e-05
+      },
+      "48": {
+        "rawArea": 2126.6832416543793,
+        "outsideArea": 0.05314513119054284,
+        "outsideFraction": 2.4989678833976435e-05
+      },
+      "49": {
+        "rawArea": 23655.013542575944,
+        "outsideArea": 5.14047548792397,
+        "outsideFraction": 0.00021731019002258373
+      }
+    },
+    "samplingNoding": [],
+    "simplificationToleranceLogicalPx": 0.01,
+    "simplification": [
+      {
+        "label": "T1",
+        "side": "left",
+        "areaDelta": 0.04139718335773068,
+        "hausdorff": 0.009400995225418455,
+        "verticesBefore": 622,
+        "verticesAfter": 101
+      },
+      {
+        "label": "T1",
+        "side": "right",
+        "areaDelta": 0.18423497322874027,
+        "hausdorff": 0.00993189441462696,
+        "verticesBefore": 679,
+        "verticesAfter": 119
+      },
+      {
+        "label": "T2",
+        "side": "left",
+        "areaDelta": 0.03578940155375676,
+        "hausdorff": 0.009578798926143215,
+        "verticesBefore": 597,
+        "verticesAfter": 97
+      },
+      {
+        "label": "T2",
+        "side": "right",
+        "areaDelta": 0.045736773568478384,
+        "hausdorff": 0.008873098289922547,
+        "verticesBefore": 618,
+        "verticesAfter": 102
+      },
+      {
+        "label": "T3",
+        "side": "left",
+        "areaDelta": 0.0744808609285883,
+        "hausdorff": 0.009715775642188972,
+        "verticesBefore": 522,
+        "verticesAfter": 78
+      },
+      {
+        "label": "T3",
+        "side": "right",
+        "areaDelta": 0.02258223145724969,
+        "hausdorff": 0.008873098289922547,
+        "verticesBefore": 545,
+        "verticesAfter": 85
+      },
+      {
+        "label": "T4",
+        "side": "left",
+        "areaDelta": 0.03298031456415629,
+        "hausdorff": 0.009646764353244982,
+        "verticesBefore": 464,
+        "verticesAfter": 67
+      },
+      {
+        "label": "T4",
+        "side": "right",
+        "areaDelta": 0.06738759274412587,
+        "hausdorff": 0.009425155486061937,
+        "verticesBefore": 479,
+        "verticesAfter": 68
+      },
+      {
+        "label": "T5",
+        "side": "left",
+        "areaDelta": 0.046443744395219255,
+        "hausdorff": 0.002405332392341784,
+        "verticesBefore": 393,
+        "verticesAfter": 59
+      },
+      {
+        "label": "T5",
+        "side": "left",
+        "areaDelta": 0.0023300536046120257,
+        "hausdorff": 0.009697104499861164,
+        "verticesBefore": 32,
+        "verticesAfter": 7
+      },
+      {
+        "label": "T5",
+        "side": "right",
+        "areaDelta": 0.010573014653232349,
+        "hausdorff": 0.009425155486061937,
+        "verticesBefore": 425,
+        "verticesAfter": 62
+      },
+      {
+        "label": "T6",
+        "side": "left",
+        "areaDelta": 0.057582879241635965,
+        "hausdorff": 0.00910065771210186,
+        "verticesBefore": 442,
+        "verticesAfter": 58
+      },
+      {
+        "label": "T6",
+        "side": "right",
+        "areaDelta": 0.004061941378381562,
+        "hausdorff": 0.009822868625737634,
+        "verticesBefore": 421,
+        "verticesAfter": 62
+      },
+      {
+        "label": "T7",
+        "side": "left",
+        "areaDelta": 0.006400738775823811,
+        "hausdorff": 0.00912192204516664,
+        "verticesBefore": 487,
+        "verticesAfter": 74
+      },
+      {
+        "label": "T7",
+        "side": "right",
+        "areaDelta": 0.06016666792788783,
+        "hausdorff": 0.009850930097750505,
+        "verticesBefore": 426,
+        "verticesAfter": 68
+      },
+      {
+        "label": "T12",
+        "side": "left",
+        "areaDelta": 0.06834116769027787,
+        "hausdorff": 0.009800346972224296,
+        "verticesBefore": 1000,
+        "verticesAfter": 168
+      },
+      {
+        "label": "T12",
+        "side": "right",
+        "areaDelta": 0.07260401244820969,
+        "hausdorff": 0.009771535172361035,
+        "verticesBefore": 926,
+        "verticesAfter": 158
+      },
+      {
+        "label": "T8",
+        "side": "left",
+        "areaDelta": 0.03754103096309791,
+        "hausdorff": 0.00979749003799022,
+        "verticesBefore": 513,
+        "verticesAfter": 90
+      },
+      {
+        "label": "T8",
+        "side": "right",
+        "areaDelta": 0.00626205707999361,
+        "hausdorff": 0.008145637045917394,
+        "verticesBefore": 471,
+        "verticesAfter": 81
+      },
+      {
+        "label": "T9",
+        "side": "left",
+        "areaDelta": 0.008723078967477704,
+        "hausdorff": 0.009995809544474729,
+        "verticesBefore": 587,
+        "verticesAfter": 89
+      },
+      {
+        "label": "T9",
+        "side": "right",
+        "areaDelta": 0.03808518182063381,
+        "hausdorff": 0.009585462320735852,
+        "verticesBefore": 498,
+        "verticesAfter": 84
+      },
+      {
+        "label": "T10",
+        "side": "left",
+        "areaDelta": 0.018959863743930327,
+        "hausdorff": 0.009995809544474729,
+        "verticesBefore": 650,
+        "verticesAfter": 104
+      },
+      {
+        "label": "T10",
+        "side": "right",
+        "areaDelta": 0.06470760587262703,
+        "hausdorff": 0.009584062947220246,
+        "verticesBefore": 626,
+        "verticesAfter": 116
+      },
+      {
+        "label": "T11",
+        "side": "left",
+        "areaDelta": 0.06353545015826967,
+        "hausdorff": 0.009205879434900512,
+        "verticesBefore": 932,
+        "verticesAfter": 175
+      },
+      {
+        "label": "T11",
+        "side": "right",
+        "areaDelta": 0.014637232279028467,
+        "hausdorff": 0.009922302775206875,
+        "verticesBefore": 758,
+        "verticesAfter": 132
+      },
+      {
+        "label": "L1",
+        "side": "left",
+        "areaDelta": 0.08392650564906035,
+        "hausdorff": 0.009997522181962096,
+        "verticesBefore": 1191,
+        "verticesAfter": 191
+      },
+      {
+        "label": "L1",
+        "side": "right",
+        "areaDelta": 0.04695745370440818,
+        "hausdorff": 0.009525630806449921,
+        "verticesBefore": 1090,
+        "verticesAfter": 192
+      },
+      {
+        "label": "L2",
+        "side": "left",
+        "areaDelta": 0.1421649176909341,
+        "hausdorff": 0.009997522181962096,
+        "verticesBefore": 2173,
+        "verticesAfter": 360
+      },
+      {
+        "label": "L2",
+        "side": "right",
+        "areaDelta": 0.17873471997609158,
+        "hausdorff": 0.00993001161886453,
+        "verticesBefore": 1726,
+        "verticesAfter": 333
+      },
+      {
+        "label": "C7",
+        "side": "left",
+        "areaDelta": 0.04034760548393024,
+        "hausdorff": 0.009954787137836067,
+        "verticesBefore": 2904,
+        "verticesAfter": 517
+      },
+      {
+        "label": "C7",
+        "side": "right",
+        "areaDelta": 0.04619646539504174,
+        "hausdorff": 0.009982123760837291,
+        "verticesBefore": 2647,
+        "verticesAfter": 500
+      },
+      {
+        "label": "C2",
+        "side": "left",
+        "areaDelta": 0.007279015623680607,
+        "hausdorff": 0.009757033625190068,
+        "verticesBefore": 882,
+        "verticesAfter": 179
+      },
+      {
+        "label": "C2",
+        "side": "right",
+        "areaDelta": 0.006755756866368756,
+        "hausdorff": 0.009740447556429528,
+        "verticesBefore": 582,
+        "verticesAfter": 143
+      },
+      {
+        "label": "C3",
+        "side": "left",
+        "areaDelta": 0.006112592117915483,
+        "hausdorff": 0.009559848319970305,
+        "verticesBefore": 703,
+        "verticesAfter": 140
+      },
+      {
+        "label": "C3",
+        "side": "right",
+        "areaDelta": 0.04574317741401046,
+        "hausdorff": 0.009349368362047519,
+        "verticesBefore": 625,
+        "verticesAfter": 136
+      },
+      {
+        "label": "C4",
+        "side": "left",
+        "areaDelta": 0.053564430171718413,
+        "hausdorff": 0.009294920766937128,
+        "verticesBefore": 917,
+        "verticesAfter": 205
+      },
+      {
+        "label": "C4",
+        "side": "right",
+        "areaDelta": 0.03256726170593538,
+        "hausdorff": 0.009349368362047519,
+        "verticesBefore": 692,
+        "verticesAfter": 162
+      },
+      {
+        "label": "C8",
+        "side": "left",
+        "areaDelta": 0.04603343758731171,
+        "hausdorff": 0.009400995225418455,
+        "verticesBefore": 711,
+        "verticesAfter": 127
+      },
+      {
+        "label": "C8",
+        "side": "left",
+        "areaDelta": 0.0474523250863399,
+        "hausdorff": 0.009671029206179814,
+        "verticesBefore": 485,
+        "verticesAfter": 78
+      },
+      {
+        "label": "C8",
+        "side": "right",
+        "areaDelta": 0.08479930374983269,
+        "hausdorff": 0.009945295341966764,
+        "verticesBefore": 701,
+        "verticesAfter": 114
+      },
+      {
+        "label": "C8",
+        "side": "right",
+        "areaDelta": 0.02756418890749046,
+        "hausdorff": 0.009790832948500163,
+        "verticesBefore": 534,
+        "verticesAfter": 90
+      },
+      {
+        "label": "C6",
+        "side": "left",
+        "areaDelta": 0.04018774231826683,
+        "hausdorff": 0.00993703911589295,
+        "verticesBefore": 2242,
+        "verticesAfter": 425
+      },
+      {
+        "label": "C6",
+        "side": "right",
+        "areaDelta": 0.04594787548876411,
+        "hausdorff": 0.009993864858610566,
+        "verticesBefore": 1521,
+        "verticesAfter": 320
+      },
+      {
+        "label": "S3",
+        "side": "left",
+        "areaDelta": 0.15739575759198488,
+        "hausdorff": 0.009348845285875247,
+        "verticesBefore": 897,
+        "verticesAfter": 155
+      },
+      {
+        "label": "S3",
+        "side": "right",
+        "areaDelta": 0.033215139527611015,
+        "hausdorff": 0.003947287592903551,
+        "verticesBefore": 9,
+        "verticesAfter": 7
+      },
+      {
+        "label": "S3",
+        "side": "right",
+        "areaDelta": 0.003932630128549164,
+        "hausdorff": 0.0026352722823345135,
+        "verticesBefore": 17,
+        "verticesAfter": 6
+      },
+      {
+        "label": "S3",
+        "side": "right",
+        "areaDelta": 0.10453914083154814,
+        "hausdorff": 0.008072982707771636,
+        "verticesBefore": 999,
+        "verticesAfter": 160
+      },
+      {
+        "label": "S4",
+        "side": "left",
+        "areaDelta": 0.029439445964044353,
+        "hausdorff": 0.009240173549818615,
+        "verticesBefore": 426,
+        "verticesAfter": 83
+      },
+      {
+        "label": "S4",
+        "side": "right",
+        "areaDelta": 0.007302300355831903,
+        "hausdorff": 0.007779272715701481,
+        "verticesBefore": 514,
+        "verticesAfter": 102
+      },
+      {
+        "label": "S5",
+        "side": "left",
+        "areaDelta": 0.0021924634597496606,
+        "hausdorff": 0.009614545198650744,
+        "verticesBefore": 174,
+        "verticesAfter": 43
+      },
+      {
+        "label": "S5",
+        "side": "right",
+        "areaDelta": 0.002243930299826502,
+        "hausdorff": 0.006904651588747955,
+        "verticesBefore": 295,
+        "verticesAfter": 75
+      },
+      {
+        "label": "L4",
+        "side": "left",
+        "areaDelta": 0.021447046152388793,
+        "hausdorff": 0.009733597497280708,
+        "verticesBefore": 927,
+        "verticesAfter": 203
+      },
+      {
+        "label": "L4",
+        "side": "right",
+        "areaDelta": 0.039127316203121154,
+        "hausdorff": 0.00977537607655038,
+        "verticesBefore": 1518,
+        "verticesAfter": 241
+      },
+      {
+        "label": "L3",
+        "side": "left",
+        "areaDelta": 0.1093584949740034,
+        "hausdorff": 0.009962757487650667,
+        "verticesBefore": 1450,
+        "verticesAfter": 233
+      },
+      {
+        "label": "L3",
+        "side": "right",
+        "areaDelta": 0.14620032019911378,
+        "hausdorff": 0.009949646806792422,
+        "verticesBefore": 2339,
+        "verticesAfter": 396
+      },
+      {
+        "label": "L5",
+        "side": "left",
+        "areaDelta": 0.11030326551508551,
+        "hausdorff": 0.00951951443573762,
+        "verticesBefore": 1234,
+        "verticesAfter": 247
+      },
+      {
+        "label": "L5",
+        "side": "right",
+        "areaDelta": 0.13643047085895432,
+        "hausdorff": 0.009874738149290074,
+        "verticesBefore": 823,
+        "verticesAfter": 179
+      },
+      {
+        "label": "T1/T2",
+        "side": "left",
+        "areaDelta": 0.023992460163299256,
+        "hausdorff": 0.009978887626369929,
+        "verticesBefore": 1339,
+        "verticesAfter": 288
+      },
+      {
+        "label": "T1/T2",
+        "side": "right",
+        "areaDelta": 0.016667293694354157,
+        "hausdorff": 0.009995847713169153,
+        "verticesBefore": 2297,
+        "verticesAfter": 406
+      },
+      {
+        "label": "C5",
+        "side": "left",
+        "areaDelta": 0.05359989551357103,
+        "hausdorff": 0.009399241978951605,
+        "verticesBefore": 780,
+        "verticesAfter": 156
+      },
+      {
+        "label": "C5",
+        "side": "right",
+        "areaDelta": 0.0690547764825169,
+        "hausdorff": 0.009686224037469958,
+        "verticesBefore": 737,
+        "verticesAfter": 153
+      },
+      {
+        "label": "C6-C8",
+        "side": "left",
+        "areaDelta": 0.008699232092112652,
+        "hausdorff": 0.009954787137836067,
+        "verticesBefore": 2071,
+        "verticesAfter": 365
+      },
+      {
+        "label": "C6-C8",
+        "side": "left",
+        "areaDelta": 0.008624318579307934,
+        "hausdorff": 0.007567074343394431,
+        "verticesBefore": 14,
+        "verticesAfter": 6
+      },
+      {
+        "label": "C6-C8",
+        "side": "left",
+        "areaDelta": 0.004178874994184234,
+        "hausdorff": 0.009845554615492535,
+        "verticesBefore": 101,
+        "verticesAfter": 18
+      },
+      {
+        "label": "C6-C8",
+        "side": "right",
+        "areaDelta": 3.606418009071549e-07,
+        "hausdorff": 1.8080596389634759e-06,
+        "verticesBefore": 5,
+        "verticesAfter": 4
+      },
+      {
+        "label": "C6-C8",
+        "side": "right",
+        "areaDelta": 0.04038070481919931,
+        "hausdorff": 0.009936167193655275,
+        "verticesBefore": 2193,
+        "verticesAfter": 379
+      },
+      {
+        "label": "C6-C8",
+        "side": "right",
+        "areaDelta": 0.0007951315019032457,
+        "hausdorff": 0.004367857237335315,
+        "verticesBefore": 27,
+        "verticesAfter": 8
+      },
+      {
+        "label": "S2",
+        "side": "left",
+        "areaDelta": 0.03573615924472051,
+        "hausdorff": 0.009855257921800973,
+        "verticesBefore": 589,
+        "verticesAfter": 96
+      },
+      {
+        "label": "S2",
+        "side": "left",
+        "areaDelta": 0.18822486325916543,
+        "hausdorff": 0.009917936702887138,
+        "verticesBefore": 3348,
+        "verticesAfter": 553
+      },
+      {
+        "label": "S2",
+        "side": "right",
+        "areaDelta": 0.013578324524473828,
+        "hausdorff": 0.008663511437562658,
+        "verticesBefore": 679,
+        "verticesAfter": 108
+      },
+      {
+        "label": "S2",
+        "side": "right",
+        "areaDelta": 0.310405402280594,
+        "hausdorff": 0.00993001161886453,
+        "verticesBefore": 3126,
+        "verticesAfter": 519
+      }
+    ],
+    "sourcePaths": [
+      {
+        "sourcePath": 6,
+        "elementRoute": "root/9/1/6",
+        "label": "T1",
+        "status": "registered",
+        "sourceVisibleArea": 2906.8451767012903,
+        "mappedArea": 2859.5805110321835
+      },
+      {
+        "sourcePath": 7,
+        "elementRoute": "root/9/1/7",
+        "label": "T2",
+        "status": "registered",
+        "sourceVisibleArea": 2512.91684759932,
+        "mappedArea": 2361.925942062833
+      },
+      {
+        "sourcePath": 8,
+        "elementRoute": "root/9/1/8",
+        "label": "T3",
+        "status": "registered",
+        "sourceVisibleArea": 2224.6273089456276,
+        "mappedArea": 2003.7515433269689
+      },
+      {
+        "sourcePath": 9,
+        "elementRoute": "root/9/1/9",
+        "label": "T4",
+        "status": "registered",
+        "sourceVisibleArea": 2800.5099762232744,
+        "mappedArea": 2260.8662186409033
+      },
+      {
+        "sourcePath": 10,
+        "elementRoute": "root/9/1/10",
+        "label": "T5",
+        "status": "registered",
+        "sourceVisibleArea": 2691.9967104342027,
+        "mappedArea": 1564.5581962574336
+      },
+      {
+        "sourcePath": 11,
+        "elementRoute": "root/9/1/11",
+        "label": "T6",
+        "status": "registered",
+        "sourceVisibleArea": 2394.056138524002,
+        "mappedArea": 1435.2995427116355
+      },
+      {
+        "sourcePath": 12,
+        "elementRoute": "root/9/1/12",
+        "label": "T7",
+        "status": "registered",
+        "sourceVisibleArea": 2460.0634513549717,
+        "mappedArea": 1897.8476545030444
+      },
+      {
+        "sourcePath": 13,
+        "elementRoute": "root/9/1/13",
+        "label": "T12",
+        "status": "registered",
+        "sourceVisibleArea": 2819.936083958553,
+        "mappedArea": 2603.426700789234
+      },
+      {
+        "sourcePath": 14,
+        "elementRoute": "root/9/1/14",
+        "label": "T8",
+        "status": "registered",
+        "sourceVisibleArea": 2300.6150728394005,
+        "mappedArea": 2006.7713415741416
+      },
+      {
+        "sourcePath": 15,
+        "elementRoute": "root/9/1/15",
+        "label": "T9",
+        "status": "registered",
+        "sourceVisibleArea": 2805.1552984130935,
+        "mappedArea": 2487.1264134443386
+      },
+      {
+        "sourcePath": 16,
+        "elementRoute": "root/9/1/16",
+        "label": "T10",
+        "status": "registered",
+        "sourceVisibleArea": 2508.6941870572914,
+        "mappedArea": 2332.3228890254736
+      },
+      {
+        "sourcePath": 17,
+        "elementRoute": "root/9/1/17",
+        "label": "T11",
+        "status": "registered",
+        "sourceVisibleArea": 2902.769575867944,
+        "mappedArea": 2814.941860569424
+      },
+      {
+        "sourcePath": 18,
+        "elementRoute": "root/9/1/18",
+        "label": "L1",
+        "status": "registered",
+        "sourceVisibleArea": 4360.937809903751,
+        "mappedArea": 3181.0568585328792
+      },
+      {
+        "sourcePath": 19,
+        "elementRoute": "root/9/1/19",
+        "label": "L2",
+        "status": "registered",
+        "sourceVisibleArea": 11772.53113428048,
+        "mappedArea": 9272.167410287322
+      },
+      {
+        "sourcePath": 20,
+        "elementRoute": "root/9/1/20",
+        "label": "C7",
+        "status": "registered",
+        "sourceVisibleArea": 7524.089680628746,
+        "mappedArea": 7780.567858610199
+      },
+      {
+        "sourcePath": 22,
+        "elementRoute": "root/9/1/22",
+        "label": "C2",
+        "status": "registered",
+        "sourceVisibleArea": 4695.376441293785,
+        "mappedArea": 4893.013908745128
+      },
+      {
+        "sourcePath": 23,
+        "elementRoute": "root/9/1/23",
+        "label": "C3",
+        "status": "registered",
+        "sourceVisibleArea": 1324.1383001254344,
+        "mappedArea": 1405.682884975112
+      },
+      {
+        "sourcePath": 24,
+        "elementRoute": "root/9/1/24",
+        "label": "C4",
+        "status": "registered",
+        "sourceVisibleArea": 1364.1956949236371,
+        "mappedArea": 1578.4731154339559
+      },
+      {
+        "sourcePath": 25,
+        "elementRoute": "root/9/1/25",
+        "label": "C8",
+        "status": "registered",
+        "sourceVisibleArea": 154.58241434979746,
+        "mappedArea": 132.84636096382135
+      },
+      {
+        "sourcePath": 26,
+        "elementRoute": "root/9/1/26",
+        "label": "C6",
+        "status": "registered",
+        "sourceVisibleArea": 5190.101526126667,
+        "mappedArea": 5841.448236014782
+      },
+      {
+        "sourcePath": 27,
+        "elementRoute": "root/9/1/27",
+        "label": "C8",
+        "status": "registered",
+        "sourceVisibleArea": 219.1327397084425,
+        "mappedArea": 193.5091451724114
+      },
+      {
+        "sourcePath": 28,
+        "label": "C6-C8",
+        "status": "unconfigured",
+        "reason": "Only excluded distal hand/foot surface remains."
+      },
+      {
+        "sourcePath": 29,
+        "label": "C6-C8",
+        "status": "unconfigured",
+        "reason": "Only excluded distal hand/foot surface remains."
+      },
+      {
+        "sourcePath": 30,
+        "label": "C6-C8",
+        "status": "unconfigured",
+        "reason": "Only excluded distal hand/foot surface remains."
+      },
+      {
+        "sourcePath": 31,
+        "label": "C6-C8",
+        "status": "unconfigured",
+        "reason": "Only excluded distal hand/foot surface remains."
+      },
+      {
+        "sourcePath": 32,
+        "elementRoute": "root/9/1/32",
+        "label": "S3",
+        "status": "registered",
+        "sourceVisibleArea": 8552.024493562358,
+        "mappedArea": 5250.308340510887
+      },
+      {
+        "sourcePath": 33,
+        "elementRoute": "root/9/1/33",
+        "label": "S4",
+        "status": "registered",
+        "sourceVisibleArea": 2869.1689005436474,
+        "mappedArea": 1200.310286877307
+      },
+      {
+        "sourcePath": 34,
+        "elementRoute": "root/9/1/34",
+        "label": "S5",
+        "status": "registered",
+        "sourceVisibleArea": 449.2350674296843,
+        "mappedArea": 190.5852064049122
+      },
+      {
+        "sourcePath": 36,
+        "elementRoute": "root/9/1/36",
+        "label": "L4",
+        "status": "registered",
+        "sourceVisibleArea": 4264.88694363627,
+        "mappedArea": 4700.588222404978
+      },
+      {
+        "sourcePath": 37,
+        "elementRoute": "root/9/1/37",
+        "label": "L3",
+        "status": "registered",
+        "sourceVisibleArea": 4385.40642400356,
+        "mappedArea": 4496.79092244176
+      },
+      {
+        "sourcePath": 38,
+        "elementRoute": "root/9/1/38",
+        "label": "L5",
+        "status": "registered",
+        "sourceVisibleArea": 1545.512050250576,
+        "mappedArea": 1706.9062612754512
+      },
+      {
+        "sourcePath": 39,
+        "label": "C8/T1",
+        "status": "unconfigured",
+        "reason": "Only excluded distal hand/foot surface remains."
+      },
+      {
+        "sourcePath": 40,
+        "elementRoute": "root/9/1/40",
+        "label": "C8",
+        "status": "registered",
+        "sourceVisibleArea": 2589.411550937354,
+        "mappedArea": 2898.2235678116126
+      },
+      {
+        "sourcePath": 41,
+        "elementRoute": "root/9/1/41",
+        "label": "T1/T2",
+        "status": "registered",
+        "sourceVisibleArea": 4750.336807508622,
+        "mappedArea": 4225.749818474994
+      },
+      {
+        "sourcePath": 42,
+        "label": "C8/T1",
+        "status": "unconfigured",
+        "reason": "Only excluded distal hand/foot surface remains."
+      },
+      {
+        "sourcePath": 43,
+        "label": "L5",
+        "status": "unconfigured",
+        "reason": "Only excluded distal hand/foot surface remains."
+      },
+      {
+        "sourcePath": 44,
+        "label": "S1",
+        "status": "unconfigured",
+        "reason": "Only excluded distal hand/foot surface remains."
+      },
+      {
+        "sourcePath": 46,
+        "elementRoute": "root/9/1/46",
+        "label": "C5",
+        "status": "registered",
+        "sourceVisibleArea": 1145.7688832409,
+        "mappedArea": 1597.195071695024
+      },
+      {
+        "sourcePath": 47,
+        "elementRoute": "root/9/1/47",
+        "label": "C6-C8",
+        "status": "registered",
+        "sourceVisibleArea": 2343.5249655906564,
+        "mappedArea": 2016.262908634102
+      },
+      {
+        "sourcePath": 48,
+        "elementRoute": "root/9/1/48",
+        "label": "C6-C8",
+        "status": "registered",
+        "sourceVisibleArea": 2399.9371984613917,
+        "mappedArea": 2126.630096523184
+      },
+      {
+        "sourcePath": 49,
+        "elementRoute": "root/9/1/49",
+        "label": "S2",
+        "status": "registered",
+        "sourceVisibleArea": 23174.33514131941,
+        "mappedArea": 23649.873067088065
+      }
+    ],
+    "regionCount": 60,
+    "labelCount": 30,
+    "rawOutsideTotal": 107.34985006623775,
+    "note": "All raw outside losses are exposed. Clipping cannot certify anatomical registration; medical review pending."
+  }
+}

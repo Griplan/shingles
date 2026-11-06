@@ -1,0 +1,5 @@
+COMMAND ['/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/node_modules/wcc-exec/wcc', 'components/body-canvas/body-canvas.wxml', 'components/region-picker/region-picker.wxml', 'pages/annotate/annotate.wxml', 'pages/atlas-debug/atlas-debug.wxml', 'pages/index/index.wxml', 'pages/result/result.wxml', 'pages/select/select.wxml', '-o', '/private/tmp/v4-interaction-wxml.js']
+EXIT 0
+
+COMMAND ['/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/node_modules/wcc-exec/wcsc', 'components/body-canvas/body-canvas.wxss', 'components/region-picker/region-picker.wxss', 'pages/annotate/annotate.wxss', 'pages/atlas-debug/atlas-debug.wxss', 'pages/index/index.wxss', 'pages/result/result.wxss', 'pages/select/select.wxss', '-o', '/private/tmp/v4-interaction-wxss.js']
+EXIT 0

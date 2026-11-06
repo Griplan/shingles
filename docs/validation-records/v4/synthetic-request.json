@@ -1,0 +1,71 @@
+{
+  "request_id": "SYNTHETIC_OFFLINE_PREVIEW",
+  "annotation_revision": 1,
+  "identity": {
+    "template_id": "commons-neutral-v1",
+    "template_version": "4.0.0",
+    "geometry_id": "commons-blank-cc0-v1",
+    "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+    "atlas_id": "goran-2022",
+    "atlas_version": "goran-2022-commons-template4-preview.2",
+    "atlas_content_sha256": "8689fca1aa50cff0b1b7d7cd1adcd80cf244cd1a93ed580e91406d0cc2fb2056",
+    "body_content_sha256": "59979433be334f53a705f90a484aadc312a426387f4c1a3b59a718393fbf426a",
+    "coordinate_system": "normalized_2d_top_left"
+  },
+  "lesions": [
+    {
+      "id": "TEST_FRONT",
+      "view": "front",
+      "vertices": [
+        {
+          "x": 0.46,
+          "y": 0.25
+        },
+        {
+          "x": 0.54,
+          "y": 0.25
+        },
+        {
+          "x": 0.5,
+          "y": 0.31
+        }
+      ]
+    },
+    {
+      "id": "TEST_BACK",
+      "view": "back",
+      "vertices": [
+        {
+          "x": 0.48,
+          "y": 0.27
+        },
+        {
+          "x": 0.56,
+          "y": 0.27
+        },
+        {
+          "x": 0.52,
+          "y": 0.33
+        }
+      ]
+    },
+    {
+      "id": "TEST_HAIR",
+      "view": "front",
+      "vertices": [
+        {
+          "x": 0.495,
+          "y": 0.045
+        },
+        {
+          "x": 0.505,
+          "y": 0.045
+        },
+        {
+          "x": 0.5,
+          "y": 0.055
+        }
+      ]
+    }
+  ]
+}

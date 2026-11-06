@@ -1,0 +1,9 @@
+{
+  "status": "NOT_UPLOADED",
+  "version": "0.5.4-ip.20261102",
+  "appid": "wx951711e2fa1da5ff",
+  "first_attempt": "90s timeout with disabled-port prompt hidden by captured output; no upload info generated",
+  "second_attempt": "PTY reports IDE service port disabled; declined automatic enable, exit 246",
+  "gui": "noWindowsAvailable on coordinate operations; old success dialog is not evidence of this upload",
+  "phone": "NOT_RUN"
+}

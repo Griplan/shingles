@@ -1,0 +1,22 @@
+{
+  "a_identity_unchanged": true,
+  "nginx_identity_unchanged": true,
+  "original_files_unchanged": true,
+  "original_file_count": 7,
+  "B_previous_PID": "3810200",
+  "B_new_PID": "3980765",
+  "watch_rounds": 253,
+  "a_non_200": 0,
+  "guard_stop_reasons": [],
+  "minimum_available_bytes": 2347405312,
+  "vm_before": {
+    "pswpin": 0,
+    "pswpout": 5,
+    "oom_kill": 0
+  },
+  "vm_after": {
+    "pswpin": 0,
+    "pswpout": 5,
+    "oom_kill": 0
+  }
+}

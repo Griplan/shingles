@@ -1,0 +1,486 @@
+[
+  {
+    "file": "Dermatomes_labeled,_female-male_front-back_3d-shaded.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 47,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 43,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 42,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 50,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_labeled,_female_back_3d-shaded.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 43,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 1,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_labeled,_female_back_3d-shaded_lying.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 31,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 1,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_labeled,_female_front-back_3d-shaded.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 47,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 43,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 1,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_labeled,_female_front_3d-shaded.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 47,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 1,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_labeled,_female_front_3d-shaded_lying.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 34,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_labeled,_male_back_3d-shaded.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 50,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_labeled,_male_back_3d-shaded_lying.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 33,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_labeled,_male_front-back_3d-shaded.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 42,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 50,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_labeled,_male_front_3d-shaded.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 42,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 1,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_labeled,_male_front_3d-shaded_lying.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 26,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 1,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female-male_front-back_3d-shaded.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 34,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 31,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 26,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 33,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female_back_3d-shaded.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 31,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 1,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female_back_3d-shaded_lying.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 31,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 1,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female_front-back_3d-shaded.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 34,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 31,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 1,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female_front_3d-shaded.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 34,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 1,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_female_front_3d-shaded_lying.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 34,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_male_back_3d-shaded.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 33,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_male_back_3d-shaded_lying.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 33,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_male_front-back_3d-shaded.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 26,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 33,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_male_front_3d-shaded.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 26,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 1,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  },
+  {
+    "file": "Dermatomes_unlabeled,_male_front_3d-shaded_lying.svg",
+    "parentFillPathStringMatches": {
+      "female-front": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 47
+      },
+      "female-back": {
+        "exactPathStringsPresent": 0,
+        "sourcePaths": 43
+      },
+      "male-front": {
+        "exactPathStringsPresent": 26,
+        "sourcePaths": 42
+      },
+      "male-back": {
+        "exactPathStringsPresent": 1,
+        "sourcePaths": 50
+      }
+    },
+    "note": "Exact d-string inclusion is structural evidence only; active transforms and observation surface separately checked."
+  }
+]

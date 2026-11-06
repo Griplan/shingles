@@ -1,0 +1,2 @@
+Running as unit: dermatome-p4-watch.service; invocation ID: 7859b0979a8b4192951b063d4176eb22
+{"deployed_backend_files": 7, "backup": "/srv/dermatome-mapper/deployment/backups/p4-20261101", "health": 200, "nginx_changed": false, "dependencies_changed": false}

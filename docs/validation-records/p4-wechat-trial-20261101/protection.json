@@ -1,0 +1,24 @@
+{
+  "original_services_unchanged": true,
+  "original_files_unchanged": 6,
+  "local_protected_files_unchanged": 39,
+  "modified_previous_runtime_files": [
+    "backend/app/api/routes/ai.py",
+    "backend/app/main.py",
+    "backend/app/services/access.py",
+    "backend/app/services/ai_boundary.py",
+    "backend/app/services/ai_sessions.py"
+  ],
+  "ai_source_and_weight_version_unchanged": true,
+  "watch_rounds": 488,
+  "a_health_or_ready_failures": 0,
+  "guard_stop_reasons": [],
+  "min_available_bytes": 2414202880,
+  "observed_b_peak_bytes": 718331904,
+  "final_process": {
+    "VmHWM": "817236 kB",
+    "VmRSS": "598588 kB",
+    "Threads": "4"
+  },
+  "last_server_timestamp": "2026-11-01T23:30:30+08:00"
+}

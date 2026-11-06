@@ -1,0 +1,8 @@
+{
+  "idle_cpu_percent_one_core": 0.11822312381194176,
+  "sample_seconds": 2,
+  "temporary_photos_after_tests": 0,
+  "active_invites_after_tests": 0,
+  "active_sessions_after_tests": 0,
+  "source": "actual administrator count/statistics stdout before final busy check; busy test also deleted/revoked its own resources"
+}

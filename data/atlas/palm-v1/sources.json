@@ -1,0 +1,26 @@
+{
+  "boundarySystem": "spinal_dermatome",
+  "boundaryLicenseStatus": "verified",
+  "sources": [
+    {
+      "id": "servier-dermatomes-2016",
+      "purpose": "dermatome_boundaries",
+      "url": "https://smart.servier.com/smart_image/dermatomes/",
+      "author": "Servier Medical Art / Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseStatus": "verified",
+      "commercialAdaptationAllowed": true,
+      "attribution": "Image adapted from Servier Medical Art (https://smart.servier.com), CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). 掌侧曲线数字化、腕部截取、配准及左右镜像；非医学审核。",
+      "licenseEvidence": [
+        "https://smart.servier.com/how-to-cite-servier-medical-art/",
+        "https://smart.servier.com/using-smart-images-what-you-can-do/"
+      ],
+      "originalUrl": "https://smart.servier.com/wp-content/uploads/2016/10/SMART-Nervous-system.pptx",
+      "originalFile": "data/sources/servier-palm-v1/original.pptx",
+      "originalSHA256": "b6f10318613415bdcfed5503d7a082435f3641f87f66b39587c4b522664a7ebc",
+      "boundaryEvidence": "Slide 26 anterior figure, group 71682, C6 forearm continuous to thumb; C7/C8 label shapes 72039/72041; boundary shapes 72147/72148.",
+      "limitations": "Educational schematic; individual overlap/variation and transfer to Gray palm are not clinically validated. The two original hands are not independent medical observations."
+    }
+  ],
+  "previousResearchRecord": "docs/validation-records/v6.1-sources.md"
+}

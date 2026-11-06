@@ -1,0 +1,200 @@
+{
+  "changes": [
+    {
+      "path": "miniprogram/app.json",
+      "status": "changed"
+    },
+    {
+      "path": "miniprogram/types/dermatome.ts",
+      "status": "changed"
+    },
+    {
+      "path": "miniprogram/types/palm.ts",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/utils/atlas-view.ts",
+      "status": "changed"
+    },
+    {
+      "path": "miniprogram/state/palm-session.ts",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/state/palm-matching-session.ts",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/state/matching-session.ts",
+      "status": "changed"
+    },
+    {
+      "path": "miniprogram/components/palm-canvas/palm-canvas.wxss",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/components/palm-canvas/palm-canvas.ts",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/components/palm-canvas/palm-canvas.wxml",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/components/palm-canvas/palm-canvas.json",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/data/body-models.ts",
+      "status": "changed"
+    },
+    {
+      "path": "miniprogram/data/matching-body.generated.ts",
+      "status": "changed"
+    },
+    {
+      "path": "miniprogram/data/atlas.generated.ts",
+      "status": "changed"
+    },
+    {
+      "path": "miniprogram/data/sole.generated.ts",
+      "status": "changed"
+    },
+    {
+      "path": "miniprogram/data/body-regions.ts",
+      "status": "changed"
+    },
+    {
+      "path": "miniprogram/data/local-models.ts",
+      "status": "changed"
+    },
+    {
+      "path": "miniprogram/data/palm.generated.ts",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/data/palm-models.ts",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/assets/body/commons-v1.ts",
+      "status": "changed"
+    },
+    {
+      "path": "miniprogram/assets/palm/palm-right.svg",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/assets/palm/palm-left.png",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/assets/palm/palm-left.svg",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/assets/palm/palm-right.png",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/assets/palm/NOTICE.md",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/pages/special-parts/special-parts.wxml",
+      "status": "changed"
+    },
+    {
+      "path": "miniprogram/pages/special-parts/special-parts.ts",
+      "status": "changed"
+    },
+    {
+      "path": "miniprogram/pages/palm/palm.wxss",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/pages/palm/palm.wxml",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/pages/palm/palm.ts",
+      "status": "removed"
+    },
+    {
+      "path": "miniprogram/pages/palm/palm.json",
+      "status": "removed"
+    },
+    {
+      "path": "backend/app/main.py",
+      "status": "changed"
+    },
+    {
+      "path": "backend/app/schemas/evaluate.py",
+      "status": "changed"
+    },
+    {
+      "path": "backend/app/services/atlas_service.py",
+      "status": "changed"
+    },
+    {
+      "path": "backend/app/services/palm_atlas_service.py",
+      "status": "removed"
+    },
+    {
+      "path": "backend/app/services/local_atlas_service.py",
+      "status": "changed"
+    },
+    {
+      "path": "backend/app/services/sole_atlas_service.py",
+      "status": "changed"
+    },
+    {
+      "path": "scripts/check_preview_atlas.py",
+      "status": "changed"
+    },
+    {
+      "path": "scripts/check_project.py",
+      "status": "changed"
+    },
+    {
+      "path": "scripts/sync_atlas.py",
+      "status": "changed"
+    },
+    {
+      "path": "scripts/sync_matching_body.py",
+      "status": "changed"
+    },
+    {
+      "path": "scripts/build_sole_atlas.py",
+      "status": "changed"
+    }
+  ],
+  "unchangedCount": 238,
+  "protectedUnchanged": [
+    "miniprogram/utils/annotation-geometry.ts",
+    "miniprogram/utils/placement-geometry.ts",
+    "miniprogram/assets/sole/sole-right.png",
+    "miniprogram/assets/sole/sole-right.svg",
+    "miniprogram/assets/sole/sole-left.png",
+    "miniprogram/assets/sole/NOTICE.md",
+    "miniprogram/assets/sole/sole-left.svg",
+    "miniprogram/assets/body/commons-cc0/geometry.generated.ts",
+    "miniprogram/assets/body/commons-cc0/front.svg",
+    "miniprogram/assets/body/commons-cc0/back.svg",
+    "miniprogram/assets/body/commons-cc0/manifest.json",
+    "miniprogram/assets/body/commons-cc0/source.svg",
+    "miniprogram/assets/body/commons-cc0/NOTICE.md",
+    "miniprogram/assets/body/commons-cc0/back.png",
+    "miniprogram/assets/body/commons-cc0/front.png",
+    "backend/app/utils/geometry.py",
+    "backend/app/services/dermatome_matcher.py",
+    "data/body/sole-v1.json",
+    "data/body/sole-resource.json",
+    "data/atlas/sole-v1/sources.json",
+    "data/atlas/sole-v1/registration.json",
+    "data/atlas/sole-v1/sole-right.json",
+    "data/atlas/sole-v1/sole-left.json",
+    "data/atlas/sole-v1/manifest.json",
+    "data/atlas/sole-v1/NOTICE.md"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-04",
+  "snapshot_count": 232,
+  "changed": [
+    "miniprogram/data/palm.generated.ts",
+    "backend/app/services/palm_atlas_service.py",
+    "data/atlas/palm-v1/sources.json",
+    "data/atlas/palm-v1/palm-right.json",
+    "data/atlas/palm-v1/palm-left.json",
+    "data/atlas/palm-v1/registration.json",
+    "data/atlas/palm-v1/manifest.json"
+  ],
+  "unchanged_count": 225,
+  "deleted": [],
+  "atlas_identity": {
+    "atlasId": "palm-dermatomes-v1",
+    "atlasVersion": "palm-dermatomes-preview.3",
+    "templateId": "commons-palm-v1",
+    "templateVersion": "1.1.0",
+    "contentSHA256": "9efc6774667415a7006697150a1fee5c1d8a36e0ea3c076e18e4a674c04c171e"
+  },
+  "labels": 3,
+  "instances": 6,
+  "medical_review": "pending",
+  "curve_outside_length": [
+    0.0,
+    0.0
+  ],
+  "point_reference_tests": 16,
+  "frontend_passed": 328,
+  "backend_ai_passed": 256,
+  "backend_ai_warnings": 7,
+  "production_accessed": false,
+  "uploaded": false
+}

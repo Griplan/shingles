@@ -1,0 +1,56 @@
+[
+  {
+    "id": "cdc-21505.jpg",
+    "sha256": "5e63ed3fb2b18143c8fe1f03254880e1bca144e2be6e42232ee5005b74ff062b",
+    "dimensions": [
+      700,
+      460
+    ],
+    "bytes": 34234
+  },
+  {
+    "id": "cdc-21506.jpg",
+    "sha256": "83cc084b93373632dd779dc1563617993cb9f30526b6d4b2c8864ca59652027d",
+    "dimensions": [
+      700,
+      1063
+    ],
+    "bytes": 54890
+  },
+  {
+    "id": "cdc-18254.jpg",
+    "sha256": "c60d90af2869ca0a22988e35c6626181bcf7b15176cf6681f160e8a93dd2ebec",
+    "dimensions": [
+      700,
+      848
+    ],
+    "bytes": 53659
+  },
+  {
+    "id": "cdc-18254-neck-crop.png",
+    "sha256": "a4516a5812516b19f25d5ac2b59758406f79729daf9487d2dcaa72087a078ffb",
+    "dimensions": [
+      300,
+      410
+    ],
+    "bytes": 137128
+  },
+  {
+    "id": "synthetic-disconnected.png",
+    "sha256": "52ef6ae05e3903642bef4783e9e78ac39a4393ebc1a74e268de0aad55e4a7c8c",
+    "dimensions": [
+      320,
+      240
+    ],
+    "bytes": 1470
+  },
+  {
+    "id": "synthetic-low-contrast.png",
+    "sha256": "cae23ac1332711f0b2f9451f75304ee076317d585060ff9137d638b36701a4a7",
+    "dimensions": [
+      320,
+      240
+    ],
+    "bytes": 1296
+  }
+]

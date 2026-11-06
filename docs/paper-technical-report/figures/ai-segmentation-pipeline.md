@@ -1,0 +1,28 @@
+# 图 3：MobileSAM 分割与人工确认
+
+来源：本项目当前源码审计，2026-11-02；对应证据见上级 技术结论与证据索引.md。流程图不是医学验证结果。
+
+```mermaid
+flowchart TB
+  I["照片 + 框 / 前景点 / 排除点"] --> P["格式与像素限制 · EXIF定向
+局部上下文裁剪 + 提示平移"]
+  P --> IMG["图像：长边1024 + pad
+TinyViT 图像编码器"]
+  P --> PR["提示编码器
+点标签 / 框角 → 256维表示"]
+  IMG --> DEC["Mask decoder
+2层 TwoWayTransformer"]
+  PR --> DEC
+  DEC --> MASK["3候选 Mask + 预测质量分数
+恢复局部尺寸 → 原照片整数偏移回填"]
+  MASK --> Q["面积 / 框外 / 点满足 / 碎片检查
+警告与展示排序，不自动确认"]
+  Q --> U["用户换结果或修正真实 Mask
+原始 AI Mask 不变"]
+  U --> POLY["前景像素单元并集
+多片 / 孔洞 / 1像素区域"]
+  POLY --> C["用户明确确认
+photo_oriented_normalized_v1"]
+```
+
+![渲染图](ai-segmentation-pipeline.png)

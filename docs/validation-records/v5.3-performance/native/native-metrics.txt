@@ -1,0 +1,12 @@
++																					876 text NATIVE_TOTAL overlay.layoutQuery {"count":2,"totalMs":0.10000000055879354,"maxMs":0.10000000055879354}
++																					881 text NATIVE_TOTAL page.setData.sync {"count":10,"totalMs":53.30000000074506,"maxMs":8.299999999813735}
++																					886 text NATIVE_TOTAL drag.event.start {"count":1,"totalMs":7.199999999254942,"maxMs":7.199999999254942}
++																					891 text NATIVE_TOTAL preview.parameters {"count":2,"totalMs":0.09999999962747097,"maxMs":0.09999999962747097}
++																					896 text NATIVE_TOTAL update.scalars {"count":2,"totalMs":14.5,"maxMs":8.799999999813735}
++																					901 text NATIVE_TOTAL drag.event.move {"count":1,"totalMs":5.7999999998137355,"maxMs":5.7999999998137355}
++																					906 text NATIVE_TOTAL settle.transform+validation+sync {"count":3,"totalMs":1893.7000000011176,"maxMs":647.2000000001863}
++																					911 text NATIVE_TOTAL drag.event.end {"count":1,"totalMs":636.7999999998137,"maxMs":636.7999999998137}
++																					916 text NATIVE_TOTAL canvas.setTransform {"count":3,"totalMs":0,"maxMs":0}
++																					921 text NATIVE_TOTAL overlay.draw.sync {"count":3,"totalMs":2.6000000005587935,"maxMs":1.2000000001862645}
++																					926 text NATIVE_TOTAL rotate.event {"count":1,"totalMs":9.299999999813735,"maxMs":9.299999999813735}
++																					931 text NATIVE_FINAL_STATE {"dragging":false,"valid":true,"ready":true,"vertices":2207,"pieces":27,"holes":36,"scale":162,"angle":44}

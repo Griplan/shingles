@@ -1,0 +1,23 @@
+V1.1 actual WeChat DevTools UI verification
+Date: 2026-10-18 Asia/Shanghai
+Environment: WeChat DevTools Stable 2.01.2510290, library 3.17.4, existing project.
+Evidence: actual CUA AX states/screenshots in this conversation; this is an operator transcript, not a compiler log or hardware-device result. Internal extension URLs/account/session fields omitted.
+
+Initial FAILED observations:
+- During multi-file hot reload, new body-models module was initially unavailable.
+- App showed an empty Canvas; logic error reported missing @babel/runtime/helpers/objectSpread2.js, and event handler lookup failed when page module could not load.
+- WXSS warned about selectors in page/component context.
+- One attempt to click a stale accessibility ID failed; refreshed app binding and current AX tree.
+Repair in progress: avoid object-spread-generated runtime helpers via Object.assign; use class selectors for added styles; complete project compilation and recheck.
+
+Repair / subsequent actual observations:
+- Removed production object spread helpers in favor of Object.assign; complete compile returned Errors:0 (warnings remained). New complete front Canvas including head/neck/hands/feet was visible in a real capture after reopen.
+- However the capture also showed stale welcome/page layers while the native Canvas displayed the new asset. This is NOT a passed stable-page layout check.
+- Subsequent accessibility trees lost simulator Webview contents although tool header/compile/device menu remained available. Coordinate clicks/scroll failed with noWindowsAvailable.
+- Recovery attempts: current-project reopen, fresh bundle/path app bindings, refreshed AX IDs, explicit window Raise, CUA kernel reset, simulator menu/size selection attempt. No reliable simulator touch channel recovered. Device header remained original iPhone12/13(Pro); narrow-size selection is not reported as applied or passed.
+- Final observed developer-tool header: Errors:0, Warnings:2. This does not establish final page interaction or layout correctness. No app/account/permission/global settings changed.
+
+Final GUI status: NOT_RUN for final stable front/back page acceptance, actual head/neck region button operations, debug switch/touch/crosshair, zoom/reset touch invariance, blank-space rejection, three-size final layout and navigation regression. The earlier attempted rendering was partial and showed compositor trouble.
+Hardware, rotation, pixel-error measurement, older base libraries: NOT_RUN.
+Image decode/load: N/A (local imported path resource).
+Manual steps are in docs/validation.md section9. Automated node/Canvas doubles separately passed43 tests and must not be labeled native WeChat touch validation.

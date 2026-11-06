@@ -1,0 +1,3 @@
+First check: FAILED — JPEG bytes were initially named .png. Corrected extension only.
+03 is a 246x304 partial capture during the recorded window error; not accepted as a complete screenshot.
+Final check: PASSED — metrics, actual JPEG signatures, probe cleanup and appended documentation formatting. No product test rerun after documentation-only additions.

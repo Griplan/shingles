@@ -1,0 +1,78 @@
+[
+  {
+    "endpoint": "http://127.0.0.1:8000",
+    "health_status": 200,
+    "ready": {
+      "status": 200,
+      "identity": {
+        "template_id": "commons-neutral-v1",
+        "template_version": "4.0.1",
+        "geometry_id": "commons-blank-cc0-hands-v2",
+        "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+        "atlas_id": "goran-2022",
+        "atlas_version": "goran-2022-commons-template4-preview.3",
+        "atlas_content_sha256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+        "body_content_sha256": "b0bfa0047c156159fd2f5c8680b76ff64eb2f5f6f947bc0d53b8414ffb9a8731",
+        "coordinate_system": "normalized_2d_top_left"
+      }
+    },
+    "evaluate": {
+      "status": 200,
+      "error": null,
+      "identity": {
+        "template_id": "commons-neutral-v1",
+        "template_version": "4.0.1",
+        "geometry_id": "commons-blank-cc0-hands-v2",
+        "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+        "atlas_id": "goran-2022",
+        "atlas_version": "goran-2022-commons-template4-preview.3",
+        "atlas_content_sha256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+        "body_content_sha256": "b0bfa0047c156159fd2f5c8680b76ff64eb2f5f6f947bc0d53b8414ffb9a8731",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "labels": [
+        "T5",
+        "T6"
+      ]
+    }
+  },
+  {
+    "endpoint": "http://212.64.26.206/dermatome-test",
+    "health_status": 200,
+    "access_status": 200,
+    "ready": {
+      "status": 200,
+      "identity": {
+        "template_id": "commons-neutral-v1",
+        "template_version": "4.0.1",
+        "geometry_id": "commons-blank-cc0-hands-v2",
+        "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+        "atlas_id": "goran-2022",
+        "atlas_version": "goran-2022-commons-template4-preview.3",
+        "atlas_content_sha256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+        "body_content_sha256": "b0bfa0047c156159fd2f5c8680b76ff64eb2f5f6f947bc0d53b8414ffb9a8731",
+        "coordinate_system": "normalized_2d_top_left"
+      }
+    },
+    "evaluate": {
+      "status": 200,
+      "error": null,
+      "identity": {
+        "template_id": "commons-neutral-v1",
+        "template_version": "4.0.1",
+        "geometry_id": "commons-blank-cc0-hands-v2",
+        "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+        "atlas_id": "goran-2022",
+        "atlas_version": "goran-2022-commons-template4-preview.3",
+        "atlas_content_sha256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+        "body_content_sha256": "b0bfa0047c156159fd2f5c8680b76ff64eb2f5f6f947bc0d53b8414ffb9a8731",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "labels": [
+        "T5",
+        "T6"
+      ]
+    },
+    "revoke_status": 204
+  }
+]

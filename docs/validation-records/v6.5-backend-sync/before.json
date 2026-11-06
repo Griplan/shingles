@@ -1,0 +1,47 @@
+[
+  {
+    "endpoint": "http://127.0.0.1:8000",
+    "health_status": 200,
+    "ready": {
+      "status": 404
+    },
+    "evaluate": {
+      "status": 409,
+      "error": {
+        "code": "VERSION_MISMATCH",
+        "message": "图谱版本不一致，请更新客户端"
+      },
+      "identity": null,
+      "labels": []
+    }
+  },
+  {
+    "endpoint": "http://212.64.26.206/dermatome-test",
+    "health_status": 200,
+    "access_status": 200,
+    "ready": {
+      "status": 200,
+      "identity": {
+        "template_id": "commons-neutral-v1",
+        "template_version": "4.0.0",
+        "geometry_id": "commons-blank-cc0-v1",
+        "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+        "atlas_id": "goran-2022",
+        "atlas_version": "goran-2022-commons-template4-preview.2",
+        "atlas_content_sha256": "8689fca1aa50cff0b1b7d7cd1adcd80cf244cd1a93ed580e91406d0cc2fb2056",
+        "body_content_sha256": "59979433be334f53a705f90a484aadc312a426387f4c1a3b59a718393fbf426a",
+        "coordinate_system": "normalized_2d_top_left"
+      }
+    },
+    "evaluate": {
+      "status": 409,
+      "error": {
+        "code": "VERSION_MISMATCH",
+        "message": "图谱版本不一致，请更新客户端"
+      },
+      "identity": null,
+      "labels": []
+    },
+    "revoke_status": 204
+  }
+]

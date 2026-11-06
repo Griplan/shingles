@@ -1,0 +1,11 @@
+																					604 text REPLAY_DRAG page.setData.sync {"count":5,"totalMs":31.300000000745058,"maxMs":9.799999999813735}
+																					609 text REPLAY_DRAG drag.event.start {"count":1,"totalMs":9.899999999441206,"maxMs":9.899999999441206}
+																					614 text REPLAY_DRAG preview.parameters {"count":60,"totalMs":3.1999999955296516,"maxMs":0.20000000018626451}
+																					619 text REPLAY_DRAG update.scalars {"count":60,"totalMs":13.99999999254942,"maxMs":5.599999999627471}
+																					624 text REPLAY_DRAG drag.event.move {"count":60,"totalMs":16.49999999254942,"maxMs":5.699999999254942}
+																					629 text REPLAY_DRAG canvas.setTransform {"count":61,"totalMs":0.7000000001862645,"maxMs":0.10000000055879354}
+																					634 text REPLAY_DRAG canvas.drawImage {"count":60,"totalMs":2.999999998137355,"maxMs":0.20000000018626451}
+																					639 text REPLAY_DRAG overlay.draw.sync {"count":61,"totalMs":29.7000000057742,"maxMs":1}
+																					644 text REPLAY_DRAG settle.transform+validation+sync {"count":1,"totalMs":578.0999999996275,"maxMs":578.0999999996275}
+																					649 text REPLAY_DRAG drag.event.end {"count":1,"totalMs":581.5,"maxMs":581.5}
+																					654 text REPLAY_STATE {"injectedEvents":true,"moves":60,"valid":true,"ready":true,"sourceUnchanged":true}

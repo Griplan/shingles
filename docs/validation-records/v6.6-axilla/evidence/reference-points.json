@@ -1,0 +1,87 @@
+[
+  {
+    "id": "central",
+    "name": "腋窝中央",
+    "sourceWorkingPoint": [
+      500,
+      320
+    ],
+    "rightNormalized": [
+      0.55,
+      0.45666666666666667
+    ],
+    "leftNormalized": [
+      0.44999999999999996,
+      0.45666666666666667
+    ],
+    "evidence": "manually located on original source photo; fold naming requires anatomical review; not neural boundaries"
+  },
+  {
+    "id": "anterior-fold",
+    "name": "前褶参考",
+    "sourceWorkingPoint": [
+      610,
+      250
+    ],
+    "rightNormalized": [
+      0.6655,
+      0.375
+    ],
+    "leftNormalized": [
+      0.3345,
+      0.375
+    ],
+    "evidence": "manually located on original source photo; fold naming requires anatomical review; not neural boundaries"
+  },
+  {
+    "id": "posterior-fold",
+    "name": "后褶参考",
+    "sourceWorkingPoint": [
+      420,
+      330
+    ],
+    "rightNormalized": [
+      0.466,
+      0.4683333333333333
+    ],
+    "leftNormalized": [
+      0.534,
+      0.4683333333333333
+    ],
+    "evidence": "manually located on original source photo; fold naming requires anatomical review; not neural boundaries"
+  },
+  {
+    "id": "proximal-arm",
+    "name": "上臂近端",
+    "sourceWorkingPoint": [
+      340,
+      130
+    ],
+    "rightNormalized": [
+      0.38199999999999995,
+      0.235
+    ],
+    "leftNormalized": [
+      0.6180000000000001,
+      0.235
+    ],
+    "evidence": "manually located on original source photo; fold naming requires anatomical review; not neural boundaries"
+  },
+  {
+    "id": "lateral-chest",
+    "name": "胸壁外侧",
+    "sourceWorkingPoint": [
+      650,
+      490
+    ],
+    "rightNormalized": [
+      0.7075,
+      0.6549999999999999
+    ],
+    "leftNormalized": [
+      0.2925,
+      0.6549999999999999
+    ],
+    "evidence": "manually located on original source photo; fold naming requires anatomical review; not neural boundaries"
+  }
+]
