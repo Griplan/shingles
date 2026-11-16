@@ -57,6 +57,52 @@
 
 默认框架404/405不在上述业务信封承诺内。不存在的路径不表示图谱不存在。测试替身仅位于测试，正常客户端没有离线假结果。网络失败保留标注，重试用当前有效快照。`config/api.ts`区分模拟器loopback与显式真机地址。
 
+### POST /api/v1/evaluate/body-intersection（V7.0）
+
+该接口与 `/evaluate` 使用同一能力门禁：本地 `DERMATOME_ENV=development|test`，或已配置 `API_ACCESS_SHA256` 的 `controlled` 测试服务，还必须设置 `ENABLE_REFERENCE_MATCHING=1`；未知/普通正式环境返回 `403 MATCHING_DISABLED`。它与 `/evaluate` 共用解析前门禁和 2 MiB 实际正文上限。该接口只进行人体模板与最终二维病灶几何的精确交集，不读取照片、不调用 MobileSAM、不查询神经图谱，也不产生医学候选。
+
+请求：
+
+| 字段 | 规则 |
+| --- | --- |
+| `view` | 仅 `front` 或 `back`；正背面是独立坐标空间 |
+| `template_id`、`template_version`、`geometry_id`、`region_set_id` | 必须与当前人体导出完全一致 |
+| `geometry` | `MultiPolygon`，坐标空间固定为 `body_template_normalized_v1` |
+
+请求最多 20,000 个外环/孔洞顶点，所有坐标沿用 `[0,1]` 左上原点约定。服务端拒绝自交、零面积、非法环或版本不一致，不回显提交坐标。
+
+200 响应：
+
+```json
+{
+  "method": "body_intersection_v1",
+  "status": "inside",
+  "source_area": 0.01,
+  "intersection_area": 0.01,
+  "outside_area": 0,
+  "outside_area_ratio": 0,
+  "geometry": {
+    "type": "MultiPolygon",
+    "coordinateSpace": "body_template_normalized_v1",
+    "coordinates": [[[
+      {"x": 0.48, "y": 0.48},
+      {"x": 0.52, "y": 0.48},
+      {"x": 0.52, "y": 0.52},
+      {"x": 0.48, "y": 0.52},
+      {"x": 0.48, "y": 0.48}
+    ]]]
+  }
+}
+```
+
+状态语义：
+
+- `inside`：完整原始几何位于人体有效表面内，返回同一有效 MultiPolygon。
+- `partial`：返回人体内精确交集；调用方必须让用户明确确认后才可用它保存和匹配。
+- `outside`：有效交集为空，`geometry=null`；不得保存为人体病灶。
+
+该接口不会在拖动、缩放或旋转过程中调用。客户端只在最终确认遇到部分越界时调用一次；原始变换结果仍保留为可编辑来源，经用户确认的人体交集才成为 V2 保存和 V4 匹配使用的有效几何。接口路径和返回字段已同步到小程序 `services/api.ts` 与 `types/evaluate.ts`。
+
 ---
 
 

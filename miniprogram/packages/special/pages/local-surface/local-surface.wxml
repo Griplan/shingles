@@ -7,7 +7,7 @@
   <view wx:if="{{showSideSwitch}}" class="switch-row"><button class="control tab {{view === leftView ? 'active' : ''}}" data-view="{{leftView}}" bindtap="switchView">左{{partName}} · {{leftCount}}</button><button class="control tab {{view === rightView ? 'active' : ''}}" data-view="{{rightView}}" bindtap="switchView">右{{partName}} · {{rightCount}}</button></view>
   <view wx:if="{{!aiPhotoSupported}}" class="reference-note">本视图仅支持人工标注；AI 照片分割与自动放置未开放。</view>
   <view class="status">{{loading ? '计算中，标注已保留…' : previewMode ? labels.length ? '参考预览 · 点击标签查看' : '当前分区尚未配置' : resultMode ? selected ? '单区查看 · 可恢复全部' : '全部参考区域 · 点击标签查看' : phase === 'review' ? '范围已确认，可返回修改' : mode === 'draw' ? '沿皮肤范围边缘逐点圈选，再闭合' : '可新增范围，或完成标注'}}</view>
-  <scroll-view wx:if="{{!resultMode && !previewMode && regions.length}}" scroll-x class="region-row"><view class="region-items"><button wx:for="{{regions}}" wx:key="id" class="control chip {{selectedId === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="selectPolygon" disabled="{{mode === 'draw' || phase === 'review' || loading}}">{{item.label}}</button></view></scroll-view>
+  <scroll-view wx:if="{{!resultMode && !previewMode && regions.length > 1}}" scroll-x class="region-row"><view class="region-items"><button wx:for="{{regions}}" wx:key="id" class="control chip {{selectedId === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="selectPolygon" disabled="{{mode === 'draw' || phase === 'review' || loading}}">{{item.label}}</button></view></scroll-view>
   <view class="p9-split">
   <view class="local-surface-stage p9-stage">
    <view class="canvas-area"><local-surface-canvas view="{{view}}" layer="{{layer}}" atlas-regions="{{atlasRegions}}" focus-bounds="{{focusBounds}}" interaction-blocked="{{infoOpen}}" disabled="{{mode !== 'draw' || phase !== 'editing' || previewMode || loading || infoOpen}}" layout-revision="{{layoutRevision}}" bind:point="onPoint" bind:viewport="onViewport"></local-surface-canvas></view>
@@ -15,7 +15,7 @@
   </view>
   <view class="p9-controls">
   <view class="legend">{{title}} · {{orientation}}<text>棕色轮廓：标注范围</text></view>
-  <view class="view-tools"><button class="control subtle" wx:if="{{resultMode || previewMode}}" bindtap="showAll" disabled="{{!selected}}">显示全部</button><button class="control subtle" bindtap="zoom">放大查看</button><button class="control subtle" bindtap="reset">复位</button><button wx:if="{{previewAllowed}}" class="control subtle" bindtap="togglePreview">{{previewMode ? '返回标注' : '参考图谱'}}</button></view>
+  <view class="view-tools"><button class="control subtle" wx:if="{{(resultMode || previewMode) && selected}}" bindtap="showAll">查看全部</button><button class="control subtle" bindtap="zoom">放大查看</button><button class="control subtle" bindtap="reset">复位</button><button wx:if="{{previewAllowed}}" class="control subtle" bindtap="togglePreview">{{previewMode ? '返回标注' : '参考图谱'}}</button></view>
   <view wx:if="{{!previewMode}}" class="action-area">
    <view class="count">{{phase === 'review' ? '已确认 ' + completedCount + ' 片' : mode === 'draw' ? '当前 ' + pointCount + ' 点' : '已完成 ' + completedCount + ' 片'}}</view>
    <view class="toolbar" wx:if="{{phase === 'review'}}"><button class="control" bindtap="edit" disabled="{{loading}}">修改标注</button><button class="control primary" bindtap="calculate" loading="{{loading}}" disabled="{{loading || !atlasReady || !matchingAllowed}}">{{loading ? '计算中…' : schematic ? '模拟区域匹配' : provisional ? '试验性参考匹配' : '计算参考区域'}}</button></view>

@@ -96,7 +96,7 @@ def boundary_errors(subpackages: list[dict[str, Any]]) -> list[str]:
         return "main"
 
     for source in MINIPROGRAM.rglob("*"):
-        if not source.is_file() or "node_modules" in source.parts:
+        if not source.is_file() or "node_modules" in source.parts or ".git" in source.parts:
             continue
         source_package = owning_package(source)
         relative = source.relative_to(MINIPROGRAM).as_posix()
@@ -177,7 +177,7 @@ def collect(subpackages: list[dict[str, Any]], rules: list[dict[str, str]]) -> l
             if not source.is_file():
                 continue
             relative = source.relative_to(MINIPROGRAM).as_posix()
-            if relative.startswith("node_modules/") or ignored(relative, rules):
+            if relative.startswith(("node_modules/", ".git/")) or ignored(relative, rules):
                 continue
             if relative.endswith(".ts"):
                 emitted = compiled_root / (relative[:-3] + ".js")

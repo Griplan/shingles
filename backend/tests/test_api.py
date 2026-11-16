@@ -31,6 +31,15 @@ def test_evaluate_default_disabled_before_parsing(payload, monkeypatch):
     assert response.json()['error']['code']=='MATCHING_DISABLED'
 
 
+def test_body_intersection_default_disabled_before_parsing(monkeypatch):
+    monkeypatch.delenv('DERMATOME_ENV',raising=False)
+    monkeypatch.delenv('ENABLE_REFERENCE_MATCHING',raising=False)
+    with TestClient(app) as client:
+        response=client.post('/api/v1/evaluate/body-intersection',content='not-json')
+    assert response.status_code==403
+    assert response.json()['error']['code']=='MATCHING_DISABLED'
+
+
 def test_openapi_declares_v4_request_and_real_response():
     with TestClient(app) as client:
         operation=client.get('/openapi.json').json()['paths']['/api/v1/evaluate']['post']

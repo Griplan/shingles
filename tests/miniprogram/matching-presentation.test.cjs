@@ -74,7 +74,7 @@ test('one canvas workflow: calculate once, keep viewport, all/single/scope, edit
  const focus=p.data.zoomRegion,height=p.data.stageHeight;
  const a=p.calculate();await flush();p.onShow();void p.calculate();assert.equal(h.requests.length,1);
  assert.equal(p.data.atlas,null);assert.equal(p.data.layer.fillMode,'filled');assert.equal(p.data.zoomRegion,focus);assert.equal(p.data.stageHeight,height);
- h.replies.shift()();await a;assert.equal(p.data.matchStatus,'ready');assert.equal(p.data.selected,'');assert.ok(p.data.atlas.regions.length>1);
+ h.replies.shift()();await a;assert.equal(p.data.matchStatus,'ready');assert.equal(p.data.selected,'');assert.ok(p.data.atlas.regions.length>1);assert.equal(p.data.showScopeChoices,false);
  p.onViewportChange({detail:{view:'front',modelId:getBodyModel('front').id,modelVersion:getBodyModel('front').version,viewport:fitViewport(207,height,getBodyModel('front'))}});
  p.onSceneReady({detail:{sceneId:p.data.sceneId,view:p.data.view}});
  const first=h.store.snapshot().views.front.completed[0],allIds=p.data.atlas.regions.map(r=>r.id),candidate=p.data.candidates[0],rails=JSON.stringify(p.data.leftRail);
@@ -84,11 +84,11 @@ test('one canvas workflow: calculate once, keep viewport, all/single/scope, edit
  p.chooseScope(event({id:p.data.scopes[0].id}));assert.equal(p.data.layer.completed.length,1);assert.equal(p.data.focusBounds,bounds);
  p.onResize();await p.calculate();assert.equal(h.requests.length,1);assert.equal(p.data.stageHeight,height);
  p.backToEdit();assert.equal(p.data.atlas,null);assert.equal(p.data.layer.fillMode,'filled');assert.equal(p.data.focusBounds,bounds);assert.deepEqual(h.store.snapshot().views.front.completed,[first]);
- p.finish();await p.calculate();assert.equal(h.requests.length,1);assert.ok(p.data.atlas.regions.length);
- p.backToEdit();p.newRegion();assert.equal(p.data.atlas,null);h.draw();p.syncSession();p.finish();const b=p.calculate();await flush();assert.equal(h.requests.length,2);h.replies.shift()();await b;
- assert.equal(p.data.matchStatus,'ready');assert.equal(p.data.scopes.length,2);assert.ok(p.data.atlas.regions.length);
+ await p.finish();assert.equal(h.requests.length,1);assert.ok(p.data.atlas.regions.length);
+ p.backToEdit();p.newRegion();assert.equal(p.data.atlas,null);h.draw();p.syncSession();const b=p.finish();await flush();assert.equal(h.requests.length,2);h.replies.shift()();await b;
+ assert.equal(p.data.matchStatus,'ready');assert.equal(p.data.scopes.length,2);assert.equal(p.data.showScopeChoices,true);assert.ok(p.data.atlas.regions.length);
  p.switchView(event({view:'back'}));assert.equal(p.data.atlas.regions.length,0);p.switchView(event({view:'front'}));assert.ok(p.data.atlas.regions.length);assert.equal(h.requests.length,2);
- p.onHide();p.onUnload();const q=h.open();q.finish();await q.calculate();assert.equal(h.requests.length,2);q.onUnload();
+ p.onHide();p.onUnload();const q=h.open();await q.finish();assert.equal(h.requests.length,2);q.onUnload();
 });
 test('prepared view race, request during view switch, stale frame and information/motion controls',async()=>{
  const h=harness(),p=h.open();const started=p.calculate();await flush();h.replies.shift()();await started;

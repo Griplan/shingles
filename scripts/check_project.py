@@ -78,7 +78,9 @@ def main() -> int:
         path = ROOT / relative
         if not path.is_dir() or not any(path.iterdir()):
             errors.append(f"目录不存在或缺少 .gitkeep 等保留文件：{relative}")
-    main_pages = ["pages/index/index", "pages/select/select"]
+    # V7 opens directly on the complete-body workflow; the legacy landing page
+    # remains available as a secondary explanation/source route.
+    main_pages = ["pages/select/select", "pages/index/index"]
     expected_subpackages = {
         "packages/clinical": [
             "pages/annotate/annotate", "pages/result/result",

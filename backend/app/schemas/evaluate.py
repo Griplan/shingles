@@ -39,6 +39,34 @@ class MultiPolygonGeometry(StrictModel):
     coordinateSpace: Literal['body_template_normalized_v1']
     coordinates: Annotated[list[PolygonRings], Field(min_length=1, max_length=1024)]
 
+class BodyIntersectionRequest(StrictModel):
+    view: Literal['front', 'back']
+    template_id: Identifier
+    template_version: Identifier
+    geometry_id: Identifier
+    region_set_id: Identifier
+    geometry: MultiPolygonGeometry
+
+    @model_validator(mode='after')
+    def vertex_budget(self):
+        count = sum(
+            len(ring)
+            for polygon in self.geometry.coordinates
+            for ring in polygon
+        )
+        if count > 20000:
+            raise ValueError('Body intersection geometry exceeds the processing limit')
+        return self
+
+class BodyIntersectionResponse(StrictModel):
+    method: Literal['body_intersection_v1']
+    status: Literal['inside', 'partial', 'outside']
+    source_area: float
+    intersection_area: float
+    outside_area: float
+    outside_area_ratio: float
+    geometry: MultiPolygonGeometry | None
+
 class Lesion(StrictModel):
     id: Identifier
     view: View

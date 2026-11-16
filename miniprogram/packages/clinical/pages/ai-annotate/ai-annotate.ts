@@ -10,7 +10,7 @@ import {usingPublicIpDebug} from "../../../../config/servers";
 import {preparePhoto,prunePhotoPreparationCache,PreparedPhoto} from "../../utils/prepare-photo";
 const photoPicks=new WeakMap<object,{cancelled:boolean}>();
 const flows=new WeakMap<object,AIPhotoFlow>();
-const contexts=new WeakMap<object,{view:BodyView;regionId:string}>();
+const contexts=new WeakMap<object,{view:BodyView;initialRegionHint:string|null}>();
 const timers=new WeakMap<object,ReturnType<typeof setInterval>>();
 const privacy="照片仅发送至本项目配置的后端，临时用于AI辅助圈定范围，不作诊断。进入人体放置后，完成分割所需的人体轮廓已复制到本机，原图的后端临时会话会立即释放；其余会话连续闲置15分钟后自动回收，取消或返回会请求删除。当前仅限公开或合成测试图片，请勿上传真实患者照片。";
 const photoPrivacy=()=>usingPublicIpDebug()?"当前使用HTTP公网调试，图片和临时会话不加密。只可选择公开授权或合成测试图片，严禁真实患者照片。照片临时用于AI辅助圈定范围，需自行确认；进入人体放置后会立即释放后端原图会话，其余会话连续闲置15分钟后自动回收并在取消或返回时请求删除。":privacy;
@@ -22,9 +22,10 @@ Page({
   selecting:true,adjusting:false,working:false,previewing:false,hasResult:false,canCycle:false,failed:false,openingPlacement:false,hasPendingPlacement:false},
  onLoad(query:Record<string,string>){
   prunePhotoPreparationCache();
-  const view=query.view,region=(view==="front"||view==="back")?getBodyRegion(view,query.region):null;
-  this.setData({available:canUseAI()&&!!region,context:region?`${view==="front"?"正面":"背面"} · ${region.name}`:"请返回选择身体部位"});
-  if(region&&(view==="front"||view==="back"))contexts.set(this,{view,regionId:region.id});
+  const view:BodyView=query.view==="back"?"back":"front";
+  const region=getBodyRegion(view,query.region);
+  this.setData({available:canUseAI(),context:region?`${view==="front"?"正面":"背面"} · ${region.name}（初始提示）`:`${view==="front"?"正面":"背面"} · 自由放置`});
+  contexts.set(this,{view,initialRegionHint:region?.id||null});
   flows.set(this,new AIPhotoFlow(aiTransport,()=>this.syncFlow()));
 
  },
@@ -119,7 +120,7 @@ Page({
   await new Promise<void>(resolve=>wx.nextTick(resolve));
   if(flows.get(this)!==f||f.confirmed!==source){wx.hideLoading?.();this.setData({openingPlacement:false});return;}
   const stillCurrent=()=>flows.get(this)===f&&f.confirmed===source&&!!f.session;
-  const result=placementSession.open(source,context.view,context.regionId,stillCurrent);
+  const result=placementSession.open(source,context.view,context.initialRegionHint,stillCurrent);
   if(!result.ok){wx.hideLoading?.();this.setData({openingPlacement:false,error:result.message});return;}
   // Detach before navigation so placement never races the immediate release of
   // the temporary backend photo session.

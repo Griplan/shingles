@@ -2,7 +2,8 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const path = require("node:path");
 const fromBuild = (file) => require(path.join(process.env.DERMATOME_BUILD_DIR, file));
-const { fitViewport, focusViewport, resetViewport, normalizedToCanvas, canvasToNormalized } = fromBuild("utils/coordinate.js");
+const { fitViewport, focusViewport, resetViewport, normalizedToCanvas, canvasToNormalized,
+  panViewport, zoomViewportAt } = fromBuild("utils/coordinate.js");
 const { getBodyModel } = fromBuild("data/body-models.js");
 const BODY_MODEL = getBodyModel("front");
 const { BODY_REGIONS, getBodyRegion } = fromBuild("data/body-regions.js");
@@ -126,4 +127,18 @@ test("J 正背面区域独立、ID唯一、解剖学左右正确，区域中心�
     samePoint(canvasToNormalized(normalizedToCanvas(p,t),t),p);
     for (const p of r.outline) assert.ok(p.x>=0 && p.x<=1 && p.y>=0 && p.y<=1);
   }
+});
+
+test("V7 browse camera pans and pinch-zooms without changing normalized geometry", () => {
+  const base = fitViewport(375, 520, BODY_MODEL);
+  const fixed = {x:.42,y:.61};
+  const before = normalizedToCanvas(fixed, base);
+  const panned = panViewport(base, 28, -17);
+  samePoint(normalizedToCanvas(fixed, panned), {x:before.x+28,y:before.y-17});
+  const focusPoint = {x:240,y:190};
+  const zoomed = zoomViewportAt(panned, focusPoint, 1.8, BODY_MODEL);
+  samePoint(normalizedToCanvas(canvasToNormalized(focusPoint, panned), zoomed), focusPoint);
+  assert.ok(zoomed.zoom > panned.zoom);
+  samePoint(canvasToNormalized(normalizedToCanvas(fixed, zoomed), zoomed), fixed);
+  assert.deepEqual(resetViewport(zoomed), base);
 });

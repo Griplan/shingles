@@ -54,6 +54,7 @@ def test_invalid_duplicate_limits_and_view(client):
  p=payload();p['lesions'][0]['view']='side';assert client.post('/api/v1/evaluate',json=p).json()['error']['code']=='VIEW_UNSUPPORTED'
  p=payload();p['lesions'][0]['vertices']*=40;assert client.post('/api/v1/evaluate',json=p).status_code==422
  assert client.post('/api/v1/evaluate',content=b'x'*(MAX_REQUEST_BYTES+1)).status_code==413
+ assert client.post('/api/v1/evaluate/body-intersection',content=b'x'*(MAX_REQUEST_BYTES+1)).status_code==413
  assert client.post('/api/v1/evaluate',content='bad json').status_code==422
 
 def test_corruption_not_cached_or_fallback(client,monkeypatch,tmp_path):

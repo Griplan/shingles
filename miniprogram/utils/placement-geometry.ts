@@ -290,9 +290,10 @@ export function preparePhotoGeometry(source:ConfirmedPhoto):PreparedPhotoGeometr
   return freeze({coordinateSpace:PHOTO_SPACE,width,height,polygons,vertexCount,bounds,
     center:{x:bounds.x+bounds.width/2,y:bounds.y+bounds.height/2}});
 }
-export function initialPlacement(photo:PreparedPhotoGeometry,model:BodyModelConfig,region:BodyRegion):PlacementTransform {
-  if(region.view!==model.view||!model.regions.some(r=>r.id===region.id))reject("VIEW","当前部位与人体视图不一致");
-  const b=region.bounds;
+export function initialPlacement(photo:PreparedPhotoGeometry,model:BodyModelConfig,region?:BodyRegion|null):PlacementTransform {
+  if(region&&(region.view!==model.view||!model.regions.some(r=>r.id===region.id)))reject("VIEW","当前部位与人体视图不一致");
+  const body=boundsOf(model.hitOutline.map(p=>({x:p.x/model.logicalWidth,y:p.y/model.logicalHeight})));
+  const b=region?.bounds||(body.width>0&&body.height>0?body:{x:0,y:0,width:1,height:1});
   // Visible, explicit edit baseline, not physical scale or a fit-to-body correction.
   const baseScale=Math.min(b.width*model.logicalWidth/photo.bounds.width,b.height*model.logicalHeight/photo.bounds.height)*.35;
   return {target:{templateId:model.id,templateVersion:model.version,geometryId:model.geometryId,regionSetId:model.regionSetId,view:model.view},

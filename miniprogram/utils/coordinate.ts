@@ -89,6 +89,37 @@ export function reframeViewport(previous:ViewportTransform,width:number,height:n
   requireViewport(result);return Object.freeze(result);
 }
 
+function clampOffsets(viewport:ViewportTransform):ViewportTransform {
+  const contentW=viewport.logicalWidth*viewport.scale,contentH=viewport.logicalHeight*viewport.scale;
+  const marginX=Math.min(viewport.viewportWidth*.35,contentW*.35);
+  const marginY=Math.min(viewport.viewportHeight*.35,contentH*.35);
+  const offsetX=Math.max(Math.min(viewport.offsetX,viewport.viewportWidth-marginX),marginX-contentW);
+  const offsetY=Math.max(Math.min(viewport.offsetY,viewport.viewportHeight-marginY),marginY-contentH);
+  return Object.freeze({...viewport,offsetX,offsetY});
+}
+
+/** Browse-only camera movement. It never changes normalized lesion coordinates. */
+export function panViewport(viewport:ViewportTransform,dx:number,dy:number):ViewportTransform {
+  requireViewport(viewport);
+  if(![dx,dy].every(Number.isFinite))throw new RangeError("平移量必须是有限数值");
+  return clampOffsets({...viewport,offsetX:viewport.offsetX+dx,offsetY:viewport.offsetY+dy});
+}
+
+/** Zoom around one Canvas-local CSS point, preserving the point under the gesture. */
+export function zoomViewportAt(viewport:ViewportTransform,canvasPoint:CanvasPoint,factor:number,
+  model:LogicalModel):ViewportTransform {
+  requireViewport(viewport);
+  if(![canvasPoint.x,canvasPoint.y,factor].every(Number.isFinite)||factor<=0)
+    throw new RangeError("缩放参数无效");
+  const base=fitViewport(viewport.viewportWidth,viewport.viewportHeight,model,viewport.padding);
+  const scale=Math.max(base.scale*.65,Math.min(base.scale*12,viewport.scale*factor));
+  const logicalX=(canvasPoint.x-viewport.offsetX)/(viewport.logicalWidth*viewport.scale);
+  const logicalY=(canvasPoint.y-viewport.offsetY)/(viewport.logicalHeight*viewport.scale);
+  return clampOffsets({...viewport,scale,zoom:scale/base.scale,
+    offsetX:canvasPoint.x-logicalX*viewport.logicalWidth*scale,
+    offsetY:canvasPoint.y-logicalY*viewport.logicalHeight*scale});
+}
+
 export function normalizedToCanvas(point: NormalizedPoint, viewport: ViewportTransform): CanvasPoint {
   if (![point.x, point.y].every(Number.isFinite) ||
       point.x < 0 || point.x > 1 || point.y < 0 || point.y > 1) {

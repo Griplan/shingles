@@ -1,10 +1,12 @@
 import {placementSession} from "../../state/placement-session";
 import {annotationSession,sessionToken} from "../../../../state/annotation-session";
 import {matchingSession} from "../../state/matching-session";
+import {intersectLesionWithBody} from "../../../../services/api";
 import {AnnotationLayer} from "../../../../types/annotation";
-import {BodyView,BodyViewportEvent,NormalizedPoint,ViewportTransform} from "../../../../types/dermatome";
+import {BodyView,BodyViewportEvent,NormalizedPoint,NormalizedRect,ViewportTransform} from "../../../../types/dermatome";
 import {PlacementTransform,PreparedPhotoGeometry} from "../../../../types/placement";
 import {getBodyModel} from "../../../../data/body-models";
+import {placementBounds} from "../../../../utils/placement-geometry";
 import {canPlaceAI} from "../../../../config/ai";
 import {canMatchReference} from "../../../../config/development";
 import {cancelPlacementReady,placementReady,retainPlacementView} from "../../state/placement-navigation";
@@ -13,9 +15,9 @@ type SliderKind="scale"|"angle";
 interface Life {id:string;owner:number;active:boolean;sequence:number;timer:ReturnType<typeof setInterval>|null;labels:ReturnType<typeof setTimeout>|null;drag:PlacementTransform|null;slider:SliderKind|null;cancelledSlider:SliderKind|null}
 const lives=new WeakMap<object,Life>();
 Page({
- data:{draftId:"",context:"",view:"front" as BodyView,zoomRegion:"",regionId:"",layoutRevision:0,interactionKey:"",
+ data:{draftId:"",context:"",view:"front" as BodyView,zoomRegion:"",regionId:null as string|null,focusBounds:null as NormalizedRect|null,layoutRevision:0,interactionKey:"",
   viewport:null as ViewportTransform|null,prepared:null as PreparedPhotoGeometry|null,transform:null as PlacementTransform|null,
-  layer:null as AnnotationLayer|null,scalePercent:100,angle:0,confirmed:false,editingSaved:false,calculating:false,dragging:false,valid:false,error:"",message:"",dialog:false,opening:false,overlayReady:false,revision:0},
+  layer:null as AnnotationLayer|null,scalePercent:100,angle:0,confirmed:false,editingSaved:false,calculating:false,dragging:false,valid:false,needsClip:false,error:"",message:"",dialog:false,opening:false,overlayReady:false,revision:0},
  onLoad(query:Record<string,string>){
   if(!canPlaceAI()){this.setData({error:"当前版本暂未开放AI人体放置，请返回手动标注"});return;}
   const owner=placementSession.acquire(query.draftId||"");
@@ -45,16 +47,17 @@ Page({
  syncDraft(initial=false){
   const life=lives.get(this);if(!life)return;const r=placementSession.read(life.id,life.owner);
   if(!r.ok){this.setData({error:r.message,valid:false});return;}
-  const d=r.draft,region=getBodyModel(d.view).regions.find(x=>x.id===d.regionId),s=annotationSession.read(d.token.sessionId);
+  const d=r.draft,region=d.regionId?getBodyModel(d.view).regions.find(x=>x.id===d.regionId):null,s=annotationSession.read(d.token.sessionId);
   // Keep the formal annotation unchanged until confirmation, but show the edited shape only once.
   const completed=s.ok?s.session.views[d.view].completed.filter(p=>d.phase!=="adjusting"||p.id!==d.editTarget?.id):[];
   const layer:AnnotationLayer|null=s.ok?{...sessionToken(s.session),view:d.view,completed,
    draft:null,selectedId:s.session.views[d.view].selectedId}:null;
-  const common={view:d.view,regionId:d.regionId,context:`${d.view==="front"?"正面":"背面"} · ${region?.name||"已选部位"}`,
+  const common={view:d.view,regionId:d.regionId,context:`${d.view==="front"?"正面":"背面"} · ${region?`${region.name}（初始提示）`:"自由放置"}`,
    transform:d.transform,scalePercent:Math.round(d.transform.scale*100),angle:d.transform.rotationDegrees,
-   confirmed:d.phase==="confirmed",valid:d.validation.ok,error:"",message:d.validation.message||"",revision:d.revision,
-   overlayReady:this.data.revision===d.revision?this.data.overlayReady:false};
-  if(initial)this.setData({...common,editingSaved:!!d.editTarget,prepared:d.prepared,zoomRegion:d.regionId,layer});
+   confirmed:d.phase==="confirmed",valid:d.validation.ok,needsClip:d.validation.code==="OUTSIDE_BODY",
+   error:"",message:d.clip?`已使用有效人体交集，越界部分 ${(d.clip.outsideAreaRatio*100).toFixed(1)}%`:(d.validation.message||""),
+   revision:d.revision,layer,overlayReady:this.data.revision===d.revision?this.data.overlayReady:false};
+  if(initial)this.setData({...common,editingSaved:!!d.editTarget,prepared:d.prepared,zoomRegion:region?.id||"",focusBounds:null});
   else this.setData(common);
   if(d.phase==="confirmed"){this.setData({layer});this.guardExit();}
  },
@@ -111,10 +114,40 @@ onDrag(e:WechatMiniprogram.CustomEvent<{key:string;phase:string;delta:Normalized
   this.update({...r.draft.transform,...(kind==="scale"?{scale:value/100}:{rotationDegrees:value})},complete);},
  reset(){const life=lives.get(this);if(!life?.active||this.data.confirmed||this.data.dialog)return;
   const r=placementSession.reset(life.id,life.owner);if(r.ok)this.syncDraft();else this.setData({message:r.message});},
- toggleFocus(){if(this.data.dragging||this.data.dialog)return;this.finishAdjustment();this.setData({viewport:null,overlayReady:false,zoomRegion:this.data.zoomRegion?"":this.data.regionId,layoutRevision:this.data.layoutRevision+1});},
+ toggleFocus(){if(this.data.dragging||this.data.dialog)return;this.finishAdjustment();const r=placementSession.read(this.data.draftId,lives.get(this)?.owner);
+  const bounds=r.ok?placementBounds(r.draft.geometry):this.data.focusBounds;
+  this.setData({viewport:null,overlayReady:false,zoomRegion:"",focusBounds:this.data.focusBounds?null:bounds,layoutRevision:this.data.layoutRevision+1});},
+ async chooseView(view:BodyView){const life=lives.get(this);if(!life?.active||this.data.dialog||this.data.dragging||this.data.confirmed||this.data.calculating||view===this.data.view)return;
+  this.finishAdjustment();const r=placementSession.switchView(life.id,life.owner,view);
+  if(!r.ok){this.setData({message:r.message});return;}
+  this.setData({viewport:null,overlayReady:false,focusBounds:null,layoutRevision:this.data.layoutRevision+1});this.syncDraft();
+ },
+ switchView(event:WechatMiniprogram.TouchEvent){const value=event.currentTarget.dataset.view;if(value==="front"||value==="back")void this.chooseView(value);},
+ async useBodyIntersection(){
+  const life=lives.get(this);if(!life?.active)return false;const r=placementSession.read(life.id,life.owner);if(!r.ok)return false;
+  const d=r.draft,target=d.transform.target;
+  const clipped=await intersectLesionWithBody({view:d.view,template_id:target.templateId,template_version:target.templateVersion,
+    geometry_id:target.geometryId,region_set_id:target.regionSetId,geometry:d.rawGeometry});
+  if(clipped.status==="outside"||!clipped.geometry){this.setData({message:"病灶完全位于人体外，请移动回有效皮肤范围"});return false;}
+  if(clipped.status==="inside"){
+   // The client only calls this endpoint after its exact local check reports
+   // an out-of-body result. An "inside" response therefore means the two
+   // boundary checks disagree; never manufacture a tiny clip or save it.
+   this.setData({message:"人体边界检查结果不一致，请重新调整位置后再试"});return false;
+  }
+  const accepted=await new Promise<boolean>(resolve=>wx.showModal({title:"使用有效人体交集？",content:`当前范围有 ${(clipped.outside_area_ratio*100).toFixed(1)}% 位于人体外。确认后将保留人体内的病灶部分，原始调整参数仍可继续修改。`,cancelText:"继续调整",confirmText:"使用交集",success:value=>resolve(value.confirm),fail:()=>resolve(false)}));
+  if(!accepted)return false;
+  const applied=placementSession.applyBodyIntersection(life.id,life.owner,clipped.geometry,clipped.outside_area_ratio);
+  if(!applied.ok){this.setData({message:applied.message});return false;}return true;
+ },
  async confirmPosition(){const life=lives.get(this);if(!life?.active||this.data.dialog||this.data.dragging||this.data.calculating||this.data.opening||this.data.error)return;
-  if(!this.data.confirmed&&(!this.data.valid||!this.data.viewport||!this.data.overlayReady))return;
+  if(!this.data.confirmed&&((!this.data.valid&&!this.data.needsClip)||!this.data.viewport||!this.data.overlayReady))return;
   const sequence=++life.sequence;this.setData({calculating:true,message:""});
+  if(!this.data.confirmed&&this.data.needsClip){
+   try{if(!await this.useBodyIntersection()){this.setData({calculating:false});return;}}
+   catch(e){this.setData({calculating:false,message:(e as Error).message||"人体交集检查失败，标注已保留"});return;}
+   this.finishAdjustment();this.syncDraft();
+  }
   // Commit is atomic/idempotent. A retry reads the saved body annotation, never inserts again.
   const r=this.data.confirmed?placementSession.read(life.id,life.owner):placementSession.confirm(life.id,life.owner);
   if(!r.ok){this.setData({calculating:false,message:r.message,valid:false});return;}

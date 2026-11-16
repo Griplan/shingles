@@ -21,7 +21,11 @@ class EvaluationBoundary:
     """Gate before parsing; bound actual bytes even without Content-Length."""
     def __init__(self,app):self.app=app
     async def __call__(self,scope,receive,send):
-        if scope['type']!='http' or scope['path']!='/api/v1/evaluate' or scope['method']!='POST':
+        evaluation_paths={
+            '/api/v1/evaluate',
+            '/api/v1/evaluate/body-intersection',
+        }
+        if scope['type']!='http' or scope['path'] not in evaluation_paths or scope['method']!='POST':
             return await self.app(scope,receive,send)
         if not matching_enabled():
             return await error_response('MATCHING_DISABLED','当前服务未启用开发测试参考匹配',403)(scope,receive,send)

@@ -1,0 +1,61 @@
+{
+  "recordedAt": "2026-11-16T17:18:21+08:00",
+  "typeScript": {
+    "status": "PASS",
+    "command": "npm --prefix miniprogram run typecheck"
+  },
+  "frontendTests": {
+    "status": "PASS",
+    "passed": 404,
+    "failed": 0,
+    "command": "npm --prefix miniprogram test"
+  },
+  "backendAndAiTests": {
+    "status": "PASS",
+    "passed": 330,
+    "failed": 0,
+    "warnings": 7,
+    "warningScope": "existing MobileSAM/timm dependency warnings",
+    "affectedSuitesPassedAfterGate": 37,
+    "affectedCommands": [
+      "backend/tests/test_api.py",
+      "backend/tests/test_evaluate_api.py",
+      "backend/tests/test_body_intersection.py"
+    ]
+  },
+  "wechatCompilers": {
+    "wcc": {
+      "status": "PASS",
+      "output": "/private/tmp/dermatome-v70-wxml.js",
+      "bytes": 104152
+    },
+    "wcsc": {
+      "status": "PASS",
+      "output": "/private/tmp/dermatome-v70-wxss.js",
+      "bytes": 4276
+    }
+  },
+  "projectChecks": {
+    "check_project": "PASS",
+    "sync_atlas_check": "PASS",
+    "miniprogram_packages": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "packageSizesBytes": {
+    "main": 884919,
+    "clinical": 1403785,
+    "special": 756519
+  },
+  "wechatDeveloperTools": {
+    "compileErrors": 0,
+    "warnings": 2,
+    "startPageLoaded": "pages/select/select",
+    "fullBodyEntryVisible": true,
+    "automaticTouchFlow": "NOT_RUN",
+    "automaticTouchFlowBlocker": "invalid element ID while targeting a nested WebView control",
+    "screenshotUsedAsTouchEvidence": false
+  },
+  "realDevice": "NOT_RUN",
+  "deployment": "NOT_RUN",
+  "gitCommit": "NOT_RUN"
+}

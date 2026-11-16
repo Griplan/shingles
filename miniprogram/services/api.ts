@@ -1,7 +1,7 @@
 import { apiBaseUrl,API_CONFIG } from "../config/api";
 import { canMatchReference } from "../config/development";
 import {SurfaceView} from "../types/dermatome";
-import { EvaluateRequest } from "../types/evaluate";
+import { BodyIntersectionRequest,BodyIntersectionResponse,EvaluateRequest } from "../types/evaluate";
 import { accessHeaders } from "../config/controlled";
 import {ensureTrialAccess,trialHeaders,invalidateTrialAccess,needsTrialAccess} from "./trial-access";
 import {currentEnvironment} from "../config/environment";
@@ -40,6 +40,29 @@ export async function evaluateAnnotations(payload:EvaluateRequest<SurfaceView>):
     if(r.statusCode===200){resolve(r.data);return;}
     const data=r.data as {error?:{code?:string}};
     reject(new Error(API_ERROR_TEXT[data?.error?.code||""]||(r.statusCode===502||r.statusCode===503?"服务暂时不可用，请确认已启动；标注已保留":`服务请求失败（${r.statusCode}），标注已保留`)));
+   },fail:error=>reject(new Error(networkErrorText(error)))});
+ });
+}
+/** One final exact polygon operation; never called from movement gestures. */
+export async function intersectLesionWithBody(payload:BodyIntersectionRequest):Promise<BodyIntersectionResponse> {
+ if(needsTrialAccess())await ensureTrialAccess();
+ return new Promise((resolve,reject)=>{
+  if(!canMatchReference()){reject(new Error("当前环境不允许人体几何交集"));return;}
+  let url:string;try{url=apiBaseUrl()+"/api/v1/evaluate/body-intersection";}catch(e){reject(e);return;}
+  const headers:Record<string,string>={"content-type":"application/json",...accessHeaders(),...trialHeaders()};
+  wx.request({url,method:"POST",data:payload as unknown as Record<string,unknown>,timeout:API_CONFIG.timeoutMs,
+   header:headers,success:r=>{
+    if(r.statusCode===401&&headers.authorization)invalidateTrialAccess(headers.authorization);
+    if(r.statusCode===200){
+     const value=r.data as Partial<BodyIntersectionResponse>;
+     if(value?.method!=="body_intersection_v1"||!["inside","partial","outside"].includes(value.status||"")||
+       !Number.isFinite(value.outside_area_ratio)||!("geometry" in (r.data as object))){
+      reject(new Error("人体交集结果格式无效，标注已保留"));return;
+     }
+     resolve(value as BodyIntersectionResponse);return;
+    }
+    const data=r.data as {error?:{code?:string}};
+    reject(new Error(API_ERROR_TEXT[data?.error?.code||""]||`人体交集检查失败（${r.statusCode}），标注已保留`));
    },fail:error=>reject(new Error(networkErrorText(error)))});
  });
 }

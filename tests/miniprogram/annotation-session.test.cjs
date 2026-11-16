@@ -69,6 +69,17 @@ test('V2.5 focus is presentation only; entry navigation is not a polygon fence',
  assert.equal(h.act({type:'close'}).ok,true);assert.equal(h.current().completed[0].navigation.entryRegionId,'front-chest');
  assert.deepEqual(h.current().completed[0].ring.slice(0,-1),f['UI-cross-navigation']);assert.equal(original.basis,h.store.snapshot().basis);
 });
+test('V7 free-body manual annotation accepts one shape spanning the coarse abdomen/leg boundary',()=>{
+ const store=new AnnotationSessionStore(),opened=store.open('front',null);assert.equal(opened.ok,true,opened.message);
+ const act=a=>store.dispatch(sessionToken(store.snapshot()),a);
+ const crossing=[{x:.52,y:.44},{x:.56,y:.44},{x:.56,y:.57},{x:.52,y:.57}];
+ for(const point of crossing)assert.equal(act({type:'add',point}).ok,true);
+ const closed=act({type:'close'});assert.equal(closed.ok,true,closed.message);
+ const saved=store.snapshot().views.front.completed[0];
+ assert.equal(saved.navigation.entryRegionId,null);
+ assert.deepEqual(saved.ring,[...crossing,crossing[0]]);
+ assert.ok(saved.ring.some(p=>p.y<.5)&&saved.ring.some(p=>p.y>.5));
+});
 test('V2 resource limits fail without truncation and IDs never reuse on cancel/delete',()=>{
  const h=setup(),initial=h.current().draft.id;h.act({type:'cancel'});h.act({type:'start'});assert.notEqual(h.current().draft.id,initial);
  for(let i=0;i<20;i++){if(!h.current().draft)h.act({type:'start'});assert.equal(polygon(h).ok,true);}

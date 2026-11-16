@@ -16,8 +16,12 @@ export type SessionAction=
   | {type:"focus";regionId:string|null}|{type:"review";discardDraft?:boolean}|{type:"edit"};
 export interface PlacementCommit {
   readonly placementId:string;
-  readonly entryRegionId:string;
+  /** Optional navigation hint only; it never limits placement or matching. */
+  readonly entryRegionId:string|null;
   readonly geometry:BodyMultiPolygon;
+  /** Raw transformed geometry before a user-approved body intersection. */
+  readonly clippedFromGeometry?:BodyMultiPolygon;
+  readonly clip?:{readonly method:"body_intersection_v1";readonly outsideAreaRatio:number};
   readonly source:ConfirmedPhoto;
   readonly transform:PlacementTransform;
   /** The confirmed photo geometry was copied into placement before the temporary server source was released. */
@@ -58,37 +62,42 @@ export class AnnotationSessionStore {
       return fail("人体模板或区域配置版本不匹配，原会话已保留，不能自动迁移坐标");
     return {ok:true,session:s};
   }
-  open(view:BodyView,entryRegionId:string):SessionResult {
+  open(view:BodyView,entryRegionId:string|null):SessionResult {
     const model=this.modelFor(view);
-    if(!model.regions.some(r=>r.id===entryRegionId))return fail("请先选择当前视图中的有效部位");
+    if(entryRegionId!==null&&!model.regions.some(r=>r.id===entryRegionId))
+      return fail("所选部位与当前人体视图不一致");
+    const hint=entryRegionId;
     if(this.active) {
       const existing=this.read(this.active.sessionId);
       if(!existing.ok)return existing;
-      // 重入优先恢复草稿及其原视图，不用新入口覆盖尚未处理的数据。
-      if(existing.session.views[existing.session.currentView].draft)return existing;
+      // 仍有顶点的草稿或另一面入口继续恢复原视图；同面空占位草稿允许更新可选定位提示。
+      if(existing.session.views[existing.session.currentView].draft?.vertices.length ||
+        view!==existing.session.currentView)return existing;
       const next={...existing.session,currentView:view,revision:existing.session.revision+1,
         views:{...existing.session.views,[view]:{...existing.session.views[view],focusRegionId:
-          existing.session.phase==="review"?null:entryRegionId}}};
+          existing.session.phase==="review"?null:hint}}};
       this.active=freeze(next);return {ok:true,session:this.active};
     }
     const initial=emptyView();
     this.active=freeze({schemaVersion:1,sessionId:id("session"),basis:modelBasis(model),currentView:view,
       phase:"editing",revision:0,views:{front:emptyView(),back:emptyView(),[view]:{
-        ...initial,focusRegionId:entryRegionId,draft:{id:id("region"),view,vertices:[],navigation:{entryRegionId}}}}});
+        ...initial,focusRegionId:hint,draft:{id:id("region"),view,vertices:[],navigation:{entryRegionId:hint}}}}});
     return {ok:true,session:this.active};
   }
   /** 放置入口只调整导航元数据；不继承空手工草稿的面，也不删掉任何已有顶点。 */
-  openPlacement(view:BodyView,entryRegionId:string):SessionResult {
+  openPlacement(view:BodyView,entryRegionId:string|null):SessionResult {
     if(view!=="front" && view!=="back")return fail("无效视图");
-    if(!this.modelFor(view).regions.some(r=>r.id===entryRegionId))return fail("请先选择当前视图中的有效部位");
-    if(!this.active)return this.open(view,entryRegionId);
+    if(entryRegionId!==null&&!this.modelFor(view).regions.some(r=>r.id===entryRegionId))
+      return fail("所选人体部位与视图不一致");
+    const hint=entryRegionId;
+    if(!this.active)return this.open(view,hint);
     const found=this.read(this.active.sessionId);if(!found.ok)return found;
     const s=found.session;
     if(s.views.front.draft?.vertices.length || s.views.back.draft?.vertices.length)
       return fail("请先闭合或取消已有手动草稿，再进入放置页面");
-    if(s.currentView===view && s.views[view].focusRegionId===entryRegionId)return found;
+    if(s.currentView===view && s.views[view].focusRegionId===hint)return found;
     this.active=freeze({...s,currentView:view,revision:s.revision+1,views:{...s.views,[view]:{
-      ...s.views[view],focusRegionId:entryRegionId}}});
+      ...s.views[view],focusRegionId:hint}}});
     return {ok:true,session:this.active};
   }
   /** 唯一正式写入口；拖动草稿不经过这里。重算、完整校验后一次追加整个贴片。 */
@@ -105,7 +114,8 @@ export class AnnotationSessionStore {
       const same=previous.view===view && previous.navigation.entryRegionId===payload.entryRegionId &&
         JSON.stringify(previous.geometry)===JSON.stringify(payload.geometry) &&
         JSON.stringify(previous.source.photo)===JSON.stringify(payload.source) &&
-        JSON.stringify(previous.source.transform)===JSON.stringify(payload.transform);
+        JSON.stringify(previous.source.transform)===JSON.stringify(payload.transform) &&
+        JSON.stringify(previous.source.clip??null)===JSON.stringify(payload.clip??null);
       return same?{ok:true,session:s}:fail("该放置已确认，不能以同一标识覆盖不同范围");
     }
     if(token.revision!==s.revision)return fail("标注会话已变化，请重新进入放置页面");
@@ -115,7 +125,8 @@ export class AnnotationSessionStore {
     if(payload.editTarget&&(!replaced||replaced.source?.kind!=="ai_assisted"||replaced.source.placementId!==payload.editTarget.placementId||
       JSON.stringify(replaced.source.photo)!==JSON.stringify(payload.source)))return fail("原AI标注已变化，不能覆盖；请返回重新选择");
     if(!replaced&&s.views[view].completed.length>=MAX_REGIONS_PER_VIEW)return fail(`每面最多 ${MAX_REGIONS_PER_VIEW} 片，请先删除不需要的区域`);
-    if(!model.regions.some(r=>r.id===payload.entryRegionId))return fail("当前视图没有该部位，请重新选择");
+    if(payload.entryRegionId!==null&&!model.regions.some(r=>r.id===payload.entryRegionId))
+      return fail("当前视野的初始定位提示无效");
     if(!payload.source || !Number.isFinite(payload.source.expires_at) ||
       (!replaced&&!payload.sourceDetached&&payload.source.expires_at<=Date.now()/1000))
       return fail("照片分析会话已过期，请返回重新上传或分析");
@@ -126,17 +137,36 @@ export class AnnotationSessionStore {
       source.confirmed_at>source.expires_at || source.prompts?.coordinate_space!=="photo_oriented_normalized_v1")
       return fail("缺少有效的AI确认来源，请返回分割页重新确认");
     let geometry:BodyMultiPolygon;
+    let clipped=false;
     try {
       const prepared=preparePhotoGeometry(payload.source);
       geometry=transformPhotoPolygonToBody(prepared,payload.transform,model);
-      const checked=validatePlacementGeometry(geometry,model);if(!checked.ok)return fail(checked.message);
+      const checked=validatePlacementGeometry(geometry,model);
+      clipped=!!(payload.clippedFromGeometry&&payload.clip);
+      if(clipped){
+        if(payload.clip?.method!=="body_intersection_v1"||!Number.isFinite(payload.clip.outsideAreaRatio)||
+          payload.clip.outsideAreaRatio<=0||payload.clip.outsideAreaRatio>=1)
+          return fail("有效人体交集信息无效，请重新调整位置");
+        if(JSON.stringify(geometry)!==JSON.stringify(payload.clippedFromGeometry))
+          return fail("原始轮廓与调整参数不一致，请重新检查位置");
+        const rawCheck=validatePlacementGeometry(payload.clippedFromGeometry!,model);
+        if(rawCheck.ok||rawCheck.code!=="OUTSIDE_BODY")
+          return fail("原始轮廓与人体交集状态不一致，请重新调整位置");
+        const effective=validatePlacementGeometry(payload.geometry,model);
+        if(!effective.ok)return fail(effective.message);
+        // Preserve the raw transform above, but make the user-approved exact
+        // body intersection the authoritative geometry for storage/matching.
+        geometry=JSON.parse(JSON.stringify(payload.geometry)) as BodyMultiPolygon;
+      }else if(!checked.ok)return fail(checked.message);
       // 不相信页面传入的预览，禁止把不同形状或不同坐标空间静默存入会话。
-      if(JSON.stringify(geometry)!==JSON.stringify(payload.geometry))return fail("预览范围与最终位置不一致，请重新调整并确认");
+      if(!clipped&&JSON.stringify(geometry)!==JSON.stringify(payload.geometry))
+        return fail("预览范围与最终位置不一致，请重新调整并确认");
     }catch(e){return fail(e instanceof Error?e.message:"放置数据无效，请返回分割页重新确认");}
     const polygon:CompletedPolygon={id:replaced?.id||id("region"),view,ring:geometry.coordinates[0][0],geometry,
       source:{kind:"ai_assisted",placementId:payload.placementId,
         photo:JSON.parse(JSON.stringify(payload.source)) as ConfirmedPhoto,
-        transform:JSON.parse(JSON.stringify(payload.transform)) as PlacementTransform},
+        transform:JSON.parse(JSON.stringify(payload.transform)) as PlacementTransform,
+        ...(clipped?{clip:{...payload.clip!}}:{})},
       navigation:{entryRegionId:payload.entryRegionId}};
     const current=s.views[view];
     this.active=freeze({...s,phase:"editing",revision:s.revision+1,views:{...s.views,[view]:{

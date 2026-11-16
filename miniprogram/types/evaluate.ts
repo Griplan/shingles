@@ -28,3 +28,20 @@ export interface EvaluateResponse<V extends SurfaceView = BodyView> {
   readonly atlas_type?:"SCHEMATIC";readonly review_status?:"NOT_MEDICALLY_VALIDATED";readonly intended_use?:"INTERACTIVE_SIMULATION";readonly source_type?:"ARTIFICIALLY_CONSTRUCTED";readonly disclaimer?:string;readonly atlas_status?:"PROVISIONAL";readonly uncertainty_level?:"HIGH";readonly medical_review_status:"pending";readonly preview:true;readonly coverage_note:string};
  readonly lesions:readonly MatchCoverage<V>[];readonly views:readonly MatchCoverage<V>[];readonly warnings:readonly string[];
 }
+export interface BodyIntersectionRequest {
+ readonly view:BodyView;
+ readonly template_id:string;
+ readonly template_version:string;
+ readonly geometry_id:string;
+ readonly region_set_id:string;
+ readonly geometry:BodyMultiPolygon;
+}
+export interface BodyIntersectionResponse {
+ readonly method:"body_intersection_v1";
+ readonly status:"inside"|"partial"|"outside";
+ readonly source_area:number;
+ readonly intersection_area:number;
+ readonly outside_area:number;
+ readonly outside_area_ratio:number;
+ readonly geometry:BodyMultiPolygon|null;
+}

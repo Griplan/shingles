@@ -2,11 +2,13 @@
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path');
 const load=f=>require(path.join(process.env.DERMATOME_BUILD_DIR,f));
 const {AnnotationSessionStore,sessionToken,modelBasis}=load('state/annotation-session.js');
+const {PlacementSessionStore}=load('packages/clinical/state/placement-session.js');
 const {getBodyModel}=load('data/body-models.js');
 const {preparePhotoGeometry,transformPhotoPolygonToBody}=load('utils/placement-geometry.js');
 const {MatchingSessionStore,snapshotKey,matchingIdentity}=load('packages/clinical/state/matching-session.js');
 const {drawLesions}=load('components/body-canvas/lesion-render.js');
 const {fitViewport,focusViewport}=load('utils/coordinate.js');
+const {syntheticPhoto}=require('./placement-fixtures.cjs');
 const fixtures=require('../../backend/tests/fixtures/synthetic-annotation-geometry.json').editor;
 function photo(){return {schema_version:'confirmed-photo-segmentation-v1',session_id:'SYNTHETIC_SESSION',photo_id:'SYNTHETIC_PHOTO',
  result_id:'SYNTHETIC_RESULT',candidate_id:'candidate-1',prompt_revision:3,coordinate_space:'photo_oriented_normalized_v1',
@@ -106,6 +108,37 @@ test('V5.3 V2 page restores complete back-view AI group, keeps body coordinates 
  assert.equal(page.data.view,'back');assert.equal(page.data.backCount,2);assert.equal(page.data.hasAIPlacement,true);assert.equal(page.data.matchingAllowed,true);assert.equal(page.data.resultMode,true);
  assert.deepEqual(page.data.layer.completed[1].geometry,p.geometry);assert.match(page.data.regions[1].label,/AI标注/);
  page.fullBody();assert.equal(page.data.zoomRegion,'');assert.equal(store.snapshot().views.back.completed[1],ai);assert.equal(store.snapshot().views.back.completed[0],old);
- page.finish();await page.viewMatches();assert.equal(requests,1);assert.equal(page.data.resultMode,true);assert.equal(page.data.matchStatus,'ready');page.continueEditing();page.newRegion();
+ await page.finish();assert.equal(requests,1);assert.equal(page.data.resultMode,true);assert.equal(page.data.matchStatus,'ready');page.continueEditing();page.newRegion();
  assert.equal(page.data.mode,'draw');assert.equal(store.snapshot().views.back.completed[1],ai);page.onHide();page.onUnload();
+});
+
+test('V7 free-body placement starts without a region, switches to the other template and confirms only after the switched view',()=>{
+ const annotations=new AnnotationSessionStore(),store=new PlacementSessionStore(annotations);
+ const opened=store.open(syntheticPhoto(100,true),'front',null,()=>true);assert.equal(opened.ok,true,opened.message);
+ assert.equal(opened.draft.regionId,null);assert.equal(annotations.snapshot().views.front.focusRegionId,null);
+ assert.equal(opened.draft.validation.ok,true,opened.draft.validation.message);
+ assert.equal(opened.draft.geometry.coordinates.length,5);
+ const owner=store.acquire(opened.draft.id),switched=store.switchView(opened.draft.id,owner,'back');
+ assert.equal(switched.ok,true,switched.message);
+ assert.equal(switched.draft.view,'back');assert.equal(switched.draft.regionId,null);
+ assert.equal(switched.draft.transform.target.view,'back');
+ assert.equal(annotations.snapshot().currentView,'back');
+ assert.equal(store.confirm(opened.draft.id,owner).ok,true);
+ assert.equal(annotations.snapshot().views.front.completed.length,0);
+ assert.equal(annotations.snapshot().views.back.completed.length,1);
+});
+
+test('V7 partial overlap stores the exact valid intersection, preserves components and holes, and clears clip on a later edit',()=>{
+ const annotations=new AnnotationSessionStore(),store=new PlacementSessionStore(annotations);
+ const opened=store.open(syntheticPhoto(100,true),'front',null,()=>true),id=opened.draft.id,owner=store.acquire(id);
+ const effective=opened.draft.geometry,outside={...opened.draft.transform,translation:{x:.98,y:.5}};
+ const raw=store.update(id,owner,outside,true);assert.equal(raw.ok,true,raw.message);
+ assert.equal(raw.draft.validation.code,'OUTSIDE_BODY');
+ const applied=store.applyBodyIntersection(id,owner,effective,.18);assert.equal(applied.ok,true,applied.message);
+ assert.equal(applied.draft.validation.ok,true);assert.equal(applied.draft.clip.outsideAreaRatio,.18);
+ assert.deepEqual(applied.draft.geometry,effective);assert.equal(applied.draft.geometry.coordinates.length,5);
+ assert.ok(applied.draft.geometry.coordinates.every(poly=>poly.length===2),'each source component retains its hole');
+ assert.equal(store.confirm(id,owner).ok,true);
+ const saved=annotations.snapshot().views.front.completed[0];
+ assert.deepEqual(saved.geometry,effective);assert.equal(saved.source.clip.outsideAreaRatio,.18);
 });

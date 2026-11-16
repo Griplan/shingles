@@ -4,6 +4,7 @@
 .body-title { flex:1; min-width:0; white-space:nowrap; font-size:18px; line-height:26px; font-weight:600; }
 .utility-actions { display:flex; flex:0 0 auto; gap:8px; }
 .utility-link { padding:4px 1px; white-space:nowrap; font-size:11px; line-height:20px; color:#527567; }
+.utility-link.is-disabled { color:#98a79d; }
 .body-button::after { border:0; }
 .interaction-hint { min-height:32px; margin:2px 0 4px; font-size:12px; line-height:16px; color:#667b70; }
 .body-button { min-width:0; margin:0; box-sizing:border-box; font-size:14px; line-height:22px; border-radius:10px; }
@@ -14,17 +15,21 @@
 .orientation { display:flex; justify-content:space-between; padding:0 5px 4px; font-size:10px; line-height:14px; color:#7b8a80; }
 .canvas-area { flex:1; height:0; min-height:240px; }
 .bottom-actions { flex-shrink:0; padding-top:4px; }
-.browse-workspace{display:flex;flex-direction:column;flex:1;min-height:0}
+.browse-workspace{display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden}
+.view-switch{position:relative;z-index:5}
+.view-tab{position:relative;z-index:6}
+.model-stage{position:relative;z-index:1;overflow:hidden}
 @media (min-width:680px) and (min-height:520px){
  .browse-workspace{flex-direction:row;align-items:stretch}
  .browse-workspace .model-stage{flex:5 1 0}
  .browse-workspace .bottom-actions{flex:3 1 0;align-self:flex-start}
 }
-.selection-summary { display:flex; align-items:center; justify-content:space-between; min-height:32px; gap:4px; }
+.selection-summary { display:flex; align-items:center; justify-content:space-between; min-height:28px; gap:4px; }
 .selection-name { font-size:14px; line-height:20px; font-weight:600; }
 .list-entry { flex-shrink:0; font-size:12px; color:#236b57; padding:6px 0 6px 6px; }
 .action-row { display:flex; gap:8px; }
-.annotation-entry { margin-top:6px; }
+.annotation-entry { margin-top:4px; }
+.focused-actions { margin-bottom:4px; }
 .primary-action,.secondary-action { flex:1; min-height:44px; padding:11px 8px; }
 .primary-action { background:#236b57; color:#fff; }
 .secondary-action { background:#e3ece5; color:#315b45; }

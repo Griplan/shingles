@@ -1,7 +1,7 @@
 import { getBodyModel } from "../../data/body-models";
 import { BodyModelConfig, CanvasRect, DebugPoint, NormalizedRect, ViewportTransform } from "../../types/dermatome";
 import { AtlasLayer, AtlasRegion } from "../../types/atlas";
-import { fitViewport, focusViewport, reframeViewport } from "../../utils/coordinate";
+import { fitViewport, focusViewport, panViewport, reframeViewport, zoomViewportAt } from "../../utils/coordinate";
 import { InputTouch, probeTouch, readTouch } from "../../utils/body-debug";
 import { drawBody, BodyContext } from "./render";
 import { hitTestRegion } from "../../utils/body-hit-test";
@@ -13,19 +13,43 @@ import { EXPERIENCE } from "../../config/experience";
 import { canvasBackingSize } from "../../utils/canvas-size";
 interface ImageEntry { image:WechatMiniprogram.Image;ready:boolean;failed:boolean;promise:Promise<boolean>;resolve:(ready:boolean)=>void }
 interface CanvasMeasurement { node:WechatMiniprogram.Canvas;width:number;height:number }
+interface GesturePoint {id:number;point:{x:number;y:number};kind:"canvas"|"client"}
+interface CameraGesture {kind:"pan"|"pinch";start:GesturePoint[];base:ViewportTransform;rect:{left:number;top:number}|null;
+  distance:number;midpoint:{x:number;y:number};moved:boolean}
 interface Runtime {
  mounted:boolean;visible:boolean;pending:boolean;scheduled:boolean;generation:number;probeSequence:number;
  model:BodyModelConfig|null;viewport:ViewportTransform|null;point:DebugPoint|null;touch:InputTouch|null;moved:boolean;
  measurement:CanvasMeasurement|null;ctx:BodyContext|null;layout:number;images:Map<string,ImageEntry>;
  transition:OverlayTransition;overlayKey:string;displayRegions:Map<string,AtlasRegion>;displayLayer:AtlasLayer|null;
  measures:number;initializations:number;loads:number;frames:number;painted:boolean;queuedAt:number;ctxNode:WechatMiniprogram.Canvas|null;
+ manualViewport:ViewportTransform|null;cameraKey:string;gesture:CameraGesture|null;gestureSequence:number;
 }
 const runtimes=new WeakMap<object,Runtime>();
+function gesturePoints(event:unknown):GesturePoint[] {
+ const source=event&&typeof event==="object"?(event as Record<string,unknown>).touches:null;
+ if(!Array.isArray(source))return [];
+ const points:GesturePoint[]=[];
+ source.forEach((raw,index)=>{
+  if(!raw||typeof raw!=="object")return;
+  const t=raw as Record<string,unknown>,id=typeof t.identifier==="number"?t.identifier:index;
+  if(typeof t.x==="number"&&typeof t.y==="number"&&Number.isFinite(t.x)&&Number.isFinite(t.y))
+   points.push({id,kind:"canvas",point:{x:t.x,y:t.y}});
+  else if(typeof t.clientX==="number"&&typeof t.clientY==="number"&&Number.isFinite(t.clientX)&&Number.isFinite(t.clientY))
+   points.push({id,kind:"client",point:{x:t.clientX,y:t.clientY}});
+ });
+ return points;
+}
+function gestureGeometry(points:GesturePoint[],rect:{left:number;top:number}|null) {
+ const local=points.map(p=>p.kind==="canvas"||!rect?p.point:{x:p.point.x-rect.left,y:p.point.y-rect.top});
+ const midpoint=local.length>1?{x:(local[0].x+local[1].x)/2,y:(local[0].y+local[1].y)/2}:local[0]||{x:0,y:0};
+ const distance=local.length>1?Math.hypot(local[1].x-local[0].x,local[1].y-local[0].y):0;
+ return {midpoint,distance};
+}
 Component({
  properties:{
   view:{type:String,value:"front"},selectedRegion:{type:String,value:""},zoomRegion:{type:String,value:""},
   debugEnabled:{type:Boolean,value:false},interactionBlocked:{type:Boolean,value:false},touchDisabled:{type:Boolean,value:false},
-  layoutRevision:{type:Number,value:0},interactionMode:{type:String,value:"select"},
+  layoutRevision:{type:Number,value:0},interactionMode:{type:String,value:"select"},cameraEnabled:{type:Boolean,value:false},
   annotation:{type:null,value:null as AnnotationLayer|null},atlas:{type:null,value:null as AtlasLayer|null},
   focusBounds:{type:null,value:null as NormalizedRect|null},motionEnabled:{type:Boolean,value:false},
   retainedViewport:{type:null,value:null as ViewportTransform|null},
@@ -33,8 +57,11 @@ Component({
  },
  data:{loading:true,error:""},
  observers:{
-  "view,selectedRegion,zoomRegion,debugEnabled,interactionBlocked,touchDisabled,layoutRevision,interactionMode,annotation,atlas,focusBounds,retainedViewport,motionEnabled,overlayKey,sceneId"(){
+  "view,selectedRegion,zoomRegion,debugEnabled,interactionBlocked,touchDisabled,layoutRevision,interactionMode,cameraEnabled,annotation,atlas,focusBounds,retainedViewport,motionEnabled,overlayKey,sceneId"(){
    const state=runtimes.get(this);if(!state)return;
+   const cameraKey=JSON.stringify([this.properties.view,this.properties.zoomRegion,this.properties.focusBounds,
+     this.properties.retainedViewport,this.properties.layoutRevision,this.properties.cameraEnabled]);
+   if(state.cameraKey!==cameraKey){state.cameraKey=cameraKey;state.manualViewport=null;state.gesture=null;}
    if(!this.properties.debugEnabled || state.model?.view!==this.properties.view)state.point=null;
    const changed=state.layout!==this.properties.layoutRevision;state.layout=this.properties.layoutRevision;
    this.refreshCanvas(changed);
@@ -44,13 +71,15 @@ Component({
   created(){runtimes.set(this,{mounted:false,visible:true,pending:false,scheduled:false,generation:0,probeSequence:0,
    model:null,viewport:null,point:null,touch:null,moved:false,measurement:null,ctx:null,layout:0,images:new Map(),
    transition:new OverlayTransition(),overlayKey:"",displayRegions:new Map(),displayLayer:null,
-   measures:0,initializations:0,loads:0,frames:0,painted:false,queuedAt:Date.now(),ctxNode:null});},
+   measures:0,initializations:0,loads:0,frames:0,painted:false,queuedAt:Date.now(),ctxNode:null,
+   manualViewport:null,cameraKey:"",gesture:null,gestureSequence:0});},
   ready(){const s=runtimes.get(this);if(s){s.mounted=true;this.queueDraw();}},
   detached(){const s=runtimes.get(this);if(s){s.transition.cancel(true);s.images.forEach(i=>i.resolve(false));}runtimes.delete(this);},
  },
  pageLifetimes:{
   show(){const s=runtimes.get(this);if(s){s.visible=true;this.refreshCanvas(true);}},
   hide(){const s=runtimes.get(this);if(s){s.visible=false;s.generation++;s.probeSequence++;s.pending=false;s.touch=null;
+   s.gesture=null;s.manualViewport=null;
    // 恢复时重新确认尺寸并直接绘制终态，不能重播进入结果的淡入。
    s.viewport=null;s.transition.cancel(true);s.displayRegions.clear();}},
   resize(){this.refreshCanvas(true);},
@@ -108,7 +137,9 @@ Component({
    const base=fitViewport(width,height,model),target=model.regions.find(r=>r.id===this.properties.zoomRegion);
    const retained=this.properties.retainedViewport;
    if(retained&&(retained.logicalWidth!==model.logicalWidth||retained.logicalHeight!==model.logicalHeight))throw Error("视口模板不一致");
-   const viewport=this.properties.focusBounds?focusViewport(base,this.properties.focusBounds):retained?reframeViewport(retained,width,height):target?focusViewport(base,target.bounds):base;
+   const layoutViewport=this.properties.focusBounds?focusViewport(base,this.properties.focusBounds):retained?reframeViewport(retained,width,height):target?focusViewport(base,target.bounds):base;
+   const viewport=s.manualViewport&&s.manualViewport.viewportWidth===width&&s.manualViewport.viewportHeight===height?
+     s.manualViewport:layoutViewport;
    if(node.width!==physicalWidth)node.width=physicalWidth;if(node.height!==physicalHeight)node.height=physicalHeight;
    if(!s.ctx){s.ctx=node.getContext("2d");s.ctxNode=node;s.initializations++;}const ctx=s.ctx;if(!ctx)throw Error("无2D上下文");
    const priorViewport=s.viewport,priorView=s.model?.view;s.model=model;s.viewport=viewport;
@@ -147,24 +178,60 @@ Component({
    const sameViewport=JSON.stringify(priorViewport)===JSON.stringify(viewport);
    s.transition.start((atlas?.regions||[]).map(r=>r.id),retain,clock && sameViewport?EXPERIENCE.overlayMs:0,clock,paint);
   },
+    resetCamera(){const state=runtimes.get(this);if(!state||!state.manualViewport)return;state.manualViewport=null;state.gesture=null;this.queueDraw();},
+    beginCameraGesture(event:unknown):boolean {
+      const state=runtimes.get(this),points=gesturePoints(event);
+      if(!state?.viewport||!this.properties.cameraEnabled||this.properties.debugEnabled||
+        this.properties.interactionBlocked||this.properties.touchDisabled||points.length===0)return false;
+      const pinch=points.length>1;
+      if(!pinch&&this.properties.interactionMode==="draw")return false;
+      const sequence=++state.gestureSequence,generation=state.generation,base=state.manualViewport||state.viewport;
+      const setup=(rect:{left:number;top:number}|null)=>{
+       if(runtimes.get(this)!==state||state.gestureSequence!==sequence||state.generation!==generation||!state.visible)return;
+       const geometry=gestureGeometry(points,rect);
+       state.gesture={kind:pinch?"pinch":"pan",start:points,base,rect,distance:geometry.distance,
+         midpoint:geometry.midpoint,moved:false};
+      };
+      if(points[0].kind==="client"){
+       this.createSelectorQuery().select("#body-canvas").boundingClientRect(rect=>setup(rect as {left:number;top:number}|null)).exec();
+      }else setup(null);
+      return true;
+    },
     onCanvasStart(event:unknown) {
       const state=runtimes.get(this);if(!state)return;
-      state.touch=null;
+      state.touch=null;state.gesture=null;
+      if(this.beginCameraGesture(event))return;
       if(!state.viewport || (this.properties.interactionBlocked || this.properties.touchDisabled) || (!this.properties.debugEnabled &&
         (this.properties.interactionMode==="readonly" ||
           (this.properties.interactionMode!=="draw" && this.properties.zoomRegion))))return;
       state.touch=readTouch(event);state.moved=false;
     },
     onCanvasMove(event:unknown) {
-      const state=runtimes.get(this);if(!state?.touch)return;
+      const state=runtimes.get(this);if(!state)return;
+      if(state.gesture){
+       const points=gesturePoints(event);if(points.length===0)return;
+       const view=this.properties.view==="back"?"back":"front";
+       const geometry=gestureGeometry(points,state.gesture.rect),model=getBodyModel(view);
+       let next:ViewportTransform;
+       if(state.gesture.kind==="pinch"){
+        if(points.length<2||state.gesture.distance<=0)return;
+        const factor=Math.max(.1,Math.min(10,geometry.distance/state.gesture.distance));
+        next=panViewport(zoomViewportAt(state.gesture.base,state.gesture.midpoint,factor,model),
+          geometry.midpoint.x-state.gesture.midpoint.x,geometry.midpoint.y-state.gesture.midpoint.y);
+       }else next=panViewport(state.gesture.base,geometry.midpoint.x-state.gesture.midpoint.x,
+         geometry.midpoint.y-state.gesture.midpoint.y);
+       state.gesture.moved=true;state.manualViewport=next;state.point=null;this.queueDraw();return;
+      }
+      if(!state.touch)return;
       const next=readTouch(event);
       if(!next||next.kind!==state.touch.kind||
         Math.hypot(next.point.x-state.touch.point.x,next.point.y-state.touch.point.y)>8)state.moved=true;
     },
-    onCanvasCancel() { const state=runtimes.get(this);if(state)state.touch=null; },
+    onCanvasCancel() { const state=runtimes.get(this);if(state){state.touch=null;state.gesture=null;} },
     onCanvasEnd(event:unknown) {
       const state=runtimes.get(this),input=readTouch(event);
       if(!state)return;
+      if(state.gesture){state.gesture=null;this.queueDraw();return;}
       const start=state.touch;state.touch=null;
       if((this.properties.interactionBlocked || this.properties.touchDisabled)||!state.visible||!start||state.moved||!input)return;
       const debugging=this.properties.debugEnabled;

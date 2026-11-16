@@ -1,10 +1,11 @@
 import { getBodyRegion } from "../../data/body-regions";
 import { getBodyModel } from "../../data/body-models";
 import { BodyRegionProbe, BodyView, BodyViewportEvent, DebugProbe } from "../../types/dermatome";
-import { annotationSession } from "../../state/annotation-session";
+import { annotationSession,sessionToken } from "../../state/annotation-session";
 
 import {canUseDeveloperTools} from "../../config/environment";
 import {canUseAI} from "../../config/ai";
+import {canMatchReference} from "../../config/development";
 
 const initialModel=getBodyModel("front");
 const EMPTY_DEBUG={probeStatus:"",debugMessage:"轻点人体，查看实际坐标。",screenX:"—",screenY:"—",
@@ -37,7 +38,11 @@ Page({
     physicalHeight:"—" as number|string,dpr:"—" as number|string,
     scale:"—",zoom:"—",offsetX:"—",offsetY:"—",
   },EMPTY_DEBUG),
-  onShow() {const debugAllowed=canUseDeveloperTools();this.setData({layoutRevision:this.data.layoutRevision+1,debugAllowed,aiAllowed:canUseAI(),...(!debugAllowed?{developerOpen:false,debugEnabled:false}:{})});},
+  onShow() {
+    const debugAllowed=canUseDeveloperTools();
+    this.setData({layoutRevision:this.data.layoutRevision+1,debugAllowed,aiAllowed:canUseAI(),
+      ...(!debugAllowed?{developerOpen:false,debugEnabled:false}:{})});
+  },
   onResize() { this.setData({layoutRevision:this.data.layoutRevision+1}); },
   switchView(event: WechatMiniprogram.TouchEvent) {
     const view: unknown = event.currentTarget.dataset.view;
@@ -76,7 +81,12 @@ Page({
     const p=event.detail;
     if(this.data.debugEnabled||this.data.sheetOpen||this.data.infoOpen||this.data.mode!=="overview"||
       p.view!==this.data.view||p.modelId!==this.data.modelId||p.modelVersion!==this.data.modelVersion)return;
-    if(p.status==="unique" && p.regionIds.length===1) {this.applySelection(p.regionIds[0]);return;}
+    if(p.status==="unique" && p.regionIds.length===1) {
+      if(p.regionIds[0]===this.data.selectedRegion)this.setData({selectedRegion:"",selectedName:"未选择",
+        sheetOpen:false,candidateIds:[],selectionMessage:""});
+      else this.applySelection(p.regionIds[0]);
+      return;
+    }
     if(p.status==="ambiguous") {
       const candidates=getBodyModel(this.data.view).regions.filter(r=>p.regionIds.includes(r.id));
       if(candidates.length>1)this.setData({sheetOpen:true,sheetRegions:candidates,
@@ -100,18 +110,46 @@ Page({
   },
   startAnnotation() {
     if(this.data.sheetOpen || this.data.infoOpen || this.data.debugEnabled)return;
-    const result=annotationSession.open(this.data.view,this.data.selectedRegion);
+    const result=annotationSession.open(this.data.view,this.data.selectedRegion||null);
     if(!result.ok){this.setData({selectionMessage:result.message});return;}
     this.setData({infoOpen:true});
-    wx.navigateTo({url:`/packages/clinical/pages/annotate/annotate?sessionId=${encodeURIComponent(result.session.sessionId)}`,
+    let target=result.session;
+    const saved=target.views.front.completed.length+target.views.back.completed.length>0 &&
+      !target.views.front.draft && !target.views.back.draft;
+    if(saved && target.phase!=="review"){
+      const reviewed=annotationSession.dispatch(sessionToken(target),{type:"review"});
+      if(!reviewed.ok){this.setData({selectionMessage:reviewed.message});return;}
+      target=reviewed.session;
+    }
+    wx.navigateTo({url:`/packages/clinical/pages/annotate/annotate?sessionId=${encodeURIComponent(target.sessionId)}${saved?"&result=1":""}`,
       fail:()=>this.setData({selectionMessage:"标注页面未能打开，请重试；会话仍保留"}),
       complete:()=>this.setData({infoOpen:false})});
   },
   startAI() {
     if(!canUseAI())return;
-    if(this.data.sheetOpen||this.data.infoOpen||this.data.debugEnabled||!getBodyRegion(this.data.view,this.data.selectedRegion))return;
-    wx.navigateTo({url:`/packages/clinical/pages/ai-annotate/ai-annotate?view=${this.data.view}&region=${encodeURIComponent(this.data.selectedRegion)}`,
+    if(this.data.sheetOpen||this.data.infoOpen||this.data.debugEnabled)return;
+    const region=this.data.selectedRegion?`&region=${encodeURIComponent(this.data.selectedRegion)}`:"";
+    wx.navigateTo({url:`/packages/clinical/pages/ai-annotate/ai-annotate?view=${this.data.view}${region}`,
       fail:()=>this.setData({selectionMessage:"AI页面未能打开，请重试"})});
+  },
+  openMatching() {
+    if(this.data.sheetOpen||this.data.infoOpen||this.data.debugEnabled)return;
+    if(!canMatchReference()){this.setData({selectionMessage:"当前版本未开放参考图谱计算"});return;}
+    let session=annotationSession.snapshot();
+    if(!session){this.setData({selectionMessage:"暂无已确认标注，请先手动标注或使用AI辅助标注"});return;}
+    const read=annotationSession.read(session.sessionId);
+    if(!read.ok){this.setData({selectionMessage:read.message});return;}
+    session=read.session;
+    const completed=session.views.front.completed.length+session.views.back.completed.length;
+    const pending=session.views.front.draft?.vertices.length||session.views.back.draft?.vertices.length;
+    if(!completed){this.setData({selectionMessage:"暂无已确认标注，请先完成一片范围"});return;}
+    if(pending){this.setData({selectionMessage:"请先继续手动标注并处理未闭合草稿"});return;}
+    if(session.phase!=="review"){
+      const reviewed=annotationSession.dispatch(sessionToken(session),{type:"review"});
+      if(!reviewed.ok){this.setData({selectionMessage:reviewed.message});return;}
+    }
+    wx.navigateTo({url:`/packages/clinical/pages/annotate/annotate?sessionId=${encodeURIComponent(session.sessionId)}&result=1`,
+      fail:()=>this.setData({selectionMessage:"神经匹配页面未能打开，请重试"})});
   },
   toggleDeveloper() {
     if(!canUseDeveloperTools())return;

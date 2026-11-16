@@ -11,9 +11,12 @@ test('初始无默认选择、不可放大；人体唯一命中只高亮，确�
  const p=harness();assert.equal(p.data.mode,'overview');assert.equal(p.data.selectedRegion,'');
  p.zoomIn();assert.equal(p.data.zoomRegion,'');p.onRegionProbe(probe());
  assert.equal(p.data.selectedRegion,'front-chest');assert.equal(p.data.zoomRegion,'');assert.equal(p.data.mode,'overview');
+ p.onRegionProbe(probe());assert.equal(p.data.selectedRegion,'');assert.equal(p.data.selectedName,'未选择');
+ assert.equal(p.data.zoomRegion,'');assert.equal(p.data.mode,'overview');
+ p.onRegionProbe(probe());assert.equal(p.data.selectedRegion,'front-chest');assert.equal(p.data.selectedName,'胸部');
  p.zoomIn();assert.equal(p.data.mode,'focused');assert.equal(p.data.zoomRegion,'front-chest');
  p.onRegionProbe(probe('unique',['front-head']));assert.equal(p.data.selectedRegion,'front-chest');
- p.showFullBody();assert.equal(p.data.mode,'overview');assert.equal(p.data.zoomRegion,'');assert.equal(p.data.selectedName,'胸部');
+ assert.equal(p.data.zoomRegion,'front-chest');assert.equal(p.data.mode,'focused');
 });
 test('从列表和人体选中相同状态，focused换部位回overview，取消弹层不改选择/视口',()=>{
  const a=harness(),b=harness();a.onRegionProbe(probe());b.openRegionPicker();b.chooseFromList({detail:{id:'front-chest'}});

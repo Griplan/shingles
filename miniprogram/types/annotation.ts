@@ -28,6 +28,8 @@ export interface CompletedPolygon<V extends SurfaceView = BodyView> {
     /** 原始照片分割及其Mask引用，引用受原expires_at约束，不是永久照片存储。 */
     readonly photo:ConfirmedPhoto;
     readonly transform:PlacementTransform;
+    /** Effective geometry is the source transform intersected with the complete body. */
+    readonly clip?:{readonly method:"body_intersection_v1";readonly outsideAreaRatio:number};
   };
   readonly navigation: NavigationContext;
 }

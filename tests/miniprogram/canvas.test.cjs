@@ -39,7 +39,8 @@ function harness(width=343,height=540,dpr=2) {
   } };
   global.wx = { nextTick:cb=>jobs.push(cb), getWindowInfo:()=>({pixelRatio:state.dpr}) };
   const instance = {
-    data: {...definition.data}, properties:{view:"front",selectedRegion:"",zoomRegion:"",debugEnabled:false,interactionBlocked:false,layoutRevision:0},
+    data: {...definition.data}, properties:{view:"front",selectedRegion:"",zoomRegion:"",debugEnabled:false,
+      interactionBlocked:false,touchDisabled:false,layoutRevision:0,interactionMode:"select",cameraEnabled:false},
     events: [], setData(change) { Object.assign(this.data,change); },
     triggerEvent(name,detail) { this.events.push({name,detail}); },
     createSelectorQuery() {
@@ -361,6 +362,22 @@ test('正常模式拖动、多指、取消也不误选，布局变更后旧尺�
  h.flush();assert.equal(regionProbe(h),undefined);
  h.state.height=400;touch(h,{x:144,y:94});assert.equal(regionProbe(h).status,'unavailable');assert.equal(lastViewport(h).viewport.viewportHeight,400);
  h.property({layoutRevision:1});assert.equal(lastViewport(h).viewport.viewportHeight,400);
+});
+test('V7 readonly camera pan/pinch changes only viewport and never emits a region click or annotation point',()=>{
+ const h=harness(360,540,2);h.ready();h.property({cameraEnabled:true,interactionMode:'readonly'});
+ const base=lastViewport(h).viewport,events=h.instance.events.length;
+ h.instance.onCanvasStart({touches:[{identifier:1,x:140,y:180}]});
+ h.instance.onCanvasMove({touches:[{identifier:1,x:172,y:205}]});
+ h.instance.onCanvasEnd({changedTouches:[{identifier:1,x:172,y:205}]});h.flush();
+ const panned=lastViewport(h).viewport;
+ assert.notEqual(panned.offsetX,base.offsetX);assert.notEqual(panned.offsetY,base.offsetY);
+ assert.equal(lastViewport(h).markerCanvas,null);
+ assert.equal(h.instance.events.filter((e,i)=>i>=events&&e.name==='regionprobe').length,0);
+ h.instance.onCanvasStart({touches:[{identifier:1,x:120,y:220},{identifier:2,x:240,y:220}]});
+ h.instance.onCanvasMove({touches:[{identifier:1,x:90,y:220},{identifier:2,x:270,y:220}]});
+ h.instance.onCanvasEnd({changedTouches:[]});h.flush();
+ assert.ok(lastViewport(h).viewport.zoom>panned.zoom);
+ assert.equal(h.instance.events.filter((e,i)=>i>=events&&(e.name==='regionprobe'||e.name==='annotationpoint')).length,0);
 });
 test('正常选择区分重叠和人体外，查询失败不伪造选区；换面丢弃旧触点',()=>{
  const h=harness(288,300,2);h.ready();const scale=268/900;

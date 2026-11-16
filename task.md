@@ -2101,3 +2101,42 @@ P10 结论：当前前三项热点是 MobileSAM 同照片重复图像编码、�
 - [x] PASSED：同环境5片5孔生产几何中位对照，100/500/2000/5000/10000/20000点总耗时1.08/5.46/43.53/220.83/861.24/3168.15ms降至0.92/1.92/5.39/13.92/26.64/61.04ms；完整PlacementSessionStore.open在2000/10000/20000点约6.76/29.96/64.70ms。证据见[专项报告](docs/validation-records/placement-entry-latency/report.md)。
 - [x] PASSED：TypeScript、前端397/397、人体边界与冻结基线等价、项目结构、图谱无损、分包引用与体积、微信wcc/wcsc目标页面编译。Apple M4 Node结果不含手机原生栅格、组件桥或低端机CPU耗时。
 - [ ] NOT_RUN：Android/iOS真机首帧、折叠屏重布局、弱网导航及体验版复测；未部署、未上传。
+
+## V7.0 完整人体自由标注与 AI 病灶全身放置（2026-11-16）
+
+- [x] **DONE — 主流程**：应用起始页改为 `pages/select/select`，打开即显示完整人体。手动标注和 AI 辅助标注均不再要求预选部位；`regionId`/`entryRegionId` 保留为非空或可空的快捷定位与初始聚焦提示，不再限制放置、保存或匹配。
+- [x] **DONE — 手动标注与浏览**：完整人体 Canvas 支持单指平移、双指缩放；归一化 Polygon 不随屏幕变换、resize 或正反面切换漂移。标注模式无部位选择即可跨旧腹部、腹股沟、大腿等粗区域闭合；完整人体填充边界校验继续拒绝自交、跨越人体间隙和人体外区域。
+- [x] **DONE — AI 自由放置**：照片流程不读取必选部位；无部位时使用当前视图合理初始位置。放置页可切换 front/back、自由移动、10%–400% 等比缩放和 ±180° 旋转，MultiPolygon、片区和孔洞作为同一组变换；切换视图不重新上传或运行 MobileSAM。
+- [x] **DONE — 最终越界处理**：完全位于人体内直接保存；部分越界仅在最终确认时调用一次新增精确人体交集，用户明确确认后以交集作为 V2 保存/V4 匹配几何，原始变换继续保留供调整；完全越界拒绝，前后端边界结论不一致时失败关闭且不制造微小裁剪。
+- [x] **DONE — 后端合同与门禁**：新增 `POST /api/v1/evaluate/body-intersection`，只接受 front/back、当前模板身份和 `body_template_normalized_v1` MultiPolygon，最多 20,000 顶点及 2 MiB 实际正文。与 `/evaluate` 共用 development/test 或受控测试服务的 reference-matching 前置门禁，不读取照片、不运行模型、不查询图谱。
+- [x] **DONE — 统一匹配**：完整人体首页有已确认标注时开放“神经匹配”；匹配使用最终有效人体几何和实际视图，不再按入口 regionId 过滤。V4 Shapely 交集、覆盖公式、候选排序及图谱几何未改。
+- [x] **DONE — 兼容与特殊部位**：V2 `schemaVersion=1` 不变，旧字符串 regionId 可读，新增字段均为可选；有顶点草稿和另一面草稿不会被入口覆盖。脚底、腋下、会阴保留独立 view/template/atlas 和会话，不与完整人体坐标自动互换。
+- [x] **PASSED — 自动回归**：TypeScript；前端 `404/404`；后端与 AI `330/330`（7条既有MobileSAM/timm警告），最终门禁/交集定向 `37/37`；项目结构、图谱哈希、分包引用/体积和 `git diff --check` 通过。保守包体 main 884,919、clinical 1,403,785、special 756,519 bytes。
+- [x] **PASSED — 微信静态编译**：微信工具自带 `wcc` 对 select、annotate、AI、placement、body-canvas、placement-overlay 编译 exit 0，输出 104,152 bytes；`wcsc` exit 0，输出 4,276 bytes。开发者工具重新编译时 `Errors: 0`，AX 状态确认完整人体入口和“自由标注（无需选择部位）”已加载。
+- [ ] **NOT_RUN — 微信触摸与真机**：嵌套 WebView 自动点击返回 `invalid element ID`，未在模拟器完成跨区取点、AI 上传、拖动/缩放/旋转、部分交集确认及结果高亮；Android/iOS 和折叠屏连续手势未验证。截图旧帧不作为交互证据。
+- [ ] **NOT_RUN — 部署与上传**：未部署腾讯云、未同步新后端交集路径、未上传体验版、未提交或推送 Git。云端若需支持部分越界确认，必须同步 `backend/app/main.py`、Schema、路由和 `body_intersection.py`；仅完全内轮廓旧流程不调用新路径。
+- 专项记录：[V7.0报告](docs/validation-records/v7.0-full-body-workflow/report.md)、[前后流程](docs/validation-records/v7.0-full-body-workflow/workflow-before-after.md)、[坐标与放置](docs/validation-records/v7.0-full-body-workflow/coordinate-and-placement.md)、[历史兼容](docs/validation-records/v7.0-full-body-workflow/legacy-compatibility.md)、[匹配验证](docs/validation-records/v7.0-full-body-workflow/matching-validation.md)、[性能与测试](docs/validation-records/v7.0-full-body-workflow/performance-and-tests.md)、[机器证据](docs/validation-records/v7.0-full-body-workflow/evidence/checks.json)。
+
+### V7.0 全视图二次轻触取消快捷定位（2026-11-16）
+
+- [x] **SUPERSEDED — 首次实现纠错**：初次将其理解为“局部放大后再次点击当前区域返回全身”，与用户要求不符；该放大态探测能力及页面分支已撤销，不保留为现行交互。
+- [x] **DONE — 最终行为**：在 `overview` 完整人体视图中，第一次轻触腹部等唯一区域会正常选中；再次轻触同一区域会将 `selectedRegion` 清空为 `""`、名称恢复“未选择”，同时关闭候选弹层并清除选择提示。轻触其他区域仍正常切换选择。
+- [x] **DONE — 模式隔离**：局部放大视图继续沿用原有规则，不把人体轻触用于选择，也绝不会通过二次轻触误清空已选部位；列表选择、放大按钮、手动标注与 AI 入口保持原流程。
+- [x] **PASSED — 回归验证**：TypeScript 通过；前端 `404/404` 通过；覆盖全视图同区域二次轻触清空、第三次轻触重新选中、换区域选择、局部放大不响应轻触、弹层/调试隔离与选择摘要。项目结构与分包体积检查通过，`git diff --check` 通过。
+- [x] **PASSED — 微信模板编译**：微信工具自带 `wcc` 编译选择页、人体画布和区域选择器 exit 0，输出 55,238 bytes；`wcsc` exit 0，输出 4,276 bytes。
+- [ ] **NOT_RUN — 原生触摸**：尚未在微信开发者工具或 Android/iOS 真机确认连续两次轻触的触摸命中与视觉反馈；静态编译和 Node 回归不能替代真机验收。
+- 本轮未修改人体坐标、图谱、匹配公式、AI/MobileSAM、后端或已保存标注；未部署、未上传体验版、未提交或推送 Git。
+
+## V7.1 交互流程精简与界面冗余清理（2026-11-16）
+
+- [x] **DONE — 主界面精简**：移除独立“神经匹配”“快捷定位”和“自由标注（无需选择部位）”等客户界面入口/重复说明；保留正背面切换、手动标注、AI 辅助标注、特殊部位、说明，开发调试只在 `canUseDeveloperTools()` 为真的环境显示。
+- [x] **DONE — 最新入口隐藏**：按用户追加要求，主界面暂时隐藏“说明”和“开发调试”入口；`showSource`、调试面板、性能埋点和 `canUseDeveloperTools()` 权限判断均保留，未删除后续恢复能力。
+- [x] **DONE — 自动匹配衔接**：新标注完成 `review` 后直接复用既有 `matchingSession/viewMatches()`；已保存标注重新进入时恢复或自动请求结果。无有效标注不发请求，修改后旧结果继续失效，失败只提供“重试匹配”；未修改 V4 公式、图谱、MobileSAM、上传或会话删除机制。
+- [x] **DONE — 结果与特殊部位精简**：单片结果隐藏“全部标注/标注1”；多片才显示范围筛选。“查看全部/放大区域”只在单选区域时出现，“全身”始终保留；空结果显示“暂无匹配结果”。脚底、腋下、会阴仍保留单片/多片标注、筛选及模拟匹配。
+- [x] **FIXED — 正背面遮挡**：切换行改为独立 `flex:0 0 auto` 区域；人体、结果与局部 Canvas 位于单独裁剪容器，透明交互层不能越界覆盖按钮。折叠双栏继续按容器尺寸生效，没有按机型硬编码。
+- [x] **PASSED — 自动化回归**：TypeScript通过；前端 `406/406`；后端与AI `330/330`（7条既有MobileSAM/timm警告）；项目结构、图谱无损检查、分包引用和体积检查、`git diff --check`通过。保守包体 main 884,614、clinical 1,405,795、special 756,628 bytes。
+- [x] **PASSED — 微信静态与实际编译**：微信自带 `wcc` exit 0；`wcsc` exit 0。开发者工具重新编译成功，Errors 0、Warnings 3；最终 AX 状态只显示“特殊部位”“手动标注”“AI 辅助标注”，不再显示“说明”和“开发调试”。
+- [x] **PASSED — 微信模拟器页面与切换**：在 `HUAWEI Mate X6内 100%` 预设实际打开新主页面和手动标注页；实际点击“背面”后切换为人体背面，再点击“正面”恢复正面，按钮未被 Canvas 遮挡。证据见 `docs/validation-records/v7.1-ui-simplification/evidence/`。
+- [ ] **NOT_RUN — 真机验收**：Android/iOS、物理折叠屏、手机 AI 相册/拍摄与 MobileSAM、特殊部位连续手势、长时 FPS/触摸延迟/内存未测，模拟器与自动测试不能替代真机。
+- [ ] **NOT_RUN — 发布**：未部署腾讯云、未上传体验版、未提交或推送Git。
+- 报告：[V7.1报告](docs/validation-records/v7.1-ui-simplification/report.md)、[控件对照](docs/validation-records/v7.1-ui-simplification/controls-before-after.md)、[布局与遮挡](docs/validation-records/v7.1-ui-simplification/layout-and-overlap.md)、[流程回归](docs/validation-records/v7.1-ui-simplification/workflow-regression.md)、[测试记录](docs/validation-records/v7.1-ui-simplification/tests.md)。

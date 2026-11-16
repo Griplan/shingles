@@ -1,7 +1,13 @@
 """V4 guarded reference matching; original atlas review state remains unchanged."""
 from fastapi import APIRouter
 from app.schemas.common import ErrorResponse
-from app.schemas.evaluate import EvaluateRequest, EvaluateResponse
+from app.schemas.evaluate import (
+    BodyIntersectionRequest,
+    BodyIntersectionResponse,
+    EvaluateRequest,
+    EvaluateResponse,
+)
+from app.services.body_intersection import clip_to_body
 from app.services.atlas_service import load_dataset
 from app.services.dermatome_matcher import evaluate
 
@@ -18,3 +24,13 @@ def evaluate_annotations(payload: EvaluateRequest):
         result.source=result.source.model_copy(update={'atlas_type':'SCHEMATIC','review_status':'NOT_MEDICALLY_VALIDATED','intended_use':'INTERACTIVE_SIMULATION','source_type':'ARTIFICIALLY_CONSTRUCTED','disclaimer':dataset.manifest['coverageNote']})
         result.warnings.insert(0,dataset.manifest['coverageNote'])
     return result
+
+
+@router.post(
+    '/evaluate/body-intersection',
+    response_model=BodyIntersectionResponse,
+    responses={code:{'model':ErrorResponse} for code in (403,409,413,422,500,503)},
+    summary='将最终病灶变换结果与完整人体皮肤求一次精确交集',
+)
+def intersect_with_body(payload: BodyIntersectionRequest):
+    return clip_to_body(payload)

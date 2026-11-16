@@ -20,19 +20,29 @@ function reply(r){
 const flush=async()=>{for(let i=0;i<30;i++)await Promise.resolve();};
 let sequence=0;
 function setup(t,editId){
- const requests=[],nav=[];
+ const requests=[],bodyRequests=[],nav=[];
+ const bodyControl={status:'outside',geometry:null,ratio:1};
  global.wx={nextTick:f=>queueMicrotask(f),getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}}),getSystemInfoSync:()=>({platform:'devtools'}),getWindowInfo:()=>({windowHeight:844}),
-  request:o=>{if(o.url.endsWith('/api/v1/access/session')){o.success({statusCode:200,data:{access_token:'ACCESS_'+'d'.repeat(48),token_type:'Bearer',access_kind:'public_test',expires_at:Date.now()/1000+3600}});return;}requests.push(o);},redirectTo:o=>nav.push(o.url),navigateTo:o=>nav.push(o.url),navigateBack:o=>nav.push('back'),enableAlertBeforeUnload(){},disableAlertBeforeUnload(){},showModal:o=>{o.success({confirm:true});o.complete?.();}};
+  request:o=>{
+   if(o.url.endsWith('/api/v1/access/session')){o.success({statusCode:200,data:{access_token:'ACCESS_'+'d'.repeat(48),token_type:'Bearer',access_kind:'public_test',expires_at:Date.now()/1000+3600}});return;}
+   if(o.url.endsWith('/api/v1/evaluate/body-intersection')){
+    bodyRequests.push(o);
+    o.success({statusCode:200,data:{method:'body_intersection_v1',status:bodyControl.status,source_area:1,intersection_area:1-bodyControl.ratio,outside_area:bodyControl.ratio,outside_area_ratio:bodyControl.ratio,geometry:bodyControl.geometry}});
+    return;
+   }
+   requests.push(o);
+  },redirectTo:o=>nav.push(o.url),navigateTo:o=>nav.push(o.url),navigateBack:o=>nav.push('back'),enableAlertBeforeUnload(){},disableAlertBeforeUnload(){},showModal:o=>{o.success({confirm:true});o.complete?.();}};
  const source=syntheticPhoto(100,true);source.result_id+='-'+(++sequence);
  const r=editId?p.edit(editId):p.open(source,'back','back-upper-back',()=>true);assert.equal(r.ok,true,r.message);
  const page=instance(placement);page.onLoad({draftId:r.draft.id});page.onShow();t.after(()=>page.onUnload());
  const model=getBodyModel('back'),vp=focusViewport(fitViewport(375,500,model),model.regions.find(r=>r.id==='back-upper-back').bounds);
  page.onViewport({detail:{view:'back',modelId:model.id,modelVersion:model.version,viewport:vp}});page.setData({overlayReady:true});
- return {page,requests,nav,vp,source};
+ return {page,requests,bodyRequests,nav,vp,source,bodyControl};
 }
 test('one confirmation, one request; retry preserves ID and all geometry; result defaults to all without another request',async t=>{
  const {page,requests,nav,vp,source}=setup(t),copy=structuredClone(source);
  const work=page.confirmPosition();await flush();page.confirmPosition();assert.equal(requests.length,1);assert.equal(page.data.confirmed,true);
+ assert.doesNotMatch(JSON.stringify(requests[0].data),/entryRegionId|back-upper-back/);
  const saved=a.snapshot().views.back.completed.at(-1),id=saved.id,count=a.snapshot().views.back.completed.length;
  assert.deepEqual(requests[0].data.lesions.at(-1).geometry,saved.geometry);assert.equal(saved.geometry.coordinates.length,5);
  requests[0].fail({errMsg:'request:fail timeout'});await work;assert.match(page.data.message,/超时/);assert.equal(nav.length,0);
@@ -68,10 +78,25 @@ test('page hiding/unload drops late response and navigation; confirmed annotatio
  page.onShow();const retry=page.confirmPosition();await flush();assert.equal(requests.length,2);requests[1].success({statusCode:200,data:reply(requests[1].data)});await retry;assert.equal(nav.length,1);
 });
 test('invalid placement never calls matching or replaces formal geometry; abandoned edit preserves original',async t=>{
- const id=a.snapshot().views.back.completed.at(-1).id,old=a.snapshot().views.back.completed.at(-1),{page,requests}=setup(t,id);
+ const id=a.snapshot().views.back.completed.at(-1).id,old=a.snapshot().views.back.completed.at(-1),{page,requests,bodyRequests}=setup(t,id);
  assert.deepEqual(page.data.layer.completed,a.snapshot().views.back.completed.filter(p=>p.id!==id),'other saved shapes remain visible');
- page.update({...page.data.transform,translation:{x:0,y:0}},true);page.setData({overlayReady:true});await page.confirmPosition();assert.equal(requests.length,0);assert.equal(a.snapshot().views.back.completed.at(-1),old);
+ page.update({...page.data.transform,translation:{x:0,y:0}},true);page.setData({overlayReady:true});await page.confirmPosition();
+ assert.equal(bodyRequests.length,1,'fully outside geometry is classified by the exact body-intersection endpoint');
+ assert.equal(requests.length,0,'matching is never called for a rejected outside-only shape');
+ assert.equal(a.snapshot().views.back.completed.at(-1),old);
  page.backPhoto();assert.equal(a.snapshot().views.back.completed.at(-1),old);assert.equal(requests.length,0);
+});
+test('V7 page confirms a partial overlap only after the exact intersection and sends the effective geometry to matching',async t=>{
+ const h=setup(t),{page}=h,effective=structuredClone(p.read(page.data.draftId).draft.geometry);
+ page.update({...page.data.transform,translation:{x:.98,y:.5}},true);page.setData({overlayReady:true});
+ Object.assign(h.bodyControl,{status:'partial',geometry:effective,ratio:.2});
+ const work=page.confirmPosition();await flush();
+ assert.equal(h.bodyRequests.length,1);assert.equal(h.requests.length,1);
+ const saved=a.snapshot().views.back.completed.at(-1);
+ assert.deepEqual(saved.geometry,effective);assert.equal(saved.source.clip.outsideAreaRatio,.2);
+ assert.deepEqual(h.requests[0].data.lesions.at(-1).geometry,effective);
+ h.requests[0].success({statusCode:200,data:reply(h.requests[0].data)});await work;
+ assert.equal(page.data.confirmed,true);assert.ok(h.nav.at(-1).includes('result=1'));
 });
 test('explicit review clears empty opposite placeholders, never active manual geometry',()=>{
  const {AnnotationSessionStore}=load('state/annotation-session.js'),{PlacementSessionStore}=load('packages/clinical/state/placement-session.js');const store=new AnnotationSessionStore(),drafts=new PlacementSessionStore(store);

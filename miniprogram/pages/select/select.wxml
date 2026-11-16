@@ -1,21 +1,20 @@
 <view class="body-page p9-page">
   <view class="browse-layout">
-    <view class="page-heading"><text class="body-title">选择病灶所在部位</text><view class="utility-actions"><view class="utility-link" aria-role="button" bindtap="openSpecialParts">特殊部位</view><view class="utility-link" aria-role="button" bindtap="showSource">说明</view><view wx:if="{{debugAllowed}}" class="utility-link" aria-role="button" bindtap="toggleDeveloper">开发调试</view></view></view>
-    <view class="interaction-hint">{{debugEnabled ? '坐标调试中，人体点击暂不用于选择部位。' : selectionMessage || (mode === 'focused' ? '局部仅供查看，更换部位请返回全身或使用列表' : '轻触人体选择部位，再放大查看')}}</view>
+    <view class="page-heading"><text class="body-title">完整人体标注</text><view class="utility-actions"><view class="utility-link" aria-role="button" bindtap="openSpecialParts">特殊部位</view></view></view>
+    <view wx:if="{{debugEnabled || selectionMessage || mode === 'focused'}}" class="interaction-hint">{{debugEnabled ? '坐标调试中，人体点击暂停。' : selectionMessage || '局部查看中，返回全身后可继续标注。'}}</view>
     <view class="view-switch">
       <button class="body-button view-tab {{view === 'front' ? 'is-active' : ''}}" data-view="front" bindtap="switchView" aria-pressed="{{view === 'front'}}">正面</button>
       <button class="body-button view-tab {{view === 'back' ? 'is-active' : ''}}" data-view="back" bindtap="switchView" aria-pressed="{{view === 'back'}}">背面</button>
     </view>
     <view class="browse-workspace p9-split">
     <view class="model-stage p9-stage">
-      <view class="orientation"><text>{{screenLeft}}</text><text>{{mode === 'focused' ? '局部预览' : '全身选择'}}</text><text>{{screenRight}}</text></view>
+      <view class="orientation"><text>{{screenLeft}}</text><text>{{mode === 'focused' ? '局部预览' : '完整人体'}}</text><text>{{screenRight}}</text></view>
       <view class="canvas-area"><body-canvas view="{{view}}" selected-region="{{selectedRegion}}" zoom-region="{{zoomRegion}}" debug-enabled="{{debugEnabled}}" interaction-blocked="{{sheetOpen || infoOpen}}" layout-revision="{{layoutRevision}}" bind:regionprobe="onRegionProbe" bind:debugprobe="onDebugProbe" bind:viewportchange="onViewportChange"></body-canvas></view>
     </view>
     <view class="bottom-actions p9-controls">
-      <view class="selection-summary"><text class="selection-name">{{mode === 'focused' ? '正在查看：' : selectedRegion ? '已选：' : ''}}{{selectedRegion ? (view === 'front' ? '正面 · ' : '背面 · ') + selectedName : '尚未选择部位'}}</text><view wx:if="{{mode === 'overview'}}" class="list-entry" aria-role="button" bindtap="openRegionPicker">从列表选择</view></view>
-      <view wx:if="{{mode === 'overview'}}" class="action-row"><button class="body-button primary-action {{!selectedRegion ? 'is-disabled' : ''}}" disabled="{{!selectedRegion}}" bindtap="zoomIn">放大查看</button></view>
-      <view wx:else class="action-row"><button class="body-button secondary-action" bindtap="showFullBody">返回全身</button><button class="body-button primary-action" bindtap="openRegionPicker">更换部位</button></view>
-      <view class="action-row annotation-entry"><button class="body-button primary-action" disabled="{{!selectedRegion || debugEnabled || infoOpen || sheetOpen}}" bindtap="startAnnotation">手动标注</button><button wx:if="{{aiAllowed}}" class="body-button secondary-action" disabled="{{!selectedRegion || debugEnabled || infoOpen || sheetOpen}}" bindtap="startAI">AI 辅助标注</button></view>
+      <view wx:if="{{mode === 'focused'}}" class="action-row focused-actions"><button class="body-button secondary-action" bindtap="showFullBody">返回全身</button></view>
+      <view wx:if="{{selectedRegion && mode === 'overview'}}" class="selection-summary"><text class="selection-name">{{view === 'front' ? '正面' : '背面'}} · {{selectedName}}</text></view>
+      <view class="action-row annotation-entry"><button class="body-button primary-action" disabled="{{debugEnabled || infoOpen || sheetOpen}}" bindtap="startAnnotation">手动标注</button><button wx:if="{{aiAllowed}}" class="body-button secondary-action" disabled="{{debugEnabled || infoOpen || sheetOpen}}" bindtap="startAI">AI 辅助标注</button></view>
     </view>
     </view>
   </view>

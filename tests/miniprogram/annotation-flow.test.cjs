@@ -18,8 +18,15 @@ function setup(){
  return {state,select,store,enter,choose,page:instance(annotateDefinition)};
 }
 function draw(page,key='UI-A'){for(const point of fixture[key])page.onAnnotationPoint({detail:{...page.data.layer,status:'valid',normalized:point}});}
-test('V2 entry rejects no selection/debug; route holds only session identifier, starts focused without coarse highlight',()=>{
- const h=setup();h.select.startAnnotation();assert.equal(h.state.route,'');
+test('V7 free-body entry starts without a region; debug remains closed, optional focus keeps only the session identifier in the route',()=>{
+ const h=setup();h.select.startAnnotation();
+ assert.match(h.state.route,/\?sessionId=session-/);
+ const free=h.store.snapshot();
+ assert.equal(free.views.front.focusRegionId,null);
+ assert.equal(free.views.front.draft.navigation.entryRegionId,null);
+ h.select.startAI();
+ assert.match(h.state.route,/ai-annotate\/ai-annotate\?view=front$/);
+ h.state.route='';
  h.select.applySelection('front-chest');h.select.toggleDebug({detail:{value:true}});h.select.startAnnotation();assert.equal(h.state.route,'');
  h.select.toggleDebug({detail:{value:false}});const p=h.enter();assert.match(h.state.route,/\?sessionId=session-/);assert.ok(!h.state.route.includes('vertices'));
  assert.equal(p.data.mode,'draw');assert.equal(p.data.zoomRegion,'front-chest');assert.equal(p.data.pointCount,0);
@@ -35,7 +42,7 @@ test('V2 automated page workflow: two front polygons/delete second/reenter/back 
  assert.ok(!p.data.session.views.front.completed.some(x=>x.id===second));assert.deepEqual(p.data.session.views.front.completed[0],first);
  p.fullBody();assert.equal(p.data.zoomRegion,'');p.backToSelection();assert.equal(h.state.backs,1);p.onHide();p.onUnload();
  const again=h.enter();assert.deepEqual(again.data.session.views.front.completed[0],first);
- again.switchView(event({view:'back'}));again.newRegion();draw(again);again.closePolygon();assert.equal(again.data.backCount,1);
+ again.continueEditing();again.switchView(event({view:'back'}));again.newRegion();draw(again);again.closePolygon();assert.equal(again.data.backCount,1);
  again.switchView(event({view:'front'}));assert.deepEqual(again.data.session.views.front.completed[0],first);
  const focusBeforeReview=again.data.zoomRegion;again.finish();assert.equal(again.data.phase,'review');assert.equal(again.data.zoomRegion,focusBeforeReview);assert.equal(again.data.mode,'readonly');
  again.continueEditing();assert.equal(again.data.phase,'editing');assert.deepEqual(again.data.session.views.front.completed[0],first);
@@ -67,4 +74,10 @@ test('V2 pending confirmation and point cannot mutate after hide or another revi
  p.cancelDraft();p.onHide();h.choose(1);assert.equal(h.store.snapshot(),snapshot);p.onShow();assert.equal(p.data.dialogOpen,false);
  p.cancelDraft();p.fullBody();h.choose(1); // focus is blocked while modal, confirmation remains on same revision.
  assert.equal(p.data.pointCount,0);assert.equal(p.data.session.views.front.draft,null);
+});
+test('V7.1 manual annotation reopens completed results without a separate matching entry',()=>{
+ const h=setup(),p=h.enter();draw(p);p.closePolygon();
+ h.select.onShow();h.select.startAnnotation();
+ assert.match(h.state.route,/annotate\/annotate\?sessionId=session-.+&result=1$/);
+ assert.equal(h.store.snapshot().phase,'review');
 });
