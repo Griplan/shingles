@@ -2,8 +2,8 @@
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path');
 const {syntheticPhoto}=require('./placement-fixtures.cjs');
 const load=p=>require(path.join(process.env.DERMATOME_BUILD_DIR,p));
-const g=load('utils/placement-geometry.js'),{PlacementPreview}=load('components/placement-overlay/preview.js');
-const {PlacementSessionStore}=load('state/placement-session.js'),{AnnotationSessionStore}=load('state/annotation-session.js');
+const g=load('utils/placement-geometry.js'),{PlacementPreview}=load('packages/clinical/components/placement-overlay/preview.js');
+const {PlacementSessionStore}=load('packages/clinical/state/placement-session.js'),{AnnotationSessionStore}=load('state/annotation-session.js');
 const {getBodyModel}=load('data/body-models.js'),{fitViewport,focusViewport,projectNormalizedToCanvas}=load('utils/coordinate.js');
 const model=getBodyModel('back'),region=model.regions.find(r=>r.id==='back-upper-back');
 const flush=async()=>{for(let i=0;i<50;i++)await Promise.resolve()};
@@ -67,7 +67,7 @@ test('unsupported offscreen or failing cached draw falls back to complete vector
   preview.draw(ctx,v,t,model,true);assert.equal(ctx.calls.filter(c=>c[0]==='fill').length,5);assert.equal(ctx.calls.filter(c=>c[0]==='closePath').length,11);
  }
 });
-let def;global.Component=d=>def=d;load('components/placement-overlay/placement-overlay.js');
+let def;global.Component=d=>def=d;load('packages/clinical/components/placement-overlay/placement-overlay.js');
 function overlayFixture(){
  const p=g.preparePhotoGeometry(syntheticPhoto(100,true)),t=g.initialPlacement(p,model,region),v=focusViewport(fitViewport(375,500,model),region.bounds);
  const ctx=context(),frames=new Map(),events=[],queries=[],caches=[];let id=0,delay=false;
@@ -86,6 +86,19 @@ test('one pending frame coalesces rapid scale/rotation, releases resources on ex
  h.o.previewTransform({...h.t,scale:.7},121,'A');def.pageLifetimes.hide.call(h.o);assert.equal(h.frames.size,0);const calls=h.ctx.calls.length;await h.frame();assert.equal(h.ctx.calls.length,calls);
  def.pageLifetimes.show.call(h.o);await h.frame();assert.equal(h.caches.length,1,'resume does not regenerate texture');
  h.o.previewTransform({...h.t,scale:.6},122,'A');def.lifetimes.detached.call(h.o);assert.equal(h.frames.size,0);assert.equal(h.caches[0].width,1);await h.frame();assert.equal(h.frames.size,0);
+});
+test('120 placement moves stay inside the Canvas component, coalesce to one paint and publish only start/end',async()=>{
+ const h=overlayFixture();await h.frame();const center=projectNormalizedToCanvas(h.t.translation,h.o.properties.viewport),event=(dx=0,dy=0)=>({touches:[{clientX:center.x+20+dx,clientY:center.y+50+dy}],changedTouches:[{clientX:center.x+20+dx,clientY:center.y+50+dy}]});
+ h.events.length=0;h.ctx.calls.length=0;await h.o.touchStart(event());
+ const moves=[];for(let i=1;i<=120;i++)moves.push(h.o.touchMove(event(i/10,i/20)));await Promise.all(moves);
+ assert.deepEqual(h.events.filter(x=>x.n==='placementdrag').map(x=>x.d.phase),['start'],'no component/page bridge event per move');
+ assert.equal(h.frames.size,1,'all moves share one pending animation frame');
+ const end=h.o.touchEnd(event(12,6));await end;await h.frame();
+ const drags=h.events.filter(x=>x.n==='placementdrag');assert.deepEqual(drags.map(x=>x.d.phase),['start','end']);
+ assert.deepEqual(drags[1].d.transform.translation,{x:h.t.translation.x+drags[1].d.delta.x,y:h.t.translation.y+drags[1].d.delta.y},'release uses the last touch coordinate');
+ assert.equal(h.ctx.calls.filter(c=>c[0]==='drawImage').length,1,'the 120-move burst produced one cached draw');
+ assert.equal(h.caches.length,1,'no mask or source texture was regenerated');
+ def.lifetimes.detached.call(h.o);
 });
 test('source change and late async start cannot mutate new source, lower revision starts correctly',async()=>{
  const h=overlayFixture();await h.frame();h.o.previewTransform({...h.t,scale:.7},50,'A');h.setDelay(true);

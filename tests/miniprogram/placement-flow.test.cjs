@@ -1,7 +1,7 @@
 // Synthetic coordinates exercise production state/page/component. Not a native WeChat test.
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path');
 const load=p=>require(path.join(process.env.DERMATOME_BUILD_DIR,p));
-const {PlacementSessionStore,placementSession}=load('state/placement-session.js');
+const {PlacementSessionStore,placementSession}=load('packages/clinical/state/placement-session.js');
 const {AnnotationSessionStore,annotationSession,sessionToken}=load('state/annotation-session.js');
 const {getBodyModel}=load('data/body-models.js');
 const {fitViewport,focusViewport,normalizedToCanvas,projectNormalizedToCanvas}=load('utils/coordinate.js');
@@ -43,6 +43,31 @@ test('system unload preserves in-run draft for resuming, while old owner can no 
  const resumed=h.store.open(h.source,'back','back-upper-back',()=>true);assert.equal(resumed.draft.id,h.id);assert.deepEqual(resumed.draft.transform,t);
  const owner=h.store.acquire(h.id);assert.equal(h.store.reset(h.id,owner).ok,true);
 });
+test('placement detaches from the temporary photo session before it is released',()=>{
+ const annotations=new AnnotationSessionStore();let now=Date.now(),current=true;
+ const store=new PlacementSessionStore(annotations,()=>now),source=photo('RELEASE');
+ const opened=store.open(source,'back','back-upper-back',()=>current);assert.equal(opened.ok,true,opened.message);
+ const detached=store.detachSource(opened.draft.id);assert.equal(detached.ok,true);assert.equal(detached.draft.sourceDetached,true);
+ current=false;now+=10_000_000;store.invalidateSource(source.session_id);
+ const resident=store.read(opened.draft.id);assert.equal(resident.ok,true,resident.message);
+ const owner=store.acquire(opened.draft.id),d=resident.draft;
+ const settled=store.update(opened.draft.id,owner,{...d.transform,scale:.8},true);
+ assert.equal(settled.ok,true,settled.message);assert.equal(settled.draft.validation.ok,true);
+ assert.equal(store.confirm(opened.draft.id,owner).ok,true,'detached copied geometry must not depend on expired server session');
+ const saved=annotations.snapshot().views.back.completed.at(-1);assert.equal(saved.source.photo.session_id,source.session_id);
+ assert.equal(saved.geometry.coordinates.length,2);
+});
+test('failed placement navigation can reattach the untouched temporary source',()=>{
+ const h=setup(),source=h.source;let current=true;
+ assert.equal(h.store.detachSource(h.id).ok,true);assert.equal(h.store.attachSource(h.id,()=>current).ok,true);
+ assert.equal(h.store.read(h.id,h.owner).draft.sourceDetached,false);current=false;
+ assert.equal(h.store.read(h.id,h.owner).ok,false);
+});
+test('explicit abandon or new photo clears a detached placement while passive expiry does not',()=>{
+ const h=setup();assert.equal(h.store.detachSource(h.id).ok,true);
+ h.store.invalidateSource(h.source.session_id);assert.equal(h.store.read(h.id,h.owner).ok,true);
+ h.store.invalidateSource(h.source.session_id,true);assert.equal(h.store.read(h.id).ok,false);
+});
 test('unclipped projection previews outside coordinates without changing strict V1 projection rules',()=>{
  const v=fitViewport(400,600,{id:'synthetic',logicalWidth:200,logicalHeight:400});
  assert.throws(()=>normalizedToCanvas({x:-.1,y:.5},v));assert.equal(projectNormalizedToCanvas({x:-.1,y:.5},v).x,v.offsetX-.1*200*v.scale);
@@ -55,7 +80,7 @@ test('deleted V2 placement cannot reopen as falsely confirmed; original photo ca
  assert.equal(h.annotations.snapshot().views.back.completed.length,0);
 });
 
-let pageDef;global.Page=o=>pageDef=o;load('pages/placement/placement.js');
+let pageDef;global.Page=o=>pageDef=o;load('packages/clinical/pages/placement/placement.js');
 function pageFixture(t,sourceId='PAGE'){const r=placementSession.open(photo(sourceId),'back','back-upper-back',()=>true);assert.equal(r.ok,true,r.message);
  const nav=[],modal=[];global.wx={request:o=>o.fail({errMsg:"synthetic offline"}),getAccountInfoSync:()=>({miniProgram:{envVersion:"develop"}}),getSystemInfoSync:()=>({platform:"devtools"}),nextTick:f=>queueMicrotask(f),enableAlertBeforeUnload:o=>modal.push(o),disableAlertBeforeUnload:()=>{},showModal:o=>modal.push(o),navigateBack:()=>nav.push('photo'),redirectTo:o=>nav.push(o.url)};
  const p={data:structuredClone(pageDef.data),selectComponent:()=>({previewTransform(){}}),setData(c){Object.assign(this.data,c)}};for(const[k,v]of Object.entries(pageDef))if(typeof v==='function')p[k]=v.bind(p);
@@ -72,6 +97,21 @@ test('production placement page: back focus, drag, sliders, full-view invariance
  assert.equal(p.data.confirmed,true,p.data.message);assert.equal(annotationSession.snapshot().views.back.completed.length,1);assert.equal(p.data.layer.completed.length,1);
  await flush();p.viewAnnotations();assert.match(nav.at(-1),/pages\/annotate\/annotate\?sessionId=/);
 });
+test('drag release settles once and the confirm button can re-enable only after the matching overlay frame',async t=>{
+ const {p}=pageFixture(t,'PAGE_DRAG_SETTLE'),model=getBodyModel('back'),vp=fitViewport(375,500,model),key=p.data.interactionKey;
+ p.onViewport({detail:{view:'back',modelId:model.id,modelVersion:model.version,viewport:vp}});
+ const start=p.data.transform,moved={...start,translation:{x:start.translation.x+.01,y:start.translation.y-.005}},revision=p.data.revision;
+ p.onDrag({detail:{key,phase:'start',delta:{x:0,y:0}}});assert.equal(p.data.dragging,true);
+ p.onDrag({detail:{key,phase:'end',delta:{x:.01,y:-.005},transform:moved}});
+ const settled=placementSession.read(p.data.draftId).draft;
+ assert.equal(p.data.dragging,false);assert.equal(settled.transform.translation.x,moved.translation.x);assert.equal(settled.transform.translation.y,moved.translation.y);
+ assert.equal(settled.revision,revision+1);assert.equal(settled.geometryRevision,settled.revision,'only release performs the final transform/check');
+ assert.equal(p.data.valid,true,p.data.message);assert.equal(p.data.overlayReady,false);
+ p.onOverlayReady({detail:{key,revision:p.data.revision,viewportKey:JSON.stringify(vp),ready:true}});await flush();
+ assert.equal(p.data.overlayReady,true);
+ assert.equal(!p.data.valid||!p.data.viewport||!p.data.overlayReady||p.data.dragging||p.data.dialog||p.data.calculating,false,'native button condition is enabled');
+ p.confirmPosition();await flush();assert.equal(p.data.confirmed,true,p.data.message);
+});
 test('production placement page: missing handoff fails without replacing the V2 session',()=>{
  const before=annotationSession.snapshot(),p={data:structuredClone(pageDef.data),selectComponent:()=>({previewTransform(){}}),setData(c){Object.assign(this.data,c)}};for(const[k,v]of Object.entries(pageDef))if(typeof v==='function')p[k]=v.bind(p);
  p.onLoad({});assert.match(p.data.error,/失效/);p.onUnload();assert.equal(annotationSession.snapshot(),before);
@@ -84,7 +124,7 @@ test('placement exit has valid native button lengths; continuing retains draft a
  assert.equal(placementSession.read(p.data.draftId).ok,false);assert.equal(annotationSession.snapshot(),before);
 });
 
-test('rapid slider updates stay local, never acknowledge a stale frame, and flush correctly when hidden or resized',async t=>{
+test('rapid slider updates stay local; resize restores the last completed placement without recomputing geometry',async t=>{
  const {p}=pageFixture(t,'PERF_PAGE'),calls=[],previews=[];
  const original=p.setData;p.setData=function(c){calls.push(c);original.call(this,c)};p.selectComponent=()=>({previewTransform:(...args)=>previews.push(args),invalidateLayout(){}});
  const initial=p.data.transform,key=p.data.interactionKey,model=getBodyModel('back'),vp=fitViewport(375,500,model);
@@ -95,7 +135,15 @@ test('rapid slider updates stay local, never acknowledge a stale frame, and flus
  p.confirmPosition();assert.equal(p.data.confirmed,false,'stale ack cannot save in-flight data');
  p.onHide();const d=placementSession.read(p.data.draftId).draft;assert.equal(d.geometryRevision,d.revision);assert.equal(d.validation.ok,true);assert.equal(d.transform.scale,.74);
  const n=calls.length;await new Promise(r=>setTimeout(r,110));assert.equal(calls.length,n,'no label timer writes after hiding');
- p.onShow();p.angleChanging({detail:{value:25}});p.onResize();assert.equal(p.data.angle,25);assert.equal(p.data.overlayReady,false);assert.equal(p.data.viewport,null);
+ p.onShow();p.angleChanged({detail:{value:15}});
+ const settled=placementSession.read(p.data.draftId).draft,saved=annotationSession.snapshot();
+ p.angleChanging({detail:{value:25}});p.onResize();
+ const restored=placementSession.read(p.data.draftId).draft;
+ assert.equal(restored.geometry,settled.geometry);assert.deepEqual(restored.transform,settled.transform);
+ assert.equal(annotationSession.snapshot(),saved);assert.equal(p.data.angle,15);assert.equal(p.data.scalePercent,74);
+ assert.equal(p.data.overlayReady,false);assert.equal(p.data.viewport,null);
+ p.angleChanged({detail:{value:25}});assert.equal(placementSession.read(p.data.draftId).draft,restored);
+ p.startSlider();p.angleChanged({detail:{value:20}});assert.equal(p.data.angle,20);
 });
 test('unload during drag settles complete geometry without saving, and old page events cannot write',t=>{
  const {p}=pageFixture(t,'PERF_UNLOAD'),key=p.data.interactionKey,initial=annotationSession.snapshot();

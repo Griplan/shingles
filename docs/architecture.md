@@ -231,6 +231,8 @@ ai-annotate按上传/圈选/处理中/结果/精调/确认切换控件；原生p
 
 上一AI页由navigateTo保留，继续管理原图片、Mask和30分钟临时期限；返回照片可重新确认。放置草稿只引用当前有效源，原页换图/清理/过期会令未提交草稿失效；正式保存的人体几何独立于原文件期限，在本次V2运行内继续可读。详细合同、限制及验证见[V5.3说明](v5-placement.md)，唯一状态以task.md为准。
 
+放置页面成功打开后，前端先完成照片几何到自包含草稿的复制并标记`sourceDetached`，再立即请求删除后端照片临时会话；此时草稿不依赖服务器TTL，最终人体校验和V2提交继续正常执行。导航失败会恢复源会话检查；删除失败只显示清理警告，不撤销已建立的自包含草稿，服务端TTL仍兜底。该生命周期优化不改变后端单推理槽、临时会话容量、上传限额或照片坐标合同。
+
 ## 19. V5.4 统一人体几何匹配（2026-11-01）
 
 本节覆盖上一阶段“AI 放置不能匹配”的历史边界。V2 CompletedPolygon 的完整 geometry 经白名单适配进入原 evaluate；后端同一 matcher 仅替换输入几何读取器，使 Polygon/MultiPolygon/孔洞与旧 vertices 都进入原 Shapely 交集/并集公式。来源枚举不影响计算。模板/图谱/内容摘要与正背隔离不变。
@@ -293,3 +295,11 @@ V5 AI 放置仍以全身模板为目标，没有扩展手掌 AI，也没有改�
 显示源为Roquex CC0右腋下照片的局部观察窗衍生；模板commons-axilla-v1/1.0.0，左图有记录地镜像。皮肤轮廓从同一可编辑路径生成，P6完整边界检查、坐标公式、静态PNG缓存和rAF复用。全身/手部/脚底资源、医学边界及原算法不变；独立掌不恢复。
 
 axilla-reference-v1固定分派到共享local_atlas_service；加载身份/摘要/皮肤后检查边界准入。当前没有可靠目标皮节，前端禁用计算，后端返回409 ATLAS_NOT_READY，不返回空成功、不回退全身T2。图谱身份变化不静默重解释历史标注。多片/孔洞数据类型不变；原手动UI没有挖孔工具。本轮不扩展V5全身AI放置。详见[V6.6实现与限制](validation-records/v6.6-axilla/report.md)。
+
+## V6.7 中性会阴局部视图
+
+`perineum-overview`作为独立 `LocalSurfaceView`注册，不复用front/back或左右脚底/腋下坐标。模型`neutral-perineum-overview-v1/1.0.0`、geometry`neutral-perineum-skin-v1`、regionSet`neutral-perineum-ui-v1`，逻辑画布400×560；左上原点及现有归一化、视口、DPR规则不变。页面隐藏左右切换，明确前侧在上、后侧/肛门区居中、解剖左在画面左。中央肛门开口是人体几何孔洞，AI照片分割入口关闭。
+
+`perineum-schematic-v1/perineum-schematic.1`为独立SCHEMATIC图谱，包含S2、S3、S4、S5与UNDEFINED五个互斥模拟区域。生成器先建立项目原创中性皮肤面，再用曲线和椭圆区域裁剪；全部区域并集等于有效皮肤，正面积重叠为0。UNDEFINED参与几何计算但不冒充骶神经标签。原全身、足底、腋下和Servier/Goran来源不修改。
+
+前后端继续复用V2完整MultiPolygon编辑、V4固定图谱注册/响应校验、Shapely交集与P6每请求并集。API响应必须保留SCHEMATIC、未医审、交互模拟和人工构建状态，前端缺字段时拒绝发布结果。医学审核pending、正式mappingEnabled=false。当前只完成本地与静态编译验证，不表示微信、手机、腾讯云或体验版已更新。详见[V6.7报告](validation-records/v6.7-perineum/report.md)。

@@ -6,7 +6,7 @@ let definition;
 global.Component = (options) => { definition = options; };
 fromBuild("components/body-canvas/body-canvas.js");
 const { drawBody } = fromBuild("components/body-canvas/render.js");
-const { fitViewport } = fromBuild("utils/coordinate.js");
+const { fitViewport, normalizedToCanvas, canvasToNormalized } = fromBuild("utils/coordinate.js");
 const { getBodyModel } = fromBuild("data/body-models.js");
 const BODY_MODEL=getBodyModel("front");
 const { getBodyRegion } = fromBuild("data/body-regions.js");
@@ -66,6 +66,37 @@ function harness(width=343,height=540,dpr=2) {
     },
   };
 }
+
+test("P9 fold/unfold matrix projects a fixed point using the latest measured container",()=>{
+  const h=harness();h.ready();
+  const selection=getBodyRegion("front","front-chest"),bounds=selection.bounds;
+  const logical={x:bounds.x+bounds.width*.55,y:bounds.y+bounds.height*.55};
+  h.property({zoomRegion:selection.id});
+  const fixtures=[
+    [360,780,328,540,2],[390,844,358,580,3],[430,932,398,630,3],
+    [540,720,508,500,2],[720,760,418,580,3],[800,720,470,540,3],
+    [900,800,532,620,4],[800,480,568,320,2],[390,460,358,320,2],
+    [360,780,328,540,2],
+  ];
+  let maximumError=0;
+  for(const [windowWidth,windowHeight,width,height,dpr] of fixtures){
+    const previous=h.state.queryCount;
+    Object.assign(h.state,{width,height,dpr});
+    for(let repeat=0;repeat<5;repeat++)definition.pageLifetimes.resize.call(h.instance);
+    h.flush();
+    assert.equal(h.state.queryCount-previous,1);
+    const viewport=h.instance.events.filter(e=>e.name==="viewportchange").at(-1).detail.viewport;
+    assert.equal(viewport.viewportWidth,width);assert.equal(viewport.viewportHeight,height);
+    const canvasPoint=normalizedToCanvas(logical,viewport),restored=canvasToNormalized(canvasPoint,viewport);
+    maximumError=Math.max(maximumError,Math.abs(restored.x-logical.x),Math.abs(restored.y-logical.y));
+    assert.ok(h.node.width*h.node.height<=4_000_000&&Math.max(h.node.width,h.node.height)<=3072);
+    assert.ok(width<=windowWidth&&height<=windowHeight);
+    const center=normalizedToCanvas({x:bounds.x+bounds.width/2,y:bounds.y+bounds.height/2},viewport);
+    assert.ok(Math.abs(center.x-width/2)<1e-10&&Math.abs(center.y-height/2)<1e-10);
+  }
+  assert.ok(maximumError<1e-12);
+  assert.equal(h.state.images.length,2);
+});
 test("Canvas 正背面使用不同PNG资源且绘图状态成对恢复", () => {
   const front=context(), back=context(), t=fitViewport(343,540,BODY_MODEL);
   drawBody(front,t,getBodyModel("front"),undefined,null,{src:getBodyModel("front").visual.imagePath}); drawBody(back,t,getBodyModel("back"),undefined,null,{src:getBodyModel("back").visual.imagePath});
@@ -434,8 +465,8 @@ test('V2 actual renderer uses same fixed CSS projection; open draft has no fill 
 });
 
 test('V3 actual body-canvas accepts independent atlas/focus props; readonly emits no lesion/selection input and null restores V1 defaults',()=>{
- const {ATLAS_MANIFEST:m,ATLAS_REGIONS}=fromBuild('data/atlas.generated.js');
- const {atlasFocusBounds}=fromBuild('utils/atlas-view.js');const rr=ATLAS_REGIONS.filter(r=>r.view==='front'&&r.labelId==='T5');
+ const {ATLAS_MANIFEST:m,ATLAS_REGIONS}=fromBuild('packages/clinical/data/atlas.generated.js');
+ const {atlasFocusBounds}=fromBuild('packages/clinical/utils/atlas-view.js');const rr=ATLAS_REGIONS.filter(r=>r.view==='front'&&r.labelId==='T5');
  const h=harness();h.ready();const prior=h.instance.events.length;
  const layer={atlasVersion:m.atlasVersion,templateId:m.templateId,templateVersion:m.templateVersion,geometryId:m.geometryId,view:'front',regions:rr,showLabels:false};
  h.property({interactionMode:'readonly',atlas:layer,focusBounds:atlasFocusBounds(rr)});
@@ -450,7 +481,7 @@ test('V4 stable node: preload each view once, no clear while waiting, no measure
  try{
   h.state.imageDelay=true;h.ready();assert.equal(h.ctx.calls.filter(c=>c[0]==='clearRect').length,0);assert.equal(h.state.images.length,2);
   for(const fire of h.state.imageCallbacks.splice(0))fire();h.flush();assert.equal(h.state.queryCount,1);
-  const R=fromBuild('data/atlas.generated.js').ATLAS_REGIONS,front=R.filter(r=>r.view==='front').slice(0,2),r=front[0];
+  const R=fromBuild('packages/clinical/data/atlas.generated.js').ATLAS_REGIONS,front=R.filter(r=>r.view==='front').slice(0,2),r=front[0];
   const atlas={atlasVersion:r.atlasVersion,templateId:r.templateId,templateVersion:r.templateVersion,geometryId:r.geometryId,view:'front',regions:front,showLabels:false};
   h.property({atlas,motionEnabled:true,overlayKey:'request-A:front',sceneId:1});const stale=[...callbacks.values()][0];assert.ok(stale);
   const measures=h.state.queryCount,images=h.state.images.length;now+=80;callbacks.values().next().value();callbacks.clear();

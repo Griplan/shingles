@@ -2,14 +2,14 @@
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path');
 const load=f=>require(path.join(process.env.DERMATOME_BUILD_DIR,f));
 const {annotationSession:a,sessionToken}=load('state/annotation-session.js');
-const {placementSession:p}=load('state/placement-session.js');
-const {matchingSession:m}=load('state/matching-session.js');
-const {consumePlacementView,retainPlacementView}=load('state/placement-navigation.js');
+const {placementSession:p}=load('packages/clinical/state/placement-session.js');
+const {matchingSession:m}=load('packages/clinical/state/matching-session.js');
+const {consumePlacementView,retainPlacementView}=load('packages/clinical/state/placement-navigation.js');
 const {fitViewport,focusViewport,reframeViewport,normalizedToCanvas}=load('utils/coordinate.js');
 const {getBodyModel}=load('data/body-models.js');
-const {ATLAS_REGIONS}=load('data/atlas.generated.js');
+const {ATLAS_REGIONS}=load('packages/clinical/data/atlas.generated.js');
 const {syntheticPhoto}=require('./placement-fixtures.cjs');
-let placement,annotate;global.Page=d=>placement=d;load('pages/placement/placement.js');global.Page=d=>annotate=d;load('pages/annotate/annotate.js');
+let placement,annotate;global.Page=d=>placement=d;load('packages/clinical/pages/placement/placement.js');global.Page=d=>annotate=d;load('packages/clinical/pages/annotate/annotate.js');
 const instance=def=>{const page={data:structuredClone(def.data),setData(c){Object.assign(this.data,c)},selectComponent:()=>({previewTransform(){}})};for(const[k,v]of Object.entries(def))if(typeof v==='function')page[k]=v.bind(page);return page;};
 function reply(r){
  const cov=(view,ids)=>{const groups=new Map();for(const reg of ATLAS_REGIONS.filter(v=>v.view===view)){const key=[reg.partitionType,reg.labelId,reg.side].join(':');if(!groups.has(key))groups.set(key,[]);groups.get(key).push(reg);}
@@ -22,7 +22,7 @@ let sequence=0;
 function setup(t,editId){
  const requests=[],nav=[];
  global.wx={nextTick:f=>queueMicrotask(f),getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}}),getSystemInfoSync:()=>({platform:'devtools'}),getWindowInfo:()=>({windowHeight:844}),
-  request:o=>requests.push(o),redirectTo:o=>nav.push(o.url),navigateTo:o=>nav.push(o.url),navigateBack:o=>nav.push('back'),enableAlertBeforeUnload(){},disableAlertBeforeUnload(){},showModal:o=>{o.success({confirm:true});o.complete?.();}};
+  request:o=>{if(o.url.endsWith('/api/v1/access/session')){o.success({statusCode:200,data:{access_token:'ACCESS_'+'d'.repeat(48),token_type:'Bearer',access_kind:'public_test',expires_at:Date.now()/1000+3600}});return;}requests.push(o);},redirectTo:o=>nav.push(o.url),navigateTo:o=>nav.push(o.url),navigateBack:o=>nav.push('back'),enableAlertBeforeUnload(){},disableAlertBeforeUnload(){},showModal:o=>{o.success({confirm:true});o.complete?.();}};
  const source=syntheticPhoto(100,true);source.result_id+='-'+(++sequence);
  const r=editId?p.edit(editId):p.open(source,'back','back-upper-back',()=>true);assert.equal(r.ok,true,r.message);
  const page=instance(placement);page.onLoad({draftId:r.draft.id});page.onShow();t.after(()=>page.onUnload());
@@ -32,17 +32,23 @@ function setup(t,editId){
 }
 test('one confirmation, one request; retry preserves ID and all geometry; result defaults to all without another request',async t=>{
  const {page,requests,nav,vp,source}=setup(t),copy=structuredClone(source);
- const work=page.confirmPosition();page.confirmPosition();assert.equal(requests.length,1);assert.equal(page.data.confirmed,true);
+ const work=page.confirmPosition();await flush();page.confirmPosition();assert.equal(requests.length,1);assert.equal(page.data.confirmed,true);
  const saved=a.snapshot().views.back.completed.at(-1),id=saved.id,count=a.snapshot().views.back.completed.length;
  assert.deepEqual(requests[0].data.lesions.at(-1).geometry,saved.geometry);assert.equal(saved.geometry.coordinates.length,5);
  requests[0].fail({errMsg:'request:fail timeout'});await work;assert.match(page.data.message,/超时/);assert.equal(nav.length,0);
- const retry=page.confirmPosition();assert.equal(requests.length,2);assert.equal(a.snapshot().views.back.completed.length,count);assert.equal(a.snapshot().views.back.completed.at(-1).id,id);
+ const retry=page.confirmPosition();await flush();assert.equal(requests.length,2);assert.equal(a.snapshot().views.back.completed.length,count);assert.equal(a.snapshot().views.back.completed.at(-1).id,id);
  requests[1].success({statusCode:200,data:reply(requests[1].data)});await retry;assert.equal(nav.length,1);assert.match(nav[0],/result=1/);assert.deepEqual(source,copy);
  const result=instance(annotate);result.onLoad({sessionId:a.snapshot().sessionId,result:'1'});result.onShow();t.after(()=>result.onUnload());
  assert.equal(result.data.resultMode,true);assert.equal(result.data.selected,'');assert.ok(result.data.atlas.regions.length);assert.equal(result.data.layer.fillMode,'outline');assert.equal(result.data.candidates.length,2);
  assert.deepEqual(result.data.retainedViewport,vp);assert.equal(result.data.stageHeight,500);
  result.onSceneReady({detail:{sceneId:result.data.sceneId,view:'back'}});const all=result.data.atlas.regions.length;
  result.chooseCandidate({currentTarget:{dataset:{id:result.data.candidates[0].id}}});assert.ok(result.data.selected);assert.ok(result.data.atlas.regions.length<all);
+ const selection=result.data.selected,atlas=result.data.atlas,serialized=JSON.stringify(a.snapshot());
+ for(const [windowWidth,windowHeight] of [[720,760],[800,480],[390,844]]){
+  result.onResize({size:{windowWidth,windowHeight}});
+  assert.equal(result.data.selected,selection);assert.equal(result.data.atlas,atlas);
+  assert.equal(JSON.stringify(a.snapshot()),serialized);assert.equal(requests.length,2);
+ }
  result.showAll();assert.equal(result.data.atlas.regions.length,all);result.fullBody();assert.equal(result.data.retainedViewport,null);await result.viewMatches();assert.equal(requests.length,2);
 });
 test('saved AI editing retains original results until confirmation; stable ID replaced and only new geometry requested',async t=>{
@@ -51,15 +57,15 @@ test('saved AI editing retains original results until confirmation; stable ID re
  assert.equal(page.data.layer.completed.some(p=>p.id===id),false,'editing overlay must not duplicate the saved shape');
  page.scaleChanging({detail:{value:70}});page.angleChanging({detail:{value:20}});assert.equal(requests.length,0);assert.equal(a.snapshot().views.back.completed.at(-1),old);
  page.angleChanged({detail:{value:20}});page.setData({overlayReady:true});assert.equal(m.refresh().response,prior);
- const work=page.confirmPosition();assert.equal(requests.length,1);assert.equal(m.refresh().response,null);assert.equal(a.snapshot().views.back.completed.at(-1).id,id);
+ const work=page.confirmPosition();await flush();assert.equal(requests.length,1);assert.equal(m.refresh().response,null);assert.equal(a.snapshot().views.back.completed.at(-1).id,id);
  assert.equal(page.data.layer.completed.filter(p=>p.id===id).length,1,'confirmed shape is restored exactly once');
  assert.notDeepEqual(requests[0].data.lesions.at(-1).geometry,old.geometry);
  requests[0].success({statusCode:200,data:reply(requests[0].data)});await work;assert.match(nav[0],/result=1/);assert.notEqual(m.refresh().response,prior);
 });
 test('page hiding/unload drops late response and navigation; confirmed annotation remains recoverable',async t=>{
- const {page,requests,nav}=setup(t),work=page.confirmPosition(),saved=a.snapshot().views.back.completed.at(-1);page.onHide();const state=structuredClone(page.data);
+ const {page,requests,nav}=setup(t),work=page.confirmPosition();await flush();const saved=a.snapshot().views.back.completed.at(-1);page.onHide();const state=structuredClone(page.data);
  requests[0].success({statusCode:200,data:reply(requests[0].data)});await work;assert.deepEqual(page.data,state);assert.equal(nav.length,0);assert.equal(m.refresh().response,null);assert.equal(a.snapshot().views.back.completed.at(-1),saved);
- page.onShow();const retry=page.confirmPosition();assert.equal(requests.length,2);requests[1].success({statusCode:200,data:reply(requests[1].data)});await retry;assert.equal(nav.length,1);
+ page.onShow();const retry=page.confirmPosition();await flush();assert.equal(requests.length,2);requests[1].success({statusCode:200,data:reply(requests[1].data)});await retry;assert.equal(nav.length,1);
 });
 test('invalid placement never calls matching or replaces formal geometry; abandoned edit preserves original',async t=>{
  const id=a.snapshot().views.back.completed.at(-1).id,old=a.snapshot().views.back.completed.at(-1),{page,requests}=setup(t,id);
@@ -68,7 +74,7 @@ test('invalid placement never calls matching or replaces formal geometry; abando
  page.backPhoto();assert.equal(a.snapshot().views.back.completed.at(-1),old);assert.equal(requests.length,0);
 });
 test('explicit review clears empty opposite placeholders, never active manual geometry',()=>{
- const {AnnotationSessionStore}=load('state/annotation-session.js'),{PlacementSessionStore}=load('state/placement-session.js');const store=new AnnotationSessionStore(),drafts=new PlacementSessionStore(store);
+ const {AnnotationSessionStore}=load('state/annotation-session.js'),{PlacementSessionStore}=load('packages/clinical/state/placement-session.js');const store=new AnnotationSessionStore(),drafts=new PlacementSessionStore(store);
  store.open('front','front-chest');const r=drafts.open(syntheticPhoto(100),'back','back-upper-back',()=>true),owner=drafts.acquire(r.draft.id);assert.equal(drafts.confirm(r.draft.id,owner).ok,true);
  assert.ok(store.snapshot().views.front.draft);const review=store.dispatch(sessionToken(store.snapshot()),{type:'review'});assert.equal(review.ok,true);assert.equal(review.session.views.front.draft,null);
 });

@@ -78,11 +78,30 @@ def main() -> int:
         path = ROOT / relative
         if not path.is_dir() or not any(path.iterdir()):
             errors.append(f"目录不存在或缺少 .gitkeep 等保留文件：{relative}")
-    expected_pages = [f"pages/{name}/{name}" for name in ("index", "select", "annotate", "result", "atlas-debug", "ai-annotate", "placement", "special-parts", "local-surface")]
+    main_pages = ["pages/index/index", "pages/select/select"]
+    expected_subpackages = {
+        "packages/clinical": [
+            "pages/annotate/annotate", "pages/result/result",
+            "pages/atlas-debug/atlas-debug", "pages/ai-annotate/ai-annotate",
+            "pages/placement/placement",
+        ],
+        "packages/special": [
+            "pages/special-parts/special-parts", "pages/local-surface/local-surface",
+        ],
+    }
+    expected_pages = main_pages + [
+        f"{root}/{page}" for root, pages in expected_subpackages.items() for page in pages
+    ]
     try:
         app = json.loads((ROOT / "miniprogram/app.json").read_text(encoding="utf-8"))
-        if app.get("pages") != expected_pages:
-            errors.append("app.json 页面注册或首页顺序不符合现有页面与独立脚底页面约定")
+        if app.get("pages") != main_pages:
+            errors.append("app.json 主包页面注册或首页顺序不符合分包约定")
+        actual_subpackages = {
+            item.get("root"): item.get("pages", [])
+            for item in app.get("subPackages", [])
+        }
+        if actual_subpackages != expected_subpackages:
+            errors.append("app.json 分包根目录或页面注册不符合临床/特殊部位约定")
         for page in expected_pages:
             for extension in ("ts", "json", "wxml", "wxss"):
                 if not (ROOT / "miniprogram" / f"{page}.{extension}").is_file():
@@ -91,14 +110,14 @@ def main() -> int:
             targets = re.findall(r'<navigator\b[^>]*\burl="([^"]+)"', markup)
             # V4 uses a guarded return handler to preserve the annotation session.
             source = (ROOT / "miniprogram" / f"{page}.ts").read_text(encoding="utf-8")
-            guarded_return = (page == "pages/result/result" and 'bindtap="backToEdit"' in markup
+            guarded_return = (page == "packages/clinical/pages/result/result" and 'bindtap="backToEdit"' in markup
                               and 'backToEdit()' in source and 'wx.navigateBack(' in source
-                              and '/pages/annotate/annotate?sessionId=' in source)
-            compatibility_redirect = (page == "pages/result/result" and 'wx.redirectTo(' in source
-                                      and '/pages/annotate/annotate?sessionId=' in source)
-            ai_return = page == "pages/ai-annotate/ai-annotate" and 'bindtap="backManual"' in markup and "wx.navigateBack(" in source
-            placement_return = page == "pages/placement/placement" and 'bindtap="backPhoto"' in markup and 'wx.navigateBack(' in source
-            local_return = page in ("pages/special-parts/special-parts", "pages/local-surface/local-surface") and 'bindtap="returnBody"' in markup and 'wx.navigateBack(' in source
+                              and '/packages/clinical/pages/annotate/annotate?sessionId=' in source)
+            compatibility_redirect = (page == "packages/clinical/pages/result/result" and 'wx.redirectTo(' in source
+                                      and '/packages/clinical/pages/annotate/annotate?sessionId=' in source)
+            ai_return = page == "packages/clinical/pages/ai-annotate/ai-annotate" and 'bindtap="backManual"' in markup and "wx.navigateBack(" in source
+            placement_return = page == "packages/clinical/pages/placement/placement" and 'bindtap="backPhoto"' in markup and 'wx.navigateBack(' in source
+            local_return = page in ("packages/special/pages/special-parts/special-parts", "packages/special/pages/local-surface/local-surface") and 'bindtap="returnBody"' in markup and 'wx.navigateBack(' in source
             if not targets and not guarded_return and not compatibility_redirect and not ai_return and not placement_return and not local_return:
                 errors.append(f"页面缺少基本导航：{page}")
             for target in targets:
@@ -116,14 +135,14 @@ def main() -> int:
             errors.append("select 页面未注册已有 body-canvas 组件")
         if select_config.get("usingComponents", {}).get("region-picker") != "/components/region-picker/region-picker":
             errors.append("select 页面未注册底部区域选择组件")
-        annotate_config = json.loads((ROOT / "miniprogram/pages/annotate/annotate.json").read_text(encoding="utf-8"))
+        annotate_config = json.loads((ROOT / "miniprogram/packages/clinical/pages/annotate/annotate.json").read_text(encoding="utf-8"))
         if annotate_config.get("usingComponents", {}).get("body-canvas") != "/components/body-canvas/body-canvas":
             errors.append("annotate 页面未复用 body-canvas")
-        local_config = json.loads((ROOT / "miniprogram/pages/local-surface/local-surface.json").read_text())
-        if local_config.get("usingComponents", {}).get("local-surface-canvas") != "/components/local-surface-canvas/local-surface-canvas":
+        local_config = json.loads((ROOT / "miniprogram/packages/special/pages/local-surface/local-surface.json").read_text())
+        if local_config.get("usingComponents", {}).get("local-surface-canvas") != "/packages/special/components/local-surface-canvas/local-surface-canvas":
             errors.append("局部页面缺少局部视图 Canvas")
         for extension in ("ts", "json", "wxml", "wxss"):
-            if not (ROOT / "miniprogram/components/local-surface-canvas" / f"local-surface-canvas.{extension}").is_file():
+            if not (ROOT / "miniprogram/packages/special/components/local-surface-canvas" / f"local-surface-canvas.{extension}").is_file():
                 errors.append(f"缺少局部组件文件：{extension}")
         canvas_markup = (ROOT / "miniprogram/components/body-canvas/body-canvas.wxml").read_text(encoding="utf-8")
         if not re.search(r'<canvas\b[^>]*\btype="2d"', canvas_markup):
@@ -134,7 +153,7 @@ def main() -> int:
         for error in errors:
             print(f"FAILED: {error}", file=sys.stderr)
         return 1
-    print("PASSED: V0～V6.1 必要文件、目录、JSON、九页导航、组件注册及 Canvas 2D 配置完整。")
+    print("PASSED: 必要文件、主包/分包页面、JSON、九页导航、组件注册及 Canvas 2D 配置完整。")
     print("此检查不代表 WXML/WXSS 编译、页面导航交互或真机验证通过。")
     return 0
 

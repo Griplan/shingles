@@ -5,7 +5,7 @@
   "inferences": [
     {
       "status": 200,
-      "seconds": 6.422004374999999,
+      "seconds": 6.998574124999999,
       "candidates": [
         {
           "id": "candidate-0",
@@ -26,7 +26,7 @@
     },
     {
       "status": 200,
-      "seconds": 3.3114154579999995,
+      "seconds": 3.918406167000001,
       "candidates": [
         {
           "id": "candidate-0",
@@ -62,11 +62,11 @@
     "mask_sha256": "72cd9427525c50c3ee550ed0e647f4387e3c24f987a7162ecc8dec22ad1b30f4",
     "correction": null
   },
-  "confirm_sync_ms": 107.15758300000016,
+  "confirm_sync_ms": 27.515207999998893,
   "matches": [
     {
       "status": 200,
-      "http_ms": 328.7141250000004,
+      "http_ms": 517.2638329999991,
       "views": [
         {
           "view": "back",
@@ -84,7 +84,7 @@
     },
     {
       "status": 200,
-      "http_ms": 347.568874999999,
+      "http_ms": 412.204208000001,
       "views": [
         {
           "view": "back",

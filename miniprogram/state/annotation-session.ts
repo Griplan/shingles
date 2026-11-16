@@ -20,6 +20,8 @@ export interface PlacementCommit {
   readonly geometry:BodyMultiPolygon;
   readonly source:ConfirmedPhoto;
   readonly transform:PlacementTransform;
+  /** The confirmed photo geometry was copied into placement before the temporary server source was released. */
+  readonly sourceDetached?:boolean;
   /** Compare-and-replace an existing AI annotation; stable annotation ID is retained. */
   readonly editTarget?:{readonly id:string;readonly placementId:string};
 }
@@ -114,7 +116,8 @@ export class AnnotationSessionStore {
       JSON.stringify(replaced.source.photo)!==JSON.stringify(payload.source)))return fail("原AI标注已变化，不能覆盖；请返回重新选择");
     if(!replaced&&s.views[view].completed.length>=MAX_REGIONS_PER_VIEW)return fail(`每面最多 ${MAX_REGIONS_PER_VIEW} 片，请先删除不需要的区域`);
     if(!model.regions.some(r=>r.id===payload.entryRegionId))return fail("当前视图没有该部位，请重新选择");
-    if(!payload.source || !Number.isFinite(payload.source.expires_at) || (!replaced&&payload.source.expires_at<=Date.now()/1000))
+    if(!payload.source || !Number.isFinite(payload.source.expires_at) ||
+      (!replaced&&!payload.sourceDetached&&payload.source.expires_at<=Date.now()/1000))
       return fail("照片分析会话已过期，请返回重新上传或分析");
     const source=payload.source;
     if(![source.session_id,source.photo_id,source.result_id,source.mask_asset].every(v=>typeof v==="string" && v.length>0) ||

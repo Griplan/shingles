@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-11-10T17:08:00+08:00",
+  "application": "微信开发者工具 Stable 2.01.2510290",
+  "project": "Shingles",
+  "visible_page": "pages/select/select",
+  "page_rendered": true,
+  "automatic_compile_action": "NOT_RUN",
+  "automatic_compile_error": "noWindowsAvailable",
+  "static_wxml_compiler": "PASS",
+  "static_wxss_compiler": "PASS",
+  "real_device_touch_latency_fps": "NOT_RUN"
+}

@@ -1,0 +1,125 @@
+{
+  "engine": "v24.11.1",
+  "arch": "arm64",
+  "batchesPerRun": 1000,
+  "eventsPerBatch": 5,
+  "medianMs": {
+    "before": 135.675,
+    "after": 180.29500000000002
+  },
+  "pairs": [
+    {
+      "before": {
+        "ms": 150.7,
+        "queuedCallbacks": 5000,
+        "measurements": 1000,
+        "images": 2
+      },
+      "after": {
+        "ms": 244.86,
+        "queuedCallbacks": 1000,
+        "measurements": 1000,
+        "images": 2
+      }
+    },
+    {
+      "after": {
+        "ms": 292.99,
+        "queuedCallbacks": 1000,
+        "measurements": 1000,
+        "images": 2
+      },
+      "before": {
+        "ms": 146.38,
+        "queuedCallbacks": 5000,
+        "measurements": 1000,
+        "images": 2
+      }
+    },
+    {
+      "before": {
+        "ms": 160.29,
+        "queuedCallbacks": 5000,
+        "measurements": 1000,
+        "images": 2
+      },
+      "after": {
+        "ms": 180.29,
+        "queuedCallbacks": 1000,
+        "measurements": 1000,
+        "images": 2
+      }
+    },
+    {
+      "after": {
+        "ms": 180.3,
+        "queuedCallbacks": 1000,
+        "measurements": 1000,
+        "images": 2
+      },
+      "before": {
+        "ms": 129.44,
+        "queuedCallbacks": 5000,
+        "measurements": 1000,
+        "images": 2
+      }
+    },
+    {
+      "before": {
+        "ms": 127.83,
+        "queuedCallbacks": 5000,
+        "measurements": 1000,
+        "images": 2
+      },
+      "after": {
+        "ms": 163.46,
+        "queuedCallbacks": 1000,
+        "measurements": 1000,
+        "images": 2
+      }
+    },
+    {
+      "after": {
+        "ms": 182.3,
+        "queuedCallbacks": 1000,
+        "measurements": 1000,
+        "images": 2
+      },
+      "before": {
+        "ms": 129.65,
+        "queuedCallbacks": 5000,
+        "measurements": 1000,
+        "images": 2
+      }
+    },
+    {
+      "before": {
+        "ms": 141.7,
+        "queuedCallbacks": 5000,
+        "measurements": 1000,
+        "images": 2
+      },
+      "after": {
+        "ms": 159.61,
+        "queuedCallbacks": 1000,
+        "measurements": 1000,
+        "images": 2
+      }
+    },
+    {
+      "after": {
+        "ms": 167.37,
+        "queuedCallbacks": 1000,
+        "measurements": 1000,
+        "images": 2
+      },
+      "before": {
+        "ms": 128.95,
+        "queuedCallbacks": 5000,
+        "measurements": 1000,
+        "images": 2
+      }
+    }
+  ],
+  "scope": "body-canvas JS adapter, no GPU or WeChat bridge"
+}

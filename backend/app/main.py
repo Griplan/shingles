@@ -60,7 +60,7 @@ async def invalid_request(_request:Request,exc:RequestValidationError):
     if any(e.get('input') in ('palm-left','palm-right') for e in view_errors):
         return error_response('VIEW_RETIRED','独立手掌视图已停用，请在全身正面或背面重新标注；旧坐标不会自动迁移',410)
     if view_errors:
-        return error_response('VIEW_UNSUPPORTED','当前支持全身正背面、左右脚底及左右腋下视图；参考计算还需对应图谱就绪',422)
+        return error_response('VIEW_UNSUPPORTED','当前支持全身正背面、左右脚底、左右腋下及会阴区域视图；参考计算还需对应图谱就绪',422)
     return error_response('INVALID_INPUT','请求字段、坐标、数量或格式不合法',422)
 
 @app.exception_handler(Exception)

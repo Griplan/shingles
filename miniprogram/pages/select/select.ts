@@ -96,21 +96,21 @@ Page({
   showFullBody() { this.setData({ zoomRegion: "",mode:"overview",selectionMessage:"" }); },
   openSpecialParts() {
     if(this.data.sheetOpen || this.data.infoOpen)return;
-    wx.navigateTo({url:"/pages/special-parts/special-parts",fail:()=>this.setData({selectionMessage:"特殊部位页面未能打开，请重试"})});
+    wx.navigateTo({url:"/packages/special/pages/special-parts/special-parts",fail:()=>this.setData({selectionMessage:"特殊部位页面未能打开，请重试"})});
   },
   startAnnotation() {
     if(this.data.sheetOpen || this.data.infoOpen || this.data.debugEnabled)return;
     const result=annotationSession.open(this.data.view,this.data.selectedRegion);
     if(!result.ok){this.setData({selectionMessage:result.message});return;}
     this.setData({infoOpen:true});
-    wx.navigateTo({url:`/pages/annotate/annotate?sessionId=${encodeURIComponent(result.session.sessionId)}`,
+    wx.navigateTo({url:`/packages/clinical/pages/annotate/annotate?sessionId=${encodeURIComponent(result.session.sessionId)}`,
       fail:()=>this.setData({selectionMessage:"标注页面未能打开，请重试；会话仍保留"}),
       complete:()=>this.setData({infoOpen:false})});
   },
   startAI() {
     if(!canUseAI())return;
     if(this.data.sheetOpen||this.data.infoOpen||this.data.debugEnabled||!getBodyRegion(this.data.view,this.data.selectedRegion))return;
-    wx.navigateTo({url:`/pages/ai-annotate/ai-annotate?view=${this.data.view}&region=${encodeURIComponent(this.data.selectedRegion)}`,
+    wx.navigateTo({url:`/packages/clinical/pages/ai-annotate/ai-annotate?view=${this.data.view}&region=${encodeURIComponent(this.data.selectedRegion)}`,
       fail:()=>this.setData({selectionMessage:"AI页面未能打开，请重试"})});
   },
   toggleDeveloper() {

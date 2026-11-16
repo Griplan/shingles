@@ -19,7 +19,9 @@ async def lifespan(app):
             async def sweep():
                 while not stop.is_set():
                     try: await asyncio.wait_for(stop.wait(),30)
-                    except asyncio.TimeoutError: app.state.ai_sessions.sweep()
+                    except asyncio.TimeoutError:
+                        try: await asyncio.to_thread(app.state.ai_sessions.sweep)
+                        except OSError: pass  # Retry next scan; do not lose the cleanup loop.
             task=asyncio.create_task(sweep())
     try: yield
     finally:

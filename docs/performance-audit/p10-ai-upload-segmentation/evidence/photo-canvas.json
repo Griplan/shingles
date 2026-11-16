@@ -1,0 +1,551 @@
+{
+  "schema_version": "p10-photo-canvas-profile-v1",
+  "environment": {
+    "node": "v24.11.1",
+    "platform": "darwin",
+    "kind": "production JS with deterministic wx/Canvas adapter",
+    "native_bridge_raster_fps_latency": "NOT_MEASURED"
+  },
+  "cases": [
+    {
+      "width": 320,
+      "repetition": 0,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 2.411417,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 240,
+            "canvasMeasureQueries": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 1.0540829999999914,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 242,
+            "canvasMeasureQueries": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.12004199999999798,
+          "counts": {
+            "event.renderstate": 20,
+            "canvasMeasureQueries": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "repetition": 1,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.6229160000000036,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 240,
+            "canvasMeasureQueries": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 2.9129590000000007,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 242,
+            "canvasMeasureQueries": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.04133299999999451,
+          "counts": {
+            "event.renderstate": 20,
+            "canvasMeasureQueries": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "repetition": 2,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.8762499999999989,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 240,
+            "canvasMeasureQueries": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 2.859791999999999,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 242,
+            "canvasMeasureQueries": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.05316700000000196,
+          "counts": {
+            "event.renderstate": 20,
+            "canvasMeasureQueries": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "repetition": 0,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.5442079999999976,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 240,
+            "canvasMeasureQueries": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 0.9306250000000063,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 242,
+            "canvasMeasureQueries": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.08695799999999565,
+          "counts": {
+            "event.renderstate": 20,
+            "canvasMeasureQueries": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "repetition": 1,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.4849579999999918,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 240,
+            "canvasMeasureQueries": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 0.8790419999999983,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 242,
+            "canvasMeasureQueries": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.034583999999995285,
+          "counts": {
+            "event.renderstate": 20,
+            "canvasMeasureQueries": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "repetition": 2,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.4612079999999992,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 240,
+            "canvasMeasureQueries": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 1.1994579999999928,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 242,
+            "canvasMeasureQueries": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.03491600000000972,
+          "counts": {
+            "event.renderstate": 20,
+            "canvasMeasureQueries": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "repetition": 0,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.47179200000000776,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 240,
+            "canvasMeasureQueries": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 0.8097500000000082,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 242,
+            "canvasMeasureQueries": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.03383399999999881,
+          "counts": {
+            "event.renderstate": 20,
+            "canvasMeasureQueries": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "repetition": 1,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.4210419999999999,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 240,
+            "canvasMeasureQueries": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 0.6462910000000051,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 242,
+            "canvasMeasureQueries": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.026458999999988464,
+          "counts": {
+            "event.renderstate": 20,
+            "canvasMeasureQueries": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "repetition": 2,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.3042920000000038,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 240,
+            "canvasMeasureQueries": 120,
+            "context": 120,
+            "setTransform": 120,
+            "clearRect": 120,
+            "drawImage": 240,
+            "setLineDash": 240,
+            "strokeRect": 120,
+            "setData": 120,
+            "setDataBytes": 1440,
+            "event.prompt": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 0.6342499999999944,
+          "counts": {
+            "boundsQueries": 122,
+            "event.renderstate": 242,
+            "canvasMeasureQueries": 121,
+            "context": 121,
+            "setTransform": 121,
+            "clearRect": 121,
+            "drawImage": 242,
+            "beginPath": 240,
+            "moveTo": 120,
+            "lineTo": 7260,
+            "stroke": 240,
+            "arc": 120,
+            "setData": 121,
+            "setDataBytes": 1452,
+            "event.stroke": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.02508299999999508,
+          "counts": {
+            "event.renderstate": 20,
+            "canvasMeasureQueries": 10,
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "setData": 10,
+            "setDataBytes": 120
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import {apiBaseUrl,API_CONFIG} from "../config/api";
+import {controlledServerActive} from "../config/controlled";
 import {currentEnvironment} from "../config/environment";
 let session:{token:string;expires:number}|null=null;
 let generation=0;
@@ -7,7 +8,9 @@ export function needsTrialAccess():boolean {
  const env=currentEnvironment();
  if(env==="trial")return true;
  if(env!=="develop")return false;
- try{return wx.getSystemInfoSync().platform!=="devtools";}catch{return true;}
+ // A develop build without the explicit local access key uses the public test
+ // service and therefore needs the same temporary Bearer session as a phone.
+ try{return !controlledServerActive();}catch{return true;}
 }
 export function trialAccessActive():boolean {return !!session&&session.expires>Date.now()/1000;}
 export function trialHeaders():Record<string,string> {return trialAccessActive()?{authorization:"Bearer "+session!.token}:{};}

@@ -8,6 +8,7 @@ export {LocalSurfaceView} from "./dermatome";
 export interface LocalSurfaceModel extends LogicalModel {
  readonly name:string;readonly view:LocalSurfaceView;readonly version:string;readonly geometryId:string;readonly regionSetId:string;
  readonly imagePath:string;readonly sourcePath:string;readonly body:BodyGeometry;
+ readonly aiPhotoSupported?:boolean;
  readonly resource:{readonly title:string;readonly url:string;readonly author:string;readonly license:string;readonly attribution:string};
  readonly atlas:{readonly identity:MatchingIdentity;readonly regions:readonly AtlasRegion<LocalSurfaceView>[];
   readonly atlasType?:"SCHEMATIC";readonly reviewStatus?:"NOT_MEDICALLY_VALIDATED";readonly intendedUse?:"INTERACTIVE_SIMULATION";readonly sourceType?:"ARTIFICIALLY_CONSTRUCTED";readonly atlasStatus?:"PROVISIONAL"; readonly technicalReady:boolean;readonly blockedReason:string;readonly sourceTitle:string;readonly sourceUrl:string;

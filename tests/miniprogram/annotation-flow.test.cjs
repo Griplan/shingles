@@ -3,8 +3,8 @@ const build=f=>path.join(process.env.DERMATOME_BUILD_DIR,f);
 const fixture=require('../../backend/tests/fixtures/synthetic-annotation-geometry.json').editor;
 const event=dataset=>({currentTarget:{dataset}});
 function setup(){
- for(const f of ['state/annotation-session.js','pages/annotate/annotate.js','pages/select/select.js'])delete require.cache[require.resolve(build(f))];
- let definition,selectDefinition;global.Page=o=>{definition=o;};require(build('pages/annotate/annotate.js'));const annotateDefinition=definition;
+ for(const f of ['state/annotation-session.js','packages/clinical/pages/annotate/annotate.js','pages/select/select.js'])delete require.cache[require.resolve(build(f))];
+ let definition,selectDefinition;global.Page=o=>{definition=o;};require(build('packages/clinical/pages/annotate/annotate.js'));const annotateDefinition=definition;
  global.Page=o=>{selectDefinition=o;};require(build('pages/select/select.js'));
  const state={sheet:null,modal:null,route:'',backs:0};
  global.wx={getAccountInfoSync:()=>({miniProgram:{envVersion:"develop"}}),getSystemInfoSync:()=>({platform:"devtools"}),showActionSheet:o=>{state.sheet=o;},showModal:o=>{state.modal=o;},

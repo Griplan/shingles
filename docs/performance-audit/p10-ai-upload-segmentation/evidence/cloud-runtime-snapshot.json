@@ -1,0 +1,43 @@
+{
+  "schema_version": "p10-cloud-runtime-snapshot-v1",
+  "observed_date": "2026-11-10",
+  "kind": "read-only SSH observations; low-load audit, not a stress test",
+  "host": {
+    "os": "Ubuntu 24.04.4 LTS",
+    "architecture": "x86_64",
+    "cpu_model": "AMD EPYC",
+    "logical_cpus": 4,
+    "load_average": [0.11, 0.06, 0.02],
+    "memory_total_gib_approx": 3.64,
+    "memory_available_gib_approx": 2.47
+  },
+  "services": {
+    "dermatome": {
+      "active": "running",
+      "main_pid": 1262949,
+      "n_restarts": 0,
+      "memory_current_bytes": 538968064,
+      "cgroup_memory_peak_bytes": 797048832,
+      "oom_events": 0,
+      "oom_kill_events": 0
+    },
+    "acupuncture": {
+      "active": "running",
+      "main_pid": 611289,
+      "n_restarts": 0
+    }
+  },
+  "ports": {
+    "8000": "127.0.0.1 only",
+    "8001": "127.0.0.1 only"
+  },
+  "cgroup_cpu_stat": {
+    "nr_throttled_cumulative": 136,
+    "throttled_usec_cumulative": 152375,
+    "interpretation": "cumulative over cgroup lifetime; no request-window delta was measured"
+  },
+  "notes": [
+    "No service restart, Nginx change, deployment, firewall change or high-load test was performed.",
+    "Health/readiness checks do not prove the complete acupuncture business workflow."
+  ]
+}

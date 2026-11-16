@@ -18,7 +18,8 @@ export type BodyView = "front" | "back";
 /** Local surfaces have independent template coordinates; never alias them to front/back. */
 export type SoleView = "sole-left" | "sole-right";
 export type AxillaView = "axilla-left" | "axilla-right";
-export type LocalSurfaceView = SoleView | AxillaView;
+export type PerineumView = "perineum-overview";
+export type LocalSurfaceView = SoleView | AxillaView | PerineumView;
 export type SurfaceView = BodyView | LocalSurfaceView;
 export interface NormalizedPoint { readonly x: number; readonly y: number }
 export interface CanvasPoint { readonly x: number; readonly y: number }
@@ -90,6 +91,7 @@ export interface BodyRegionProbe {
   readonly regionIds: readonly string[];
 }
 export interface BodyViewportEvent {
+  readonly layoutRevision?: number;
   readonly view: BodyView;
   readonly modelId: string;
   readonly modelVersion: string;

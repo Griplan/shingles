@@ -1,0 +1,175 @@
+{
+  "brush_test": false,
+  "kind": "page/component + real backend HTTP, wx adapters; not native GUI",
+  "sample": "6000×4000 synthetic resize and pad of public CDC PHIL 21505 (not a new clinical sample)",
+  "inferences": [
+    {
+      "status": 200,
+      "seconds": 0.7075310410000002,
+      "candidates": [
+        {
+          "id": "candidate-0",
+          "status": "ok",
+          "area_ratio": 0.048440348307291665
+        },
+        {
+          "id": "candidate-1",
+          "status": "ok",
+          "area_ratio": 0.068272705078125
+        },
+        {
+          "id": "candidate-2",
+          "status": "ok",
+          "area_ratio": 0.08641642252604166
+        }
+      ]
+    },
+    {
+      "status": 200,
+      "seconds": 0.7166257500000002,
+      "candidates": [
+        {
+          "id": "candidate-0",
+          "status": "ok",
+          "area_ratio": 0.051330159505208334
+        },
+        {
+          "id": "candidate-1",
+          "status": "ok",
+          "area_ratio": 0.06847941080729167
+        },
+        {
+          "id": "candidate-2",
+          "status": "ok",
+          "area_ratio": 0.081378173828125
+        }
+      ]
+    }
+  ],
+  "medical_accuracy": "NOT_MEASURED",
+  "endpoint": "http://127.0.0.1:8000",
+  "controlled_access": false,
+  "client_environment": "develop",
+  "https_and_phone": "NOT_RUN: loopback test",
+  "native_resize_adapter": {
+    "kind": "Pillow, not native WeChat",
+    "elapsed_ms": 188.00808299999994,
+    "peak_rss_mib": 149.40625,
+    "thumbnail_bytes": 267876
+  },
+  "preparation": {
+    "orientation": "up",
+    "elapsed_ms": 276.36862500000007,
+    "before": [
+      6000,
+      4000,
+      2352328
+    ],
+    "after": [
+      1920,
+      1280,
+      267876
+    ]
+  },
+  "reference_upright_rgb_mean_error": 0.5426283094618055,
+  "upload_http_ms": 148.39100000000008,
+  "prompt": {
+    "xMin": 0.30714285714285716,
+    "yMin": 0.5320190217391304,
+    "xMax": 0.7071428571428572,
+    "yMax": 0.8320298913043479
+  },
+  "touch_dispatch": "overlapping client-coordinate events with asynchronous bounds queries",
+  "max_prompt_error_px": 1.4210854715202004e-13,
+  "photo_mask_rect_equal": true,
+  "mask_pixel_disagreement": 0,
+  "confirmation": {
+    "schema": "confirmed-photo-segmentation-v1",
+    "coordinate_space": "photo_oriented_normalized_v1",
+    "candidate": "candidate-1",
+    "polygons": 9,
+    "holes": 14,
+    "mask_sha256": "4a0138e49576c88d6b88561069576674c6bd1713204b53eba1a7639d1c769c4d",
+    "correction": null
+  },
+  "confirm_sync_ms": 88.47870800000055,
+  "matches": [
+    {
+      "status": 200,
+      "http_ms": 166.15183400000024,
+      "views": [
+        {
+          "view": "back",
+          "candidates": 5,
+          "covered_ratio": 0.9999346529605606,
+          "uncovered_ratio": 0.00006534703943925824
+        },
+        {
+          "view": "front",
+          "candidates": 10,
+          "covered_ratio": 0.9998513601222073,
+          "uncovered_ratio": 0.00014863987779222584
+        }
+      ]
+    },
+    {
+      "status": 200,
+      "http_ms": 206.7808329999998,
+      "views": [
+        {
+          "view": "back",
+          "candidates": 4,
+          "covered_ratio": 0.9999999999999967,
+          "uncovered_ratio": 0
+        },
+        {
+          "view": "front",
+          "candidates": 10,
+          "covered_ratio": 0.9998513601222073,
+          "uncovered_ratio": 0.00014863987779222584
+        }
+      ]
+    }
+  ],
+  "results": {
+    "all_regions": 5,
+    "labels": 5,
+    "automatic_all": true,
+    "label_and_show_all_no_request": true,
+    "retained_camera": true
+  },
+  "placement": {
+    "view": "back",
+    "coordinate_space": "body_template_normalized_v1",
+    "polygons": 9,
+    "holes": 14,
+    "vertices": 2019,
+    "scale": 0.7,
+    "angle": 25,
+    "formal_annotations_front": 1,
+    "formal_annotations_back": 1,
+    "duplicate_confirm_count": 1,
+    "network_requests_during_adjustment": 0,
+    "manual_preserved": true,
+    "full_view_transform_unchanged": true,
+    "v2_restored": true,
+    "photo_source_unchanged": true
+  },
+  "edited": {
+    "stable_id": true,
+    "formal_count": 1,
+    "geometry_changed": true,
+    "original_photo_preserved": true,
+    "request_count": 2
+  },
+  "segment_requests": 2,
+  "frame_draws": 21,
+  "confirmation_requests": 1,
+  "after_delete_status": 410,
+  "equivalence": {
+    "same_body_manual_ai": "exact response equality",
+    "after_photo_cleanup": "PASSED",
+    "photo_sent_to_evaluate": false
+  },
+  "status": "PASSED"
+}

@@ -1,0 +1,6 @@
+4bc4c5cffb3d8e8e484e4fbea9e11e1403aedf5a0a236e7f9faf38cebe72bbd1  docs/validation-records/v6.7-perineum/evidence/wechat-perineum-320-match.jpg
+e572a16940a7f371e5defd3401d5ba0c141bf550b30293e8b123dfb40d891497  docs/validation-records/v6.7-perineum/evidence/wechat-perineum-375-match.jpg
+b679cecde37cb21e8bf783b85475404972418a03d108b92ed54d78cbea4dd197  docs/validation-records/v6.7-perineum/evidence/wechat-perineum-430-match.jpg
+50f90194fd5eff338255330ac52c49a43a40c2e2e719603678ea8bdce5c50364  docs/validation-records/v6.7-perineum/evidence/wechat-perineum-match-all.jpg
+3aa03ceb928305a34953bd85cd6c4fde5543c10dc5e75ac64eb0e5e5c10eff01  docs/validation-records/v6.7-perineum/evidence/wechat-perineum-match-s2.jpg
+e53796808caf9bf21213bda5e179fe8af8c100ac203d66b2c841ae63db922109  docs/validation-records/v6.7-perineum/evidence/wechat-perineum-match-zoom.jpg

@@ -12,7 +12,7 @@ export const API_ERROR_TEXT:Readonly<Record<string,string>>={
  ACCESS_DENIED:"测试连接未完成，请重试；标注已保留",RATE_LIMITED:"请求过于频繁，请稍后重试",SERVICE_UNAVAILABLE:"服务暂时停用，请稍后重试；标注已保留",
  MATCHING_DISABLED:"服务尚未启用开发测试匹配",INVALID_INPUT:"请求格式不合法，请更新客户端后重试",
  INVALID_ANNOTATION:"标注无效或跨出人体，请返回编辑",VERSION_MISMATCH:"人体或图谱版本不一致，请同步更新前后端",
- ATLAS_NOT_READY:"手掌参考分区尚未就绪，标注已保留",ATLAS_NOT_FOUND:"后端未配置这套图谱",ATLAS_UNAVAILABLE:"图谱文件缺失、损坏或尚未同步",
+ ATLAS_NOT_READY:"局部参考分区尚未就绪，标注已保留",ATLAS_NOT_FOUND:"后端未配置这套图谱",ATLAS_UNAVAILABLE:"图谱文件缺失、损坏或尚未同步",
  VIEW_UNSUPPORTED:"当前视图尚未支持",LIMIT_EXCEEDED:"标注数量超限，请返回编辑",PAYLOAD_TOO_LARGE:"请求过大，请减少标注顶点",
  INTERNAL_ERROR:"服务暂时无法完成计算，请重试",COMPUTATION_ERROR:"几何计算校验失败，请联系开发人员"};
 /** Inspect only the platform error category; never display or log raw request data. */

@@ -1,14 +1,14 @@
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path'),fs=require('node:fs'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'../..'),build=f=>require(path.join(process.env.DERMATOME_BUILD_DIR,f));
-const {ATLAS_MANIFEST:M,ATLAS_REGIONS:R}=build('data/atlas.generated.js');
+const {ATLAS_MANIFEST:M,ATLAS_REGIONS:R}=build('packages/clinical/data/atlas.generated.js');
 const {isAtlasPreviewEnvironment,canPreviewAtlas}=build('config/development.js');
-const {atlasRegionsForView:regions,atlasFocusBounds:bounds,atlasLabelOptions:options,atlasLabelName:labelName,atlasLocalFocusBounds:localBounds}=build('utils/atlas-view.js');
+const {atlasRegionsForView:regions,atlasFocusBounds:bounds,atlasLabelOptions:options,atlasLabelName:labelName,atlasLocalFocusBounds:localBounds}=build('packages/clinical/utils/atlas-view.js');
 const {drawAtlas}=build('components/body-canvas/atlas-render.js');
 const {getBodyModel}=build('data/body-models.js');
 const {fitViewport,focusViewport,normalizedToCanvas,canvasToNormalized}=build('utils/coordinate.js');
 const fixture=require('../../backend/tests/fixtures/synthetic-atlas-render.json');
 function page(env='develop'){
- let def;global.Page=o=>{def=o;};const route=path.join(process.env.DERMATOME_BUILD_DIR,'pages/atlas-debug/atlas-debug.js');delete require.cache[require.resolve(route)];require(route);
+ let def;global.Page=o=>{def=o;};const route=path.join(process.env.DERMATOME_BUILD_DIR,'packages/clinical/pages/atlas-debug/atlas-debug.js');delete require.cache[require.resolve(route)];require(route);
  global.wx={getAccountInfoSync:()=>({miniProgram:{envVersion:env}})};
  const p={data:structuredClone(def.data),setData(c){Object.assign(this.data,c);}};
  for(const[k,v]of Object.entries(def))if(typeof v==='function')p[k]=v.bind(p);
@@ -63,7 +63,7 @@ test('V3 atlas operations neither read nor write an existing V2 authority, inclu
   p.changeGroup(event({group:'trigeminal'}));p.chooseFace(event({label:'V1'}));p.focusLocal(event({focus:'face'}));p.switchView(event({view:'front'}));p.focusLocal(event({focus:'face'}));p.changeGroup(event({group:'spinal'}));p.focusLocal(event({focus:'left-foot'}));p.focusLocal(event({focus:'right-foot'}));page();}
  finally{for(const n of names)s[n]=saved[n];}
  assert.equal(s.snapshot(),x);assert.equal(JSON.stringify(s.snapshot()),json);
- for(const f of ['pages/atlas-debug/atlas-debug.ts','utils/atlas-view.ts','components/body-canvas/atlas-render.ts'])assert.doesNotMatch(fs.readFileSync(path.join(root,'miniprogram',f),'utf8'),/annotationSession|\.snapshot\(|\/evaluate|services\/api/);
+ for(const f of ['packages/clinical/pages/atlas-debug/atlas-debug.ts','packages/clinical/utils/atlas-view.ts','components/body-canvas/atlas-render.ts'])assert.doesNotMatch(fs.readFileSync(path.join(root,'miniprogram',f),'utf8'),/annotationSession|\.snapshot\(|\/evaluate|services\/api/);
 });
 test('V3 draw MultiPolygon/hole uses closed paths from the same normalized coordinates; bbox only focuses',()=>{
  const r={...R.find(r=>r.view==='front'),id:'synthetic-UI-ISLAND',labelId:fixture.label,geometry:{type:'MultiPolygon',coordinates:fixture.coordinates}};
@@ -159,6 +159,6 @@ test('V3 homepage hides production entry and rechecks a stale visible button bef
  let env='release';global.wx={getAccountInfoSync:()=>({miniProgram:{envVersion:env}}),navigateTo:o=>{route=o.url;}};
  const p={data:structuredClone(def.data),setData(c){Object.assign(this.data,c);}};for(const[k,v]of Object.entries(def))if(typeof v==='function')p[k]=v.bind(p);
  p.onShow();assert.equal(p.data.atlasPreviewAllowed,false);p.openAtlasPreview();assert.equal(route,'');env='develop';p.onShow();assert.equal(p.data.atlasPreviewAllowed,true);
- env='release';p.openAtlasPreview();assert.equal(route,'');env='develop';p.openAtlasPreview();assert.equal(route,'/pages/atlas-debug/atlas-debug');
+ env='release';p.openAtlasPreview();assert.equal(route,'');env='develop';p.openAtlasPreview();assert.equal(route,'/packages/clinical/pages/atlas-debug/atlas-debug');
  global.wx.getAccountInfoSync=()=>{throw Error('unavailable');};p.onShow();assert.equal(p.data.atlasPreviewAllowed,false);
 });

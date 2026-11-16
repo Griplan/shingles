@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-07",
+  "frontendTests": {
+    "passed": 359,
+    "failed": 0
+  },
+  "backendAndAiTests": {
+    "passed": 322,
+    "failed": 0,
+    "warnings": 7
+  },
+  "typecheck": "PASSED",
+  "generator": "PASS: 14 perineum exports are reproducible",
+  "wcc": {
+    "exitCode": 0,
+    "outputs": {
+      "special-parts": 40720,
+      "local-surface": 53643,
+      "local-surface-canvas": 39762
+    }
+  },
+  "wcsc": {
+    "exitCode": 0,
+    "outputs": {
+      "special-parts": 862,
+      "local-surface": 3241,
+      "local-surface-canvas": 414
+    }
+  },
+  "regressions": {
+    "axillaReproduction": "PASSED",
+    "soleReproduction": "PASSED",
+    "wholeBodyAtlas": "PASSED",
+    "projectStructure": "PASSED"
+  },
+  "wechatRuntime": {
+    "status": "PASSED",
+    "environment": "WeChat DevTools simulator",
+    "widths": [
+      320,
+      375,
+      428,
+      430
+    ],
+    "verified": [
+      "navigation",
+      "canvas-touch-points",
+      "close-polygon",
+      "review",
+      "real-backend-matching",
+      "coverage-and-labels",
+      "single-label",
+      "show-all",
+      "zoom",
+      "reset"
+    ],
+    "accessibleLabel": "会阴区域"
+  },
+  "physicalDevice": "NOT_RUN",
+  "medicalReview": "pending",
+  "deployment": "NOT_RUN"
+}

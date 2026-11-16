@@ -17,7 +17,8 @@ def cleanup(root,now=None):
             try:
                 if state.is_symlink() or state.stat().st_size>40*1024*1024:continue
                 expired=json.loads(state.read_bytes())['expires_at']<=now
-            except (OSError,ValueError,KeyError,TypeError):continue
+            except (OSError,ValueError,KeyError,TypeError):
+                expired=now-path.stat().st_mtime>=900
             if expired:shutil.rmtree(path)
 
 if __name__ == "__main__":

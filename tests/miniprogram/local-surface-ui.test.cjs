@@ -2,7 +2,7 @@
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path'),fs=require('node:fs');
 const load=p=>require(path.join(process.env.DERMATOME_BUILD_DIR,p));
 const P=(x,y)=>({x,y}),ring=[P(.1,.1),P(.9,.1),P(.9,.9),P(.1,.9),P(.1,.1)];
-const modelModule=load('data/local-models.js');
+const modelModule=load('packages/special/data/local-models.js');
 const model=view=>({id:'SYNTHETIC_PALM',name:view,version:'test',geometryId:'synthetic',regionSetId:'synthetic',view,logicalWidth:400,logicalHeight:600,imagePath:'/synthetic/'+view+'.png',sourcePath:'synthetic.svg',
  body:Object.freeze([Object.freeze({outer:Object.freeze(ring.map(p=>Object.freeze({...p}))),holes:Object.freeze([])})]),
  resource:{title:'Synthetic test only',url:'https://example.invalid',author:'Test',license:'Test',attribution:'Test fixture'},
@@ -10,8 +10,8 @@ const model=view=>({id:'SYNTHETIC_PALM',name:view,version:'test',geometryId:'syn
 const models={'sole-left':model('sole-left'),'sole-right':model('sole-right')};
 modelModule.getLocalModel=v=>models[v];
 let pageDef,selectDef,componentDef,chooserDef;
-global.Page=d=>pageDef=d;load('pages/local-surface/local-surface.js');global.Page=d=>selectDef=d;load('pages/select/select.js');global.Page=d=>chooserDef=d;load('pages/special-parts/special-parts.js');global.Component=d=>componentDef=d;load('components/local-surface-canvas/local-surface-canvas.js');
-const sessions=load('state/local-surface-session.js'),matching=load('state/local-surface-matching-session.js'),bodySessions=load('state/annotation-session.js');
+global.Page=d=>pageDef=d;load('packages/special/pages/local-surface/local-surface.js');global.Page=d=>selectDef=d;load('pages/select/select.js');global.Page=d=>chooserDef=d;load('packages/special/pages/special-parts/special-parts.js');global.Component=d=>componentDef=d;load('packages/special/components/local-surface-canvas/local-surface-canvas.js');
+const sessions=load('packages/special/state/local-surface-session.js'),matching=load('packages/special/state/local-surface-matching-session.js'),bodySessions=load('state/annotation-session.js');
 const {fitViewport,focusViewport,normalizedToCanvas}=load('utils/coordinate.js');
 const instance=def=>{const p={data:structuredClone(def.data),setData(v){Object.assign(this.data,v)}};for(const[k,v]of Object.entries(def))if(typeof v==='function')p[k]=v.bind(p);return p;};
 const flush=async()=>{for(let i=0;i<30;i++)await Promise.resolve()};
@@ -21,9 +21,9 @@ function tap(p,x,y){p.onPoint({detail:probe(p,x,y)});}
 test('special entry navigation preserves body view selection and authoritative session',()=>{
  setup();const p=instance(selectDef);p.data.view='back';p.data.selectedRegion='back-upper-back';
  const previous=bodySessions.annotationSession.snapshot();let url;wx.navigateTo=o=>{url=o.url;o.complete?.()};
- p.openSpecialParts();assert.equal(url,'/pages/special-parts/special-parts');assert.equal(p.data.view,'back');assert.equal(p.data.selectedRegion,'back-upper-back');assert.strictEqual(bodySessions.annotationSession.snapshot(),previous);
- const chooser=instance(chooserDef);chooser.choose({currentTarget:{dataset:{view:'sole-right'}}});assert.equal(url,'/pages/local-surface/local-surface?view=sole-right');
- chooser.choose({currentTarget:{dataset:{view:'foot'}}});assert.equal(url,'/pages/local-surface/local-surface?view=sole-right');
+ p.openSpecialParts();assert.equal(url,'/packages/special/pages/special-parts/special-parts');assert.equal(p.data.view,'back');assert.equal(p.data.selectedRegion,'back-upper-back');assert.strictEqual(bodySessions.annotationSession.snapshot(),previous);
+ const chooser=instance(chooserDef);chooser.choose({currentTarget:{dataset:{view:'sole-right'}}});assert.equal(url,'/packages/special/pages/local-surface/local-surface?view=sole-right');
+ chooser.choose({currentTarget:{dataset:{view:'foot'}}});assert.equal(url,'/packages/special/pages/local-surface/local-surface?view=sole-right');
 });
 test('manual page closes, selects, adds, deletes, reviews; left/right data and body data remain isolated',()=>{
  setup();const previous=bodySessions.annotationSession.snapshot(),p=instance(pageDef);p.onLoad({view:'sole-left'});
@@ -66,19 +66,34 @@ test('synthetic ready response shows all actual instances, single candidate keep
  }finally{p.onUnload();models['sole-left'].atlas=saved;matching.localMatching.forView=original;}
 });
 test('return to body skips chooser and preserves stacked select state',()=>{
- setup();const p=instance(pageDef),old=global.getCurrentPages;let delta;global.getCurrentPages=()=>['pages/index/index','pages/select/select','pages/special-parts/special-parts','pages/local-surface/local-surface'].map(route=>({route}));wx.navigateBack=o=>delta=o.delta;
+ setup();const p=instance(pageDef),old=global.getCurrentPages;let delta;global.getCurrentPages=()=>['pages/index/index','pages/select/select','packages/special/pages/special-parts/special-parts','packages/special/pages/local-surface/local-surface'].map(route=>({route}));wx.navigateBack=o=>delta=o.delta;
  try{p.returnBody();assert.equal(delta,2);}finally{global.getCurrentPages=old;}
 });
 async function canvas(width=320,height=400){
  setup();const frames=new Map(),events=[];let seq=0,queries=0,images=0,pendingBounds=null;
+ global.wx.nextTick=queueMicrotask;
  const ctx=new Proxy({},{get(o,k){return k in o?o[k]:()=>{}},set(o,k,v){o[k]=v;return true}});
  const node={width:0,height:0,getContext:()=>ctx,requestAnimationFrame(cb){frames.set(++seq,cb);return seq},cancelAnimationFrame(id){frames.delete(id)},createImage(){images++;return {set src(v){this._src=v;queueMicrotask(()=>this.onload())}}}};
  const basis={templateId:'SYNTHETIC_PALM',templateVersion:'test',geometryId:'synthetic',regionSetId:'synthetic'};
  const c={data:structuredClone(componentDef.data),properties:{view:'sole-left',layer:{sessionId:'canvas-session',revision:1,view:'sole-left',basis,completed:[],draft:null,selectedId:null},atlasRegions:[],focusBounds:null,disabled:false,layoutRevision:0,interactionBlocked:false},setData(v){Object.assign(this.data,v)},triggerEvent(n,d){events.push([n,d])},createSelectorQuery(){let bounds;const q={select:()=>q,fields:()=>q,boundingClientRect(f){bounds=f;return q},exec(cb){queries++;if(bounds){if(pendingBounds)pendingBounds(()=>bounds({left:20,top:30,width,height}));else queueMicrotask(()=>bounds({left:20,top:30,width,height}));}else queueMicrotask(()=>cb([{node,width,height}]))}};return q}};
  for(const[k,v]of Object.entries(componentDef.methods))c[k]=v.bind(c);componentDef.lifetimes.created.call(c);componentDef.lifetimes.ready.call(c);await flush();
  const frame=async()=>{const calls=[...frames.values()];frames.clear();for(const f of calls)f();await flush()};await frame();
- return {c,node,events,frames,frame,counts:()=>({queries,images}),delayBounds:f=>pendingBounds=f,detach:()=>componentDef.lifetimes.detached.call(c)};
+ return {c,node,events,frames,frame,counts:()=>({queries,images}),delayBounds:f=>pendingBounds=f,resize:(w,h)=>{width=w;height=h;componentDef.pageLifetimes.resize.call(c);},detach:()=>componentDef.lifetimes.detached.call(c)};
 }
+test('local resize cancels a queued frame and client touch, reuses the same image and restores focus',async()=>{
+ const h=await canvas(),model=models['sole-left'],focus={x:.15,y:.15,width:.4,height:.5};
+ h.c.properties.focusBounds=focus;h.c.queueDraw();await h.frame();
+ const vp=h.events.at(-1)[1].viewport,p=normalizedToCanvas(P(.3,.3),vp);
+ const e={changedTouches:[{clientX:p.x+20,clientY:p.y+30}]};
+ let release;h.delayBounds(fn=>release=fn);h.c.touchStart(e);const old=h.c.touchEnd(e);
+ const count=h.counts().queries;h.c.queueDraw();h.resize(420,500);h.resize(504,540);
+ assert.equal(h.frames.size,0);release();await old;await flush();await h.frame();
+ assert.equal(h.events.filter(([name])=>name==='point').length,0);
+ assert.equal(h.counts().queries,count+1);assert.equal(h.counts().images,1);
+ const next=h.events.at(-1)[1].viewport,expected=focusViewport(fitViewport(504,540,model,12),focus);
+ assert.deepEqual(next,expected);
+ h.resize(320,400);h.detach();await flush();assert.equal(h.frames.size,0);
+});
 test('local-surface Canvas uses shared viewport on three sizes and preserves normalized touch after zoom/reset',async()=>{
  for(const width of [320,375,430]){const h=await canvas(width,400),model=models['sole-left'];
   for(const target of [null,{x:.15,y:.15,width:.4,height:.5},null]){h.c.properties.focusBounds=target;h.c.queueDraw();await h.frame();const full=fitViewport(width,400,model,12),v=target?focusViewport(full,target):full,q=normalizedToCanvas(P(.3,.3),v),e={changedTouches:[{x:q.x,y:q.y}]};
@@ -96,9 +111,14 @@ test('local-surface Canvas coalesces draw requests, rejects air, drag gestures a
  h.c.queueDraw();h.detach();assert.equal(h.frames.size,0);
 });
 test('routes retain soles with explicit axilla entries, no retired palms or AI placement entry',()=>{
- const root=path.resolve(__dirname,'../..'),app=JSON.parse(fs.readFileSync(path.join(root,'miniprogram/app.json')));for(const name of ['special-parts/special-parts','local-surface/local-surface'])assert.ok(app.pages.includes('pages/'+name));
- const markup=fs.readFileSync(path.join(root,'miniprogram/pages/special-parts/special-parts.wxml'),'utf8');for(const v of ['sole-left','sole-right','axilla-left','axilla-right'])assert.ok(markup.includes(v));assert.doesNotMatch(markup,/palm-left|palm-right|perineum|thigh/);
- const palm=fs.readFileSync(path.join(root,'miniprogram/pages/local-surface/local-surface.wxml'),'utf8');assert.doesNotMatch(palm,/AI 辅助/);assert.match(palm,/!atlasReady/);
+ const root=path.resolve(__dirname,'../..'),app=JSON.parse(fs.readFileSync(path.join(root,'miniprogram/app.json'))),routes=[...app.pages,...app.subPackages.flatMap(p=>p.pages.map(page=>`${p.root}/${page}`))];for(const name of ['special-parts/special-parts','local-surface/local-surface'])assert.ok(routes.includes('packages/special/pages/'+name));
+ const markup=fs.readFileSync(path.join(root,'miniprogram/packages/special/pages/special-parts/special-parts.wxml'),'utf8');for(const v of ['sole-left','sole-right','axilla-left','axilla-right','perineum-overview'])assert.ok(markup.includes(v));assert.doesNotMatch(markup,/palm-left|palm-right/);
+ const palm=fs.readFileSync(path.join(root,'miniprogram/packages/special/pages/local-surface/local-surface.wxml'),'utf8');assert.doesNotMatch(palm,/AI 辅助/);assert.match(palm,/!atlasReady/);
+});
+test('local-surface canvas exposes a view-specific accessible label for every active template',()=>{
+ const root=path.resolve(__dirname,'../..'),markup=fs.readFileSync(path.join(root,'miniprogram/packages/special/components/local-surface-canvas/local-surface-canvas.wxml'),'utf8');
+ for(const label of ['左脚足底','右脚足底','左腋下','右腋下','会阴区域','人体局部视图'])assert.ok(markup.includes(label));
+ assert.match(markup,/view === 'perineum-overview' \? '会阴区域'/);
 });
 test('Canvas preserves touch-start session/revision across touchend and delayed rectangle lookup',async()=>{
  const h=await canvas(),v=fitViewport(320,400,models['sole-left'],12),q=normalizedToCanvas(P(.3,.3),v),e={changedTouches:[{x:q.x,y:q.y}]},client={changedTouches:[{clientX:q.x+20,clientY:q.y+30}]};

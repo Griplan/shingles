@@ -1,5 +1,5 @@
 {
-  "description": "dermatome-mapper V0：仅页面骨架与导航",
+  "description": "智络智绘：人体病灶标注与参考神经分区交互",
   "projectname": "dermatome-mapper",
   "appid": "wx951711e2fa1da5ff",
   "compileType": "miniprogram",
@@ -15,7 +15,7 @@
     ],
     "compileWorklet": false,
     "uglifyFileName": false,
-    "uploadWithSourceMap": true,
+    "uploadWithSourceMap": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
@@ -49,14 +49,61 @@
       {
         "value": "tsconfig.json",
         "type": "file"
+      },
+      {
+        "value": ".svg",
+        "type": "suffix"
+      },
+      {
+        "value": ".md",
+        "type": "suffix"
+      },
+      {
+        "value": ".gitkeep",
+        "type": "suffix"
+      },
+      {
+        "value": "data/axilla.generated.ts",
+        "type": "file"
+      },
+      {
+        "value": "data/axilla-provisional.generated.ts",
+        "type": "file"
+      },
+      {
+        "value": "data/body-regions-v2.ts",
+        "type": "file"
+      },
+      {
+        "value": "data/body-regions-v3.ts",
+        "type": "file"
+      },
+      {
+        "value": "data/body-regions-v15.ts",
+        "type": "file"
+      },
+      {
+        "value": "assets/body/model.ts",
+        "type": "file"
+      },
+      {
+        "value": "assets/body/neutral-v2.ts",
+        "type": "file"
+      },
+      {
+        "value": "assets/body/neutral-v3.ts",
+        "type": "file"
+      },
+      {
+        "value": "components/lesion-editor",
+        "type": "folder"
+      },
+      {
+        "value": "components/segment-overlay",
+        "type": "folder"
       }
     ],
-    "include": [
-      {
-        "type": "folder",
-        "value": "pages/atlas-debug"
-      }
-    ]
+    "include": []
   },
   "editorSetting": {
     "tabIndent": "insertSpaces",

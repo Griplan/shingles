@@ -2,8 +2,8 @@
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path');
 const load=f=>require(path.join(process.env.DERMATOME_BUILD_DIR,f));
 const {AnnotationSessionStore,sessionToken}=load('state/annotation-session.js');
-const {PlacementSessionStore}=load('state/placement-session.js');
-const {MatchingSessionStore,matchingIdentity,snapshotKey,lesionForMatching}=load('state/matching-session.js');
+const {PlacementSessionStore}=load('packages/clinical/state/placement-session.js');
+const {MatchingSessionStore,matchingIdentity,snapshotKey,lesionForMatching}=load('packages/clinical/state/matching-session.js');
 const {syntheticPhoto}=require('./placement-fixtures.cjs');
 function setup(){const a=new AnnotationSessionStore(),p=new PlacementSessionStore(a),source=syntheticPhoto(100,true);
  const r=p.open(source,'back','back-upper-back',()=>true);assert.equal(r.ok,true,r.message);

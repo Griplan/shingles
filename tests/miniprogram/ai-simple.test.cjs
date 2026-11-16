@@ -1,6 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path');
 const load=f=>require(path.join(process.env.DERMATOME_BUILD_DIR,f));
-const {AIPhotoFlow}=load('state/ai-session.js'),{PHOTO_SPACE}=load('types/ai.js');
+const {AIPhotoFlow}=load('packages/clinical/state/ai-session.js'),{PHOTO_SPACE}=load('types/ai.js');
 const {usablePhotoBox}=load('utils/photo-coordinate.js');
 const box={xMin:.1,yMin:.2,xMax:.7,yMax:.8};
 const changed={xMin:.2,yMin:.3,xMax:.6,yMax:.7};
@@ -12,7 +12,7 @@ const candidate=(i,status='ok')=>({candidate_id:'candidate-'+i,status,area_ratio
 const response=(s,rev,id)=>({session_id:s.session_id,photo_id:s.photo_id,result_id:'r'+id,request_id:id,prompt_revision:rev,coordinate_space:PHOTO_SPACE,status:'needs_confirmation',candidates:[candidate(0),candidate(1),candidate(2)]});
 function fixture(){const calls=[],confirms=[],forgot=[],removed=[];
  const api={open:async id=>session(id),segment:async(s,p,rev,id)=>{calls.push({s,p:structuredClone(p),rev,id});return response(s,rev,id)},asset:async(s,id,r)=>s.photo_id+id+r,
- confirm:async(s,r,id)=>{confirms.push(id);return {schema_version:'confirmed-photo-segmentation-v1',session_id:s.session_id,photo_id:s.photo_id,result_id:r.result_id,candidate_id:id,prompt_revision:r.prompt_revision,coordinate_space:PHOTO_SPACE,confirmed_by_user:true,image:s.image,geometry:{type:'MultiPolygon',coordinates:[[[[0,0],[1,0],[1,1],[0,0]],[[.2,.2],[.3,.2],[.3,.3],[.2,.2]]],[[[.1,.7],[.2,.7],[.2,.8],[.1,.7]]]]}}},
+ confirm:async(s,r,id)=>{confirms.push(id);return {schema_version:'confirmed-photo-segmentation-v1',session_id:s.session_id,photo_id:s.photo_id,result_id:r.result_id,candidate_id:id,prompt_revision:r.prompt_revision,coordinate_space:PHOTO_SPACE,confirmed_by_user:true,confirmed_at:Date.now()/1000-1,expires_at:s.expires_at,image:s.image,model:{name:'synthetic-fixture'},prompts:{coordinate_space:PHOTO_SPACE,points:[],box:null},mask_asset:'candidate-0.png',mask_sha256:'b'.repeat(64),geometry:{type:'MultiPolygon',coordinates:[[[[0,0],[1,0],[1,1],[0,0]],[[.2,.2],[.3,.2],[.3,.3],[.2,.2]]],[[[.1,.7],[.2,.7],[.2,.8],[.1,.7]]]]}}},
  remove:async s=>removed.push(s.session_id),forget:p=>forgot.push(p)};
  return {api,calls,confirms,forgot,removed,f:new AIPhotoFlow(api,()=>{})};
 }
@@ -60,10 +60,11 @@ test('all candidates unusable -> explicit failure; reselect can retry the same l
  await v.f.selectBox(box);assert.match(v.f.error,/这次没有得到合适/);assert.equal(v.f.canConfirm(),false);assert.equal(v.f.maskPath,'');
  v.f.reset();v.api.segment=async(s,p,rev,id)=>response(s,rev,id);await v.f.selectBox(box);assert.equal(v.f.canConfirm(),true);
 });
-let definition;global.Page=o=>definition=o;load('pages/ai-annotate/ai-annotate.js');
+let definition;global.Page=o=>definition=o;load('packages/clinical/pages/ai-annotate/ai-annotate.js');
 function pageFixture(t){const v=fixture();Object.assign(load('services/ai.js').aiTransport,v.api);let path='A';const navigation=[];
  global.wx={getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}}),getSystemInfoSync:()=>({platform:'devtools'}),nextTick:f=>queueMicrotask(f),
- showModal:o=>o.success?.({confirm:true}),chooseMedia:o=>o.success({tempFiles:[{size:10,tempFilePath:path}]}),showToast:()=>{},navigateBack:()=>navigation.push('back')};
+ showModal:o=>o.success?.({confirm:true}),getFileSystemManager:()=>({stat:o=>o.success({stats:{size:16,isFile:()=>true}}),readFile:o=>o.success({data:Uint8Array.of(255,216,255,...Array(13).fill(0)).buffer})}),
+ getImageInfo:o=>o.success({width:100,height:100,orientation:"up"}),chooseMedia:o=>o.success({tempFiles:[{size:10,tempFilePath:path}]}),showToast:()=>{},navigateBack:()=>navigation.push('back')};
  const p={data:structuredClone(definition.data),setData(c){Object.assign(this.data,c)}};
  for(const[k,f]of Object.entries(definition))if(typeof f==='function')p[k]=f.bind(p);
  p.onLoad({view:'front',region:'front-chest'});t.after(()=>p.onUnload());
@@ -76,6 +77,38 @@ test('page upload -> auto box -> cycle -> explicit confirmation; no manual segme
  p.confirm();await flush();assert.equal(v.confirms.length,0); // actual canvas must acknowledge current frame
  p.renderState({detail:{source:p.data.photo,mask:p.data.mask,ready:true}});await flush();p.confirm();await flush();
  assert.equal(p.data.phase,'confirmed');assert.deepEqual(v.confirms,['candidate-1']);
+});
+test('successful placement navigation releases the backend photo once and keeps the self-contained draft',async t=>{
+ const v=pageFixture(t),p=v.p,transport=load('services/ai.js').aiTransport;
+ transport.confirm=async(s,r,id)=>({schema_version:'confirmed-photo-segmentation-v1',session_id:s.session_id,photo_id:s.photo_id,result_id:r.result_id,candidate_id:id,
+  prompt_revision:r.prompt_revision,coordinate_space:PHOTO_SPACE,confirmed_by_user:true,confirmed_at:Date.now()/1000-1,expires_at:s.expires_at,image:s.image,
+  model:{name:'synthetic-fixture'},prompts:{coordinate_space:PHOTO_SPACE,points:[],box:null},mask_asset:'candidate-0.png',mask_sha256:'b'.repeat(64),
+  geometry:{type:'MultiPolygon',coordinates:[[[[.2,.3],[.6,.3],[.6,.7],[.2,.7],[.2,.3]]]]}});
+ await v.choose('A');p.onPrompt({detail:{box,point:null}});await flush();
+ p.renderState({detail:{source:p.data.photo,mask:p.data.mask,ready:true}});await flush();p.confirm();await flush();
+ let url='';global.wx.navigateTo=o=>{url=o.url;o.success?.();};
+ p.placeOnBody();await flush();
+ assert.deepEqual(v.removed,[],'navigation alone does not release before canvas readiness');
+ load('packages/clinical/state/placement-navigation.js').placementReady(decodeURIComponent(url.split('draftId=')[1]));await flush();
+ assert.match(url,/packages\/clinical\/pages\/placement\/placement\?draftId=/);assert.deepEqual(v.removed,['A']);
+ const id=decodeURIComponent(url.split('draftId=')[1]),draft=load('packages/clinical/state/placement-session.js').placementSession.read(id);
+ assert.equal(draft.ok,true,draft.message);assert.equal(draft.draft.sourceDetached,true);
+ assert.equal(p.data.photo,'A.png','local preview remains available if the user returns');
+ assert.equal(p.data.phase,'confirmed');assert.equal(p.data.hasPendingPlacement,true);
+});
+test('failed placement navigation keeps the temporary photo source for retry',async t=>{
+ const v=pageFixture(t),p=v.p,transport=load('services/ai.js').aiTransport;
+ transport.confirm=async(s,r,id)=>({schema_version:'confirmed-photo-segmentation-v1',session_id:s.session_id,photo_id:s.photo_id,result_id:r.result_id,candidate_id:id,
+  prompt_revision:r.prompt_revision,coordinate_space:PHOTO_SPACE,confirmed_by_user:true,confirmed_at:Date.now()/1000-1,expires_at:s.expires_at,image:s.image,
+  model:{name:'synthetic-fixture'},prompts:{coordinate_space:PHOTO_SPACE,points:[],box:null},mask_asset:'candidate-0.png',mask_sha256:'b'.repeat(64),
+  geometry:{type:'MultiPolygon',coordinates:[[[[.2,.3],[.6,.3],[.6,.7],[.2,.7],[.2,.3]]]]}});
+ await v.choose('A');p.onPrompt({detail:{box,point:null}});await flush();
+ p.renderState({detail:{source:p.data.photo,mask:p.data.mask,ready:true}});await flush();p.confirm();await flush();
+ let id='';global.wx.navigateTo=o=>{id=decodeURIComponent(o.url.split('draftId=')[1]);o.fail?.({});};
+ p.placeOnBody();await flush();
+ assert.deepEqual(v.removed,[]);assert.match(p.data.error,/分割结果仍保留/);assert.equal(p.data.openingPlacement,false);
+ const draft=load('packages/clinical/state/placement-session.js').placementSession.read(id);
+ assert.equal(draft.ok,true,draft.message);assert.equal(draft.draft.sourceDetached,false);
 });
 test('fine adjustment is opt-in; foreground/background/undo and manual refine stay available',async t=>{
  const v=pageFixture(t),p=v.p;await v.choose('A');p.openAdjustment();assert.equal(p.data.adjusting,false);

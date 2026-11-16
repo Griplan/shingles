@@ -1,0 +1,130 @@
+{
+  "checkedAt": "2026-11-13T08:03:20+08:00",
+  "decision": "NO_SERVER_DELTA",
+  "reason": "The temporary-photo release change is frontend-only; the current local backend and server release manifest are identical.",
+  "releaseManifest": {
+    "localFiles": 145,
+    "serverFiles": 145,
+    "addedLocally": [],
+    "missingLocally": [],
+    "hashChanges": []
+  },
+  "server": {
+    "dermatome": {
+      "MainPID": "3102219",
+      "NRestarts": "0",
+      "ControlGroup": "/system.slice/dermatome.service",
+      "MemoryCurrent": "576372736",
+      "CPUUsageNSec": "120318083000",
+      "ActiveState": "active",
+      "ActiveEnterTimestamp": "Thu 2026-11-12 14:17:49 CST"
+    },
+    "acupuncture": {
+      "MainPID": "611289",
+      "NRestarts": "0",
+      "ControlGroup": "/system.slice/acupuncture.service",
+      "MemoryCurrent": "183443456",
+      "CPUUsageNSec": "942199892000",
+      "ActiveState": "active",
+      "ActiveEnterTimestamp": "Wed 2026-11-04 23:53:58 CST"
+    },
+    "nginx": {
+      "MainPID": "12643",
+      "NRestarts": "0",
+      "ControlGroup": "/system.slice/nginx.service",
+      "MemoryCurrent": "12394496",
+      "CPUUsageNSec": "30262456000",
+      "ActiveState": "active",
+      "ActiveEnterTimestamp": "Thu 2026-10-08 13:25:29 CST"
+    },
+    "memory": "total        used        free      shared  buff/cache   available\nMem:      3904065536  1521659904   362475520     2834432  2323140608  2382405632\nSwap:     2084564992      536576  2084028416",
+    "disk": "Filesystem       1B-blocks       Used   Available Use% Mounted on\n/dev/vda2      42156257280 9901645824 30412750848  25% /",
+    "ports": "State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\nLISTEN 0      4096   127.0.0.53%lo:53        0.0.0.0:*          \nLISTEN 0      4096         0.0.0.0:22        0.0.0.0:*          \nLISTEN 0      511          0.0.0.0:80        0.0.0.0:*          \nLISTEN 0      511          0.0.0.0:443       0.0.0.0:*          \nLISTEN 0      4096      127.0.0.54:53        0.0.0.0:*          \nLISTEN 0      32         127.0.0.1:8001      0.0.0.0:*          \nLISTEN 0      2048       127.0.0.1:8000      0.0.0.0:*          \nLISTEN 0      4096            [::]:22           [::]:*          \nLISTEN 0      511             [::]:80           [::]:*          \nLISTEN 0      511             [::]:443          [::]:*",
+    "vm": {
+      "pswpin": 0,
+      "pswpout": 5,
+      "oom_kill": 0
+    },
+    "health": {
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "ai_ready": true
+      },
+      "ms": 26.351130101829767
+    },
+    "ready": {
+      "status": 200,
+      "body": {
+        "status": "ready",
+        "ai_ready": true,
+        "model_ready": true,
+        "results_ready": true
+      },
+      "ms": 0.8332673460245132
+    }
+  },
+  "publicSmoke": {
+    "endpoint": "http://212.64.26.206/dermatome-test",
+    "passed": 8,
+    "checks": [
+      {
+        "name": "health",
+        "status": 200,
+        "expected": 200,
+        "ms": 25.68
+      },
+      {
+        "name": "anonymous_match_rejected",
+        "status": 401,
+        "expected": 401,
+        "ms": 15.16
+      },
+      {
+        "name": "automatic_test_session",
+        "status": 200,
+        "expected": 200,
+        "ms": 30.88
+      },
+      {
+        "name": "authenticated_ready",
+        "status": 200,
+        "expected": 200,
+        "ms": 163.06
+      },
+      {
+        "name": "perineum_s2",
+        "status": 200,
+        "expected": 200,
+        "ms": 55.07,
+        "labels": [
+          "S2"
+        ]
+      },
+      {
+        "name": "perineum_undefined",
+        "status": 200,
+        "expected": 200,
+        "ms": 55.8,
+        "labels": [
+          "UNDEFINED"
+        ]
+      },
+      {
+        "name": "stale_version_rejected",
+        "status": 409,
+        "expected": 409,
+        "ms": 16.01
+      },
+      {
+        "name": "session_cleanup",
+        "status": 204,
+        "expected": 204,
+        "ms": 18.44
+      }
+    ],
+    "transport": "HTTP; synthetic data only"
+  },
+  "localSpecialTests": "35 passed in 15.40s",
+  "productionMutation": "No files copied or services restarted because there was no backend delta."
+}

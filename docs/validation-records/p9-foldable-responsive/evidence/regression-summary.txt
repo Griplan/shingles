@@ -1,0 +1,9 @@
+✔ P9 fold/unfold matrix projects a fixed point using the latest measured container (18.698708ms)
+✔ local resize cancels a queued frame and client touch, reuses the same image and restores focus (1.220333ms)
+✔ folding a photo during a pending touch keeps candidates and prompts, and only paints the new size (1.504916ms)
+✔ rapid slider updates stay local; resize restores the last completed placement without recomputing geometry (113.137417ms)
+ℹ tests 384
+ℹ pass 384
+ℹ fail 0
+ℹ duration_ms 9192.971834
+322 passed, 7 warnings in 29.94s

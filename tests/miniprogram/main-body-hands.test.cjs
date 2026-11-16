@@ -2,7 +2,7 @@ const test=require('node:test'),assert=require('node:assert/strict'),path=requir
 const root=path.resolve(__dirname,'../..'),load=f=>require(path.join(process.env.DERMATOME_BUILD_DIR,f));
 const {getBodyModel}=load('data/body-models.js'),g=load('utils/annotation-geometry.js');
 const coords=load('utils/coordinate.js'),{drawAtlas}=load('components/body-canvas/atlas-render.js');
-const {ATLAS_REGIONS:R,ATLAS_MANIFEST:M}=load('data/atlas.generated.js');
+const {ATLAS_REGIONS:R,ATLAS_MANIFEST:M}=load('packages/clinical/data/atlas.generated.js');
 const refs=JSON.parse(fs.readFileSync(path.join(root,'docs/validation-records/v6.5-main-body-hand/evidence/reference-points.json')));
 test('V6.5 original SVG reference points share front/back body validation with V2; finger air rejected',()=>{
  for(const r of refs){const p={x:r.normalized[0],y:r.normalized[1]},b=g.bodyGeometry(getBodyModel(r.view));assert.equal(g.pointInBody(p,b),r.expectedSkin,r.id);}
@@ -22,9 +22,9 @@ test('V6.5 actual composite hand paths draw selected/all through unchanged rende
  }
 });
 test('V6.5 retired palms have no route, canvas, runtime assets or registry; soles remain independent',()=>{
- const mp=path.join(root,'miniprogram'),app=JSON.parse(fs.readFileSync(path.join(mp,'app.json')));assert.ok(!app.pages.includes('pages/palm/palm'));assert.ok(app.pages.includes('pages/local-surface/local-surface'));
+ const mp=path.join(root,'miniprogram'),app=JSON.parse(fs.readFileSync(path.join(mp,'app.json'))),routes=[...app.pages,...app.subPackages.flatMap(p=>p.pages.map(page=>`${p.root}/${page}`))];assert.ok(!routes.includes('pages/palm/palm'));assert.ok(routes.includes('packages/special/pages/local-surface/local-surface'));
  for(const p of ['pages/palm','assets/palm','components/palm-canvas','data/palm-models.ts','state/palm-session.ts'])assert.ok(!fs.existsSync(path.join(mp,p)),p);
- const local=load('data/local-models.js');for(const id of ['palm-left','palm-right'])assert.throws(()=>local.getLocalModel(id));
+ const local=load('packages/special/data/local-models.js');for(const id of ['palm-left','palm-right'])assert.throws(()=>local.getLocalModel(id));
  for(const id of ['sole-left','sole-right']){const m=local.getLocalModel(id);assert.equal(m.view,id);assert.notEqual(m.id,M.templateId);}
- const ui=fs.readFileSync(path.join(mp,'pages/special-parts/special-parts.wxml'),'utf8');assert.doesNotMatch(ui,/左手掌|右手掌|palm-left|palm-right/);assert.match(ui,/左脚底/);assert.match(ui,/右脚底/);
+ const ui=fs.readFileSync(path.join(mp,'packages/special/pages/special-parts/special-parts.wxml'),'utf8');assert.doesNotMatch(ui,/左手掌|右手掌|palm-left|palm-right/);assert.match(ui,/左脚底/);assert.match(ui,/右脚底/);
 });

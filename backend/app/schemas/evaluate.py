@@ -3,7 +3,7 @@ from typing import Annotated, Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 # Each identifier is an independent template coordinate surface, not a crop of front/back.
-View = Literal['front', 'back', 'sole-left', 'sole-right', 'axilla-left', 'axilla-right']
+View = Literal['front', 'back', 'sole-left', 'sole-right', 'axilla-left', 'axilla-right', 'perineum-overview']
 Identifier = Annotated[str, Field(strict=True, min_length=1, max_length=160)]
 Digest = Annotated[str, Field(strict=True, pattern=r'^[0-9a-f]{64}$')]
 Coordinate = Annotated[float, Field(strict=True, ge=0, le=1, allow_inf_nan=False)]

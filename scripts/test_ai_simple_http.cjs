@@ -20,8 +20,10 @@ async function main(){
  const compile=spawnSync(process.execPath,[path.join(root,'miniprogram/node_modules/typescript/bin/tsc'),'--project',path.join(root,'miniprogram/tsconfig.json'),'--noEmit','false','--outDir',build],{stdio:'inherit'});assert.equal(compile.status,0);
  global.wx={getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}}),getSystemInfoSync:()=>({platform:'devtools'}),getWindowInfo:()=>({pixelRatio:2}),nextTick:f=>queueMicrotask(f),
  showModal:o=>o.success?.({confirm:true}),chooseMedia:o=>o.success({tempFiles:[{tempFilePath:source,size:fs.statSync(source).size}]}),showToast:()=>{},
- getFileSystemManager:()=>({unlink:o=>{try{fs.unlinkSync(o.filePath)}catch{o.fail?.({})}}}),
- getImageInfo:o=>{try{o.success(imageSize(o.src))}catch{o.fail({})}},
+ getFileSystemManager:()=>({unlink:o=>{try{fs.unlinkSync(o.filePath)}catch{o.fail?.({})}},
+  stat:o=>o.success({stats:fs.statSync(o.path)}),
+  readFile:o=>{const bytes=fs.readFileSync(o.filePath).subarray(o.position,o.position+o.length);o.success({data:bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength)});}}),
+ getImageInfo:o=>{try{o.success(o.src===source?{width:700,height:460,orientation:'up'}:imageSize(o.src))}catch{o.fail({})}},
  request:o=>{assert.ok(o.url.startsWith(base));requests.push(o.url.replace(base,''));const start=performance.now();
   if(o.url.endsWith('/segment'))segments++;
   fetch(o.url,{method:o.method,headers:o.header,body:JSON.stringify(o.data),signal:AbortSignal.timeout(o.timeout)}).then(async r=>{
@@ -38,10 +40,10 @@ async function main(){
   const tempFilePath=path.join(build,'download-'+(++downloads)+'.png');fs.writeFileSync(tempFilePath,Buffer.from(await r.arrayBuffer()));o.success({statusCode:r.status,tempFilePath});}).catch(()=>o.fail({}));},
  navigateBack:()=>{},redirectTo:()=>{}};
  let pageDef,componentDef;global.Page=o=>pageDef=o;global.Component=o=>componentDef=o;
- require(path.join(build,'pages/ai-annotate/ai-annotate.js'));require(path.join(build,'components/photo-canvas/photo-canvas.js'));
+ require(path.join(build,'packages/clinical/pages/ai-annotate/ai-annotate.js'));require(path.join(build,'packages/clinical/components/photo-canvas/photo-canvas.js'));
  p={data:structuredClone(pageDef.data),setData(c){Object.assign(this.data,c);if(this.data.working)assert.ok(this.data.photo,'photo remains during analysis/preview');syncCanvas();}};
  for(const[k,v]of Object.entries(pageDef))if(typeof v==='function')p[k]=v.bind(p);
- p.onLoad({view:'front',region:'front-chest'});p.choosePhoto('album');await until(()=>p.data.photo||p.data.error,'upload');assert.equal(p.data.error,'');assert.equal(p.data.selecting,true);
+ p.onLoad({view:'front',region:'front-chest'});p.choosePhoto('album');await until(()=>p.data.photo||p.data.error||p.data.preparationError,'upload');assert.equal(p.data.preparationError,'');assert.equal(p.data.error,'');assert.equal(p.data.selecting,true);
  const ctx={};for(const k of ['clearRect','setTransform','strokeRect','setLineDash','beginPath','arc','fill','stroke','moveTo','lineTo'])ctx[k]=()=>{};
  ctx.drawImage=(img,...rect)=>frames.push({path:img.path,rect});
  const node={width:0,height:0,getContext:()=>ctx,createImage(){const image={};Object.defineProperty(image,'src',{set(file){image.path=file;Object.assign(image,imageSize(file));queueMicrotask(()=>image.onload())}});return image}};

@@ -1,8 +1,8 @@
-/** Simulator loopback, trusted HTTPS, or the explicit temporary IP debugging channel. */
+/** Online public-IP test entry in develop/trial; trusted HTTPS remains the release path. */
 import {controlledServerActive,CONTROLLED_SIMULATOR_URL} from "./controlled";
 import {currentEnvironment} from "./environment";
-import {SERVERS,validatedHttpsBase,trialServiceBase} from "./servers";
-export const API_CONFIG=Object.freeze({simulatorBaseUrl:"http://127.0.0.1:8000",deviceBaseUrl:"",timeoutMs:15000});
+import {PUBLIC_IP_TEST_BASE,SERVERS,validatedHttpsBase,trialServiceBase} from "./servers";
+export const API_CONFIG=Object.freeze({simulatorBaseUrl:PUBLIC_IP_TEST_BASE,deviceBaseUrl:"",timeoutMs:15000});
 export function apiBaseUrl():string {
  const env=currentEnvironment();
  if(env==="trial")return trialServiceBase();

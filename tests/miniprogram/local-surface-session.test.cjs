@@ -1,10 +1,10 @@
 // Real display-resource registration checks; synthetic protocol responses are not medical evidence.
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path'),fs=require('node:fs'),crypto=require('node:crypto');
 const load=p=>require(path.join(process.env.DERMATOME_BUILD_DIR,p));
-const {getLocalModel,isLocalSurfaceView}=load('data/local-models.js');
-const {LocalSurfaceSessionStore,localToken}=load('state/local-surface-session.js');
-const {LocalSurfaceMatchingStore,localSnapshotKey}=load('state/local-surface-matching-session.js');
-const {checkedResponse}=load('state/matching-session.js');
+const {getLocalModel,isLocalSurfaceView}=load('packages/special/data/local-models.js');
+const {LocalSurfaceSessionStore,localToken}=load('packages/special/state/local-surface-session.js');
+const {LocalSurfaceMatchingStore,localSnapshotKey}=load('packages/special/state/local-surface-matching-session.js');
+const {checkedResponse}=load('packages/clinical/state/matching-session.js');
 const {pointInBody,validatePolygon}=load('utils/annotation-geometry.js');
 const {annotationSession}=load('state/annotation-session.js');
 const root=path.resolve(__dirname,'../..'),P=(x,y)=>({x,y});

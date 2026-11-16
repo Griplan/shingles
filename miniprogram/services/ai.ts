@@ -1,5 +1,5 @@
 import {apiBaseUrl} from "../config/api";
-import {accessHeaders,controlledServerActive} from "../config/controlled";
+import {accessHeaders} from "../config/controlled";
 import {AI_CONFIG,canUseAI} from "../config/ai";
 import {ensureTrialAccess,trialHeaders,invalidateTrialAccess,needsTrialAccess} from "./trial-access";
 import {PhotoTransport,PhotoSession,PhotoResult,PhotoPrompts,ConfirmedPhoto,EditedCandidate} from "../types/ai";
@@ -8,12 +8,12 @@ const ERRORS:Record<string,string>={AI_DISABLED:"当前版本暂未开放AI辅�
  ACCESS_DENIED:"测试连接未完成，请重试",RATE_LIMITED:"操作过于频繁，请稍后重试",SERVICE_UNAVAILABLE:"AI服务暂时停用，请稍后重试或返回手动标注",
  AI_SESSION_GONE:"照片已过期，请重新上传",AI_BUSY:"AI正在处理，请稍后重试",AI_CAPACITY:"临时分析已满，请稍后重试",
  AI_TIMEOUT:"AI处理超时，提示已保留，请稍后重试",STALE_RESULT:"结果已失效，请重新分割",PHOTO_MISMATCH:"照片已更换，请重新分割",
- IMAGE_TOO_LARGE:"照片不能超过20MiB",INVALID_DIMENSIONS:"照片尺寸不支持（8至8192像素，总计不超过1200万像素）",
+ IMAGE_TOO_LARGE:"服务器拒绝了照片大小，请重新选择或裁剪后重试",INVALID_DIMENSIONS:"服务器不支持该照片尺寸，请重新选择或裁剪后重试",
  UNSUPPORTED_FORMAT:"请使用静态JPEG、PNG或WebP图片",INVALID_IMAGE:"照片损坏或格式不支持，请更换照片",INVALID_INPUT:"提示格式不合法，请重置提示",
  INVALID_CANDIDATE:"候选为空或轮廓无效，请重新分割",RESULT_TOO_COMPLEX:"轮廓过于复杂，请缩小目标或调整提示",OUT_OF_MEMORY:"内存不足，请换较小照片重试",
  BRUSH_LIMIT:"本次修正过长，请使用更短的笔画",INVALID_BRUSH:"笔画无效，请重新涂画",INVALID_STRATEGY:"多个局部范围请使用局部分析"};
 function failure(status:number,data:unknown):Error {const code=(data as {error?:{code?:string}})?.error?.code||"";
- if((controlledServerActive()||needsTrialAccess())&&(code==="IMAGE_TOO_LARGE"||code==="INVALID_DIMENSIONS"))return new Error("测试服务仅支持10MiB以内、总计不超过300万像素的照片，请更换照片");
+ if(status===413&&!code)return new Error(ERRORS.IMAGE_TOO_LARGE);
  return new Error(ERRORS[code]||(status===502||status===503?"AI服务暂时不可用，请确认已启动；可返回手动标注":`AI请求未完成（${status}），可以重试或返回手动标注`));}
 function network(e:{errMsg?:string}):Error {return new Error(/timeout|timed out/i.test(e.errMsg||"")?"请求超时，提示已保留，请稍后重试":"当前网络连接失败，请稍后重试或返回手动标注");}
 function base(){if(!canUseAI())throw new Error(ERRORS.AI_DISABLED);return apiBaseUrl()+"/api/v1/ai/sessions";}
@@ -49,11 +49,11 @@ export const aiTransport:PhotoTransport={
    const headers:Record<string,string>={"x-ai-session-key":created.session_token,...accessHeaders(),...trialHeaders()};
    const uploaded=await new Promise<{photo_id:string;image:PhotoSession["image"];session_id:string;expires_at:number}>((resolve,reject)=>wx.uploadFile({
     url:base()+`/${created.session_id}/photo`,filePath:path,name:"file",timeout:AI_CONFIG.timeoutMs,header:headers,
-    success:r=>{if(r.statusCode===401&&headers.authorization)invalidateTrialAccess(headers.authorization);let data:unknown;try{data=JSON.parse(r.data);}catch{reject(new Error("上传响应无效，请重试"));return;}
+    success:r=>{if(r.statusCode===401&&headers.authorization)invalidateTrialAccess(headers.authorization);let data:unknown;try{data=JSON.parse(r.data);}catch{reject(r.statusCode===413?failure(413,{}):new Error("上传响应无效，请重试"));return;}
      if(r.statusCode===200)resolve(data as never);else reject(failure(r.statusCode,data));},fail:e=>reject(network(e))}));
    if(uploaded.session_id!==created.session_id||!/^[a-f0-9]{32}$/.test(uploaded.photo_id)||!uploaded.image||
     !Number.isFinite(uploaded.image.width)||!Number.isFinite(uploaded.image.height)||uploaded.image.width<8||uploaded.image.height<8||
-    !/^[a-f0-9]{64}$/.test(uploaded.image.oriented_rgb_sha256)||uploaded.expires_at!==created.expires_at)throw new Error("照片响应无效，请重新上传");
+    !/^[a-f0-9]{64}$/.test(uploaded.image.oriented_rgb_sha256)||!Number.isFinite(uploaded.expires_at))throw new Error("照片响应无效，请重新上传");
    const session:PhotoSession={...created,...uploaded,localPhoto:""};session.localPhoto=await download(session,"photo.png");return session;
   }catch(e){try{await request(`/${created.session_id}`,"DELETE",{},created.session_token);}catch{/* TTL still applies; no image is persisted by the client. */}throw e;}
  },

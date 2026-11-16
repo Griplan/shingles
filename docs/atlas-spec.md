@@ -221,3 +221,13 @@ Goran T1/T2/T3/T1/T2的9个源元素重新核对原文件、元素路径、d摘�
 ### V6.6.3 人工交互图谱
 
 axilla-schematic-v1独立分支以schematic_region区分原脊神经/组合标签类别，sourceType=ARTIFICIALLY_CONSTRUCTED。来源系统schematic_skin_partition、purpose=artificial_partition_design，不能伪称dermatome边界证据；medicalReviewStatus保持pending、正式mappingEnabled=false。SCHEMATIC状态及非医学用途必须贯穿区域、加载器、API和UI。原Goran、provisional及审核资料保留，不原地升级或覆盖。详见[设计与覆盖](validation-records/v6.6-axilla/full-simulation/report.md)。
+
+## V6.7 中性会阴模拟图谱
+
+新增独立view `perineum-overview`，模板`neutral-perineum-overview-v1/1.0.0`、geometry`neutral-perineum-skin-v1`、regionSet`neutral-perineum-ui-v1`，逻辑画布400×560。它是单一中性后下方示意，不区分性别，不提供完整环周或三维坐标；与front/back、左右脚底、左右腋下均不能交换数值。
+
+图谱`data/atlas/perineum-schematic-v1/`身份为`perineum-schematic-v1/perineum-schematic.1`，`atlasType=SCHEMATIC`、`sourceType=ARTIFICIALLY_CONSTRUCTED`、`reviewStatus=NOT_MEDICALLY_VALIDATED`、`intendedUse=INTERACTIVE_SIMULATION`、`medicalReviewStatus=pending`、`mappingEnabled=false`。五个区域S2、S3、S4、S5、UNDEFINED均为`MultiPolygon`，并集等于有效皮肤，正面积重叠为0；肛门开口是人体真实孔洞。
+
+`UNDEFINED`用于中央前侧/泌尿生殖面，界面名称“模拟未定区”。它参与几何交集与高亮，但没有骶神经含义，不能用最近邻或补绘转为S2–S5。生成器`scripts/build_perineum_schematic.py`默认只读检查，14个导出必须与仓库一致；`scripts/render_perineum.cjs`只生成PNG预览。
+
+素材参考Wikimedia Commons `Perineum.png`（Omega658，CC0 1.0）仅用于一般观察范围；实际皮肤Path、SVG、PNG及模拟区域均为项目原创，不复制参考照片像素或路径。来源和覆盖证据见[V6.7报告](validation-records/v6.7-perineum/report.md)。

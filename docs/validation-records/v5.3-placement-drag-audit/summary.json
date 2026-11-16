@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-12",
+  "fixture": {
+    "vertices": 2000,
+    "pieces": 5,
+    "holes": 5,
+    "viewportWidth": 375,
+    "runs": 3
+  },
+  "beforeMedian": {
+    "dragPlacementEvents": 121,
+    "pageOnDragMs": 0.552,
+    "pageSetData": 2,
+    "dragWallMs": 1.117,
+    "releaseValidationMs": 32.340,
+    "initializationMs": 57.196
+  },
+  "afterMedian": {
+    "dragPlacementEvents": 1,
+    "pageOnDragMs": 0.002,
+    "pageSetData": 1,
+    "dragWallMs": 0.501,
+    "releaseValidationMs": 32.503,
+    "initializationMs": 55.046
+  },
+  "tests": {
+    "typescript": "PASSED",
+    "frontend": "391/391 PASSED",
+    "wcc": "PASSED",
+    "wcsc": "PASSED",
+    "projectCheck": "PASSED",
+    "atlasCheck": "PASSED",
+    "packageCheck": "PASSED",
+    "diffCheck": "PASSED"
+  },
+  "nativeRuntime": "NOT_RUN",
+  "realDevice": "NOT_RUN",
+  "limitation": "Node/Canvas command timing excludes the native WeChat component bridge, GPU rasterization, touch sampling and FPS."
+}

@@ -66,4 +66,8 @@ def asset(sid:str,name:str,request:Request,result_id:str|None=None):
 
 @router.delete('/{sid}',status_code=204)
 def delete(sid:str,request:Request):
-    service,token=auth(request,sid);service.delete(sid,token);return Response(status_code=204)
+    service=runtime(request)
+    with service.lock:
+        if sid in service.sessions:
+            service,token=auth(request,sid);service.delete(sid,token)
+    return Response(status_code=204)

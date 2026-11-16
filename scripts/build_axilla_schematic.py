@@ -23,6 +23,8 @@ def build():
  models=json.loads((ROOT/'miniprogram/data/axilla.generated.ts').read_text().split('>>=')[1].rstrip(';\n'));coverage={};views={}
  for side in ['right','left']:
   view='axilla-'+side;surface=shape(body['views'][view]['geometry']);regions=[]
+  models[view]['imagePath']=f'/packages/special/assets/axilla/axilla-{side}.png'
+  models[view]['sourcePath']=f'/packages/special/assets/axilla/axilla-{side}.svg'
   for label,g,color in zip(['T1','T2','T3'],parts,['#aa96cf','#7fbba5','#e3b684']):
    if side=='left':g=scale(g,-1,1,origin=(.5,0))
    assert g.is_valid and g.area>0 and g.difference(surface).area<1e-12
@@ -43,6 +45,7 @@ def build():
  dump(DIR/'manifest.json',manifest);dump(OUT/'evidence/coverage.json',coverage)
  identity=dict(template_id=basis['templateId'],template_version=basis['templateVersion'],geometry_id=basis['geometryId'],region_set_id=basis['regionSetId'],atlas_id=ID,atlas_version=VERSION,atlas_content_sha256=h.hexdigest(),body_content_sha256=hashlib.sha256((ROOT/'data/body/axilla-v1.json').read_bytes()).hexdigest(),coordinate_system='normalized_2d_top_left')
  for v,model in models.items():model['atlas'].update(**META,identity=identity,regions=views[v]['regions'],technicalReady=True,blockedReason='',**{k:manifest[k] for k in ['sourceTitle','sourceUrl','attribution','coverageNote']})
- (ROOT/'miniprogram/data/axilla-schematic.generated.ts').write_text('// GENERATED artificial schematic, NOT medical geometry.\nimport {LocalSurfaceModel} from "../types/local-surface";\nimport {AxillaView} from "../types/dermatome";\nexport const AXILLA_SCHEMATIC_MODELS:Readonly<Record<AxillaView,LocalSurfaceModel>>='+json.dumps(models,ensure_ascii=False,separators=(',',':'))+';\n')
+ output=ROOT/'miniprogram/packages/special/data/axilla-schematic.generated.ts';output.parent.mkdir(parents=True,exist_ok=True)
+ output.write_text('// GENERATED artificial schematic, NOT medical geometry.\nimport {LocalSurfaceModel} from "../../../types/local-surface";\nimport {AxillaView} from "../../../types/dermatome";\nexport const AXILLA_SCHEMATIC_MODELS:Readonly<Record<AxillaView,LocalSurfaceModel>>='+json.dumps(models,ensure_ascii=False,separators=(',',':'))+';\n')
  print(json.dumps(coverage,indent=2))
 if __name__=='__main__':build()

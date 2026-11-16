@@ -1,0 +1,27 @@
+{
+  "endpoint": "http://212.64.26.206/dermatome-test/api/v1",
+  "status": "FAILED",
+  "reason": "AI_CAPACITY: controlled service already has the maximum number of temporary analysis sessions",
+  "steps": [
+    {
+      "step": "access_session",
+      "status": 200,
+      "ms": 26.17
+    },
+    {
+      "step": "ai_session",
+      "status": 429,
+      "ms": 12.32,
+      "body": {
+        "error": {
+          "code": "AI_CAPACITY",
+          "message": "\u4e34\u65f6\u5206\u6790\u5df2\u6ee1\uff0c\u8bf7\u53d6\u6d88\u65e7\u7167\u7247\u6216\u7a0d\u540e\u91cd\u8bd5"
+        }
+      }
+    },
+    {
+      "step": "access_cleanup",
+      "status": 204
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "measuredAt": "2026-11-13",
+  "environment": {
+    "runtime": "Node.js 24.11.1",
+    "cpu": "Apple M4",
+    "scope": "Production geometry modules with deterministic synthetic photos; no WeChat native raster, component bridge, phone CPU or network time."
+  },
+  "fixture": "Five disjoint polygons, each with one hole, at the initial back-upper-back placement.",
+  "benchmark": "Five repetitions after one warm-up; median reported.",
+  "rows": [
+    {
+      "vertices": 100,
+      "before": {"prepareMs": 0.22195800000000077, "transformMs": 0.02295800000001691, "validateMs": 0.8585419999999999, "totalMs": 1.079499999999996},
+      "after": {"prepareMs": 0.3216669999999908, "transformMs": 0.019459000000011883, "validateMs": 0.5410829999999862, "totalMs": 0.924999999999983}
+    },
+    {
+      "vertices": 500,
+      "before": {"prepareMs": 1.4172080000000165, "transformMs": 0.017750000000006594, "validateMs": 4.019999999999982, "totalMs": 5.459499999999991},
+      "after": {"prepareMs": 0.8077909999999804, "transformMs": 0.02183299999998667, "validateMs": 1.194500000000005, "totalMs": 1.923749999999984}
+    },
+    {
+      "vertices": 2000,
+      "before": {"prepareMs": 16.85895800000003, "transformMs": 0.041166999999973086, "validateMs": 26.74566600000003, "totalMs": 43.53245799999996},
+      "after": {"prepareMs": 1.864417000000003, "transformMs": 0.04750000000001364, "validateMs": 3.4861250000000155, "totalMs": 5.393207999999959}
+    },
+    {
+      "vertices": 5000,
+      "before": {"prepareMs": 97.34983399999999, "transformMs": 0.05995899999993526, "validateMs": 123.17550000000006, "totalMs": 220.83020900000008},
+      "after": {"prepareMs": 4.577790999999934, "transformMs": 0.06554099999993934, "validateMs": 8.707625000000007, "totalMs": 13.917459000000008}
+    },
+    {
+      "vertices": 10000,
+      "before": {"prepareMs": 388.6029589999998, "transformMs": 0.10658299999977316, "validateMs": 447.6776660000005, "totalMs": 861.244917},
+      "after": {"prepareMs": 9.489333999999872, "transformMs": 0.11187499999959982, "validateMs": 17.04779099999996, "totalMs": 26.642249999999876}
+    },
+    {
+      "vertices": 20000,
+      "before": {"prepareMs": 1530.9847910000026, "transformMs": 0.20708399999984888, "validateMs": 1634.6548750000002, "totalMs": 3168.1453330000004},
+      "after": {"prepareMs": 23.686916000002384, "transformMs": 0.21183399999990709, "validateMs": 37.13791599999968, "totalMs": 61.03666599999997}
+    }
+  ],
+  "placementSessionOpenMs": {
+    "100": 1.472,
+    "500": 2.826,
+    "2000": 6.760,
+    "5000": 16.189,
+    "10000": 29.962,
+    "20000": 64.701
+  },
+  "automatedTests": {
+    "typecheck": "PASS",
+    "miniprogram": "397/397 PASS",
+    "topologyAndBoundaryEquivalence": "PASS",
+    "projectStructure": "PASS",
+    "atlasReproduction": "PASS",
+    "packageReferencesAndSizes": "PASS",
+    "wechatWccWcsc": "PASS"
+  },
+  "notRun": [
+    "Android and iOS native first-frame duration",
+    "Native Canvas raster and component bridge timing",
+    "Low-end phone CPU and memory behavior",
+    "WeChat experience-version update"
+  ]
+}

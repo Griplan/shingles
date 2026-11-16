@@ -1,7 +1,7 @@
 // Synthetic protocol responses; real packaged geometry / page / renderer, not clinical tests or native GUI.
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path');
 const load=f=>require(path.join(process.env.DERMATOME_BUILD_DIR,f));
-const {ATLAS_REGIONS:R}=load('data/atlas.generated.js');
+const {ATLAS_REGIONS:R}=load('packages/clinical/data/atlas.generated.js');
 const {presentation,placeLabels,screenSide,stageHeight}=load('utils/matching-presentation.js');
 const {fitViewport,focusViewport}=load('utils/coordinate.js'),{getBodyModel}=load('data/body-models.js');
 const event=dataset=>({currentTarget:{dataset}});
@@ -47,14 +47,14 @@ test('320/375/430 widths and short screen: disjoint rails, uniform body scale, 7
  }
 });
 function harness(){
- for(const file of ['state/annotation-session.js','state/matching-session.js','pages/annotate/annotate.js'])delete require.cache[require.resolve(path.join(process.env.DERMATOME_BUILD_DIR,file))];
+ for(const file of ['state/annotation-session.js','packages/clinical/state/matching-session.js','packages/clinical/pages/annotate/annotate.js'])delete require.cache[require.resolve(path.join(process.env.DERMATOME_BUILD_DIR,file))];
  const state=load('state/annotation-session.js'),store=state.annotationSession;
  // Fresh module isolates singleton from other tests; production store session itself stays immutable.
  store.clear?.();
- let def;global.Page=d=>{def=d;};const file=path.join(process.env.DERMATOME_BUILD_DIR,'pages/annotate/annotate.js');delete require.cache[require.resolve(file)];require(file);
+ let def;global.Page=d=>{def=d;};const file=path.join(process.env.DERMATOME_BUILD_DIR,'packages/clinical/pages/annotate/annotate.js');delete require.cache[require.resolve(file)];require(file);
  const requests=[],replies=[],routes=[];
  global.wx={getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}}),getWindowInfo:()=>({windowHeight:603}),getSystemInfoSync:()=>({platform:'devtools'}),
-  request:o=>{requests.push(o);replies.push(()=>{const req=o.data;
+  request:o=>{if(o.url.endsWith('/api/v1/access/session')){o.success({statusCode:200,data:{access_token:'ACCESS_'+'d'.repeat(48),token_type:'Bearer',access_kind:'public_test',expires_at:Date.now()/1000+3600}});return;}requests.push(o);replies.push(()=>{const req=o.data;
    const cov=(view,ids)=>({view,lesion_ids:ids,annotation_area:1,covered_area:.8,uncovered_area:.2,covered_ratio:.8,uncovered_ratio:.2,coverage_status:'partial',
     candidates:candidates(view).slice(0,8)});
    o.success({statusCode:200,data:{request_id:req.request_id,annotation_revision:req.annotation_revision,identity:req.identity,
@@ -72,7 +72,7 @@ const flush=()=>new Promise(r=>setImmediate(r));
 test('one canvas workflow: calculate once, keep viewport, all/single/scope, edit invalidation and cache reentry',async()=>{
  const h=harness(),p=h.open();assert.equal(h.requests.length,0);
  const focus=p.data.zoomRegion,height=p.data.stageHeight;
- const a=p.calculate();p.onShow();void p.calculate();assert.equal(h.requests.length,1);
+ const a=p.calculate();await flush();p.onShow();void p.calculate();assert.equal(h.requests.length,1);
  assert.equal(p.data.atlas,null);assert.equal(p.data.layer.fillMode,'filled');assert.equal(p.data.zoomRegion,focus);assert.equal(p.data.stageHeight,height);
  h.replies.shift()();await a;assert.equal(p.data.matchStatus,'ready');assert.equal(p.data.selected,'');assert.ok(p.data.atlas.regions.length>1);
  p.onViewportChange({detail:{view:'front',modelId:getBodyModel('front').id,modelVersion:getBodyModel('front').version,viewport:fitViewport(207,height,getBodyModel('front'))}});
@@ -85,13 +85,13 @@ test('one canvas workflow: calculate once, keep viewport, all/single/scope, edit
  p.onResize();await p.calculate();assert.equal(h.requests.length,1);assert.equal(p.data.stageHeight,height);
  p.backToEdit();assert.equal(p.data.atlas,null);assert.equal(p.data.layer.fillMode,'filled');assert.equal(p.data.focusBounds,bounds);assert.deepEqual(h.store.snapshot().views.front.completed,[first]);
  p.finish();await p.calculate();assert.equal(h.requests.length,1);assert.ok(p.data.atlas.regions.length);
- p.backToEdit();p.newRegion();assert.equal(p.data.atlas,null);h.draw();p.syncSession();p.finish();const b=p.calculate();assert.equal(h.requests.length,2);h.replies.shift()();await b;
+ p.backToEdit();p.newRegion();assert.equal(p.data.atlas,null);h.draw();p.syncSession();p.finish();const b=p.calculate();await flush();assert.equal(h.requests.length,2);h.replies.shift()();await b;
  assert.equal(p.data.matchStatus,'ready');assert.equal(p.data.scopes.length,2);assert.ok(p.data.atlas.regions.length);
  p.switchView(event({view:'back'}));assert.equal(p.data.atlas.regions.length,0);p.switchView(event({view:'front'}));assert.ok(p.data.atlas.regions.length);assert.equal(h.requests.length,2);
  p.onHide();p.onUnload();const q=h.open();q.finish();await q.calculate();assert.equal(h.requests.length,2);q.onUnload();
 });
 test('prepared view race, request during view switch, stale frame and information/motion controls',async()=>{
- const h=harness(),p=h.open();const started=p.calculate();h.replies.shift()();await started;
+ const h=harness(),p=h.open();const started=p.calculate();await flush();h.replies.shift()();await started;
  const pending=[];p.selectComponent=()=>({prepareView:view=>new Promise(resolve=>pending.push({view,resolve}))});
  p.switchView(event({view:'back'}));assert.equal(p.data.preparingView,true);assert.equal(p.data.view,'front');
  p.switchView(event({view:'front'}));pending[0].resolve(true);await flush();assert.equal(p.data.view,'front');assert.equal(p.data.preparingView,false);
@@ -119,11 +119,11 @@ test('confirmed polygons fill immediately once each, result outline mode preserv
  }
 });
 test('in-flight calculation follows current view; hide cancels response; release gate clears cached colors but attribution stays accessible',async()=>{
- const h=harness(),p=h.open();const work=p.calculate();p.switchView(event({view:'back'}));h.replies.shift()();await work;
+ const h=harness(),p=h.open();const work=p.calculate();await flush();p.switchView(event({view:'back'}));h.replies.shift()();await work;
  assert.equal(p.data.view,'back');assert.equal(p.data.matchStatus,'ready');assert.equal(p.data.atlas.regions.length,0);
  p.switchView(event({view:'front'}));assert.ok(p.data.atlas.regions.length);
  wx.getAccountInfoSync=()=>({miniProgram:{envVersion:'release'}});p.focusSelected();assert.equal(p.data.atlas,null);assert.equal(p.data.candidates.length,0);
  p.openInfo();assert.equal(p.data.infoOpen,true);assert.ok(p.data.source.attribution);p.closeInfo();await p.calculate();assert.equal(h.requests.length,1);p.onUnload();
- const h2=harness(),q=h2.open();const pending=q.calculate();q.onHide();h2.replies.shift()();await pending;q.onShow();
+ const h2=harness(),q=h2.open();const pending=q.calculate();await flush();q.onHide();h2.replies.shift()();await pending;q.onShow();
  assert.equal(q.data.atlas,null);assert.notEqual(q.data.matchStatus,'ready');q.onUnload();
 });

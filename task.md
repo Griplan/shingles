@@ -1656,9 +1656,10 @@ P4最后资源补充：收尾保护累计488轮A健康/ready零失败，B全阶�
 
 ## P4.2 取消邀请码操作（2026-11-02）
 
-- [ ] IN_PROGRESS 取消输入/开通入口，点击业务时自动建立临时测试会话；服务端显式测试开关，保留隔离和限额。
-- [ ] TODO 自动化、真实公网AI/匹配及A保护回归、独立B部署与回退记录。
-- [ ] TODO 文档与新包说明；用户已表示稍后自行上传，手机验收仍NOT_RUN。
+- [x] DONE 取消输入/开通入口，点击业务时自动建立临时测试会话；服务端显式测试开关，保留隔离和限额。
+- [x] DONE 自动化、真实公网AI/匹配及A保护回归、独立B部署与回退记录。
+- [x] DONE 文档说明；2026-11-07进一步移除首页残留的开发环境凭据弹窗入口。
+- [ ] TODO 新包上传与手机验收；用户已表示稍后自行上传，手机仍NOT_RUN。
 
 用户本轮明确授权取消邀请限制，覆盖之前必须持邀请资格的要求。服务器无法验证微信开发调试状态，免邀请入口同样可被其他互联网客户端申请，只用于公开/合成图片；保留临时随机会话用于照片隔离，不将它宣传为微信身份认证。release不开放，不修改模型、人体、图谱、匹配或放置规则。
 
@@ -1678,6 +1679,14 @@ P4最后资源补充：收尾保护累计488轮A健康/ready零失败，B全阶�
 - [ ] NOT_RUN 新体验版手机开发调试、相册/拍照权限、两种网络和真实触摸全流程；自动化与公网适配器不冒充真机。
 
 修改backend/services/access、trial_access和api/routes/access；miniprogram/services/trial-access、api、ai，index.ts/wxml及AI隐私；后端/前端鉴权测试、真实HTTP链路脚本，新增test_public_test_access.py；更新README/API/privacy、回退、manifest、旧P4.1追加覆盖说明。报告：[免邀请码测试](docs/wechat-public-test-access.md)；证据：[23项公网](docs/validation-records/p4.2-no-invitation-20261102/public-test-access.json)、[真实全流程](docs/validation-records/p4.2-no-invitation-20261102/public-flow/real-page-http.json)、[部署](docs/validation-records/p4.2-no-invitation-20261102/deployment-result.json)、[原服务保护](docs/validation-records/p4.2-no-invitation-20261102/protection.json)、[完整性与清理](docs/validation-records/p4.2-no-invitation-20261102/integrity-cleanup.json)。
+
+#### 公网受控免凭据通道复核（2026-11-07）
+
+- [x] DONE 云端 `dermatome.service` 实际为 `active`，监听边界仍为 `127.0.0.1:8001`；`DERMATOME_ENV=controlled`、`ENABLE_PUBLIC_TEST_ACCESS=1`、AI 分割和参考匹配均为 `1`。公开 `POST /dermatome-test/api/v1/access/session` 空 JSON 实际返回 `200` 和 `access_kind=public_test`；不再需要邀请码、管理员密钥或首页凭据输入。
+- [x] DONE 清理首页残留的仅开发环境凭据弹窗及入口；develop/trial 业务请求由 `trial-access.ts` 自动建立单次在途的内存 Bearer 会话，request/upload/download 共用同一测试地址。release/未知环境仍关闭在线业务。
+- [x] DONE 公网合成图安全回归23项通过：匿名业务仍为401、Origin403、4KiB会话请求上限、开通与照片限流、非法文件拒绝、10MiB和300万像素限制、两个访客照片隔离、取消删除与会话撤销；测试照片和访问会话均已清理。
+- [x] DONE 公网真实 MobileSAM 全流程通过：公开 CDC PHIL 21505 两次推理 HTTP 200，各3候选，耗时6.999秒/3.918秒；确认保留10片12孔，人体放置70%/25°，匹配两次HTTP 200，编辑重算、照片清理后匹配和会话撤销均通过。未向公网发送本轮用户提供的私人照片；医学准确率仍为NOT_MEASURED，手机原生微信验收仍为NOT_RUN。
+- [ ] TODO 必须重新上传包含自动会话代码的小程序并设为体验版；旧体验版不会自动更新。手机开启开发调试后，HTTP仅用于公开或合成图片，真实患者照片禁止使用。
 
 ## 论文级技术审计与资料包（2026-11-02）
 
@@ -1947,3 +1956,148 @@ P4最后资源补充：收尾保护累计488轮A健康/ready零失败，B全阶�
 - [ ] NOT_RUN — 微信体验版未上传。CLI 服务最终启动到 127.0.0.1:9420，但日志报 errcode 41001 / access_token missing，当前开发者工具账号需重新登录；CUA 窗口接口持续超时。尝试版本 `0.6.6-axilla.20261106`，未设置体验版。
 - [ ] NOT_RUN — 手机左右腋下圈选、模拟匹配、高亮、单标签/全部和左右会话仍需登录后上传新体验版并真机验证。旧体验版不会自动获得本轮代码。
 - 报告与证据：[V6.6.4部署记录](docs/validation-records/v6.6-axilla/deployment-v6.6.4/report.md)、smoke.json、upload-attempt.json、before/after.json。医学审核仍pending；模拟覆盖不是医学准确率。
+
+## V6.7 中性会阴独立视图与全区域模拟匹配（2026-11-07）
+
+- [x] **DONE — 本地工程实现**：新增单一`perineum-overview`，模板`neutral-perineum-overview-v1/1.0.0`、geometry`neutral-perineum-skin-v1`、regionSet`neutral-perineum-ui-v1`，400×560；特殊部位入口、人工多片圈选、撤销/删除、复核、放大复位、匹配、高亮、单标签和显示全部均复用现有local-surface/V2/V4/P6框架。左右切换隐藏，AI照片分割与自动放置关闭。
+- [x] **DONE — 中性模型**：项目原创后下方示意，不区分性别、不绘制具体男女外生殖器；前侧在上、后侧/肛门区居中、解剖左在画面左。肛门开口作为真实人体孔洞；中央前侧/泌尿生殖面保留为“模拟未定区”。不是完整环周或三维重建。
+- [x] **DONE — 独立模拟图谱**：`perineum-schematic-v1/perineum-schematic.1`包含S2、S3、S4、S5、UNDEFINED五个互斥区域，状态为SCHEMATIC、NOT_MEDICALLY_VALIDATED、INTERACTIVE_SIMULATION、ARTIFICIALLY_CONSTRUCTED；正式mappingEnabled=false、医学审核pending。未覆盖或替换Goran、Servier、全身、足底和腋下数据。
+- [x] **DONE — 覆盖与几何**：有效皮肤面积0.6082941222388499，区域并集覆盖100%，漏覆盖0，分区正面积重叠0；136,264个网格皮肤点漏点0。UNDEFINED面积0.025695446328684，约占有效皮肤4.2242%，参与真实交集但不冒充骶神经标签。完整皮肤、多片、孔洞、重复并集和共享边界均由实际ASGI请求验证。
+- [x] **DONE — 前后端合同**：evaluate新增perineum-overview；固定注册表读取独立atlas/body身份和摘要，复用原Shapely交集、覆盖公式和P6每请求并集。响应保留全部SCHEMATIC/未医审/模拟用途状态，前端缺任一状态字段拒绝叠加。旧身份、人体外/自交、release/unknown环境门禁继续明确拒绝。
+- [x] **PASSED — 自动回归**：TypeScript通过；前端359/359；后端与AI322/322，7条既有MobileSAM/timm依赖警告；生成器14个导出可复现；运行时PNG和5张证据预览实际渲染。
+- [x] **PASSED — 微信静态编译**：微信工具自带wcc、wcsc分别编译special-parts、local-surface、local-surface-canvas，均exit0；三个WXML输出分别为40,720、53,643、39,762 bytes，三个WXSS输出分别为862、3,241、414 bytes。
+- [x] **DONE — 真实预览与文档**：新增有效皮肤、完整分区、未定区、合成S4/S5匹配和模板预览；新增V6.7总报告、来源许可、模板设计、模拟图谱、覆盖验证、测试记录及机器可读checks.json。README、architecture、api、atlas-spec和特殊部位说明已同步。
+- [x] **PASSED — 微信开发者工具原生流程**：iPhone 5（320×568）、iPhone X（375×812）、iPhone 14 Pro Max（430×932）均完成特殊部位导航、会阴Canvas取3点、闭合、复核、真实后端匹配与高亮；iPhone 12/13 Pro Max（428×926）完成全部区域、S2单区、显示全部、放大和复位。会阴Canvas读屏标签已修正为“会阴区域”。证据见 `docs/validation-records/v6.7-perineum/evidence/wechat-*.jpg`。
+- [ ] **NOT_RUN — 手机真机**：未在手机体验版或物理设备执行触摸与视觉复测；微信模拟器通过不能替代真机验收。
+- [ ] **NOT_RUN — 医学审核**：模拟区域未经医学专业人员审核，没有正式皮节边界证据；100%只表示图中有效皮肤被模拟区域覆盖，不是医学准确率。
+- [ ] **NOT_RUN — V6.7部署和体验版**：V6.7本身未部署；后续P4.2复核只对既有专用测试服务做只读状态检查和公开合成图验证，未同步V6.7文件。未上传体验版，未提交或推送Git；现有云端和手机旧包不会自动获得V6.7。
+
+结论：V6.7本地实现、自动测试、静态编译、覆盖验证、微信开发者工具原生流程和文档已完成；手机真机、部署、体验版与医学审核仍未完成。本轮在此停止，不进入下一特殊部位。
+
+## 小程序体验版 2 MB 超限修复（2026-11-07）
+
+- [x] **DONE — 超限定位**：修改前保守统计147个文件、4,077,700 bytes（约3.889 MiB），微信旧日志为`source size 3767KB exceed max limit 2MB`。主因是全部页面、临床图谱、人体及特殊部位资源都位于主包，最大单项为约1.71 MB的临床图谱生成文件。
+- [x] **DONE — 原生分包**：主包保留首页与人体选择；`clinical`承载标注、结果、图谱调试、AI辅助与病灶放置；`special`承载特殊部位入口、脚底、腋下与会阴局部页面。分包只引用主包公共代码，未建立分包间交叉引用。
+- [x] **DONE — 安全减重**：`packOptions.ignore`排除`node_modules`、原始SVG、Markdown、旧人体/图谱TS、占位文件和未使用组件目录；运行图片保留PNG。临床图谱坐标使用无损Float64 Base64编码并在运行时还原，没有量化、简化或改变坐标。
+- [x] **PASSED — 本地保守体积**：主包853,130 bytes（0.814 MiB）、clinical 1,354,227 bytes（1.291 MiB）、special 754,623 bytes（0.720 MiB）；全部低于2 MiB，主包低于1.5 MiB建议线。
+- [x] **PASSED — 微信实际体积**：主包755,673 bytes、clinical 1,298,497 bytes、special 704,578 bytes，总计2,758,748 bytes；每个包均低于单包限制。
+- [x] **PASSED — 自动与编译回归**：TypeScript通过；前端359/359通过；项目结构、图谱无损编码复现、包体与分包引用检查通过；微信开发者工具编译Errors 0；首页、人体选择、人工标注、AI辅助、特殊部位和脚底路由已实际打开。
+- [x] **DONE — 体验版上传**：微信开发者工具实际显示“代码上传成功”，版本`0.6.8`，备注“小程序分包修复：主包与临床/特殊部位分包低于2MB”，上传时间2026-11-07 13:00。
+- [ ] **NOT_RUN — 微信后台体验版设置**：上传成功不会自动设为体验版；仍需在微信公众平台把`0.6.8`设为体验版。
+- [ ] **NOT_RUN — 手机真机全链路**：尚未在手机微信体验版复测首页、AI辅助、特殊部位、标注和匹配流程；模拟器、自动测试和上传成功不能替代真机验收。
+- 执行边界：未修改人体图谱几何、神经匹配公式、MobileSAM模型、用户标注、腾讯云后端、鉴权、域名或服务器；未提交或推送Git。
+- 报告与证据：[包体修复报告](docs/validation-records/miniprogram-package-size/report.md)、[机器可读审计](docs/validation-records/miniprogram-package-size/package-audit.json)、[微信上传结果](docs/validation-records/miniprogram-package-size/wechat/gui-upload-result.json)。
+
+## P8 高清手机照片上传适配（2026-11-09）
+
+- [ ] IN_PROGRESS：核查手机端、微信接口、FastAPI 与云端限制，在上传前等比缩图及按需压缩；验证同一处理图上的框选、Mask 和人体放置。云端只读，不修改部署。
+
+### P8 本地交付（2026-11-09）
+
+- [x] DONE — 核实前端预检、后端受控 10 MiB/300 万像素及腾讯云 Nginx 11 MiB 请求体。本地新增相册/相机统一预处理，原图 ≤20 MiB/1600 万像素/单边 8192，上传 ≤8 MiB/300 万像素/最长边 1920；服务端、鉴权、医学图谱和匹配公式不改。
+- [x] PASSED — 4032×3024 正向与 EXIF 6 样图通过真实本机上传、MobileSAM、确认、放置、匹配和清理；两例均 1920×1440，确认轮廓与 Mask 逐像素差异 0。CPU/RSS、格式、失败与限流证据见[专项报告](docs/validation-records/p8-image-upload-limits/report.md)。
+- [x] PASSED — TypeScript、前端 370/370、后端与 AI 322/322、WXML/WXSS、图谱/分包检查。首轮三个旧分包路径检查失败，修正生成器及回归路径后通过，未改运行图谱、版本摘要或几何。
+- [ ] NOT_RUN — 微信模拟器首页白屏未完成原生相册/画布验证；手机体验版、相机、真机内存、真实网络耗时及云端推理峰值均未验。不上传、不部署，本机测试结果不能替代手机验收。
+
+## P8.1 高清照片原生缩图增量（2026-11-09）
+
+- [ ] IN_PROGRESS：独立原图/上传限额；新增大图原生缩放与资源保护，回归照片坐标及现有上传、分割、放置和匹配。
+
+### P8.1 本地交付（2026-11-09）
+
+- [x] DONE — 原图上限独立为 50 MiB、5000 万像素；超过 P8 Canvas 安全预算只调用微信原生缩图，校验返回后才交给既有流程。最终上传仍为 8 MiB、300 万像素、最长边 1920。
+- [x] PASSED — 本机 1200 万、2400 万、4800 万与 4800 万 EXIF 旋转四例实缩图、真实分割、放置与匹配。四例轮廓与 Mask 重建逐像素差异 0，清理通过；性能、字节和资源证据见[P8.1 技术报告](docs/validation-records/p8.1-high-resolution/report.md)。
+- [x] PASSED — TypeScript、前端 380/380、后端及 AI 322/322、微信 WXML/WXSS 编译、项目、图谱与分包检查。未修改后端、云配置、人体、图谱或匹配逻辑。
+- [x] FIXED — 微信开发者工具对有效 1280×1707 JPEG 的 `readFile` 成功结果未通过旧 `instanceof ArrayBuffer` 判断，造成“无法读取照片内容”。读取兼容层现接受跨执行域 ArrayBuffer、ArrayBuffer View 与二进制字符串，并新增对应回归；照片限制和处理上限不变。
+- [ ] NOT_RUN — 微信工具模拟器首页白屏，未运行原生缩图；Android/iOS 真机及手机内存未验证，未上传或更新体验版。
+
+## P9 折叠屏响应式双形态（2026-11-10）
+
+- [x] DONE — 以逻辑窗口 680×520 为双栏门槛，480 px 起适配加宽单栏；人体、匹配、AI 照片与放置、脚底、腋下、会阴共用布局。Canvas 重测和状态隔离保留原坐标契约，取消未完成手势，不重发业务请求。
+- [x] PASSED — TypeScript、前端 384/384、后端和 AI 322/322、微信静态编译、项目结构、图谱和分包检查。微信工具在 iPhone X/iPad 预设实际显示首页，编译后调试器 Errors 0。
+- [ ] NOT_RUN — 微信模拟器工作页全流程、真机折叠展开、键盘、安全区及长时内存/FPS；未部署腾讯云或上传体验版。
+- 文档、命令、性能结果和验收步骤：[P9 报告](docs/validation-records/p9-foldable-responsive/report.md)。
+
+## P10 AI 照片上传、MobileSAM 分割与人体放置全链路性能审计（2026-11-10）
+
+- [x] **DONE — 真实链路审计**：覆盖照片准备、上传、FastAPI 接收/解码、MobileSAM 编码与 Mask 解码、MultiPolygon 后处理、候选资源下载与 Canvas 绘制、照片确认、人体放置和神经匹配。用户选择照片与人工调整时间单列，不计入系统等待。
+- [x] **DONE — MobileSAM 45 次真实推理**：公开 CDC PHIL 21505、1920×1080、Apple M4 CPU 4 threads。同图同框 P50 807.35 ms/P95 847.38 ms；改框 821.87/890.46 ms；正负提示点 777.49/833.60 ms；整图 614.72/651.09 ms。图像编码 P50 约 0.40 秒，多边形后处理约 0.23–0.28 秒。
+- [x] **DONE — 重复编码根因确认**：`MobileSAM.predict()` 每轮执行 `set_image()` 并以 `reset_image()` 结束；同照片改框、提示点和多局部框都会重新编码，当前没有特征缓存。本轮没有实施不受控缓存。
+- [x] **DONE — 本机完整链路**：4032×3024 处理为 1920×1440；暖启动三次选图到可框选 P50 572.9 ms，框选松手到首个 Mask 可交互 757.3 ms，候选切换 21.2 ms，导航到放置可交互 21.2 ms，放置确认到匹配完成 324.7 ms；系统等待合计约 1.83 秒。冷启动首 Mask 约 2.38 秒，合计约 3.43 秒。
+- [x] **DONE — 腾讯云低负载链路**：现有 HTTP 公网测试入口、700×460 公开图；上传 158.7 ms，两次真实推理 3,795.0/3,672.4 ms，框选松手到 Mask 可交互 3,820.7 ms，候选切换 20.7 ms，放置确认到匹配完成 435.7 ms；系统等待合计约 5.08 秒。临时访问会话和照片均已撤销/删除。
+- [x] **DONE — Canvas 结构证据**：320/375/430 px 各 3 次命令计数一致；每 120 次框选移动执行 120 次 Canvas 节点/尺寸查询、清屏、照片/Mask 双绘制和 `setData`，并有约 122 次矩形查询。照片框选尚未按 RAF 合并；放置页已有缓存贴片和 RAF。手机原生 FPS/触摸延迟仍为 NOT_MEASURED。
+- [x] **PASSED — 自动回归**：TypeScript通过；前端 384/384；完整测试环境后端与 AI 322/322，7 条既有 MobileSAM/timm 警告；项目结构、图谱无损生成与分包检查通过；`git diff --check`通过。先前无完整测试环境时的 2 项会阴 403 失败保留为测试条件问题，未改业务门禁。
+- [x] **DONE — 证据与报告**：[P10 报告](docs/performance-audit/p10-ai-upload-segmentation/README.md)及8章专项、45次推理JSON、本机冷/暖链路、云端链路、云端只读资源快照、Canvas计数和全部测试日志已生成。
+- [ ] **NOT_RUN — 客户手机与微信原生**：未采集相册打开、`touchmove`到屏幕、原生Canvas raster、FPS、JS heap/整机RSS、Android/iOS网络和折叠屏长时表现。当前体验版实际版本无法确认；历史上传 `0.6.8`不等于手机已设置该体验版，也不包含后续 P8.1/P9/P10。
+- [ ] **NOT_MEASURED — 云端细节**：没有请求前后 cgroup CPU throttling 增量、Nginx upstream timing、Linux embedding缓存峰值或高并发队列数据。累计 throttling 值不能归因于本次请求。
+- [x] **DONE — 范围保护**：未更换 MobileSAM、未改上传安全上限、人体/图谱/匹配公式、V2标注或云资源配置；未部署、未重启服务、未上传体验版、未提交或推送Git。产品代码仅给现有端到端测试脚本增加默认关闭的P10计时；生产算法没有性能重构。
+
+P10 结论：当前前三项热点是 MobileSAM 同照片重复图像编码、照片框选高频Canvas查询/重绘、冷启动与云端CPU推理。候选切换和人体放置不是主要瓶颈。后续先做有界embedding缓存与Canvas最小优化，均须先通过真机/同架构Linux实测，不能以本轮本地数据宣称固定帧率或优化倍数。
+
+## V5.3 病灶放置拖动本地审查与修复（2026-11-12）
+
+- [x] **DONE — 根因定位**：`placement-overlay` 每次 `touchmove` 都通过组件事件桥调用页面 `onDrag`、读取并更新放置草稿，再回到组件设置本地预览；120 次移动形成 121 个 `placementdrag` 事件。`touchend` 与移动事件共用串行队列，实际设备上会延迟清除 `dragging`；确认按钮还要求最新 revision 的 `overlayReady=true`，因此可能长时间保持禁用。移动阶段没有重新遍历全部 MultiPolygon，但组件桥、会话读取、冻结和 revision 更新仍是主要前端开销。
+- [x] **DONE — 最小修复**：拖动开始保存基准变换；移动阶段仅在 Canvas 组件内更新临时平移参数，用缓存贴片和单帧 RAF 合并绘制；不再逐次跨组件派发事件。松手只发送一次最终变换，页面随后执行一次正式几何变换、一次完整人体边界校验和一次状态同步。取消拖动丢弃本地预览。保留旧 `move` 事件兼容路径，未修改照片、人体、图谱、匹配或 V2 数据。
+- [x] **DONE — 确认按钮恢复**：新增页面级断言，松手后 `dragging=false`、正式几何已结算、`valid=true`；当前 revision/viewport 的 Canvas 帧返回 `overlayReady=true` 后，WXML 按钮禁用条件全部为 false，随后确认可保存。最终坐标采用最后一次触点。
+- [x] **PASSED — 同环境对照**：2000 顶点、5 片、5 孔、375 px，各 3 次。120 次移动的 `placementdrag` 121→1，页面 `onDrag` JS 中位 0.552→0.002 ms，移动阶段 wall time 1.117→0.501 ms；松手完整校验约 32.3→32.5 ms，保留必要校验。证据见[专项报告](docs/validation-records/v5.3-placement-drag-audit/report.md)和[summary](docs/validation-records/v5.3-placement-drag-audit/summary.json)。
+- [x] **PASSED — 回归**：TypeScript；前端391/391；微信自带wcc/wcsc；项目结构、图谱一致性、分包体积与`git diff --check`。Node/Canvas命令计时不包含微信原生组件桥、GPU、触控采样或FPS。
+- [ ] **NOT_RUN — 原生性能**：本轮Computer Use初始化两次超时，未完成微信开发者工具原生连续拖动/按钮点击复测；Android/iOS真机、低端机、折叠屏与真实患者数据均未验证。不得用静态编译或Node耗时宣称真机流畅度通过。
+
+## P11 AI 照片框选 Canvas 性能优化（2026-11-10）
+
+- [x] **DONE — 根因与最小改造**：client 坐标的每次 `touchmove` 原先都查询 Canvas 矩形，随后 `redraw()` 再查询节点/尺寸、清屏、双绘制并调用 `setData`。本轮在 `photo-canvas.ts` 中增加节点/尺寸和手势级矩形缓存、Canvas `requestAnimationFrame` 单帧合并、布局/图片/页面生命周期缓存失效，以及仅在错误文本变化时更新页面数据；未修改 MobileSAM、FastAPI、上传限制、人体、图谱、V4公式或服务器。
+- [x] **PASSED — 120次移动同条件对照**：320/375/430 px 各3次，优化前→后中位结构计数为 Canvas节点/尺寸查询120→0、矩形查询122→1、完整帧120→1、`drawImage` 240→2、`setData` 120→0、`renderstate` 240→1；JS适配器阶段中位0.425→0.328 ms。画笔路径121次完整帧/121次`setData`→1/0。候选切换10次不再查询Canvas或`setData`。
+- [x] **PASSED — 坐标等价**：冻结优化前/后构建，在横竖照片、3种宽度、四方向、client/native坐标和120次移动/立即松手共48组对照中，最终框选坐标最大绝对差为0。快速松手使用最后有效坐标；resize、hide/show、图片替换和取消不会提交旧手势。
+- [x] **PASSED — 完整回归**：TypeScript通过；前端388/388；后端与AI322/322（7条既有MobileSAM/timm警告）；微信`wcc`/`wcsc`、项目结构、图谱无损检查、分包引用及体积检查通过。保守包体为主包856,284、clinical 1,387,188、special 756,519 bytes；`git diff --check`通过。
+- [ ] **NOT_RUN — 微信GUI与真机**：开发者工具中Shingles页面可见且人体页正常显示，但自动点击“编译”返回`noWindowsAvailable`；本轮未取得GUI编译或工作页交互成功证据。Android/iOS及折叠屏真机的触摸延迟、原生raster、FPS、长任务和内存仍未测量，不能据Node计数宣称固定帧率。
+- [x] **DONE — 报告与证据**：[P11报告](docs/performance-audit/p11-ai-canvas-optimization/README.md)、[优化前](docs/performance-audit/p11-ai-canvas-optimization/evidence/before.json)、[优化后](docs/performance-audit/p11-ai-canvas-optimization/evidence/after.json)、[48组坐标等价](docs/performance-audit/p11-ai-canvas-optimization/evidence/coordinate-equivalence.json)及微信状态JSON已生成。
+- 回滚：仅恢复`miniprogram/packages/clinical/components/photo-canvas/photo-canvas.ts`及P11测试/文档；当前工作区含其他未提交任务，不得执行整库reset/clean。未部署、未上传体验版、未提交或推送Git。
+
+## 线上后端统一与 V6.7 部署（2026-11-12）
+
+- [x] **DONE — 默认后端入口统一**：develop 开发工具和 trial 均使用 `http://212.64.26.206/dermatome-test`，不再默认访问 `127.0.0.1:8000`；`wx.request`、`wx.uploadFile` 和资源下载继续共用同一 `apiBaseUrl()`。release 的 HTTPS 与未知环境失败关闭规则未改。
+- [x] **DONE — 本机与部署清单对比**：部署前线上清单对应 V6.6.4；本地 V6.7 差异为 3 个既有后端文件、2 个新会阴服务、4 个会阴图谱文件及 2 个会阴人体数据文件，共 11 个 B 项目运行文件。r4 部署后，本地与线上 `deployment/release-manifest.json` 均为 145 项且逐项哈希一致。未发现 P11 后端改动，因此 P11 只需前端构建。
+- [x] **PASSED — 本地回归**：TypeScript通过；前端388/388；会阴后端专项11/11；工程结构、图谱与分包检查通过。部署脚本和 smoke 脚本通过 Python 语法检查。
+- [x] **SUPERSEDED — 早期线上实时 dry-run**：SSH、公网 readiness 与受控浏览器读取曾因运行环境自动权限审批超时被阻断；该历史阻塞不代表当前状态，后续已取得连接并完成线上验证。
+- [x] **SUPERSEDED — 早期腾讯云写入状态**：早期未写入 `/srv/dermatome-mapper`、未重启 `dermatome.service`、未执行公网 smoke；后续 r4 已按固定范围完成部署，历史记录保留。
+- [x] **FIXED — r1 部署前校验**：首次写入暂存目录后，校验只包含增量文件，Python 找不到未变化的 `app.utils`；失败发生在停止服务前，线上文件和进程未改变。r2 暂存完整后端 Python 包，但最终仍只复制变化文件，并保留 r1 目录作证据。
+- [x] **FIXED — r2 就绪探测**：r2 的 5 区域暂存校验和新服务启动均成功，但脚本匿名轮询需要 Bearer 的 `/ready`，连续 401 后被误判失败并触发 B 回滚。r3 先自动建立受控测试会话，再检查 ready 和真实会阴 S2 合成匹配；r2 证据保留。
+- [x] **FIXED — r3 执行依赖**：r3 在应用脚本顶部导入 Shapely，而 SSH 执行器是系统 Python，尚未读取部署包或停止服务便失败。r4 使用纯标准库归一化矩形进行运行时 S2 smoke，不要求系统 Python 安装项目依赖。
+- [x] **PASSED — r4 腾讯云部署**：线上实际返回 `APPLIED`，变更 11 个 V6.7 会阴相关文件，备份位于 `/srv/dermatome-mapper/deployment/backups/v67-perineum-20261112-r4`。线上发布清单 145 项全部存在且哈希一致；`dermatome.service` 为 `active`、`NRestarts=0`，只重启该服务。
+- [x] **PASSED — 公网会阴 smoke**：2026-11-12 重新执行 [smoke.py](docs/validation-records/v6.7-perineum/deployment-v6.7/smoke.py)，8/8 通过：health、匿名拒绝、受控测试会话、鉴权 ready、会阴 S2、模拟未定区、旧版本拒绝和会话清理。`ai_model_loaded=false` 仅表示 MobileSAM 尚未惰性加载，本轮没有把该结果写成线上 AI 推理通过。
+- [ ] **NOT_RUN — 线上 MobileSAM 冒烟**：使用公开 CDC PHIL 21505 图片尝试新建 AI 分析会话时，受控服务已有两个临时分析会话，返回 `429 AI_CAPACITY`。测试访问会话已清理，未删除他人会话；证据见[失败记录](docs/validation-records/v6.7-perineum/deployment-v6.7/online-ai-smoke-failed.json)。这不影响会阴图谱部署结论，也不能据此宣称线上 AI 推理已通过。
+- [x] **PASSED — 原项目保护**：部署前后 `acupuncture.service` 与 Nginx 的 PID、启动时间、重启计数及保护文件摘要未变化；8000/8001 仍只监听回环地址。部署仅修改 B 项目计划内文件。
+- 边界：未修改针灸服务、Nginx、端口、模型、MobileSAM、医学图谱几何或 V4 匹配公式；未上传微信体验版，未提交或推送 Git。
+
+### 开发工具公网会话修复（2026-11-12）
+
+- [x] **FIXED — “测试连接未完成，请重试”**：开发工具此前被 `needsTrialAccess()` 视为无需认证，但 `apiBaseUrl()` 在未填写本地受控凭据时实际请求公网 `http://212.64.26.206/dermatome-test`；AI/匹配请求因此缺少 Bearer，被后端以 `401 ACCESS_DENIED` 拒绝。现开发版只在显式本地受控凭据生效时跳过会话；否则与 trial 一样静默开通公网临时会话，请求和上传继续携带同一短时 Bearer。
+- [x] **PASSED — 回归**：新增“开发工具公网服务自动开通一次 Bearer 会话”测试；TypeScript 通过，前端 `389/389` 通过；项目结构、图谱哈希、分包引用与保守体积检查通过，`git diff --check` 通过。
+- [ ] **NOT_RUN — 微信模拟器原生复测**：Computer Use 连续两次在读取微信开发者工具状态时超时，未取得本轮重新编译后的原生上传结果。需要在微信开发者工具重新编译，再选择照片；代码路径已改为先 `POST /api/v1/access/session`，随后 AI 会话和照片上传携带 `Authorization: Bearer ...`。
+
+## AI 照片进入人体放置后的临时源释放（2026-11-13）
+
+### 闲置回收增量（2026-11-13，覆盖下方旧固定TTL描述）
+
+- [x] DONE：固定创建30分钟截止改为AI_IDLE_SECONDS默认900秒的活动滑动期限；保留30秒后台扫描、独占目录锁及停服timer，保护活动推理，重启清理遗留文件。
+- [x] DONE：放置轮廓绘制就绪后删除源会话，最多3次有界异步重试；初始化失败保留照片，已复制几何继续独立使用。
+- [x] PASSED：TypeScript，前端397/397，后端AI325/325（7条既有警告），工程/图谱/分包/体积、WXML编译及diff检查。真实日志和限制见[专项报告](docs/validation-records/ai-idle-lifecycle/report.md)。
+- [ ] NOT_RUN：微信/真机真实网络删除、云端闲置扫描与timer、本机真实推理中途DELETE及生产RSS回收观察。未部署、未上传、未提交Git；后续需同步后端清理代码并重新上传前端。
+
+- [x] **DONE — 根因修复**：后端的 2 个受控临时分析名额用于保护照片和 MobileSAM 内存，不应直接取消。确认分割后放置草稿已包含 MultiPolygon、孔洞、照片度量及人体变换所需数据；现在成功进入放置页即释放后端照片会话，不再等待 AI 页面 `onUnload` 或 30 分钟 TTL。
+- [x] **DONE — 安全回退**：放置草稿新增 `sourceDetached`，仅在导航成功时脱离源 TTL；导航失败会恢复临时源检查，不删除照片。删除失败显示清理警告，已建立的人体草稿仍可继续，服务器 TTL 继续兜底。
+- [x] **DONE — 保留正确性**：已释放源的草稿仍执行完整 MultiPolygon、孔洞、人体边界和目标模板校验，只在一次“确认位置”时写入 V2；未修改 MobileSAM、上传限制、健康/鉴权、人体模板、图谱和 V4 匹配公式。
+- [x] **PASSED — 自动回归**：TypeScript通过；前端`397/397`通过；项目结构、图谱一致性、分包引用及保守包体检查通过；微信`wcc`/`wcsc`目标页面和组件exit 0；`git diff --check`通过。证据见[专项报告](docs/validation-records/ai-source-release/report.md)。
+- [x] **PASSED — 生产部署核验**：本地与线上V6.7发布清单均为145个运行文件，新增、缺失和哈希差异均为0；本次临时源释放仅为前端改动，既有后端删除会话接口无需更新。公网8项合成数据检查和本地后端35项专项测试通过；`dermatome.service`、`acupuncture.service`、Nginx保持active，8000/8001仍仅监听回环地址。因无服务端差异，未复制文件、未重启服务。证据见[部署核验](docs/validation-records/ai-source-release/evidence/deployment-check.json)。
+- [ ] **NOT_RUN — 微信/真机**：尚未复测原生页面导航后的真实 `DELETE`、弱网失败、手机本地预览生命周期，以及云端释放一个会话后立即上传新照片；不得据Node测试宣称真机验收通过。
+- 边界：未部署云端、未上传体验版、未提交或推送Git；工作区其他未提交改动保持原样。
+
+## 放置入口加载反馈（2026-11-13）
+
+- [x] DONE：检查用户请求为微信SdkReport上报，非业务接口；放置入口同步preparePhotoGeometry/变换/人体校验先于loading，确认存在无反馈计算窗口，尚无本轮真机分项耗时。
+- [x] DONE：提前设置按钮loading和准备提示，nextTick后执行几何准备，失败恢复按钮并关闭提示；目标页显示加载状态直到overlayReady。业务几何及接口未改。
+- [x] DONE：定位完整入口链路为照片拓扑校验→相似变换→人体边界校验→草稿复制冻结→页面导航→人体Canvas首帧→离屏病灶贴图→就绪握手；后端照片DELETE在overlayReady后异步执行，不是入口卡顿来源。
+- [x] DONE：人体边界和病灶孔洞边比较增加Y轴保守分桶；精确包含、EPS、孔洞接触、面积和最终确认校验保留。扫描线内部点、页面loading和首帧稳定门槛同步保留。
+- [x] PASSED：同环境5片5孔生产几何中位对照，100/500/2000/5000/10000/20000点总耗时1.08/5.46/43.53/220.83/861.24/3168.15ms降至0.92/1.92/5.39/13.92/26.64/61.04ms；完整PlacementSessionStore.open在2000/10000/20000点约6.76/29.96/64.70ms。证据见[专项报告](docs/validation-records/placement-entry-latency/report.md)。
+- [x] PASSED：TypeScript、前端397/397、人体边界与冻结基线等价、项目结构、图谱无损、分包引用与体积、微信wcc/wcsc目标页面编译。Apple M4 Node结果不含手机原生栅格、组件桥或低端机CPU耗时。
+- [ ] NOT_RUN：Android/iOS真机首帧、折叠屏重布局、弱网导航及体验版复测；未部署、未上传。

@@ -1,0 +1,180 @@
+{
+  "brush_test": false,
+  "kind": "page/component + real backend HTTP, wx adapters; not native GUI",
+  "sample": "4032×3024 synthetic resize and pad of public CDC PHIL 21505 (not a new clinical sample)",
+  "inferences": [
+    {
+      "status": 200,
+      "seconds": 0.7360902500000002,
+      "candidates": [
+        {
+          "id": "candidate-0",
+          "status": "ok",
+          "area_ratio": 0.04234302662037037
+        },
+        {
+          "id": "candidate-1",
+          "status": "ok",
+          "area_ratio": 0.060160951967592594
+        },
+        {
+          "id": "candidate-2",
+          "status": "ok",
+          "area_ratio": 0.0770044849537037
+        }
+      ]
+    },
+    {
+      "status": 200,
+      "seconds": 0.7077215420000003,
+      "candidates": [
+        {
+          "id": "candidate-0",
+          "status": "ok",
+          "area_ratio": 0.04545717592592593
+        },
+        {
+          "id": "candidate-1",
+          "status": "ok",
+          "area_ratio": 0.06050419560185185
+        },
+        {
+          "id": "candidate-2",
+          "status": "ok",
+          "area_ratio": 0.07217339409722222
+        }
+      ]
+    }
+  ],
+  "medical_accuracy": "NOT_MEASURED",
+  "endpoint": "http://127.0.0.1:8000",
+  "controlled_access": false,
+  "client_environment": "develop",
+  "https_and_phone": "NOT_RUN: loopback test",
+  "preparation": {
+    "orientation": "up",
+    "elapsed_ms": 221.4570000000001,
+    "before": [
+      4032,
+      3024,
+      1266413
+    ],
+    "after": [
+      1920,
+      1440,
+      333423
+    ]
+  },
+  "reference_upright_rgb_mean_error": 0.4295979214891975,
+  "upload_http_ms": 145.2008330000001,
+  "prompt": {
+    "xMin": 0.30714285714285716,
+    "yMin": 0.5285757418909592,
+    "xMax": 0.7071428571428572,
+    "yMax": 0.7952826662065794
+  },
+  "touch_dispatch": "overlapping client-coordinate events with asynchronous bounds queries",
+  "max_prompt_error_px": 1.5987211554602254e-13,
+  "photo_mask_rect_equal": true,
+  "mask_pixel_disagreement": 0,
+  "confirmation": {
+    "schema": "confirmed-photo-segmentation-v1",
+    "coordinate_space": "photo_oriented_normalized_v1",
+    "candidate": "candidate-1",
+    "polygons": 4,
+    "holes": 19,
+    "mask_sha256": "774395658981ae33d428668c8f3373e040a2ec20d045aa5cc456c17963eeeed8",
+    "correction": null
+  },
+  "confirm_sync_ms": 108.14691700000003,
+  "matches": [
+    {
+      "status": 200,
+      "http_ms": 165.12070800000038,
+      "views": [
+        {
+          "view": "back",
+          "candidates": 5,
+          "covered_ratio": 0.9999352522615894,
+          "uncovered_ratio": 0.00006474773841040027
+        },
+        {
+          "view": "front",
+          "candidates": 10,
+          "covered_ratio": 0.9998513601222073,
+          "uncovered_ratio": 0.00014863987779222584
+        }
+      ]
+    },
+    {
+      "status": 200,
+      "http_ms": 160.17312499999935,
+      "views": [
+        {
+          "view": "back",
+          "candidates": 4,
+          "covered_ratio": 0.9999999999999953,
+          "uncovered_ratio": 0
+        },
+        {
+          "view": "front",
+          "candidates": 10,
+          "covered_ratio": 0.9998513601222073,
+          "uncovered_ratio": 0.00014863987779222584
+        }
+      ]
+    }
+  ],
+  "results": {
+    "all_regions": 5,
+    "labels": 5,
+    "automatic_all": true,
+    "label_and_show_all_no_request": true,
+    "retained_camera": true
+  },
+  "placement": {
+    "view": "back",
+    "coordinate_space": "body_template_normalized_v1",
+    "polygons": 4,
+    "holes": 19,
+    "vertices": 2079,
+    "scale": 0.7,
+    "angle": 25,
+    "formal_annotations_front": 1,
+    "formal_annotations_back": 1,
+    "duplicate_confirm_count": 1,
+    "network_requests_during_adjustment": 0,
+    "manual_preserved": true,
+    "full_view_transform_unchanged": true,
+    "v2_restored": true,
+    "photo_source_unchanged": true
+  },
+  "edited": {
+    "stable_id": true,
+    "formal_count": 1,
+    "geometry_changed": true,
+    "original_photo_preserved": true,
+    "request_count": 2
+  },
+  "p10_timing_ms": {
+    "selected_to_image_ready_ms": 544.1262920000001,
+    "segment_request_started_ms": 1.4341660000000047,
+    "gesture_end_to_first_mask_interactive_ms": 753.664833,
+    "segment_request_wall_to_mask_interactive_ms": 752.2385840000002,
+    "candidate_switch_to_mask_interactive_ms": 21.36887499999966,
+    "photo_confirm_ms": 20.980125000000044,
+    "photo_confirm_to_navigation_call_ms": 117.75383299999976,
+    "navigation_to_placement_interactive_ms": 21.210375000000113,
+    "placement_confirm_to_match_complete_ms": 275.0706250000003
+  },
+  "segment_requests": 2,
+  "frame_draws": 21,
+  "confirmation_requests": 1,
+  "after_delete_status": 410,
+  "equivalence": {
+    "same_body_manual_ai": "exact response equality",
+    "after_photo_cleanup": "PASSED",
+    "photo_sent_to_evaluate": false
+  },
+  "status": "PASSED"
+}

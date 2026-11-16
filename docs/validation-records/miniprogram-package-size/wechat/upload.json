@@ -1,0 +1,23 @@
+{
+  "size": {
+    "total": 2758748,
+    "packages": [
+      {
+        "name": "TOTAL",
+        "size": 2758748
+      },
+      {
+        "name": "main",
+        "size": 755673
+      },
+      {
+        "name": "/packages/clinical/",
+        "size": 1298497
+      },
+      {
+        "name": "/packages/special/",
+        "size": 704578
+      }
+    ]
+  }
+}

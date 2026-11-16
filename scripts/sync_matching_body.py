@@ -6,7 +6,7 @@ from pathlib import Path
 from prepare_atlas import ROOT, models
 
 OUTPUT = ROOT/'data/body/commons-template4-hands-v2.json'
-PACKAGE = ROOT/'miniprogram/data/matching-body.generated.ts'
+PACKAGE = ROOT/'miniprogram/packages/clinical/data/matching-body.generated.ts'
 
 def render():
     data = models()

@@ -1,0 +1,40 @@
+"""Idle deadlines, active-worker protection, disk reclamation and restart."""
+from app.services.ai_sessions import AISessions, AIError
+import pytest
+
+
+def test_activity_slides_idle_deadline_and_sweep_reclaims_without_request(tmp_path):
+    now=[100.0]
+    service=AISessions(tmp_path,clock=lambda:now[0],ttl=10)
+    s=service.create();sid=s['session_id'];token=s['session_token']
+    now[0]=109
+    assert service.get(sid,token)['expires_at']==119
+    now[0]=115;service.sweep()
+    assert sid in service.sessions
+    now[0]=120;service.sweep()
+    assert sid not in service.sessions and not (service.root/sid).exists()
+    service.delete(sid,token)  # Repeated deletion is safe.
+    service.close()
+
+
+def test_inflight_session_survives_sweep_delete_prevents_late_publish(tmp_path):
+    now=[0.0];service=AISessions(tmp_path,clock=lambda:now[0],ttl=2)
+    s=service.create();sid=s['session_id'];token=s['session_token']
+    service.active_sessions.add(sid);now[0]=10;service.sweep()
+    assert sid in service.sessions
+    service.delete(sid,token)
+    assert not (service.root/sid).exists()
+    with pytest.raises(AIError):service.get(sid,token)
+    service.active_sessions.discard(sid);service.close()
+
+
+def test_idle_state_restored_with_last_activity_and_stopped_cleanup(tmp_path,monkeypatch):
+    monkeypatch.setenv('DERMATOME_ENV','controlled')
+    now=[100.0];service=AISessions(tmp_path,clock=lambda:now[0],ttl=10)
+    s=service.create();now[0]=109;service.get(s['session_id'],s['session_token']);service.close()
+    now[0]=115;restored=AISessions(tmp_path,clock=lambda:now[0],ttl=10)
+    assert s['session_id'] in restored.sessions
+    restored.close()
+    from deployment.cleanup import cleanup
+    cleanup(restored.root,now=120)
+    assert not (restored.root/s['session_id']).exists()

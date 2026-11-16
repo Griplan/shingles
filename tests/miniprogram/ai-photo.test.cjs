@@ -1,6 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path');
 const read=f=>require(path.join(process.env.DERMATOME_BUILD_DIR,f));
-const {AIPhotoFlow}=read('state/ai-session.js'),{fitPhoto,photoTouch,dragBox}=read('utils/photo-coordinate.js');
+const {AIPhotoFlow}=read('packages/clinical/state/ai-session.js'),{fitPhoto,photoTouch,dragBox}=read('utils/photo-coordinate.js');
 const {PHOTO_SPACE}=read('types/ai.js');
 const box={xMin:.1,yMin:.2,xMax:.7,yMax:.8};
 const session=id=>({session_id:id,session_token:'secret'+id,photo_id:'photo'+id,expires_at:Date.now()/1000+1000,image:{width:100,height:80,oriented_rgb_sha256:id},localPhoto:id+'.png'});
@@ -80,13 +80,32 @@ test('mismatched result and confirmation rejected',async()=>{
 test('temporary cleanup failure is explicit',async()=>{
  const {f,api}=await prepared();api.remove=async()=>{throw Error()};await f.cancel();assert.match(f.cleanupWarning,/删除尚未确认/);
 });
+test('confirmed photo source is released once after placement without losing local confirmation',async()=>{
+ const {f,removed}=await prepared();await f.segment();
+ assert.equal(await f.releaseSourceAfterPlacement(),false,'unconfirmed result cannot release its source');
+ await f.confirm();const source=f.session,confirmed=f.confirmed,mask=f.maskPath;
+ assert.equal(await f.releaseSourceAfterPlacement(),true);
+ assert.deepEqual(removed,['A']);assert.equal(f.sourceReleased,true);assert.equal(f.session,source);
+ assert.equal(f.confirmed,confirmed);assert.equal(f.maskPath,mask);assert.equal(f.phase,'confirmed');
+ assert.equal(await f.releaseSourceAfterPlacement(),true);assert.deepEqual(removed,['A'],'repeat placement navigation is idempotent');
+ await f.cancel();assert.deepEqual(removed,['A'],'leaving the page must not delete the same server session twice');
+});
 
 test('page render acknowledgement is deferred, ignores stale photos and unchanged state',()=>{
- let page;global.Page=o=>page=o;read('pages/ai-annotate/ai-annotate.js');const ticks=[];
+ let page;global.Page=o=>page=o;read('packages/clinical/pages/ai-annotate/ai-annotate.js');const ticks=[];
  global.wx={getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}}),getSystemInfoSync:()=>({platform:'devtools'}),nextTick:f=>ticks.push(f)};
  const p={data:structuredClone(page.data),patches:[],setData(c){this.patches.push(c);Object.assign(this.data,c)}};for(const[k,v]of Object.entries(page))if(typeof v==='function')p[k]=v.bind(p);
  p.onLoad({view:'front',region:'front-chest'});p.data.photo='new';p.data.mask='mask';p.patches=[];
  p.renderState({detail:{source:'new',mask:'mask',ready:true}});assert.equal(p.patches.length,0);ticks.shift()();assert.equal(p.data.renderReady,true);
  p.renderState({detail:{source:'new',mask:'mask',ready:true}});ticks.shift()();assert.equal(p.patches.length,1);
  p.renderState({detail:{source:'old',mask:'old',ready:false}});ticks.shift()();assert.equal(p.data.renderReady,true);p.onUnload();
+});
+
+test('source cleanup retries are bounded and preserve placement data offline',async()=>{
+ const {f,api}=await prepared();await f.segment();await f.confirm();let calls=0;
+ api.remove=async()=>{calls++;throw Error('offline')};
+ const confirmed=f.confirmed;
+ assert.equal(await f.releaseSourceAfterPlacement(),false);
+ assert.equal(calls,3);assert.equal(f.confirmed,confirmed);assert.equal(f.sourceReleased,false);
+ assert.match(f.cleanupWarning,/闲置后自动清理/);
 });

@@ -2,7 +2,7 @@ import { ConfirmedPhoto, PHOTO_SPACE } from "../types/ai";
 import { BodyModelConfig, BodyRegion, NormalizedPoint as Point, NormalizedRect } from "../types/dermatome";
 import { BODY_SPACE, BodyMultiPolygon, PlacementPolygon, PlacementRing, PlacementTransform,
   PlacementValidation, PreparedPhotoGeometry } from "../types/placement";
-import { area, BodyGeometry, bodyGeometry, edges, GEOMETRY_EPSILON, interiorPoint,
+import { area, BodyGeometry, bodyGeometry, edges, GEOMETRY_EPSILON,
   intersectionParameters, locatePoint, pointInBody, samePoint } from "./annotation-geometry";
 
 // Explicit rejection retains the complete source result; no simplification or truncation.
@@ -15,6 +15,45 @@ export class PlacementError extends Error {
   constructor(readonly code:string,message:string){super(message);this.name="PlacementError";}
 }
 function reject(code:string,message:string):never{throw new PlacementError(code,message);}
+interface BodyBoundaryIndex {
+  readonly low:number;
+  readonly high:number;
+  readonly buckets:readonly (readonly (readonly [Point,Point])[])[];
+}
+const bodyBoundaryIndexes=new WeakMap<BodyGeometry,BodyBoundaryIndex>();
+const BODY_BOUNDARY_BUCKETS=128;
+function boundaryBucket(y:number,low:number,high:number):number {
+  return Math.max(0,Math.min(BODY_BOUNDARY_BUCKETS-1,Math.floor((y-low)/(high-low)*BODY_BOUNDARY_BUCKETS)));
+}
+function bodyBoundaryIndex(body:BodyGeometry):BodyBoundaryIndex|null {
+  const cached=bodyBoundaryIndexes.get(body);if(cached)return cached;
+  // Only the canonical deeply frozen body outline is cached. Custom mutable
+  // fixtures keep the full scan so later mutations cannot use stale edges.
+  if(!Object.isFrozen(body)||!body.every(part=>Object.isFrozen(part)&&Object.isFrozen(part.outer)&&
+    Object.isFrozen(part.holes)&&part.outer.every(point=>Object.isFrozen(point))))return null;
+  const all=body.flatMap(part=>[part.outer,...part.holes]).flatMap(edges);
+  if(!all.length)return null;
+  let low=Infinity,high=-Infinity;
+  for(const [a,b] of all){low=Math.min(low,a.y,b.y);high=Math.max(high,a.y,b.y);}
+  low-=EPS;high+=EPS;
+  const buckets:(readonly [Point,Point])[][]=Array.from({length:BODY_BOUNDARY_BUCKETS},()=>[]);
+  for(const edge of all){
+    const first=boundaryBucket(Math.min(edge[0].y,edge[1].y)-EPS,low,high);
+    const last=boundaryBucket(Math.max(edge[0].y,edge[1].y)+EPS,low,high);
+    for(let index=first;index<=last;index++)buckets[index].push(edge);
+  }
+  const result=Object.freeze({low,high,buckets:Object.freeze(buckets.map(bucket=>Object.freeze(bucket)))});
+  bodyBoundaryIndexes.set(body,result);return result;
+}
+function bodyBoundariesForSegment(a:Point,b:Point,index:BodyBoundaryIndex,all:readonly (readonly [Point,Point])[]):readonly (readonly [Point,Point])[]{
+  const low=Math.min(a.y,b.y),high=Math.max(a.y,b.y);
+  if(high<index.low||low>index.high)return [];
+  const first=boundaryBucket(low,index.low,index.high),last=boundaryBucket(high,index.low,index.high);
+  if(first===0&&last===BODY_BOUNDARY_BUCKETS-1)return all;
+  const candidates=new Set<readonly [Point,Point]>();
+  for(let bucket=first;bucket<=last;bucket++)for(const edge of index.buckets[bucket])candidates.add(edge);
+  return [...candidates];
+}
 const finitePoint=(p:unknown):p is Point=>!!p&&typeof p==="object"&&
   Number.isFinite((p as Point).x)&&Number.isFinite((p as Point).y);
 function uniqueRing(r:PlacementRing):PlacementRing{return r.slice(0,-1);}
@@ -49,12 +88,69 @@ function intervals(a:Point,b:Point,boundaries:readonly (readonly [Point,Point])[
   }
   return result;
 }
+interface EdgeYIndex {
+  readonly low:number;
+  readonly high:number;
+  readonly buckets:readonly (readonly (readonly [Point,Point])[])[];
+}
+const EDGE_Y_BUCKETS=128;
+function edgeBucket(y:number,index:EdgeYIndex):number {
+  return Math.max(0,Math.min(EDGE_Y_BUCKETS-1,Math.floor((y-index.low)/(index.high-index.low)*EDGE_Y_BUCKETS)));
+}
+/** Conservative broad phase for exact ring checks. Every intersecting edge must
+ * share at least one Y bucket because its closed Y ranges overlap. */
+function edgeYIndex(ring:PlacementRing):EdgeYIndex {
+  const all=edges(ring);let low=Infinity,high=-Infinity;
+  for(const [a,b] of all){low=Math.min(low,a.y,b.y);high=Math.max(high,a.y,b.y);}
+  low-=EPS;high+=EPS;
+  const buckets:((readonly [Point,Point])[])[]=Array.from({length:EDGE_Y_BUCKETS},()=>[]);
+  for(const edge of all){
+    const first=Math.max(0,Math.min(EDGE_Y_BUCKETS-1,Math.floor((Math.min(edge[0].y,edge[1].y)-EPS-low)/
+      (high-low)*EDGE_Y_BUCKETS)));
+    const last=Math.max(0,Math.min(EDGE_Y_BUCKETS-1,Math.floor((Math.max(edge[0].y,edge[1].y)+EPS-low)/
+      (high-low)*EDGE_Y_BUCKETS)));
+    for(let bucket=first;bucket<=last;bucket++)buckets[bucket].push(edge);
+  }
+  return {low,high,buckets};
+}
+function edgeCandidates(a:Point,b:Point,index:EdgeYIndex):readonly (readonly [Point,Point])[] {
+  const low=Math.min(a.y,b.y),high=Math.max(a.y,b.y);
+  if(high<index.low||low>index.high)return [];
+  const first=edgeBucket(low,index),last=edgeBucket(high,index);
+  if(first===last)return index.buckets[first];
+  const unique=new Set<readonly [Point,Point]>();
+  for(let bucket=first;bucket<=last;bucket++)for(const edge of index.buckets[bucket])unique.add(edge);
+  return [...unique];
+}
+function pointOnSegment(p:Point,a:Point,b:Point):boolean {
+  const cross=(b.x-a.x)*(p.y-a.y)-(b.y-a.y)*(p.x-a.x);
+  return Math.abs(cross)<=EPS*Math.hypot(b.x-a.x,b.y-a.y)&&
+    p.x>=Math.min(a.x,b.x)-EPS&&p.x<=Math.max(a.x,b.x)+EPS&&
+    p.y>=Math.min(a.y,b.y)-EPS&&p.y<=Math.max(a.y,b.y)+EPS;
+}
+/** Exact same boundary/even-odd predicate as locatePoint, restricted to the
+ * conservative Y buckets. Used only while checking a valid ring against an
+ * already indexed outer ring. */
+function locateInIndexedRing(p:Point,index:EdgeYIndex):-1|0|1 {
+  if(p.y<index.low||p.y>index.high)return -1;
+  let inside=false;
+  for(const [a,b]of index.buckets[edgeBucket(p.y,index)]){
+    if(pointOnSegment(p,a,b))return 0;
+    if((a.y>p.y)!==(b.y>p.y)&&p.x<(b.x-a.x)*(p.y-a.y)/(b.y-a.y)+a.x)inside=!inside;
+  }
+  return inside?1:-1;
+}
 /** Strict filled witness found by the full scanline arrangement of outer and hole rings. */
 function polygonInterior(polygon:PlacementPolygon):Point {
   const es=polygon.flatMap(edges),ys=[...new Set(polygon.flatMap(r=>r.map(p=>p.y)))].sort((a,b)=>a-b);
+  const byTop=es.map(([a,b],index)=>({a,b,y:Math.min(a.y,b.y),bottom:Math.max(a.y,b.y),index}))
+    .sort((a,b)=>a.y-b.y);
+  let active:typeof byTop=[],next=0;
   for(let k=1;k<ys.length;k++){
     const y=(ys[k-1]+ys[k])/2,xs:number[]=[];
-    for(const [a,b]of es)if((a.y>y)!==(b.y>y))xs.push(a.x+(y-a.y)*(b.x-a.x)/(b.y-a.y));
+    while(next<byTop.length&&byTop[next].y<y)active.push(byTop[next++]);
+    active=active.filter(edge=>edge.bottom>y);
+    for(const {a,b}of active)xs.push(a.x+(y-a.y)*(b.x-a.x)/(b.y-a.y));
     xs.sort((a,b)=>a-b);
     for(let i=1;i<xs.length;i++)if(xs[i]>xs[i-1]){
       const p={x:(xs[i]+xs[i-1])/2,y};if(locateInPolygon(p,polygon)===1)return p;
@@ -86,7 +182,8 @@ function validateRing(ring:PlacementRing):void {
   }
 }
 function ringsShareEdge(a:PlacementRing,b:PlacementRing):boolean {
-  return edges(a).some(([p,q])=>edges(b).some(([r,s])=>{
+  const index=edgeYIndex(b);
+  return edges(a).some(([p,q])=>edgeCandidates(p,q,index).some(([r,s])=>{
     const ts=intersectionParameters(p,q,r,s);return ts.length>1&&Math.abs(ts[1]-ts[0])>EPS;
   }));
 }
@@ -104,12 +201,13 @@ function validateInteriorConnectivity(polygon:PlacementPolygon):void {
       buckets.set(key,[...(buckets.get(key)||[]),index]);}
     contacts[index].rings.add(a);contacts[index].rings.add(b);
   }
-  for(let i=1;i<polygon.length;i++)for(let j=0;j<i;j++)
-    for(const [a,b]of edges(polygon[i]))for(const [c,d]of edges(polygon[j])){
-      if(Math.max(a.x,b.x)+EPS<Math.min(c.x,d.x)||Math.max(c.x,d.x)+EPS<Math.min(a.x,b.x)||
-        Math.max(a.y,b.y)+EPS<Math.min(c.y,d.y)||Math.max(c.y,d.y)+EPS<Math.min(a.y,b.y))continue;
+  for(let i=1;i<polygon.length;i++)for(let j=0;j<i;j++){
+    const index=edgeYIndex(polygon[j]);
+    for(const [a,b]of edges(polygon[i]))for(const [c,d]of edgeCandidates(a,b,index)){
+      if(Math.max(a.x,b.x)+EPS<Math.min(c.x,d.x)||Math.max(c.x,d.x)+EPS<Math.min(a.x,b.x))continue;
       for(const t of intersectionParameters(a,b,c,d))contact({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t},i,j);
     }
+  }
   const parent=Array.from({length:polygon.length+contacts.length},(_,i)=>i);
   const find=(i:number):number=>{while(parent[i]!==i){parent[i]=parent[parent[i]];i=parent[i];}return i;};
   contacts.forEach((v,i)=>{
@@ -120,8 +218,11 @@ function validateInteriorConnectivity(polygon:PlacementPolygon):void {
 /** True only for positive-area intersections; isolated boundary touches are allowed. */
 function polygonsOverlap(a:PlacementPolygon,b:PlacementPolygon):boolean {
   const ea=a.flatMap(edges),eb=b.flatMap(edges);
-  if(ea.some(([p,q])=>intervals(p,q,eb).some(v=>locateInPolygon(v,b)===1))||
-     eb.some(([p,q])=>intervals(p,q,ea).some(v=>locateInPolygon(v,a)===1)))return true;
+  const aIndexes=a.map(edgeYIndex),bIndexes=b.map(edgeYIndex);
+  if(ea.some(([p,q])=>bIndexes.some(index=>intervals(p,q,edgeCandidates(p,q,index)).
+    some(v=>locateInPolygon(v,b)===1)))||
+     eb.some(([p,q])=>aIndexes.some(index=>intervals(p,q,edgeCandidates(p,q,index)).
+       some(v=>locateInPolygon(v,a)===1))))return true;
   return locateInPolygon(polygonInterior(a),b)===1||locateInPolygon(polygonInterior(b),a)===1;
 }
 function validatePolygons(polygons:readonly PlacementPolygon[]):number {
@@ -134,11 +235,12 @@ function validatePolygons(polygons:readonly PlacementPolygon[]):number {
   }
   if(total>MAX_PLACEMENT_VERTICES)reject("COMPLEXITY",`病灶边界超过${MAX_PLACEMENT_VERTICES}点，暂不能完整放置；原分割结果已保留`);
   for(const poly of polygons){
-    poly.forEach(validateRing);const outerEdges=edges(poly[0]);
+    poly.forEach(validateRing);const outerIndex=edgeYIndex(poly[0]);
     for(let i=1;i<poly.length;i++){
       const hole=poly[i];
-      if(locatePoint(interiorPoint(hole),poly[0])!==1||ringsShareEdge(poly[0],hole)||
-        edges(hole).some(([a,b])=>[a,b,...intervals(a,b,outerEdges)].some(p=>locatePoint(p,poly[0])<0)))
+      if(locatePoint(polygonInterior([hole]),poly[0])!==1||ringsShareEdge(poly[0],hole)||
+        edges(hole).some(([a,b])=>[a,b,...intervals(a,b,edgeCandidates(a,b,outerIndex))]
+          .some(p=>locateInIndexedRing(p,outerIndex)<0)))
         reject("INVALID_HOLE","病灶内部空洞与外边界不兼容，请返回重新确认分割");
       for(let j=1;j<i;j++)if(ringsShareEdge(hole,poly[j])||polygonsOverlap([hole],[poly[j]]))
         reject("INVALID_HOLE","病灶内部空洞重叠，请返回重新确认分割");
@@ -230,17 +332,20 @@ export function validatePlacementGeometry(geometry:BodyMultiPolygon,modelOrBody:
     validatePolygons(geometry.coordinates);
     const body=Array.isArray(modelOrBody)?modelOrBody as BodyGeometry:bodyGeometry(modelOrBody as BodyModelConfig);
     const boundaries=body.flatMap(part=>[part.outer,...part.holes]).flatMap(edges);
+    const boundaryIndex=bodyBoundaryIndex(body);
     const outside=()=>fail("OUTSIDE_BODY","部分病灶范围超出人体，请调整位置或大小。");
     if(!body.length)return outside();
     for(const poly of geometry.coordinates){
       if(!pointInBody(polygonInterior(poly),body))return outside();
-      for(const ring of poly)for(const [a,b]of edges(ring))
-        if([a,b,...intervals(a,b,boundaries)].some(p=>!pointInBody(p,body)))return outside();
+      for(const ring of poly)for(const [a,b]of edges(ring)){
+        const candidates=boundaryIndex?bodyBoundariesForSegment(a,b,boundaryIndex,boundaries):boundaries;
+        if([a,b,...intervals(a,b,candidates)].some(p=>!pointInBody(p,body)))return outside();
+      }
       // An excluded body hole may be fully enclosed without crossing lesion edges.
       // Allow the lesion's own holes to cover it; only filled lesion pixels are tested.
       const lesionEdges=poly.flatMap(edges);
       for(const part of body)for(const hole of part.holes){
-        if(locateInPolygon(interiorPoint(hole),poly)===1)return outside();
+        if(locateInPolygon(polygonInterior([hole]),poly)===1)return outside();
         for(const [a,b]of edges(hole))if(intervals(a,b,lesionEdges).some(p=>locateInPolygon(p,poly)===1))return outside();
       }
     }

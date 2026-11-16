@@ -37,6 +37,9 @@ def valid_geometry(raw):
     return geom
 
 def load_dataset(identity: Identity) -> Dataset:
+    if identity.atlas_id == 'perineum-schematic-v1':
+        from app.services.perineum_schematic_service import load_perineum_schematic_dataset
+        return load_perineum_schematic_dataset(identity)
     if identity.atlas_id == 'axilla-schematic-v1':
         from app.services.axilla_schematic_service import load_schematic_dataset
         return load_schematic_dataset(identity)

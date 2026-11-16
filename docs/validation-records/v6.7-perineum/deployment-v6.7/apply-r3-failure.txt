@@ -1,0 +1,6 @@
+RuntimeError: ModuleNotFoundError: No module named 'shapely'
+
+Root cause: the apply-side smoke imported Shapely before using the project
+virtual environment. The failure happened before package extraction, service
+stop, or file replacement. r4 builds the synthetic S2 rectangle with only the
+Python standard library.

@@ -1,0 +1,22 @@
+{
+  "templateId": "neutral-perineum-overview-v1",
+  "templateVersion": "1.0.0",
+  "geometryId": "neutral-perineum-skin-v1",
+  "regionSetId": "neutral-perineum-ui-v1",
+  "atlasType": "SCHEMATIC",
+  "reviewStatus": "NOT_MEDICALLY_VALIDATED",
+  "intendedUse": "INTERACTIVE_SIMULATION",
+  "sourceType": "ARTIFICIALLY_CONSTRUCTED",
+  "atlasId": "perineum-schematic-v1",
+  "atlasVersion": "perineum-schematic.1",
+  "contentSHA256": "451f9e29f2ad427ea05da1ddf1ca8386e0e9f0efab1814889b79a53deeb89541",
+  "mappingEnabled": false,
+  "medicalReviewStatus": "pending",
+  "technicalValidationStatus": "passed_offline_geometry",
+  "sourceLicenseStatus": "verified",
+  "sourceTitle": "会阴区域人工模拟分区 · SCHEMATIC",
+  "sourceUrl": "docs/validation-records/v6.7-perineum/report.md",
+  "attribution": "项目原创中性会阴区域矢量示意（CC0-1.0）；仅参考 Wikimedia Commons Perineum.png（Omega658，CC0）的通用观察范围，不复制照片像素或路径。",
+  "license": "CC0-1.0",
+  "coverageNote": "本区域采用人为构建的神经皮节示意分区，边界未经医学审核，仅供交互模拟与科普参考，不用于判断实际受累神经，不能替代医疗诊断和正规就医。"
+}

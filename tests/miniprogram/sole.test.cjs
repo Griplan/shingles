@@ -1,9 +1,9 @@
 // Real Goran resources and real shared page/store; synthetic lesions, no clinical truth.
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path'),fs=require('node:fs'),{spawnSync}=require('node:child_process');
 const root=path.resolve(__dirname,'../..'),load=p=>require(path.join(process.env.DERMATOME_BUILD_DIR,p));
-const {getLocalModel,isLocalSurfaceView}=load('data/local-models.js');
-const {LocalSurfaceSessionStore,localToken,localSession}=load('state/local-surface-session.js');
-const {LocalSurfaceMatchingStore}=load('state/local-surface-matching-session.js');
+const {getLocalModel,isLocalSurfaceView}=load('packages/special/data/local-models.js');
+const {LocalSurfaceSessionStore,localToken,localSession}=load('packages/special/state/local-surface-session.js');
+const {LocalSurfaceMatchingStore}=load('packages/special/state/local-surface-matching-session.js');
 const {annotationSession}=load('state/annotation-session.js');
 const {pointInBody}=load('utils/annotation-geometry.js');
 const {fitViewport,focusViewport,normalizedToCanvas,canvasToNormalized}=load('utils/coordinate.js');
@@ -13,7 +13,7 @@ function backend(q){const script=`import sys,json,os\nos.environ['DERMATOME_ENV'
  const r=spawnSync(path.join(root,'ai/.venv/bin/python'),['-c',script],{cwd:root,input:JSON.stringify(q),encoding:'utf8',env:{...process.env,PYTHONPATH:path.join(root,'backend')}});assert.equal(r.status,0,r.stderr);return JSON.parse(r.stdout);}
 global.wx={getWindowInfo:()=>({pixelRatio:2,windowHeight:720}),getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}}),setNavigationBarTitle(){}};
 const api=load('services/api.js');api.evaluateAnnotations=async q=>backend(q);
-let pageDef;global.Page=d=>pageDef=d;load('pages/local-surface/local-surface.js');
+let pageDef;global.Page=d=>pageDef=d;load('packages/special/pages/local-surface/local-surface.js');
 const page=()=>{const p={data:structuredClone(pageDef.data),setData(v){Object.assign(this.data,v)}};for(const[k,v]of Object.entries(pageDef))if(typeof v==='function')p[k]=v.bind(p);return p;};
 function tap(p,x,y){const s=p.data.session;p.onPoint({detail:{sessionId:s.sessionId,revision:s.revision,view:s.view,templateId:s.basis.templateId,templateVersion:s.basis.templateVersion,geometryId:s.basis.geometryId,status:'valid',point:P(x,y)}})}
 
@@ -21,7 +21,7 @@ test('only registered soles are exposed, never front/back aliases; original palm
  for(const v of ['sole-left','sole-right']){assert.ok(isLocalSurfaceView(v));const m=getLocalModel(v);assert.equal(m.view,v);assert.equal(m.id,'goran-sole-v1');assert.deepEqual(m.atlas.regions.map(r=>r.labelId),['L5','S1']);assert.ok(Object.isFrozen(m.body[0].outer));for(const r of m.atlas.regions){assert.equal(r.side,v.split('-')[1]);assert.equal(r.view,v);assert.equal(r.medicalReviewStatus,'pending');}}
  for(const v of ['sole','foot','front','back'])assert.equal(isLocalSurfaceView(v),false);
  assert.throws(()=>getLocalModel('palm-left')); assert.equal(isLocalSurfaceView('palm-left'),false);
- const markup=fs.readFileSync(path.join(root,'miniprogram/pages/special-parts/special-parts.wxml'),'utf8');for(const v of ['sole-left','sole-right'])assert.ok(markup.includes(v));
+ const markup=fs.readFileSync(path.join(root,'miniprogram/packages/special/pages/special-parts/special-parts.wxml'),'utf8');for(const v of ['sole-left','sole-right'])assert.ok(markup.includes(v));
 });
 test('left/right sessions, body and palm remain isolated; undo/delete and stale token guards work',()=>{
  const store=new LocalSurfaceSessionStore(),before=annotationSession.snapshot();let left=close(store,'sole-left'),token=localToken(left);const saved=JSON.stringify(left.state.completed);
@@ -56,7 +56,7 @@ test('late result after view exit or annotation change cannot restore ready stat
 });
 test('source MultiPolygon and holes survive geometry packaging; no sole AI entry',()=>{
  for(const v of ['sole-left','sole-right']){const r=getLocalModel(v).atlas.regions.find(r=>r.labelId==='L5');assert.equal(r.geometry.type,'MultiPolygon');assert.equal(r.geometry.coordinates.reduce((n,p)=>n+p.length-1,0),2);}
- const markup=fs.readFileSync(path.join(root,'miniprogram/pages/local-surface/local-surface.wxml'),'utf8');assert.doesNotMatch(markup,/AI 辅助|放置到人体/);
+ const markup=fs.readFileSync(path.join(root,'miniprogram/packages/special/pages/local-surface/local-surface.wxml'),'utf8');assert.doesNotMatch(markup,/AI 辅助|放置到人体/);
 });
 test('toe gap cannot be enclosed even when all four sole vertices are on skin',()=>{
  const store=new LocalSurfaceSessionStore();let s=store.open('sole-left').session;

@@ -29,7 +29,7 @@ test('temporary IP debugging permits only the exact verified address; release an
  servers.SERVERS={trialBaseUrl:base,trialPublicIpDebug:true,releaseBaseUrl:''};
  assert.equal(api.apiBaseUrl(),base);assert.equal(servers.usingPublicIpDebug(),true);
  wx.getAccountInfoSync=()=>({miniProgram:{envVersion:'develop'}});assert.equal(api.apiBaseUrl(),base);
- wx.getSystemInfoSync=()=>({platform:'devtools'});assert.equal(api.apiBaseUrl(),'http://127.0.0.1:8000');
+ wx.getSystemInfoSync=()=>({platform:'devtools'});assert.equal(api.apiBaseUrl(),base);assert.equal(access.needsTrialAccess(),true);
  wx.getAccountInfoSync=()=>({miniProgram:{envVersion:'trial'}});
  for(const invalid of [base+'/',base+'?key=secret',base+'/api/v1','http://212.64.26.206:8001/dermatome-test','http://other.test/dermatome-test','http://user:pass@212.64.26.206/dermatome-test']){
   servers.SERVERS={trialBaseUrl:invalid,trialPublicIpDebug:true,releaseBaseUrl:''};assert.throws(()=>api.apiBaseUrl());
@@ -38,6 +38,13 @@ test('temporary IP debugging permits only the exact verified address; release an
  servers.SERVERS={trialBaseUrl:base,trialPublicIpDebug:true,releaseBaseUrl:base};
  wx.getAccountInfoSync=()=>({miniProgram:{envVersion:'release'}});assert.throws(()=>api.apiBaseUrl());
  wx.getAccountInfoSync=()=>({miniProgram:{envVersion:'unknown'}});assert.throws(()=>api.apiBaseUrl());
+});
+test('develop simulator on public service silently opens one Bearer session',async t=>{
+ setup(t);const base='http://212.64.26.206/dermatome-test';servers.SERVERS={trialBaseUrl:base,trialPublicIpDebug:true,releaseBaseUrl:''};
+ wx.getAccountInfoSync=()=>({miniProgram:{envVersion:'develop'}});wx.getSystemInfoSync=()=>({platform:'devtools'});
+ assert.equal(access.needsTrialAccess(),true);let opens=0;
+ wx.request=o=>{opens++;assert.equal(o.url,base+'/api/v1/access/session');o.success({statusCode:200,data:response()})};
+ await access.ensureTrialAccess();assert.equal(opens,1);assert.deepEqual(access.trialHeaders(),{authorization:'Bearer '+token});
 });
 test('failed automatic session is reported as unavailable',async t=>{
  setup(t);for(const status of [500,502,503,504]){wx.request=o=>o.success({statusCode:status});await assert.rejects(access.ensureTrialAccess(),/服务暂不可用/);assert.equal(access.trialAccessActive(),false);}
@@ -81,7 +88,7 @@ test('trial entry and AI page are usable while raw coordinate toggles are blocke
  select.toggleDeveloper();select.toggleDebug({detail:{value:true}});assert.equal(select.data.developerOpen,false);assert.equal(select.data.debugEnabled,false);
  select.applySelection('front-chest');select.startAI();assert.match(route,/ai-annotate/);
  const ai=page('ai-annotate');ai.onLoad({view:'front',region:'front-chest'});ai.onShow();assert.equal(ai.data.available,true);t.after(()=>ai.onUnload());
- const fs=require('node:fs');assert.match(fs.readFileSync(path.resolve(__dirname,'../../miniprogram/pages/annotate/annotate.wxml'),'utf8'),/matchingAllowed/);
+ const fs=require('node:fs');assert.match(fs.readFileSync(path.resolve(__dirname,'../../miniprogram/packages/clinical/pages/annotate/annotate.wxml'),'utf8'),/matchingAllowed/);
  wx.getAccountInfoSync=()=>({miniProgram:{envVersion:'release'}});const placement=page('placement');placement.onLoad({draftId:'synthetic'});assert.match(placement.data.error,/未开放/);placement.onUnload();
 });
 test('malformed or failed automatic session never grants access',async t=>{

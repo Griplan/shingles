@@ -10,10 +10,11 @@ import { bodyGeometry, pointInBody } from "../../utils/annotation-geometry";
 import { modelBasis, sameBasis } from "../../state/annotation-session";
 import { OverlayTransition, FrameClock } from "../../utils/overlay-transition";
 import { EXPERIENCE } from "../../config/experience";
+import { canvasBackingSize } from "../../utils/canvas-size";
 interface ImageEntry { image:WechatMiniprogram.Image;ready:boolean;failed:boolean;promise:Promise<boolean>;resolve:(ready:boolean)=>void }
 interface CanvasMeasurement { node:WechatMiniprogram.Canvas;width:number;height:number }
 interface Runtime {
- mounted:boolean;visible:boolean;pending:boolean;generation:number;probeSequence:number;
+ mounted:boolean;visible:boolean;pending:boolean;scheduled:boolean;generation:number;probeSequence:number;
  model:BodyModelConfig|null;viewport:ViewportTransform|null;point:DebugPoint|null;touch:InputTouch|null;moved:boolean;
  measurement:CanvasMeasurement|null;ctx:BodyContext|null;layout:number;images:Map<string,ImageEntry>;
  transition:OverlayTransition;overlayKey:string;displayRegions:Map<string,AtlasRegion>;displayLayer:AtlasLayer|null;
@@ -40,7 +41,7 @@ Component({
   },
  },
  lifetimes:{
-  created(){runtimes.set(this,{mounted:false,visible:true,pending:false,generation:0,probeSequence:0,
+  created(){runtimes.set(this,{mounted:false,visible:true,pending:false,scheduled:false,generation:0,probeSequence:0,
    model:null,viewport:null,point:null,touch:null,moved:false,measurement:null,ctx:null,layout:0,images:new Map(),
    transition:new OverlayTransition(),overlayKey:"",displayRegions:new Map(),displayLayer:null,
    measures:0,initializations:0,loads:0,frames:0,painted:false,queuedAt:Date.now(),ctxNode:null});},
@@ -57,7 +58,7 @@ Component({
  methods:{
   refreshCanvas(measure=true){
    const s=runtimes.get(this);if(!s)return;s.generation++;s.probeSequence++;s.pending=false;s.touch=null;s.transition.cancel();s.queuedAt=Date.now();
-   if(measure)s.measurement=null;this.queueDraw();
+   if(measure){s.measurement=null;s.viewport=null;}this.queueDraw();
   },
   failCanvas(){const s=runtimes.get(this);if(s){s.viewport=null;s.transition.cancel(true);}
    this.setData({loading:false,error:"人体画布暂时无法显示。请重试；如仍失败，请更新微信或开发者工具基础库。"});this.triggerEvent("rendererror");},
@@ -80,10 +81,11 @@ Component({
    const image=this.ensureImage(getBodyModel(view),s.measurement.node);return image?image.promise:true;
   },
   queueDraw(){
-   const s=runtimes.get(this);if(!s || !s.mounted || !s.visible || s.pending || this.properties.interactionBlocked)return;
-   s.pending=true;const generation=s.generation;
-   const current=()=>runtimes.get(this)===s && s.visible && generation===s.generation;
-   wx.nextTick(()=>{if(!current())return;
+   const s=runtimes.get(this);if(!s || !s.mounted || !s.visible || s.pending || s.scheduled || this.properties.interactionBlocked)return;
+   s.scheduled=true;
+   wx.nextTick(()=>{s.scheduled=false;if(runtimes.get(this)!==s||!s.visible||this.properties.interactionBlocked)return;
+    s.pending=true;const generation=s.generation;
+    const current=()=>runtimes.get(this)===s && s.visible && generation===s.generation;
     const draw=(measurement:CanvasMeasurement)=>{if(!current())return;s.pending=false;
      try{
       if(!measurement?.node || typeof measurement.node.getContext!=="function" || !Number.isFinite(measurement.width)||!Number.isFinite(measurement.height))throw Error("Canvas不可用");
@@ -102,12 +104,11 @@ Component({
    // 两个本地视图共用节点缓存。没有清空和异步等待之间的半成品帧。
    this.ensureImage(getBodyModel(view==="front"?"back":"front"),node);
    if(entry && !entry.ready){if(!s.painted)this.setData({loading:true,error:""});return;}
-   const dpr=wx.getWindowInfo().pixelRatio;if(!Number.isFinite(dpr)||dpr<=0)throw Error("无效DPR");
+   const {dpr,width:physicalWidth,height:physicalHeight}=canvasBackingSize(width,height,wx.getWindowInfo().pixelRatio);
    const base=fitViewport(width,height,model),target=model.regions.find(r=>r.id===this.properties.zoomRegion);
    const retained=this.properties.retainedViewport;
    if(retained&&(retained.logicalWidth!==model.logicalWidth||retained.logicalHeight!==model.logicalHeight))throw Error("视口模板不一致");
    const viewport=this.properties.focusBounds?focusViewport(base,this.properties.focusBounds):retained?reframeViewport(retained,width,height):target?focusViewport(base,target.bounds):base;
-   const physicalWidth=Math.round(width*dpr),physicalHeight=Math.round(height*dpr);
    if(node.width!==physicalWidth)node.width=physicalWidth;if(node.height!==physicalHeight)node.height=physicalHeight;
    if(!s.ctx){s.ctx=node.getContext("2d");s.ctxNode=node;s.initializations++;}const ctx=s.ctx;if(!ctx)throw Error("无2D上下文");
    const priorViewport=s.viewport,priorView=s.model?.view;s.model=model;s.viewport=viewport;
@@ -133,7 +134,7 @@ Component({
     if(first){first=false;firstFrameReadyMs=Date.now()-s.queuedAt;
      // 帧调度不会重复发标签布局事件。
      this.triggerEvent("viewportchange",{view,modelId:model.id,modelVersion:model.version,visualId:model.visual.id,
-      viewport,dpr,physicalWidth,physicalHeight,markerCanvas});
+      viewport,dpr,physicalWidth,physicalHeight,markerCanvas,layoutRevision:this.properties.layoutRevision});
      this.triggerEvent("sceneready",{sceneId,view,durationMs:clock?EXPERIENCE.overlayMs:0});
     }
     if(done){s.displayRegions=new Map((atlas?.regions||[]).map(r=>[r.id,r]));s.displayLayer=atlas;
@@ -149,7 +150,7 @@ Component({
     onCanvasStart(event:unknown) {
       const state=runtimes.get(this);if(!state)return;
       state.touch=null;
-      if((this.properties.interactionBlocked || this.properties.touchDisabled) || (!this.properties.debugEnabled &&
+      if(!state.viewport || (this.properties.interactionBlocked || this.properties.touchDisabled) || (!this.properties.debugEnabled &&
         (this.properties.interactionMode==="readonly" ||
           (this.properties.interactionMode!=="draw" && this.properties.zoomRegion))))return;
       state.touch=readTouch(event);state.moved=false;

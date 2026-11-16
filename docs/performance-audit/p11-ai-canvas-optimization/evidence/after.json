@@ -1,0 +1,803 @@
+{
+  "schema_version": "p11-photo-canvas-profile-v1",
+  "environment": {
+    "node": "v24.11.1",
+    "platform": "darwin",
+    "kind": "production JS with deterministic wx/Canvas adapter",
+    "native_bridge_raster_fps_latency": "NOT_MEASURED"
+  },
+  "cases": [
+    {
+      "width": 320,
+      "repetition": 0,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.9738749999999996,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 0.3071249999999992,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.stroke": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.2136250000000004,
+          "counts": {
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "event.renderstate": 10,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            }
+          }
+        },
+        {
+          "name": "fast-drag-immediate-release",
+          "wall_ms": 0.5799590000000023,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "repetition": 1,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.32800000000000296,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 0.3071249999999992,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.stroke": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.06449999999999534,
+          "counts": {
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "event.renderstate": 10,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            }
+          }
+        },
+        {
+          "name": "fast-drag-immediate-release",
+          "wall_ms": 0.2861249999999984,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "repetition": 2,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.26712500000000716,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 0.19012499999999477,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.stroke": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.05383400000000904,
+          "counts": {
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "event.renderstate": 10,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            }
+          }
+        },
+        {
+          "name": "fast-drag-immediate-release",
+          "wall_ms": 0.301084000000003,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "repetition": 0,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.210125000000005,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 0.3791659999999979,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.stroke": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.09183399999999153,
+          "counts": {
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "event.renderstate": 10,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            }
+          }
+        },
+        {
+          "name": "fast-drag-immediate-release",
+          "wall_ms": 0.20829200000000014,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "repetition": 1,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.40408399999999745,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 0.25637500000000557,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.stroke": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.10479200000000333,
+          "counts": {
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "event.renderstate": 10,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            }
+          }
+        },
+        {
+          "name": "fast-drag-immediate-release",
+          "wall_ms": 0.39279200000000003,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "repetition": 2,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.2377920000000131,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 0.220957999999996,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.stroke": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.07270800000000577,
+          "counts": {
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "event.renderstate": 10,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            }
+          }
+        },
+        {
+          "name": "fast-drag-immediate-release",
+          "wall_ms": 0.3933749999999918,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "repetition": 0,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.3224170000000015,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 0.41508400000000734,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.stroke": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.1127920000000131,
+          "counts": {
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "event.renderstate": 10,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            }
+          }
+        },
+        {
+          "name": "fast-drag-immediate-release",
+          "wall_ms": 0.26691600000000903,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "repetition": 1,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.6403750000000059,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 0.33816699999999855,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.stroke": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.13945800000001896,
+          "counts": {
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "event.renderstate": 10,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            }
+          }
+        },
+        {
+          "name": "fast-drag-immediate-release",
+          "wall_ms": 0.7768750000000182,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "repetition": 2,
+      "phases": [
+        {
+          "name": "box-120-client-coordinate-moves",
+          "wall_ms": 0.4374159999999847,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "brush-120-client-coordinate-moves",
+          "wall_ms": 0.35008300000001213,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.stroke": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        },
+        {
+          "name": "candidate-switch-10",
+          "wall_ms": 0.14566600000000562,
+          "counts": {
+            "context": 10,
+            "images": 10,
+            "setTransform": 10,
+            "clearRect": 10,
+            "drawImage": 20,
+            "event.renderstate": 10,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            }
+          }
+        },
+        {
+          "name": "fast-drag-immediate-release",
+          "wall_ms": 0.49679199999999923,
+          "counts": {
+            "boundsQueries": 1,
+            "rafScheduled": 1,
+            "event.prompt": 1,
+            "lastEvent": "renderstate",
+            "lastEventDetail": {
+              "ready": true,
+              "source": "synthetic-photo",
+              "mask": "synthetic-alpha-0",
+              "layoutRevision": 0
+            },
+            "context": 1,
+            "setTransform": 1,
+            "clearRect": 1,
+            "drawImage": 2,
+            "event.renderstate": 1
+          }
+        }
+      ]
+    }
+  ]
+}

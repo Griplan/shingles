@@ -1,0 +1,28 @@
+{
+  "atlasType": "SCHEMATIC",
+  "reviewStatus": "NOT_MEDICALLY_VALIDATED",
+  "intendedUse": "INTERACTIVE_SIMULATION",
+  "sourceType": "ARTIFICIALLY_CONSTRUCTED",
+  "boundarySystem": "schematic_skin_partition",
+  "boundaryLicenseStatus": "verified",
+  "sources": [
+    {
+      "id": "project-artificial-perineum-design-v1",
+      "purpose": "artificial_partition_design",
+      "licenseStatus": "verified",
+      "license": "CC0-1.0",
+      "author": "dermatome-mapper project",
+      "url": "docs/validation-records/v6.7-perineum/region-design.md",
+      "boundaryEvidence": "Project-original neutral schematic partition. S2-S5 are simulation symbols; UNDEFINED remains explicit. No clinical boundary extraction."
+    },
+    {
+      "id": "commons-perineum-cc0-visual-reference",
+      "purpose": "neutral_layout_visual_reference",
+      "licenseStatus": "verified",
+      "license": "CC0 1.0",
+      "author": "Omega658",
+      "url": "https://commons.wikimedia.org/wiki/File:Perineum.png",
+      "boundaryEvidence": "General layout reference only; no pixels or vector paths copied."
+    }
+  ]
+}

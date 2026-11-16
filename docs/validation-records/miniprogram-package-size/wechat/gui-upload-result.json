@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "result": "代码上传成功",
+  "version": "0.6.8",
+  "description": "小程序分包修复：主包与临床/特殊部位分包低于2MB",
+  "uploaded_at": "2026-11-07T13:00:00+08:00",
+  "build_errors": 0,
+  "build_warnings": 6,
+  "subpackage_count": 2,
+  "sizes": {
+    "total": 2758748,
+    "main": 755673,
+    "packages/clinical/": 1298497,
+    "packages/special/": 704578
+  },
+  "experience_version_enabled": "NOT_RUN",
+  "note": "微信开发者工具上传成功；需在微信公众平台将 0.6.8 设为体验版。"
+}

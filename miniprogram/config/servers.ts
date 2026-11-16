@@ -3,7 +3,7 @@
  * Replace trialBaseUrl and disable trialPublicIpDebug when a trusted HTTPS host is available.
  */
 export const SERVERS=Object.freeze({trialBaseUrl:"http://212.64.26.206/dermatome-test",trialPublicIpDebug:true,releaseBaseUrl:""});
-const PUBLIC_IP_TEST_BASE="http://212.64.26.206/dermatome-test";
+export const PUBLIC_IP_TEST_BASE="http://212.64.26.206/dermatome-test";
 export function trialServiceBase():string {
  if(SERVERS.trialPublicIpDebug&&SERVERS.trialBaseUrl===PUBLIC_IP_TEST_BASE)return PUBLIC_IP_TEST_BASE;
  return validatedHttpsBase(SERVERS.trialBaseUrl);

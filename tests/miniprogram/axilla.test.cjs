@@ -1,11 +1,11 @@
 // Actual new display geometry. Lesions are synthetic; no neural labels are invented.
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path'),fs=require('node:fs');
 const root=path.resolve(__dirname,'../..'),load=p=>require(path.join(process.env.DERMATOME_BUILD_DIR,p));
-const {getLocalModel,isLocalSurfaceView,localViewPresentation}=load('data/local-models.js');
+const {getLocalModel,isLocalSurfaceView,localViewPresentation}=load('packages/special/data/local-models.js');
 const provisionalModel=v=>load('data/axilla-provisional.generated.js').AXILLA_PROVISIONAL_MODELS[v];
 const oldModel=v=>load('data/axilla.generated.js').AXILLA_MODELS[v];
-const sessions=load('state/local-surface-session.js'),{LocalSurfaceSessionStore,localToken}=sessions;
-const {LocalSurfaceMatchingStore}=load('state/local-surface-matching-session.js');
+const sessions=load('packages/special/state/local-surface-session.js'),{LocalSurfaceSessionStore,localToken}=sessions;
+const {LocalSurfaceMatchingStore}=load('packages/special/state/local-surface-matching-session.js');
 const {annotationSession}=load('state/annotation-session.js');
 const {pointInBody,validatePolygon}=load('utils/annotation-geometry.js');
 const {validatePlacementGeometry}=load('utils/placement-geometry.js');
@@ -20,6 +20,7 @@ function close(h,p=P(.55,.4567)){for(const q of [P(p.x-.012,p.y-.012),P(p.x+.012
 test('axilla registry is explicit, new identity is independent and source has verified right-side CC0 provenance',()=>{
  for(const v of views){const m=getLocalModel(v);assert.ok(isLocalSurfaceView(v));assert.equal(m.id,'commons-axilla-v1');assert.equal(m.view,v);assert.equal(m.resource.license,'CC0 1.0');assert.match(m.resource.url,/MaleArmpit1/);assert.equal(m.atlas.technicalReady,true);assert.equal(m.atlas.regions.length,3);assert.equal(m.atlas.atlasType,"SCHEMATIC");assert.equal(m.atlas.medicalReviewStatus,'pending');assert.ok(Object.isFrozen(m.body[0].outer));assert.ok(fs.existsSync(path.join(root,'miniprogram',m.imagePath)));}
  for(const v of ['axilla','armpit','palm-left','palm-right','perineum','front'])assert.equal(isLocalSurfaceView(v),false);
+ assert.equal(isLocalSurfaceView('perineum-overview'),true);
  assert.match(localViewPresentation('axilla-right').orientation,/胸前在右/);assert.match(localViewPresentation('axilla-left').orientation,/胸前在左/);
 });
 test('both display surfaces are mirrored exactly without mirroring any neural atlas',()=>{
@@ -65,7 +66,7 @@ test('three screen sizes and focus/reset preserve both axilla coordinates and th
  for(const v of views)for(const width of [320,375,430]){const model=getLocalModel(v),full=fitViewport(width,400,model,12);
  for(const [,p]of references){const q=mirror(p,v);for(const viewport of [full,focusViewport(full,{x:q.x-.1,y:q.y-.1,width:.2,height:.2}),full]){const back=canvasToNormalized(normalizedToCanvas(q,viewport),viewport);assert.ok(back);assert.ok(Math.abs(back.x-q.x)<1e-12&&Math.abs(back.y-q.y)<1e-12);}}}
 });
-let pageDef;global.Page=d=>pageDef=d;load('pages/local-surface/local-surface.js');
+let pageDef;global.Page=d=>pageDef=d;load('packages/special/pages/local-surface/local-surface.js');
 function page(){const p={data:structuredClone(pageDef.data),setData(v){Object.assign(this.data,v)}};for(const[k,v]of Object.entries(pageDef))if(typeof v==='function')p[k]=v.bind(p);return p}
 function tap(p,q){const s=p.data.session;p.onPoint({detail:{...localToken(s),templateId:s.basis.templateId,templateVersion:s.basis.templateVersion,geometryId:s.basis.geometryId,status:'valid',point:q}})}
 test('real shared page opens axilla, closes marks, focuses/resets, returns and exposes provisional labels while retaining marks',async()=>{
@@ -73,15 +74,15 @@ test('real shared page opens axilla, closes marks, focuses/resets, returns and e
  const p=page();p.onLoad({view:'axilla-right'});assert.equal(p.data.partName,'腋下');for(const q of [P(.54,.44),P(.56,.44),P(.55,.48)])tap(p,q);p.closePolygon();assert.equal(p.data.completedCount,1);p.finish();const saved=JSON.stringify(p.data.session.state.completed);
  assert.equal(p.data.schematic,true);assert.match(p.data.provisionalNotice,/边界未经医学验证/);assert.equal(p.data.atlasReady,true);p.togglePreview();assert.deepEqual(p.data.labels.map(l=>l.label),["模拟 T1","模拟 T2","模拟 T3"]);p.togglePreview();p.zoom();assert.ok(p.data.focusBounds);p.reset();
  p.switchView({currentTarget:{dataset:{view:'axilla-left'}}});assert.equal(p.data.completedCount,0);p.switchView({currentTarget:{dataset:{view:'axilla-right'}}});assert.equal(JSON.stringify(p.data.session.state.completed),saved);
- let delta;global.getCurrentPages=()=>['pages/select/select','pages/special-parts/special-parts','pages/local-surface/local-surface'].map(route=>({route}));wx.navigateBack=o=>delta=o.delta;p.returnParts();assert.equal(delta,1);p.returnBody();assert.equal(delta,2);p.onUnload();
+ let delta;global.getCurrentPages=()=>['pages/select/select','packages/special/pages/special-parts/special-parts','packages/special/pages/local-surface/local-surface'].map(route=>({route}));wx.navigateBack=o=>delta=o.delta;p.returnParts();assert.equal(delta,1);p.returnBody();assert.equal(delta,2);p.onUnload();
 });
-test('special chooser exposes soles and axillae only; no retired palms, perineum or AI placement',()=>{
- const text=fs.readFileSync(path.join(root,'miniprogram/pages/special-parts/special-parts.wxml'),'utf8');assert.deepEqual([...text.matchAll(/data-view="([^"]+)"/g)].map(m=>m[1]).sort(),['axilla-left','axilla-right','sole-left','sole-right']);
- const page=fs.readFileSync(path.join(root,'miniprogram/pages/local-surface/local-surface.wxml'),'utf8');assert.doesNotMatch(page,/AI 辅助|放置到人体/);assert.match(page,/!atlasReady/);
+test('special chooser exposes soles, axillae and one neutral perineum; no retired palms or AI placement',()=>{
+ const text=fs.readFileSync(path.join(root,'miniprogram/packages/special/pages/special-parts/special-parts.wxml'),'utf8');assert.deepEqual([...text.matchAll(/data-view="([^"]+)"/g)].map(m=>m[1]).sort(),['axilla-left','axilla-right','perineum-overview','sole-left','sole-right']);
+ const page=fs.readFileSync(path.join(root,'miniprogram/packages/special/pages/local-surface/local-surface.wxml'),'utf8');assert.doesNotMatch(page,/AI 辅助|放置到人体/);assert.match(page,/!atlasReady/);
 });
 
 test('provisional response keeps status and missing status is rejected',()=>{
- const {checkedResponse}=load('state/matching-session.js');
+ const {checkedResponse}=load('packages/clinical/state/matching-session.js');
  const examples=JSON.parse(fs.readFileSync(path.join(root,'docs/validation-records/v6.6-axilla/provisional-matching/evidence/real-api-examples.json'),'utf8'));
  for(const {request,response} of examples){const model=provisionalModel(request.lesions[0].view);assert.equal(checkedResponse(response,request,model.atlas.regions).source.atlas_status,'PROVISIONAL');
  const stale=structuredClone(response);delete stale.source.atlas_status;assert.throws(()=>checkedResponse(stale,request,model.atlas.regions));
@@ -98,8 +99,8 @@ test('actual API fixture passes through provisional matching store without chang
 });
 
 test('both schematic pages calculate real fixture results, filter/all, edit/recalculate and retain status',async()=>{
- const matching=load('state/local-surface-matching-session.js'),oldForView=matching.localMatching.forView;
- const {checkedResponse}=load('state/matching-session.js');
+ const matching=load('packages/special/state/local-surface-matching-session.js'),oldForView=matching.localMatching.forView;
+ const {checkedResponse}=load('packages/clinical/state/matching-session.js');
  const examples=JSON.parse(fs.readFileSync(path.join(root,'docs/validation-records/v6.6-axilla/full-simulation/evidence/api-examples.json'),'utf8'));
  global.wx={getWindowInfo:()=>({windowHeight:700}),getAccountInfoSync:()=>({miniProgram:{envVersion:'trial'}}),setNavigationBarTitle(){}};
  sessions.localSession=new LocalSurfaceSessionStore();const stores={};let calls=0;

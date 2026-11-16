@@ -71,3 +71,31 @@ page {
   color: #677972;
   font-size: 24rpx;
 }
+
+.p9-split,.p9-stage,.p9-controls{min-width:0}
+.p9-wide-labels{display:none}
+@media (min-width:480px){
+  .page{box-sizing:border-box;max-width:660px;margin:auto;padding:24px 24px calc(28px + env(safe-area-inset-bottom));font-size:16px}
+  .page .title{font-size:26px}.page .version,.page .notice,.page .footnote{font-size:14px}
+  .page .panel,.page .notice,.page .action{padding:14px;margin-top:16px}
+  .p9-page.p9-photo-workflow{padding-top:8px;padding-bottom:calc(14px + env(safe-area-inset-bottom));font-size:15px}
+  .p9-photo-workflow.p9-page .heading,.p9-photo-workflow.p9-page .instruction,.p9-photo-workflow.p9-page .status,.p9-photo-workflow.p9-page .slider-label,.p9-photo-workflow .placeholder-title{font-size:16px}
+  .p9-photo-workflow.p9-page button,.p9-photo-workflow.p9-page .text-button,.p9-photo-workflow.p9-page .muted,.p9-photo-workflow.p9-page .warning,.p9-photo-workflow.p9-page .notice,.p9-photo-workflow.p9-page .brush-size{font-size:14px}
+  .p9-photo-workflow.p9-page .privacy,.p9-photo-workflow.p9-page .privacy .text-button,.p9-photo-workflow.p9-page .note{font-size:12px}
+}
+@media (min-width:680px) and (min-height:520px){
+  .p9-page.p9-page{box-sizing:border-box;max-width:1120px;padding-left:max(16px, env(safe-area-inset-left));padding-right:max(16px, env(safe-area-inset-right))}
+  .p9-split{display:flex;align-items:flex-start;gap:16px}
+  .p9-stage{flex:5 1 0}
+  .p9-controls{flex:3 1 0;min-width:244px;box-sizing:border-box;padding:10px;overflow-y:auto;overflow-x:hidden;max-height:var(--p9-stage-height);border-radius:12px;background:#f5f8f4}
+  .p9-page{--p9-stage-height:min(740px, calc(100vh - 120px - env(safe-area-inset-bottom)))}
+  .p9-phone-labels{display:none}
+  .p9-wide-labels{display:block;margin:6px 0 12px;font-size:13px;line-height:20px}
+  .p9-wide-labels button.p9-label{display:flex;width:100%;align-items:center;justify-content:space-between;gap:8px;margin:4px 0!important;text-align:left;border-left:4px solid #629c83;white-space:normal;overflow-wrap:anywhere}
+  .p9-photo-workflow.p9-page .p9-stage{height:var(--p9-stage-height);max-height:none}
+  .p9-photo-workflow .p9-controls .result-actions{flex-wrap:wrap;gap:4px}
+  .p9-label-text{flex:1;min-width:0}
+}
+@media (min-width:480px) and (max-height:519px){
+  .p9-page.p9-page{padding-left:max(12px, env(safe-area-inset-left));padding-right:max(12px, env(safe-area-inset-right))}
+}

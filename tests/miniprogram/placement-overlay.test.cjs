@@ -2,7 +2,7 @@ const test=require('node:test'),assert=require('node:assert/strict'),path=requir
 const load=p=>require(path.join(process.env.DERMATOME_BUILD_DIR,p));
 const {getBodyModel}=load('data/body-models.js'),{fitViewport,focusViewport,normalizedToCanvas}=load('utils/coordinate.js');
 const {preparePhotoGeometry,initialPlacement}=load('utils/placement-geometry.js');
-let def;global.Component=o=>def=o;load('components/placement-overlay/placement-overlay.js');
+let def;global.Component=o=>def=o;load('packages/clinical/components/placement-overlay/placement-overlay.js');
 const flush=async()=>{for(let i=0;i<50;i++)await Promise.resolve()};
 function harness(){
  const model=getBodyModel('back'),region=model.regions.find(r=>r.id==='back-upper-back');
@@ -20,10 +20,11 @@ function harness(){
 test('transparent placement canvas draws all rings, a visible move handle, and CSS-sized strokes',async()=>{
  const h=harness();await flush();assert.equal(h.node.width,750);assert.equal(h.node.height,1000);assert.equal(h.calls.filter(c=>c[0]==='moveTo').length,4);assert.ok(h.calls.some(c=>c[0]==='arc'&&c[3]===14));assert.equal(h.events.at(-1).d.ready,true);
 });
-test('handle drags an entire multi-ring patch with ordered async touch events, without a body selection or vertex event',async()=>{
+test('handle drags an entire multi-ring patch with one release event, without a body selection or vertex event',async()=>{
  const h=harness();await flush();h.setDelay(true);const start=h.obj.touchStart(h.event()),move=h.obj.touchMove(h.event(10,20)),end=h.obj.touchEnd(h.event(30,40));
  const callbacks=h.bounds.splice(0);assert.equal(callbacks.length,1,'one layout measurement shared by ordered touch events');await flush();assert.equal(h.events.filter(e=>e.n==='placementdrag').length,0);callbacks[0]();await Promise.all([start,move,end]);
- const drags=h.events.filter(e=>e.n==='placementdrag');assert.deepEqual(drags.map(e=>e.d.phase),['start','move','end']);assert.ok(drags[2].d.delta.x>0);assert.ok(drags[2].d.delta.y>0);
+ const drags=h.events.filter(e=>e.n==='placementdrag');assert.deepEqual(drags.map(e=>e.d.phase),['start','end']);assert.ok(drags[1].d.delta.x>0);assert.ok(drags[1].d.delta.y>0);
+ assert.deepEqual(drags[1].d.transform.translation,{x:h.obj.properties.transform.translation.x+drags[1].d.delta.x,y:h.obj.properties.transform.translation.y+drags[1].d.delta.y});
  assert.equal(h.events.filter(e=>e.n==='annotationpoint'||e.n==='regionprobe').length,0);
 });
 test('new source key, cancel and viewport changes invalidate old drag queries',async()=>{

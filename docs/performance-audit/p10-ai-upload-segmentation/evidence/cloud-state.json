@@ -1,0 +1,43 @@
+{
+  "schema_version": "p10-cloud-state-v1",
+  "endpoint": "http://212.64.26.206/dermatome-test",
+  "transport": "HTTP public-IP development channel; not HTTPS or phone validation",
+  "measured_at": "2026-11-10T15:06:33+0800",
+  "health": {
+    "status": 200,
+    "response": {
+      "status": "ok",
+      "project": "dermatome-mapper",
+      "version": "v0"
+    },
+    "wall_ms": 31.02266602218151
+  },
+  "access_session": {
+    "status": 200,
+    "access_kind": "public_test",
+    "token_type": "Bearer",
+    "revoke_status": 204
+  },
+  "ready": {
+    "status": 200,
+    "response": {
+      "status": "ready",
+      "identity": {
+        "template_id": "commons-neutral-v1",
+        "template_version": "4.0.1",
+        "geometry_id": "commons-blank-cc0-hands-v2",
+        "region_set_id": "commons-blank-cc0-v1-ui-regions-2",
+        "atlas_id": "goran-2022",
+        "atlas_version": "goran-2022-commons-template4-preview.3",
+        "atlas_content_sha256": "c1b7c846e3c45006f72581fd0b9cc995bd99f1d88fce050b57fd8d525dd6a757",
+        "body_content_sha256": "b0bfa0047c156159fd2f5c8680b76ff64eb2f5f6f947bc0d53b8414ffb9a8731",
+        "coordinate_system": "normalized_2d_top_left"
+      },
+      "ai_model_loaded": true,
+      "ai_device": "cpu",
+      "medical_review": "pending",
+      "diagnosis_enabled": false
+    },
+    "wall_ms": 162.5896659679711
+  }
+}

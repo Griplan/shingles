@@ -181,7 +181,7 @@ curl -i -X POST http://127.0.0.1:8000/api/v1/evaluate
 | POST `/{sid}/confirm` | `photo_id, result_id, candidate_id, prompt_revision` | 下述 `confirmed-photo-segmentation-v1` |
 | DELETE `/{sid}` | 无 | 204并删除临时派生数据；已失效410，前端按已清理处理 |
 
-除创建以外，所有请求必须携带 `x-ai-session-key: <session_token>`；令牌不得放URL。每次更换照片创建新会话并删除旧会话，不复用照片ID。返回和素材均 `Cache-Control: no-store`，只允许表内文件名，绝不返回服务器真实路径。时间字段为UTC Unix秒。默认30分钟固定有效期，不因推理延长。
+除创建以外，所有请求必须携带 `x-ai-session-key: <session_token>`；令牌不得放URL。每次更换照片创建新会话并删除旧会话，不复用照片ID。返回和素材均 `Cache-Control: no-store`，只允许表内文件名，绝不返回服务器真实路径。时间字段为UTC Unix秒。2026-11-13起使用 `AI_IDLE_SECONDS`（默认900秒）闲置期限，有效认证访问刷新 last_activity_at/expires_at；expires_at是当前截止快照，客户端不按创建响应自行取消。活动推理受保护；重复DELETE返回204。放置画面绘制就绪后异步删除，最多3次尝试，失败由独立扫描兜底。历史固定TTL描述由此覆盖。
 
 `image`包括：方向处理前 `stored_width/stored_height`、处理后 `width/height`、`exif_orientation`、`orientation_applied`、`orientation_policy:"exif_transpose_before_prompts"`、`alpha_background:"white"`、`metadata_stripped:true`、`oriented_rgb_sha256`。前端必须显示服务器返回的已定向照片再给提示，不将本地可能有EXIF的预览作为坐标基准。
 
@@ -383,3 +383,29 @@ atlas摘要依序计算axilla-left.json、axilla-right.json、sources.json、reg
 ## V6.6.3 人工腋下模拟
 
 独立identity `atlas_id=axilla-schematic-v1, atlas_version=axilla-schematic.1`，views仍axilla-left/right；V4请求/数值公式不变。候选partition_type=schematic_region，display_name为“模拟 T1/T2/T3”。source必须返回 `atlas_type=SCHEMATIC, review_status=NOT_MEDICALLY_VALIDATED, intended_use=INTERACTIVE_SIMULATION, source_type=ARTIFICIALLY_CONSTRUCTED, disclaimer`；普通响应省略可选null字段。客户端若模拟身份缺任一状态字段，拒绝结果叠加。preview=true、medical_review_status=pending、正式mappingEnabled=false不变。详细合同见[人工模拟数据](validation-records/v6.6-axilla/full-simulation/generated-atlas.md)。
+
+## V6.7 中性会阴模拟视图
+
+`POST /api/v1/evaluate` 的合法view增加`perineum-overview`，既有front/back、左右sole和左右axilla不变。该view必须使用独立identity：
+
+- template_id=`neutral-perineum-overview-v1`
+- template_version=`1.0.0`
+- geometry_id=`neutral-perineum-skin-v1`
+- region_set_id=`neutral-perineum-ui-v1`
+- atlas_id=`perineum-schematic-v1`
+- atlas_version=`perineum-schematic.1`
+- coordinate_system=`normalized_2d_top_left`
+
+atlas内容摘要依次由`perineum-overview.json`、`sources.json`、`registration.json`的文件名、NUL、原始字节和NUL组成；body摘要来自`data/body/perineum-v1.json`原始字节，并回查`data/body/perineum-resource.json`。客户端使用生成数据中的真实摘要，不能跨视图或跨模板复用。
+
+该图谱包含`S2`、`S3`、`S4`、`S5`和`UNDEFINED`五个`partition_type=schematic_region`区域，均`side=unspecified`。`UNDEFINED`显示为“模拟未定区”，参与真实交集但不得被解释为骶神经节段。成功响应的source必须返回：
+
+- `atlas_type=SCHEMATIC`
+- `review_status=NOT_MEDICALLY_VALIDATED`
+- `intended_use=INTERACTIVE_SIMULATION`
+- `source_type=ARTIFICIALLY_CONSTRUCTED`
+- `medical_review_status=pending`
+- `preview=true`
+- 非医学用途disclaimer
+
+前端严格检查这些字段，缺失时拒绝展示结果。V4的Polygon/MultiPolygon、孔洞、覆盖公式、每请求并集、鉴权、请求限制和错误码不变。旧身份返回409 VERSION_MISMATCH；生产/未知环境仍403；图谱缺失、状态缺失、覆盖或邻接异常返回503 ATLAS_UNAVAILABLE。完整数据和预览见[V6.7报告](validation-records/v6.7-perineum/report.md)。

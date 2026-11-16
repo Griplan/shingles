@@ -13,7 +13,7 @@ from app.services.access import controlled, feature_enabled, upload_limit
 
 ROOT = Path(__file__).resolve().parents[3]
 MAX_UPLOAD = 20 * 1024 * 1024
-TTL = 30 * 60
+TTL = 15 * 60
 MAX_SESSIONS = 8
 TIMEOUT = 45
 
@@ -34,7 +34,7 @@ def load_model():
     return MobileSAM(checkpoint, device=device, threads=1 if controlled() else 4)
 
 class AISessions:
-    def __init__(self, root=None, model_factory=load_model, clock=time.time, ttl=TTL):
+    def __init__(self, root=None, model_factory=load_model, clock=time.time, ttl=None):
         self.root = Path(root or os.getenv('AI_TEMP_ROOT',str(ROOT/'private-data'))) / 'v5-ai-sessions'
         self.root.mkdir(parents=True,exist_ok=True,mode=0o700)
         self.root.chmod(0o700)
@@ -44,7 +44,9 @@ class AISessions:
         try: fcntl.flock(self.lock_file, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except OSError:
             self.lock_file.close(); raise
-        self.clock, self.ttl = clock, ttl
+        self.clock, self.ttl = clock, ttl if ttl is not None else int(os.getenv("AI_IDLE_SECONDS", str(TTL)))
+        if not 1 <= self.ttl <= 86400: raise ValueError("invalid AI_IDLE_SECONDS")
+        self.active_sessions = set()
         self.sessions = {}
         self.lock = threading.RLock()
         self.worker = threading.Lock()
@@ -58,6 +60,8 @@ class AISessions:
                 state=p/'session.json'
                 if state.is_symlink() or state.stat().st_size > 40*1024*1024: raise ValueError('invalid state')
                 s=json.loads(state.read_bytes())
+                s['last_activity_at'] = s.get('last_activity_at', s['expires_at'] - self.ttl)
+                s['expires_at'] = s['last_activity_at'] + self.ttl
                 if s['expires_at'] <= self.clock(): raise ValueError('expired')
                 s['token_hash']=bytes.fromhex(s['token_hash'])
                 if len(s['token_hash']) != 32: raise ValueError('invalid token hash')
@@ -75,11 +79,12 @@ class AISessions:
     def sweep(self):
         with self.lock:
             for sid in list(self.sessions):
-                if self.sessions[sid]['expires_at'] <= self.clock(): self._delete(sid)
+                if sid not in self.active_sessions and self.sessions[sid]['expires_at'] <= self.clock(): self._delete(sid)
 
     def _delete(self,sid):
+        path=self.root/sid
+        if path.exists(): shutil.rmtree(path,ignore_errors=False)
         self.sessions.pop(sid,None)
-        shutil.rmtree(self.root/sid,ignore_errors=False)
 
     def close(self):
         with self.lock:
@@ -97,6 +102,7 @@ class AISessions:
             sid, token = secrets.token_hex(16), secrets.token_urlsafe(32)
             (self.root/sid).mkdir(mode=0o700)
             self.sessions[sid] = {'token_hash':hashlib.sha256(token.encode()).digest(), 'expires_at':self.clock()+self.ttl,
+                                 'created_at':self.clock(),'last_activity_at':self.clock(),
                                  'photo_id':None,'result':None,'revision':-1,'operation':None,'confirmed':None,'owner_id':owner_id}
             self._persist(sid,self.sessions[sid])
             return {'session_id':sid,'session_token':token,'expires_at':self.sessions[sid]['expires_at'],'development_only':True}
@@ -107,10 +113,14 @@ class AISessions:
         # Missing, expired, foreign and invalid tokens share an error; no enumeration.
         if not s or not token or not hmac.compare_digest(s['token_hash'],hashlib.sha256(token.encode()).digest()):
             raise AIError('AI_SESSION_GONE','照片会话无效或已过期，请重新上传',410)
+        s['last_activity_at']=self.clock()
+        s['expires_at']=self.clock()+self.ttl
+        self._persist(sid,s)
         return s
 
     def delete(self,sid,token):
         with self.lock:
+            if sid not in self.sessions: return
             self.get(sid,token); self._delete(sid)
 
     def upload(self,sid,token,data):
@@ -141,6 +151,7 @@ class AISessions:
         try:
             with self.lock:
                 s=self.get(sid,token)
+                self.active_sessions.add(sid)
                 if payload.photo_id != s['photo_id']: raise AIError('PHOTO_MISMATCH','照片已更换，请重新分割',409)
                 if payload.prompt_revision < s['revision']: raise AIError('STALE_RESULT','提示已更新，请重新分割',409)
                 s.update(revision=payload.prompt_revision,operation=operation,request_id=payload.request_id,result=None,confirmed=None)
@@ -175,6 +186,7 @@ class AISessions:
         except MemoryError:
             raise AIError('OUT_OF_MEMORY','内存不足，请使用较小照片重试',503) from None
         finally:
+            with self.lock: self.active_sessions.discard(sid)
             self.worker.release()
 
     def invalidate(self,sid,token,request_id):
@@ -232,6 +244,7 @@ class AISessions:
             strokes=[v.model_dump() for v in p.strokes]
             with self.lock:
                 s=self.get(sid,token);r=s['result']
+                self.active_sessions.add(sid)
                 if not r or p.photo_id!=s['photo_id'] or p.result_id!=r['record']['result_id'] or p.prompt_revision!=r['revision']:
                     raise AIError('STALE_RESULT','照片或识别结果已变化，请重新识别',409)
                 raw=next((c for c in r['record']['candidates'] if c['candidate_id']==p.candidate_id),None)
@@ -272,7 +285,9 @@ class AISessions:
         except ImportError:raise AIError('AI_UNAVAILABLE','AI修正组件不可用，原结果保留',503) from None
         except SegmentationError as e:raise AIError(e.code,'修正未能应用，原范围保留，请缩短笔画或撤销') from None
         except MemoryError:raise AIError('OUT_OF_MEMORY','修正内存不足，原范围保留',503) from None
-        finally:self.worker.release()
+        finally:
+            with self.lock: self.active_sessions.discard(sid)
+            self.worker.release()
 
     def confirm(self,sid,token,p):
         with self.lock:

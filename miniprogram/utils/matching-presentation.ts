@@ -2,7 +2,7 @@ import { AtlasRegion } from "../types/atlas";
 import { MatchCandidate } from "../types/evaluate";
 import { BodyView, SurfaceView, ViewportTransform } from "../types/dermatome";
 import { normalizedToCanvas } from "./coordinate";
-import { coverageText } from "../state/matching-session";
+import { coverageText } from "./matching-text";
 
 export interface CandidateLabel {
  id:string; name:string; label:string; side:string; color:string; ratio:string; y:number;

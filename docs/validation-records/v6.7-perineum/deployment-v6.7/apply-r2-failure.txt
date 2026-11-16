@@ -1,0 +1,8 @@
+staged perineum dataset valid: 5 regions
+RuntimeError: B health/ready failed
+B-only rollback applied
+
+Root cause: /api/v1/ready requires an authenticated access session. The r2
+deployment polled it anonymously and treated the expected 401 response as a
+startup failure. The r3 deployment creates a bounded test session before the
+ready and perineum runtime checks.

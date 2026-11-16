@@ -8,7 +8,7 @@ OUT=ROOT/'docs/validation-records/v6.4'
 
 def panel(side,x,labels):
  view='sole-'+side
- svg=ET.parse(ROOT/f'miniprogram/assets/sole/{view}.svg').getroot()
+ svg=ET.parse(ROOT/f'miniprogram/packages/special/assets/sole/{view}.svg').getroot()
  svg.set('x',str(x));svg.set('y','38')
  rows=json.loads((ROOT/f'data/atlas/sole-v1/{view}.json').read_text())['regions']
  for r in rows:

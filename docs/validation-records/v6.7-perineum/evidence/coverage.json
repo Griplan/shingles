@@ -1,0 +1,40 @@
+{
+  "view": "perineum-overview",
+  "skinArea": 0.6082941222388499,
+  "unionArea": 0.6082941222388499,
+  "coveredArea": 0.6082941222388504,
+  "missingArea": 0.0,
+  "outsideArea": 1.1945811534245804e-19,
+  "overlapArea": 0.0,
+  "coveredRatio": 1.0,
+  "undefinedArea": 0.02569544632868419,
+  "undefinedRatio": 0.04224181261872318,
+  "skinGridPoints": 136264,
+  "missedGridPoints": 0,
+  "gridSpacing": {
+    "x": 0.0025,
+    "y": 0.0017857142857142857
+  },
+  "regionAreas": {
+    "S2": {
+      "area": 0.256051252393829,
+      "parts": 1
+    },
+    "S3": {
+      "area": 0.24680362876257184,
+      "parts": 2
+    },
+    "S4": {
+      "area": 0.07464389695487102,
+      "parts": 2
+    },
+    "S5": {
+      "area": 0.005099897798894519,
+      "parts": 1
+    },
+    "UNDEFINED": {
+      "area": 0.02569544632868419,
+      "parts": 1
+    }
+  }
+}

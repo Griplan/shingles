@@ -1,0 +1,464 @@
+{
+  "method": "Conservative local estimate: TypeScript is emitted without minification; WXML/WXSS/JSON/runtime assets are included after project.config packOptions ignore rules. WeChat upload-time minification can only reduce this estimate.",
+  "limit_bytes": 2097152,
+  "packages": {
+    "main": {
+      "bytes": 853130,
+      "mib": 0.814,
+      "limit_bytes": 2097152,
+      "remaining_bytes": 1244022,
+      "remaining_mib": 1.186,
+      "file_count": 63,
+      "passes_limit": true,
+      "largest_files": [
+        {
+          "path": "assets/body/commons-cc0/front.png",
+          "bytes": 226722,
+          "mib": 0.216
+        },
+        {
+          "path": "assets/body/commons-cc0/back.png",
+          "bytes": 217406,
+          "mib": 0.207
+        },
+        {
+          "path": "data/body-hands.generated.js",
+          "bytes": 153240,
+          "mib": 0.146
+        },
+        {
+          "path": "assets/body/commons-cc0/geometry.generated.js",
+          "bytes": 76001,
+          "mib": 0.072
+        },
+        {
+          "path": "components/body-canvas/body-canvas.js",
+          "bytes": 21529,
+          "mib": 0.021
+        },
+        {
+          "path": "utils/placement-geometry.js",
+          "bytes": 19956,
+          "mib": 0.019
+        },
+        {
+          "path": "state/annotation-session.js",
+          "bytes": 15631,
+          "mib": 0.015
+        },
+        {
+          "path": "pages/select/select.js",
+          "bytes": 9941,
+          "mib": 0.009
+        },
+        {
+          "path": "utils/annotation-geometry.js",
+          "bytes": 9821,
+          "mib": 0.009
+        },
+        {
+          "path": "services/ai.js",
+          "bytes": 9229,
+          "mib": 0.009
+        },
+        {
+          "path": "utils/coordinate.js",
+          "bytes": 5994,
+          "mib": 0.006
+        },
+        {
+          "path": "pages/select/select.wxml",
+          "bytes": 5917,
+          "mib": 0.006
+        },
+        {
+          "path": "data/body-regions.js",
+          "bytes": 5265,
+          "mib": 0.005
+        },
+        {
+          "path": "components/body-canvas/render.js",
+          "bytes": 4792,
+          "mib": 0.005
+        },
+        {
+          "path": "services/api.js",
+          "bytes": 4501,
+          "mib": 0.004
+        },
+        {
+          "path": "utils/matching-guards.js",
+          "bytes": 4401,
+          "mib": 0.004
+        },
+        {
+          "path": "utils/matching-presentation.js",
+          "bytes": 4303,
+          "mib": 0.004
+        },
+        {
+          "path": "components/body-canvas/atlas-render.js",
+          "bytes": 4064,
+          "mib": 0.004
+        },
+        {
+          "path": "services/trial-access.js",
+          "bytes": 3883,
+          "mib": 0.004
+        },
+        {
+          "path": "utils/manual-annotation.js",
+          "bytes": 3739,
+          "mib": 0.004
+        }
+      ]
+    },
+    "clinical": {
+      "bytes": 1354227,
+      "mib": 1.291,
+      "limit_bytes": 2097152,
+      "remaining_bytes": 742925,
+      "remaining_mib": 0.709,
+      "file_count": 37,
+      "passes_limit": true,
+      "largest_files": [
+        {
+          "path": "packages/clinical/data/atlas.generated.js",
+          "bytes": 1172637,
+          "mib": 1.118
+        },
+        {
+          "path": "packages/clinical/pages/annotate/annotate.js",
+          "bytes": 29549,
+          "mib": 0.028
+        },
+        {
+          "path": "packages/clinical/state/ai-session.js",
+          "bytes": 17446,
+          "mib": 0.017
+        },
+        {
+          "path": "packages/clinical/pages/placement/placement.js",
+          "bytes": 17385,
+          "mib": 0.017
+        },
+        {
+          "path": "packages/clinical/components/photo-canvas/photo-canvas.js",
+          "bytes": 14009,
+          "mib": 0.013
+        },
+        {
+          "path": "packages/clinical/pages/ai-annotate/ai-annotate.js",
+          "bytes": 13513,
+          "mib": 0.013
+        },
+        {
+          "path": "packages/clinical/components/placement-overlay/placement-overlay.js",
+          "bytes": 12723,
+          "mib": 0.012
+        },
+        {
+          "path": "packages/clinical/pages/annotate/annotate.wxml",
+          "bytes": 11690,
+          "mib": 0.011
+        },
+        {
+          "path": "packages/clinical/state/placement-session.js",
+          "bytes": 10904,
+          "mib": 0.01
+        },
+        {
+          "path": "packages/clinical/pages/atlas-debug/atlas-debug.js",
+          "bytes": 8141,
+          "mib": 0.008
+        },
+        {
+          "path": "packages/clinical/state/matching-session.js",
+          "bytes": 7400,
+          "mib": 0.007
+        },
+        {
+          "path": "packages/clinical/pages/ai-annotate/ai-annotate.wxml",
+          "bytes": 6743,
+          "mib": 0.006
+        },
+        {
+          "path": "packages/clinical/components/placement-overlay/preview.js",
+          "bytes": 5048,
+          "mib": 0.005
+        },
+        {
+          "path": "packages/clinical/pages/atlas-debug/atlas-debug.wxml",
+          "bytes": 4970,
+          "mib": 0.005
+        },
+        {
+          "path": "packages/clinical/pages/annotate/annotate.wxss",
+          "bytes": 4195,
+          "mib": 0.004
+        },
+        {
+          "path": "packages/clinical/utils/atlas-view.js",
+          "bytes": 3910,
+          "mib": 0.004
+        },
+        {
+          "path": "packages/clinical/data/atlas-codec.js",
+          "bytes": 2906,
+          "mib": 0.003
+        },
+        {
+          "path": "packages/clinical/pages/placement/placement.wxml",
+          "bytes": 2709,
+          "mib": 0.003
+        },
+        {
+          "path": "packages/clinical/pages/ai-annotate/ai-annotate.wxss",
+          "bytes": 2135,
+          "mib": 0.002
+        },
+        {
+          "path": "packages/clinical/pages/atlas-debug/atlas-debug.wxss",
+          "bytes": 1900,
+          "mib": 0.002
+        }
+      ]
+    },
+    "special": {
+      "bytes": 754623,
+      "mib": 0.72,
+      "limit_bytes": 2097152,
+      "remaining_bytes": 1342529,
+      "remaining_mib": 1.28,
+      "file_count": 23,
+      "passes_limit": true,
+      "largest_files": [
+        {
+          "path": "packages/special/data/perineum-schematic.generated.js",
+          "bytes": 161191,
+          "mib": 0.154
+        },
+        {
+          "path": "packages/special/assets/sole/sole-right.png",
+          "bytes": 133537,
+          "mib": 0.127
+        },
+        {
+          "path": "packages/special/assets/sole/sole-left.png",
+          "bytes": 113975,
+          "mib": 0.109
+        },
+        {
+          "path": "packages/special/assets/perineum/perineum-overview.png",
+          "bytes": 90034,
+          "mib": 0.086
+        },
+        {
+          "path": "packages/special/data/axilla-schematic.generated.js",
+          "bytes": 83561,
+          "mib": 0.08
+        },
+        {
+          "path": "packages/special/data/sole.generated.js",
+          "bytes": 59707,
+          "mib": 0.057
+        },
+        {
+          "path": "packages/special/assets/axilla/axilla-right.png",
+          "bytes": 29715,
+          "mib": 0.028
+        },
+        {
+          "path": "packages/special/assets/axilla/axilla-left.png",
+          "bytes": 29555,
+          "mib": 0.028
+        },
+        {
+          "path": "packages/special/pages/local-surface/local-surface.js",
+          "bytes": 15385,
+          "mib": 0.015
+        },
+        {
+          "path": "packages/special/components/local-surface-canvas/local-surface-canvas.js",
+          "bytes": 11314,
+          "mib": 0.011
+        },
+        {
+          "path": "packages/special/pages/local-surface/local-surface.wxml",
+          "bytes": 6873,
+          "mib": 0.007
+        },
+        {
+          "path": "packages/special/state/local-surface-matching-session.js",
+          "bytes": 5583,
+          "mib": 0.005
+        },
+        {
+          "path": "packages/special/state/local-surface-session.js",
+          "bytes": 5119,
+          "mib": 0.005
+        },
+        {
+          "path": "packages/special/pages/local-surface/local-surface.wxss",
+          "bytes": 2584,
+          "mib": 0.002
+        },
+        {
+          "path": "packages/special/data/local-models.js",
+          "bytes": 2273,
+          "mib": 0.002
+        },
+        {
+          "path": "packages/special/pages/special-parts/special-parts.wxml",
+          "bytes": 1212,
+          "mib": 0.001
+        },
+        {
+          "path": "packages/special/pages/special-parts/special-parts.js",
+          "bytes": 980,
+          "mib": 0.001
+        },
+        {
+          "path": "packages/special/components/local-surface-canvas/local-surface-canvas.wxml",
+          "bytes": 717,
+          "mib": 0.001
+        },
+        {
+          "path": "packages/special/pages/special-parts/special-parts.wxss",
+          "bytes": 682,
+          "mib": 0.001
+        },
+        {
+          "path": "packages/special/components/local-surface-canvas/local-surface-canvas.wxss",
+          "bytes": 395,
+          "mib": 0.0
+        }
+      ]
+    }
+  },
+  "total_bytes": 2961980,
+  "total_files": 123,
+  "largest_files": [
+    {
+      "path": "packages/clinical/data/atlas.generated.js",
+      "package": "clinical",
+      "bytes": 1172637,
+      "mib": 1.118
+    },
+    {
+      "path": "assets/body/commons-cc0/front.png",
+      "package": "main",
+      "bytes": 226722,
+      "mib": 0.216
+    },
+    {
+      "path": "assets/body/commons-cc0/back.png",
+      "package": "main",
+      "bytes": 217406,
+      "mib": 0.207
+    },
+    {
+      "path": "packages/special/data/perineum-schematic.generated.js",
+      "package": "special",
+      "bytes": 161191,
+      "mib": 0.154
+    },
+    {
+      "path": "data/body-hands.generated.js",
+      "package": "main",
+      "bytes": 153240,
+      "mib": 0.146
+    },
+    {
+      "path": "packages/special/assets/sole/sole-right.png",
+      "package": "special",
+      "bytes": 133537,
+      "mib": 0.127
+    },
+    {
+      "path": "packages/special/assets/sole/sole-left.png",
+      "package": "special",
+      "bytes": 113975,
+      "mib": 0.109
+    },
+    {
+      "path": "packages/special/assets/perineum/perineum-overview.png",
+      "package": "special",
+      "bytes": 90034,
+      "mib": 0.086
+    },
+    {
+      "path": "packages/special/data/axilla-schematic.generated.js",
+      "package": "special",
+      "bytes": 83561,
+      "mib": 0.08
+    },
+    {
+      "path": "assets/body/commons-cc0/geometry.generated.js",
+      "package": "main",
+      "bytes": 76001,
+      "mib": 0.072
+    },
+    {
+      "path": "packages/special/data/sole.generated.js",
+      "package": "special",
+      "bytes": 59707,
+      "mib": 0.057
+    },
+    {
+      "path": "packages/special/assets/axilla/axilla-right.png",
+      "package": "special",
+      "bytes": 29715,
+      "mib": 0.028
+    },
+    {
+      "path": "packages/special/assets/axilla/axilla-left.png",
+      "package": "special",
+      "bytes": 29555,
+      "mib": 0.028
+    },
+    {
+      "path": "packages/clinical/pages/annotate/annotate.js",
+      "package": "clinical",
+      "bytes": 29549,
+      "mib": 0.028
+    },
+    {
+      "path": "components/body-canvas/body-canvas.js",
+      "package": "main",
+      "bytes": 21529,
+      "mib": 0.021
+    },
+    {
+      "path": "utils/placement-geometry.js",
+      "package": "main",
+      "bytes": 19956,
+      "mib": 0.019
+    },
+    {
+      "path": "packages/clinical/state/ai-session.js",
+      "package": "clinical",
+      "bytes": 17446,
+      "mib": 0.017
+    },
+    {
+      "path": "packages/clinical/pages/placement/placement.js",
+      "package": "clinical",
+      "bytes": 17385,
+      "mib": 0.017
+    },
+    {
+      "path": "state/annotation-session.js",
+      "package": "main",
+      "bytes": 15631,
+      "mib": 0.015
+    },
+    {
+      "path": "packages/special/pages/local-surface/local-surface.js",
+      "package": "special",
+      "bytes": 15385,
+      "mib": 0.015
+    }
+  ],
+  "boundary_errors": []
+}

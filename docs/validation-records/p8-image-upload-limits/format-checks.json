@@ -1,0 +1,36 @@
+{
+  "JPEG": {
+    "bytes": 16503,
+    "dimensions": [
+      1000,
+      1000
+    ],
+    "extension_may_differ": true
+  },
+  "PNG": {
+    "bytes": 3957,
+    "dimensions": [
+      1000,
+      1000
+    ],
+    "extension_may_differ": true
+  },
+  "WEBP": {
+    "bytes": 1868,
+    "dimensions": [
+      1000,
+      1000
+    ],
+    "extension_may_differ": true
+  },
+  "fake_jpeg": "INVALID_IMAGE",
+  "noisy_png": {
+    "bytes": 11064199,
+    "size": [
+      1920,
+      1440
+    ],
+    "old_server": "IMAGE_TOO_LARGE",
+    "equivalent_client_reencode_bytes": 2806473
+  }
+}

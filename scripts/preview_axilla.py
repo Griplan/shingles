@@ -8,7 +8,7 @@ OUT=ROOT/'docs/validation-records/v6.6-axilla/evidence'
 def svg(name,width,height,content):
     (OUT/(name+'.svg')).write_text(f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}"><rect width="100%" height="100%" fill="#faf8f4"/><g font-family="sans-serif" fill="#23483d">{content}</g></svg>')
 def model(side,x=0,y=0):
-    node=ET.fromstring((ROOT/f'miniprogram/assets/axilla/axilla-{side}.svg').read_text());node.set('x',str(x));node.set('y',str(y));return ET.tostring(node,encoding='unicode')
+    node=ET.fromstring((ROOT/f'miniprogram/packages/special/assets/axilla/axilla-{side}.svg').read_text());node.set('x',str(x));node.set('y',str(y));return ET.tostring(node,encoding='unicode')
 
 if __name__=='__main__':
     svg('models',840,460,'<text x="24" y="28" font-size="20">V6.6 左右腋下局部示意 · 静态资源预览</text>'+model('left',10,65)+model('right',430,65)+
