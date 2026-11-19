@@ -1,0 +1,25 @@
+{
+  "acupuncture_active": true,
+  "ai_model_loaded": false,
+  "authenticated_ready": "ready",
+  "backup": "/srv/dermatome-mapper/deployment/backups/backend-current-20261119-155751",
+  "body_intersection": "inside",
+  "changed_files": 13,
+  "cleanup_timer": true,
+  "deployment_id": "backend-current-20261119-155751",
+  "nginx_limits": [
+    "client_max_body_size 10m;",
+    "client_max_body_size 51m;"
+  ],
+  "public_health": 200,
+  "staged_preflight": {
+    "body_intersection": "inside",
+    "imports": true,
+    "limits": [
+      52428800,
+      50000000,
+      120
+    ]
+  },
+  "status": "APPLIED"
+}

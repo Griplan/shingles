@@ -11,14 +11,15 @@ function harness(){
  const ctx={};for(const k of ['save','restore','clearRect','setTransform','transform','translate','drawImage','beginPath','rect','clip','moveTo','lineTo','closePath','fill','stroke','arc','setLineDash','strokeRect'])ctx[k]=(...a)=>calls.push([k,...a]);
  const node={width:0,height:0,getContext:()=>ctx,requestAnimationFrame:f=>{queueMicrotask(f);return 1},cancelAnimationFrame(){}};let delay=false;
  global.wx={nextTick:f=>queueMicrotask(f),getWindowInfo:()=>({pixelRatio:2})};
- const obj={properties:{view:'back',prepared,transform,viewport,interactionKey:'test:1',revision:0,disabled:false},triggerEvent(n,d){events.push({n,d})},
+ const obj={properties:{view:'back',prepared,transform,viewport,interactionKey:'test:1',revision:0,layoutRevision:7,disabled:false},triggerEvent(n,d){events.push({n,d})},
  createSelectorQuery(){let bound;const q={select:()=>q,fields:()=>q,boundingClientRect:cb=>{bound=cb;return q},exec:cb=>{if(bound){const f=()=>bound({left:25,top:80,width:375,height:500});if(delay)bounds.push(f);else f();}else cb([{node,width:375,height:500}]);}};return q;}};
  for(const[k,v]of Object.entries(def.methods))obj[k]=v.bind(obj);def.lifetimes.created.call(obj);def.lifetimes.ready.call(obj);
  const center=normalizedToCanvas(transform.translation,viewport),event=(dx=0,dy=0)=>({touches:[{clientX:center.x+25+dx,clientY:center.y+80+dy}],changedTouches:[{clientX:center.x+25+dx,clientY:center.y+80+dy}]});
- return {obj,node,calls,events,bounds,event,setDelay:v=>delay=v};
+ return {obj,node,ctx,calls,events,bounds,event,setDelay:v=>delay=v};
 }
 test('transparent placement canvas draws all rings, a visible move handle, and CSS-sized strokes',async()=>{
  const h=harness();await flush();assert.equal(h.node.width,750);assert.equal(h.node.height,1000);assert.equal(h.calls.filter(c=>c[0]==='moveTo').length,4);assert.ok(h.calls.some(c=>c[0]==='arc'&&c[3]===14));assert.equal(h.events.at(-1).d.ready,true);
+ assert.equal(h.events.at(-1).d.layoutRevision,7);assert.deepEqual(h.events.at(-1).d.viewport,h.obj.properties.viewport);
 });
 test('handle drags an entire multi-ring patch with one release event, without a body selection or vertex event',async()=>{
  const h=harness();await flush();h.setDelay(true);const start=h.obj.touchStart(h.event()),move=h.obj.touchMove(h.event(10,20)),end=h.obj.touchEnd(h.event(30,40));
@@ -31,12 +32,32 @@ test('new source key, cancel and viewport changes invalidate old drag queries',a
  for(const change of ['key','cancel','viewport']){
   const h=harness();await flush();h.setDelay(true);const start=h.obj.touchStart(h.event()),end=h.obj.touchEnd(h.event(30,40));
   if(change==='key')h.obj.properties.interactionKey='new:2';if(change==='viewport')h.obj.properties.viewport=fitViewport(375,500,getBodyModel('back'));
-  if(change==='cancel')h.obj.touchCancel();else def.observers['view,prepared,transform,viewport,interactionKey,revision,disabled'].call(h.obj);
+  if(change==='cancel')h.obj.touchCancel();else def.observers['view,draftId,prepared,transform,viewport,interactionKey,revision,layoutRevision,disabled'].call(h.obj);
   h.bounds.shift()();await Promise.all([start,end]);assert.equal(h.events.filter(e=>e.n==='placementdrag'&&e.d.phase==='end').length,0);
  }
 });
 test('background touch does not start dragging and repeated same-value redraw keeps the current gesture',async()=>{
  const h=harness();await flush();const e={changedTouches:[{x:2,y:2}]};await h.obj.touchStart(e);await h.obj.touchEnd(e);assert.equal(h.events.filter(e=>e.n==='placementdrag').length,0);
- await h.obj.touchStart(h.event());def.observers['view,prepared,transform,viewport,interactionKey,revision,disabled'].call(h.obj);await flush();await h.obj.touchEnd(h.event(15,15));
+ await h.obj.touchStart(h.event());def.observers['view,draftId,prepared,transform,viewport,interactionKey,revision,layoutRevision,disabled'].call(h.obj);await flush();await h.obj.touchEnd(h.event(15,15));
  assert.equal(h.events.filter(e=>e.n==='placementdrag'&&e.d.phase==='end').length,1);
+});
+test('missing inputs report waiting, draw failures report error, and retry restores a ready frame',async()=>{
+ const h=harness();await flush();const viewport=h.obj.properties.viewport;
+ h.events.length=0;h.obj.properties.viewport=null;def.observers['view,draftId,prepared,transform,viewport,interactionKey,revision,layoutRevision,disabled'].call(h.obj);await flush();
+ assert.equal(h.events.at(-1).n,'renderstate');assert.equal(h.events.at(-1).d.status,'waiting');assert.equal(h.events.at(-1).d.ready,false);
+ h.obj.properties.viewport=viewport;def.observers['view,draftId,prepared,transform,viewport,interactionKey,revision,layoutRevision,disabled'].call(h.obj);await flush();
+ assert.equal(h.events.at(-1).d.status,'ready');
+ const getContext=h.node.getContext;h.node.getContext=()=>{throw Error('synthetic canvas failure')};h.obj.retry();await flush();await flush();
+ assert.equal(h.events.at(-1).d.status,'error');
+ h.node.getContext=getContext;h.obj.retry();await flush();await flush();
+ assert.equal(h.events.at(-1).d.status,'ready');assert.equal(h.events.at(-1).d.ready,true);
+});
+test('wake redraws an existing Canvas node through the selector-free vector fallback',async()=>{
+ const h=harness();await flush();const queries=h.obj.createSelectorQuery;let count=0;
+ h.obj.createSelectorQuery=()=>{count++;return queries.call(h.obj)};
+ let frame=null;h.node.requestAnimationFrame=callback=>{frame=callback;return 99};h.node.cancelAnimationFrame=()=>{frame=null};
+ h.calls.length=0;h.obj.wake();assert.ok(frame);
+ frame();await flush();
+ assert.equal(h.events.at(-1).d.status,'ready');
+ assert.equal(count,0);assert.equal(h.calls.filter(c=>c[0]==='fill').length,2);
 });

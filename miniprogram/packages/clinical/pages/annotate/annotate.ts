@@ -14,7 +14,7 @@ import { requestTiming } from "../../../../services/api";
 import { EXPERIENCE } from "../../../../config/experience";
 import {placementSession} from "../../state/placement-session";
 import {consumePlacementView} from "../../state/placement-navigation";
-interface PageLife { active:boolean; sequence:number; request:number; viewport?:ViewportTransform; viewportView?:BodyView; sceneKey?:string; started?:number; metrics?:Record<string,unknown> }
+interface PageLife { active:boolean; sequence:number; request:number; viewport?:ViewportTransform; viewportView?:BodyView; sceneKey?:string; started?:number; metrics?:Record<string,unknown>; canvasRetryScene?:number }
 const emptyRail=():LabelRail=>({items:[],height:0,overflow:false});
 const lives=new WeakMap<object,PageLife>();
 Page({
@@ -248,9 +248,32 @@ Page({
         rightRail:placeLabels(labels.filter(c=>screenSide(c.side,this.data.view)==="right"),height,d.viewport)});}
   },
   onSceneReady(e:WechatMiniprogram.CustomEvent<{sceneId:number;view:BodyView}>) {
-    if(lives.get(this)?.active && e.detail.sceneId===this.data.sceneId && e.detail.view===this.data.view)this.setData({sceneReady:true,renderError:false});
+    const life=lives.get(this);
+    if(life?.active && e.detail.sceneId===this.data.sceneId && e.detail.view===this.data.view){
+      life.canvasRetryScene=-1;
+      this.setData({sceneReady:true,renderError:false,...(this.data.message==="画布正在自动恢复…"?{message:""}:{})});
+    }
   },
-  onRenderError() {this.setData({renderError:true,sceneReady:false});},
+  onRenderError(e?:WechatMiniprogram.CustomEvent<{code?:string;sceneId?:number;view?:BodyView}>) {
+    const life=lives.get(this),detail=e?.detail;
+    if(!life?.active)return;
+    // A queued failure from the previous matching scene must not blank the new
+    // result. Canvas errors did not carry scene identity before this recovery
+    // path was added, so legacy calls without a scene ID remain accepted.
+    if((detail?.sceneId!==undefined && detail.sceneId!==this.data.sceneId) ||
+      (detail?.view!==undefined && detail.view!==this.data.view))return;
+    if(life.canvasRetryScene!==this.data.sceneId){
+      life.canvasRetryScene=this.data.sceneId;
+      this.setData({renderError:false,sceneReady:false,message:"画布正在自动恢复…"});
+      wx.nextTick(()=>{
+        if(lives.get(this)!==life || !life.active || life.canvasRetryScene!==this.data.sceneId)return;
+        const canvas=typeof this.selectComponent==="function"?this.selectComponent("#work-canvas"):null;
+        canvas?.refreshCanvas?.();
+      });
+      return;
+    }
+    this.setData({renderError:true,sceneReady:false,message:""});
+  },
   onRenderStats(e:WechatMiniprogram.CustomEvent<Record<string,unknown>>) {
     const life=lives.get(this);if(!life?.active || e.detail.sceneId!==this.data.sceneId)return;
     // 说明关闭会恢复原生Canvas；同一场景的恢复重绘不能覆盖刚完成的过渡耗时。

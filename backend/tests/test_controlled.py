@@ -42,14 +42,17 @@ def test_controlled_rate_limit(controlled):
     assert responses[-1].json()['error']['code']=='RATE_LIMITED'
     assert responses[-1].headers['retry-after']=='60'
 
-def test_controlled_pixels_and_private_session_restart(controlled):
+def test_controlled_large_photo_is_downscaled_and_private_session_restarts(controlled):
     c,h,root=controlled
     s=c.post('/api/v1/ai/sessions',headers=h).json()
     url='/api/v1/ai/sessions/'+s['session_id'];auth={**h,'x-ai-session-key':s['session_token']}
     out=io.BytesIO();Image.new('RGB',(2000,1600)).save(out,'PNG')
-    assert c.post(url+'/photo',headers=auth,files={'file':('large.png',out.getvalue())}).status_code==422
-    out=io.BytesIO();Image.new('RGB',(32,24)).save(out,'PNG')
-    assert c.post(url+'/photo',headers=auth,files={'file':('small.png',out.getvalue())}).status_code==200
+    uploaded=c.post(url+'/photo',headers=auth,files={'file':('large.png',out.getvalue())})
+    assert uploaded.status_code==200,uploaded.text
+    meta=uploaded.json()['image']
+    assert meta['source_pixels']==3_200_000
+    assert meta['width']*meta['height']<=3_000_000
+    assert meta['server_resized'] is True
     original=c.get(url+'/assets/photo.png',headers=auth).content
     old=app.state.ai_sessions;old.close()
     restored=AISessions(root)
@@ -62,7 +65,7 @@ def test_controlled_pixels_and_private_session_restart(controlled):
 def test_controlled_actual_upload_bytes(controlled):
     c,h,_=controlled
     # Rejected by the ASGI boundary, before multipart decode.
-    r=c.post('/api/v1/ai/sessions/nonexistent/photo',headers=h,content=b'x'*(10*1024*1024+65537))
+    r=c.post('/api/v1/ai/sessions/nonexistent/photo',headers=h,content=b'x'*(50*1024*1024+65537))
     assert r.status_code==413
 
 def test_controlled_expiry_and_cleanup_respects_lock(controlled):

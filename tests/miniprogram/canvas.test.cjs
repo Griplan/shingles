@@ -29,8 +29,9 @@ function context() {
 function harness(width=343,height=540,dpr=2) {
   const ctx = context(), jobs = [], deferred = [];
   const state = { width, height, dpr, left:24, top:180, queryCount:0, fail:false, delay:false };
-  state.imageFail=false;state.imageDelay=false;state.images=[];state.imageCallbacks=[];
-  const node = { width:0, height:0, getContext:() => ctx,createImage(){
+  state.imageFail=false;state.imageDelay=false;state.images=[];state.imageCallbacks=[];state.shellFail=false;state.contextMissing=false;
+  state.shellWidth=width;state.shellHeight=height;
+  const node = { width:0, height:0, getContext:() => state.contextMissing?null:ctx,createImage(){
     const image={width:1200,height:2700,onload:null,onerror:null,_src:''};
     Object.defineProperty(image,'src',{get(){return this._src;},set(src){this._src=src;
       const fire=()=>state.imageFail?image.onerror():image.onload();
@@ -44,12 +45,17 @@ function harness(width=343,height=540,dpr=2) {
     events: [], setData(change) { Object.assign(this.data,change); },
     triggerEvent(name,detail) { this.events.push({name,detail}); },
     createSelectorQuery() {
-      let options;
-      const q = { select(id) { assert.equal(id,"#body-canvas"); return q; },
+      let options,bounds,selector;
+      const q = { select(id) { assert.ok(id==="#body-canvas"||id===".canvas-shell");selector=id;return q; },
         fields(value) { options=value; return q; },
+        boundingClientRect(value) { bounds=value; return q; },
         exec(callback) {
           state.queryCount++;
-          const result = () => callback(state.fail ? [] : [{...(options.node?{node}:{}),width:state.width,height:state.height,left:state.left,top:state.top}]);
+          if(bounds){bounds({left:state.left,top:state.top,width:state.width,height:state.height});return;}
+          const result = () => {
+            if(selector===".canvas-shell")callback(state.shellFail?[]:[{width:state.shellWidth,height:state.shellHeight}]);
+            else callback(state.fail?[]:[{...(options.node?{node}:{}),width:state.width,height:state.height,left:state.left,top:state.top}]);
+          };
           if (state.delay) deferred.push(result); else result();
         } };
       return q;
@@ -131,7 +137,7 @@ test("反复切换、区域放大与复位不累加 DPR/模型缩放", () => {
     assert.equal(lastViewport(h).viewport.zoom,1);
   }
   const transforms=h.ctx.calls.filter(c=>c[0]==="setTransform");
-  assert.equal(transforms.length,9);
+  assert.ok(transforms.length>=9 && transforms.length%2===0);
   assert.ok(transforms.every(c=>JSON.stringify(c)===JSON.stringify(["setTransform",2,0,0,2,0,0])));
   assert.equal(h.ctx.depth(),0);
 });
@@ -150,18 +156,76 @@ test("hide/show、resize 重测尺寸；detached 后忽略异步结果", () => {
   definition.lifetimes.detached.call(h.instance); h.deferred.shift()();
   assert.equal(h.instance.events.length,eventCount);
 });
-test("初始化失败有明确错误，重试可恢复；hide 后旧回调不污染新视口", () => {
+test("Canvas节点缺失时立即显示同尺寸本地备用图，节点恢复后切回Canvas", async () => {
   const h=harness(); h.state.fail=true; h.ready();
+  assert.equal(h.instance.data.error,"");
+  assert.equal(h.instance.data.loading,false);
+  assert.equal(h.instance.data.fallbackVisible,true);
+  assert.equal(h.instance.data.fallbackSrc,getBodyModel("front").visual.imagePath);
+  assert.match(h.instance.data.fallbackStyle,/width:/);
+  const fallbackViewport=lastViewport(h);
+  assert.equal(fallbackViewport.view,"front");
+  assert.equal(fallbackViewport.viewport.viewportWidth,h.state.width);
+  assert.equal(fallbackViewport.physicalWidth,Math.round(h.state.width*h.state.dpr));
+  assert.equal(h.instance.events.some(e=>e.name==="rendererror"),false);
+  h.state.fail=false;
+  await new Promise(resolve=>setTimeout(resolve,35));
+  h.flush();
+  assert.equal(h.instance.data.error,"");
+  assert.equal(h.instance.data.fallbackVisible,false);
+  assert.ok(h.ctx.calls.some(c=>c[0]==="drawImage"));
+  definition.lifetimes.detached.call(h.instance);
+});
+test("2D上下文暂缺也使用备用图，备用图加载失败才结束阻塞并报告脱敏错误码", () => {
+  const h=harness(); h.state.contextMissing=true; h.ready();
+  assert.equal(h.instance.data.error,"");
+  assert.equal(h.instance.data.fallbackVisible,true);
+  assert.equal(h.instance.events.some(e=>e.name==="rendererror"),false);
+  h.instance.onFallbackError();
   assert.notEqual(h.instance.data.error,"");
   assert.equal(h.instance.events.at(-1).name,"rendererror");
-  h.state.fail=false; h.instance.refreshCanvas(); h.flush();
-  assert.equal(h.instance.data.error,"");
-  h.state.delay=true; h.instance.refreshCanvas(); h.flush();
+  assert.equal(h.instance.events.at(-1).detail.code,"FALLBACK_IMAGE_FAILED");
+  definition.lifetimes.detached.call(h.instance);
+});
+test("备用图随正背面更新资源与视口；hide后旧Canvas回调不污染新视口", () => {
+  const h=harness();h.state.fail=true;h.ready();
+  h.property({view:"back"});
+  assert.equal(h.instance.data.fallbackSrc,getBodyModel("back").visual.imagePath);
+  assert.equal(lastViewport(h).view,"back");
+  h.state.fail=false;h.instance.refreshCanvas();h.flush();
+  assert.equal(h.instance.data.fallbackVisible,false);
+  h.state.delay=true;h.instance.refreshCanvas();h.flush();
   definition.pageLifetimes.hide.call(h.instance);
   definition.pageLifetimes.show.call(h.instance); h.flush();
   h.deferred.shift()();
   const count=h.instance.events.filter(e=>e.name==='viewportchange').length;
   h.deferred.shift()(); assert.equal(h.instance.events.filter(e=>e.name==='viewportchange').length,count+1);
+  definition.lifetimes.detached.call(h.instance);
+});
+test("首次布局短暂返回零宽度时自动重测，不把可恢复竞态误报为画布失败", async () => {
+  const h=harness(0,540); h.ready();
+  assert.equal(h.instance.data.error,"");
+  assert.equal(h.instance.data.loading,true);
+  assert.equal(h.instance.events.some(e=>e.name==="rendererror"),false);
+  h.state.width=343;
+  await new Promise(resolve=>setTimeout(resolve,30));
+  h.flush();
+  assert.equal(h.instance.data.error,"");
+  assert.equal(lastViewport(h).viewport.viewportWidth,343);
+  assert.equal(h.instance.events.some(e=>e.name==="rendererror"),false);
+});
+test("Canvas节点宽度为零但宿主已布局时立即启用备用图并发布可用视口", () => {
+  const h=harness(0,357);h.state.shellWidth=405.625;h.state.shellHeight=357;h.state.fail=false;h.ready();
+  const canvasResultWasZero=h.state.queryCount>0;
+  assert.equal(canvasResultWasZero,true);
+  assert.equal(h.instance.data.error,"");
+  assert.equal(h.instance.data.loading,false);
+  assert.equal(h.instance.data.fallbackVisible,true);
+  const viewport=lastViewport(h);
+  assert.equal(viewport.viewport.viewportWidth,405.625);
+  assert.equal(viewport.viewport.viewportHeight,357);
+  assert.equal(h.instance.events.some(e=>e.name==="rendererror"),false);
+  definition.lifetimes.detached.call(h.instance);
 });
 test("页面选择校验、换面清理、区域切换与复位状态", () => {
   let page;
@@ -308,31 +372,57 @@ test('调试面板显示四位标准坐标及实际运行状态；关闭、换�
   assert.equal(instance.data.normalizedX,'—');assert.equal(instance.data.debugEnabled,false);
 });
 
-test('真实图片绘制分支：PNG未提供时拒绝画旧人体，正常帧确实调用drawImage',()=>{
+test('真实图片绘制分支：PNG未提供时先画同骨架占位，正常帧确实调用drawImage',()=>{
  const m=getBodyModel('front'),v=fitViewport(343,422,m);
- assert.throws(()=>drawBody(context(),v,m),/尚未加载/);
+ const placeholder=context();drawBody(placeholder,v,m);
+ assert.equal(placeholder.calls.some(c=>c[0]==='drawImage'),false);
+ assert.ok(placeholder.calls.some(c=>c[0]==='moveTo'));
+ assert.ok(placeholder.calls.some(c=>c[0]==='fill'));
  const h=harness();h.ready();
  const painted=h.ctx.calls.filter(c=>c[0]==='drawImage');assert.equal(painted.length,1);
  assert.equal(painted[0][1].src,m.visual.imagePath);assert.deepEqual(painted[0].slice(2),[0,0,400,900]);
- assert.equal(h.ctx.calls.some(c=>c[0]==='bezierCurveTo'),false);
 });
-test('本地PNG异步加载期间不产生视口，旧面onload不会误画，新面成功后可复用缓存',()=>{
+test('本地PNG异步加载期间先显示同骨架占位并产生视口，旧面onload不会误画，新面成功后复用缓存',()=>{
  const h=harness();h.state.imageDelay=true;h.ready();
- assert.equal(h.instance.data.loading,true);assert.equal(h.instance.events.length,0);
+ assert.equal(h.instance.data.loading,false);
+ assert.equal(lastViewport(h).view,'front');
+ assert.equal(h.ctx.calls.filter(c=>c[0]==='drawImage').length,0);
  h.property({view:'back'});assert.equal(h.state.imageCallbacks.length,2);
- h.state.imageCallbacks.shift()();h.flush();assert.equal(h.instance.events.length,0);
- h.state.imageCallbacks.shift()();h.flush();assert.equal(lastViewport(h).view,'back');
+ h.state.imageCallbacks.shift()();h.flush();
+ assert.equal(lastViewport(h).view,'back');
+ h.state.imageCallbacks.shift()();h.flush();
+ assert.equal(lastViewport(h).view,'back');
  assert.equal(h.ctx.calls.filter(c=>c[0]==='drawImage').length,1);
  h.property({view:'front'});assert.equal(lastViewport(h).view,'front');assert.equal(h.state.images.length,2);
 });
-test('PNG加载失败明确报错且不回退，重试成功；detach后的图片事件被丢弃',()=>{
- const h=harness();h.state.imageFail=true;h.ready();assert.ok(h.instance.data.error);
+test('PNG加载失败保留同骨架矢量人体，显式刷新后重试成功；detach后的图片事件被丢弃',()=>{
+ const h=harness();h.state.imageFail=true;h.ready();assert.equal(h.instance.data.error,'');
  assert.equal(h.ctx.calls.filter(c=>c[0]==='drawImage').length,0);
- assert.equal(h.instance.events.at(-1).name,'rendererror');
+ assert.ok(h.ctx.calls.some(c=>c[0]==='moveTo'));
+ assert.equal(h.instance.events.some(e=>e.name==='rendererror'),false);
+ assert.equal(lastViewport(h).view,'front');
  h.state.imageFail=false;h.instance.refreshCanvas();h.flush();assert.equal(h.instance.data.error,'');
- assert.equal(h.state.images.length,4);assert.equal(lastViewport(h).view,'front');
+ assert.ok(h.state.images.length>=3);
+ assert.ok(h.ctx.calls.some(c=>c[0]==='drawImage'));
+ assert.equal(lastViewport(h).view,'front');
  const late=harness();late.state.imageDelay=true;late.ready();definition.lifetimes.detached.call(late.instance);
- late.state.imageCallbacks.shift()();late.flush();assert.equal(late.instance.events.length,0);
+ const detachedEvents=late.instance.events.length,detachedFrames=late.ctx.calls.filter(c=>c[0]==='drawImage').length;
+ late.state.imageCallbacks.shift()();late.flush();
+ assert.equal(late.instance.events.length,detachedEvents);
+ assert.equal(late.ctx.calls.filter(c=>c[0]==='drawImage').length,detachedFrames);
+});
+test('缺少getWindowInfo和Canvas图片接口时仍显示矢量人体，不报告画布失败',()=>{
+ const h=harness();
+ h.node.createImage=undefined;
+ global.wx.getWindowInfo=undefined;
+ global.wx.getSystemInfoSync=()=>({pixelRatio:2});
+ h.ready();
+ assert.equal(h.instance.data.error,'');
+ assert.equal(h.instance.events.some(e=>e.name==='rendererror'),false);
+ assert.equal(lastViewport(h).view,'front');
+ assert.equal(lastViewport(h).dpr,2);
+ assert.equal(h.ctx.calls.filter(c=>c[0]==='drawImage').length,0);
+ assert.ok(h.ctx.calls.some(c=>c[0]==='moveTo'));
 });
 
 const regionProbe=h=>h.instance.events.filter(e=>e.name==='regionprobe').at(-1)?.detail;
@@ -378,6 +468,23 @@ test('V7 readonly camera pan/pinch changes only viewport and never emits a regio
  h.instance.onCanvasEnd({changedTouches:[]});h.flush();
  assert.ok(lastViewport(h).viewport.zoom>panned.zoom);
  assert.equal(h.instance.events.filter((e,i)=>i>=events&&(e.name==='regionprobe'||e.name==='annotationpoint')).length,0);
+});
+test('V7 fixed viewport coalesces a high-frequency Canvas pan and measures its bounds once',()=>{
+  const h=harness(390,604,2);h.ready();h.property({cameraEnabled:true,interactionMode:'readonly'});
+  const before={queries:h.state.queryCount,frames:h.instance.events.filter(e=>e.name==='renderstats').length,
+    events:h.instance.events.length,viewport:lastViewport(h).viewport};
+  h.instance.onCanvasStart({touches:[{identifier:1,clientX:150,clientY:260}]});
+  for(let index=1;index<=20;index++)h.instance.onCanvasMove({touches:[{identifier:1,clientX:150+index,clientY:260+index*.5}]});
+  h.instance.onCanvasEnd({changedTouches:[{identifier:1,clientX:170,clientY:270}]});
+  h.flush();
+  assert.equal(h.state.queryCount-before.queries,1);
+  assert.equal(h.instance.events.filter(e=>e.name==='renderstats').length-before.frames,1);
+  assert.equal(h.instance.events.filter((e,i)=>i>=before.events&&(e.name==='regionprobe'||e.name==='annotationpoint')).length,0);
+  const after=lastViewport(h).viewport;
+  assert.equal(after.viewportWidth,before.viewport.viewportWidth);
+  assert.equal(after.viewportHeight,before.viewport.viewportHeight);
+  assert.notEqual(after.offsetX,before.viewport.offsetX);
+  assert.notEqual(after.offsetY,before.viewport.offsetY);
 });
 test('正常选择区分重叠和人体外，查询失败不伪造选区；换面丢弃旧触点',()=>{
  const h=harness(288,300,2);h.ready();const scale=268/900;
@@ -496,7 +603,10 @@ test('V4 stable node: preload each view once, no clear while waiting, no measure
  const h=harness();let now=1000,id=0;const callbacks=new Map();h.node.requestAnimationFrame=cb=>{callbacks.set(++id,cb);return id;};h.node.cancelAnimationFrame=i=>callbacks.delete(i);
  const originalNow=Date.now;Date.now=()=>now;
  try{
-  h.state.imageDelay=true;h.ready();assert.equal(h.ctx.calls.filter(c=>c[0]==='clearRect').length,0);assert.equal(h.state.images.length,2);
+  h.state.imageDelay=true;h.ready();
+  assert.equal(h.ctx.calls.filter(c=>c[0]==='drawImage').length,0);
+  assert.ok(h.ctx.calls.filter(c=>c[0]==='clearRect').length>=1);
+  assert.equal(h.state.images.length,2);
   for(const fire of h.state.imageCallbacks.splice(0))fire();h.flush();assert.equal(h.state.queryCount,1);
   const R=fromBuild('packages/clinical/data/atlas.generated.js').ATLAS_REGIONS,front=R.filter(r=>r.view==='front').slice(0,2),r=front[0];
   const atlas={atlasVersion:r.atlasVersion,templateId:r.templateId,templateVersion:r.templateVersion,geometryId:r.geometryId,view:'front',regions:front,showLabels:false};

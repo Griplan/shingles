@@ -1,0 +1,98 @@
+{
+  "a": {
+    "ActiveEnterTimestamp": "Wed 2026-11-04 23:53:58 CST",
+    "ActiveState": "active",
+    "CPUUsageNSec": "1647455596000",
+    "ControlGroup": "/system.slice/acupuncture.service",
+    "MainPID": "611289",
+    "MemoryCurrent": "177381376",
+    "NRestarts": "0"
+  },
+  "b": {
+    "ActiveEnterTimestamp": "Thu 2026-11-19 15:57:55 CST",
+    "ActiveState": "active",
+    "CPUUsageNSec": "695061000",
+    "ControlGroup": "/system.slice/dermatome.service",
+    "MainPID": "1218543",
+    "MemoryCurrent": "57282560",
+    "NRestarts": "0"
+  },
+  "b_limits": {
+    "cpu.max": "100000 100000",
+    "cpu.stat": "usage_usec 695488\nuser_usec 624541\nsystem_usec 70947\ncore_sched.force_idle_usec 0\nnr_periods 13\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+    "memory.current": "57282560",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+    "memory.high": "1342177280",
+    "memory.max": "1610612736",
+    "memory.peak": "65085440",
+    "memory.swap.current": "0"
+  },
+  "b_process": {
+    "Threads": "2",
+    "VmHWM": "87456 kB",
+    "VmRSS": "80608 kB"
+  },
+  "disk": "Filesystem       1B-blocks       Used   Available Use% Mounted on\n/dev/vda2      42156257280 9985081344 30329315328  25% /",
+  "hashes": {
+    "/etc/nginx/nginx.conf": "48c6a4ec1e1fd28ccf968490f07e34a1d7f755793b2108a3ed8670b1ee2a0aa2",
+    "/etc/nginx/sites-enabled/acupuncture": "db30b2164afcf41b2fdbf8ae4d2464deca988f3d1312063e99bd5d34123c79c8",
+    "/etc/nginx/sites-enabled/acupuncture-domain": "eb56f9f42003fd9df8fad1cd296c05728fbcb1d9bc3451ccacf7903a8b27ae78",
+    "/etc/nginx/sites-enabled/dermatome-ip-test": "82974add42d736af3094b7962c4213c12a594c9ec44961b50deadfdfb8dc136a",
+    "/etc/systemd/system/acupuncture.service": "833ab4b2bfd63c264b26719004f5e169b50c973f23bb16e891ae488c489af89a",
+    "/srv/acupuncture/.venv/pyvenv.cfg": "11cb0ba728576bfdfb7cc6cd7fb333c2ef832f750fcc126a45c7a6db758e8b69",
+    "/srv/acupuncture/backend/main.py": "89802533162251b9b881774f871b855cf9fead34673831e9ff8d626dc0625c81"
+  },
+  "health": {
+    "body": {
+      "ai_ready": true,
+      "status": "ok"
+    },
+    "ms": 26.451991870999336,
+    "status": 200
+  },
+  "https_health": {
+    "body": {
+      "ai_ready": true,
+      "status": "ok"
+    },
+    "ms": 239.25694404169917,
+    "status": 200
+  },
+  "https_ready": {
+    "body": {
+      "ai_ready": true,
+      "model_ready": true,
+      "results_ready": true,
+      "status": "ready"
+    },
+    "ms": 13.643171172589064,
+    "status": 200
+  },
+  "memory": "total        used        free      shared  buff/cache   available\nMem:      3904065536   987467776   945025024     2834432  2274783232  2916597760\nSwap:     2084564992      536576  2084028416",
+  "nginx": {
+    "ActiveEnterTimestamp": "Thu 2026-10-08 13:25:29 CST",
+    "ActiveState": "active",
+    "CPUUsageNSec": "33935188000",
+    "ControlGroup": "/system.slice/nginx.service",
+    "MainPID": "12643",
+    "MemoryCurrent": "6422528",
+    "NRestarts": "0"
+  },
+  "ports": "State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\nLISTEN 0      4096   127.0.0.53%lo:53        0.0.0.0:*          \nLISTEN 0      4096         0.0.0.0:22        0.0.0.0:*          \nLISTEN 0      511          0.0.0.0:80        0.0.0.0:*          \nLISTEN 0      511          0.0.0.0:443       0.0.0.0:*          \nLISTEN 0      4096      127.0.0.54:53        0.0.0.0:*          \nLISTEN 0      32         127.0.0.1:8001      0.0.0.0:*          \nLISTEN 0      2048       127.0.0.1:8000      0.0.0.0:*          \nLISTEN 0      4096            [::]:22           [::]:*          \nLISTEN 0      511             [::]:80           [::]:*          \nLISTEN 0      511             [::]:443          [::]:*",
+  "ready": {
+    "body": {
+      "ai_ready": true,
+      "model_ready": true,
+      "results_ready": true,
+      "status": "ready"
+    },
+    "ms": 0.8604987524449825,
+    "status": 200
+  },
+  "time": "2026-11-19T15:57:57+08:00",
+  "vm": {
+    "oom_kill": 0,
+    "pswpin": 0,
+    "pswpout": 5
+  }
+}

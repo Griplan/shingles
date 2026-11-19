@@ -18,7 +18,7 @@
  <button wx:for="{{rightRail.items}}" wx:key="id" class="control nerve-label {{selected === item.id ? 'selected' : ''}}" style="top:{{item.top}}px;border-left-color:{{item.color}}" data-id="{{item.id}}" catchtap="chooseCandidate" disabled="{{!sceneReady || preparingView || infoOpen}}" aria-label="{{item.name}}，{{view === 'front' ? '人体左侧' : '人体右侧'}}，{{item.ratio}}"><text class="label-name">{{item.label}}</text><text class="label-ratio">{{item.ratio}}</text></button>
  </view></scroll-view><view class="rail-hint">{{rightRail.overflow ? '↕ 滑动查看更多' : rightRail.items.length ? rightRail.items.length + ' 项' : ''}}</view></view>
   </view>
-  <view class="p9-controls">
+  <scroll-view class="p9-controls result-controls" scroll-y enhanced show-scrollbar="{{false}}">
   <view wx:if="{{showScopeChoices}}" class="p9-wide-labels p9-scope"><view class="scope-items"><button class="control chip {{!scope ? 'selected' : ''}}" data-id="" bindtap="chooseScope">全部标注</button><button wx:for="{{scopes}}" wx:key="id" class="control chip {{scope === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="chooseScope">{{item.name}}</button></view></view>
   <view wx:elif="{{showRegionChoices}}" class="p9-wide-labels p9-scope"><view class="scope-items"><button wx:for="{{regions}}" wx:key="id" class="control chip {{selectedId === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="selectPolygon" disabled="{{mode === 'draw' || phase === 'review' || debugEnabled || dialogOpen}}">{{item.label}}</button></view></view>
   <view class="legend"><text class="lesion-key"></text>棕色：标注{{atlas ? '轮廓' : '范围'}}<text wx:if="{{atlas}}" class="atlas-key"></text><text wx:if="{{atlas}}">彩色：参考区域</text></view>
@@ -40,7 +40,7 @@
   <view wx:if="{{candidates.length}}" class="p9-wide-labels"><text>{{viewLabel}} · 参考区域</text>
    <button wx:for="{{candidates}}" wx:key="id" class="control p9-label {{selected === item.id ? 'selected' : ''}}" style="border-left-color:{{item.color}}" data-id="{{item.id}}" bindtap="chooseCandidate" disabled="{{!sceneReady || preparingView || infoOpen}}" aria-pressed="{{selected === item.id}}"><text class="p9-label-text">{{item.name}} · {{item.side === 'left' ? '左侧' : item.side === 'right' ? '右侧' : '未指定侧别'}}</text><text>{{item.ratio}}</text></button>
   </view>
-  </view>
+  </scroll-view>
   </view>
  </block>
  <view wx:if="{{infoOpen}}" class="info-mask" catchtap="closeInfo" catchtouchmove="swallow">

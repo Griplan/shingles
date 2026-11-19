@@ -1,7 +1,7 @@
 import {fitPhoto,photoTouch,dragBox,PhotoRect} from "../../../../utils/photo-coordinate";
 import {PhotoBox,PhotoPoint} from "../../../../types/ai";
 import {readTouch} from "../../../../utils/body-debug";
-import {canvasBackingSize} from "../../../../utils/canvas-size";
+import {canvasBackingSize,windowPixelRatio} from "../../../../utils/canvas-size";
 type CanvasMeasurement={node:WechatMiniprogram.Canvas;width:number;height:number};
 interface Runtime {alive:boolean;visible:boolean;resizeQueued:boolean;serial:number;node:WechatMiniprogram.Canvas|null;measurement:CanvasMeasurement|null;measurePromise:Promise<CanvasMeasurement>|null;
  canvasBounds:Promise<WechatMiniprogram.BoundingClientRectCallbackResult>|null;frame:number|null;timer:ReturnType<typeof setTimeout>|null;drawQueued:boolean;pendingRender:boolean;rect:PhotoRect|null;paintedSource:string;
@@ -102,7 +102,7 @@ Component({
     for(const key of s.images.keys())if(key!==source&&key!==mask)s.images.delete(key);
     const photo=await load(source),alpha=mask?await load(mask):null;if(!current())return;
     // Commit a complete frame only after images are ready; never clear while awaiting a mask.
-    const {dpr,width:pw,height:ph}=canvasBackingSize(m.width,m.height,wx.getWindowInfo().pixelRatio);
+    const {dpr,width:pw,height:ph}=canvasBackingSize(m.width,m.height,windowPixelRatio());
     if(node.width!==pw)node.width=pw;if(node.height!==ph)node.height=ph;
     ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,m.width,m.height);
     const r=fitPhoto(this.properties.photoWidth,this.properties.photoHeight,m.width,m.height);s.rect=r;

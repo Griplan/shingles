@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-17",
+  "compiler": "/Applications/wechatwebdevtools.app/Contents/Resources/package.nw/node_modules/wcc-exec",
+  "wxml": {
+    "status": "pass",
+    "exitCode": 0,
+    "outputBytes": 86201,
+    "inputs": [
+      "pages/select/select.wxml",
+      "components/body-canvas/body-canvas.wxml",
+      "packages/clinical/pages/annotate/annotate.wxml",
+      "packages/clinical/pages/placement/placement.wxml"
+    ]
+  },
+  "wxss": {
+    "status": "pass",
+    "exitCode": 0,
+    "outputBytes": 4638,
+    "inputs": [
+      "pages/select/select.wxss",
+      "components/body-canvas/body-canvas.wxss",
+      "packages/clinical/pages/annotate/annotate.wxss",
+      "packages/clinical/pages/placement/placement.wxss"
+    ]
+  }
+}

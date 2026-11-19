@@ -13,7 +13,7 @@ server {
     ssl_certificate /etc/letsencrypt/live/__TRIAL_HOST__/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/__TRIAL_HOST__/privkey.pem;
     ssl_protocols TLSv1.2 TLSv1.3;
-    client_max_body_size 11m;
+    client_max_body_size 51m;
     client_body_timeout 15s;
     send_timeout 65s;
     access_log off;

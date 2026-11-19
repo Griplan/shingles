@@ -5,6 +5,10 @@ import {projectNormalizedToCanvas} from "../../../../utils/coordinate";
 
 type Context=WechatMiniprogram.CanvasRenderingContext.CanvasRenderingContext2D;
 const FILL="rgba(208,91,47,0.30)",EDGE="#ab4c2d";
+// The cache is a screen preview, not the authoritative geometry store. Keep it
+// well below phone-photo resolution so complex masks cannot allocate and fill a
+// multi-megapixel offscreen surface before the placement page can become usable.
+const CACHE_MAX_SIDE=512;
 /** One cache per immutable confirmed source. Raster is only an editing preview. */
 export class PlacementPreview {
  private readonly paths:readonly (readonly (readonly NormalizedPoint[])[])[];
@@ -18,7 +22,7 @@ export class PlacementPreview {
   }));
   try{
    if(typeof wx.createOffscreenCanvas!=="function")return;
-   const b=photo.bounds,ratio=Math.min(2044/Math.max(b.width,b.height),Math.max(1,1020/Math.max(b.width,b.height)));
+   const b=photo.bounds,ratio=Math.min(1,CACHE_MAX_SIDE/Math.max(b.width,b.height));
    const width=Math.ceil(b.width*ratio)+4,height=Math.ceil(b.height*ratio)+4;
    const cache=wx.createOffscreenCanvas({type:"2d",width,height}),ctx=cache.getContext("2d");
    ctx.setTransform(ratio,0,0,ratio,2-b.x*ratio,2-b.y*ratio);
@@ -27,13 +31,20 @@ export class PlacementPreview {
   }catch{this.cache=null;this.cacheRect=null;/* Old devices retain exact vector preview. */}
  }
  private drawPaths(ctx:Context,stroke:boolean,lineWidth:number):void {
-  for(const poly of this.paths){ctx.beginPath();for(const ring of poly){ring.forEach((q,i)=>{if(i===0)ctx.moveTo(q.x,q.y);else ctx.lineTo(q.x,q.y)});ctx.closePath();}
-   ctx.fillStyle=FILL;ctx.fill();if(stroke){ctx.strokeStyle=EDGE;ctx.lineWidth=lineWidth;ctx.lineJoin="round";ctx.stroke();}}
+  // Concatenate all pieces and holes into one path. Ring orientation is already
+  // normalized above, so one nonzero fill preserves holes and independent
+  // components while avoiding hundreds of separate raster operations.
+  ctx.beginPath();
+  for(const poly of this.paths)for(const ring of poly){
+   ring.forEach((q,i)=>{if(i===0)ctx.moveTo(q.x,q.y);else ctx.lineTo(q.x,q.y)});ctx.closePath();
+  }
+  ctx.fillStyle=FILL;ctx.fill();
+  if(stroke){ctx.strokeStyle=EDGE;ctx.lineWidth=lineWidth;ctx.lineJoin="round";ctx.stroke();}
  }
  draw(ctx:Context,v:ViewportTransform,t:PlacementTransform,model:BodyModelConfig,interactive:boolean):void {
   const {c,s,k}=placementSimilarity(this.photo,t,model),a=projectNormalizedToCanvas(t.translation,v),scale=k*v.scale;
   ctx.save();try{ctx.transform(c*scale,s*scale,-s*scale,c*scale,a.x,a.y);ctx.translate(-t.photoCenter.x,-t.photoCenter.y);
-  if(interactive&&this.cache&&this.cacheRect){const b=this.cacheRect;
+  if(this.cache&&this.cacheRect){const b=this.cacheRect;
    try{ctx.drawImage(this.cache,b.x,b.y,b.width,b.height);}catch{this.cache=null;this.cacheRect=null;this.drawPaths(ctx,true,1.6/scale);}
   }else this.drawPaths(ctx,true,1.6/scale);
   }finally{ctx.restore();}

@@ -1,0 +1,64 @@
+{
+  "environment": {
+    "platform": "Apple M4",
+    "python": "3.12.14",
+    "pillow": "11.1.0",
+    "model": "MobileSAM vit_t"
+  },
+  "measurements": [
+    {
+      "case": "jpeg_48mp_preparation",
+      "sourceWidth": 8064,
+      "sourceHeight": 6048,
+      "sourcePixels": 48771072,
+      "sourceBytes": 800807,
+      "outputWidth": 2000,
+      "outputHeight": 1500,
+      "seconds": 0.13,
+      "maxRssMiB": 122.85,
+      "status": "PASS"
+    },
+    {
+      "case": "jpeg_50mp_preparation",
+      "sourceWidth": 10000,
+      "sourceHeight": 5000,
+      "sourcePixels": 50000000,
+      "outputWidth": 2448,
+      "outputHeight": 1224,
+      "seconds": 0.12,
+      "maxRssMiB": 122.95,
+      "status": "PASS"
+    },
+    {
+      "case": "png_48mp_preparation",
+      "sourceWidth": 8064,
+      "sourceHeight": 6048,
+      "sourceBytes": 1438603,
+      "outputWidth": 2000,
+      "outputHeight": 1500,
+      "seconds": 0.27,
+      "maxRssMiB": 314.83,
+      "status": "PASS"
+    },
+    {
+      "case": "controlled_real_mobile_sam",
+      "sourceWidth": 8064,
+      "sourceHeight": 6048,
+      "sourcePixels": 48771072,
+      "outputWidth": 2000,
+      "outputHeight": 1500,
+      "uploadSeconds": 0.1004,
+      "segmentSeconds": 2.112,
+      "totalSeconds": 2.2128,
+      "maxRssMiB": 929.94,
+      "candidateStatuses": ["ok", "ok", "ok"],
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "Measurements are from the macOS development machine, not Tencent Cloud Linux.",
+    "Peak RSS includes Python, Pillow, NumPy and, for the inference case, MobileSAM model loading.",
+    "No concurrent two-upload OOM test was performed.",
+    "No production deployment or cloud smoke test was performed."
+  ]
+}

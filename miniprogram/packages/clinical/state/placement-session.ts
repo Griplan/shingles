@@ -4,7 +4,8 @@ import {BodyView} from "../../../types/dermatome";
 import {BodyMultiPolygon,PlacementTransform,PreparedPhotoGeometry} from "../../../types/placement";
 import {getBodyModel} from "../../../data/body-models";
 import {annotationSession,AnnotationSessionStore,sessionToken} from "../../../state/annotation-session";
-import {initialPlacement,placementSimilarity,preparePhotoGeometry,transformPhotoPolygonToBody,validatePlacementGeometry} from "../../../utils/placement-geometry";
+import {initialPlacement,placementSimilarity,preparePhotoGeometry,transformPhotoPolygonToBody,
+  validatePlacementGeometry,validateTransformedPlacementGeometry} from "../../../utils/placement-geometry";
 
 interface Validation {readonly ok:boolean;readonly code?:string;readonly message?:string}
 export interface PlacementDraft {
@@ -76,7 +77,7 @@ export class PlacementSessionStore {
    const s=this.annotations.snapshot();
    if(s&&(s.views.front.draft?.vertices.length||s.views.back.draft?.vertices.length))throw Error("请先在手动标注页处理未闭合草稿，再放置识别范围");
    const prepared=preparePhotoGeometry(source),transform=initialPlacement(prepared,model,region);
-   const geometry=transformPhotoPolygonToBody(prepared,transform,model),validation=validatePlacementGeometry(geometry,model);
+   const geometry=transformPhotoPolygonToBody(prepared,transform,model),validation=validateTransformedPlacementGeometry(geometry,model);
    const opened=this.annotations.openPlacement(view,regionId);if(!opened.ok)throw Error(opened.message);
    if(opened.session.currentView!==view)throw Error("请先处理原有人体标注草稿");
    this.owner++;this.currentSource=stillCurrent;
@@ -129,7 +130,7 @@ export class PlacementSessionStore {
    if(same&&(!complete||d.geometryRevision===d.revision))return r;
    const revision=d.revision+1;
    const geometry=complete?transformPhotoPolygonToBody(d.prepared,transform,model):d.geometry;
-   const validation:Validation=complete?validatePlacementGeometry(geometry,model):{ok:false,code:"ADJUSTING"};
+   const validation:Validation=complete?validateTransformedPlacementGeometry(geometry,model):{ok:false,code:"ADJUSTING"};
    this.draft=freeze({...d,revision,transform:clone(transform),geometry,rawGeometry:complete?geometry:d.rawGeometry,
     clippedFromGeometry:undefined,clip:undefined,geometryRevision:complete?revision:d.geometryRevision,validation});
    if(complete)this.settled={transform:this.draft.transform,validation};
@@ -145,7 +146,7 @@ export class PlacementSessionStore {
    return {ok:false,message:"人体交集比例无效，请重新调整位置"};
   const model=getBodyModel(d.view),checked=validatePlacementGeometry(geometry,model);
   if(!checked.ok)return {ok:false,message:checked.message};
-  const rawCheck=validatePlacementGeometry(d.rawGeometry,model);
+  const rawCheck=validateTransformedPlacementGeometry(d.rawGeometry,model);
   if(rawCheck.ok||rawCheck.code!=="OUTSIDE_BODY")
    return {ok:false,message:"当前范围不需要使用人体交集"};
   const revision=d.revision+1;
@@ -162,7 +163,7 @@ export class PlacementSessionStore {
   const model=getBodyModel(view),transform={...initialPlacement(d.prepared,model,null),
    scale:d.transform.scale,rotationDegrees:d.transform.rotationDegrees};
   const geometry=transformPhotoPolygonToBody(d.prepared,transform,model);
-  const validation=validatePlacementGeometry(geometry,model);
+  const validation=validateTransformedPlacementGeometry(geometry,model);
   const opened=this.annotations.openPlacement(view,null);if(!opened.ok)return {ok:false,message:opened.message};
   const revision=d.revision+1;
   this.draft=freeze({...d,view,regionId:null,transform,geometry,rawGeometry:geometry,clippedFromGeometry:undefined,clip:undefined,
@@ -182,8 +183,8 @@ export class PlacementSessionStore {
   const r=this.read(id,owner);if(!r.ok||r.draft.phase==="confirmed")return r;
   const d=r.draft;
   if(d.geometryRevision!==d.revision)return {ok:false,message:"请先结束调整，检查范围后再确认位置"};
-  const result=this.annotations.commitPlacement(d.token,{placementId:d.id,entryRegionId:d.regionId,source:d.source,transform:d.transform,
-    geometry:d.geometry,clippedFromGeometry:d.clippedFromGeometry,clip:d.clip,sourceDetached:d.sourceDetached,editTarget:d.editTarget});
+  const result=this.annotations.commitPlacement(d.token,{placementId:d.id,entryRegionId:d.regionId,source:d.source,prepared:d.prepared,
+    transform:d.transform,geometry:d.geometry,clippedFromGeometry:d.clippedFromGeometry,clip:d.clip,sourceDetached:d.sourceDetached,editTarget:d.editTarget});
   if(!result.ok)return result;
   this.draft=freeze({...d,phase:"confirmed",validation:{ok:true}});return {ok:true,draft:this.draft};
  }

@@ -1,0 +1,28 @@
+Package sizes (conservative local estimate before WeChat minification)
+PASS main            884740 bytes  0.844 MiB  remaining 1212412 bytes
+PASS clinical       1407135 bytes  1.342 MiB  remaining 690017 bytes
+PASS special         756628 bytes  0.722 MiB  remaining 1340524 bytes
+
+Largest files
+  1172637  clinical  packages/clinical/data/atlas.generated.js
+   226722  main      assets/body/commons-cc0/front.png
+   217406  main      assets/body/commons-cc0/back.png
+   161191  special   packages/special/data/perineum-schematic.generated.js
+   153240  main      data/body-hands.generated.js
+   133537  special   packages/special/assets/sole/sole-right.png
+   113975  special   packages/special/assets/sole/sole-left.png
+    90034  special   packages/special/assets/perineum/perineum-overview.png
+    83561  special   packages/special/data/axilla-schematic.generated.js
+    76001  main      assets/body/commons-cc0/geometry.generated.js
+    59707  special   packages/special/data/sole.generated.js
+    31476  clinical  packages/clinical/pages/annotate/annotate.js
+    29715  special   packages/special/assets/axilla/axilla-right.png
+    29555  special   packages/special/assets/axilla/axilla-left.png
+    27116  main      components/body-canvas/body-canvas.js
+    25668  main      utils/placement-geometry.js
+    22727  clinical  packages/clinical/pages/placement/placement.js
+    21221  clinical  packages/clinical/utils/prepare-photo.js
+    19663  clinical  packages/clinical/state/ai-session.js
+    18540  clinical  packages/clinical/components/photo-canvas/photo-canvas.js
+
+Boundary check: PASS

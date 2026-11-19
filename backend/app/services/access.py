@@ -4,6 +4,7 @@ import hmac
 import os
 import time
 from fastapi.responses import JSONResponse
+from app.services.ai_limits import MAX_UPLOAD_BYTES
 
 def controlled():
     return os.getenv('DERMATOME_ENV') == 'controlled'
@@ -14,7 +15,7 @@ def feature_enabled(name):
     return allowed and os.getenv(name) == '1'
 
 def upload_limit():
-    return (10 if controlled() else 20) * 1024 * 1024
+    return MAX_UPLOAD_BYTES
 
 class AccessBoundary:
     def __init__(self, app):

@@ -26,4 +26,11 @@ test('V7.1 result filters are conditional and front/back switch is an isolated l
     assert.match(css,/\.(?:view-switch|switch-row)\{[^}]*position:relative[^}]*z-index:[56]/);
     assert.match(css,/\.(?:model-stage|result-stage|body-stage)\{[^}]*(?:z-index:1|overflow:hidden)/);
   }
+  // The matching result must keep a real layout width. A zero-width custom
+  // component can retain the correct height yet never produce a Canvas frame.
+  assert.match(annotateCss,/\.p9-split\{[^}]*width:100%/);
+  assert.match(annotateCss,/\.result-stage\{[^}]*width:100%[^}]*min-width:0/);
+  assert.match(annotateCss,/\.canvas-area\{[^}]*flex:1 1 0[^}]*width:auto/);
+  assert.match(annotateCss,/\.canvas-area>body-canvas\{[^}]*width:100%[^}]*height:100%/);
+  assert.match(annotateCss,/@media \(min-width:680px\)[\s\S]*?\.annotation-page \.result-stage\{[^}]*flex:5 1 0[^}]*width:0/);
 });

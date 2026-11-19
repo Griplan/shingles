@@ -83,17 +83,17 @@ test('deleted V2 placement cannot reopen as falsely confirmed; original photo ca
 let pageDef;global.Page=o=>pageDef=o;load('packages/clinical/pages/placement/placement.js');
 function pageFixture(t,sourceId='PAGE'){const r=placementSession.open(photo(sourceId),'back','back-upper-back',()=>true);assert.equal(r.ok,true,r.message);
  const nav=[],modal=[];global.wx={request:o=>o.fail({errMsg:"synthetic offline"}),getAccountInfoSync:()=>({miniProgram:{envVersion:"develop"}}),getSystemInfoSync:()=>({platform:"devtools"}),nextTick:f=>queueMicrotask(f),enableAlertBeforeUnload:o=>modal.push(o),disableAlertBeforeUnload:()=>{},showModal:o=>modal.push(o),navigateBack:()=>nav.push('photo'),redirectTo:o=>nav.push(o.url)};
- const p={data:structuredClone(pageDef.data),selectComponent:()=>({previewTransform(){}}),setData(c){Object.assign(this.data,c)}};for(const[k,v]of Object.entries(pageDef))if(typeof v==='function')p[k]=v.bind(p);
- p.onLoad({draftId:r.draft.id});p.onShow();t.after(()=>p.onUnload());return {p,r,nav,modal};}
+ const calls={wake:0,retry:0};const p={data:structuredClone(pageDef.data),selectComponent:()=>({previewTransform(){},wake(){calls.wake++},retry(){calls.retry++},invalidateLayout(){}}),setData(c,callback){Object.assign(this.data,c);callback?.()}};for(const[k,v]of Object.entries(pageDef))if(typeof v==='function')p[k]=v.bind(p);
+ p.onLoad({draftId:r.draft.id});p.onShow();t.after(()=>p.onUnload());return {p,r,nav,modal,calls};}
 test('production placement page: back focus, drag, sliders, full-view invariance, confirmation and V2 navigation',async t=>{
  const {p,nav}=pageFixture(t),model=getBodyModel('back'),base=fitViewport(375,500,model),vp=focusViewport(base,model.regions.find(x=>x.id==='back-upper-back').bounds);
- p.onViewport({detail:{view:'back',modelId:model.id,modelVersion:model.version,viewport:vp}});assert.equal(p.data.view,'back');assert.equal(p.data.zoomRegion,'back-upper-back');
+ p.onViewport({detail:{view:'back',modelId:model.id,modelVersion:model.version,viewport:base}});assert.equal(p.data.view,'back');assert.equal(p.data.zoomRegion,'','a coarse entry hint must not zoom the body');
  const key=p.data.interactionKey,initial=annotationSession.snapshot();p.onDrag({detail:{key,phase:'start',delta:{x:0,y:0}}});
  p.onDrag({detail:{key,phase:'move',delta:{x:0,y:.005}}});assert.equal(annotationSession.snapshot(),initial);p.onDrag({detail:{key,phase:'end',delta:{x:0,y:.005}}});
  p.scaleChanging({detail:{value:70}});p.scaleChanged({detail:{value:70}});p.angleChanged({detail:{value:25}});assert.equal(p.data.scalePercent,70);assert.equal(p.data.angle,25);
- const transform=structuredClone(p.data.transform);p.toggleFocus();p.onViewport({detail:{view:'back',modelId:model.id,modelVersion:model.version,viewport:base}});assert.deepEqual(p.data.transform,transform);
- p.onOverlayReady({detail:{key,revision:p.data.revision,viewportKey:JSON.stringify(vp),ready:true}});await flush();assert.equal(p.data.overlayReady,false,'stale focused frame cannot acknowledge the full view');
- p.onOverlayReady({detail:{key,revision:p.data.revision,viewportKey:JSON.stringify(base),ready:true}});await flush();assert.equal(p.data.valid,true,p.data.message);p.confirmPosition();p.confirmPosition();
+ const transform=structuredClone(p.data.transform);p.toggleFocus();assert.ok(p.data.focusBounds);p.onViewport({detail:{view:'back',modelId:model.id,modelVersion:model.version,viewport:vp}});assert.deepEqual(p.data.transform,transform);
+ p.onOverlayReady({detail:{key,revision:p.data.revision,viewportKey:JSON.stringify(base),ready:true}});await flush();assert.equal(p.data.overlayReady,false,'stale full-body frame cannot acknowledge the explicit focused view');
+ p.onOverlayReady({detail:{key,revision:p.data.revision,viewportKey:JSON.stringify(vp),ready:true}});await flush();assert.equal(p.data.valid,true,p.data.message);p.confirmPosition();p.confirmPosition();
  assert.equal(p.data.confirmed,true,p.data.message);assert.equal(annotationSession.snapshot().views.back.completed.length,1);assert.equal(p.data.layer.completed.length,1);
  await flush();p.viewAnnotations();assert.match(nav.at(-1),/pages\/annotate\/annotate\?sessionId=/);
 });
@@ -158,4 +158,125 @@ test('native timer id zero is still a pending label timer and is canceled on hid
  global.setTimeout=f=>{jobs.push(f);return 0};global.clearTimeout=id=>canceled.push(id);
  try{for(let i=0;i<20;i++)p.scaleChanging({detail:{value:65+i%10}});assert.equal(jobs.length,1);p.onHide();assert.deepEqual(canceled,[0]);}
  finally{global.setTimeout=originalSet;global.clearTimeout=originalClear;}
+});
+test('overlay waiting, error and redraw states are recoverable and do not reblock an initialized page',async t=>{
+ const {p,calls}=pageFixture(t,'OVERLAY_RECOVERY'),model=getBodyModel('back'),vp=fitViewport(375,500,model),key=p.data.interactionKey;
+ p.onViewport({detail:{view:'back',modelId:model.id,modelVersion:model.version,viewport:vp}});
+ p.onOverlayReady({detail:{key,revision:p.data.revision,viewportKey:JSON.stringify(vp),ready:false,status:'waiting'}});await flush();
+ assert.equal(p.data.overlayWaiting,true);assert.equal(p.data.initialReady,false);assert.equal(p.data.error,'');
+ p.onOverlayReady({detail:{key,revision:p.data.revision,viewportKey:JSON.stringify(vp),ready:false,status:'error'}});await flush();
+ assert.equal(p.data.error,'');assert.equal(p.data.overlayFault,false);assert.equal(p.data.overlayWaiting,true);
+ assert.match(p.data.message,/自动恢复/);assert.equal(calls.retry,1,'the first native draw error triggers one automatic retry');
+ p.onOverlayReady({detail:{key,revision:p.data.revision,viewportKey:JSON.stringify(vp),ready:false,status:'error'}});await flush();
+ assert.match(p.data.error,/加载失败/);assert.equal(p.data.overlayFault,true);assert.equal(p.data.initialReady,false);
+ p.retryOverlay();assert.equal(p.data.error,'');assert.equal(p.data.overlayFault,false);assert.equal(p.data.overlayWaiting,true);
+ p.onOverlayReady({detail:{key,revision:p.data.revision,viewportKey:JSON.stringify(vp),ready:true,status:'ready'}});await flush();
+ assert.equal(p.data.initialReady,true);assert.equal(p.data.overlayReady,true);
+ const initial=p.data.transform;p.onDrag({detail:{key,phase:'start',delta:{x:0,y:0}}});
+ p.onDrag({detail:{key,phase:'end',delta:{x:.01,y:0},transform:{...initial,translation:{x:initial.translation.x+.01,y:initial.translation.y}}}});
+ assert.equal(p.data.initialReady,true,'ordinary revision redraw never restores the full-screen loading overlay');
+ assert.equal(p.data.overlayReady,false);
+ p.onOverlayReady({detail:{key,revision:p.data.revision,viewportKey:JSON.stringify(vp),ready:true,status:'ready'}});await flush();
+ assert.equal(p.data.overlayReady,true);assert.equal(p.data.initialReady,true);
+});
+test('overlay handshake accepts an equivalent frame across a transient layout revision and rejects stale geometry',t=>{
+ const {p}=pageFixture(t,'OVERLAY_HANDSHAKE'),model=getBodyModel('back'),vp=fitViewport(375,500,model),key=p.data.interactionKey,revision=p.data.revision;
+ p.onOverlayReady({detail:{key,revision,layoutRevision:p.data.layoutRevision,viewportKey:'null',viewport:null,ready:false,status:'waiting'}});
+ assert.equal(p.data.overlayWaiting,true,'waiting is observed before the body viewport has synchronised');
+ p.onViewport({detail:{view:'back',modelId:model.id,modelVersion:model.version,viewport:vp,layoutRevision:p.data.layoutRevision-1}});
+ p.onOverlayReady({detail:{key,revision,layoutRevision:p.data.layoutRevision,viewportKey:JSON.stringify(vp),viewport:vp,ready:true,status:'ready'}});
+ assert.deepEqual(p.data.viewport,vp,'the acknowledged frame supplies the exact rendered viewport');
+ assert.equal(p.data.initialReady,true);assert.equal(p.data.overlayReady,true);assert.equal(p.data.overlayWaiting,false);
+ const stale=fitViewport(375,500,model);
+ stale.offsetX+=1;
+ p.onOverlayReady({detail:{key,revision,layoutRevision:p.data.layoutRevision,viewportKey:JSON.stringify(stale),viewport:stale,ready:true,status:'ready'}});
+ assert.deepEqual(p.data.viewport,vp,'a frame from an older layout cannot replace the current placement viewport');
+ assert.equal(p.data.overlayReady,true,'a stale geometry acknowledgement does not tear down the valid current frame');
+});
+test('body viewport handoff wakes the existing overlay without destroying and re-querying it',async t=>{
+ const {p,calls}=pageFixture(t,'OVERLAY_WAKE'),model=getBodyModel('back'),vp=fitViewport(375,500,model);
+ p.onViewport({detail:{view:'back',modelId:model.id,modelVersion:model.version,viewport:vp}});
+ await flush();
+ assert.equal(calls.wake,1);assert.equal(calls.retry,0);
+});
+test('body viewport queued before onShow revision is accepted instead of causing a permanent reconnect wait',async t=>{
+ const {p,calls}=pageFixture(t,'VIEWPORT_REVISION_RACE'),model=getBodyModel('back'),vp=fitViewport(375,500,model);
+ p.setData({layoutRevision:3});
+ p.onViewport({detail:{view:'back',modelId:model.id,modelVersion:model.version,viewport:vp,layoutRevision:2}});
+ await flush();
+ assert.deepEqual(p.data.viewport,vp);
+ assert.equal(p.data.overlayWaiting,false);
+ assert.equal(p.data.error,'');
+ assert.equal(calls.wake,1);
+});
+test('legacy body-canvas failure is recovered by the stable local body fallback',async t=>{
+ const {p}=pageFixture(t,'BODY_RECOVERY'),model=getBodyModel('back'),vp=fitViewport(375,500,model);
+ p.bodyRenderError();
+ assert.equal(p.data.error,'');
+ assert.equal(p.data.overlayWaiting,false);
+ p.onViewport({detail:{view:'back',modelId:model.id,modelVersion:model.version,viewport:vp}});
+ await flush();
+ assert.deepEqual(p.data.viewport,vp);
+ assert.equal(p.data.error,'');
+ assert.equal(p.data.overlayWaiting,false);
+});
+test('zero-size placement slot falls back to the actual content window instead of leaving a blank page',async t=>{
+ const {p}=pageFixture(t,'VIEWPORT_FALLBACK');
+ global.wx.getWindowInfo=()=>({windowWidth:390,windowHeight:844});
+ p.createSelectorQuery=()=>({
+  select:()=>({
+   fields:()=>({
+    exec:callback=>callback([{width:0,height:0}]),
+   }),
+  }),
+ });
+ p.ensureViewport(true,6);
+ assert.ok(p.data.viewport);
+ assert.equal(p.data.viewport.viewportWidth,390-56*(390/750));
+ assert.equal(p.data.viewport.viewportHeight,422);
+ assert.equal(p.data.bodyFallbackVisible,true);
+ assert.ok(p.data.bodyImagePath.endsWith('/back.png'));
+ assert.equal(p.data.error,'');
+});
+test('placement entry ignores a coarse region hint and starts with the complete body',async t=>{
+ const {p}=pageFixture(t,'FULL_BODY_ENTRY'),model=getBodyModel('back');
+ p.createSelectorQuery=()=>({
+  select:()=>({
+   fields:()=>({
+    exec:callback=>callback([{width:720,height:650}]),
+   }),
+  }),
+ });
+ p.ensureViewport(true,0);
+ assert.equal(p.data.zoomRegion,'');
+ assert.equal(p.data.focusBounds,null);
+ assert.deepEqual(p.data.viewport,fitViewport(720,650,model));
+});
+test('wide-screen fallback mirrors the P9 two-column body workspace',async t=>{
+ const {p}=pageFixture(t,'WIDE_VIEWPORT_FALLBACK');
+ global.wx.getWindowInfo=()=>({windowWidth:800,windowHeight:720});
+ p.createSelectorQuery=()=>({
+  select:()=>({
+   fields:()=>({
+    exec:callback=>callback([{width:0,height:0}]),
+   }),
+  }),
+ });
+ p.ensureViewport(true,6);
+ assert.equal(p.data.viewport.viewportWidth,(800-32-16)*5/8);
+ assert.equal(p.data.viewport.viewportHeight,720-128);
+ assert.equal(p.data.zoomRegion,'');
+ assert.equal(p.data.viewport.viewportWidth,470);
+ assert.equal(p.data.viewport.viewportHeight,592);
+});
+test('overlay watchdog retries once, then reports a recoverable timeout without faking readiness',t=>{
+ const {p}=pageFixture(t,'OVERLAY_WATCHDOG'),jobs=[],originalSet=global.setTimeout,originalClear=global.clearTimeout;
+ const model=getBodyModel('back'),vp=fitViewport(375,500,model);
+ global.setTimeout=fn=>{jobs.push(fn);return jobs.length};global.clearTimeout=()=>{};
+ try{
+  p.clearOverlayWatchdog();p.armOverlayWatchdog();assert.equal(jobs.length,0,'body viewport is not reported as an overlay reconnect timeout');
+  p.setData({viewport:vp});p.armOverlayWatchdog();assert.equal(jobs.length,1);
+  jobs[0]();assert.equal(p.data.overlayWaiting,true);assert.equal(p.data.initialReady,false);assert.equal(p.data.error,'');assert.equal(jobs.length,2);
+  jobs[1]();assert.equal(p.data.initialReady,false);assert.match(p.data.error,/加载超时/);assert.equal(p.data.overlayFault,true);
+ }finally{global.setTimeout=originalSet;global.clearTimeout=originalClear;}
 });

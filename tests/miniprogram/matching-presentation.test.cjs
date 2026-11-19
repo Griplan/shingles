@@ -54,6 +54,7 @@ function harness(){
  let def;global.Page=d=>{def=d;};const file=path.join(process.env.DERMATOME_BUILD_DIR,'packages/clinical/pages/annotate/annotate.js');delete require.cache[require.resolve(file)];require(file);
  const requests=[],replies=[],routes=[];
  global.wx={getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}}),getWindowInfo:()=>({windowHeight:603}),getSystemInfoSync:()=>({platform:'devtools'}),
+  nextTick:callback=>setImmediate(callback),
   request:o=>{if(o.url.endsWith('/api/v1/access/session')){o.success({statusCode:200,data:{access_token:'ACCESS_'+'d'.repeat(48),token_type:'Bearer',access_kind:'public_test',expires_at:Date.now()/1000+3600}});return;}requests.push(o);replies.push(()=>{const req=o.data;
    const cov=(view,ids)=>({view,lesion_ids:ids,annotation_area:1,covered_area:.8,uncovered_area:.2,covered_ratio:.8,uncovered_ratio:.2,coverage_status:'partial',
     candidates:candidates(view).slice(0,8)});
@@ -105,6 +106,34 @@ test('prepared view race, request during view switch, stale frame and informatio
  p.continueEditing();p.fullBody();assert.equal(JSON.stringify({result:p.data.resultMode,focus:p.data.focusBounds,session:p.data.session}),beforeBlocked);
  let copied='';wx.setClipboardData=o=>{copied=o.data;o.success();};p.copySource(event({id:'license'}));assert.match(copied,/creativecommons.org\/licenses\/by-sa\/4.0/);p.closeInfo();
  p.onHide();p.onUnload();
+});
+test('matching result ignores stale Canvas failures, retries once and keeps body usable when recovery succeeds',async()=>{
+ const h=harness(),p=h.open();
+ const started=p.calculate();await flush();h.replies.shift()();await started;
+ let redraws=0;p.selectComponent=()=>({refreshCanvas(){redraws++;}});
+ p.onSceneReady({detail:{sceneId:p.data.sceneId,view:p.data.view}});
+ assert.equal(p.data.sceneReady,true);
+ p.onRenderError({detail:{sceneId:p.data.sceneId-1,view:p.data.view,code:'LAYOUT_UNAVAILABLE'}});
+ assert.equal(p.data.sceneReady,true);
+ assert.equal(p.data.renderError,false);
+ assert.equal(redraws,0);
+ p.onRenderError({detail:{sceneId:p.data.sceneId,view:p.data.view,code:'LAYOUT_UNAVAILABLE'}});
+ assert.equal(p.data.renderError,false);
+ assert.equal(p.data.sceneReady,false);
+ assert.equal(p.data.message,'画布正在自动恢复…');
+ await flush();
+ assert.equal(redraws,1);
+ p.onSceneReady({detail:{sceneId:p.data.sceneId,view:p.data.view}});
+ assert.equal(p.data.sceneReady,true);
+ assert.equal(p.data.renderError,false);
+ assert.equal(p.data.message,'');
+ p.onRenderError({detail:{sceneId:p.data.sceneId,view:p.data.view,code:'LAYOUT_UNAVAILABLE'}});
+ assert.equal(p.data.renderError,false);
+ await flush();
+ p.onRenderError({detail:{sceneId:p.data.sceneId,view:p.data.view,code:'LAYOUT_UNAVAILABLE'}});
+ assert.equal(p.data.renderError,true);
+ assert.equal(p.data.sceneReady,false);
+ p.onUnload();
 });
 test('confirmed polygons fill immediately once each, result outline mode preserves rings and stroke across viewports',()=>{
  const {drawLesions}=load('components/body-canvas/lesion-render.js'),{modelBasis}=load('state/annotation-session.js'),model=getBodyModel('front');

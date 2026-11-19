@@ -227,7 +227,7 @@ curl -i -X POST http://127.0.0.1:8000/api/v1/evaluate
 | POST `/{sid}/confirm` | `photo_id, result_id, candidate_id, prompt_revision` | 下述 `confirmed-photo-segmentation-v1` |
 | DELETE `/{sid}` | 无 | 204并删除临时派生数据；已失效410，前端按已清理处理 |
 
-除创建以外，所有请求必须携带 `x-ai-session-key: <session_token>`；令牌不得放URL。每次更换照片创建新会话并删除旧会话，不复用照片ID。返回和素材均 `Cache-Control: no-store`，只允许表内文件名，绝不返回服务器真实路径。时间字段为UTC Unix秒。2026-11-13起使用 `AI_IDLE_SECONDS`（默认900秒）闲置期限，有效认证访问刷新 last_activity_at/expires_at；expires_at是当前截止快照，客户端不按创建响应自行取消。活动推理受保护；重复DELETE返回204。放置画面绘制就绪后异步删除，最多3次尝试，失败由独立扫描兜底。历史固定TTL描述由此覆盖。
+除创建以外，所有请求必须携带 `x-ai-session-key: <session_token>`；令牌不得放URL。每次更换照片创建新会话并删除旧会话，不复用照片ID。返回和素材均 `Cache-Control: no-store`，只允许表内文件名，绝不返回服务器真实路径。时间字段为UTC Unix秒。P12.1起 `AI_IDLE_SECONDS` 默认120秒，有效认证访问刷新 last_activity_at/expires_at；expires_at是当前截止快照，客户端不按创建响应自行取消。活动推理受保护；重复DELETE返回204。放置画面绘制就绪后异步删除，最多3次尝试，失败由独立扫描兜底。历史固定TTL描述由此覆盖。
 
 `image`包括：方向处理前 `stored_width/stored_height`、处理后 `width/height`、`exif_orientation`、`orientation_applied`、`orientation_policy:"exif_transpose_before_prompts"`、`alpha_background:"white"`、`metadata_stripped:true`、`oriented_rgb_sha256`。前端必须显示服务器返回的已定向照片再给提示，不将本地可能有EXIF的预览作为坐标基准。
 
@@ -280,7 +280,7 @@ mask_sha256 = 原尺寸Mask PNG文件SHA256
 | 45秒服务超时 | 504 / AI_TIMEOUT；前端60秒网络超时也明确报错 |
 | 未预期异常 | 500 / INTERNAL_ERROR，无内部路径或输入回显 |
 
-限制：JPEG/PNG/WebP单帧，20MiB、12M像素、单边8192、最小8；实际请求体文件额外只容许64KiB multipart开销，其他写请求16KiB。结果record>8MiB明确失败，不截断。最多8会话、2个在途写请求、全局1个推理槽、单worker；不作为生产限流保证。超时线程不强杀但结果失效，取消/到期后不得再发布。清理及异常退出细节见[privacy.md](privacy.md)。实测、替身测试与NOT_RUN分开见[验证报告](validation-records/v5.2/report.md)。
+限制：JPEG/PNG/WebP单帧，传输和源文件最高50MiB、源图最高5000万像素、单边10000、最小8；实际请求体文件额外只容许64KiB multipart开销，其他写请求16KiB。受控环境在生成RGB/Mask及MobileSAM输入前等比缩至3MP，development/test缩至12MP；源文件限制与推理限制分开。结果record>8MiB明确失败，不截断。最多8会话、2个在途写请求、全局1个推理槽、单worker；不作为生产限流保证。超时线程不强杀但结果失效，取消/到期后不得再发布。清理及异常退出细节见[privacy.md](privacy.md)。本轮专项见[P12.1报告](validation-records/p12.1-backend-image-session-limits/report.md)。
 
 ## V5.4 evaluate 完整人体几何增量（2026-11-01）
 

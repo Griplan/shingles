@@ -11,34 +11,41 @@ function context(){const calls=[];const ctx=new Proxy({calls},{get(o,k){if(k in 
 for(const count of [100,500,2000])for(const multi of [false,true])test(`preview caches ${count} vertices / ${multi?'five pieces with five holes':'single piece'} without modifying source or final geometry`,()=>{
  const source=syntheticPhoto(count,multi),original=JSON.stringify(source),prepared=g.preparePhotoGeometry(source),cached=[];
  global.wx={createOffscreenCanvas({width,height}){const ctx=context(),node={width,height,getContext:()=>ctx};cached.push({ctx,node});return node}};
- const preview=new PlacementPreview(prepared);assert.equal(cached.length,1);assert.ok(cached[0].node.width<=2048&&cached[0].node.height<=2048);
+ const preview=new PlacementPreview(prepared);assert.equal(cached.length,1);assert.ok(cached[0].node.width<=516&&cached[0].node.height<=516);
  assert.equal(cached[0].ctx.calls.filter(c=>c[0]==='lineTo'||c[0]==='moveTo').length,count);
  assert.equal(cached[0].ctx.calls.filter(c=>c[0]==='closePath').length,multi?10:1);
+ assert.equal(cached[0].ctx.calls.filter(c=>c[0]==='fill').length,1,'all components share one raster fill');
  const base=g.initialPlacement(prepared,model,region),ctx=context();
  for(let i=0;i<120;i++)preview.draw(ctx,focusViewport(fitViewport(375,500,model),region.bounds),{...base,scale:.5+i/200,rotationDegrees:i-60},model,true);
  assert.equal(cached.length,1,'no cache recreation for translation/scale/rotation');assert.equal(ctx.calls.filter(c=>c[0]==='drawImage').length,120);
  assert.equal(ctx.calls.filter(c=>c[0]==='lineTo').length,360,'only 3 box edges each moving frame, never source rings');
  assert.equal(ctx.calls.filter(c=>c[0]==='fill').length,0);
  const settled=context();preview.draw(settled,fitViewport(320,500,model),base,model,false);
- assert.equal(settled.calls.filter(c=>c[0]==='lineTo'||c[0]==='moveTo').length,count,'settled preview draws every original vertex');
- assert.equal(settled.calls.filter(c=>c[0]==='closePath').length,multi?10:1);assert.equal(JSON.stringify(source),original);
+ assert.equal(settled.calls.filter(c=>c[0]==='drawImage').length,1,'settled frame reuses the immutable raster cache');
+ assert.equal(settled.calls.filter(c=>c[0]==='lineTo'||c[0]==='moveTo').length,0,'settled frame never traverses the source rings');
+ assert.equal(settled.calls.filter(c=>c[0]==='fill'||c[0]==='closePath').length,0);assert.equal(JSON.stringify(source),original);
  preview.dispose();assert.equal(cached[0].node.width,1);assert.equal(cached[0].node.height,1);
 });
-test('in-flight state changes only immutable scalar transform; settle validates once and confirm recomputes fully once',()=>{
+test('in-flight state changes only immutable scalar transform; settle and confirm use the trusted fast path once each',()=>{
  const annotations=new AnnotationSessionStore(),store=new PlacementSessionStore(annotations),source=syntheticPhoto(2000,true),r=store.open(source,'back',region.id,()=>true),id=r.draft.id,owner=store.acquire(id),before=annotations.snapshot(),initial=r.draft;
- let transforms=0,checks=0;const transform=g.transformPhotoPolygonToBody,validate=g.validatePlacementGeometry;
- g.transformPhotoPolygonToBody=(...a)=>{transforms++;return transform(...a)};g.validatePlacementGeometry=(...a)=>{checks++;return validate(...a)};
+ let transforms=0,fastChecks=0,fullChecks=0;const transform=g.transformPhotoPolygonToBody,
+  validateFast=g.validateTransformedPlacementGeometry,validateFull=g.validatePlacementGeometry;
+ g.transformPhotoPolygonToBody=(...a)=>{transforms++;return transform(...a)};
+ g.validateTransformedPlacementGeometry=(...a)=>{fastChecks++;return validateFast(...a)};
+ g.validatePlacementGeometry=(...a)=>{fullChecks++;return validateFull(...a)};
  try{
   for(let i=0;i<120;i++){const result=store.update(id,owner,{...initial.transform,scale:.5+i/400,rotationDegrees:i/5},false);assert.equal(result.ok,true);assert.equal(result.draft.geometry,initial.geometry);assert.equal(result.draft.prepared,initial.prepared);}
-  assert.equal(transforms,0);assert.equal(checks,0);assert.equal(annotations.snapshot(),before);
+  assert.equal(transforms,0);assert.equal(fastChecks,0);assert.equal(fullChecks,0);assert.equal(annotations.snapshot(),before);
   assert.equal(store.confirm(id,owner).ok,false,'in-flight cached geometry cannot commit');
   const d=store.read(id,owner).draft,t={...d.transform,scale:.7,rotationDegrees:25};const settled=store.update(id,owner,t,true);
-  assert.equal(settled.draft.validation.ok,true);assert.equal(transforms,1);assert.equal(checks,1);assert.equal(settled.draft.geometryRevision,settled.draft.revision);
+  assert.equal(settled.draft.validation.ok,true);assert.equal(transforms,1);assert.equal(fastChecks,1);assert.equal(fullChecks,0);
+  assert.equal(settled.draft.geometryRevision,settled.draft.revision);
   store.update(id,owner,t,true);assert.equal(transforms,1,'duplicate end callback does not repeat checks');
-  assert.equal(store.confirm(id,owner).ok,true);assert.equal(transforms,2);assert.equal(checks,2,'confirmation never trusts an earlier successful check');
+  assert.equal(store.confirm(id,owner).ok,true);assert.equal(transforms,2);assert.equal(fastChecks,2);assert.equal(fullChecks,0,
+   'confirmation reconfirms the trusted prepared geometry without repeating internal topology checks');
   const saved=annotations.snapshot().views.back.completed[0];assert.deepEqual(saved.geometry,transform(initial.prepared,t,model));assert.equal(saved.geometry.coordinates.flat(2).length,2000);
   assert.equal(saved.geometry.coordinates.length,5);assert.equal(saved.geometry.coordinates.reduce((n,p)=>n+p.length-1,0),5);assert.deepEqual(saved.source.photo,source);
- }finally{g.transformPhotoPolygonToBody=transform;g.validatePlacementGeometry=validate;}
+ }finally{g.transformPhotoPolygonToBody=transform;g.validateTransformedPlacementGeometry=validateFast;g.validatePlacementGeometry=validateFull;}
 });
 test('invalid scalar parameters still reject without an intermediate full transform',()=>{
  const store=new PlacementSessionStore(new AnnotationSessionStore()),r=store.open(syntheticPhoto(),'back',region.id,()=>true),owner=store.acquire(r.draft.id);
@@ -64,7 +71,7 @@ test('unsupported offscreen or failing cached draw falls back to complete vector
  for(const mode of ['missing','create-fails','draw-fails']){
   global.wx=mode==='missing'?{}:{createOffscreenCanvas(){if(mode==='create-fails')throw Error('unsupported');return {width:10,height:10,getContext:()=>context()}}};
   const preview=new PlacementPreview(p),ctx=context();if(mode==='draw-fails')ctx.drawImage=()=>{throw Error('canvas source unsupported')};
-  preview.draw(ctx,v,t,model,true);assert.equal(ctx.calls.filter(c=>c[0]==='fill').length,5);assert.equal(ctx.calls.filter(c=>c[0]==='closePath').length,11);
+  preview.draw(ctx,v,t,model,true);assert.equal(ctx.calls.filter(c=>c[0]==='fill').length,1);assert.equal(ctx.calls.filter(c=>c[0]==='closePath').length,11);
  }
 });
 let def;global.Component=d=>def=d;load('packages/clinical/components/placement-overlay/placement-overlay.js');

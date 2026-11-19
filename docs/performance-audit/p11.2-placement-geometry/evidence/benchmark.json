@@ -1,0 +1,305 @@
+{
+  "schema": "p11.2-placement-geometry-benchmark-v1",
+  "generatedAt": "2026-11-17T08:03:56.397Z",
+  "baselineCommit": "27b41f6744c264fbabb3af1bf08ac0b99075cfda",
+  "environment": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "node": "v24.11.1",
+    "cpu": "Apple M4",
+    "logicalCpus": 10,
+    "memoryBytes": {
+      "start": {
+        "rss": 148520960,
+        "heapTotal": 47677440,
+        "heapUsed": 34306080,
+        "external": 2021638,
+        "arrayBuffers": 16655
+      },
+      "peakObserved": {
+        "rss": 472432640,
+        "heapTotal": 318029824,
+        "heapUsed": 211147608,
+        "external": 2051049,
+        "arrayBuffers": 16655
+      },
+      "end": {
+        "rss": 338149376,
+        "heapTotal": 300449792,
+        "heapUsed": 211148280,
+        "external": 2049753,
+        "arrayBuffers": 16619
+      }
+    }
+  },
+  "method": {
+    "repetitions": 1,
+    "note": "Each sample is transformed from photo pixels with the same initial placement and validated against the real back-body model. Native WeChat device timing and frame rate are NOT_RUN."
+  },
+  "rows": [
+    {
+      "name": "50 vertices",
+      "before": {
+        "components": 1,
+        "rings": 1,
+        "holes": 0,
+        "vertices": 50,
+        "prepareMs": 0.824,
+        "cachedPrepareMs": null,
+        "transformMs": 0.095,
+        "fullValidationMs": 2.73,
+        "fastValidationMs": null,
+        "totalMs": 3.649,
+        "validation": {
+          "ok": true
+        },
+        "fullValidation": {
+          "ok": true
+        }
+      },
+      "after": {
+        "components": 1,
+        "rings": 1,
+        "holes": 0,
+        "vertices": 50,
+        "prepareMs": 0.844,
+        "cachedPrepareMs": 0.019,
+        "transformMs": 0.095,
+        "fullValidationMs": 3.076,
+        "fastValidationMs": 0.374,
+        "totalMs": 1.313,
+        "validation": {
+          "ok": true
+        },
+        "fullValidation": {
+          "ok": true
+        }
+      },
+      "improvement": {
+        "prepare": 0.976,
+        "validation": 7.2994652406417115,
+        "total": 2.779131759329779
+      }
+    },
+    {
+      "name": "2000 vertices",
+      "before": {
+        "components": 1,
+        "rings": 1,
+        "holes": 0,
+        "vertices": 2000,
+        "prepareMs": 3.073,
+        "cachedPrepareMs": null,
+        "transformMs": 0.183,
+        "fullValidationMs": 6.436,
+        "fastValidationMs": null,
+        "totalMs": 9.692,
+        "validation": {
+          "ok": true
+        },
+        "fullValidation": {
+          "ok": true
+        }
+      },
+      "after": {
+        "components": 1,
+        "rings": 1,
+        "holes": 0,
+        "vertices": 2000,
+        "prepareMs": 3.108,
+        "cachedPrepareMs": 0.285,
+        "transformMs": 0.167,
+        "fullValidationMs": 5.353,
+        "fastValidationMs": 2.733,
+        "totalMs": 6.007,
+        "validation": {
+          "ok": true
+        },
+        "fullValidation": {
+          "ok": true
+        }
+      },
+      "improvement": {
+        "prepare": 0.989,
+        "validation": 2.35492133186974,
+        "total": 1.6134509738638256
+      }
+    },
+    {
+      "name": "real 6018 vertices / 389 pieces / 301 holes",
+      "before": {
+        "components": 389,
+        "rings": 690,
+        "holes": 301,
+        "vertices": 6018,
+        "prepareMs": 11494.467,
+        "cachedPrepareMs": null,
+        "transformMs": 0.425,
+        "fullValidationMs": 11795.568,
+        "fastValidationMs": null,
+        "totalMs": 23290.46,
+        "validation": {
+          "ok": true
+        },
+        "fullValidation": {
+          "ok": true
+        }
+      },
+      "after": {
+        "components": 389,
+        "rings": 690,
+        "holes": 301,
+        "vertices": 6018,
+        "prepareMs": 257.371,
+        "cachedPrepareMs": 0.702,
+        "transformMs": 0.461,
+        "fullValidationMs": 246.325,
+        "fastValidationMs": 9.473,
+        "totalMs": 267.305,
+        "validation": {
+          "ok": true
+        },
+        "fullValidation": {
+          "ok": true
+        }
+      },
+      "improvement": {
+        "prepare": 44.661,
+        "validation": 1245.1776628312043,
+        "total": 87.13065599221862
+      }
+    },
+    {
+      "name": "500 holes",
+      "before": {
+        "components": 1,
+        "rings": 501,
+        "holes": 500,
+        "vertices": 2505,
+        "prepareMs": 2572.59,
+        "cachedPrepareMs": null,
+        "transformMs": 0.274,
+        "fullValidationMs": 2585.104,
+        "fastValidationMs": null,
+        "totalMs": 5157.969,
+        "validation": {
+          "ok": true
+        },
+        "fullValidation": {
+          "ok": true
+        }
+      },
+      "after": {
+        "components": 1,
+        "rings": 501,
+        "holes": 500,
+        "vertices": 2505,
+        "prepareMs": 9.306,
+        "cachedPrepareMs": 0.313,
+        "transformMs": 0.07,
+        "fullValidationMs": 9.885,
+        "fastValidationMs": 6.053,
+        "totalMs": 15.429,
+        "validation": {
+          "ok": true
+        },
+        "fullValidation": {
+          "ok": true
+        }
+      },
+      "improvement": {
+        "prepare": 276.444,
+        "validation": 427.07814306955225,
+        "total": 334.3035193466848
+      }
+    },
+    {
+      "name": "1000 holes",
+      "before": {
+        "components": 1,
+        "rings": 1001,
+        "holes": 1000,
+        "vertices": 5005,
+        "prepareMs": 10410.931,
+        "cachedPrepareMs": null,
+        "transformMs": 0.43,
+        "fullValidationMs": 10246.147,
+        "fastValidationMs": null,
+        "totalMs": 20657.509,
+        "validation": {
+          "ok": true
+        },
+        "fullValidation": {
+          "ok": true
+        }
+      },
+      "after": {
+        "components": 1,
+        "rings": 1001,
+        "holes": 1000,
+        "vertices": 5005,
+        "prepareMs": 18.259,
+        "cachedPrepareMs": 0.598,
+        "transformMs": 0.146,
+        "fullValidationMs": 24.557,
+        "fastValidationMs": 10.35,
+        "totalMs": 28.755,
+        "validation": {
+          "ok": true
+        },
+        "fullValidation": {
+          "ok": true
+        }
+      },
+      "improvement": {
+        "prepare": 570.181,
+        "validation": 989.9658937198069,
+        "total": 718.3971135454703
+      }
+    },
+    {
+      "name": "2000 holes",
+      "before": {
+        "components": 1,
+        "rings": 2001,
+        "holes": 2000,
+        "vertices": 10005,
+        "prepareMs": 40916.75,
+        "cachedPrepareMs": null,
+        "transformMs": 0.799,
+        "fullValidationMs": 41516.538,
+        "fastValidationMs": null,
+        "totalMs": 82434.087,
+        "validation": {
+          "ok": true
+        },
+        "fullValidation": {
+          "ok": true
+        }
+      },
+      "after": {
+        "components": 1,
+        "rings": 2001,
+        "holes": 2000,
+        "vertices": 10005,
+        "prepareMs": 56.344,
+        "cachedPrepareMs": 1.243,
+        "transformMs": 0.821,
+        "fullValidationMs": 61.112,
+        "fastValidationMs": 21.182,
+        "totalMs": 78.347,
+        "validation": {
+          "ok": true
+        },
+        "fullValidation": {
+          "ok": true
+        }
+      },
+      "improvement": {
+        "prepare": 726.195,
+        "validation": 1959.9914077990748,
+        "total": 1052.1664773379964
+      }
+    }
+  ]
+}

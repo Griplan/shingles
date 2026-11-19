@@ -4,8 +4,9 @@ import { BodyModelConfig, BodyView, NormalizedPoint } from "../types/dermatome";
 import { bodyGeometry } from "../utils/annotation-geometry";
 import {editManualView} from "../utils/manual-annotation";
 import type { ConfirmedPhoto } from "../types/ai";
-import type { BodyMultiPolygon, PlacementTransform } from "../types/placement";
-import { preparePhotoGeometry, transformPhotoPolygonToBody, validatePlacementGeometry } from "../utils/placement-geometry";
+import type { BodyMultiPolygon, PlacementTransform, PreparedPhotoGeometry } from "../types/placement";
+import { preparedPhotoMatchesSource, preparePhotoGeometry, transformPhotoPolygonToBody,
+  validatePlacementGeometry, validateTransformedPlacementGeometry } from "../utils/placement-geometry";
 
 export const MAX_REGIONS_PER_VIEW=20;
 export type SessionResult={readonly ok:true;readonly session:AnnotationSession} | {readonly ok:false;readonly message:string};
@@ -23,6 +24,8 @@ export interface PlacementCommit {
   readonly clippedFromGeometry?:BodyMultiPolygon;
   readonly clip?:{readonly method:"body_intersection_v1";readonly outsideAreaRatio:number};
   readonly source:ConfirmedPhoto;
+  /** Reused only when its source fingerprint still matches payload.source. */
+  readonly prepared?:PreparedPhotoGeometry;
   readonly transform:PlacementTransform;
   /** The confirmed photo geometry was copied into placement before the temporary server source was released. */
   readonly sourceDetached?:boolean;
@@ -139,9 +142,10 @@ export class AnnotationSessionStore {
     let geometry:BodyMultiPolygon;
     let clipped=false;
     try {
-      const prepared=preparePhotoGeometry(payload.source);
+      const trustedPrepared=payload.prepared && preparedPhotoMatchesSource(payload.prepared,payload.source)?payload.prepared:null;
+      const prepared=trustedPrepared||preparePhotoGeometry(payload.source);
       geometry=transformPhotoPolygonToBody(prepared,payload.transform,model);
-      const checked=validatePlacementGeometry(geometry,model);
+      const checked=trustedPrepared?validateTransformedPlacementGeometry(geometry,model):validatePlacementGeometry(geometry,model);
       clipped=!!(payload.clippedFromGeometry&&payload.clip);
       if(clipped){
         if(payload.clip?.method!=="body_intersection_v1"||!Number.isFinite(payload.clip.outsideAreaRatio)||
@@ -149,7 +153,8 @@ export class AnnotationSessionStore {
           return fail("有效人体交集信息无效，请重新调整位置");
         if(JSON.stringify(geometry)!==JSON.stringify(payload.clippedFromGeometry))
           return fail("原始轮廓与调整参数不一致，请重新检查位置");
-        const rawCheck=validatePlacementGeometry(payload.clippedFromGeometry!,model);
+        const rawCheck=trustedPrepared?validateTransformedPlacementGeometry(payload.clippedFromGeometry!,model):
+          validatePlacementGeometry(payload.clippedFromGeometry!,model);
         if(rawCheck.ok||rawCheck.code!=="OUTSIDE_BODY")
           return fail("原始轮廓与人体交集状态不一致，请重新调整位置");
         const effective=validatePlacementGeometry(payload.geometry,model);

@@ -1,7 +1,7 @@
 <view class="body-page p9-page">
   <view class="browse-layout">
     <view class="page-heading"><text class="body-title">完整人体标注</text><view class="utility-actions"><view class="utility-link" aria-role="button" bindtap="openSpecialParts">特殊部位</view></view></view>
-    <view wx:if="{{debugEnabled || selectionMessage || mode === 'focused'}}" class="interaction-hint">{{debugEnabled ? '坐标调试中，人体点击暂停。' : selectionMessage || '局部查看中，返回全身后可继续标注。'}}</view>
+    <view class="interaction-hint" aria-live="polite">{{debugEnabled ? '坐标调试中，人体点击暂停。' : selectionMessage || (mode === 'focused' ? '局部查看中，返回全身后可继续标注。' : '')}}</view>
     <view class="view-switch">
       <button class="body-button view-tab {{view === 'front' ? 'is-active' : ''}}" data-view="front" bindtap="switchView" aria-pressed="{{view === 'front'}}">正面</button>
       <button class="body-button view-tab {{view === 'back' ? 'is-active' : ''}}" data-view="back" bindtap="switchView" aria-pressed="{{view === 'back'}}">背面</button>

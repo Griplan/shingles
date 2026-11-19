@@ -1,0 +1,80 @@
+{
+  "endpoint": "http://212.64.26.206/dermatome-test",
+  "input": "CDC PHIL 21505 public educational fixture",
+  "input_sha256": "5e63ed3fb2b18143c8fe1f03254880e1bca144e2be6e42232ee5005b74ff062b",
+  "checks": [
+    {
+      "name": "health",
+      "status": 200,
+      "ms": 76.08
+    },
+    {
+      "name": "access_session",
+      "status": 200,
+      "ms": 34.69
+    },
+    {
+      "name": "ready",
+      "status": 200,
+      "ms": 177.79,
+      "ai_model_loaded_before": false
+    },
+    {
+      "name": "ai_session_create",
+      "status": 200,
+      "ms": 28.57
+    },
+    {
+      "name": "photo_upload",
+      "status": 200,
+      "ms": 295.1,
+      "image_width": 700,
+      "image_height": 460,
+      "source_pixels": 322000,
+      "inference_pixel_limit": 3000000,
+      "server_resized": false
+    },
+    {
+      "name": "mobile_sam_segment",
+      "status": 200,
+      "ms": 6105.56,
+      "coordinate_space": "photo_oriented_normalized_v1",
+      "candidate_count": 3,
+      "ok_candidate_count": 3,
+      "selected_candidate": "candidate-0",
+      "selected_area_ratio": 0.047683229813664595,
+      "selected_component_count": 16,
+      "selected_hole_count": 25
+    },
+    {
+      "name": "confirm",
+      "status": 200,
+      "ms": 115.25,
+      "confirmed_by_user": true,
+      "coordinate_space": "photo_oriented_normalized_v1",
+      "geometry_type": "MultiPolygon",
+      "polygon_parts": 16,
+      "hole_count": 25
+    },
+    {
+      "name": "mask_asset",
+      "status": 200,
+      "ms": 46.27,
+      "bytes": 2321,
+      "png_signature": true
+    },
+    {
+      "name": "session_delete",
+      "status": 204,
+      "ms": 52.04
+    },
+    {
+      "name": "deleted_session_gone",
+      "status": 410,
+      "ms": 27.58
+    }
+  ],
+  "passed": 10,
+  "failed": 0,
+  "medical_accuracy": "NOT_MEASURED"
+}

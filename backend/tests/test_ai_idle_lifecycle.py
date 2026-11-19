@@ -3,6 +3,15 @@ from app.services.ai_sessions import AISessions, AIError
 import pytest
 
 
+def test_default_idle_ttl_is_two_minutes(tmp_path, monkeypatch):
+    monkeypatch.delenv("AI_IDLE_SECONDS", raising=False)
+    service = AISessions(tmp_path)
+    created = service.create()
+    assert service.ttl == 120
+    assert created["expires_at"] - service.sessions[created["session_id"]]["last_activity_at"] == pytest.approx(120)
+    service.close()
+
+
 def test_activity_slides_idle_deadline_and_sweep_reclaims_without_request(tmp_path):
     now=[100.0]
     service=AISessions(tmp_path,clock=lambda:now[0],ttl=10)
@@ -38,3 +47,20 @@ def test_idle_state_restored_with_last_activity_and_stopped_cleanup(tmp_path,mon
     from deployment.cleanup import cleanup
     cleanup(restored.root,now=120)
     assert not (restored.root/s['session_id']).exists()
+
+
+def test_stopped_cleanup_uses_two_minute_fallback_for_unreadable_state(tmp_path):
+    from deployment.cleanup import cleanup
+
+    root = tmp_path / "v5-ai-sessions"
+    root.mkdir()
+    stale = root / ("a" * 32)
+    stale.mkdir()
+    (stale / "upload.bin").write_bytes(b"temporary")
+    import os
+    os.utime(stale, (100, 100))
+
+    cleanup(root, now=219)
+    assert stale.exists()
+    cleanup(root, now=220)
+    assert not stale.exists()

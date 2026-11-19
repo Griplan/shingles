@@ -4,7 +4,8 @@ from fastapi import APIRouter, Request
 from fastapi.responses import Response
 from starlette.concurrency import run_in_threadpool
 from app.schemas.ai import SessionCreated, PhotoUploaded, SegmentRequest, SegmentResponse, ConfirmRequest, ConfirmedPhoto, EditRequest, EditedCandidate
-from app.services.ai_sessions import AIError, MAX_UPLOAD, TIMEOUT
+from app.services.ai_limits import MAX_UPLOAD_BYTES
+from app.services.ai_sessions import AIError, TIMEOUT
 
 router=APIRouter(prefix='/ai/sessions',tags=['ai-development'])
 def runtime(request):
@@ -27,10 +28,10 @@ def create(request:Request): return runtime(request).create(request.scope.get('t
 async def upload(sid:str,request:Request):
     service,token=auth(request,sid)
     try:
-        async with request.form(max_files=1,max_fields=0,max_part_size=MAX_UPLOAD) as form:
+        async with request.form(max_files=1,max_fields=0,max_part_size=MAX_UPLOAD_BYTES) as form:
             file=form.get('file')
             if len(form)!=1 or not hasattr(file,'read'): raise AIError('INVALID_IMAGE','请上传单张图片')
-            data=await file.read(MAX_UPLOAD+1)
+            data=await file.read(MAX_UPLOAD_BYTES+1)
             return await run_in_threadpool(service.upload,sid,token,data)
     except AIError: raise
     except ImportError: raise AIError('AI_UNAVAILABLE','AI上传依赖未安装，仍可使用手动标注',503) from None

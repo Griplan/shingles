@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "人体区域浏览",
+  "disableScroll": true,
   "usingComponents": {
     "body-canvas": "/components/body-canvas/body-canvas",
     "region-picker": "/components/region-picker/region-picker"

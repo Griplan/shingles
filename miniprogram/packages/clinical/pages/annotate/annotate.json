@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "范围与参考",
+  "disableScroll": true,
   "usingComponents": {"body-canvas":"/components/body-canvas/body-canvas"}
 }

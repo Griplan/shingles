@@ -10,10 +10,17 @@ import shutil
 import threading
 import time
 from app.services.access import controlled, feature_enabled, upload_limit
+from app.services.ai_limits import (
+    CONTROLLED_INFERENCE_PIXELS,
+    IDLE_SECONDS,
+    MAX_SOURCE_PIXELS,
+    MAX_UPLOAD_BYTES,
+    STANDARD_INFERENCE_PIXELS,
+)
 
 ROOT = Path(__file__).resolve().parents[3]
-MAX_UPLOAD = 20 * 1024 * 1024
-TTL = 15 * 60
+MAX_UPLOAD = MAX_UPLOAD_BYTES
+TTL = IDLE_SECONDS
 MAX_SESSIONS = 8
 TIMEOUT = 45
 
@@ -124,7 +131,7 @@ class AISessions:
             self.get(sid,token); self._delete(sid)
 
     def upload(self,sid,token,data):
-        from ai.preprocessing.image import prepare_image
+        from app.services.ai_image_input import prepare_upload_image
         from ai.errors import SegmentationError
         from PIL import Image
         with self.lock:
@@ -134,7 +141,16 @@ class AISessions:
             p=self.root/sid/'upload.bin'
             try:
                 p.write_bytes(data)
-                image=prepare_image(p,max_bytes=upload_limit(),max_pixels=3_000_000 if controlled() else 12_000_000)
+                image=prepare_upload_image(
+                    p,
+                    max_bytes=upload_limit(),
+                    max_source_pixels=MAX_SOURCE_PIXELS,
+                    inference_pixels=(
+                        CONTROLLED_INFERENCE_PIXELS
+                        if controlled()
+                        else STANDARD_INFERENCE_PIXELS
+                    ),
+                )
                 image_meta={**image.metadata,'oriented_rgb_sha256':hashlib.sha256(image.rgb.tobytes()).hexdigest()}
                 Image.fromarray(image.rgb).save(self.root/sid/'photo.png')
                 s.update(photo_id=secrets.token_hex(16),image=image_meta)

@@ -1,26 +1,27 @@
-<view wx:if="{{!overlayReady && !error}}" class="placement-loading">正在加载人体与病灶范围…</view>
 <view class="placement-page p9-page p9-photo-workflow">
  <view class="heading"><text>{{context}}</text><button class="text-button" bindtap="backPhoto">{{editingSaved ? '返回标注' : '返回照片'}}</button></view>
  <view class="view-switch"><button class="body-button view-tab {{view === 'front' ? 'is-active' : ''}}" data-view="front" disabled="{{confirmed || dragging || calculating}}" bindtap="switchView">正面</button><button class="body-button view-tab {{view === 'back' ? 'is-active' : ''}}" data-view="back" disabled="{{confirmed || dragging || calculating}}" bindtap="switchView">背面</button></view>
  <view class="instruction">{{calculating ? '正在计算参考对应，标注已保存…' : confirmed ? '位置已确认，已保存到本次标注' : '移动并调整病灶范围'}}</view>
  <view class="p9-split">
  <view class="body-stage p9-stage">
-  <body-canvas view="{{view}}" zoom-region="{{zoomRegion}}" focus-bounds="{{focusBounds}}" annotation="{{layer}}" interaction-mode="readonly" touch-disabled="{{true}}" layout-revision="{{layoutRevision}}" bind:viewportchange="onViewport"></body-canvas>
-  <placement-overlay id="placement-preview" wx:if="{{prepared && transform && !confirmed}}" class="overlay" view="{{view}}" prepared="{{prepared}}" transform="{{transform}}" viewport="{{viewport}}" revision="{{revision}}" interaction-key="{{interactionKey}}" disabled="{{dialog || !!error}}" bind:placementdrag="onDrag" bind:renderstate="onOverlayReady"></placement-overlay>
+  <view class="body-canvas-slot"><image wx:if="{{bodyImagePath && viewport}}" class="stage-body-fallback" src="{{bodyImagePath}}" style="{{bodyImageStyle}}" mode="scaleToFill" aria-label="人体模型"></image><image wx:elif="{{bodyImagePath}}" class="stage-body-preview" src="{{bodyImagePath}}" mode="contain" aria-label="人体模型"></image></view>
+  <view wx:if="{{!viewport && !error}}" class="stage-loading">正在准备人体画布…</view>
+  <view wx:if="{{preparedReady && transform && !confirmed}}" class="overlay"><placement-overlay id="placement-preview" class="placement-canvas-instance" view="{{view}}" draft-id="{{draftId}}" transform="{{transform}}" viewport="{{viewport}}" revision="{{revision}}" layout-revision="{{layoutRevision}}" interaction-key="{{interactionKey}}" disabled="{{dialog || !!error}}" bind:placementdrag="onDrag" bind:renderstate="onOverlayReady"></placement-overlay></view>
  </view>
- <view class="p9-controls">
+ <scroll-view class="p9-controls placement-controls" scroll-y enhanced show-scrollbar="{{false}}">
  <button class="text-button focus" disabled="{{dragging || dialog}}" bindtap="toggleFocus">{{focusBounds ? '查看全身' : '放大病灶范围'}}</button>
- <view wx:if="{{error}}" class="warning">{{error}}</view>
- <view wx:elif="{{message}}" class="warning">{{message}}</view>
+ <view wx:if="{{error}}" class="warning">{{error}}<button wx:if="{{overlayFault}}" class="text-button" bindtap="retryOverlay">重试加载</button></view>
+ <view wx:elif="{{message}}" class="warning">{{message}}<button wx:if="{{overlayFault}}" class="text-button" bindtap="retryOverlay">重试显示</button></view>
  <block wx:if="{{!confirmed && !error}}">
   <view class="slider-label"><text>调整大小</text><text>{{scalePercent}}%</text></view>
   <slider min="10" max="400" step="1" value="{{scalePercent}}" activeColor="#28735c" disabled="{{dialog || dragging}}" bindtouchstart="startSlider" bindchanging="scaleChanging" bindchange="scaleChanged"/>
   <view class="slider-label"><text>调整方向</text><text>{{angle}}°</text></view>
   <slider min="-180" max="180" step="1" value="{{angle}}" activeColor="#28735c" disabled="{{dialog || dragging}}" bindtouchstart="startSlider" bindchanging="angleChanging" bindchange="angleChanged"/>
   <view class="actions"><button bindtap="reset" disabled="{{dialog || dragging}}">重置调整</button><button class="primary" disabled="{{(!valid && !needsClip) || !viewport || !overlayReady || dragging || dialog || calculating}}" bindtap="confirmPosition">{{needsClip ? '检查越界并确认' : '确认位置'}}</button></view>
-  <view class="note">按住橙色范围拖动调整；尺寸和方向仅影响本次放置。</view>
+  <view class="note" wx:if="{{!overlayReady && !error}}">人体已显示后，病灶范围将在这里自动就绪。</view>
+  <view class="note" wx:else>按住橙色范围拖动调整；尺寸和方向仅影响本次放置。</view>
  </block>
  <block wx:if="{{confirmed}}"><button class="primary saved" loading="{{calculating}}" disabled="{{opening || calculating}}" bindtap="confirmPosition">{{calculating ? '计算中…' : '查看结果 / 重试计算'}}</button><button class="text-button" disabled="{{opening || calculating}}" bindtap="viewAnnotations">查看已保存标注</button></block>
- </view>
+ </scroll-view>
  </view>
 </view>

@@ -141,3 +141,48 @@ test('actual front and back body reject arm/torso air bridge and legs gap, accep
   const r=fixture.editor['UI-gap'];assert.equal(g.validatePlacementGeometry(body([[[...r,r[0]]]]),m).ok,false,view+' gap');
  }
 });
+test('prepared geometry cache is immutable and bound to the exact source fingerprint',()=>{
+ const base={...photo([[rect(.1,.1,.4,.4),rect(.2,.2,.3,.3)],[rect(.6,.6,.8,.8)]]),session_id:'CACHE-A',
+  photo_id:'photo-cache-a',result_id:'result-cache-a',mask_sha256:'c'.repeat(64)};
+ const first=g.preparePhotoGeometry(base),again=g.preparePhotoGeometry(base);
+ assert.equal(first,again,'the same unmodified source reuses the same frozen prepared object');
+ assert.equal(g.preparedPhotoMatchesSource(first,base),true);
+ assert.equal(g.preparedPhotoMatchesSource(JSON.parse(JSON.stringify(first)),base),false,'copied geometry is not trusted by object identity');
+ assert.equal(Object.isFrozen(first),true);
+ const changedMask={...base,session_id:'CACHE-B',photo_id:'photo-cache-b',result_id:'result-cache-b',mask_sha256:'d'.repeat(64)};
+ const second=g.preparePhotoGeometry(changedMask);
+ assert.notEqual(second,first);assert.equal(g.preparedPhotoMatchesSource(first,changedMask),false);
+ const changedGeometry=structuredClone(base);changedGeometry.session_id='CACHE-C';changedGeometry.photo_id='photo-cache-c';
+ changedGeometry.result_id='result-cache-c';
+ const changedRing=changedGeometry.geometry.coordinates[0][0];changedRing[0][0]=.11;changedRing[changedRing.length-1][0]=.11;
+ const third=g.preparePhotoGeometry(changedGeometry);
+ assert.notEqual(third,second);assert.equal(g.preparedPhotoMatchesSource(second,changedGeometry),false);
+ assert.equal(base.geometry.coordinates[0][0][0][0],.1,'cache checks never mutate the source');
+});
+test('trusted transformed fast validation matches the full topology validator for valid and outside geometry',()=>{
+ const source={...photo([[rect(.1,.1,.45,.45),rect(.2,.2,.3,.3)],[rect(.55,.55,.9,.9)]]),session_id:'FAST-PATH',
+  photo_id:'photo-fast-path',result_id:'result-fast-path'},prepared=g.preparePhotoGeometry(source);
+ for(const scale of [.1,.25,.5,1,2,4])for(const rotationDegrees of [-180,-90,-25,0,45,180]){
+  const geometry=g.transformPhotoPolygonToBody(prepared,transform({scale,rotationDegrees,translation:P(.5,.4)}),model);
+  assert.deepEqual(g.validateTransformedPlacementGeometry(geometry,model),g.validatePlacementGeometry(geometry,model),`scale ${scale}, angle ${rotationDegrees}`);
+ }
+ const outside=g.transformPhotoPolygonToBody(prepared,transform({translation:P(-.5,.4)}),model);
+ assert.deepEqual(g.validateTransformedPlacementGeometry(outside,model),g.validatePlacementGeometry(outside,model));
+ assert.equal(g.validateTransformedPlacementGeometry(outside,model).code,'OUTSIDE_BODY');
+});
+test('real 6018-vertex oversegmentation preserves 389 pieces and 301 holes through the trusted path',()=>{
+ const fs=require('node:fs'),file=path.resolve(__dirname,'../../ai/experiments/outputs/overseg-20261101-final/H_synthetic_disconnected/full_image/result.json');
+ const result=JSON.parse(fs.readFileSync(file,'utf8')),candidate=result.candidates.find(c=>c.candidate_id==='candidate-2');
+ assert.ok(candidate,'preserved real complex candidate exists');
+ const source={schema_version:'confirmed-photo-segmentation-v1',session_id:'P11-REAL-COMPLEX',photo_id:'photo-real-complex',
+  result_id:result.result_id,candidate_id:candidate.candidate_id,prompt_revision:1,coordinate_space:'photo_oriented_normalized_v1',
+  confirmed_by_user:true,confirmed_at:Date.now()/1000-1,expires_at:Date.now()/1000+1200,image:result.image,
+  model:result.model,prompts:result.prompts,mask_asset:candidate.mask_ref,mask_sha256:'e'.repeat(64),geometry:candidate.geometry};
+ const prepared=g.preparePhotoGeometry(source),rings=prepared.polygons.reduce((n,poly)=>n+poly.length,0),
+  holes=prepared.polygons.reduce((n,poly)=>n+poly.length-1,0),serialized=JSON.stringify(prepared);
+ assert.equal(prepared.polygons.length,389);assert.equal(rings,690);assert.equal(holes,301);assert.ok(prepared.vertexCount>=6018);
+ const geometry=g.transformPhotoPolygonToBody(prepared,transform({translation:P(.5,.4),scale:.5}),model);
+ const fast=g.validateTransformedPlacementGeometry(geometry,model),full=g.validatePlacementGeometry(geometry,model);
+ assert.deepEqual(fast,full);assert.equal(geometry.coordinates.length,389);
+ assert.equal(JSON.stringify(prepared),serialized,'validation and transformation retain the immutable source');
+});

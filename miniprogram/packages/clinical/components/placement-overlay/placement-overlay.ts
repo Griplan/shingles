@@ -1,10 +1,11 @@
 import {getBodyModel} from "../../../../data/body-models";
 import {NormalizedPoint,ViewportTransform} from "../../../../types/dermatome";
 import {PlacementTransform,PreparedPhotoGeometry} from "../../../../types/placement";
+import {placementSession} from "../../state/placement-session";
 import {canvasToNormalized,projectNormalizedToCanvas} from "../../../../utils/coordinate";
 import {readTouch} from "../../../../utils/body-debug";
 import {PlacementPreview} from "./preview";
-import {canvasBackingSize} from "../../../../utils/canvas-size";
+import {canvasBackingSize,windowPixelRatio} from "../../../../utils/canvas-size";
 type Context=WechatMiniprogram.CanvasRenderingContext.CanvasRenderingContext2D;
 type Rect=WechatMiniprogram.BoundingClientRectCallbackResult;
 interface Runtime {alive:boolean;visible:boolean;pending:boolean;epoch:number;inputKey:string;queue:Promise<void>;
@@ -13,10 +14,10 @@ interface Runtime {alive:boolean;visible:boolean;pending:boolean;epoch:number;in
  rect:Promise<Rect>|null;start:NormalizedPoint|null;base:PlacementTransform|null;delta:NormalizedPoint;dragging:boolean}
 const states=new WeakMap<object,Runtime>();
 Component({
- properties:{view:{type:String,value:"front"},prepared:{type:null,value:null as PreparedPhotoGeometry|null},
+ properties:{view:{type:String,value:"front"},draftId:String,prepared:{type:null,value:null as PreparedPhotoGeometry|null},
   transform:{type:null,value:null as PlacementTransform|null},viewport:{type:null,value:null as ViewportTransform|null},
-  interactionKey:String,revision:Number,disabled:Boolean},
- observers:{"view,prepared,transform,viewport,interactionKey,revision,disabled"(){this.syncInput();this.queueDraw();}},
+  interactionKey:String,revision:Number,layoutRevision:Number,disabled:Boolean},
+ observers:{"view,draftId,prepared,transform,viewport,interactionKey,revision,layoutRevision,disabled"(){this.syncInput();this.queueDraw();}},
  lifetimes:{created(){states.set(this,{alive:false,visible:true,pending:false,epoch:0,inputKey:"",queue:Promise.resolve(),node:null,ctx:null,initializing:null,
   frame:null,timer:null,frameEpoch:0,preview:null,source:null,sourceKey:"",local:null,localRevision:-1,rect:null,start:null,base:null,delta:{x:0,y:0},dragging:false});},
   ready(){const s=states.get(this);if(s)s.alive=true;this.queueDraw();},
@@ -24,9 +25,14 @@ Component({
  pageLifetimes:{hide(){this.cancelGesture();this.cancelFrame();const s=states.get(this);if(s){s.visible=false;s.local=null;}},
   show(){const s=states.get(this);if(s)s.visible=true;this.queueDraw();}},
  methods:{
-  syncInput(){const s=states.get(this);if(!s)return;const key=JSON.stringify([this.properties.view,this.properties.viewport,this.properties.interactionKey,!!this.properties.disabled]);
+  syncInput(){const s=states.get(this);if(!s)return;const key=JSON.stringify([this.properties.view,this.properties.draftId,this.properties.viewport,this.properties.interactionKey,!!this.properties.disabled]);
    if(key!==s.inputKey){this.cancelGesture();this.cancelFrame();s.local=null;s.localRevision=-1;s.inputKey=key;}
    if(s.local&&this.properties.revision>=s.localRevision)s.local=null;
+  },
+  sourceGeometry():PreparedPhotoGeometry|null {
+   if(this.properties.prepared)return this.properties.prepared;
+   const draft=this.properties.draftId?placementSession.read(this.properties.draftId):null;
+   return draft?.ok?draft.draft.prepared:null;
   },
   /** Small local parameters only: no setData/geometry/source transfer per move. */
   previewTransform(transform:PlacementTransform,revision:number,key:string){const s=states.get(this);
@@ -50,18 +56,32 @@ Component({
   },
   queueDraw(){const s=states.get(this);if(!s?.alive||!s.visible||s.pending)return;s.pending=true;const epoch=s.frameEpoch;
    const current=()=>states.get(this)===s&&s.visible&&epoch===s.frameEpoch;
+   const snapshot=this.renderSnapshot();
    const draw=()=>{if(!current())return;s.pending=false;s.frame=null;s.timer=null;void this.redraw();};
-   if(!s.node){wx.nextTick(()=>{if(!current())return;void this.ensureCanvas().then(()=>{if(current()){s.pending=false;this.queueDraw();}}).catch(()=>{if(current()){s.pending=false;this.reportReady(false);}});});return;}
+   if(!s.node){wx.nextTick(()=>{if(!current())return;void this.ensureCanvas().then(()=>{if(current()){s.pending=false;this.queueDraw();}}).catch(()=>{if(current()){s.pending=false;this.reportReady("error",snapshot);}});});return;}
    if(typeof s.node.requestAnimationFrame==="function"&&typeof s.node.cancelAnimationFrame==="function")s.frame=s.node.requestAnimationFrame(draw);
    else s.timer=setTimeout(draw,16);
   },
-  reportReady(ready:boolean){this.triggerEvent("renderstate",{key:this.properties.interactionKey,revision:this.properties.revision,viewportKey:JSON.stringify(this.properties.viewport),ready});},
+  renderSnapshot(){
+   return {key:this.properties.interactionKey,revision:this.properties.revision,layoutRevision:this.properties.layoutRevision,
+     viewportKey:JSON.stringify(this.properties.viewport),viewport:this.properties.viewport};
+  },
+  reportReady(status:"ready"|"waiting"|"error",snapshot?:{key:string;revision:number;layoutRevision:number;viewportKey:string;viewport:ViewportTransform|null}){
+   const current=snapshot||this.renderSnapshot();
+   this.triggerEvent("renderstate",{...current,ready:status==="ready",status});
+  },
   async redraw(){const s=states.get(this);if(!s?.alive||!s.visible)return;
+   const snapshot=this.renderSnapshot();
    try {
-    if(!s.node)await this.ensureCanvas();if(states.get(this)!==s||!s.visible||!s.node||!s.ctx)return;
-    const v=this.properties.viewport,p=this.properties.prepared,t=s.local||this.properties.transform,node=s.node,ctx=s.ctx;
-    if(!v||!p||!t){ctx.clearRect(0,0,node.width,node.height);return;}
-    const {dpr,width:w,height:h}=canvasBackingSize(v.viewportWidth,v.viewportHeight,wx.getWindowInfo().pixelRatio);
+    if(!s.node)await this.ensureCanvas();
+    const stillCurrent=states.get(this)===s&&s.visible&&snapshot.key===this.properties.interactionKey&&
+      snapshot.revision===this.properties.revision&&snapshot.layoutRevision===this.properties.layoutRevision&&
+      snapshot.viewportKey===JSON.stringify(this.properties.viewport);
+    if(!stillCurrent){if(states.get(this)===s&&s.visible)this.queueDraw();return;}
+    if(!s.node||!s.ctx){this.reportReady("error",snapshot);return;}
+    const v=this.properties.viewport,p=this.sourceGeometry(),t=s.local||this.properties.transform,node=s.node,ctx=s.ctx;
+    if(!v||!p||!t){this.reportReady("waiting",snapshot);return;}
+    const {dpr,width:w,height:h}=canvasBackingSize(v.viewportWidth,v.viewportHeight,windowPixelRatio());
     if(node.width!==w)node.width=w;if(node.height!==h)node.height=h;
     if(!s.preview||s.source!==p||s.sourceKey!==this.properties.interactionKey){s.preview?.dispose();s.preview=new PlacementPreview(p);s.source=p;s.sourceKey=this.properties.interactionKey;}
     ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,v.viewportWidth,v.viewportHeight);
@@ -73,9 +93,12 @@ Component({
      ctx.beginPath();ctx.moveTo(handle.x-7,handle.y);ctx.lineTo(handle.x+7,handle.y);ctx.moveTo(handle.x,handle.y-7);ctx.lineTo(handle.x,handle.y+7);ctx.stroke();
     }finally{ctx.restore();}
     // Only settled frames acknowledge a page revision. Moving frames never bridge state.
-    if(!s.local)this.reportReady(true);
-   }catch{this.reportReady(false);}
+    if(!s.local)this.reportReady("ready",snapshot);
+   }catch{this.reportReady("error",snapshot);}
   },
+  /** Redraw with the existing node after a layout revision or viewport handoff. */
+  wake(){const s=states.get(this);if(!s?.alive||!s.visible)return;this.syncInput();this.queueDraw();},
+  retry(){const s=states.get(this);if(!s||!s.alive)return;s.node=null;s.ctx=null;s.initializing=null;this.cancelFrame();this.queueDraw();},
   async point(event:unknown){const s=states.get(this),input=readTouch(event),v=this.properties.viewport;if(!s||!input||!v||this.properties.disabled)return null;
    const epoch=s.epoch;let x=input.point.x,y=input.point.y;
    if(input.kind==="client"){

@@ -7,7 +7,7 @@ import {fitViewport,focusViewport,canvasToNormalized,normalizedToCanvas} from ".
 import {readTouch,InputTouch} from "../../../../utils/body-debug";
 import {pointInBody} from "../../../../utils/annotation-geometry";
 import {drawLesions} from "../../../../components/body-canvas/lesion-render";
-import {canvasBackingSize} from "../../../../utils/canvas-size";
+import {canvasBackingSize,windowPixelRatio} from "../../../../utils/canvas-size";
 type Context=WechatMiniprogram.CanvasRenderingContext.CanvasRenderingContext2D;
 interface Runtime {alive:boolean;visible:boolean;remeasure:boolean;measureQueued:boolean;generation:number;layout:number;pending:number|null;node:WechatMiniprogram.Canvas|null;ctx:Context|null;width:number;height:number;viewport:ViewportTransform|null;images:Map<string,Promise<WechatMiniprogram.Image>>;start:InputTouch|null;gestureView:string;gestureToken:{sessionId:string;revision:number}|null;moved:boolean;painted:string}
 const states=new WeakMap<object,Runtime>();
@@ -50,7 +50,7 @@ Component({
     let promise=s.images.get(model.imagePath);
     if(!promise){promise=new Promise((resolve,reject)=>{const image=node.createImage();image.onload=()=>resolve(image);image.onerror=()=>reject(Error("resource"));image.src=model.imagePath;});s.images.set(model.imagePath,promise);}
     const image=await promise;if(!current())return;
-    const {dpr,width:w,height:h}=canvasBackingSize(s.width,s.height,wx.getWindowInfo().pixelRatio);
+    const {dpr,width:w,height:h}=canvasBackingSize(s.width,s.height,windowPixelRatio());
     if(node.width!==w)node.width=w;if(node.height!==h)node.height=h;
     const full=fitViewport(s.width,s.height,model,12),v=this.properties.focusBounds?focusViewport(full,this.properties.focusBounds):full;
     ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,s.width,s.height);ctx.fillStyle="#faf8f4";ctx.fillRect(0,0,s.width,s.height);

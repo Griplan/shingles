@@ -68,7 +68,7 @@ def test_reject_corrupt_or_unsupported(client,blob):
     assert r.status_code==422 and 'error' in r.json()
 
 def test_actual_bytes_limit(client):
-    s=client.post('/api/v1/ai/sessions').json();r=client.post('/api/v1/ai/sessions/'+s['session_id']+'/photo',headers={'x-ai-session-key':s['session_token']},content=b'x'*(20*1024*1024+65537))
+    s=client.post('/api/v1/ai/sessions').json();r=client.post('/api/v1/ai/sessions/'+s['session_id']+'/photo',headers={'x-ai-session-key':s['session_token']},content=b'x'*(50*1024*1024+65537))
     assert r.status_code==413
 
 def test_candidates_confirm_exact_geometry_model_cached(client):
@@ -118,6 +118,26 @@ def test_cancel_during_prediction_does_not_recreate_files(service):
         with pytest.raises(AIError) as e:future.result()
         assert e.value.code=='AI_SESSION_GONE'
     assert not (s.root/c['session_id']).exists()
+
+
+def test_expired_session_survives_sweep_while_inference_is_active(tmp_path):
+    now=[0.0];model=SyntheticModel()
+    s=AISessions(tmp_path,model_factory=lambda:model,clock=lambda:now[0],ttl=2)
+    c=s.create();p=s.upload(c['session_id'],c['session_token'],png())
+    started,finish=threading.Event(),threading.Event();model.wait=(started,finish)
+    with ThreadPoolExecutor() as pool:
+        future=pool.submit(s.segment,c['session_id'],c['session_token'],SegmentRequest(**payload(p)))
+        assert started.wait(5)
+        now[0]=3;s.sweep()
+        assert c['session_id'] in s.sessions and (s.root/c['session_id']).exists()
+        finish.set()
+        result=future.result()
+        assert result['status']=='needs_confirmation'
+        assert any(candidate['status']=='ok' for candidate in result['candidates'])
+    now[0]=10;s.sweep()
+    assert c['session_id'] not in s.sessions and not (s.root/c['session_id']).exists()
+    s.close()
+
 
 def test_timeout_invalidates_only_request_and_late_result(service):
     s,m=service;c=s.create();p=s.upload(c['session_id'],c['session_token'],png());started,finish=threading.Event(),threading.Event();m.wait=(started,finish)

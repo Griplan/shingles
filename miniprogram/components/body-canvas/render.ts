@@ -36,10 +36,12 @@ export function drawBody(
   try {
     ctx.translate(viewport.offsetX, viewport.offsetY);
     ctx.scale(viewport.scale, viewport.scale);
-    if (visual.imagePath) {
-      if (!image) throw new Error("人体本地素材尚未加载");
+    if (visual.imagePath && image) {
       ctx.drawImage(image, 0, 0, model.logicalWidth, model.logicalHeight);
     } else {
+      // A local image can be delayed by the first canvas node creation. Draw the
+      // exact bound outline immediately, then repaint with the image when ready.
+      // This keeps the placement workspace responsive without inventing geometry.
       const gradient = ctx.createLinearGradient(125, 0, 280, 0);
       gradient.addColorStop(0, visual.palette.skin);
       gradient.addColorStop(.45, visual.palette.light);

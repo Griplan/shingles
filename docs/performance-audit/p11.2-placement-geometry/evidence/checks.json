@@ -1,0 +1,87 @@
+{
+  "schema": "p11.2-validation-checks-v1",
+  "date": "2026-11-17",
+  "environment": {
+    "platform": "darwin-arm64",
+    "node": "v24.11.1",
+    "cpu": "Apple M4"
+  },
+  "checks": {
+    "typescript": {
+      "status": "PASS",
+      "log": "typecheck.log"
+    },
+    "miniprogram_tests": {
+      "status": "PASS",
+      "passed": 422,
+      "failed": 0,
+      "log": "miniprogram-tests.log"
+    },
+    "backend_ai_tests": {
+      "status": "PASS",
+      "passed": 330,
+      "failed": 0,
+      "warnings": 7,
+      "log": "backend-ai-tests.log"
+    },
+    "wcc": {
+      "status": "PASS",
+      "exitCode": 0,
+      "outputBytes": 48539,
+      "files": [
+        "wcc.stdout",
+        "wcc.stderr"
+      ]
+    },
+    "wcsc": {
+      "status": "PASS",
+      "exitCode": 0,
+      "outputBytes": 831,
+      "files": [
+        "wcsc.stdout",
+        "wcsc.stderr"
+      ]
+    },
+    "project": {
+      "status": "PASS",
+      "log": "project-check.log"
+    },
+    "atlas": {
+      "status": "PASS",
+      "log": "atlas-check.log"
+    },
+    "packages": {
+      "status": "PASS",
+      "bytes": {
+        "main": 892393,
+        "clinical": 1415423,
+        "special": 756628
+      },
+      "log": "package-check.log"
+    },
+    "diffCheck": {
+      "status": "PASS",
+      "log": "diff-check.log"
+    }
+  },
+  "benchmark": {
+    "file": "benchmark.json",
+    "realComplexEntryMs": {
+      "before": 23213.949,
+      "after": 263.497
+    }
+  },
+  "nativeWechat": {
+    "compileAfterClearingCompileCache": "PASS",
+    "bodyCanvasFirstFrameMs": 53,
+    "bodyCanvasImageRepaintMs": 4,
+    "launchTimeMs": 1024,
+    "legacyReconnectMessageInCurrentSourceOrCompiledPage": false,
+    "guiDragAndConfirm": "NOT_RUN",
+    "guiFullPlacementRoute": "NOT_RUN",
+    "android": "NOT_RUN",
+    "ios": "NOT_RUN",
+    "fps": "NOT_RUN",
+    "touchLatency": "NOT_RUN"
+  }
+}

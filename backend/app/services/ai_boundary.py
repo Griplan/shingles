@@ -1,7 +1,8 @@
 import asyncio
 from contextlib import asynccontextmanager
 from fastapi.responses import JSONResponse
-from app.services.ai_sessions import enabled, AISessions, AIError, MAX_UPLOAD
+from app.services.ai_limits import MULTIPART_SLACK_BYTES
+from app.services.ai_sessions import enabled, AISessions
 from app.services.access import controlled, upload_limit
 
 @asynccontextmanager
@@ -45,7 +46,7 @@ class AIBoundary:
             await send(message)
         if scope['method'] not in ('POST','PUT'):
             return await self.app(scope,receive,private_send)
-        limit=upload_limit()+64*1024 if scope['path'].endswith('/photo') else (256*1024 if scope['path'].endswith('/edit') else 16384)
+        limit=upload_limit()+MULTIPART_SLACK_BYTES if scope['path'].endswith('/photo') else (256*1024 if scope['path'].endswith('/edit') else 16384)
         # Reject excess parallel uploads instead of holding their bodies indefinitely.
         if self.uploads.locked(): return await reject('AI_BUSY','服务繁忙，请稍后重试',429)
         async with self.uploads:

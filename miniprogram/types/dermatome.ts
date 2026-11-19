@@ -92,6 +92,8 @@ export interface BodyRegionProbe {
 }
 export interface BodyViewportEvent {
   readonly layoutRevision?: number;
+  /** True only when the component supplied the local PNG because Canvas was unavailable. */
+  readonly fallback?: boolean;
   readonly view: BodyView;
   readonly modelId: string;
   readonly modelVersion: string;

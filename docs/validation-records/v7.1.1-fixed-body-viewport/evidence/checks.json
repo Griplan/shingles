@@ -1,0 +1,55 @@
+{
+  "version": "V7.1.1",
+  "date": "2026-11-17",
+  "environment": "macOS local workspace",
+  "typecheck": "pass",
+  "frontendTests": {
+    "passed": 410,
+    "failed": 0,
+    "durationMs": 9195.607916
+  },
+  "projectCheck": "pass",
+  "atlasCheck": "pass",
+  "packageBoundary": "pass",
+  "packageBytes": {
+    "main": 884740,
+    "clinical": 1407135,
+    "special": 756628
+  },
+  "coordinateValidation": {
+    "sizes": [
+      [360, 780, 194, 460],
+      [390, 844, 224, 460],
+      [430, 932, 264, 460],
+      [720, 760, 270, 640],
+      [800, 720, 320, 600],
+      [900, 800, 382, 680]
+    ],
+    "zoomIterationsPerSize": 20,
+    "maximumAnchorError": "less_than_1e-10",
+    "maximumProjectionRoundTripError": "less_than_1e-10"
+  },
+  "highFrequencyPan": {
+    "moves": 20,
+    "canvasBoundsQueries": 1,
+    "formalFrames": 1,
+    "regionClicks": 0,
+    "annotationPoints": 0,
+    "canvasSizeChanged": false
+  },
+  "nativeWxmlCompiler": {
+    "status": "pass",
+    "exitCode": 0,
+    "outputBytes": 86201
+  },
+  "nativeWxssCompiler": {
+    "status": "pass",
+    "exitCode": 0,
+    "outputBytes": 4638
+  },
+  "wechatDeveloperToolsGestureRun": "NOT_RUN",
+  "realDevice": "NOT_RUN",
+  "physicalFoldable": "NOT_RUN",
+  "experienceVersionUpload": "NOT_RUN",
+  "deployment": "NOT_RUN"
+}

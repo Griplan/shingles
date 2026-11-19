@@ -1,0 +1,288 @@
+{
+  "acupuncture_health": {
+    "body": {
+      "ai_ready": true,
+      "status": "ok"
+    },
+    "status": 200
+  },
+  "acupuncture_ready": {
+    "body": {
+      "ai_ready": true,
+      "model_ready": true,
+      "results_ready": true,
+      "status": "ready"
+    },
+    "status": 200
+  },
+  "ai_session_dir_count": 0,
+  "deployment_id": "backend-current-20261119-155751",
+  "dermatome_health": {
+    "body": {
+      "project": "dermatome-mapper",
+      "status": "ok",
+      "version": "v0"
+    },
+    "status": 200
+  },
+  "limits": {
+    "cpu.max": "100000 100000",
+    "cpu.stat": "usage_usec 9145125\nuser_usec 8038359\nsystem_usec 1106766\ncore_sched.force_idle_usec 0\nnr_periods 1786\nnr_throttled 9\nthrottled_usec 8559\nnr_bursts 0\nburst_usec 0",
+    "memory.current": "476934144",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+    "memory.high": "1342177280",
+    "memory.max": "1610612736",
+    "memory.peak": "619032576",
+    "memory.swap.current": "0"
+  },
+  "manifest_count": 150,
+  "manifest_match": true,
+  "mismatched": [],
+  "missing": [],
+  "nginx_client_max_body_size": {
+    "/etc/nginx/sites-enabled/acupuncture": [
+      "client_max_body_size 10m;"
+    ],
+    "/etc/nginx/sites-enabled/acupuncture-domain": [
+      "client_max_body_size 10m;",
+      "client_max_body_size 10m;"
+    ],
+    "/etc/nginx/sites-enabled/dermatome-ip-test": [
+      "client_max_body_size 10m;",
+      "client_max_body_size 51m;"
+    ]
+  },
+  "nginx_test": {
+    "returncode": 0,
+    "stderr": "nginx: the configuration file /etc/nginx/nginx.conf syntax is ok\nnginx: configuration file /etc/nginx/nginx.conf test is successful",
+    "stdout": ""
+  },
+  "ports_8000_8001": [
+    "LISTEN 0      32         127.0.0.1:8001      0.0.0.0:*          ",
+    "LISTEN 0      2048       127.0.0.1:8000      0.0.0.0:*          "
+  ],
+  "process": {
+    "Threads": "4",
+    "VmHWM": "711820 kB",
+    "VmRSS": "582744 kB"
+  },
+  "public_health": {
+    "body": {
+      "project": "dermatome-mapper",
+      "status": "ok",
+      "version": "v0"
+    },
+    "status": 200
+  },
+  "public_ready": {
+    "ai_model_loaded_after_real_smoke": true,
+    "diagnosis_enabled": false,
+    "medical_review": "pending",
+    "status": 200
+  },
+  "public_smoke": {
+    "checks": [
+      {
+        "expected": 200,
+        "ms": 76.5,
+        "name": "health",
+        "status": 200
+      },
+      {
+        "expected": 401,
+        "ms": 61.32,
+        "name": "anonymous_ready_rejected",
+        "status": 401
+      },
+      {
+        "expected": 200,
+        "ms": 74.63,
+        "name": "automatic_test_access",
+        "status": 200
+      },
+      {
+        "ai_model_loaded": true,
+        "expected": 200,
+        "ms": 388.84,
+        "name": "authenticated_ready",
+        "status": 200
+      },
+      {
+        "expected": 200,
+        "ms": 57.4,
+        "name": "body_intersection_inside",
+        "result_status": "inside",
+        "status": 200
+      },
+      {
+        "expected": 200,
+        "labels": [
+          "S2"
+        ],
+        "ms": 126.94,
+        "name": "perineum_s2",
+        "status": 200
+      },
+      {
+        "expected": 200,
+        "labels": [
+          "UNDEFINED"
+        ],
+        "ms": 101.41,
+        "name": "perineum_undefined",
+        "status": 200
+      },
+      {
+        "expected": 409,
+        "ms": 57.65,
+        "name": "stale_version_rejected",
+        "status": 409
+      },
+      {
+        "expected": 200,
+        "ms": 70.03,
+        "name": "ai_session_create",
+        "status": 200
+      },
+      {
+        "expected": 204,
+        "ms": 67.5,
+        "name": "ai_session_delete",
+        "status": 204
+      },
+      {
+        "expected": 204,
+        "ms": 50.62,
+        "name": "ai_session_repeat_delete",
+        "status": 204
+      },
+      {
+        "expected": 204,
+        "ms": 33.0,
+        "name": "access_revoke",
+        "status": 204
+      }
+    ],
+    "endpoint": "http://212.64.26.206/dermatome-test",
+    "failed": 0,
+    "passed": 12,
+    "transport": "HTTP; public/synthetic data only"
+  },
+  "real_ai_smoke": {
+    "checks": [
+      {
+        "ms": 76.08,
+        "name": "health",
+        "status": 200
+      },
+      {
+        "ms": 34.69,
+        "name": "access_session",
+        "status": 200
+      },
+      {
+        "ai_model_loaded_before": false,
+        "ms": 177.79,
+        "name": "ready",
+        "status": 200
+      },
+      {
+        "ms": 28.57,
+        "name": "ai_session_create",
+        "status": 200
+      },
+      {
+        "image_height": 460,
+        "image_width": 700,
+        "inference_pixel_limit": 3000000,
+        "ms": 295.1,
+        "name": "photo_upload",
+        "server_resized": false,
+        "source_pixels": 322000,
+        "status": 200
+      },
+      {
+        "candidate_count": 3,
+        "coordinate_space": "photo_oriented_normalized_v1",
+        "ms": 6105.56,
+        "name": "mobile_sam_segment",
+        "ok_candidate_count": 3,
+        "selected_area_ratio": 0.047683229813664595,
+        "selected_candidate": "candidate-0",
+        "selected_component_count": 16,
+        "selected_hole_count": 25,
+        "status": 200
+      },
+      {
+        "confirmed_by_user": true,
+        "coordinate_space": "photo_oriented_normalized_v1",
+        "geometry_type": "MultiPolygon",
+        "hole_count": 25,
+        "ms": 115.25,
+        "name": "confirm",
+        "polygon_parts": 16,
+        "status": 200
+      },
+      {
+        "bytes": 2321,
+        "ms": 46.27,
+        "name": "mask_asset",
+        "png_signature": true,
+        "status": 200
+      },
+      {
+        "ms": 52.04,
+        "name": "session_delete",
+        "status": 204
+      },
+      {
+        "ms": 27.58,
+        "name": "deleted_session_gone",
+        "status": 410
+      }
+    ],
+    "endpoint": "http://212.64.26.206/dermatome-test",
+    "failed": 0,
+    "input": "CDC PHIL 21505 public educational fixture",
+    "input_sha256": "5e63ed3fb2b18143c8fe1f03254880e1bca144e2be6e42232ee5005b74ff062b",
+    "medical_accuracy": "NOT_MEASURED",
+    "passed": 10
+  },
+  "services": {
+    "acupuncture": {
+      "ActiveState": "active",
+      "CPUUsageNSec": "1648327576000",
+      "ControlGroup": "/system.slice/acupuncture.service",
+      "ExecMainStartTimestamp": "Wed 2026-11-04 23:53:58 CST",
+      "MainPID": "611289",
+      "MemoryCurrent": "177381376",
+      "NRestarts": "0",
+      "SubState": "running"
+    },
+    "dermatome": {
+      "ActiveState": "active",
+      "CPUUsageNSec": "9145125000",
+      "ControlGroup": "/system.slice/dermatome.service",
+      "ExecMainStartTimestamp": "Thu 2026-11-19 15:57:55 CST",
+      "MainPID": "1218543",
+      "MemoryCurrent": "476934144",
+      "NRestarts": "0",
+      "SubState": "running"
+    },
+    "dermatome-cleanup.timer": {
+      "ActiveState": "active",
+      "SubState": "waiting"
+    },
+    "nginx": {
+      "ActiveState": "active",
+      "CPUUsageNSec": "33962969000",
+      "ControlGroup": "/system.slice/nginx.service",
+      "ExecMainStartTimestamp": "Thu 2026-10-08 13:25:29 CST",
+      "MainPID": "12643",
+      "MemoryCurrent": "7024640",
+      "NRestarts": "0",
+      "SubState": "running"
+    }
+  },
+  "time": "2026-11-19T16:09:07+08:00"
+}

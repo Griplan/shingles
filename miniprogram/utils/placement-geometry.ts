@@ -30,7 +30,8 @@ function bodyBoundaryIndex(body:BodyGeometry):BodyBoundaryIndex|null {
   // Only the canonical deeply frozen body outline is cached. Custom mutable
   // fixtures keep the full scan so later mutations cannot use stale edges.
   if(!Object.isFrozen(body)||!body.every(part=>Object.isFrozen(part)&&Object.isFrozen(part.outer)&&
-    Object.isFrozen(part.holes)&&part.outer.every(point=>Object.isFrozen(point))))return null;
+    Object.isFrozen(part.holes)&&part.outer.every(point=>Object.isFrozen(point))&&
+    part.holes.every(hole=>Object.isFrozen(hole)&&hole.every(point=>Object.isFrozen(point)))))return null;
   const all=body.flatMap(part=>[part.outer,...part.holes]).flatMap(edges);
   if(!all.length)return null;
   let low=Infinity,high=-Infinity;
@@ -93,14 +94,25 @@ interface EdgeYIndex {
   readonly high:number;
   readonly buckets:readonly (readonly (readonly [Point,Point])[])[];
 }
+interface RingData {
+  readonly ring:PlacementRing;
+  readonly points:PlacementRing;
+  readonly edges:readonly (readonly [Point,Point])[];
+  readonly bounds:NormalizedRect;
+  readonly index:EdgeYIndex;
+}
+interface PolygonSetData {
+  readonly total:number;
+  readonly polygons:readonly (readonly RingData[])[];
+}
 const EDGE_Y_BUCKETS=128;
 function edgeBucket(y:number,index:EdgeYIndex):number {
   return Math.max(0,Math.min(EDGE_Y_BUCKETS-1,Math.floor((y-index.low)/(index.high-index.low)*EDGE_Y_BUCKETS)));
 }
 /** Conservative broad phase for exact ring checks. Every intersecting edge must
  * share at least one Y bucket because its closed Y ranges overlap. */
-function edgeYIndex(ring:PlacementRing):EdgeYIndex {
-  const all=edges(ring);let low=Infinity,high=-Infinity;
+function edgeYIndexFromEdges(all:readonly (readonly [Point,Point])[]):EdgeYIndex {
+  let low=Infinity,high=-Infinity;
   for(const [a,b] of all){low=Math.min(low,a.y,b.y);high=Math.max(high,a.y,b.y);}
   low-=EPS;high+=EPS;
   const buckets:((readonly [Point,Point])[])[]=Array.from({length:EDGE_Y_BUCKETS},()=>[]);
@@ -140,9 +152,13 @@ function locateInIndexedRing(p:Point,index:EdgeYIndex):-1|0|1 {
   }
   return inside?1:-1;
 }
+function disjointBounds(a:NormalizedRect,b:NormalizedRect):boolean {
+  return a.x+a.width<b.x-EPS||b.x+b.width<a.x-EPS||
+    a.y+a.height<b.y-EPS||b.y+b.height<a.y-EPS;
+}
 /** Strict filled witness found by the full scanline arrangement of outer and hole rings. */
-function polygonInterior(polygon:PlacementPolygon):Point {
-  const es=polygon.flatMap(edges),ys=[...new Set(polygon.flatMap(r=>r.map(p=>p.y)))].sort((a,b)=>a-b);
+function polygonInteriorData(polygon:readonly RingData[]):Point {
+  const es=polygon.flatMap(r=>r.edges),ys=[...new Set(polygon.flatMap(r=>r.points.map(p=>p.y)))].sort((a,b)=>a-b);
   const byTop=es.map(([a,b],index)=>({a,b,y:Math.min(a.y,b.y),bottom:Math.max(a.y,b.y),index}))
     .sort((a,b)=>a.y-b.y);
   let active:typeof byTop=[],next=0;
@@ -153,12 +169,14 @@ function polygonInterior(polygon:PlacementPolygon):Point {
     for(const {a,b}of active)xs.push(a.x+(y-a.y)*(b.x-a.x)/(b.y-a.y));
     xs.sort((a,b)=>a-b);
     for(let i=1;i<xs.length;i++)if(xs[i]>xs[i-1]){
-      const p={x:(xs[i]+xs[i-1])/2,y};if(locateInPolygon(p,polygon)===1)return p;
+      const p={x:(xs[i]+xs[i-1])/2,y};
+      if(polygon.every((ring,index)=>index===0?locateInIndexedRing(p,ring.index)>=0:locateInIndexedRing(p,ring.index)<0))
+        return p;
     }
   }
   return reject("DEGENERATE","病灶范围没有有效面积，请返回重新确认分割");
 }
-function validateRing(ring:PlacementRing):void {
+function validateRing(ring:PlacementRing):RingData {
   if(!Array.isArray(ring)||ring.length<4||ring.some(p=>!finitePoint(p))||!samePoint(ring[0],ring[ring.length-1]))
     reject("INVALID_RING","病灶轮廓必须是有效的闭合范围");
   const points=uniqueRing(ring),seen=new Set<string>(),es=edges(ring);
@@ -180,16 +198,21 @@ function validateRing(ring:PlacementRing):void {
     }
     active.push(edge);
   }
+  return {ring,points,edges:es,bounds:boundsOf(points),index:edgeYIndexFromEdges(es)};
 }
-function ringsShareEdge(a:PlacementRing,b:PlacementRing):boolean {
-  const index=edgeYIndex(b);
-  return edges(a).some(([p,q])=>edgeCandidates(p,q,index).some(([r,s])=>{
+function inspectRing(ring:PlacementRing):RingData {
+  const points=uniqueRing(ring),es=edges(ring);
+  return {ring,points,edges:es,bounds:boundsOf(points),index:edgeYIndexFromEdges(es)};
+}
+function ringsShareEdge(a:RingData,b:RingData):boolean {
+  if(disjointBounds(a.bounds,b.bounds))return false;
+  return a.edges.some(([p,q])=>edgeCandidates(p,q,b.index).some(([r,s])=>{
     const ts=intersectionParameters(p,q,r,s);return ts.length>1&&Math.abs(ts[1]-ts[0])>EPS;
   }));
 }
 /** A cycle in the ring/contact-point incidence graph disconnects the filled interior.
  * One contact shared by several rings is a star, not an artificial pairwise cycle. */
-function validateInteriorConnectivity(polygon:PlacementPolygon):void {
+function validateInteriorConnectivity(polygon:readonly RingData[]):void {
   if(polygon.length<2)return;
   const contacts:{point:Point;rings:Set<number>}[]=[],buckets=new Map<string,number[]>();
   function contact(point:Point,a:number,b:number):void {
@@ -202,8 +225,8 @@ function validateInteriorConnectivity(polygon:PlacementPolygon):void {
     contacts[index].rings.add(a);contacts[index].rings.add(b);
   }
   for(let i=1;i<polygon.length;i++)for(let j=0;j<i;j++){
-    const index=edgeYIndex(polygon[j]);
-    for(const [a,b]of edges(polygon[i]))for(const [c,d]of edgeCandidates(a,b,index)){
+    if(disjointBounds(polygon[i].bounds,polygon[j].bounds))continue;
+    for(const [a,b]of polygon[i].edges)for(const [c,d]of edgeCandidates(a,b,polygon[j].index)){
       if(Math.max(a.x,b.x)+EPS<Math.min(c.x,d.x)||Math.max(c.x,d.x)+EPS<Math.min(a.x,b.x))continue;
       for(const t of intersectionParameters(a,b,c,d))contact({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t},i,j);
     }
@@ -216,16 +239,21 @@ function validateInteriorConnectivity(polygon:PlacementPolygon):void {
   });
 }
 /** True only for positive-area intersections; isolated boundary touches are allowed. */
-function polygonsOverlap(a:PlacementPolygon,b:PlacementPolygon):boolean {
-  const ea=a.flatMap(edges),eb=b.flatMap(edges);
-  const aIndexes=a.map(edgeYIndex),bIndexes=b.map(edgeYIndex);
-  if(ea.some(([p,q])=>bIndexes.some(index=>intervals(p,q,edgeCandidates(p,q,index)).
-    some(v=>locateInPolygon(v,b)===1)))||
-     eb.some(([p,q])=>aIndexes.some(index=>intervals(p,q,edgeCandidates(p,q,index)).
-       some(v=>locateInPolygon(v,a)===1))))return true;
-  return locateInPolygon(polygonInterior(a),b)===1||locateInPolygon(polygonInterior(b),a)===1;
+function pointInPolygonData(p:Point,polygon:readonly RingData[]):-1|0|1 {
+  const outer=locateInIndexedRing(p,polygon[0].index);if(outer<0)return -1;
+  for(const hole of polygon.slice(1)){const v=locateInIndexedRing(p,hole.index);if(v>0)return -1;if(v===0)return 0;}
+  return outer;
 }
-function validatePolygons(polygons:readonly PlacementPolygon[]):number {
+function polygonsOverlap(a:readonly RingData[],b:readonly RingData[]):boolean {
+  if(disjointBounds(a[0].bounds,b[0].bounds))return false;
+  const ea=a.flatMap(r=>r.edges),eb=b.flatMap(r=>r.edges);
+  if(ea.some(([p,q])=>b.some(ring=>!disjointBounds(a[0].bounds,ring.bounds)&&
+    intervals(p,q,edgeCandidates(p,q,ring.index)).some(v=>pointInPolygonData(v,b)===1)))||
+     eb.some(([p,q])=>a.some(ring=>!disjointBounds(b[0].bounds,ring.bounds)&&
+       intervals(p,q,edgeCandidates(p,q,ring.index)).some(v=>pointInPolygonData(v,a)===1))))return true;
+  return pointInPolygonData(polygonInteriorData(a),b)===1||pointInPolygonData(polygonInteriorData(b),a)===1;
+}
+function validatePolygons(polygons:readonly PlacementPolygon[]):PolygonSetData {
   if(!Array.isArray(polygons)||!polygons.length)reject("EMPTY","没有可放置的病灶范围，请返回重新确认分割");
   if(polygons.length>1024)reject("COMPLEXITY","病灶片区过多，暂不能完整放置；原分割结果已保留");
   let total=0;
@@ -234,32 +262,54 @@ function validatePolygons(polygons:readonly PlacementPolygon[]):number {
     for(const ring of poly){if(!Array.isArray(ring))reject("INVALID_RING","病灶边界数据不合法");total+=ring.length;}
   }
   if(total>MAX_PLACEMENT_VERTICES)reject("COMPLEXITY",`病灶边界超过${MAX_PLACEMENT_VERTICES}点，暂不能完整放置；原分割结果已保留`);
-  for(const poly of polygons){
-    poly.forEach(validateRing);const outerIndex=edgeYIndex(poly[0]);
-    for(let i=1;i<poly.length;i++){
-      const hole=poly[i];
-      if(locatePoint(polygonInterior([hole]),poly[0])!==1||ringsShareEdge(poly[0],hole)||
-        edges(hole).some(([a,b])=>[a,b,...intervals(a,b,edgeCandidates(a,b,outerIndex))]
-          .some(p=>locateInIndexedRing(p,outerIndex)<0)))
+  const data:readonly (readonly RingData[])[]=polygons.map(poly=>poly.map(validateRing));
+  for(let polygonIndex=0;polygonIndex<data.length;polygonIndex++){
+    const ringData:readonly RingData[]=data[polygonIndex],outer=ringData[0];
+    for(let i=1;i<ringData.length;i++){
+      const hole=ringData[i];
+      if(locateInIndexedRing(polygonInteriorData([hole]),outer.index)!==1||ringsShareEdge(outer,hole)||
+        hole.edges.some(([a,b]:readonly [Point,Point])=>[a,b,...intervals(a,b,edgeCandidates(a,b,outer.index))]
+          .some(p=>locateInIndexedRing(p,outer.index)<0)))
         reject("INVALID_HOLE","病灶内部空洞与外边界不兼容，请返回重新确认分割");
-      for(let j=1;j<i;j++)if(ringsShareEdge(hole,poly[j])||polygonsOverlap([hole],[poly[j]]))
-        reject("INVALID_HOLE","病灶内部空洞重叠，请返回重新确认分割");
+      for(let j=1;j<i;j++){
+        const prior=ringData[j];if(disjointBounds(hole.bounds,prior.bounds))continue;
+        if(ringsShareEdge(hole,prior)||polygonsOverlap([hole],[prior]))
+          reject("INVALID_HOLE","病灶内部空洞重叠，请返回重新确认分割");
+      }
     }
-    validateInteriorConnectivity(poly);polygonInterior(poly);
+    validateInteriorConnectivity(ringData);polygonInteriorData(ringData);
   }
-  const bounds=polygons.map(p=>boundsOf(p[0]));
-  for(let i=0;i<polygons.length;i++)for(let j=0;j<i;j++){
+  const bounds=data.map(p=>p[0].bounds);
+  for(let i=0;i<data.length;i++)for(let j=0;j<i;j++){
     const a=bounds[i],b=bounds[j];
     if(a.x+a.width<b.x-EPS||b.x+b.width<a.x-EPS||a.y+a.height<b.y-EPS||b.y+b.height<a.y-EPS)continue;
-    if(polygonsOverlap(polygons[i],polygons[j]))reject("OVERLAP","独立病灶片区存在内部重叠，请返回重新确认分割");
+    if(polygonsOverlap(data[i],data[j]))reject("OVERLAP","独立病灶片区存在内部重叠，请返回重新确认分割");
     // Shared line boundaries are invalid MultiPolygon components; point touches remain valid.
-    if(polygons[i].some((r:PlacementRing)=>polygons[j].some((s:PlacementRing)=>ringsShareEdge(r,s))))
+    if(data[i].some((r:RingData)=>data[j].some((s:RingData)=>ringsShareEdge(r,s))))
       reject("OVERLAP","独立片区共用边线，请返回重新确认分割");
   }
-  return total;
+  return {total,polygons:data};
+}
+function inspectPolygons(polygons:readonly PlacementPolygon[]):PolygonSetData {
+  let total=0;
+  const data=polygons.map(poly=>poly.map(ring=>{total+=ring.length;return inspectRing(ring)}));
+  return {total,polygons:data};
 }
 function freeze<T>(value:T):T {
   if(value&&typeof value==="object"&&!Object.isFrozen(value)){Object.values(value).forEach(freeze);Object.freeze(value);}return value;
+}
+interface PreparedCacheEntry {readonly key:string;readonly prepared:PreparedPhotoGeometry}
+let preparedCache:PreparedCacheEntry|null=null;
+const preparedKeys=new WeakMap<object,string>();
+function sourceGeometryKey(source:ConfirmedPhoto,width:number,height:number):string {
+  return JSON.stringify([source.schema_version,source.session_id,source.photo_id,source.result_id,source.candidate_id,
+    source.prompt_revision,source.mask_sha256,width,height,source.geometry]);
+}
+export function preparedPhotoMatchesSource(prepared:PreparedPhotoGeometry,source:ConfirmedPhoto):boolean {
+  const width=source?.image?.width,height=source?.image?.height;
+  if(!prepared||!Number.isSafeInteger(width)||!Number.isSafeInteger(height))return false;
+  try{return preparedKeys.get(prepared)===sourceGeometryKey(source,width as number,height as number);}
+  catch{return false;}
 }
 export function preparePhotoGeometry(source:ConfirmedPhoto):PreparedPhotoGeometry {
   if(!source||source.schema_version!=="confirmed-photo-segmentation-v1"||source.confirmed_by_user!==true||
@@ -271,6 +321,10 @@ export function preparePhotoGeometry(source:ConfirmedPhoto):PreparedPhotoGeometr
   const raw=source.geometry.coordinates;
   if(!Array.isArray(raw))reject("INVALID_POLYGON","照片轮廓数据无效");
   if(raw.length>1024)reject("COMPLEXITY","病灶片区过多，暂不能完整放置；原分割结果已保留");
+  let key:string;
+  try{key=sourceGeometryKey(source,width as number,height as number);}
+  catch{reject("INVALID_POLYGON","照片轮廓数据无效");}
+  if(preparedCache?.key===key)return preparedCache.prepared;
   let count=0;
   const polygons=raw.map(poly=>{
     if(!Array.isArray(poly)||poly.length>4096)return reject("INVALID_POLYGON","照片轮廓数据无效");
@@ -285,10 +339,11 @@ export function preparePhotoGeometry(source:ConfirmedPhoto):PreparedPhotoGeometr
       });
     });
   });
-  const vertexCount=validatePolygons(polygons);
+  const vertexCount=validatePolygons(polygons).total;
   const bounds=boundsOf(polygons.flatMap(poly=>poly[0]).map(p=>({x:p.x*width,y:p.y*height})));
-  return freeze({coordinateSpace:PHOTO_SPACE,width,height,polygons,vertexCount,bounds,
+  const prepared=freeze({coordinateSpace:PHOTO_SPACE,width,height,polygons,vertexCount,bounds,
     center:{x:bounds.x+bounds.width/2,y:bounds.y+bounds.height/2}});
+  preparedKeys.set(prepared,key);preparedCache={key,prepared};return prepared;
 }
 export function initialPlacement(photo:PreparedPhotoGeometry,model:BodyModelConfig,region?:BodyRegion|null):PlacementTransform {
   if(region&&(region.view!==model.view||!model.regions.some(r=>r.id===region.id)))reject("VIEW","当前部位与人体视图不一致");
@@ -325,32 +380,56 @@ export function transformPhotoPolygonToBody(photo:PreparedPhotoGeometry,t:Placem
 export function placementBounds(geometry:BodyMultiPolygon):NormalizedRect {
   return boundsOf(geometry.coordinates.flatMap(poly=>poly[0]));
 }
-/** Whole filled-region containment, including every ring edge and enclosed body holes. */
-export function validatePlacementGeometry(geometry:BodyMultiPolygon,modelOrBody:BodyModelConfig|BodyGeometry):PlacementValidation {
-  try{
-    if(!geometry||geometry.type!=="MultiPolygon"||geometry.coordinateSpace!==BODY_SPACE)
-      return fail("BODY_SPACE","病灶坐标空间不正确，不能保存到人体标注");
-    validatePolygons(geometry.coordinates);
+function validateBodyContainment(modelOrBody:BodyModelConfig|BodyGeometry,data:PolygonSetData):PlacementValidation {
+  try {
     const body=Array.isArray(modelOrBody)?modelOrBody as BodyGeometry:bodyGeometry(modelOrBody as BodyModelConfig);
     const boundaries=body.flatMap(part=>[part.outer,...part.holes]).flatMap(edges);
     const boundaryIndex=bodyBoundaryIndex(body);
     const outside=()=>fail("OUTSIDE_BODY","部分病灶范围超出人体，请调整位置或大小。");
     if(!body.length)return outside();
-    for(const poly of geometry.coordinates){
-      if(!pointInBody(polygonInterior(poly),body))return outside();
-      for(const ring of poly)for(const [a,b]of edges(ring)){
+    for(const poly of data.polygons){
+      if(!pointInBody(polygonInteriorData(poly),body))return outside();
+      for(const ring of poly)for(const [a,b]of ring.edges){
         const candidates=boundaryIndex?bodyBoundariesForSegment(a,b,boundaryIndex,boundaries):boundaries;
         if([a,b,...intervals(a,b,candidates)].some(p=>!pointInBody(p,body)))return outside();
       }
       // An excluded body hole may be fully enclosed without crossing lesion edges.
       // Allow the lesion's own holes to cover it; only filled lesion pixels are tested.
-      const lesionEdges=poly.flatMap(edges);
+      const lesionEdges=poly.flatMap(ring=>ring.edges);
       for(const part of body)for(const hole of part.holes){
-        if(locateInPolygon(polygonInterior([hole]),poly)===1)return outside();
-        for(const [a,b]of edges(hole))if(intervals(a,b,lesionEdges).some(p=>locateInPolygon(p,poly)===1))return outside();
+        if(pointInPolygonData(polygonInteriorData([inspectRing(hole)]),poly)===1)return outside();
+        for(const [a,b]of edges(hole))if(intervals(a,b,lesionEdges).some(p=>pointInPolygonData(p,poly)===1))return outside();
       }
     }
     return {ok:true};
+  }catch(error){
+    if(error instanceof PlacementError)return fail(error.code,error.message);
+    return fail("INVALID_GEOMETRY","病灶轮廓数据无法校验，请返回重新确认分割");
+  }
+}
+/** Full validation for untrusted or newly clipped geometry. */
+export function validatePlacementGeometry(geometry:BodyMultiPolygon,modelOrBody:BodyModelConfig|BodyGeometry):PlacementValidation {
+  try{
+    if(!geometry||geometry.type!=="MultiPolygon"||geometry.coordinateSpace!==BODY_SPACE)
+      return fail("BODY_SPACE","病灶坐标空间不正确，不能保存到人体标注");
+    const data=validatePolygons(geometry.coordinates);
+    return validateBodyContainment(modelOrBody,data);
+  }catch(error){
+    if(error instanceof PlacementError)return fail(error.code,error.message);
+    return fail("INVALID_GEOMETRY","病灶轮廓数据无法校验，请返回重新确认分割");
+  }
+}
+/**
+ * Geometry produced by a positive uniform scale + rotation from a validated
+ * PreparedPhotoGeometry keeps its internal topology. This path still performs
+ * every body-surface test but avoids repeating the quadratic ring topology pass.
+ */
+export function validateTransformedPlacementGeometry(geometry:BodyMultiPolygon,modelOrBody:BodyModelConfig|BodyGeometry):PlacementValidation {
+  try{
+    if(!geometry||geometry.type!=="MultiPolygon"||geometry.coordinateSpace!==BODY_SPACE)
+      return fail("BODY_SPACE","病灶坐标空间不正确，不能保存到人体标注");
+    const data=inspectPolygons(geometry.coordinates);
+    return validateBodyContainment(modelOrBody,data);
   }catch(error){
     if(error instanceof PlacementError)return fail(error.code,error.message);
     return fail("INVALID_GEOMETRY","病灶轮廓数据无法校验，请返回重新确认分割");
