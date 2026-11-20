@@ -112,7 +112,7 @@ Component({
     if(box){ctx.strokeStyle="#9b4c24";ctx.lineWidth=2;ctx.setLineDash([6,4]);ctx.strokeRect(r.left+box.xMin*r.width,r.top+box.yMin*r.height,(box.xMax-box.xMin)*r.width,(box.yMax-box.yMin)*r.height);ctx.setLineDash([]);}
     if(this.properties.showPrompts!==false)for(const b of (this.properties.additionalBoxes||[]) as PhotoBox[]){ctx.strokeStyle="#9b4c24";ctx.lineWidth=1;ctx.strokeRect(r.left+b.xMin*r.width,r.top+b.yMin*r.height,(b.xMax-b.xMin)*r.width,(b.yMax-b.yMin)*r.height);}
     for(const p of (this.properties.showPrompts!==false?this.properties.points:[]) as PhotoPoint[]){const x=r.left+p.x*r.width,y=r.top+p.y*r.height;
-     ctx.beginPath();ctx.arc(x,y,6,0,2*Math.PI);ctx.fillStyle=p.label===1?"#176f58":"#b64236";ctx.fill();ctx.strokeStyle="#fff";ctx.lineWidth=2;ctx.stroke();
+     ctx.beginPath();ctx.arc(x,y,6,0,2*Math.PI);ctx.fillStyle=p.label===1?"#165DFF":"#DC2626";ctx.fill();ctx.strokeStyle="#fff";ctx.lineWidth=2;ctx.stroke();
      ctx.beginPath();ctx.moveTo(x-3,y);ctx.lineTo(x+3,y);if(p.label===1){ctx.moveTo(x,y-3);ctx.lineTo(x,y+3);}ctx.stroke();}
     // Temporary brush path is a gesture guide; only the returned mask changes the result.
     if(s.stroke.length){const radius=(this.properties.brushRadius||.02)*Math.min(r.width,r.height);

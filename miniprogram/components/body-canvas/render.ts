@@ -30,7 +30,7 @@ export function drawBody(
 ): CanvasPoint | null {
   const {visual,view}=model;
   ctx.clearRect(0, 0, viewport.viewportWidth, viewport.viewportHeight);
-  ctx.fillStyle = "#faf8f4";
+  ctx.fillStyle = "#F4F6F9";
   ctx.fillRect(0, 0, viewport.viewportWidth, viewport.viewportHeight);
   ctx.save();
   try {
@@ -65,8 +65,8 @@ export function drawBody(
           if (index === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
         });
         ctx.closePath();
-        ctx.fillStyle = "rgba(28,122,103,0.20)"; ctx.fill();
-        ctx.strokeStyle = "#267c68"; ctx.lineWidth = 1 / viewport.scale;
+        ctx.fillStyle = "rgba(22, 93, 255, 0.14)"; ctx.fill();
+        ctx.strokeStyle = "#165DFF"; ctx.lineWidth = 1 / viewport.scale;
         ctx.setLineDash([]); ctx.lineJoin="round"; ctx.lineCap="round"; ctx.stroke();
       }
       ctx.setLineDash([]);

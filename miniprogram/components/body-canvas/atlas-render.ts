@@ -47,7 +47,7 @@ export function drawAtlas(ctx:BodyContext,viewport:ViewportTransform,model:BodyM
     if(b.x<0 || b.y<0 || b.x+b.width>viewport.viewportWidth || b.y+12>viewport.viewportHeight ||
       boxes.some(a=>a.x<b.x+b.width && b.x<a.x+a.width && a.y<b.y+12 && b.y<a.y+a.height))continue;
     boxes.push(b);ctx.strokeStyle="#ffffff";ctx.lineWidth=3;ctx.strokeText(r.labelId,p.x,p.y);
-    ctx.fillStyle="#173d38";ctx.fillText(r.labelId,p.x,p.y);
+    ctx.fillStyle="#111827";ctx.fillText(r.labelId,p.x,p.y);
    }
   }
  } finally {ctx.restore();}

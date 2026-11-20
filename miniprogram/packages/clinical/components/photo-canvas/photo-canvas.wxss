@@ -1,1 +1,32 @@
-:host{display:block;width:100%;height:100%}.stage{position:relative;width:100%;height:100%;background:#edf1ef;border-radius:16rpx;overflow:hidden}.canvas{width:100%;height:100%}.error{position:absolute;bottom:16rpx;left:16rpx;right:16rpx;background:#fff;color:#973d2e;padding:16rpx}
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #F4F6F9;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.error {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background: #FFFFFF;
+  border: 1px solid #FECACA;
+  border-radius: 8px;
+  color: #DC2626;
+  font-size: 12px;
+  padding: 10px 12px;
+}

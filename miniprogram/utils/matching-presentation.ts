@@ -5,7 +5,7 @@ import { normalizedToCanvas } from "./coordinate";
 import { coverageText } from "./matching-text";
 
 export interface CandidateLabel {
- id:string; name:string; label:string; side:string; color:string; ratio:string; y:number;
+ id:string; name:string; label:string; side:string; color:string; ratio:string; barPercent?:number; y:number;
 }
 export interface PlacedLabel extends CandidateLabel { top:number }
 export interface LabelRail { items:PlacedLabel[]; height:number; overflow:boolean }
@@ -29,14 +29,16 @@ export function presentation(candidates:readonly MatchCandidate[],regions:readon
  if(cached?.source===regions && cached.view===view)return {labels:cached.labels,regions:selected?cached.single.get(selected)||[]:cached.all};
  const all=new Map<string,AtlasRegion>(),single=new Map<string,AtlasRegion>();
  const byCandidate=new Map<string,AtlasRegion[]>();
+ const maxRatio=candidates.reduce((m,c)=>Math.max(m,c.lesion_coverage_ratio||0),0);
  const labels=candidates.map(c=>{
   const parts=candidateRegions(c,regions,view);
   byCandidate.set(c.candidate_id,[...new Map(parts.map(r=>[r.id,r])).values()]);
   for(const r of parts){all.set(r.id,r);if(c.candidate_id===selected)single.set(r.id,r);}
   // 这里只决定文字的纵向布局，不作为连线锚点或命中数据。
   const ys=parts.flatMap(r=>r.geometry.coordinates.flatMap(p=>p[0].map(v=>v[1])));
+  const barPercent=maxRatio>0?Math.max(8,Math.round(((c.lesion_coverage_ratio||0)/maxRatio)*100)):0;
   return {id:c.candidate_id,name:c.display_name,label:c.label,side:c.side,
-   color:parts[0].color,ratio:coverageText(c.lesion_coverage_ratio),y:(Math.min(...ys)+Math.max(...ys))/2};
+   color:parts[0].color,ratio:coverageText(c.lesion_coverage_ratio),barPercent,y:(Math.min(...ys)+Math.max(...ys))/2};
  });
  prepared.set(candidates,{source:regions,view,labels,all:[...all.values()],single:byCandidate});
  return {labels,regions:[...(selected?single:all).values()]};

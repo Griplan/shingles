@@ -38,8 +38,8 @@ function fallbackStageSize():{width:number;height:number}|null {
     // phones keep the 50vh stage bounded to 220–620 CSS pixels.
     const wide=windowWidth>=680&&windowHeight>=520;
     const pageWidth=Math.min(1120,windowWidth),contentWidth=wide?pageWidth-32:windowWidth-56*(windowWidth/750);
-    const width=wide?(contentWidth-16)*5/8:contentWidth;
-    const height=wide?Math.min(740,windowHeight-128):Math.min(620,Math.max(220,windowHeight*.5));
+    const width=wide?(contentWidth-16)*0.52:contentWidth;
+    const height=wide?Math.min(740,windowHeight-128):Math.min(620,Math.max(220,windowHeight*0.58));
     return width>32&&height>32?{width,height}:null;
   } catch {
     return null;

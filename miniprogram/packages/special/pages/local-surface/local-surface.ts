@@ -110,16 +110,29 @@ Page({
    this.setData({atlasRegions:regions,labels,coverage,rail:placeLabels(labels,this.data.stageHeight-24,this.data.viewport),layoutRevision:this.data.layoutRevision+(layoutChanged?1:0)});
   }catch(error){this.setData({atlasRegions:[],labels:[],rail:emptyRail,resultMode:false,message:(error as Error).message});}
  },
- chooseCandidate(e:WechatMiniprogram.TouchEvent){const id=e.currentTarget.dataset.id;if(typeof id!=="string"||!this.data.labels.some(l=>l.id===id))return;this.setData({selected:id});this.refreshOverlay();},
- showAll(){this.setData({selected:""});this.refreshOverlay();},
+ chooseCandidate(e:WechatMiniprogram.TouchEvent){const id=e.currentTarget.dataset.id;if(typeof id!=="string"||!this.data.labels.some(l=>l.id===id))return;this.setData({selected:this.data.selected===id?"":id,focusBounds:null});this.refreshOverlay();},
+ showAll(){this.setData({selected:"",focusBounds:null});this.refreshOverlay();},
  onViewport(e:WechatMiniprogram.CustomEvent<{view:LocalSurfaceView;viewport:ViewportTransform}>){if(e.detail.view!==this.data.view)return;this.setData({viewport:e.detail.viewport,rail:placeLabels(this.data.labels,this.data.stageHeight-24,e.detail.viewport)});},
- zoom(){let points:readonly NormalizedPoint[]=[];
+ zoom(){
+  if(this.data.focusBounds){this.reset();return;}
+  let points:readonly NormalizedPoint[]=[];
   if(this.data.selected&&this.data.atlasRegions.length)points=this.data.atlasRegions.flatMap(r=>r.geometry.coordinates.flatMap(poly=>poly[0].map(([x,y])=>({x,y}))));
   else {const s=this.data.session?.state;points=s?.completed.find(p=>p.id===s.selectedId)?.ring||s?.draft?.vertices||[];}
   if(!points.length)points=getLocalModel(this.data.view).body.flatMap(p=>p.outer);
   this.setData({focusBounds:focus(points)});
  },
  reset(){this.setData({focusBounds:null});},
+ finishFlow(){
+  const life=lives.get(this);if(!life?.active||this.data.infoOpen)return;
+  wx.showModal({title:"结束本次标注",content:"将清空当前标注记录并返回初始页面，是否确认？",confirmText:"确认结束",confirmColor:"#165DFF",
+   success:r=>{
+    if(!r.confirm)return;
+    localMatching.forView(this.data.view).cancelPending();
+    localSession.clearAll();
+    localMatching.forView(this.data.view).refresh();
+    wx.reLaunch({url:"/pages/select/select",fail:()=>wx.redirectTo({url:"/pages/select/select"})});
+   }});
+ },
  showInfo(){this.setData({infoOpen:true});},closeInfo(){this.setData({infoOpen:false,layoutRevision:this.data.layoutRevision+1});},swallow(){},
  returnParts(){const pages=getCurrentPages(),index=pages.map(p=>p.route).lastIndexOf("packages/special/pages/special-parts/special-parts");
   if(index>=0&&index<pages.length-1)wx.navigateBack({delta:pages.length-1-index});else wx.redirectTo({url:"/packages/special/pages/special-parts/special-parts"});},

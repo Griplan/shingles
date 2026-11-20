@@ -1,12 +1,121 @@
-.picker-overlay { position:fixed; top:0; right:0; bottom:0; left:0; z-index:100; display:flex; align-items:flex-end; background:rgba(20,42,34,.35); }
-.picker-sheet { width:100%; max-height:80vh; box-sizing:border-box; padding:16px 16px calc(12px + env(safe-area-inset-bottom)); border-radius:20px 20px 0 0; background:#f8faf8; }
-.picker-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
-.picker-title { flex:1; white-space:nowrap; font-size:18px; font-weight:600; color:#203b36; }
-.picker-close { box-sizing:border-box; flex:0 0 54px; width:54px; margin:0; min-height:40px; padding:8px 0; text-align:center; line-height:24px; font-size:14px; color:#236b57; background:#e5eee7; border-radius:10px; }
-.picker-close::after,.picker-option::after { border:0; }
-.picker-hint { margin:8px 0 12px; font-size:12px; line-height:18px; color:#667b6f; }
-.picker-scroll { max-height:calc(80vh - 126px - env(safe-area-inset-bottom)); height:232px; }
-.picker-grid { display:flex; flex-wrap:wrap; padding-bottom:8px; }
-.picker-cell { width:50%; padding:4px; box-sizing:border-box; }
-.picker-option { display:flex; align-items:center; justify-content:center; text-align:center; min-width:0; box-sizing:border-box; width:100%; margin:0; padding:10px 4px; min-height:44px; line-height:24px; border:1px solid #d9e3dc; border-radius:10px; background:#fff; color:#3d5b4b; font-size:14px; }
-.picker-option.is-selected { border-color:#236b57; background:#e1eee6; color:#175d43; font-weight:600; }
+.picker-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(17, 24, 39, 0.42);
+}
+
+.picker-sheet {
+  width: 100%;
+  max-width: 640px;
+  max-height: 80vh;
+  box-sizing: border-box;
+  padding: 10px 16px calc(14px + env(safe-area-inset-bottom));
+  border-radius: var(--ui-radius-lg, 16px) var(--ui-radius-lg, 16px) 0 0;
+  background: var(--ui-bg-surface, #FFFFFF);
+  border-top: 1px solid var(--ui-border, #E5E9F0);
+  box-shadow: 0 -8px 24px rgba(15, 23, 42, 0.1);
+}
+
+.picker-handle {
+  width: 36px;
+  height: 4px;
+  margin: 0 auto 10px;
+  border-radius: 999px;
+  background: var(--ui-border-strong, #CBD5E1);
+}
+
+.picker-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.picker-title {
+  flex: 1;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ui-text-1, #111827);
+}
+
+.picker-close {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  min-width: 56px;
+  margin: 0;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 12px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ui-text-2, #4B5563);
+  background: var(--ui-bg-subtle, #F1F5F9);
+  border-radius: var(--ui-radius-sm, 6px);
+}
+
+.picker-close::after,
+.picker-option::after {
+  border: none;
+}
+
+.picker-hint {
+  margin: 6px 0 12px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--ui-text-3, #86909C);
+}
+
+.picker-scroll {
+  max-height: calc(80vh - 132px - env(safe-area-inset-bottom));
+  height: 240px;
+}
+
+.picker-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -4px;
+  padding-bottom: 8px;
+}
+
+.picker-cell {
+  width: 50%;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.picker-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-width: 0;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 10px 8px;
+  min-height: 44px;
+  line-height: 20px;
+  border: 1px solid var(--ui-border, #E5E9F0);
+  border-radius: var(--ui-radius-md, 8px);
+  background: var(--ui-bg-surface, #FFFFFF);
+  color: var(--ui-text-1, #111827);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.picker-option.is-selected {
+  border-color: var(--ui-primary, #165DFF);
+  background: var(--ui-primary-soft, #EBF3FF);
+  color: var(--ui-primary, #165DFF);
+  font-weight: 600;
+}

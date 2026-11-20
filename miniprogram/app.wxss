@@ -1,101 +1,363 @@
 page {
-  background: #f5f8f7;
-  color: #203b36;
-  font-size: 30rpx;
-  line-height: 1.65;
+  --ui-bg-stage: #F4F6F9;
+  --ui-bg-surface: #FFFFFF;
+  --ui-bg-subtle: #F1F5F9;
+  --ui-border: #E5E9F0;
+  --ui-border-strong: #CBD5E1;
+  --ui-primary: #165DFF;
+  --ui-primary-hover: #0E42D2;
+  --ui-primary-soft: #EBF3FF;
+  --ui-danger: #DC2626;
+  --ui-danger-soft: #FEF2F2;
+  --ui-text-1: #111827;
+  --ui-text-2: #4B5563;
+  --ui-text-3: #86909C;
+  --ui-radius-sm: 6px;
+  --ui-radius-md: 8px;
+  --ui-radius-lg: 16px;
+  --ui-radius-pill: 999px;
+
+  background: var(--ui-bg-stage);
+  color: var(--ui-text-1);
+  font-size: 15px;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
 }
 
+/* 强制清除小程序 style:v2 按钮默认伪元素边框 */
+button::after {
+  display: none;
+  border: none;
+}
+
+/* ===== 临床工作台通用工具与 4 级按钮体系 ===== */
+.ui-num {
+  font-variant-numeric: tabular-nums;
+}
+
+.ui-stage-grid {
+  background-color: var(--ui-bg-stage);
+  background-image: radial-gradient(rgba(148, 163, 184, 0.24) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.ui-btn {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 !important;
+  padding: 0 14px;
+  width: auto;
+  min-width: 0;
+  height: 42px;
+  min-height: 42px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: var(--ui-radius-md);
+  border: 1px solid transparent;
+  background: var(--ui-bg-surface);
+  color: #1E293B;
+  transition: background-color 0.15s ease, opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.ui-btn::after {
+  display: none;
+  border: none;
+}
+
+.ui-btn-sm {
+  height: 36px;
+  min-height: 36px;
+  padding: 0 12px;
+  font-size: 13px;
+  border-radius: var(--ui-radius-md);
+}
+
+.ui-btn-block {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  display: flex;
+}
+
+/* 一级主按钮：实心医疗钴蓝 */
+.ui-btn-primary {
+  background: #165DFF;
+  border-color: #165DFF;
+  color: #FFFFFF;
+}
+
+/* 二级次按钮：纯白 + 细边框 */
+.ui-btn-secondary {
+  background: #FFFFFF;
+  border-color: #CBD5E1;
+  color: #1E293B;
+}
+
+/* 三级弱按钮：透明/浅灰底 */
+.ui-btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: #475569;
+}
+
+/* 危险操作按钮：柔和警示红 */
+.ui-btn-danger {
+  background: #FEF2F2;
+  border-color: #FECACA;
+  color: #DC2626;
+}
+
+/* 统一禁用态 */
+.ui-btn[disabled],
+.ui-btn.is-disabled {
+  background: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
+  color: #94A3B8 !important;
+  opacity: 1 !important;
+}
+
+/* 统一顶部轻量辅助胶囊按钮（28px 高，强制覆盖微信 v2 button 184px 默认宽） */
+.ui-top-pill {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  margin: 0 !important;
+  padding: 0 12px;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 28px;
+  min-height: 28px;
+  line-height: 1;
+  border-radius: 999px;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.ui-top-pill.is-disabled {
+  background: #F1F5F9;
+  border-color: #E2E8F0;
+  color: #94A3B8;
+  pointer-events: none;
+}
+
+.ui-top-pill::after {
+  display: none;
+  border: none;
+}
+
+.ui-top-pill[disabled] {
+  background: #F1F5F9;
+  border-color: #E2E8F0;
+  color: #94A3B8;
+}
+
+/* 克制按压态 hover-class（替代微信默认发黑点击态） */
+.ui-hover-primary {
+  background: #0E42D2 !important;
+  border-color: #0E42D2 !important;
+}
+
+.ui-hover-secondary {
+  background: #F1F5F9 !important;
+}
+
+.ui-hover-ghost {
+  background: #F1F5F9 !important;
+  color: #111827 !important;
+}
+
+.ui-hover-danger {
+  background: #FEE2E2 !important;
+}
+
+.ui-hover-subtle {
+  opacity: 0.78;
+}
+
+/* 统一像素级一致的正背面/筛选分段胶囊 */
+.ui-segmented {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  gap: 2px;
+  border-radius: 999px;
+  background: #E8EDF4;
+  box-sizing: border-box;
+}
+
+.ui-segmented-item {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 !important;
+  padding: 0 16px;
+  width: auto !important;
+  min-width: 0 !important;
+  height: 28px;
+  min-height: 28px;
+  line-height: 1;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: #64748B;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+}
+
+.ui-segmented-item::after {
+  display: none;
+  border: none;
+}
+
+.ui-segmented-item.is-active,
+.ui-segmented-item.active {
+  background: #FFFFFF;
+  color: #165DFF;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+.ui-segmented-item[disabled] {
+  opacity: 0.55;
+}
+
+/* 通用吸底操作栏（唯一承担底部安全区留白） */
+.ui-sticky-footer {
+  flex: 0 0 auto;
+  background: var(--ui-bg-surface);
+  border-top: 1px solid var(--ui-border);
+  padding: 10px 16px calc(12px + env(safe-area-inset-bottom));
+  box-sizing: border-box;
+}
+
+/* ===== 兼容旧页面通用样式（临床蓝白全 px 单位） ===== */
 .page {
-  padding: 48rpx 36rpx 72rpx;
+  padding: 24px 18px calc(32px + env(safe-area-inset-bottom));
+  box-sizing: border-box;
 }
 
 .version {
-  display: inline-block;
-  margin-bottom: 24rpx;
-  padding: 6rpx 20rpx;
-  border-radius: 12rpx;
-  background: #e3eeea;
-  color: #42685e;
-  font-size: 24rpx;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  border-radius: var(--ui-radius-pill);
+  background: var(--ui-primary-soft);
+  color: var(--ui-primary);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .title {
-  margin-bottom: 20rpx;
-  font-size: 44rpx;
+  margin-bottom: 8px;
+  font-size: 22px;
   font-weight: 600;
   line-height: 1.35;
+  color: var(--ui-text-1);
 }
 
 .description {
-  color: #5c6e69;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ui-text-2);
 }
 
 .panel {
-  margin-top: 36rpx;
-  padding: 30rpx;
-  border: 1rpx solid #dce6e1;
-  border-radius: 20rpx;
-  background: #ffffff;
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-md);
+  background: var(--ui-bg-surface);
 }
 
 .panel-title {
-  margin-bottom: 12rpx;
+  margin-bottom: 8px;
+  font-size: 14px;
   font-weight: 600;
+  color: var(--ui-text-1);
 }
 
 .notice {
-  margin-top: 32rpx;
-  padding: 24rpx;
-  border-radius: 16rpx;
-  background: #fff3de;
-  color: #745627;
-  font-size: 26rpx;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px solid #FDE68A;
+  border-radius: var(--ui-radius-md);
+  background: #FFFBEB;
+  color: #92400E;
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 .action {
-  margin-top: 24rpx;
-  padding: 22rpx 24rpx;
-  border-radius: 16rpx;
-  background: #236b57;
-  color: #ffffff;
+  margin-top: 18px;
+  height: 44px;
+  line-height: 44px;
+  padding: 0 16px;
+  border-radius: var(--ui-radius-md);
+  background: var(--ui-primary);
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 500;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .action-secondary {
-  background: #e3eeea;
-  color: #294e42;
+  background: var(--ui-bg-surface);
+  border: 1px solid var(--ui-border-strong);
+  color: #1E293B;
 }
 
 .footnote {
-  margin-top: 28rpx;
-  color: #677972;
-  font-size: 24rpx;
+  margin-top: 14px;
+  color: var(--ui-text-3);
+  font-size: 12px;
+  line-height: 1.6;
 }
 
-.p9-split,.p9-stage,.p9-controls{min-width:0}
-.p9-wide-labels{display:none}
-@media (min-width:480px){
-  .page{box-sizing:border-box;max-width:660px;margin:auto;padding:24px 24px calc(28px + env(safe-area-inset-bottom));font-size:16px}
-  .page .title{font-size:26px}.page .version,.page .notice,.page .footnote{font-size:14px}
-  .page .panel,.page .notice,.page .action{padding:14px;margin-top:16px}
-  .p9-page.p9-photo-workflow{padding-top:8px;padding-bottom:calc(14px + env(safe-area-inset-bottom));font-size:15px}
-  .p9-photo-workflow.p9-page .heading,.p9-photo-workflow.p9-page .instruction,.p9-photo-workflow.p9-page .status,.p9-photo-workflow.p9-page .slider-label,.p9-photo-workflow .placeholder-title{font-size:16px}
-  .p9-photo-workflow.p9-page button,.p9-photo-workflow.p9-page .text-button,.p9-photo-workflow.p9-page .muted,.p9-photo-workflow.p9-page .warning,.p9-photo-workflow.p9-page .notice,.p9-photo-workflow.p9-page .brush-size{font-size:14px}
-  .p9-photo-workflow.p9-page .privacy,.p9-photo-workflow.p9-page .privacy .text-button,.p9-photo-workflow.p9-page .note{font-size:12px}
+/* ===== 响应式断点：沿用现有 680x520 宽屏断点与 519 矮横屏兜底 ===== */
+@media (min-width: 480px) {
+  .page {
+    box-sizing: border-box;
+    max-width: 660px;
+    margin: auto;
+    padding: 24px 24px calc(28px + env(safe-area-inset-bottom));
+    font-size: 15px;
+  }
+  .page .title { font-size: 24px; }
 }
-@media (min-width:680px) and (min-height:520px){
-  .p9-page.p9-page{box-sizing:border-box;max-width:1120px;padding-left:max(16px, env(safe-area-inset-left));padding-right:max(16px, env(safe-area-inset-right))}
-  .p9-split{display:flex;align-items:flex-start;gap:16px}
-  .p9-stage{flex:5 1 0}
-  .p9-controls{flex:3 1 0;min-width:244px;box-sizing:border-box;padding:10px;overflow-y:auto;overflow-x:hidden;max-height:var(--p9-stage-height);border-radius:12px;background:#f5f8f4}
-  .p9-page{--p9-stage-height:min(740px, calc(100vh - 120px - env(safe-area-inset-bottom)))}
-  .p9-phone-labels{display:none}
-  .p9-wide-labels{display:block;margin:6px 0 12px;font-size:13px;line-height:20px}
-  .p9-wide-labels button.p9-label{display:flex;width:100%;align-items:center;justify-content:space-between;gap:8px;margin:4px 0!important;text-align:left;border-left:4px solid #629c83;white-space:normal;overflow-wrap:anywhere}
-  .p9-photo-workflow.p9-page .p9-stage{height:var(--p9-stage-height);max-height:none}
-  .p9-photo-workflow .p9-controls .result-actions{flex-wrap:wrap;gap:4px}
-  .p9-label-text{flex:1;min-width:0}
-}
-@media (min-width:480px) and (max-height:519px){
-  .p9-page.p9-page{padding-left:max(12px, env(safe-area-inset-left));padding-right:max(12px, env(safe-area-inset-right))}
+
+@media (min-width: 680px) and (min-height: 520px) {
+  .ui-btn {
+    height: 44px;
+    min-height: 44px;
+  }
+  .ui-btn-sm {
+    height: 36px;
+    min-height: 36px;
+  }
+  .ui-segmented-item {
+    height: 32px;
+    min-height: 32px;
+  }
+  .ui-sticky-footer {
+    padding: 12px 20px calc(14px + env(safe-area-inset-bottom));
+  }
 }

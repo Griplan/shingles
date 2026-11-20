@@ -194,5 +194,6 @@ export class PlacementSessionStore {
    this.owner++;this.draft=null;this.settled=null;
   }
  }
+ clear():void {this.owner++;this.draft=null;this.settled=null;}
 }
 export const placementSession=new PlacementSessionStore();

@@ -55,6 +55,7 @@ Page({
       mode:"overview" as const,sheetOpen:false,sheetRegions:model.regions,candidateIds:[],selectionMessage:"",
       screenLeft: view === "front" ? "人体右侧" : "人体左侧",
       screenRight: view === "front" ? "人体左侧" : "人体右侧",
+      layoutRevision:this.data.layoutRevision+1,
     },EMPTY_DEBUG));
   },
   selectRegion(event: WechatMiniprogram.TouchEvent) {
@@ -67,7 +68,8 @@ Page({
     const region=getBodyRegion(this.data.view,id);
     if(!region)return;
     this.setData({selectedRegion:region.id,selectedName:region.name,zoomRegion:"",mode:"overview",
-      sheetOpen:false,candidateIds:[],sheetRegions:getBodyModel(this.data.view).regions,selectionMessage:""});
+      sheetOpen:false,candidateIds:[],sheetRegions:getBodyModel(this.data.view).regions,selectionMessage:"",
+      layoutRevision:this.data.layoutRevision+1});
   },
   chooseFromList(event:WechatMiniprogram.CustomEvent<{id:string}>) {
     if(this.data.sheetOpen && typeof event.detail.id==="string" &&
@@ -83,7 +85,7 @@ Page({
       p.view!==this.data.view||p.modelId!==this.data.modelId||p.modelVersion!==this.data.modelVersion)return;
     if(p.status==="unique" && p.regionIds.length===1) {
       if(p.regionIds[0]===this.data.selectedRegion)this.setData({selectedRegion:"",selectedName:"未选择",
-        sheetOpen:false,candidateIds:[],selectionMessage:""});
+        sheetOpen:false,candidateIds:[],selectionMessage:"",layoutRevision:this.data.layoutRevision+1});
       else this.applySelection(p.regionIds[0]);
       return;
     }
@@ -96,14 +98,16 @@ Page({
     const messages={"outside-body":"请轻触人体内的部位，或从列表选择",
       "outside-model":"请轻触人体内的部位，或从列表选择",
       unconfigured:"该位置暂未配置区域，可从列表选择",unavailable:"画布位置正在更新，请重新轻触"};
-    if(p.status!=="unique")this.setData({selectionMessage:messages[p.status]});
+    if(p.status!=="unique")this.setData({selectionMessage:messages[p.status],layoutRevision:this.data.layoutRevision+1});
   },
   zoomIn() {
     if (!this.data.sheetOpen && getBodyRegion(this.data.view, this.data.selectedRegion)) {
-      this.setData({ zoomRegion: this.data.selectedRegion, mode:"focused",selectionMessage:"" });
+      this.setData({ zoomRegion: this.data.selectedRegion, mode:"focused",selectionMessage:"",
+        layoutRevision:this.data.layoutRevision+1 });
     }
   },
-  showFullBody() { this.setData({ zoomRegion: "",mode:"overview",selectionMessage:"" }); },
+  showFullBody() { this.setData({ zoomRegion: "",mode:"overview",selectionMessage:"",
+    layoutRevision:this.data.layoutRevision+1 }); },
   openSpecialParts() {
     if(this.data.sheetOpen || this.data.infoOpen)return;
     wx.navigateTo({url:"/packages/special/pages/special-parts/special-parts",fail:()=>this.setData({selectionMessage:"特殊部位页面未能打开，请重试"})});

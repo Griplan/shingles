@@ -37,7 +37,7 @@
     <button size="mini" class="{{side === 'left' ? 'active' : ''}}" data-side="left" bindtap="changeSide">人体左侧</button>
     <button size="mini" class="{{side === 'right' ? 'active' : ''}}" data-side="right" bindtap="changeSide">人体右侧</button>
    </view>
-   <label class="label-switch">标签 <switch checked="{{showLabels}}" bindchange="toggleLabels" color="#236b57" /></label>
+   <label class="label-switch">标签 <switch checked="{{showLabels}}" bindchange="toggleLabels" color="#165DFF" /></label>
   </view>
   <view class="toolbar actions">
    <button size="mini" bindtap="focusSelected" disabled="{{!labelId}}">放大所选</button>

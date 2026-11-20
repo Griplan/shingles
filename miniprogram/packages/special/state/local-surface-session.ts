@@ -58,5 +58,6 @@ export class LocalSurfaceSessionStore {
   const next=freeze({...s,state,phase,revision:s.revision+1});this.sessions[s.view]=next;
   return {ok:true,session:next};
  }
+ clearAll():void {this.sessions={};}
 }
 export const localSession=new LocalSurfaceSessionStore();

@@ -1,1 +1,107 @@
-.special-page{max-width:600px;margin:0 auto;padding:28px 20px calc(24px + env(safe-area-inset-bottom));box-sizing:border-box}.title{font-size:22px;font-weight:600;margin-bottom:8px}.hint{font-size:14px;color:#657d73}.choices{display:flex;gap:12px;margin:24px 0}.choices.single{margin-top:8px}.choice{flex:1;margin:0;padding:24px 8px;border-radius:14px;background:#e3eee9;color:#245d4c;font-size:20px;font-weight:600;line-height:1.5}.choice text{display:block;margin-top:8px;font-size:12px;font-weight:400;color:#647d71}.choice::after,.back::after{border:0}.back{margin:24px 0 0;padding:10px;background:transparent;color:#356b57;font-size:14px}.message{font-size:13px;color:#98563b}
+.special-page {
+  max-width: 660px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 20px 18px calc(24px + env(safe-area-inset-bottom));
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.special-header {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ui-text-1);
+  margin-bottom: 6px;
+}
+
+.hint {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ui-text-2);
+}
+
+.choices {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.choices.single {
+  margin-top: 12px;
+}
+
+.choice {
+  flex: 1;
+  min-width: 0;
+  width: auto;
+  margin: 0;
+  padding: 18px 14px;
+  border-radius: var(--ui-radius-md);
+  border: 1px solid var(--ui-border);
+  background: var(--ui-bg-surface);
+  color: var(--ui-text-1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+  line-height: 1.4;
+  transition: border-color 120ms ease, background-color 120ms ease;
+}
+
+.choice:active {
+  background: var(--ui-primary-soft);
+  border-color: var(--ui-primary);
+}
+
+.choice[disabled] {
+  background: var(--ui-bg-subtle);
+  border-color: var(--ui-border);
+  opacity: 0.65;
+}
+
+.choice::after,
+.back::after {
+  border: none;
+}
+
+.choice-title {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ui-text-1);
+}
+
+.choice-desc {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--ui-text-3);
+}
+
+.message {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: var(--ui-radius-sm);
+  background: var(--ui-danger-soft);
+  color: var(--ui-danger);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.special-footer {
+  margin-top: 24px;
+}
+
+.back {
+  margin: 0;
+}

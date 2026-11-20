@@ -222,6 +222,7 @@ export class AnnotationSessionStore {
     this.active=freeze({...s,currentView:nextView,phase,revision:s.revision+1,views});
     return {ok:true,session:this.active};
   }
+  reset():void { this.active=null; }
 }
 
 /** 内存唯一权威；不使用storage/网络，也不依赖onUnload保存。 */

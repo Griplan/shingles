@@ -53,7 +53,7 @@ Component({
     const {dpr,width:w,height:h}=canvasBackingSize(s.width,s.height,windowPixelRatio());
     if(node.width!==w)node.width=w;if(node.height!==h)node.height=h;
     const full=fitViewport(s.width,s.height,model,12),v=this.properties.focusBounds?focusViewport(full,this.properties.focusBounds):full;
-    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,s.width,s.height);ctx.fillStyle="#faf8f4";ctx.fillRect(0,0,s.width,s.height);
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,s.width,s.height);ctx.fillStyle="#F4F6F9";ctx.fillRect(0,0,s.width,s.height);
     ctx.drawImage(image,v.offsetX,v.offsetY,model.logicalWidth*v.scale,model.logicalHeight*v.scale);
     ctx.save();try{
      ctx.beginPath();ctx.rect(0,0,s.width,s.height);ctx.clip();ctx.lineWidth=.8;ctx.lineJoin="round";

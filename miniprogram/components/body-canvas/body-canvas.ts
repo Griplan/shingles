@@ -243,6 +243,9 @@ Component({
       this.paintScene();
     }catch(error){this.activateImageFallback(error,{width:measurement?.width||0,height:measurement?.height||0});}
     };
+    // Layout changes are signalled explicitly through layoutRevision, resize
+    // and page show. Ordinary scene and gesture frames reuse the measured node
+    // and CSS size so dragging never triggers a selector query.
     if(s.measurement){draw(s.measurement);return;}
     try{s.measures++;this.createSelectorQuery().select("#body-canvas").fields({node:true,size:true}).exec((results:unknown[])=>draw(results[0] as CanvasMeasurement));}
     catch(error){s.pending=false;this.failCanvas(error);}

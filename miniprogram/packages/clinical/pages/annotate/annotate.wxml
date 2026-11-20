@@ -1,64 +1,457 @@
-<view class="annotation-page p9-page" style="--feedback-ms:{{motionEnabled ? feedbackMs : 0}}ms;--phone-stage:{{stageHeight}}px">
- <view wx:if="{{error}}" class="error-state"><text>{{error}}</text><navigator url="/pages/select/select" open-type="redirect">返回选择页</navigator></view>
- <block wx:elif="{{session}}">
-  <view class="heading"><text>{{stateLabel}}</text><button class="control info-link" bindtap="openInfo">说明</button></view>
-  <view class="switch-row"><button class="control tab {{view === 'front' ? 'active' : ''}}" data-view="front" bindtap="switchView" disabled="{{dialogOpen || infoOpen}}" aria-pressed="{{view === 'front'}}">正面 · {{frontCount}}</button><button class="control tab {{view === 'back' ? 'active' : ''}}" data-view="back" bindtap="switchView" disabled="{{dialogOpen || infoOpen}}" aria-pressed="{{view === 'back'}}">背面 · {{backCount}}</button></view>
-  <scroll-view wx:if="{{showScopeChoices}}" class="scope-row p9-phone-labels" scroll-x enhanced><view class="scope-items"><button class="control chip {{!scope ? 'selected' : ''}}" data-id="" bindtap="chooseScope">全部标注</button><button wx:for="{{scopes}}" wx:key="id" class="control chip {{scope === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="chooseScope">{{item.name}}</button></view></scroll-view>
-  <scroll-view wx:elif="{{showRegionChoices}}" class="scope-row p9-phone-labels" scroll-x enhanced><view class="scope-items"><button wx:for="{{regions}}" wx:key="id" class="control chip {{selectedId === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="selectPolygon" disabled="{{mode === 'draw' || phase === 'review' || debugEnabled || dialogOpen}}">{{item.label}}</button></view></scroll-view>
-  <view class="status">{{preparingView ? '正在准备另一面…' : loading ? '正在计算参考区域，标注已保留…' : debugEnabled ? '坐标调试中，标注点击已暂停' : resultMode ? selected ? '单区查看 · 再次点击标签返回全部' : '点击标签可单独查看参考区域' : phase === 'review' ? '标注已确认' : mode === 'draw' ? '沿边缘轻触取点；双指可缩放，不会误加点' : '单指平移、双指缩放；可新增范围或完成标注'}}</view>
-  <view class="p9-split">
-  <view class="result-stage p9-stage">
-   <view class="rail p9-phone-labels"><view class="rail-title">{{view === 'front' ? '人体右侧' : '人体左侧'}}</view>
- <scroll-view class="rail-scroll" scroll-y enhanced style="height:{{stageHeight - 44}}px"><view class="rail-content {{sceneReady ? 'shown' : ''}}" style="height:{{leftRail.height}}px;transition-duration:{{motionEnabled ? overlayMs : 0}}ms">
- <button wx:for="{{leftRail.items}}" wx:key="id" class="control nerve-label {{selected === item.id ? 'selected' : ''}}" style="top:{{item.top}}px;border-left-color:{{item.color}}" data-id="{{item.id}}" catchtap="chooseCandidate" disabled="{{!sceneReady || preparingView || infoOpen}}" aria-label="{{item.name}}，{{view === 'front' ? '人体右侧' : '人体左侧'}}，{{item.ratio}}"><text class="label-name">{{item.label}}</text><text class="label-ratio">{{item.ratio}}</text></button>
- </view></scroll-view><view class="rail-hint">{{leftRail.overflow ? '↕ 滑动查看更多' : leftRail.items.length ? leftRail.items.length + ' 项' : ''}}</view></view>
-   <view class="canvas-area"><body-canvas id="work-canvas" view="{{view}}" zoom-region="{{zoomRegion}}" focus-bounds="{{focusBounds}}" retained-viewport="{{retainedViewport}}" interaction-mode="{{mode}}" camera-enabled="{{true}}" annotation="{{layer}}" atlas="{{atlas}}" debug-enabled="{{debugEnabled}}" interaction-blocked="{{dialogOpen || infoOpen}}" touch-disabled="{{preparingView}}" layout-revision="{{layoutRevision}}" motion-enabled="{{motionEnabled}}" overlay-key="{{overlayKey}}" scene-id="{{sceneId}}" bind:annotationpoint="onAnnotationPoint" bind:debugprobe="onDebugProbe" bind:viewportchange="onViewportChange" bind:sceneready="onSceneReady" bind:renderstats="onRenderStats" bind:rendererror="onRenderError"></body-canvas></view>
-   <view class="rail p9-phone-labels"><view class="rail-title">{{view === 'front' ? '人体左侧' : '人体右侧'}}</view>
- <scroll-view class="rail-scroll" scroll-y enhanced style="height:{{stageHeight - 44}}px"><view class="rail-content {{sceneReady ? 'shown' : ''}}" style="height:{{rightRail.height}}px;transition-duration:{{motionEnabled ? overlayMs : 0}}ms">
- <button wx:for="{{rightRail.items}}" wx:key="id" class="control nerve-label {{selected === item.id ? 'selected' : ''}}" style="top:{{item.top}}px;border-left-color:{{item.color}}" data-id="{{item.id}}" catchtap="chooseCandidate" disabled="{{!sceneReady || preparingView || infoOpen}}" aria-label="{{item.name}}，{{view === 'front' ? '人体左侧' : '人体右侧'}}，{{item.ratio}}"><text class="label-name">{{item.label}}</text><text class="label-ratio">{{item.ratio}}</text></button>
- </view></scroll-view><view class="rail-hint">{{rightRail.overflow ? '↕ 滑动查看更多' : rightRail.items.length ? rightRail.items.length + ' 项' : ''}}</view></view>
+<view class="annotation-page" style="--feedback-ms:{{motionEnabled ? feedbackMs : 0}}ms;--phone-stage:{{stageHeight}}px">
+  <view wx:if="{{error}}" class="error-state">
+    <view class="error-card">
+      <text class="error-text">{{error}}</text>
+      <navigator class="ui-btn ui-btn-primary ui-btn-block error-back-btn" url="/pages/select/select" open-type="redirect">返回选择页</navigator>
+    </view>
   </view>
-  <scroll-view class="p9-controls result-controls" scroll-y enhanced show-scrollbar="{{false}}">
-  <view wx:if="{{showScopeChoices}}" class="p9-wide-labels p9-scope"><view class="scope-items"><button class="control chip {{!scope ? 'selected' : ''}}" data-id="" bindtap="chooseScope">全部标注</button><button wx:for="{{scopes}}" wx:key="id" class="control chip {{scope === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="chooseScope">{{item.name}}</button></view></view>
-  <view wx:elif="{{showRegionChoices}}" class="p9-wide-labels p9-scope"><view class="scope-items"><button wx:for="{{regions}}" wx:key="id" class="control chip {{selectedId === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="selectPolygon" disabled="{{mode === 'draw' || phase === 'review' || debugEnabled || dialogOpen}}">{{item.label}}</button></view></view>
-  <view class="legend"><text class="lesion-key"></text>棕色：标注{{atlas ? '轮廓' : '范围'}}<text wx:if="{{atlas}}" class="atlas-key"></text><text wx:if="{{atlas}}">彩色：参考区域</text></view>
-  <scroll-view wx:if="{{unspecified.length}}" class="scope-row p9-phone-labels" scroll-x><view class="scope-items"><text>未指定侧别</text><button wx:for="{{unspecified}}" wx:key="id" class="control chip" data-id="{{item.id}}" bindtap="chooseCandidate">{{item.name}}</button></view></scroll-view>
-  <view class="view-tools"><button wx:if="{{resultMode && selected}}" class="control subtle" bindtap="showAll">查看全部</button><button wx:if="{{resultMode && selected}}" class="control subtle" bindtap="focusSelected">放大区域</button><button class="control subtle" bindtap="fullBody">全身</button></view>
-  <view class="action-area">
-   <view class="selection-caption">{{selectedName ? selectedName + ' · ' + selectedRatio : resultMode ? resultSummary : '已完成 ' + (frontCount + backCount) + ' 片' + (mode === 'draw' ? ' · 当前 ' + pointCount + ' 点' : '')}}</view>
-   <view class="toolbar" wx:if="{{phase === 'review'}}"><button class="control" bindtap="continueEditing" disabled="{{dialogOpen || infoOpen}}">修改标注</button><button wx:if="{{matchingAllowed && (!resultMode || matchStatus === 'error')}}" class="control primary" bindtap="viewMatches" loading="{{loading}}" disabled="{{loading || dialogOpen || infoOpen || preparingView || debugEnabled}}">{{loading ? '计算中…' : matchStatus === 'error' ? '重试匹配' : '开始匹配'}}</button></view>
-   <view class="toolbar" wx:elif="{{mode === 'draw'}}"><button class="control" bindtap="undo" disabled="{{!pointCount || debugEnabled || dialogOpen}}">撤销</button><button class="control" bindtap="cancelDraft">取消</button><button class="control primary" bindtap="closePolygon" disabled="{{pointCount < 3 || debugEnabled || dialogOpen}}">闭合范围</button></view>
-   <view class="toolbar" wx:else><button class="control" bindtap="newRegion">新增</button><button class="control" bindtap="deleteSelected" disabled="{{!selectedId || debugEnabled || dialogOpen}}">删除</button><button class="control primary" bindtap="finish" disabled="{{(!frontCount && !backCount) || debugEnabled || dialogOpen}}">完成标注</button></view>
+
+  <block wx:elif="{{session}}">
+    <view class="annotate-workspace {{resultMode ? 'is-result' : 'is-editing'}}">
+      <!-- 左侧(宽屏52%) / 上方(手机 flex:1 占据约 65%~75% 高度)：纯净三段式解剖视口 -->
+      <view class="result-stage ui-stage-grid">
+        <view class="stage-header">
+          <view class="stage-title-group">
+            <text class="stage-title">{{stateLabel}}</text>
+            <view class="stage-chip-btn" hover-class="ui-hover-secondary" aria-role="button" bindtap="fullBody">全身</view>
+          </view>
+          <view class="ui-top-pill" hover-class="ui-hover-secondary" aria-role="button" bindtap="openInfo">说明</view>
+        </view>
+
+        <view class="stage-switch-row">
+          <view class="ui-segmented view-segmented">
+            <view
+              class="ui-segmented-item view-tab {{view === 'front' ? 'is-active' : ''}} {{(dialogOpen || infoOpen) ? 'is-disabled' : ''}}"
+              hover-class="ui-hover-subtle"
+              aria-role="button"
+              data-view="front"
+              catchtap="switchView"
+              aria-pressed="{{view === 'front'}}"
+            >正面 · <text class="ui-num">{{frontCount}}</text></view>
+            <view
+              class="ui-segmented-item view-tab {{view === 'back' ? 'is-active' : ''}} {{(dialogOpen || infoOpen) ? 'is-disabled' : ''}}"
+              hover-class="ui-hover-subtle"
+              aria-role="button"
+              data-view="back"
+              catchtap="switchView"
+              aria-pressed="{{view === 'back'}}"
+            >背面 · <text class="ui-num">{{backCount}}</text></view>
+          </view>
+        </view>
+
+        <!-- 中部视口：手机结果态启用三栏（左轨道 + 中间人体 + 右轨道）；宽屏与圈选态仅展示中间人体 -->
+        <view class="stage-canvas-frame {{(resultMode && candidates.length) ? 'has-rails' : ''}}">
+          <!-- 手机端左轨道（人体右侧皮节，宽屏自动隐藏） -->
+          <view wx:if="{{resultMode && candidates.length}}" class="rail rail-left">
+            <view class="rail-title">{{view === 'front' ? '人体右侧' : '人体左侧'}}</view>
+            <scroll-view class="rail-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+              <view class="rail-list">
+                <view
+                  wx:for="{{leftRail.items}}"
+                  wx:key="id"
+                  class="rail-card {{selected === item.id ? 'is-selected' : ''}} {{(!sceneReady || preparingView || infoOpen) ? 'is-disabled' : ''}}"
+                  hover-class="ui-hover-secondary"
+                  style="border-left-color:{{item.color}};"
+                  aria-role="button"
+                  aria-pressed="{{selected === item.id}}"
+                  data-id="{{item.id}}"
+                  catchtap="chooseCandidate"
+                >
+                  <text class="rail-card-name">{{item.label || item.name}}</text>
+                  <text class="rail-card-ratio ui-num">{{item.ratio}}</text>
+                  <view class="rail-card-bar" aria-hidden="true">
+                    <view class="rail-card-bar-fill" style="width:{{item.barPercent}}%;"></view>
+                  </view>
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+
+          <!-- 中间纯净人体画布区 -->
+          <view class="canvas-area">
+            <body-canvas
+              id="work-canvas"
+              view="{{view}}"
+              zoom-region="{{zoomRegion}}"
+              focus-bounds="{{focusBounds}}"
+              retained-viewport="{{retainedViewport}}"
+              interaction-mode="{{mode}}"
+              camera-enabled="{{true}}"
+              annotation="{{layer}}"
+              atlas="{{atlas}}"
+              debug-enabled="{{debugEnabled}}"
+              interaction-blocked="{{dialogOpen || infoOpen}}"
+              touch-disabled="{{preparingView}}"
+              layout-revision="{{layoutRevision}}"
+              motion-enabled="{{motionEnabled}}"
+              overlay-key="{{overlayKey}}"
+              scene-id="{{sceneId}}"
+              bind:annotationpoint="onAnnotationPoint"
+              bind:debugprobe="onDebugProbe"
+              bind:viewportchange="onViewportChange"
+              bind:sceneready="onSceneReady"
+              bind:renderstats="onRenderStats"
+              bind:rendererror="onRenderError"
+            ></body-canvas>
+          </view>
+
+          <!-- 手机端右轨道（人体左侧皮节，宽屏自动隐藏） -->
+          <view wx:if="{{resultMode && candidates.length}}" class="rail rail-right">
+            <view class="rail-title">{{view === 'front' ? '人体左侧' : '人体右侧'}}</view>
+            <scroll-view class="rail-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+              <view class="rail-list">
+                <view
+                  wx:for="{{rightRail.items}}"
+                  wx:key="id"
+                  class="rail-card {{selected === item.id ? 'is-selected' : ''}} {{(!sceneReady || preparingView || infoOpen) ? 'is-disabled' : ''}}"
+                  hover-class="ui-hover-secondary"
+                  style="border-left-color:{{item.color}};"
+                  aria-role="button"
+                  aria-pressed="{{selected === item.id}}"
+                  data-id="{{item.id}}"
+                  catchtap="chooseCandidate"
+                >
+                  <text class="rail-card-name">{{item.label || item.name}}</text>
+                  <text class="rail-card-ratio ui-num">{{item.ratio}}</text>
+                  <view class="rail-card-bar" aria-hidden="true">
+                    <view class="rail-card-bar-fill" style="width:{{item.barPercent}}%;"></view>
+                  </view>
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+        </view>
+
+        <view class="stage-bottom-bar">
+          <view class="stage-legend" aria-hidden="true">
+            <view class="legend-item">
+              <text class="lesion-key"></text>
+              <text class="legend-text">标注{{atlas ? '轮廓' : '范围'}}</text>
+            </view>
+            <view wx:if="{{atlas}}" class="legend-item">
+              <text class="atlas-key"></text>
+              <text class="legend-text">参考区域</text>
+            </view>
+          </view>
+          <text class="stage-status-text" aria-live="polite">{{preparingView ? '正在准备另一面…' : loading ? '正在计算参考区域…' : debugEnabled ? '坐标调试中' : resultMode ? selected ? '再次点击标签返回全部' : '点击两侧标签可单独查看' : phase === 'review' ? '标注已确认' : mode === 'draw' ? '轻触取点 · 双指可缩放' : '可新增范围或完成标注'}}</text>
+        </view>
+      </view>
+
+      <!-- 右侧(宽屏48% 完整表格) / 下方(手机端极简紧凑收口) -->
+      <view class="inspector-panel">
+        <!-- 1. 顶部固定区 -->
+        <view class="inspector-top">
+          <!-- 结果态：多标注筛选条（2~4项等宽分段条；超过4项自动换行胶囊组） -->
+          <view wx:if="{{showScopeChoices}}" class="{{scopes.length > 3 ? 'scope-wrap' : 'scope-segmented'}}">
+            <view
+              class="{{scopes.length > 3 ? 'scope-pill' : 'scope-tab'}} {{!scope ? 'is-active' : ''}}"
+              hover-class="ui-hover-subtle"
+              aria-role="button"
+              aria-pressed="{{!scope}}"
+              data-id=""
+              bindtap="chooseScope"
+            >全部标注</view>
+            <view
+              wx:for="{{scopes}}"
+              wx:key="id"
+              class="{{scopes.length > 3 ? 'scope-pill' : 'scope-tab'}} {{scope === item.id ? 'is-active' : ''}}"
+              hover-class="ui-hover-subtle"
+              aria-role="button"
+              aria-pressed="{{scope === item.id}}"
+              data-id="{{item.id}}"
+              bindtap="chooseScope"
+            >{{item.name}}</view>
+          </view>
+
+          <!-- 编辑态：多区域切换条 -->
+          <view wx:elif="{{showRegionChoices}}" class="{{regions.length > 4 ? 'scope-wrap' : 'scope-segmented'}}">
+            <view
+              wx:for="{{regions}}"
+              wx:key="id"
+              class="{{regions.length > 4 ? 'scope-pill' : 'scope-tab'}} {{selectedId === item.id ? 'is-active' : ''}} {{(mode === 'draw' || phase === 'review' || debugEnabled || dialogOpen) ? 'is-disabled' : ''}}"
+              hover-class="ui-hover-subtle"
+              aria-role="button"
+              aria-pressed="{{selectedId === item.id}}"
+              data-id="{{item.id}}"
+              bindtap="selectPolygon"
+            >{{item.label}}</view>
+          </view>
+
+          <!-- 手机端结果态：紧凑单行覆盖率汇总条（宽屏隐藏，宽屏用完整瑞士网格卡） -->
+          <view wx:if="{{resultMode && matchStatus === 'ready' && candidates.length}}" class="phone-summary-bar">
+            <view class="phone-summary-main">
+              <view class="phone-summary-left">
+                <text class="phone-summary-count ui-num">{{candidates.length}} 个参考区域</text>
+                <text class="coverage-pill">{{coverageStatus === 'partial' ? '部分覆盖' : coverageStatus === 'full' ? '完整覆盖' : '参考'}}</text>
+              </view>
+              <view wx:if="{{hasCoverage}}" class="phone-summary-right ui-num">
+                <text class="phone-cov-val">覆盖 {{coveredText}}</text>
+                <text class="phone-uncov-val">未覆盖 {{uncoveredText}}</text>
+              </view>
+            </view>
+            <view wx:if="{{hasCoverage}}" class="phone-summary-line" aria-hidden="true">
+              <view
+                class="coverage-bar-fill"
+                style="width:{{coveredText === '<0.01%' ? '1%' : coveredText === '>99.99%' ? '100%' : coveredText}};"
+              ></view>
+            </view>
+          </view>
+
+          <!-- 手机端未指定侧别兜底标签（仅存在 unspecified 时展示） -->
+          <view wx:if="{{resultMode && unspecified.length}}" class="phone-unspecified">
+            <text class="phone-unspec-label">未指定侧别</text>
+            <view
+              wx:for="{{unspecified}}"
+              wx:key="id"
+              class="scope-pill {{selected === item.id ? 'is-active' : ''}}"
+              aria-role="button"
+              data-id="{{item.id}}"
+              bindtap="chooseCandidate"
+            >{{item.label || item.name}} {{item.ratio}}</view>
+          </view>
+
+          <!-- 宽屏结果态：完整瑞士网格指标摘要卡（手机端隐藏） -->
+          <view wx:if="{{resultMode && matchStatus === 'ready' && candidates.length}}" class="summary-card wide-only-summary">
+            <view class="summary-grid">
+              <view class="summary-left">
+                <view class="summary-count-row">
+                  <text class="summary-big-num ui-num">{{candidates.length}}</text>
+                  <text class="summary-unit">个参考区域</text>
+                </view>
+                <view class="coverage-pill">{{coverageStatus === 'partial' ? '部分覆盖' : coverageStatus === 'full' ? '完整覆盖' : '参考区域'}}</view>
+              </view>
+
+              <view wx:if="{{hasCoverage}}" class="summary-right">
+                <view class="metric-col">
+                  <text class="metric-label">覆盖</text>
+                  <text class="metric-val ui-num">{{coveredText}}</text>
+                </view>
+                <view class="metric-col">
+                  <text class="metric-label">未覆盖</text>
+                  <text class="metric-val is-muted ui-num">{{uncoveredText}}</text>
+                </view>
+              </view>
+            </view>
+
+            <view wx:if="{{hasCoverage}}" class="coverage-bar-track" aria-hidden="true">
+              <view
+                class="coverage-bar-fill"
+                style="width:{{coveredText === '<0.01%' ? '1%' : coveredText === '>99.99%' ? '100%' : coveredText}};"
+              ></view>
+            </view>
+          </view>
+
+          <!-- 结果态：选中单个皮节时的快捷工具条（放大区域 ↔ 回到全身 双向切换） -->
+          <view wx:if="{{resultMode && selected}}" class="selected-bar">
+            <text class="selected-bar-text ui-num">{{selectedName}} · {{selectedRatio}}</text>
+            <view class="selected-bar-actions">
+              <view class="mini-tool-btn {{isRegionZoomed ? 'is-zoomed' : ''}}" hover-class="ui-hover-secondary" aria-role="button" bindtap="focusSelected">{{isRegionZoomed ? '回到全身' : '放大区域'}}</view>
+              <view class="mini-tool-btn" hover-class="ui-hover-secondary" aria-role="button" bindtap="showAll">查看全部</view>
+            </view>
+          </view>
+
+          <!-- 异常提示与空结果（手机端紧凑展示在底栏上方） -->
+          <view wx:if="{{renderError}}" class="alert-box phone-inline-alert" role="alert">画布显示失败，请点画布内的重试。结果尚未完整显示。</view>
+          <view wx:if="{{message || matchMessage}}" class="alert-box phone-inline-alert" role="alert">{{message || matchMessage}}</view>
+          <view wx:if="{{resultMode && matchStatus === 'ready' && !candidates.length}}" class="empty-card phone-inline-alert">
+            <text class="empty-title">暂无匹配结果</text>
+            <text class="empty-desc">当前图谱未覆盖这片标注，不代表没有感觉神经。</text>
+          </view>
+
+          <!-- 圈选态：手机端单行轻指标条 + 宽屏两列 KPI 卡 -->
+          <block wx:if="{{!resultMode}}">
+            <view class="phone-kpi-strip">
+              <text class="phone-kpi-text ui-num">已完成 {{frontCount + backCount}} 片{{mode === 'draw' ? ' · 当前 ' + pointCount + ' 点' : ''}}</text>
+              <text class="phone-kpi-sub">{{mode === 'draw' ? '满 3 点可闭合' : phase === 'review' ? '已确认' : '可新增或完成'}}</text>
+            </view>
+            <view class="kpi-grid">
+              <view class="kpi-card">
+                <text class="kpi-label">已完成片数</text>
+                <view class="kpi-value-row">
+                  <text class="kpi-num ui-num">{{frontCount + backCount}}</text>
+                  <text class="kpi-sub ui-num">正 {{frontCount}} · 背 {{backCount}}</text>
+                </view>
+              </view>
+              <view class="kpi-card">
+                <text class="kpi-label">当前锚点数</text>
+                <view class="kpi-value-row">
+                  <text class="kpi-num ui-num">{{pointCount}}</text>
+                  <text class="kpi-sub">{{mode === 'draw' ? '至少 3 点闭合' : phase === 'review' ? '已确认' : '就绪'}}</text>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+
+        <!-- 2. 宽屏独立滚动报告表格区（手机端隐藏，手机端使用视口左右临床微卡轨道） -->
+        <scroll-view wx:if="{{resultMode}}" class="inspector-scroll wide-only-table" scroll-y enhanced show-scrollbar="{{false}}">
+          <view class="inspector-scroll-inner">
+            <view wx:if="{{renderError}}" class="alert-box" role="alert">画布显示失败，请点画布内的重试。结果尚未完整显示。</view>
+            <view wx:if="{{message || matchMessage}}" class="alert-box" role="alert">{{message || matchMessage}}</view>
+
+            <view wx:if="{{matchStatus === 'ready' && !candidates.length}}" class="empty-card">
+              <text class="empty-title">暂无匹配结果</text>
+              <text class="empty-desc">当前图谱未覆盖这片标注，不代表没有感觉神经。</text>
+            </view>
+
+            <view wx:if="{{candidates.length}}" class="nerve-table">
+              <view class="nerve-table-head">
+                <text>{{viewLabel}} · 参考区域</text>
+                <text class="nerve-head-ratio">占比</text>
+              </view>
+
+              <view
+                wx:for="{{candidates}}"
+                wx:key="id"
+                class="nerve-row {{selected === item.id ? 'is-selected' : ''}} {{(!sceneReady || preparingView || infoOpen) ? 'is-disabled' : ''}}"
+                hover-class="ui-hover-secondary"
+                aria-role="button"
+                aria-pressed="{{selected === item.id}}"
+                data-id="{{item.id}}"
+                bindtap="chooseCandidate"
+              >
+                <view class="nerve-row-left">
+                  <view class="nerve-dot" style="background-color:{{item.color}};"></view>
+                  <text class="nerve-name">{{item.name || item.label}}</text>
+                  <text class="nerve-side-tag">{{item.side === 'left' ? '左侧' : item.side === 'right' ? '右侧' : '未指定'}}</text>
+                </view>
+                <view class="nerve-bar-track" aria-hidden="true">
+                  <view class="nerve-bar-fill" style="width:{{item.barPercent}}%;"></view>
+                </view>
+                <text class="nerve-ratio ui-num">{{item.ratio}}</text>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+
+        <!-- 宽屏圈选态填充指引区（手机端隐藏） -->
+        <view wx:if="{{!resultMode}}" class="wide-draw-tip-wrap">
+          <view wx:if="{{renderError}}" class="alert-box" role="alert">画布显示失败，请点画布内的重试。结果尚未完整显示。</view>
+          <view wx:if="{{message || matchMessage}}" class="alert-box" role="alert">{{message || matchMessage}}</view>
+          <view class="draw-tip-card">
+            <text class="draw-tip-text">{{phase === 'review' ? '范围已确认，可开始匹配参考神经节段或返回继续修改。' : mode === 'draw' ? '沿病灶边缘顺次轻触添加锚点，双指可缩放定位；满 3 点后点击下方“闭合范围”。' : '可点击“新增”继续标注其他区域，或点击“完成标注”查看参考结果。'}}</text>
+          </view>
+        </view>
+
+        <!-- 3. 底部吸底操作栏 -->
+        <view class="ui-sticky-footer annotate-footer">
+          <block wx:if="{{phase === 'review'}}">
+            <view wx:if="{{matchingAllowed && (!resultMode || matchStatus === 'error')}}" class="footer-row is-two">
+              <button class="ui-btn ui-btn-secondary btn-two-left" hover-class="ui-hover-secondary" bindtap="continueEditing" disabled="{{dialogOpen || infoOpen}}">修改标注</button>
+              <button
+                class="ui-btn ui-btn-primary btn-two-right"
+                hover-class="ui-hover-primary"
+                bindtap="viewMatches"
+                loading="{{loading}}"
+                disabled="{{loading || dialogOpen || infoOpen || preparingView || debugEnabled}}"
+              >{{loading ? '计算中…' : matchStatus === 'error' ? '重试匹配' : '开始匹配'}}</button>
+            </view>
+            <!-- 结果态 3 按钮：修改标注 + 调整 AI 标注位置（次级）+ 结束流程（主按钮） -->
+            <view wx:elif="{{editableAIId}}" class="footer-row is-three">
+              <button class="ui-btn ui-btn-secondary btn-three-side" hover-class="ui-hover-secondary" bindtap="continueEditing" disabled="{{dialogOpen || infoOpen}}">修改标注</button>
+              <button
+                class="ui-btn ui-btn-secondary btn-three-mid"
+                hover-class="ui-hover-secondary"
+                bindtap="editAIPlacement"
+                disabled="{{loading || openingPlacement || dialogOpen || infoOpen || preparingView || debugEnabled}}"
+              >{{editableAIName}}</button>
+              <button
+                class="ui-btn ui-btn-primary btn-three-end"
+                hover-class="ui-hover-primary"
+                bindtap="finishFlow"
+                disabled="{{loading || dialogOpen || infoOpen || preparingView}}"
+              >结束流程</button>
+            </view>
+            <!-- 结果态 2 按钮：修改标注（次级）+ 结束流程（主按钮） -->
+            <view wx:else class="footer-row is-two">
+              <button class="ui-btn ui-btn-secondary btn-two-left" hover-class="ui-hover-secondary" bindtap="continueEditing" disabled="{{dialogOpen || infoOpen}}">修改标注</button>
+              <button
+                class="ui-btn ui-btn-primary btn-two-right"
+                hover-class="ui-hover-primary"
+                bindtap="finishFlow"
+                disabled="{{loading || dialogOpen || infoOpen || preparingView}}"
+              >结束流程</button>
+            </view>
+          </block>
+
+          <view wx:elif="{{mode === 'draw'}}" class="footer-row">
+            <button class="ui-btn ui-btn-secondary btn-compact" hover-class="ui-hover-secondary" bindtap="undo" disabled="{{!pointCount || debugEnabled || dialogOpen}}">撤销</button>
+            <button class="ui-btn ui-btn-secondary btn-compact" hover-class="ui-hover-secondary" bindtap="cancelDraft">取消</button>
+            <button
+              class="ui-btn ui-btn-primary btn-primary-grow"
+              hover-class="ui-hover-primary"
+              bindtap="closePolygon"
+              disabled="{{pointCount < 3 || debugEnabled || dialogOpen}}"
+            >闭合范围</button>
+          </view>
+
+          <view wx:else class="footer-row">
+            <button class="ui-btn ui-btn-secondary btn-compact" hover-class="ui-hover-secondary" bindtap="newRegion">新增</button>
+            <button class="ui-btn ui-btn-danger btn-compact" hover-class="ui-hover-danger" bindtap="deleteSelected" disabled="{{!selectedId || debugEnabled || dialogOpen}}">删除</button>
+            <button
+              class="ui-btn ui-btn-primary btn-primary-grow"
+              hover-class="ui-hover-primary"
+              bindtap="finish"
+              disabled="{{(!frontCount && !backCount) || debugEnabled || dialogOpen}}"
+            >完成标注</button>
+          </view>
+
+          <view class="reference-note">{{hasAIPlacement ? 'AI 辅助标注 · 人工确认位置。参考对应非诊断结果。' : '参考图谱对应，非诊断结果。'}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 说明与来源抽屉弹窗：严格保留 position:fixed; z-index:100 -->
+  <view wx:if="{{infoOpen}}" class="info-mask" catchtap="closeInfo" catchtouchmove="swallow">
+    <view class="info-sheet" catchtap="swallow">
+      <view class="info-handle" aria-hidden="true"></view>
+      <view class="info-heading">
+        <text class="info-heading-title">说明与来源</text>
+        <view class="ui-top-pill" hover-class="ui-hover-secondary" aria-role="button" bindtap="closeInfo">关闭</view>
+      </view>
+      <scroll-view scroll-y class="info-scroll">
+        <view class="info-paragraph">人工圈选或确认 AI 放置范围，查看与参考图谱的对应。仅用于辅助理解、教学和研究，不能用于临床确诊。图谱医学审核待完成，正式医学映射仍禁用。</view>
+        <view class="info-paragraph">标注仅在本次运行内暂存，关闭、重启或重新编译可能丢失。计算只向配置后端发送坐标和版本，不采集照片或身份信息。</view>
+        <view class="info-title">图谱署名与许可</view>
+        <view>{{source.attribution}}</view>
+        <view>{{source.sourceTitle}}</view>
+        <view>CC BY-SA 4.0；派生图谱以相同许可提供。原作者未对本项目作背书。</view>
+        <text user-select="{{true}}" class="source-url">{{source.sourceUrl}}</text>
+        <button class="ui-btn ui-btn-secondary ui-btn-sm copy" hover-class="ui-hover-secondary" data-id="source" bindtap="copySource">复制作品来源链接</button>
+        <text user-select="{{true}}" class="source-url">https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_back_3d-shaded.svg</text>
+        <button class="ui-btn ui-btn-secondary ui-btn-sm copy" hover-class="ui-hover-secondary" data-id="backSource" bindtap="copySource">复制背面作品来源链接</button>
+        <text user-select="{{true}}" class="source-url">https://creativecommons.org/licenses/by-sa/4.0/</text>
+        <button class="ui-btn ui-btn-secondary ui-btn-sm copy" hover-class="ui-hover-secondary" data-id="license" bindtap="copySource">复制图谱许可链接</button>
+        <view class="info-paragraph">修改：提取原矢量填充路径、采样曲线、正背独立配准、适配当前人体并排除未配置表面；补充来自原图的面部及可见足部区域。{{source.coverageNote}}</view>
+        <view class="info-title">人体素材</view>
+        <view>Šlomo · Human body with blank labels.svg · CC0 1.0。整理为独立正背面并统一留白，保留原比例。</view>
+        <view class="info-copy-row">
+          <button class="ui-btn ui-btn-secondary ui-btn-sm copy" hover-class="ui-hover-secondary" data-id="body" bindtap="copySource">复制人体来源链接</button>
+          <button class="ui-btn ui-btn-secondary ui-btn-sm copy" hover-class="ui-hover-secondary" data-id="bodyLicense" bindtap="copySource">复制人体许可链接</button>
+        </view>
+        <view class="info-title">计算与版本</view>
+        <view>比例＝参考区域与标注交集面积÷当前标注面积；不是诊断概率。全部标注仅对当前视图合并重叠，候选可重叠，比例不能直接相加。</view>
+        <block wx:if="{{debugAllowed}}">
+          <view class="ui-num">{{modelLabel}}</view>
+          <view class="ui-num">{{source.atlasVersion}}</view>
+        </block>
+        <view class="setting-row">
+          <text>减少动态效果</text>
+          <switch checked="{{!motionEnabled}}" bindchange="toggleMotion" color="#165DFF"></switch>
+        </view>
+        <block wx:if="{{debugAllowed}}">
+          <view class="setting-row">
+            <text>坐标调试</text>
+            <switch checked="{{debugEnabled}}" bindchange="toggleDebug" color="#165DFF"></switch>
+          </view>
+          <view wx:if="{{debugEnabled}}" class="ui-num">{{debugText || '关闭说明后轻触人体查看坐标；不添加标注点。'}}</view>
+          <view class="info-title">本次性能记录（毫秒）</view>
+          <text user-select="{{true}}" class="source-url ui-num">{{performanceText}}</text>
+        </block>
+        <view wx:if="{{detailsMessage}}" class="info-feedback">{{detailsMessage}}</view>
+        <button class="ui-btn ui-btn-secondary ui-btn-block info-back-btn" hover-class="ui-hover-secondary" bindtap="backToSelection">返回完整人体</button>
+      </scroll-view>
+    </view>
   </view>
-  <view wx:if="{{renderError}}" class="message" role="alert">画布显示失败，请点画布内的重试。结果尚未完整显示。</view>
-  <view wx:if="{{message || matchMessage}}" class="message" role="alert">{{message || matchMessage}}</view>
-  <view wx:if="{{resultMode && matchStatus === 'ready' && candidates.length}}" class="summary">{{coverageStatus === 'partial' ? '部分覆盖' : coverageStatus === 'full' ? '完整覆盖' : '参考区域'}} · {{candidates.length}} 个参考区域<view wx:if="{{hasCoverage}}">覆盖 {{coveredText}} · 未覆盖 {{uncoveredText}}</view></view>
-  <view wx:if="{{resultMode && matchStatus === 'ready' && !candidates.length}}" class="summary empty-result">暂无匹配结果</view>
-  <view wx:if="{{resultMode && matchStatus === 'ready' && !candidates.length}}" class="message">当前图谱未覆盖这片标注，不代表没有感觉神经。</view>
-  <view wx:if="{{editableAIId}}"><button class="control subtle" bindtap="editAIPlacement" disabled="{{loading || openingPlacement || dialogOpen || infoOpen || preparingView || debugEnabled}}">{{editableAIName}}</button></view>
-  <view class="reference-note">{{hasAIPlacement ? 'AI 辅助标注 · 人工确认位置。参考对应非诊断结果。' : '参考图谱对应，非诊断结果。'}}</view>
-  <view wx:if="{{candidates.length}}" class="p9-wide-labels"><text>{{viewLabel}} · 参考区域</text>
-   <button wx:for="{{candidates}}" wx:key="id" class="control p9-label {{selected === item.id ? 'selected' : ''}}" style="border-left-color:{{item.color}}" data-id="{{item.id}}" bindtap="chooseCandidate" disabled="{{!sceneReady || preparingView || infoOpen}}" aria-pressed="{{selected === item.id}}"><text class="p9-label-text">{{item.name}} · {{item.side === 'left' ? '左侧' : item.side === 'right' ? '右侧' : '未指定侧别'}}</text><text>{{item.ratio}}</text></button>
-  </view>
-  </scroll-view>
-  </view>
- </block>
- <view wx:if="{{infoOpen}}" class="info-mask" catchtap="closeInfo" catchtouchmove="swallow">
-  <view class="info-sheet" catchtap="swallow"><view class="heading"><text>说明与来源</text><button class="control" bindtap="closeInfo">关闭</button></view>
-   <scroll-view scroll-y class="info-scroll">
-    <view class="info-paragraph">人工圈选或确认 AI 放置范围，查看与参考图谱的对应。仅用于辅助理解、教学和研究，不能用于临床确诊。图谱医学审核待完成，正式医学映射仍禁用。</view>
-    <view class="info-paragraph">标注仅在本次运行内暂存，关闭、重启或重新编译可能丢失。计算只向配置后端发送坐标和版本，不采集照片或身份信息。</view>
-    <view class="info-title">图谱署名与许可</view><view>{{source.attribution}}</view><view>{{source.sourceTitle}}</view><view>CC BY-SA 4.0；派生图谱以相同许可提供。原作者未对本项目作背书。</view>
-    <text user-select="{{true}}" class="source-url">{{source.sourceUrl}}</text><button class="control copy" data-id="source" bindtap="copySource">复制作品来源链接</button>
-    <text user-select="{{true}}" class="source-url">https://commons.wikimedia.org/wiki/File:Dermatomes_labeled,_male_back_3d-shaded.svg</text><button class="control copy" data-id="backSource" bindtap="copySource">复制背面作品来源链接</button>
-    <text user-select="{{true}}" class="source-url">https://creativecommons.org/licenses/by-sa/4.0/</text><button class="control copy" data-id="license" bindtap="copySource">复制图谱许可链接</button>
-    <view class="info-paragraph">修改：提取原矢量填充路径、采样曲线、正背独立配准、适配当前人体并排除未配置表面；补充来自原图的面部及可见足部区域。{{source.coverageNote}}</view>
-    <view class="info-title">人体素材</view><view>Šlomo · Human body with blank labels.svg · CC0 1.0。整理为独立正背面并统一留白，保留原比例。</view><button class="control copy" data-id="body" bindtap="copySource">复制人体来源链接</button><button class="control copy" data-id="bodyLicense" bindtap="copySource">复制人体许可链接</button>
-    <view class="info-title">计算与版本</view><view>比例＝参考区域与标注交集面积÷当前标注面积；不是诊断概率。全部标注仅对当前视图合并重叠，候选可重叠，比例不能直接相加。</view><block wx:if="{{debugAllowed}}"><view>{{modelLabel}}</view><view>{{source.atlasVersion}}</view></block>
-    <view class="setting-row"><text>减少动态效果</text><switch checked="{{!motionEnabled}}" bindchange="toggleMotion" color="#236b57"></switch></view>
-    <block wx:if="{{debugAllowed}}"><view class="setting-row"><text>坐标调试</text><switch checked="{{debugEnabled}}" bindchange="toggleDebug" color="#236b57"></switch></view><view wx:if="{{debugEnabled}}">{{debugText || '关闭说明后轻触人体查看坐标；不添加标注点。'}}</view><view class="info-title">本次性能记录（毫秒）</view><text user-select="{{true}}">{{performanceText}}</text></block>
-    <view class="message">{{detailsMessage}}</view><button class="control copy" bindtap="backToSelection">返回完整人体</button>
-   </scroll-view>
-  </view>
- </view>
 </view>

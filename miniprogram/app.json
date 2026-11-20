@@ -27,9 +27,9 @@
   "window": {
     "pageOrientation": "auto",
     "navigationBarTitleText": "人体病灶辅助定位",
-    "navigationBarBackgroundColor": "#F5F8F7",
+    "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#F5F8F7"
+    "backgroundColor": "#FFFFFF"
   },
   "resizable": true,
   "style": "v2",

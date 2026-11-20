@@ -1,38 +1,236 @@
-<view class="local-surface-page p9-page" style="--phone-stage:{{stageHeight}}px">
- <view wx:if="{{error}}" class="error"><text>{{error}}</text><button class="control" bindtap="returnBody">返回全身人体</button></view>
- <block wx:elif="{{session}}">
-  <view class="heading"><text>{{resultMode ? schematic ? partName + '模拟结果' : partName + '参考结果' : previewMode ? partName + '参考图谱' : partName + '病灶标注'}}</text><button class="control link" bindtap="showInfo">说明</button></view>
-  <view wx:if="{{schematic}}" class="reference-note" role="alert">模拟分区 · {{provisionalNotice}}</view>
-  <view wx:if="{{provisional}}" class="reference-note" role="alert">PROVISIONAL · {{provisionalNotice}}</view>
-  <view wx:if="{{showSideSwitch}}" class="switch-row"><button class="control tab {{view === leftView ? 'active' : ''}}" data-view="{{leftView}}" bindtap="switchView">左{{partName}} · {{leftCount}}</button><button class="control tab {{view === rightView ? 'active' : ''}}" data-view="{{rightView}}" bindtap="switchView">右{{partName}} · {{rightCount}}</button></view>
-  <view wx:if="{{!aiPhotoSupported}}" class="reference-note">本视图仅支持人工标注；AI 照片分割与自动放置未开放。</view>
-  <view class="status">{{loading ? '计算中，标注已保留…' : previewMode ? labels.length ? '参考预览 · 点击标签查看' : '当前分区尚未配置' : resultMode ? selected ? '单区查看 · 可恢复全部' : '全部参考区域 · 点击标签查看' : phase === 'review' ? '范围已确认，可返回修改' : mode === 'draw' ? '沿皮肤范围边缘逐点圈选，再闭合' : '可新增范围，或完成标注'}}</view>
-  <scroll-view wx:if="{{!resultMode && !previewMode && regions.length > 1}}" scroll-x class="region-row"><view class="region-items"><button wx:for="{{regions}}" wx:key="id" class="control chip {{selectedId === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="selectPolygon" disabled="{{mode === 'draw' || phase === 'review' || loading}}">{{item.label}}</button></view></scroll-view>
-  <view class="p9-split">
-  <view class="local-surface-stage p9-stage">
-   <view class="canvas-area"><local-surface-canvas view="{{view}}" layer="{{layer}}" atlas-regions="{{atlasRegions}}" focus-bounds="{{focusBounds}}" interaction-blocked="{{infoOpen}}" disabled="{{mode !== 'draw' || phase !== 'editing' || previewMode || loading || infoOpen}}" layout-revision="{{layoutRevision}}" bind:point="onPoint" bind:viewport="onViewport"></local-surface-canvas></view>
-   <scroll-view wx:if="{{labels.length}}" scroll-y class="label-rail p9-phone-labels" style="height:{{stageHeight}}px"><view class="rail-content" style="height:{{rail.height}}px"><button wx:for="{{rail.items}}" wx:key="id" class="control nerve-label {{selected === item.id ? 'selected' : ''}}" style="top:{{item.top}}px;border-left-color:{{item.color}}" data-id="{{item.id}}" bindtap="chooseCandidate" aria-label="{{item.name}}，{{item.ratio}}"><text class="label-name">{{item.label}}</text><text class="ratio">{{item.ratio}}</text></button></view></scroll-view>
+<view class="local-surface-page" style="--phone-stage:{{stageHeight}}px">
+  <view wx:if="{{error}}" class="error-state">
+    <view class="error-card">
+      <text class="error-text">{{error}}</text>
+      <button class="ui-btn ui-btn-primary ui-btn-block" hover-class="ui-hover-primary" bindtap="returnBody">返回全身人体</button>
+    </view>
   </view>
-  <view class="p9-controls">
-  <view class="legend">{{title}} · {{orientation}}<text>棕色轮廓：标注范围</text></view>
-  <view class="view-tools"><button class="control subtle" wx:if="{{(resultMode || previewMode) && selected}}" bindtap="showAll">查看全部</button><button class="control subtle" bindtap="zoom">放大查看</button><button class="control subtle" bindtap="reset">复位</button><button wx:if="{{previewAllowed}}" class="control subtle" bindtap="togglePreview">{{previewMode ? '返回标注' : '参考图谱'}}</button></view>
-  <view wx:if="{{!previewMode}}" class="action-area">
-   <view class="count">{{phase === 'review' ? '已确认 ' + completedCount + ' 片' : mode === 'draw' ? '当前 ' + pointCount + ' 点' : '已完成 ' + completedCount + ' 片'}}</view>
-   <view class="toolbar" wx:if="{{phase === 'review'}}"><button class="control" bindtap="edit" disabled="{{loading}}">修改标注</button><button class="control primary" bindtap="calculate" loading="{{loading}}" disabled="{{loading || !atlasReady || !matchingAllowed}}">{{loading ? '计算中…' : schematic ? '模拟区域匹配' : provisional ? '试验性参考匹配' : '计算参考区域'}}</button></view>
-   <view class="toolbar" wx:elif="{{mode === 'draw'}}"><button class="control" bindtap="undo" disabled="{{!pointCount}}">撤销</button><button class="control" bindtap="cancelDraft">取消</button><button class="control primary" bindtap="closePolygon" disabled="{{pointCount < 3}}">闭合范围</button></view>
-   <view class="toolbar" wx:else><button class="control" bindtap="newRegion">新增</button><button class="control" bindtap="deleteSelected" disabled="{{!selectedId}}">删除</button><button class="control primary" bindtap="finish" disabled="{{!completedCount}}">完成标注</button></view>
+
+  <block wx:elif="{{session}}">
+    <view class="local-workspace {{(resultMode || previewMode) ? 'is-result' : 'is-editing'}}">
+      <!-- 左侧(宽屏/横屏52%) / 上方(竖屏手机 flex:1 占 60%~70%+)：三段式局部解剖视口 -->
+      <view class="local-surface-stage ui-stage-grid">
+        <view class="stage-header">
+          <view class="stage-title-group">
+            <text class="stage-title">{{resultMode ? schematic ? partName + '模拟结果' : partName + '参考结果' : previewMode ? partName + '参考图谱' : partName + '病灶标注'}}</text>
+            <view class="stage-chip-btn" hover-class="ui-hover-secondary" aria-role="button" bindtap="reset">复位</view>
+          </view>
+          <view class="ui-top-pill" hover-class="ui-hover-secondary" aria-role="button" bindtap="showInfo">说明</view>
+        </view>
+
+        <view wx:if="{{showSideSwitch}}" class="stage-switch-row">
+          <view class="ui-segmented view-segmented">
+            <view
+              class="ui-segmented-item view-tab {{view === leftView ? 'is-active' : ''}}"
+              hover-class="ui-hover-subtle"
+              aria-role="button"
+              data-view="{{leftView}}"
+              catchtap="switchView"
+            >左{{partName}} · <text class="ui-num">{{leftCount}}</text></view>
+            <view
+              class="ui-segmented-item view-tab {{view === rightView ? 'is-active' : ''}}"
+              hover-class="ui-hover-subtle"
+              aria-role="button"
+              data-view="{{rightView}}"
+              catchtap="switchView"
+            >右{{partName}} · <text class="ui-num">{{rightCount}}</text></view>
+          </view>
+        </view>
+
+        <!-- 中部视口：竖屏结果/预览态启用右侧临床微卡窄轨；横屏/折叠屏与圈选态仅展示纯净画布 -->
+        <view class="stage-canvas-frame {{(resultMode || previewMode) && labels.length ? 'has-rail' : ''}}">
+          <view class="canvas-area">
+            <local-surface-canvas
+              view="{{view}}"
+              layer="{{layer}}"
+              atlas-regions="{{atlasRegions}}"
+              focus-bounds="{{focusBounds}}"
+              interaction-blocked="{{infoOpen}}"
+              disabled="{{mode !== 'draw' || phase !== 'editing' || previewMode || loading || infoOpen}}"
+              layout-revision="{{layoutRevision}}"
+              bind:point="onPoint"
+              bind:viewport="onViewport"
+            ></local-surface-canvas>
+          </view>
+
+          <!-- 竖屏结果/预览态专属：贴靠画布侧边的独立窄轨临床微标签卡（宽屏/横屏自动隐藏） -->
+          <view wx:if="{{(resultMode || previewMode) && labels.length}}" class="surface-rail">
+            <view class="rail-title">{{schematic ? '模拟区域' : '参考区域'}}</view>
+            <scroll-view class="rail-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+              <view class="rail-list">
+                <view
+                  wx:for="{{labels}}"
+                  wx:key="id"
+                  class="rail-card {{selected === item.id ? 'is-selected' : ''}}"
+                  hover-class="ui-hover-secondary"
+                  style="border-left-color:{{item.color}};"
+                  aria-role="button"
+                  aria-pressed="{{selected === item.id}}"
+                  data-id="{{item.id}}"
+                  catchtap="chooseCandidate"
+                >
+                  <text class="rail-card-name">{{item.name || item.label}}</text>
+                  <text class="rail-card-ratio ui-num">{{item.ratio}}</text>
+                  <view class="rail-card-bar" aria-hidden="true">
+                    <view
+                      class="rail-card-bar-fill"
+                      style="width:{{item.barPercent ? item.barPercent + '%' : (item.ratio === '<0.01%' ? '8%' : item.ratio === '>99.99%' ? '100%' : item.ratio === '参考' ? '100%' : item.ratio)}};"
+                    ></view>
+                  </view>
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+        </view>
+
+        <view class="stage-bottom-bar">
+          <view class="stage-legend" aria-hidden="true">
+            <text class="legend-text">{{title}} · {{orientation}}</text>
+            <text class="legend-sep">|</text>
+            <text class="lesion-key"></text>
+            <text class="legend-text">标注范围</text>
+          </view>
+          <text class="stage-status-text">{{loading ? '计算中…' : previewMode ? labels.length ? '点击标签查看' : '分区待配置' : resultMode ? selected ? '再次点击返回全部' : '点击侧边标签查看' : phase === 'review' ? '范围已确认' : mode === 'draw' ? '沿边缘逐点圈选' : '可新增或完成'}}</text>
+        </view>
+      </view>
+
+      <!-- 右侧(宽屏/横屏48% 三段式临床工作台) / 下方(竖屏手机 flex:0 0 auto 极致紧凑收口) -->
+      <view class="inspector-panel">
+        <!-- 1. 顶部固定区：快捷控制条 + 覆盖率汇总 + 紧凑声明 -->
+        <view class="inspector-top">
+          <view wx:if="{{!resultMode && !previewMode && regions.length > 1}}" class="{{regions.length > 4 ? 'scope-wrap' : 'scope-segmented'}}">
+            <view
+              wx:for="{{regions}}"
+              wx:key="id"
+              class="{{regions.length > 4 ? 'scope-pill' : 'scope-tab'}} {{selectedId === item.id ? 'is-active' : ''}} {{(mode === 'draw' || phase === 'review' || loading) ? 'is-disabled' : ''}}"
+              hover-class="ui-hover-subtle"
+              aria-role="button"
+              aria-pressed="{{selectedId === item.id}}"
+              data-id="{{item.id}}"
+              bindtap="selectPolygon"
+            >{{item.label}}</view>
+          </view>
+
+          <view class="top-tools-row">
+            <view class="mini-tool-btn {{focusBounds ? 'is-active' : ''}}" hover-class="ui-hover-secondary" aria-role="button" bindtap="zoom">{{focusBounds ? '回到全图' : '放大查看'}}</view>
+            <view wx:if="{{(resultMode || previewMode) && selected}}" class="mini-tool-btn is-active" hover-class="ui-hover-secondary" aria-role="button" bindtap="showAll">查看全部</view>
+            <view wx:if="{{previewAllowed}}" class="mini-tool-btn {{previewMode ? 'is-active' : ''}}" hover-class="ui-hover-secondary" aria-role="button" bindtap="togglePreview">{{previewMode ? '返回标注' : '参考图谱'}}</view>
+          </view>
+
+          <view wx:if="{{coverage}}" class="coverage-summary">
+            <text class="coverage-summary-text ui-num">{{coverage}}</text>
+          </view>
+          <view wx:elif="{{!previewMode}}" class="phone-kpi-strip">
+            <text class="phone-kpi-text ui-num">{{phase === 'review' ? '已确认 ' + completedCount + ' 片' : '已完成 ' + completedCount + ' 片'}}{{mode === 'draw' ? ' · 当前 ' + pointCount + ' 点' : ''}}</text>
+            <text class="phone-kpi-sub">{{mode === 'draw' ? '满 3 点闭合' : phase === 'review' ? '可开始匹配' : '可新增或完成'}}</text>
+          </view>
+
+          <!-- 试验性图谱声明与实时提示（双端均固定在顶部区） -->
+          <view wx:if="{{provisional}}" class="notice-box" role="alert">PROVISIONAL · {{provisionalNotice}}</view>
+          <view wx:if="{{message}}" class="notice-box" role="alert">{{message}}</view>
+          <view wx:if="{{!atlasReady}}" class="muted-banner phone-inline-banner">{{atlasBlocked}} 已保存的标注仍可查看与修改。</view>
+        </view>
+
+        <!-- 2. 宽屏/横屏专属：中间独立滚动完整临床细线数据表（竖屏手机隐藏） -->
+        <scroll-view class="inspector-scroll wide-only-table" scroll-y enhanced show-scrollbar="{{false}}">
+          <view class="inspector-scroll-inner">
+            <view wx:if="{{!aiPhotoSupported}}" class="muted-banner">本视图仅支持人工标注；AI 照片分割与自动放置未开放。</view>
+            <view wx:if="{{!atlasReady}}" class="muted-banner">{{atlasBlocked}} 已保存的标注仍可查看与修改。</view>
+            <view wx:elif="{{!matchingAllowed && phase === 'review'}}" class="muted-banner">当前版本仅支持本地标注，参考计算尚未开放。</view>
+
+            <view wx:if="{{labels.length}}" class="nerve-table">
+              <view class="nerve-table-head">
+                <text>{{title}} · {{schematic ? '模拟区域' : '参考区域'}}</text>
+                <text class="nerve-head-ratio">占比</text>
+              </view>
+
+              <view
+                wx:for="{{labels}}"
+                wx:key="id"
+                class="nerve-row {{selected === item.id ? 'is-selected' : ''}}"
+                hover-class="ui-hover-secondary"
+                aria-role="button"
+                aria-pressed="{{selected === item.id}}"
+                data-id="{{item.id}}"
+                bindtap="chooseCandidate"
+              >
+                <view class="nerve-row-left">
+                  <view class="nerve-dot" style="background-color:{{item.color}};"></view>
+                  <text class="nerve-name">{{item.name || item.label}}</text>
+                </view>
+                <view class="nerve-bar-track" aria-hidden="true">
+                  <view
+                    class="nerve-bar-fill"
+                    style="width:{{item.barPercent ? item.barPercent + '%' : (item.ratio === '<0.01%' ? '8%' : item.ratio === '>99.99%' ? '100%' : item.ratio === '参考' ? '100%' : item.ratio)}};"
+                  ></view>
+                </view>
+                <text class="nerve-ratio ui-num">{{item.ratio}}</text>
+              </view>
+            </view>
+
+            <view wx:if="{{resultMode}}" class="muted-banner">几何覆盖为参考对应，不是诊断概率；未覆盖不代表没有感觉神经。</view>
+            <view wx:if="{{!resultMode && !previewMode}}" class="muted-banner">{{phase === 'review' ? '范围已确认，可点击下方按钮计算参考区域或返回继续修改。' : mode === 'draw' ? '沿病灶边缘顺次轻触添加锚点，满 3 点后点击“闭合范围”。' : '可点击“新增”继续标注其他区域，或点击“完成标注”确认。'}}</view>
+          </view>
+        </scroll-view>
+
+        <!-- 3. 底部吸底操作栏 -->
+        <view class="ui-sticky-footer local-footer">
+          <block wx:if="{{!previewMode}}">
+            <view class="footer-row" wx:if="{{phase === 'review' && resultMode}}">
+              <button class="ui-btn ui-btn-secondary btn-two-left" hover-class="ui-hover-secondary" bindtap="edit" disabled="{{loading}}">修改标注</button>
+              <button class="ui-btn ui-btn-primary btn-two-right" hover-class="ui-hover-primary" bindtap="finishFlow" disabled="{{loading}}">结束流程</button>
+            </view>
+            <view class="footer-row" wx:elif="{{phase === 'review'}}">
+              <button class="ui-btn ui-btn-secondary btn-38" hover-class="ui-hover-secondary" bindtap="edit" disabled="{{loading}}">修改标注</button>
+              <button
+                class="ui-btn ui-btn-primary btn-62"
+                hover-class="ui-hover-primary"
+                bindtap="calculate"
+                loading="{{loading}}"
+                disabled="{{loading || !atlasReady || !matchingAllowed}}"
+              >{{loading ? '计算中…' : schematic ? '模拟区域匹配' : provisional ? '试验性参考匹配' : '计算参考区域'}}</button>
+            </view>
+            <view class="footer-row" wx:elif="{{mode === 'draw'}}">
+              <button class="ui-btn ui-btn-secondary btn-compact" hover-class="ui-hover-secondary" bindtap="undo" disabled="{{!pointCount}}">撤销</button>
+              <button class="ui-btn ui-btn-secondary btn-compact" hover-class="ui-hover-secondary" bindtap="cancelDraft">取消</button>
+              <button class="ui-btn ui-btn-primary btn-primary-grow" hover-class="ui-hover-primary" bindtap="closePolygon" disabled="{{pointCount < 3}}">闭合范围</button>
+            </view>
+            <view class="footer-row" wx:else>
+              <button class="ui-btn ui-btn-secondary btn-compact" hover-class="ui-hover-secondary" bindtap="newRegion">新增</button>
+              <button class="ui-btn ui-btn-danger btn-compact" hover-class="ui-hover-danger" bindtap="deleteSelected" disabled="{{!selectedId}}">删除</button>
+              <button class="ui-btn ui-btn-primary btn-primary-grow" hover-class="ui-hover-primary" bindtap="finish" disabled="{{!completedCount}}">完成标注</button>
+            </view>
+          </block>
+
+          <view class="footer-links">
+            <view class="footer-link-btn" hover-class="ui-hover-ghost" aria-role="button" bindtap="returnParts">返回特殊部位</view>
+            <text class="footer-sep" aria-hidden="true">·</text>
+            <view class="footer-link-btn" hover-class="ui-hover-ghost" aria-role="button" bindtap="returnBody">返回全身人体</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <view wx:if="{{infoOpen}}" class="info-mask" catchtap="closeInfo" catchtouchmove="swallow">
+    <view class="info-sheet" catchtap="swallow">
+      <view class="info-handle" aria-hidden="true"></view>
+      <view class="info-heading">
+        <text class="info-heading-title">说明与来源</text>
+        <view class="ui-top-pill" hover-class="ui-hover-secondary" aria-role="button" bindtap="closeInfo">关闭</view>
+      </view>
+      <scroll-view scroll-y class="info-scroll">
+        <view wx:if="{{showSideSwitch}}" class="info-paragraph">左、右{{partName}}独立标注；切换或返回全身会保留本次运行中的范围。关闭或重启小程序后不保留。</view>
+        <view wx:else class="info-paragraph">本页为单一中性会阴区域示意，不区分性别；返回全身会保留本次运行中的范围，关闭或重启小程序后不保留。</view>
+        <view class="info-paragraph">{{partName}}与全身使用不同模板。参考图谱用于教学与研究，医学审核待完成，不提供临床确诊。</view>
+        <view wx:if="{{!aiPhotoSupported}}" class="info-paragraph">本视图不提供照片上传或 AI 自动分割。</view>
+        <view class="info-title">{{sourceTitle}}</view>
+        <view class="info-paragraph">{{attribution}}</view>
+        <text class="source" user-select>{{sourceUrl}}</text>
+        <view wx:if="{{resourceAttribution}}" class="info-paragraph">{{resourceAttribution}}</view>
+        <text wx:if="{{resourceSource}}" class="source" user-select>{{resourceSource}}</text>
+        <view wx:if="{{!atlasReady}}" class="info-paragraph">{{atlasBlocked}}</view>
+      </scroll-view>
+    </view>
   </view>
-  <view wx:if="{{message}}" class="message" role="alert">{{message}}</view>
-  <view wx:if="{{!atlasReady}}" class="reference-note">{{atlasBlocked}} 已保存的标注仍可查看与修改。</view>
-  <view wx:elif="{{!matchingAllowed && phase === 'review'}}" class="reference-note">当前版本仅支持本地标注，参考计算尚未开放。</view>
-  <view wx:if="{{coverage}}" class="coverage">{{coverage}}</view>
-  <view wx:if="{{resultMode}}" class="reference-note">几何覆盖为参考对应，不是诊断概率；未覆盖不代表没有感觉神经。</view>
-  <view class="view-tools"><button class="control return-link" bindtap="returnParts">返回特殊部位</button><button class="control return-link" bindtap="returnBody">返回全身人体</button></view>
-  <view wx:if="{{labels.length}}" class="p9-wide-labels"><text>{{title}} · {{schematic ? '模拟区域' : '参考区域'}}</text>
-   <button wx:for="{{labels}}" wx:key="id" class="control p9-label {{selected === item.id ? 'selected' : ''}}" style="border-left-color:{{item.color}}" data-id="{{item.id}}" bindtap="chooseCandidate" aria-pressed="{{selected === item.id}}"><text class="p9-label-text">{{item.name}}</text><text>{{item.ratio}}</text></button>
-  </view>
-  </view>
-  </view>
- </block>
- <view wx:if="{{infoOpen}}" class="info-mask" catchtap="closeInfo" catchtouchmove="swallow"><view class="info-sheet" catchtap="swallow"><view class="heading"><text>说明与来源</text><button class="control link" bindtap="closeInfo">关闭</button></view><scroll-view scroll-y class="info-scroll"><view wx:if="{{showSideSwitch}}">左、右{{partName}}独立标注；切换或返回全身会保留本次运行中的范围。关闭或重启小程序后不保留。</view><view wx:else>本页为单一中性会阴区域示意，不区分性别；返回全身会保留本次运行中的范围，关闭或重启小程序后不保留。</view><view>{{partName}}与全身使用不同模板。参考图谱用于教学与研究，医学审核待完成，不提供临床确诊。</view><view wx:if="{{!aiPhotoSupported}}">本视图不提供照片上传或 AI 自动分割。</view><view>{{sourceTitle}}</view><view>{{attribution}}</view><text class="source" user-select>{{sourceUrl}}</text><view wx:if="{{resourceAttribution}}">{{resourceAttribution}}</view><text wx:if="{{resourceSource}}" class="source" user-select>{{resourceSource}}</text><view wx:if="{{!atlasReady}}">{{atlasBlocked}}</view></scroll-view></view></view>
 </view>

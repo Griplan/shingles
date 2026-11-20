@@ -14,14 +14,15 @@ import { requestTiming } from "../../../../services/api";
 import { EXPERIENCE } from "../../../../config/experience";
 import {placementSession} from "../../state/placement-session";
 import {consumePlacementView} from "../../state/placement-navigation";
-interface PageLife { active:boolean; sequence:number; request:number; viewport?:ViewportTransform; viewportView?:BodyView; sceneKey?:string; started?:number; metrics?:Record<string,unknown>; canvasRetryScene?:number }
+interface PageLife { active:boolean; sequence:number; request:number; viewport?:ViewportTransform; viewportView?:BodyView; sceneKey?:string;
+  layoutKey?:string; started?:number; metrics?:Record<string,unknown>; canvasRetryScene?:number }
 const emptyRail=():LabelRail=>({items:[],height:0,overflow:false});
 const lives=new WeakMap<object,PageLife>();
 Page({
   data:{resultMode:false,loading:false,matchStatus:"idle",matchMessage:"",scope:"",selected:"",selectedName:"",selectedRatio:"",
     candidates:[] as CandidateLabel[],leftRail:emptyRail(),rightRail:emptyRail(),unspecified:[] as CandidateLabel[],
     scopes:[] as {id:string;name:string}[],atlas:null as AtlasLayer|null,focusBounds:null as NormalizedRect|null,
-    stageHeight:360,retainedViewport:null as ViewportTransform|null,editableAIId:"",editableAIName:"",openingPlacement:false,coveredText:"",uncoveredText:"",coverageStatus:"",hasCoverage:false,sceneId:0,sceneReady:false,
+    stageHeight:360,retainedViewport:null as ViewportTransform|null,isRegionZoomed:false,editableAIId:"",editableAIName:"",openingPlacement:false,coveredText:"",uncoveredText:"",coverageStatus:"",hasCoverage:false,sceneId:0,sceneReady:false,
     overlayKey:"",motionEnabled:true,overlayMs:EXPERIENCE.overlayMs,feedbackMs:EXPERIENCE.feedbackMs,infoOpen:false,preparingView:false,
     showScopeChoices:false,showRegionChoices:false,resultSummary:"",
     debugAllowed:false,renderError:false,source:ATLAS_MANIFEST,detailsMessage:"",performanceText:"",hasAIPlacement:false,matchingAllowed:false,matchingReady:false,openingResult:false,matchingMessage:"",sessionId:"",session:null as AnnotationSession|null,layer:null as AnnotationLayer|null,
@@ -87,6 +88,11 @@ Page({
     const sceneKey=JSON.stringify([overlayKey,resultMode,selected,s.revision,this.data.focusBounds,this.data.motionEnabled]);
     const changed=life?.sceneKey!==sceneKey;if(life)life.sceneKey=sceneKey;
     const resultSummary=matching.status==="loading"?"正在计算参考区域…":matching.status==="error"?"匹配失败，可重试":candidates.length?`找到 ${candidates.length} 个参考区域`:"暂无匹配结果";
+    const showScopeChoices=resultMode&&scopes.length>1;
+    const showRegionChoices=!resultMode&&current.completed.length>1;
+    const layoutKey=JSON.stringify([resultMode,candidates.length>0,showScopeChoices,showRegionChoices,!!selected]);
+    const layoutChanged=!!life&&life.layoutKey!==undefined&&life.layoutKey!==layoutKey;
+    if(life)life.layoutKey=layoutKey;
     const patch={debugAllowed:canUseDeveloperTools(),...(!canUseDeveloperTools()?{debugEnabled:false}:{}),editableAIId:target?.id||"",editableAIName:target?`调整 AI 标注 ${current.completed.indexOf(target)+1} 位置`:"",hasAIPlacement,resultMode,matchingAllowed:allowed,matchingReady:matching.status==="ready",matchingMessage:"",error:"",session:s,view,phase:s.phase,viewLabel:view==="front"?"正面":"背面",
       layer:{...sessionToken(s),completed:show&&scope?current.completed.filter(p=>p.id===scope):current.completed,draft,
         selectedId:show?null:current.selectedId,fillMode:atlas?"outline" as const:"filled" as const},
@@ -94,7 +100,7 @@ Page({
       entryRegionId:validEntry,pointCount:draft?.vertices.length||0,completedCount:current.completed.length,
       frontCount:s.views.front.completed.length,backCount:s.views.back.completed.length,
       selectedId:current.selectedId||"",regions:current.completed.map((p,i)=>({id:p.id,label:p.source?.kind==="ai_assisted"?`AI标注 ${i+1}`:`区域 ${i+1}`})),
-      showScopeChoices:resultMode&&scopes.length>1,showRegionChoices:!resultMode&&current.completed.length>1,resultSummary,
+      showScopeChoices,showRegionChoices,resultSummary,
       stateLabel:resultMode?"参考结果":s.phase==="review"?"确认范围":draft?"圈选范围":"标注管理",
       modelLabel:`${s.basis.templateId} / ${s.basis.templateVersion}`,message,
       loading:matching.status==="loading",matchStatus,matchMessage,scope,scopes,selected,candidates,atlas,overlayKey,
@@ -103,6 +109,7 @@ Page({
       coveredText:coverage?coverageText(coverage.covered_ratio):"",uncoveredText:coverage?coverageText(coverage.uncovered_ratio):"",
       coverageStatus:coverage?.coverage_status||"",hasCoverage:!!coverage,
       sceneId:changed?this.data.sceneId+1:this.data.sceneId,
+      layoutRevision:layoutChanged?this.data.layoutRevision+1:this.data.layoutRevision,
       sceneReady:changed && (!vp || !this.data.candidates.length && !!candidates.length)?false:this.data.sceneReady};
     // 不让提示、说明或重复sync再次发送未变的大型几何属性。
     const changedPatch:Record<string,unknown>={};
@@ -172,7 +179,7 @@ Page({
       if(lives.get(this)!==life || !life.active || life.sequence!==seq)return;
       this.setData({preparingView:false});
       if(!ready){this.setData({message:"另一面人体尚未就绪，请稍后重试"});return;}
-      this.setData({scope:"",selected:"",debugText:"",focusBounds:null,retainedViewport:null});this.act({type:"switch",view,resolution},token);
+      this.setData({scope:"",selected:"",debugText:"",focusBounds:null,retainedViewport:null,isRegionZoomed:false});this.act({type:"switch",view,resolution},token);
     };
     if(this.data.pointCount)this.ask(["继续当前绘制","放弃草稿并切换","闭合有效区域后切换"],(index,token)=>{
       if(index===1)switchTo("discard",token);else if(index===2)switchTo("close",token);
@@ -180,9 +187,9 @@ Page({
   },
   fullBody() {if(!lives.get(this)?.active || this.data.dialogOpen || this.data.infoOpen || this.data.preparingView)return;
     const canvas=typeof this.selectComponent==="function"?this.selectComponent("#work-canvas"):null;
-    canvas?.resetCamera?.();this.setData({focusBounds:null,retainedViewport:null});this.act({type:"focus",regionId:null});},
+    canvas?.resetCamera?.();this.setData({focusBounds:null,retainedViewport:null,isRegionZoomed:false});this.act({type:"focus",regionId:null});},
   focusEntry() {if(!lives.get(this)?.active || this.data.dialogOpen || this.data.infoOpen || this.data.preparingView)return;
-    this.setData({focusBounds:null,retainedViewport:null});if(this.data.entryRegionId)this.act({type:"focus",regionId:this.data.entryRegionId});},
+    this.setData({focusBounds:null,retainedViewport:null,isRegionZoomed:false});if(this.data.entryRegionId)this.act({type:"focus",regionId:this.data.entryRegionId});},
   finish() {
     if(this.data.debugEnabled || this.data.dialogOpen || this.data.infoOpen)return;
     if(!this.data.frontCount && !this.data.backCount){this.setData({message:"至少闭合一片有效区域后才能完成标注"});return;}
@@ -200,8 +207,21 @@ Page({
     await this.viewMatches();
   },
   continueEditing() {const life=lives.get(this);if(!life?.active || this.data.dialogOpen || this.data.infoOpen || this.data.preparingView)return;
-    life.request++;matchingSession.cancelPending();this.setData({resultMode:false,selected:"",scope:""});this.act({type:"edit"});},
+    life.request++;matchingSession.cancelPending();
+    this.setData({resultMode:false,selected:"",scope:""});this.act({type:"edit"});},
   backToEdit() {this.continueEditing();},
+  finishFlow() {
+    const life=lives.get(this);if(!life?.active || this.data.dialogOpen || this.data.infoOpen || this.data.preparingView)return;
+    const sequence=++life.sequence;this.setData({dialogOpen:true});
+    const current=()=>lives.get(this)===life && life.active && sequence===life.sequence;
+    wx.showModal({title:"结束本次标注",content:"将清空当前标注记录并返回初始页面，是否确认？",confirmText:"确认结束",confirmColor:"#165DFF",
+      success:r=>{
+        if(!current() || !r.confirm)return;
+        life.request++;matchingSession.cancelPending();annotationSession.reset();placementSession.clear();matchingSession.refresh();
+        wx.reLaunch({url:"/pages/select/select",fail:()=>wx.redirectTo({url:"/pages/select/select"})});
+      },
+      complete:()=>{if(current())this.setData({dialogOpen:false});}});
+  },
   editAIPlacement(){
     const life=lives.get(this);if(!life?.active||this.data.loading||this.data.openingPlacement||this.data.dialogOpen||this.data.infoOpen||this.data.preparingView||this.data.debugEnabled)return;
     this.syncSession();if(!this.data.editableAIId)return;
@@ -215,7 +235,7 @@ Page({
     if(!life?.active || !canMatchReference() || this.data.loading || this.data.dialogOpen || this.data.infoOpen || this.data.preparingView || this.data.debugEnabled || !s)return;
     if(s.phase!=="review" || s.views.front.draft || s.views.back.draft){this.setData({message:"请先完成标注并处理未闭合草稿"});return;}
     if(!s.views.front.completed.length && !s.views.back.completed.length)return;
-    this.setData({resultMode:true,selected:""});this.syncSession();
+    this.setData({resultMode:true,selected:"",isRegionZoomed:false});this.syncSession();
     if(matchingSession.refresh().status==="ready")return;
     const sequence=++life.request,started=Date.now(),work=matchingSession.calculate();this.syncSession();await work;
     if(lives.get(this)!==life || !life.active || sequence!==life.request)return;
@@ -227,7 +247,9 @@ Page({
     this.syncSession();const id:unknown=e.currentTarget.dataset.id;
     if(this.data.matchStatus!=="ready" || !this.data.resultMode || !this.data.sceneReady || this.data.preparingView ||
        this.data.infoOpen || typeof id!=="string" || !this.data.candidates.some(c=>c.id===id))return;
-    this.setData({selected:this.data.selected===id?"":id});this.syncSession();
+    const nextSelected=this.data.selected===id?"":id;
+    this.setData({selected:nextSelected});
+    this.syncSession();
   },
   showAll() {this.syncSession();if(!this.data.matchingAllowed || !this.data.resultMode || this.data.infoOpen || this.data.preparingView)return;
     this.setData({selected:""});this.syncSession();},
@@ -237,15 +259,24 @@ Page({
       (id!=="" && !this.data.scopes.some(scope=>scope.id===id)))return;
     this.setData({scope:id,selected:""});this.syncSession();
   },
-  focusSelected() {this.syncSession();if(this.data.matchingAllowed && !this.data.infoOpen && !this.data.preparingView && this.data.selected&&this.data.atlas){
-    this.setData({focusBounds:atlasFocusBounds(this.data.atlas.regions),retainedViewport:null});this.syncSession();}},
+  focusSelected() {
+    this.syncSession();
+    if(!this.data.matchingAllowed || this.data.infoOpen || this.data.preparingView)return;
+    if(this.data.isRegionZoomed){this.fullBody();return;}
+    if(this.data.selected && this.data.atlas){
+      this.setData({focusBounds:atlasFocusBounds(this.data.atlas.regions),retainedViewport:null,isRegionZoomed:true});
+      this.syncSession();
+    }
+  },
   onViewportChange(e:WechatMiniprogram.CustomEvent<{view:BodyView;modelId:string;modelVersion:string;viewport:ViewportTransform}>) {
     const life=lives.get(this),d=e.detail,m=getBodyModel(this.data.view);if(!life?.active||d.view!==this.data.view||d.modelId!==m.id||d.modelVersion!==m.version)return;
     const changed=life.viewportView!==d.view || JSON.stringify(life.viewport)!==JSON.stringify(d.viewport);
     life.viewport=d.viewport;life.viewportView=d.view;
-    if(changed){const height=this.data.stageHeight-44,labels=this.data.candidates;
+    const zoomOutReset=this.data.isRegionZoomed && d.viewport.zoom<=1.05;
+    if(changed || zoomOutReset){const height=this.data.stageHeight-44,labels=this.data.candidates;
       this.setData({leftRail:placeLabels(labels.filter(c=>screenSide(c.side,this.data.view)==="left"),height,d.viewport),
-        rightRail:placeLabels(labels.filter(c=>screenSide(c.side,this.data.view)==="right"),height,d.viewport)});}
+        rightRail:placeLabels(labels.filter(c=>screenSide(c.side,this.data.view)==="right"),height,d.viewport),
+        ...(zoomOutReset?{isRegionZoomed:false,focusBounds:null}:{})});}
   },
   onSceneReady(e:WechatMiniprogram.CustomEvent<{sceneId:number;view:BodyView}>) {
     const life=lives.get(this);

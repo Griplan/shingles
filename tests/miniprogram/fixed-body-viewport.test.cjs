@@ -19,39 +19,37 @@ test("V7.1.1 fixed body pages disable document scroll and isolate result control
   const annotateCss = read("miniprogram/packages/clinical/pages/annotate/annotate.wxss");
   const placementCss = read("miniprogram/packages/clinical/pages/placement/placement.wxss");
   const placement = read("miniprogram/packages/clinical/pages/placement/placement.wxml");
-  const widePlacementCss = placementCss.slice(placementCss.indexOf("@media (min-width:680px) and (min-height:520px)"));
-  assert.match(selectCss, /\.body-page\s*\{[^}]*height:100vh[^}]*overflow:hidden/);
-  assert.match(selectCss, /\.model-stage\s*\{[^}]*flex:1 1 0[^}]*min-height:0/);
-  assert.match(selectCss, /\.interaction-hint\s*\{[^}]*flex:0 0 32px[^}]*height:32px/);
-  assert.match(annotateCss, /\.annotation-page\s*\{[^}]*height:100vh[^}]*overflow:hidden[^}]*display:flex/);
-  assert.match(annotateCss, /\.result-stage\s*\{[^}]*flex:0 0 auto[^}]*overflow:hidden/);
-  assert.match(annotateCss, /\.p9-controls\.result-controls\s*\{[^}]*overflow-y:auto/);
-  assert.match(placementCss, /\.placement-page\s*\{[^}]*height:100vh[^}]*overflow:hidden/);
-  assert.match(placementCss, /\.placement-page\.p9-photo-workflow \.body-stage\s*\{[^}]*overflow:hidden/);
-  assert.match(placementCss, /\.placement-page\.p9-photo-workflow \.body-stage\s*\{[^}]*height:50vh/);
-  assert.match(placementCss, /\.placement-page \.p9-split\s*\{[^}]*align-items:stretch/);
-  assert.match(placementCss, /\.body-canvas-slot\s*\{[^}]*width:100%[^}]*height:100%/);
-  assert.match(placementCss, /\.body-canvas-slot>body-canvas\s*\{[^}]*width:100%[^}]*height:100%/);
-  assert.match(placementCss, /\.body-canvas-instance,\.placement-canvas-instance\s*\{[^}]*width:100%[^}]*height:100%/);
-  assert.match(placementCss, /\.stage-body-fallback\s*\{[^}]*pointer-events:none/);
-  assert.match(placementCss, /\.overlay>placement-overlay\s*\{[^}]*width:100%[^}]*height:100%/);
+  const widePlacementCss = placementCss.slice(placementCss.search(/@media\s*\(min-width:\s*680px\)/));
+  assert.match(selectCss, /\.body-page\s*\{[^}]*height:\s*100vh[^}]*overflow:\s*hidden/);
+  assert.match(selectCss, /\.model-stage\s*\{[^}]*flex:\s*1 1 0[^}]*min-height:\s*0/);
+  assert.match(selectCss, /\.stage-switch-row\s*\{[^}]*position:\s*relative[^}]*z-index:\s*2/);
+  assert.match(annotateCss, /\.annotation-page\s*\{[^}]*height:\s*100vh[^}]*display:\s*flex[^}]*overflow:\s*hidden/);
+  assert.match(annotateCss, /\.result-stage\s*\{[^}]*flex:\s*1 1 0[^}]*overflow:\s*hidden/);
+  assert.match(annotateCss, /\.inspector-scroll\s*\{[^}]*overflow-y:\s*auto/);
+  assert.match(placementCss, /\.placement-page\s*\{[^}]*height:\s*100vh[^}]*overflow:\s*hidden/);
+  assert.match(placementCss, /\.body-stage\s*\{[^}]*flex:\s*1 1 0[^}]*overflow:\s*hidden/);
+  assert.match(placementCss, /\.placement-workspace\s*\{[^}]*align-items:\s*stretch/);
+  assert.match(placementCss, /\.body-canvas-slot\s*\{[^}]*width:\s*100%[^}]*height:\s*100%/);
+  assert.match(placementCss, /\.overlay\s*>\s*placement-overlay[^}]*width:\s*100%[^}]*height:\s*100%/);
+  assert.match(placementCss, /\.placement-canvas-instance\s*\{[^}]*width:\s*100%[^}]*height:\s*100%/);
+  assert.match(placementCss, /\.stage-body-fallback\s*\{[^}]*pointer-events:\s*none/);
   assert.doesNotMatch(placementCss, /\bmin\(/);
-  assert.match(placementCss, /\.p9-controls\.placement-controls\s*\{[^}]*overflow-y:auto/);
+  assert.match(placementCss, /\.placement-scroll\s*\{[^}]*max-height:[^}]*overflow-y:\s*auto/);
   // Placement uses a stable local body image plus one lesion Canvas. This avoids
   // native multi-Canvas compositing races where both layers report ready while
   // the simulator paints an empty stage.
   assert.doesNotMatch(placementCss, /\.placement-loading\s*\{/);
-  assert.match(placementCss, /\.stage-loading\s*\{[^}]*position:absolute[^}]*pointer-events:none/);
-  assert.match(widePlacementCss, /\.placement-page \.p9-split\{[^}]*flex-direction:row/);
-  assert.match(widePlacementCss, /\.placement-page\.p9-photo-workflow \.body-stage\{[^}]*flex:5 1 0[^}]*width:auto[^}]*height:calc\(100vh - 128px/);
-  assert.match(widePlacementCss, /\.placement-page \.p9-controls\.placement-controls\{[^}]*flex:3 1 0/);
-  assert.match(read("miniprogram/components/body-canvas/body-canvas.wxss"), /\.canvas-shell\s*\{[^}]*height:\s*100%[^}]*min-height:0/);
-  assert.match(read("miniprogram/components/body-canvas/body-canvas.wxss"), /\.body-fallback\s*\{[^}]*pointer-events:none/);
+  assert.match(placementCss, /\.stage-loading\s*\{[^}]*position:\s*absolute[^}]*pointer-events:\s*none/);
+  assert.match(widePlacementCss, /\.placement-workspace\s*\{[^}]*flex-direction:\s*row/);
+  assert.match(widePlacementCss, /\.body-stage\s*\{[^}]*flex:\s*52 1 0[^}]*height:\s*100%/);
+  assert.match(widePlacementCss, /\.placement-inspector\s*\{[^}]*flex:\s*48 1 0/);
+  assert.match(read("miniprogram/components/body-canvas/body-canvas.wxss"), /\.canvas-shell\s*\{[^}]*height:\s*100%[^}]*min-height:\s*0/);
+  assert.match(read("miniprogram/components/body-canvas/body-canvas.wxss"), /\.body-fallback\s*\{[^}]*pointer-events:\s*none/);
   assert.match(read("miniprogram/components/body-canvas/body-canvas.wxml"), /class="body-fallback"[^>]*binderror="onFallbackError"[^>]*bindload="onFallbackLoad"/);
-  assert.match(placement, /<view class="body-canvas-slot"><image wx:if="\{\{bodyImagePath && viewport\}\}" class="stage-body-fallback"/);
+  assert.match(placement, /<view class="body-canvas-slot">\s*<image wx:if="\{\{bodyImagePath && viewport\}\}" class="stage-body-fallback"/);
   assert.match(placement, /<image wx:elif="\{\{bodyImagePath\}\}" class="stage-body-preview"/);
   assert.doesNotMatch(placement, /<body-canvas\b/);
-  assert.match(placement, /<view[^>]*class="overlay"[^>]*><placement-overlay id="placement-preview"/);
+  assert.match(placement, /<view[^>]*class="overlay"[^>]*>\s*<placement-overlay\s+id="placement-preview"/);
   assert.doesNotMatch(read("miniprogram/packages/clinical/pages/placement/placement.ts"),
     /人体画布加载失败|点击画布内的“重新显示”/);
 });
@@ -65,8 +63,8 @@ test("placement never converts a region hint into an automatic local-body viewpo
 test("V7.1.1 result and placement controls are native vertical scroll views", () => {
   const annotate = read("miniprogram/packages/clinical/pages/annotate/annotate.wxml");
   const placement = read("miniprogram/packages/clinical/pages/placement/placement.wxml");
-  assert.match(annotate, /<scroll-view class="p9-controls result-controls" scroll-y enhanced/);
-  assert.match(placement, /<scroll-view class="p9-controls placement-controls" scroll-y enhanced/);
+  assert.match(annotate, /<scroll-view[^>]*class="inspector-scroll wide-only-table"[^>]*scroll-y enhanced/);
+  assert.match(placement, /<scroll-view class="placement-scroll" scroll-y enhanced/);
   assert.match(read("miniprogram/components/body-canvas/body-canvas.wxml"), /catchtouchmove="onCanvasMove"/);
 });
 

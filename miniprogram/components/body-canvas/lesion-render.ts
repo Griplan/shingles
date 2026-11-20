@@ -39,10 +39,10 @@ export function drawLesions<V extends SurfaceView>(ctx:BodyContext,viewport:View
     }
     if(layer.draft?.view===model.view) {
       const vertices=layer.draft.vertices;
-      path(vertices,false);ctx.strokeStyle="#216c61";ctx.lineWidth=1.6;ctx.stroke();
+      path(vertices,false);ctx.strokeStyle="#165DFF";ctx.lineWidth=1.6;ctx.stroke();
       vertices.forEach((p,i)=>{
         const q=normalizedToCanvas(p,viewport);ctx.beginPath();ctx.arc(q.x,q.y,3.2,0,2*Math.PI);
-        ctx.fillStyle=i===0?"#216c61":"#ffffff";ctx.fill();ctx.strokeStyle="#216c61";ctx.lineWidth=1.3;ctx.stroke();
+        ctx.fillStyle=i===0?"#165DFF":"#ffffff";ctx.fill();ctx.strokeStyle="#165DFF";ctx.lineWidth=1.3;ctx.stroke();
       });
     }
   } finally {ctx.restore();}

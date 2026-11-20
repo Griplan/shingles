@@ -1,27 +1,171 @@
-<view class="placement-page p9-page p9-photo-workflow">
- <view class="heading"><text>{{context}}</text><button class="text-button" bindtap="backPhoto">{{editingSaved ? '返回标注' : '返回照片'}}</button></view>
- <view class="view-switch"><button class="body-button view-tab {{view === 'front' ? 'is-active' : ''}}" data-view="front" disabled="{{confirmed || dragging || calculating}}" bindtap="switchView">正面</button><button class="body-button view-tab {{view === 'back' ? 'is-active' : ''}}" data-view="back" disabled="{{confirmed || dragging || calculating}}" bindtap="switchView">背面</button></view>
- <view class="instruction">{{calculating ? '正在计算参考对应，标注已保存…' : confirmed ? '位置已确认，已保存到本次标注' : '移动并调整病灶范围'}}</view>
- <view class="p9-split">
- <view class="body-stage p9-stage">
-  <view class="body-canvas-slot"><image wx:if="{{bodyImagePath && viewport}}" class="stage-body-fallback" src="{{bodyImagePath}}" style="{{bodyImageStyle}}" mode="scaleToFill" aria-label="人体模型"></image><image wx:elif="{{bodyImagePath}}" class="stage-body-preview" src="{{bodyImagePath}}" mode="contain" aria-label="人体模型"></image></view>
-  <view wx:if="{{!viewport && !error}}" class="stage-loading">正在准备人体画布…</view>
-  <view wx:if="{{preparedReady && transform && !confirmed}}" class="overlay"><placement-overlay id="placement-preview" class="placement-canvas-instance" view="{{view}}" draft-id="{{draftId}}" transform="{{transform}}" viewport="{{viewport}}" revision="{{revision}}" layout-revision="{{layoutRevision}}" interaction-key="{{interactionKey}}" disabled="{{dialog || !!error}}" bind:placementdrag="onDrag" bind:renderstate="onOverlayReady"></placement-overlay></view>
- </view>
- <scroll-view class="p9-controls placement-controls" scroll-y enhanced show-scrollbar="{{false}}">
- <button class="text-button focus" disabled="{{dragging || dialog}}" bindtap="toggleFocus">{{focusBounds ? '查看全身' : '放大病灶范围'}}</button>
- <view wx:if="{{error}}" class="warning">{{error}}<button wx:if="{{overlayFault}}" class="text-button" bindtap="retryOverlay">重试加载</button></view>
- <view wx:elif="{{message}}" class="warning">{{message}}<button wx:if="{{overlayFault}}" class="text-button" bindtap="retryOverlay">重试显示</button></view>
- <block wx:if="{{!confirmed && !error}}">
-  <view class="slider-label"><text>调整大小</text><text>{{scalePercent}}%</text></view>
-  <slider min="10" max="400" step="1" value="{{scalePercent}}" activeColor="#28735c" disabled="{{dialog || dragging}}" bindtouchstart="startSlider" bindchanging="scaleChanging" bindchange="scaleChanged"/>
-  <view class="slider-label"><text>调整方向</text><text>{{angle}}°</text></view>
-  <slider min="-180" max="180" step="1" value="{{angle}}" activeColor="#28735c" disabled="{{dialog || dragging}}" bindtouchstart="startSlider" bindchanging="angleChanging" bindchange="angleChanged"/>
-  <view class="actions"><button bindtap="reset" disabled="{{dialog || dragging}}">重置调整</button><button class="primary" disabled="{{(!valid && !needsClip) || !viewport || !overlayReady || dragging || dialog || calculating}}" bindtap="confirmPosition">{{needsClip ? '检查越界并确认' : '确认位置'}}</button></view>
-  <view class="note" wx:if="{{!overlayReady && !error}}">人体已显示后，病灶范围将在这里自动就绪。</view>
-  <view class="note" wx:else>按住橙色范围拖动调整；尺寸和方向仅影响本次放置。</view>
- </block>
- <block wx:if="{{confirmed}}"><button class="primary saved" loading="{{calculating}}" disabled="{{opening || calculating}}" bindtap="confirmPosition">{{calculating ? '计算中…' : '查看结果 / 重试计算'}}</button><button class="text-button" disabled="{{opening || calculating}}" bindtap="viewAnnotations">查看已保存标注</button></block>
- </scroll-view>
- </view>
+<view class="placement-page">
+  <view class="placement-workspace">
+    <!-- 左侧(宽屏52%) / 上方(手机 flex:1 ~58%-62%)：纯净三段式解剖与病灶叠加视口 -->
+    <view class="body-stage ui-stage-grid">
+      <view class="stage-header">
+        <text class="stage-context">{{context}}</text>
+        <view class="ui-top-pill" hover-class="ui-hover-secondary" aria-role="button" bindtap="backPhoto">{{editingSaved ? '返回标注' : '返回照片'}}</view>
+      </view>
+
+      <view class="stage-switch-row">
+        <view class="ui-segmented view-segmented">
+          <view
+            class="ui-segmented-item view-tab {{view === 'front' ? 'is-active' : ''}} {{(confirmed || dragging || calculating) ? 'is-disabled' : ''}}"
+            hover-class="ui-hover-subtle"
+            aria-role="button"
+            data-view="front"
+            catchtap="switchView"
+          >正面</view>
+          <view
+            class="ui-segmented-item view-tab {{view === 'back' ? 'is-active' : ''}} {{(confirmed || dragging || calculating) ? 'is-disabled' : ''}}"
+            hover-class="ui-hover-subtle"
+            aria-role="button"
+            data-view="back"
+            catchtap="switchView"
+          >背面</view>
+        </view>
+      </view>
+
+      <!-- 中间纯净画布区：严格保留 .body-canvas-slot 与 .overlay 零 padding/border -->
+      <view class="stage-canvas-frame">
+        <view class="body-canvas-slot">
+          <image wx:if="{{bodyImagePath && viewport}}" class="stage-body-fallback" src="{{bodyImagePath}}" style="{{bodyImageStyle}}" mode="scaleToFill" aria-label="人体模型"></image>
+          <image wx:elif="{{bodyImagePath}}" class="stage-body-preview" src="{{bodyImagePath}}" mode="contain" aria-label="人体模型"></image>
+        </view>
+
+        <view wx:if="{{!viewport && !error}}" class="stage-loading">正在准备人体画布…</view>
+
+        <view wx:if="{{preparedReady && transform && !confirmed}}" class="overlay">
+          <placement-overlay
+            id="placement-preview"
+            class="placement-canvas-instance"
+            view="{{view}}"
+            draft-id="{{draftId}}"
+            transform="{{transform}}"
+            viewport="{{viewport}}"
+            revision="{{revision}}"
+            layout-revision="{{layoutRevision}}"
+            interaction-key="{{interactionKey}}"
+            disabled="{{dialog || !!error}}"
+            bind:placementdrag="onDrag"
+            bind:renderstate="onOverlayReady"
+          ></placement-overlay>
+        </view>
+      </view>
+
+      <view class="stage-bottom-bar">
+        <view class="stage-legend-pill">
+          <text class="lesion-key"></text>
+          <text>橙色：待放置病灶</text>
+        </view>
+        <text class="stage-bottom-hint">{{calculating ? '正在计算参考对应，标注已保存…' : confirmed ? '位置已确认，已保存' : '拖动病灶调整位置'}}</text>
+      </view>
+    </view>
+
+    <!-- 右侧(宽屏48%) / 下方(手机贴合内容紧凑高度)：纯白专业参数检查器 -->
+    <view class="placement-inspector">
+      <scroll-view class="placement-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+        <view class="placement-scroll-inner">
+          <button
+            class="focus-tool-btn {{focusBounds ? 'is-focused' : ''}}"
+            hover-class="ui-hover-secondary"
+            disabled="{{dragging || dialog}}"
+            bindtap="toggleFocus"
+          >{{focusBounds ? '查看全身' : '放大病灶范围'}}</button>
+
+          <view wx:if="{{error}}" class="placement-warning">
+            <text>{{error}}</text>
+            <button wx:if="{{overlayFault}}" class="ui-btn ui-btn-secondary ui-btn-sm retry-btn" hover-class="ui-hover-secondary" bindtap="retryOverlay">重试加载</button>
+          </view>
+          <view wx:elif="{{message}}" class="placement-warning">
+            <text>{{message}}</text>
+            <button wx:if="{{overlayFault}}" class="ui-btn ui-btn-secondary ui-btn-sm retry-btn" hover-class="ui-hover-secondary" bindtap="retryOverlay">重试显示</button>
+          </view>
+
+          <block wx:if="{{!confirmed && !error}}">
+            <view class="param-card">
+              <view class="param-group">
+                <view class="slider-label">
+                  <text class="param-name">调整大小</text>
+                  <text class="param-badge ui-num">{{scalePercent}}%</text>
+                </view>
+                <slider
+                  class="param-slider"
+                  min="10"
+                  max="400"
+                  step="1"
+                  value="{{scalePercent}}"
+                  activeColor="#165DFF"
+                  backgroundColor="#E2E8F0"
+                  block-size="20"
+                  disabled="{{dialog || dragging}}"
+                  bindtouchstart="startSlider"
+                  bindchanging="scaleChanging"
+                  bindchange="scaleChanged"
+                />
+              </view>
+
+              <view class="param-divider"></view>
+
+              <view class="param-group">
+                <view class="slider-label">
+                  <text class="param-name">调整方向</text>
+                  <text class="param-badge ui-num">{{angle}}°</text>
+                </view>
+                <slider
+                  class="param-slider"
+                  min="-180"
+                  max="180"
+                  step="1"
+                  value="{{angle}}"
+                  activeColor="#165DFF"
+                  backgroundColor="#E2E8F0"
+                  block-size="20"
+                  disabled="{{dialog || dragging}}"
+                  bindtouchstart="startSlider"
+                  bindchanging="angleChanging"
+                  bindchange="angleChanged"
+                />
+              </view>
+            </view>
+
+            <view class="hint-box" wx:if="{{!overlayReady && !error}}">人体已显示后，病灶范围将在这里自动就绪。</view>
+            <view class="hint-box" wx:else>按住橙色范围拖动调整；尺寸和方向仅影响本次放置。</view>
+          </block>
+        </view>
+      </scroll-view>
+
+      <!-- 吸底操作栏：左 38% 重置调整 + 右 62% 确认位置 -->
+      <view wx:if="{{!confirmed && !error}}" class="ui-sticky-footer placement-footer">
+        <button
+          class="ui-btn ui-btn-secondary reset-btn"
+          hover-class="ui-hover-secondary"
+          bindtap="reset"
+          disabled="{{dialog || dragging}}"
+        >重置调整</button>
+        <button
+          class="ui-btn ui-btn-primary confirm-btn"
+          hover-class="ui-hover-primary"
+          disabled="{{(!valid && !needsClip) || !viewport || !overlayReady || dragging || dialog || calculating}}"
+          bindtap="confirmPosition"
+        >{{needsClip ? '检查越界并确认' : '确认位置'}}</button>
+      </view>
+
+      <view wx:if="{{confirmed}}" class="ui-sticky-footer placement-footer-confirmed">
+        <button
+          class="ui-btn ui-btn-primary ui-btn-block"
+          hover-class="ui-hover-primary"
+          loading="{{calculating}}"
+          disabled="{{opening || calculating}}"
+          bindtap="confirmPosition"
+        >{{calculating ? '计算中…' : '查看结果 / 重试计算'}}</button>
+        <button
+          class="ui-btn ui-btn-ghost ui-btn-sm ui-btn-block"
+          hover-class="ui-hover-ghost"
+          disabled="{{opening || calculating}}"
+          bindtap="viewAnnotations"
+        >查看已保存标注</button>
+      </view>
+    </view>
+  </view>
 </view>

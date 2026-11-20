@@ -233,7 +233,7 @@ test('zero-size placement slot falls back to the actual content window instead o
  p.ensureViewport(true,6);
  assert.ok(p.data.viewport);
  assert.equal(p.data.viewport.viewportWidth,390-56*(390/750));
- assert.equal(p.data.viewport.viewportHeight,422);
+ assert.equal(p.data.viewport.viewportHeight,844*0.58);
  assert.equal(p.data.bodyFallbackVisible,true);
  assert.ok(p.data.bodyImagePath.endsWith('/back.png'));
  assert.equal(p.data.error,'');
@@ -263,10 +263,10 @@ test('wide-screen fallback mirrors the P9 two-column body workspace',async t=>{
   }),
  });
  p.ensureViewport(true,6);
- assert.equal(p.data.viewport.viewportWidth,(800-32-16)*5/8);
+ assert.equal(p.data.viewport.viewportWidth,(800-32-16)*0.52);
  assert.equal(p.data.viewport.viewportHeight,720-128);
  assert.equal(p.data.zoomRegion,'');
- assert.equal(p.data.viewport.viewportWidth,470);
+ assert.equal(p.data.viewport.viewportWidth,391.04);
  assert.equal(p.data.viewport.viewportHeight,592);
 });
 test('overlay watchdog retries once, then reports a recoverable timeout without faking readiness',t=>{
