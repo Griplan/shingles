@@ -1,0 +1,22 @@
+{"status":"ok","project":"dermatome-mapper","version":"v0"}
+HTTPS dermatome 200 verify=0 peer=212.64.26.206
+{"status":"ok","ai_ready":true}
+HTTPS acupuncture 200 verify=0 peer=212.64.26.206
+HTTP redirect 308 verified
+Public ACME exception 200 verified
+GET / -> 404
+GET /docs -> 404
+GET /redoc -> 404
+GET /openapi.json -> 404
+GET /api/v1/ready -> 404
+POST /api/v1/access/session -> 404
+POST /api/v1/ai/sessions -> 404
+POST /api/v1/ai/sessions/00000000000000000000000000000000/photo -> 404
+POST /api/v1/ai/sessions/00000000000000000000000000000000/segment -> 404
+DELETE /api/v1/ai/sessions/00000000000000000000000000000000 -> 404
+GET /api/v1/ai/sessions/00000000000000000000000000000000/assets/candidate-0.png -> 404
+POST /api/v1/evaluate -> 404
+POST /api/v1/evaluate/body-intersection -> 404
+212.64.26.206   STREAM dermatome.bglabs.cloud
+{"status":"ok","project":"dermatome-mapper","version":"v0"}
+NORMAL_DNS_HTTPS 200 verify=0 peer=212.64.26.206

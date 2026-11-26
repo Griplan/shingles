@@ -41,20 +41,66 @@ export class PlacementPreview {
   ctx.fillStyle=FILL;ctx.fill();
   if(stroke){ctx.strokeStyle=EDGE;ctx.lineWidth=lineWidth;ctx.lineJoin="round";ctx.stroke();}
  }
- draw(ctx:Context,v:ViewportTransform,t:PlacementTransform,model:BodyModelConfig,interactive:boolean):void {
-  const {c,s,k}=placementSimilarity(this.photo,t,model),a=projectNormalizedToCanvas(t.translation,v),scale=k*v.scale;
+ private boxMetrics(v:ViewportTransform,t:PlacementTransform,model:BodyModelConfig){
+  const {c,s,k}=placementSimilarity(this.photo,t,model),a=projectNormalizedToCanvas(t.translation,v),scale=k*v.scale,b=this.photo.bounds;
+  const renderedWidth=b.width*scale,renderedHeight=b.height*scale;
+  const cx=(b.x+b.width*0.5-t.photoCenter.x)*scale,cy=(b.y+b.height*0.5-t.photoCenter.y)*scale;
+  return {c,s,a,scale,renderedWidth,renderedHeight,minSide:Math.min(renderedWidth,renderedHeight),cx,cy};
+ }
+ draw(ctx:Context,v:ViewportTransform,t:PlacementTransform,model:BodyModelConfig,dragging:boolean):void {
+  const {c,s,a,scale,renderedWidth,renderedHeight,minSide,cx,cy}=this.boxMetrics(v,t,model);
   ctx.save();try{ctx.transform(c*scale,s*scale,-s*scale,c*scale,a.x,a.y);ctx.translate(-t.photoCenter.x,-t.photoCenter.y);
   if(this.cache&&this.cacheRect){const b=this.cacheRect;
    try{ctx.drawImage(this.cache,b.x,b.y,b.width,b.height);}catch{this.cache=null;this.cacheRect=null;this.drawPaths(ctx,true,1.6/scale);}
   }else this.drawPaths(ctx,true,1.6/scale);
   }finally{ctx.restore();}
-  if(interactive){
-   // Only four bound corners; no MultiPolygon traversal while moving.
-   const b=this.photo.bounds,points=[[b.x,b.y],[b.x+b.width,b.y],[b.x+b.width,b.y+b.height],[b.x,b.y+b.height]];
-   ctx.beginPath();points.forEach(([px,py],i)=>{const x=(px-t.photoCenter.x)*scale,y=(py-t.photoCenter.y)*scale;
-    if(i===0)ctx.moveTo(a.x+c*x-s*y,a.y+s*x+c*y);else ctx.lineTo(a.x+c*x-s*y,a.y+s*x+c*y);});ctx.closePath();
-   ctx.setLineDash([4,4]);ctx.strokeStyle=EDGE;ctx.lineWidth=1.2;ctx.stroke();ctx.setLineDash([]);
-  }
+  // Outer precision dashed selection box + adaptive hollow center crosshair in rotated CSS-pixel frame
+  ctx.save();try{
+   ctx.transform(c,s,-s,c,a.x,a.y);
+   const boxW=Math.max(24,renderedWidth+8),boxH=Math.max(24,renderedHeight+8);
+   const left=cx-boxW*0.5,top=cy-boxH*0.5,right=cx+boxW*0.5,bottom=cy+boxH*0.5;
+   ctx.setLineDash([4,3]);
+   ctx.strokeStyle=dragging?"rgba(22, 93, 255, 0.90)":"rgba(22, 93, 255, 0.50)";
+   ctx.lineWidth=dragging?1.5:1;
+   ctx.strokeRect(left,top,boxW,boxH);
+   ctx.setLineDash([]);
+   if(dragging){
+    const tick=5;
+    ctx.beginPath();
+    ctx.moveTo(left,top+tick);ctx.lineTo(left,top);ctx.lineTo(left+tick,top);
+    ctx.moveTo(right-tick,top);ctx.lineTo(right,top);ctx.lineTo(right,top+tick);
+    ctx.moveTo(right,bottom-tick);ctx.lineTo(right,bottom);ctx.lineTo(right-tick,bottom);
+    ctx.moveTo(left+tick,bottom);ctx.lineTo(left,bottom);ctx.lineTo(left,bottom-tick);
+    ctx.strokeStyle="rgba(22, 93, 255, 0.95)";
+    ctx.lineWidth=1.8;
+    ctx.lineCap="square";
+    ctx.lineJoin="miter";
+    ctx.stroke();
+   }
+   if(minSide>=28){
+    const r=Math.min(9,Math.max(4,minSide*0.12)),gap=2;
+    const strokeArms=(style:string,width:number)=>{
+     ctx.beginPath();
+     ctx.moveTo(-r,0);ctx.lineTo(-gap,0);
+     ctx.moveTo(gap,0);ctx.lineTo(r,0);
+     ctx.moveTo(0,-r);ctx.lineTo(0,-gap);
+     ctx.moveTo(0,gap);ctx.lineTo(0,r);
+     ctx.strokeStyle=style;
+     ctx.lineWidth=width;
+     ctx.lineCap="round";
+     ctx.stroke();
+    };
+    strokeArms(dragging?"rgba(255, 255, 255, 0.35)":"rgba(255, 255, 255, 0.65)",2.2);
+    strokeArms(dragging?"rgba(22, 93, 255, 0.45)":"rgba(22, 93, 255, 0.75)",1.2);
+   }
+  }finally{ctx.restore();}
+ }
+ hitBox(canvasPoint:{x:number;y:number},v:ViewportTransform,t:PlacementTransform,model:BodyModelConfig):boolean {
+  const {c,s,a,renderedWidth,renderedHeight,cx,cy}=this.boxMetrics(v,t,model);
+  const dx=canvasPoint.x-a.x,dy=canvasPoint.y-a.y;
+  const lx=c*dx+s*dy,ly=-s*dx+c*dy;
+  const hitW=Math.max(48,renderedWidth+28),hitH=Math.max(48,renderedHeight+28);
+  return Math.abs(lx-cx)<=hitW*0.5&&Math.abs(ly-cy)<=hitH*0.5;
  }
  hit(point:NormalizedPoint,t:PlacementTransform,model:BodyModelConfig):boolean {
   const {c,s,k}=placementSimilarity(this.photo,t,model),x=(point.x-t.translation.x)*model.logicalWidth,y=(point.y-t.translation.y)*model.logicalHeight;

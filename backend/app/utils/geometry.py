@@ -40,11 +40,11 @@ def annotation_geometry(lesion, body):
             converted.append(points)
         polygon = Polygon(converted[0], converted[1:])
         if not polygon.is_valid or polygon.area <= 0:
-            raise EvaluationError('INVALID_ANNOTATION', '病灶片区或孔洞无效，不会自动修复')
+            raise EvaluationError('INVALID_ANNOTATION', '标注片区或孔洞无效，不会自动修复')
         polygons.append(polygon)
     shape = MultiPolygon(polygons) if geometry.type == 'MultiPolygon' else polygons[0]
     if not shape.is_valid or shape.area <= 0:
-        raise EvaluationError('INVALID_ANNOTATION', '病灶片区重叠或拓扑无效，不会合并或裁切')
+        raise EvaluationError('INVALID_ANNOTATION', '标注片区重叠或拓扑无效，不会合并或裁切')
     if not body.covers(shape):
         raise EvaluationError('INVALID_ANNOTATION', '标注跨出人体有效轮廓，请返回编辑；不会自动裁切')
     return shape

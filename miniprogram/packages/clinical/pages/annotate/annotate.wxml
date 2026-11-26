@@ -255,7 +255,7 @@
           <view wx:if="{{message || matchMessage}}" class="alert-box phone-inline-alert" role="alert">{{message || matchMessage}}</view>
           <view wx:if="{{resultMode && matchStatus === 'ready' && !candidates.length}}" class="empty-card phone-inline-alert">
             <text class="empty-title">暂无匹配结果</text>
-            <text class="empty-desc">当前图谱未覆盖这片标注，不代表没有感觉神经。</text>
+            <text class="empty-desc">当前参考图谱没有匹配到这片标注。</text>
           </view>
 
           <!-- 圈选态：手机端单行轻指标条 + 宽屏两列 KPI 卡 -->
@@ -291,7 +291,7 @@
 
             <view wx:if="{{matchStatus === 'ready' && !candidates.length}}" class="empty-card">
               <text class="empty-title">暂无匹配结果</text>
-              <text class="empty-desc">当前图谱未覆盖这片标注，不代表没有感觉神经。</text>
+              <text class="empty-desc">当前参考图谱没有匹配到这片标注。</text>
             </view>
 
             <view wx:if="{{candidates.length}}" class="nerve-table">
@@ -329,7 +329,7 @@
           <view wx:if="{{renderError}}" class="alert-box" role="alert">画布显示失败，请点画布内的重试。结果尚未完整显示。</view>
           <view wx:if="{{message || matchMessage}}" class="alert-box" role="alert">{{message || matchMessage}}</view>
           <view class="draw-tip-card">
-            <text class="draw-tip-text">{{phase === 'review' ? '范围已确认，可开始匹配参考神经节段或返回继续修改。' : mode === 'draw' ? '沿病灶边缘顺次轻触添加锚点，双指可缩放定位；满 3 点后点击下方“闭合范围”。' : '可点击“新增”继续标注其他区域，或点击“完成标注”查看参考结果。'}}</text>
+            <text class="draw-tip-text">{{phase === 'review' ? '范围已确认，可开始计算参考区域或返回继续修改。' : mode === 'draw' ? '沿目标范围边缘依次轻触，双指可缩放定位；满 3 点后点击下方“闭合范围”。' : '可点击“新增”继续标注其他区域，或点击“完成标注”查看参考结果。'}}</text>
           </view>
         </view>
 
@@ -344,7 +344,7 @@
                 bindtap="viewMatches"
                 loading="{{loading}}"
                 disabled="{{loading || dialogOpen || infoOpen || preparingView || debugEnabled}}"
-              >{{loading ? '计算中…' : matchStatus === 'error' ? '重试匹配' : '开始匹配'}}</button>
+              >{{loading ? '计算中…' : matchStatus === 'error' ? '重试匹配' : '计算参考区域'}}</button>
             </view>
             <!-- 结果态 3 按钮：修改标注 + 调整 AI 标注位置（次级）+ 结束流程（主按钮） -->
             <view wx:elif="{{editableAIId}}" class="footer-row is-three">
@@ -396,7 +396,7 @@
             >完成标注</button>
           </view>
 
-          <view class="reference-note">{{hasAIPlacement ? 'AI 辅助标注 · 人工确认位置。参考对应非诊断结果。' : '参考图谱对应，非诊断结果。'}}</view>
+          <view class="reference-note">{{hasAIPlacement ? '图片轮廓经人工确认位置。参考结果不用于诊断。' : '参考结果不用于诊断。'}}</view>
         </view>
       </view>
     </view>
@@ -411,7 +411,7 @@
         <view class="ui-top-pill" hover-class="ui-hover-secondary" aria-role="button" bindtap="closeInfo">关闭</view>
       </view>
       <scroll-view scroll-y class="info-scroll">
-        <view class="info-paragraph">人工圈选或确认 AI 放置范围，查看与参考图谱的对应。仅用于辅助理解、教学和研究，不能用于临床确诊。图谱医学审核待完成，正式医学映射仍禁用。</view>
+        <view class="info-paragraph">人工圈选或确认图片轮廓的位置，查看与参考图谱的对应。仅用于辅助理解、教学和研究，不能用于临床确诊。图谱医学审核待完成，正式医学映射仍禁用。</view>
         <view class="info-paragraph">标注仅在本次运行内暂存，关闭、重启或重新编译可能丢失。计算只向配置后端发送坐标和版本，不采集照片或身份信息。</view>
         <view class="info-title">图谱署名与许可</view>
         <view>{{source.attribution}}</view>

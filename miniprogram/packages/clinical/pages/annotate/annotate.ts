@@ -93,13 +93,13 @@ Page({
     const layoutKey=JSON.stringify([resultMode,candidates.length>0,showScopeChoices,showRegionChoices,!!selected]);
     const layoutChanged=!!life&&life.layoutKey!==undefined&&life.layoutKey!==layoutKey;
     if(life)life.layoutKey=layoutKey;
-    const patch={debugAllowed:canUseDeveloperTools(),...(!canUseDeveloperTools()?{debugEnabled:false}:{}),editableAIId:target?.id||"",editableAIName:target?`调整 AI 标注 ${current.completed.indexOf(target)+1} 位置`:"",hasAIPlacement,resultMode,matchingAllowed:allowed,matchingReady:matching.status==="ready",matchingMessage:"",error:"",session:s,view,phase:s.phase,viewLabel:view==="front"?"正面":"背面",
+    const patch={debugAllowed:canUseDeveloperTools(),...(!canUseDeveloperTools()?{debugEnabled:false}:{}),editableAIId:target?.id||"",editableAIName:target?`调整图片标注 ${current.completed.indexOf(target)+1} 的位置`:"",hasAIPlacement,resultMode,matchingAllowed:allowed,matchingReady:matching.status==="ready",matchingMessage:"",error:"",session:s,view,phase:s.phase,viewLabel:view==="front"?"正面":"背面",
       layer:{...sessionToken(s),completed:show&&scope?current.completed.filter(p=>p.id===scope):current.completed,draft,
         selectedId:show?null:current.selectedId,fillMode:atlas?"outline" as const:"filled" as const},
       mode:s.phase==="editing" && draft?"draw":"readonly",zoomRegion:current.focusRegionId||"",
       entryRegionId:validEntry,pointCount:draft?.vertices.length||0,completedCount:current.completed.length,
       frontCount:s.views.front.completed.length,backCount:s.views.back.completed.length,
-      selectedId:current.selectedId||"",regions:current.completed.map((p,i)=>({id:p.id,label:p.source?.kind==="ai_assisted"?`AI标注 ${i+1}`:`区域 ${i+1}`})),
+      selectedId:current.selectedId||"",regions:current.completed.map((p,i)=>({id:p.id,label:p.source?.kind==="ai_assisted"?`图片标注 ${i+1}`:`区域 ${i+1}`})),
       showScopeChoices,showRegionChoices,resultSummary,
       stateLabel:resultMode?"参考结果":s.phase==="review"?"确认范围":draft?"圈选范围":"标注管理",
       modelLabel:`${s.basis.templateId} / ${s.basis.templateVersion}`,message,

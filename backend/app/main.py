@@ -8,6 +8,7 @@ from app.services.ai_boundary import AIBoundary, lifespan
 from app.services.ai_sessions import AIError
 from app.utils.geometry import EvaluationError
 from app.services.access import AccessBoundary, feature_enabled
+from app.services.production_access import ProductionAccessBoundary
 
 MAX_REQUEST_BYTES=2*1024*1024
 
@@ -45,9 +46,10 @@ class EvaluationBoundary:
             return await receive()
         await self.app(scope,replay,send)
 
-app=FastAPI(lifespan=lifespan,title='带状疱疹神经皮节辅助定位系统',version='v4',description='开发测试环境的人工标注与参考图谱二维几何匹配；非诊断。')
+app=FastAPI(lifespan=lifespan,title='智络智绘 · 人体区域标注与参考图谱几何匹配',version='v4',description='开发测试环境的人工标注与参考图谱二维几何匹配；非诊断。')
 app.add_middleware(EvaluationBoundary)
 app.add_middleware(AIBoundary)
+app.add_middleware(ProductionAccessBoundary)
 app.add_middleware(AccessBoundary)
 
 @app.exception_handler(AIError)

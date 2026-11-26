@@ -81,10 +81,10 @@ test('deleted V2 placement cannot reopen as falsely confirmed; original photo ca
 });
 
 let pageDef;global.Page=o=>pageDef=o;load('packages/clinical/pages/placement/placement.js');
-function pageFixture(t,sourceId='PAGE'){const r=placementSession.open(photo(sourceId),'back','back-upper-back',()=>true);assert.equal(r.ok,true,r.message);
+function pageFixture(t,sourceId='PAGE'){const source=photo(sourceId),r=placementSession.open(source,'back','back-upper-back',()=>true);assert.equal(r.ok,true,r.message);
  const nav=[],modal=[];global.wx={request:o=>o.fail({errMsg:"synthetic offline"}),getAccountInfoSync:()=>({miniProgram:{envVersion:"develop"}}),getSystemInfoSync:()=>({platform:"devtools"}),nextTick:f=>queueMicrotask(f),enableAlertBeforeUnload:o=>modal.push(o),disableAlertBeforeUnload:()=>{},showModal:o=>modal.push(o),navigateBack:()=>nav.push('photo'),redirectTo:o=>nav.push(o.url)};
  const calls={wake:0,retry:0};const p={data:structuredClone(pageDef.data),selectComponent:()=>({previewTransform(){},wake(){calls.wake++},retry(){calls.retry++},invalidateLayout(){}}),setData(c,callback){Object.assign(this.data,c);callback?.()}};for(const[k,v]of Object.entries(pageDef))if(typeof v==='function')p[k]=v.bind(p);
- p.onLoad({draftId:r.draft.id});p.onShow();t.after(()=>p.onUnload());return {p,r,nav,modal,calls};}
+ p.onLoad({draftId:r.draft.id});p.onShow();t.after(()=>p.onUnload());return {p,r,nav,modal,calls,source};}
 test('production placement page: back focus, drag, sliders, full-view invariance, confirmation and V2 navigation',async t=>{
  const {p,nav}=pageFixture(t),model=getBodyModel('back'),base=fitViewport(375,500,model),vp=focusViewport(base,model.regions.find(x=>x.id==='back-upper-back').bounds);
  p.onViewport({detail:{view:'back',modelId:model.id,modelVersion:model.version,viewport:base}});assert.equal(p.data.view,'back');assert.equal(p.data.zoomRegion,'','a coarse entry hint must not zoom the body');
@@ -117,9 +117,9 @@ test('production placement page: missing handoff fails without replacing the V2 
  p.onLoad({});assert.match(p.data.error,/失效/);p.onUnload();assert.equal(annotationSession.snapshot(),before);
 });
 test('placement exit has valid native button lengths; continuing retains draft and explicit discard preserves V2',t=>{
- const {p,modal,nav}=pageFixture(t,'PAGE_EXIT'),before=annotationSession.snapshot();p.backPhoto();const options=modal.at(-1);
+ const {p,modal,nav,source}=pageFixture(t,'PAGE_EXIT'),before=annotationSession.snapshot();p.backPhoto();const options=modal.at(-1);
  assert.ok(Array.from(options.confirmText).length<=4);assert.ok(Array.from(options.cancelText).length<=4);assert.equal(p.data.dialog,true);
- options.success({confirm:false});options.complete();assert.equal(p.data.dialog,false);assert.equal(placementSession.hasPendingSource(photo('PAGE_EXIT')),true);
+ options.success({confirm:false});options.complete();assert.equal(p.data.dialog,false);assert.equal(placementSession.hasPendingSource(source),true);
  p.backPhoto();const discard=modal.at(-1);discard.success({confirm:true});discard.complete();assert.equal(nav.at(-1),'photo');
  assert.equal(placementSession.read(p.data.draftId).ok,false);assert.equal(annotationSession.snapshot(),before);
 });

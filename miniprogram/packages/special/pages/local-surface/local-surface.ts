@@ -45,7 +45,7 @@ Page({
   const result=localSession.open(view);if(!result.ok){this.setData({error:result.message});return;}
   const model=getLocalModel(view);
   const presentation=localViewPresentation(view),{partName}=presentation;
-  wx.setNavigationBarTitle?.({title:partName+"病灶标注"});
+  wx.setNavigationBarTitle?.({title:partName+"区域标注"});
   this.setData({view,title:model.name,...presentation,session:result.session,
    resultMode:false,previewMode:false,selected:"",focusBounds:null,viewport:null,loading:false,message:"",error:"",layoutRevision:this.data.layoutRevision+1,
    aiPhotoSupported:model.aiPhotoSupported!==false,

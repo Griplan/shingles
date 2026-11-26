@@ -134,13 +134,13 @@ Page({
     if(this.data.sheetOpen||this.data.infoOpen||this.data.debugEnabled)return;
     const region=this.data.selectedRegion?`&region=${encodeURIComponent(this.data.selectedRegion)}`:"";
     wx.navigateTo({url:`/packages/clinical/pages/ai-annotate/ai-annotate?view=${this.data.view}${region}`,
-      fail:()=>this.setData({selectionMessage:"AI页面未能打开，请重试"})});
+      fail:()=>this.setData({selectionMessage:"图片辅助标注页面未能打开，请重试"})});
   },
   openMatching() {
     if(this.data.sheetOpen||this.data.infoOpen||this.data.debugEnabled)return;
     if(!canMatchReference()){this.setData({selectionMessage:"当前版本未开放参考图谱计算"});return;}
     let session=annotationSession.snapshot();
-    if(!session){this.setData({selectionMessage:"暂无已确认标注，请先手动标注或使用AI辅助标注"});return;}
+    if(!session){this.setData({selectionMessage:"暂无已确认标注，请先手动标注或使用图片辅助标注"});return;}
     const read=annotationSession.read(session.sessionId);
     if(!read.ok){this.setData({selectionMessage:read.message});return;}
     session=read.session;
@@ -153,7 +153,7 @@ Page({
       if(!reviewed.ok){this.setData({selectionMessage:reviewed.message});return;}
     }
     wx.navigateTo({url:`/packages/clinical/pages/annotate/annotate?sessionId=${encodeURIComponent(session.sessionId)}&result=1`,
-      fail:()=>this.setData({selectionMessage:"神经匹配页面未能打开，请重试"})});
+      fail:()=>this.setData({selectionMessage:"参考区域匹配页面未能打开，请重试"})});
   },
   toggleDeveloper() {
     if(!canUseDeveloperTools())return;

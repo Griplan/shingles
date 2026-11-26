@@ -4,7 +4,7 @@ const LOCAL={bodyView:true,manualAnnotation:true};
 const POLICY=Object.freeze({
  develop:Object.freeze({...LOCAL,referenceMatching:true,aiSegmentation:true,aiPlacement:true,atlasDebug:true,coordinateDebug:true}),
  trial:Object.freeze({...LOCAL,referenceMatching:true,aiSegmentation:true,aiPlacement:true,atlasDebug:false,coordinateDebug:false}),
- release:Object.freeze({...LOCAL,referenceMatching:false,aiSegmentation:false,aiPlacement:false,atlasDebug:false,coordinateDebug:false}),
+ release:Object.freeze({...LOCAL,referenceMatching:true,aiSegmentation:true,aiPlacement:true,atlasDebug:false,coordinateDebug:false}),
  unknown:Object.freeze({...LOCAL,referenceMatching:false,aiSegmentation:false,aiPlacement:false,atlasDebug:false,coordinateDebug:false}),
 });
 export function environmentOf(account:unknown):AppEnvironment {

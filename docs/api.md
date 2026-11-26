@@ -455,3 +455,9 @@ atlas内容摘要依次由`perineum-overview.json`、`sources.json`、`registrat
 - 非医学用途disclaimer
 
 前端严格检查这些字段，缺失时拒绝展示结果。V4的Polygon/MultiPolygon、孔洞、覆盖公式、每请求并集、鉴权、请求限制和错误码不变。旧身份返回409 VERSION_MISMATCH；生产/未知环境仍403；图谱缺失、状态缺失、覆盖或邻接异常返回503 ATLAS_UNAVAILABLE。完整数据和预览见[V6.7报告](validation-records/v6.7-perineum/report.md)。
+
+## 正式 HTTPS 鉴权（第二阶段）
+
+待启用的 `POST /api/v1/access/wechat` 接收 JSON `{"code":"临时登录凭证"}`，请求上限 2 KiB。服务端向微信交换凭证并检查 AppID 对应的账号白名单。成功返回 `access_token`、`token_type: Bearer`、`access_kind: production`、秒级 `expires_at`。无效请求返回 422，账号未授权或交换失败返回 403，过频返回 429，缺少正式配置时返回 503。业务接口复用现有几何与照片请求结构，正式 Bearer 无效时返回 401。照片资源和 DELETE 还校验 `X-AI-Session-Key` 及所有者。参考图谱与模板随包提供，无新增公网图谱下载接口。
+
+正式入口和旧测试入口各自验证自己的令牌。内部命名空间仅由正式 Nginx 站点通过明确业务路由映射，旧测试令牌和测试密钥无法获得正式访问。当前公网正式入口仍仅提供健康检查，进度见[第二阶段上线记录](compliance/wechat-review/https-release-readiness/stage2-production.md)。

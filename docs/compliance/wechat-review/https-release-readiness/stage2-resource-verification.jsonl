@@ -1,0 +1,5 @@
+{"check": "idle_started", "configured_ttl_seconds": 300}
+{"check": "mobile_sam", "seconds": 5.97, "candidates": 3, "width": 700, "height": 460}
+{"check": "confirmed_delete", "parts": 16, "holes": 25, "files_removed": true, "repeated_delete": 204, "removed_asset": 410, "capacity_reusable": true}
+{"check": "background_idle_reap", "seconds": 300.26, "files_removed": true, "no_ai_requests_after_idle_watch_started": true}
+{"check": "capacity_after_idle", "both_slots_available": true}

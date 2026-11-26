@@ -1,0 +1,16 @@
+health 200
+login_small 503
+{"error":{"code":"PRODUCTION_UNAVAILABLE","message":"正式服务暂不可用"}}
+login_3mib 413
+<html>
+<head><title>413 Request Entity Too Large</title></head>
+<body>
+<center><h1>413 Request Entity Too Large</h1></center>
+<hr><center>nginx/1.24.0 (Ubuntu)</center>
+</body>
+</html>
+
+photo_route_fail_closed 503
+{"error":{"code":"PRODUCTION_UNAVAILABLE","message":"正式服务暂不可用"}}
+unknown 404
+acupuncture_health 200

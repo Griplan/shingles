@@ -1,14 +1,11 @@
-/** Public addresses only; credentials must never be included here.
- * Temporary IP transport is confined to develop/ trial. Phone development debugging is required.
- * Replace trialBaseUrl and disable trialPublicIpDebug when a trusted HTTPS host is available.
- */
-export const SERVERS=Object.freeze({trialBaseUrl:"http://212.64.26.206/dermatome-test",trialPublicIpDebug:true,releaseBaseUrl:""});
-export const PUBLIC_IP_TEST_BASE="http://212.64.26.206/dermatome-test";
-export function trialServiceBase():string {
- if(SERVERS.trialPublicIpDebug&&SERVERS.trialBaseUrl===PUBLIC_IP_TEST_BASE)return PUBLIC_IP_TEST_BASE;
- return validatedHttpsBase(SERVERS.trialBaseUrl);
+import {currentEnvironment} from "./environment";
+/** Public address only; credentials must never be included here. */
+export const SERVERS=Object.freeze({formalBaseUrl:"https://dermatome.bglabs.cloud"});
+export function usesFormalService():boolean {
+ const env=currentEnvironment();
+ return env==="develop"||env==="trial"||env==="release";
 }
-export function usingPublicIpDebug():boolean {return SERVERS.trialPublicIpDebug&&SERVERS.trialBaseUrl===PUBLIC_IP_TEST_BASE;}
+export function formalServiceBase():string {return validatedHttpsBase(SERVERS.formalBaseUrl);}
 export function validatedHttpsBase(value:string):string {
  // Native mini-program engines need no DOM or WHATWG URL implementation.
  const match=/^https:\/\/([a-z0-9](?:[a-z0-9.-]*[a-z0-9])?)\/?$/i.exec(value);

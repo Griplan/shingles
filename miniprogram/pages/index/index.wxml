@@ -1,8 +1,8 @@
 <view class="page index-page">
   <view class="index-header">
     <view class="version">人工标注与参考图谱</view>
-    <view class="title">人体病灶辅助定位</view>
-    <view class="description">选择人体部位，进入标注页沿范围边缘逐点圈选。</view>
+    <view class="title">人体区域标注</view>
+    <view class="description">进入人体示意图，沿目标范围边缘逐点圈选。</view>
   </view>
 
   <view class="panel index-card">
@@ -19,5 +19,5 @@
     <view wx:if="{{atlasPreviewAllowed}}" class="atlas-test-entry" aria-role="button" bindtap="openAtlasPreview">神经图谱测试 · 开发预览</view>
   </view>
 
-  <view class="footnote index-privacy">手动匹配仅发送标注坐标和版本信息。AI辅助入口会在您同意后上传照片至配置后端；临时会话30分钟失效，过期后定期清理。当前仅允许公开或合成测试图片，不采集患者照片或身份信息。</view>
+  <view class="footnote index-privacy">手动匹配仅发送标注坐标和版本信息。经您同意后，照片上传至项目后端，仅用于本次自动化轮廓提取。确认轮廓并建立放置草稿后会请求删除照片会话，未完成的闲置会话由服务端自动回收。在线测试仅可使用公开授权或合成图片，请勿上传患者照片或身份信息。</view>
 </view>

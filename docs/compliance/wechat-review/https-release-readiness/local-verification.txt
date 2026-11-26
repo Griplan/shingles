@@ -1,0 +1,38 @@
+# Workspace frontend
+✔ page upload -> auto box -> cycle -> explicit confirmation; no manual segment control (3.14625ms)
+✔ confirmation releases the backend photo before navigation and keeps the self-contained draft (5.235459ms)
+✔ failed placement navigation retries from a detached draft after deleting the server photo (0.971292ms)
+ℹ tests 431
+ℹ pass 421
+ℹ fail 10
+✖ transparent placement canvas draws all rings, a visible move handle, and CSS-sized strokes (4.764584ms)
+✖ wake redraws an existing Canvas node through the selector-free vector fallback (0.968334ms)
+✖ preview caches 100 vertices / single piece without modifying source or final geometry (9.891209ms)
+✖ preview caches 100 vertices / five pieces with five holes without modifying source or final geometry (6.126041ms)
+✖ preview caches 500 vertices / single piece without modifying source or final geometry (4.499708ms)
+✖ preview caches 500 vertices / five pieces with five holes without modifying source or final geometry (8.111292ms)
+✖ preview caches 2000 vertices / single piece without modifying source or final geometry (5.235291ms)
+✖ preview caches 2000 vertices / five pieces with five holes without modifying source or final geometry (11.037709ms)
+✖ preview affine coordinates match exact body transform at 320/375/430 widths, full and focused views; holes remain unfilled (5.438584ms)
+✖ unsupported offscreen or failing cached draw falls back to complete vector preview (0.397125ms)
+
+# Isolated frontend
+✔ page upload -> auto box -> cycle -> explicit confirmation; no manual segment control (2.91275ms)
+✔ confirmation releases the backend photo before navigation and keeps the self-contained draft (12.07025ms)
+✔ failed placement navigation retries from a detached draft after deleting the server photo (0.983375ms)
+ℹ tests 431
+ℹ pass 431
+ℹ fail 0
+
+# Backend
+242 passed in 32.44s
+
+# Static checks
+PASSED: 必要文件、主包/分包页面、JSON、九页导航、组件注册及 Canvas 2D 配置完整。
+PASSED: canonical hash and generated package copy agree
+PASS main            919926 bytes  0.877 MiB  remaining 1177226 bytes
+PASS clinical       1479701 bytes  1.411 MiB  remaining 617451 bytes
+PASS special         780183 bytes  0.744 MiB  remaining 1316969 bytes
+Boundary check: PASS
+wcc 14 files passed
+wcsc 15 files passed

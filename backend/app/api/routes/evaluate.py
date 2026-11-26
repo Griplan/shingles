@@ -30,7 +30,7 @@ def evaluate_annotations(payload: EvaluateRequest):
     '/evaluate/body-intersection',
     response_model=BodyIntersectionResponse,
     responses={code:{'model':ErrorResponse} for code in (403,409,413,422,500,503)},
-    summary='将最终病灶变换结果与完整人体皮肤求一次精确交集',
+    summary='将标注轮廓与完整人体皮肤求一次精确交集',
 )
 def intersect_with_body(payload: BodyIntersectionRequest):
     return clip_to_body(payload)

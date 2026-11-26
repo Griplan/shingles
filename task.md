@@ -2252,3 +2252,69 @@ P10 结论：当前前三项热点是 MobileSAM 同照片重复图像编码、�
 - 报告与证据：[部署报告](docs/validation-records/backend-current-deployment-20261119/report.md)、[公网 smoke](docs/validation-records/backend-current-deployment-20261119/public-smoke.json)、[真实 AI smoke](docs/validation-records/backend-current-deployment-20261119/real-ai-smoke.json)、[服务端复核](docs/validation-records/backend-current-deployment-20261119/server-after-verification.json)。
 - 回滚：停止 `dermatome.service`，恢复备份目录中的 13 个文件与发布清单，恢复 `dermatome-ip-test`，`nginx -t` 后 reload，再启动 dermatome；不重启针灸服务，不整机回滚。
 - 版本控制：未执行 Git commit 或 push；工作区现有前端及其他未提交改动保持原样。
+
+## AI 技术说明与小程序用户手册（2026-11-23）
+
+- [x] DONE — 交付 [AI 技术说明与模型优化方案](docs/deliverables/ai-technical-report.md)，含六张 Mermaid 图、源码与验证证据、当前官方预训练权重、模型参数实测、三条升级路线、医院原图交付与技术团队标注分工、病例级评估和分阶段验收。
+- [x] DONE — 交付 [小程序使用说明](docs/deliverables/user-guide.md)，按当前 WXML 与事件处理核对手动和 AI 两条路径、特殊部位、修改与重试入口、13 项常见问题及照片使用限制。保留 [配图清单](docs/deliverables/images/README.md) 和稿内占位。
+- [x] PASSED — 本地核对权重 SHA-256 与文件大小，使用 `sam_model_registry["vit_t"](checkpoint=None)` 构建模型并按参数张量计数，合计 10,130,092，未进行训练或推理。Python 文档检查通过，核对相对链接、6 个 Mermaid 围栏、28 个主要操作文案以及敏感字符串模式，`git diff --check` 通过。
+- [ ] FAILED — 微信截图导出。已连接现有微信开发者工具模拟器，切页及截图流程在限定时间内未返回可交付图片，自动化退出码 2。使用明确的九组待补画面和完整文字指引，未使用历史页面或示意图冒充当前截图。
+- [ ] NOT_RUN — 本轮未做手机真机或临床验证，未重跑模型与线上压力测试，未核实当前体验版发布状态。开发基线为 `fd65d53` 与工作区现状，现有非文档改动保留。本轮仅交付 Markdown 文档，无业务代码、服务器或微信发布操作。
+
+## 微信审核整改与文案审查（2026-11-24）
+
+- [x] DONE — 仅修改指定图片辅助标注页 JSON、WXML、TS 文案，保留自动化图像分割、照片处理及非诊断披露，状态精简为正面／背面。完整对照见[指定页变更](docs/compliance/wechat-review/rejected-page-changes.md)。
+- [x] DONE — 交付[审核报告](docs/compliance/wechat-review/README.md)及[第二阶段待确认清单](docs/compliance/wechat-review/proposed-changes.md)，21 项描述或术语问题（高 0、中 8、低 13），另有 4 项保留及 4 项待核实。平台类目、标识和资质不作结论。
+- [x] PASSED — TypeScript、微信 wcc 14 个 WXML、wcsc 15 个 WXSS、页面文案与事件、报告链接、`git diff --check`。HEAD 加三份变更页文件的临时副本在补齐现有合成夹具后，前端 431/431 通过。原工作区 421/431，10 项放置画布与预览失败相对隔离基线来自工作区既有增量，保留这些改动。
+- [ ] NOT_RUN — 微信真机与账号后台核实、重新送审、上传及部署。其他页面、共享服务和术语变更等待用户确认。
+
+## 微信审核整改第二阶段（2026-11-24）
+
+- [x] DONE — R01–R16、R18–R21 已实施；R17 开发图谱静态就医提醒保留，K01–K04 的非诊断、模拟、许可及自动化图像分割和隐私披露保留。后端只改 OpenAPI 与用户可读错误文案。更新两份用户手册、配图清单和对外项目介绍。见[完成清单及对照](docs/compliance/wechat-review/phase-2-completion.md)。
+- [x] DONE — P01–P04 专项核查。正式版关闭图片处理、放置和在线匹配，正式后端地址为空；trial 仍为受控 HTTP 测试。SSH 只读核对运行服务的 120 秒空闲配置、约 30 秒应用扫描及 5 分钟独立清理 timer。微信账号配置、实际送审包、类目资质和标识适用性待确认。见[专项报告](docs/compliance/wechat-review/release-verification.md)。
+- [x] PASSED — TypeScript、241 项后端测试、隔离副本 431 项前端测试、WXML/WXSS 原生静态编译、项目结构、图谱一致性、分包体积和引用、`git diff --check`。当前工作区依然 421/431，10 项既有放置画布／预览失败保留，隔离对照仅排除既有两个相关 TS 增量。
+- [ ] NOT_RUN — 真机全流程、实际送审包与微信后台。模拟器截图自动核对超时，保留配图清单。未改生产、未部署、未上传体验版或重提审核。
+
+## 正式 HTTPS 与照片生命周期整改（2026-11-24）
+
+- [x] DONE — 只读确认智络智绘与针灸共用 `212.64.26.206`，分别监听回环 8001、8000。新子域权威 DNS 返回 NXDOMAIN，现有证书只覆盖针灸域名，目标域名 TLS 主机名校验失败。
+- [x] DONE — 本地准备 `https://dermatome.bglabs.cloud`、独立 ACME 和 HTTPS 配置、冻结的业务路由片段及前置验证。正式在线能力继续关闭。详见[正式发布准备报告](docs/compliance/wechat-review/https-release-readiness/report.md)。
+- [x] DONE — 确认轮廓且独立内存草稿建立后即发起删除，最多三次尝试，导航失败保留草稿；后端默认 300 秒闲置回收、10 秒运行扫描，停服 timer 沿用。
+- [x] PASSED — 本地后端 242/242，TypeScript、微信原生 wcc/wcsc（14/15 文件）、项目结构和图谱检查、分包边界与体积。前端隔离对照 431/431。
+- [ ] FAILED — 完整工作区前端 421/431。10 项既有绘制、唤醒、缓存或坐标预览断言仍失败，保留原测试和现有 Canvas 增量。正式发布前核实并解决。
+- [ ] NOT_RUN — 新站点 Nginx 语法与 SSL 成功检查、正式授权、线上 300 秒回收、大图压力及峰值内存、关闭调试后的手机端到端验收。线上仍为 120 秒，DNS、生产配置、部署和微信发布等待用户确认。
+
+## 正式 HTTPS 第一阶段生产操作（2026-11-24）
+
+- [x] DONE — 验证既有 DNS A 指向 `212.64.26.206`，备份 Nginx，安装独立站点和 Let’s Encrypt 证书。只开放 [HTTPS 健康检查](https://dermatome.bglabs.cloud/api/v1/health)，HTTP 308 保留 ACME 路径。
+- [x] PASSED — 公网 TLS 正常校验与健康 200、业务及内部路由 404、Nginx 语法检查、Certbot 指定域名续期模拟及 hook 平滑重载。针灸原 HTTPS 200，两项后端 PID 和 Nginx 主进程未改变。
+- [ ] TODO — 正式鉴权隔离、业务部署、微信域名和真机验收。后端 TTL 保持线上 120 秒。详见[第一阶段生产记录](docs/compliance/wechat-review/https-release-readiness/stage1-production.md)。
+
+## 正式 HTTPS 第二阶段（2026-11-24）
+
+- [x] DONE — 采用指定微信测试账号白名单，完成本地与线上后端的独立正式鉴权代码；旧测试、旧邀请和正式令牌双向隔离、跨用户拒绝与客户端无感登录在本地验证。正式域名业务片段通过生产 Nginx 临时语法检查。
+- [x] PASSED — 后端 244/244，完整前端 432/432，原 10 项画布失败解决，TypeScript、微信原生 wcc/wcsc、项目结构、图谱校验、分包边界体积及差异检查通过。
+- [x] DONE — 备份与部署智络智绘后端，151 项清单对齐；仅重启 dermatome。针灸原 HTTPS 与智络智绘健康均 200，首次阶段的正式 HTTPS 保持仅健康接口。
+- [x] PASSED — 生产受控回环使用公开授权图片完成分割确认、目录资源删除、重复 DELETE、资产失效、名额复用。正常无线程占用时，未确认会话空闲 300.26 秒后台回收；回收后两个名额都可用。
+- [ ] BLOCKED — 服务器尚缺真实微信 AppSecret 和指定测试账号 OpenID 配置，未启用正式 HTTPS 登录和业务。公网正式两账号隔离、真实微信登录、关闭调试的真机流程均 NOT_RUN；未上传体验版或重新送审。见[第二阶段生产记录](docs/compliance/wechat-review/https-release-readiness/stage2-production.md)。
+
+## 正式发布准备与普通微信用户准入（2026-11-24）
+
+- [x] DONE — 正式策略由固定 OpenID 白名单改为普通微信用户准入：`ENABLE_PRODUCTION_ACCESS=1` 时，任意通过本小程序 AppID `code2Session` 验真的有效 OpenID 均可获得 15 分钟短期令牌；`DERMATOME_WECHAT_ALLOWED_OPENIDS` 仅作为可选受控测试限制，不再阻止正式服务启动。每个 OpenID 仍映射稳定独立内部用户 ID，照片所有者隔离、短期令牌、登录与接口限流保持。
+- [x] DONE — 前端 `trial` 与 `release` 均固定 `https://dermatome.bglabs.cloud`，旧 HTTP/IP、路径、端口和凭据不会成为 trial/release 回退；`release` 已开启图片辅助标注、人体放置和参考匹配，图谱调试与坐标调试仍隐藏，unknown 环境继续关闭在线能力。
+- [x] DONE — 独立 HTTPS 站点只代理微信登录、参考匹配、人体交集、AI 会话创建/上传/分割/修正/确认/资产下载/删除的精确路径；旧测试入口、ready、Swagger、未知路径保持关闭。仅照片上传 location 接收最多 51 MiB，其他正式业务最多 2 MiB；后端 50 MiB、5000 万源像素、约 300 万推理像素、确认后立即删除和 300 秒空闲回收未改。
+- [x] DONE — 部署 `final-release-20261124-184702`。仅更新正式鉴权后端、配置助手、正式 Nginx 站点、对应文档及发布清单；只重启 `dermatome.service` 和平滑重载 Nginx，未重启针灸。备份为 `/srv/dermatome-mapper/deployment/backups/final-release-20261124-184702`。
+- [x] PASSED — 线上 `nginx -t`、HTTPS health 200、缺 AppSecret 时正式登录与照片入口 503 `PRODUCTION_UNAVAILABLE`、非上传正式接口 3 MiB 请求为 413、ready/旧 access/docs/未知内部路径均 404；`dermatome.service` active，针灸 `/health` 200 且 PID `611289` 未变，Nginx master PID `12643` 未变，certbot 与 cleanup timer active。
+- [x] PASSED — 后端全量 246/246；前端 432/432；TypeScript；项目结构、图谱一致性、分包引用与体积；全部 WXML `wcc`（176,550 B）及全部 WXSS `wcsc`（9,020 B）；`git diff --check`。保守包体 main 922,147 B、clinical 1,479,701 B、special 780,183 B。
+- [x] DONE — 新增 `/srv/dermatome-mapper/deployment/configure-wechat-production.sh`，由用户在本机 SSH 终端隐藏输入 AppSecret，生成独立签名密钥，写 root-only 0600 配置和 systemd drop-in，只重启智络智绘；脚本不显示或回显 AppSecret。
+- [ ] BLOCKED — 服务器尚无 `/srv/dermatome-mapper/config/wechat-production.env`。因此真实 `wx.login`、普通账号自动授权、两账号隔离、正式 HTTPS 合成图上传 → 分割 → 确认 → 放置 → 匹配 → DELETE 均为 NOT_RUN；当前业务路由 fail-closed 返回 503。
+- [ ] NOT_RUN — 微信体验版上传、关闭合法域名豁免和开发调试后的手机全流程、Android/iOS 真机、平台类目/资质/隐私最终确认及重新送审均待用户操作。本轮未自动上传体验版、提交审核或正式发布。
+- 报告与证据：[最终发布准备](docs/compliance/wechat-review/https-release-readiness/final-release.md)、[部署前](docs/compliance/wechat-review/https-release-readiness/final-release-evidence/before.json)、[部署后](docs/compliance/wechat-review/https-release-readiness/final-release-evidence/after.json)、[可审计部署脚本](docs/compliance/wechat-review/https-release-readiness/final-release-evidence/deploy-final-release.py)。
+
+## 皮疹专项预训练分割横向实验（2026-11-24）
+
+- [x] DONE — 独立运行 M00 MobileSAM、M01 LiteMedSAM、M02 CG-MedSAM、M03 MCP-MedSAM、M04 YOLO11n-seg。使用 31 张授权明确的实拍原图及 8 张配对正常外观裁图，完成 567 份输出（含 MobileSAM context crop 和自动候选对照）。使用相同提示框和现有二值 Mask 转轮廓。无像素真值，定性结果不支持直接替换生产模型。
+- [x] PASSED — 私有目录 `~/dermatome-rash-benchmark/` 中 `venv/bin/python verify.py` 核对 567 个二值 Mask 的尺寸、像素统计、几何转换和 HTML 的 1462 个本地资源引用。报告 `REPORT.md`、离线对照 `index.html`、数据及权重清单、测试日志与复现脚本均在该私有目录，不入库。
+- [x] PASSED — 腾讯云合成图单核 LiteMedSAM 三次推理中位 3.125 秒，峰值进程 RSS 692.3 MiB，智络智绘与针灸进程号未变，健康接口均 200。未改生产环境、服务配置及业务入口。
+- [x] DONE — EdgeMixup 官方论文 Skin-seg 185 张，其中带状疱疹 62 张。作者分割下载链接实测 404，未确认预训练权重及数据复用许可。核对 Supervisely 位图标注解析和两种用途的转换边界。
+- [ ] NOT_RUN — 真实像素真值指标、完整训练集图像级去重、云端真实照片和并发验证。专项训练和小程序接入未开展。

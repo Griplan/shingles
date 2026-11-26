@@ -18,11 +18,20 @@ for(const count of [100,500,2000])for(const multi of [false,true])test(`preview 
  const base=g.initialPlacement(prepared,model,region),ctx=context();
  for(let i=0;i<120;i++)preview.draw(ctx,focusViewport(fitViewport(375,500,model),region.bounds),{...base,scale:.5+i/200,rotationDegrees:i-60},model,true);
  assert.equal(cached.length,1,'no cache recreation for translation/scale/rotation');assert.equal(ctx.calls.filter(c=>c[0]==='drawImage').length,120);
- assert.equal(ctx.calls.filter(c=>c[0]==='lineTo').length,360,'only 3 box edges each moving frame, never source rings');
+ assert.equal(ctx.calls.filter(c=>c[0]==='strokeRect').length,120,'one selection box per moving frame');
+ const movingFrames=[];
+ for(const call of ctx.calls){if(call[0]==='drawImage')movingFrames.push([]);if(movingFrames.length)movingFrames.at(-1).push(call);}
+ for(const frame of movingFrames){
+  assert.equal(frame.filter(c=>c[0]==='closePath').length,0,'cached moving frames never visit source rings');
+  const edges=frame.filter(c=>c[0]==='lineTo').length;
+  assert.ok(edges===8||edges===16,'only corner ticks and the optional center crosshair');
+ }
  assert.equal(ctx.calls.filter(c=>c[0]==='fill').length,0);
  const settled=context();preview.draw(settled,fitViewport(320,500,model),base,model,false);
  assert.equal(settled.calls.filter(c=>c[0]==='drawImage').length,1,'settled frame reuses the immutable raster cache');
- assert.equal(settled.calls.filter(c=>c[0]==='lineTo'||c[0]==='moveTo').length,0,'settled frame never traverses the source rings');
+ assert.equal(settled.calls.filter(c=>c[0]==='strokeRect').length,1);
+ const settledEdges=settled.calls.filter(c=>c[0]==='lineTo').length;
+ assert.ok(settledEdges===0||settledEdges===8,'only the optional center crosshair is drawn over the cached contour');
  assert.equal(settled.calls.filter(c=>c[0]==='fill'||c[0]==='closePath').length,0);assert.equal(JSON.stringify(source),original);
  preview.dispose();assert.equal(cached[0].node.width,1);assert.equal(cached[0].node.height,1);
 });
@@ -59,7 +68,7 @@ test('preview affine coordinates match exact body transform at 320/375/430 width
   preview.draw(ctx,vp,t,model,false);
   const [a,b,c,d,tx,ty]=ctx.calls.find(c=>c[0]==='transform').slice(1),[cx,cy]=ctx.calls.find(c=>c[0]==='translate').slice(1);
   const exact=g.transformPhotoPolygonToBody(prepared,t,model).coordinates.flat(2).map(q=>projectNormalizedToCanvas(q,vp));
-  const drawn=ctx.calls.filter(c=>c[0]==='moveTo'||c[0]==='lineTo').map(([,x,y])=>({x:a*(x+cx)+c*(y+cy)+tx,y:b*(x+cx)+d*(y+cy)+ty}));
+  const drawn=ctx.calls.slice(0,ctx.calls.findIndex(c=>c[0]==='fill')).filter(c=>c[0]==='moveTo'||c[0]==='lineTo').map(([,x,y])=>({x:a*(x+cx)+c*(y+cy)+tx,y:b*(x+cx)+d*(y+cy)+ty}));
   assert.equal(drawn.length,exact.length);for(const q of drawn)assert.ok(exact.some(p=>Math.hypot(p.x-q.x,p.y-q.y)<1e-9));
   const holeCenter={x:.2,y:.25},inside={x:.27,y:.25};
   const transformPoint=q=>{const k=t.baseScale*t.scale,rad=degrees*Math.PI/180,x=(q.x*prepared.width-t.photoCenter.x)*k,y=(q.y*prepared.height-t.photoCenter.y)*k;return {x:t.translation.x+(Math.cos(rad)*x-Math.sin(rad)*y)/model.logicalWidth,y:t.translation.y+(Math.sin(rad)*x+Math.cos(rad)*y)/model.logicalHeight}};
@@ -71,7 +80,7 @@ test('unsupported offscreen or failing cached draw falls back to complete vector
  for(const mode of ['missing','create-fails','draw-fails']){
   global.wx=mode==='missing'?{}:{createOffscreenCanvas(){if(mode==='create-fails')throw Error('unsupported');return {width:10,height:10,getContext:()=>context()}}};
   const preview=new PlacementPreview(p),ctx=context();if(mode==='draw-fails')ctx.drawImage=()=>{throw Error('canvas source unsupported')};
-  preview.draw(ctx,v,t,model,true);assert.equal(ctx.calls.filter(c=>c[0]==='fill').length,1);assert.equal(ctx.calls.filter(c=>c[0]==='closePath').length,11);
+  preview.draw(ctx,v,t,model,true);assert.equal(ctx.calls.filter(c=>c[0]==='fill').length,1);assert.equal(ctx.calls.filter(c=>c[0]==='closePath').length,10,'all five shells and five holes close before the selection overlay');assert.equal(ctx.calls.filter(c=>c[0]==='strokeRect').length,1);
  }
 });
 let def;global.Component=d=>def=d;load('packages/clinical/components/placement-overlay/placement-overlay.js');

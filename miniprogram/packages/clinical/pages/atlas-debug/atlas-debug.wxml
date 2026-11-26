@@ -62,7 +62,7 @@
    <view>图谱 {{manifest.atlasVersion}} · 人体 {{manifest.templateId}} / {{manifest.templateVersion}}</view>
    <view>许可已核实 · 技术状态 {{manifest.technicalValidationStatus}} · 医学审核待完成</view>
    <view>{{manifest.coverageNote}}</view>
-   <view>组合标签保留原图含义；颜色仅辅助查看。此页不使用病灶，不生成匹配或诊断。</view>
+   <view>组合标签保留原图含义；颜色仅辅助查看。此页不读取标注轮廓，不生成匹配或诊断。</view>
   </view>
   <navigator class="back-link" url="/pages/index/index">返回首页</navigator>
  </view>

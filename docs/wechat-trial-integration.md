@@ -1,5 +1,7 @@
 # 智络智绘微信体验版接入报告（P4）
 
+> 历史记录：本文描述 2026-11-01 的域名、邀请码和 release 关闭状态，已由后续 HTTPS 第二阶段和 2026-11-24 最终发布配置取代。当前 trial/release 均使用 `https://dermatome.bglabs.cloud`，普通微信用户经 `wx.login` 验真后默认获准。当前步骤见[最终发布准备](compliance/wechat-review/https-release-readiness/final-release.md)。
+
 2026-11-01。当前结论：**体验版业务能力和限时鉴权代码已完成，后端已部署，真实云端HTTP链路已通过；手机HTTPS、微信平台配置、体验版上传与真机验收尚未完成。**
 
 用户本轮确认“仍无域名，先完成可独立实施的部分”。因此不猜测域名、不借用针灸正式站点、不开放公网8001、不用HTTP/IP替代体验版HTTPS地址。唯一进度见[task.md](../task.md)。

@@ -1,0 +1,7 @@
+nginx: the configuration file /var/tmp/dermatome-stage2.aPZ6UO3b/nginx-check.conf syntax is ok
+nginx: configuration file /var/tmp/dermatome-stage2.aPZ6UO3b/nginx-check.conf test is successful
+BACKUP=/srv/dermatome-mapper/deployment/backups/https-stage2-backend-20261124-173247
+{"status":"ok","project":"dermatome-mapper","version":"v0"}{"status":"ok","ai_ready":true}nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+DEPLOYMENT=PASSED (formal business ingress remains closed)

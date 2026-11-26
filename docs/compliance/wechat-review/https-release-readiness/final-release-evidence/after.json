@@ -1,0 +1,88 @@
+{
+  "deployment_id": "final-release-20261124-184702",
+  "production_access_sha256": "149946e9e092dce27366c4ce271ef323b9d2e39b453c57ab26ea8b3bf4666ac1",
+  "release_manifest_sha256": "f300c68c17cfe690e4349e2755d91d99f96543315802c0855f050f06ab061ae3",
+  "nginx_site_sha256": "de5b0e0de2011619af6bb42fe1ace2983637bc669adb6815d027c78aa3a1492d",
+  "wechat_config_present": false,
+  "units": {
+    "dermatome": [
+      "MainPID=2900903",
+      "ActiveState=active"
+    ],
+    "acupuncture": [
+      "MainPID=611289",
+      "ActiveState=active"
+    ],
+    "nginx": [
+      "MainPID=12643",
+      "ActiveState=active"
+    ],
+    "certbot.timer": [
+      "ActiveState=active"
+    ],
+    "dermatome-cleanup.timer": [
+      "ActiveState=active"
+    ]
+  },
+  "public_health": {
+    "status": 200,
+    "body": "{\"status\":\"ok\",\"project\":\"dermatome-mapper\",\"version\":\"v0\"}",
+    "headers": {
+      "Server": "nginx/1.24.0 (Ubuntu)",
+      "Date": "Tue, 24 Nov 2026 10:47:05 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "59",
+      "Connection": "close",
+      "Cache-Control": "no-store"
+    }
+  },
+  "formal_login_before_secret": {
+    "status": 503,
+    "body": "{\"error\":{\"code\":\"PRODUCTION_UNAVAILABLE\",\"message\":\"正式服务暂不可用\"}}",
+    "headers": {
+      "Server": "nginx/1.24.0 (Ubuntu)",
+      "Date": "Tue, 24 Nov 2026 10:47:06 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "80",
+      "Connection": "close",
+      "cache-control": "no-store",
+      "Cache-Control": "no-store",
+      "X-Content-Type-Options": "nosniff"
+    }
+  },
+  "ready_route_closed": {
+    "status": 404,
+    "body": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx/1.24.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n",
+    "headers": {
+      "Server": "nginx/1.24.0 (Ubuntu)",
+      "Date": "Tue, 24 Nov 2026 10:47:06 GMT",
+      "Content-Type": "text/html",
+      "Content-Length": "162",
+      "Connection": "close",
+      "Cache-Control": "no-store"
+    }
+  },
+  "legacy_access_closed": {
+    "status": 404,
+    "body": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx/1.24.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n",
+    "headers": {
+      "Server": "nginx/1.24.0 (Ubuntu)",
+      "Date": "Tue, 24 Nov 2026 10:47:06 GMT",
+      "Content-Type": "text/html",
+      "Content-Length": "162",
+      "Connection": "close",
+      "Cache-Control": "no-store"
+    }
+  },
+  "acupuncture_health": {
+    "status": 200,
+    "body": "{\"status\":\"ok\",\"ai_ready\":true}",
+    "headers": {
+      "Server": "nginx/1.24.0 (Ubuntu)",
+      "Date": "Tue, 24 Nov 2026 10:47:06 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "31",
+      "Connection": "close"
+    }
+  }
+}

@@ -2,8 +2,7 @@ import { apiBaseUrl,API_CONFIG } from "../config/api";
 import { canMatchReference } from "../config/development";
 import {SurfaceView} from "../types/dermatome";
 import { BodyIntersectionRequest,BodyIntersectionResponse,EvaluateRequest } from "../types/evaluate";
-import { accessHeaders } from "../config/controlled";
-import {ensureTrialAccess,trialHeaders,invalidateTrialAccess,needsTrialAccess} from "./trial-access";
+import {onlineHeaders,invalidateOnlineAccess} from "./online-access";
 import {currentEnvironment} from "../config/environment";
 let latestTiming:{requestId:string;networkMs:number}|null=null;
 export function requestTiming(){return latestTiming;}
@@ -28,14 +27,14 @@ export function networkErrorText(error:unknown):string {
 }
 /** The caller validates identity and result shape before showing any returned overlay. */
 export async function evaluateAnnotations(payload:EvaluateRequest<SurfaceView>):Promise<unknown> {
- if(needsTrialAccess())await ensureTrialAccess();
+ if(!canMatchReference())throw new Error("当前环境不允许参考匹配");
+ const authorization=await onlineHeaders();
  return new Promise((resolve,reject)=>{
-  if(!canMatchReference()){reject(new Error("当前环境不允许参考匹配"));return;}
   let url:string;try{url=apiBaseUrl()+"/api/v1/evaluate";}catch(e){reject(e);return;}
-  const started=Date.now(),headers:Record<string,string>={"content-type":"application/json",...accessHeaders(),...trialHeaders()};
+  const started=Date.now(),headers:Record<string,string>={"content-type":"application/json",...authorization};
   wx.request({url,method:"POST",data:payload as unknown as Record<string,unknown>,timeout:API_CONFIG.timeoutMs,
    header:headers,success:r=>{
-    if(r.statusCode===401&&headers.authorization)invalidateTrialAccess(headers.authorization);
+    if(r.statusCode===401&&headers.authorization)invalidateOnlineAccess(headers.authorization);
     latestTiming={requestId:payload.request_id,networkMs:Date.now()-started};
     if(r.statusCode===200){resolve(r.data);return;}
     const data=r.data as {error?:{code?:string}};
@@ -45,14 +44,14 @@ export async function evaluateAnnotations(payload:EvaluateRequest<SurfaceView>):
 }
 /** One final exact polygon operation; never called from movement gestures. */
 export async function intersectLesionWithBody(payload:BodyIntersectionRequest):Promise<BodyIntersectionResponse> {
- if(needsTrialAccess())await ensureTrialAccess();
+ if(!canMatchReference())throw new Error("当前环境不允许参考匹配");
+ const authorization=await onlineHeaders();
  return new Promise((resolve,reject)=>{
-  if(!canMatchReference()){reject(new Error("当前环境不允许人体几何交集"));return;}
   let url:string;try{url=apiBaseUrl()+"/api/v1/evaluate/body-intersection";}catch(e){reject(e);return;}
-  const headers:Record<string,string>={"content-type":"application/json",...accessHeaders(),...trialHeaders()};
+  const headers:Record<string,string>={"content-type":"application/json",...authorization};
   wx.request({url,method:"POST",data:payload as unknown as Record<string,unknown>,timeout:API_CONFIG.timeoutMs,
    header:headers,success:r=>{
-    if(r.statusCode===401&&headers.authorization)invalidateTrialAccess(headers.authorization);
+    if(r.statusCode===401&&headers.authorization)invalidateOnlineAccess(headers.authorization);
     if(r.statusCode===200){
      const value=r.data as Partial<BodyIntersectionResponse>;
      if(value?.method!=="body_intersection_v1"||!["inside","partial","outside"].includes(value.status||"")||

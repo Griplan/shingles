@@ -8,7 +8,7 @@ function harness(){
  const model=getBodyModel('back'),region=model.regions.find(r=>r.id==='back-upper-back');
  const prepared=preparePhotoGeometry({schema_version:'confirmed-photo-segmentation-v1',coordinate_space:'photo_oriented_normalized_v1',confirmed_by_user:true,image:{width:100,height:100},geometry:{type:'MultiPolygon',coordinates:[[[[.1,.1],[.9,.1],[.9,.9],[.1,.9],[.1,.1]],[[.3,.3],[.3,.7],[.7,.7],[.7,.3],[.3,.3]]]]}});
  const transform=initialPlacement(prepared,model,region),viewport=focusViewport(fitViewport(375,500,model),region.bounds),calls=[],events=[],bounds=[];
- const ctx={};for(const k of ['save','restore','clearRect','setTransform','transform','translate','drawImage','beginPath','rect','clip','moveTo','lineTo','closePath','fill','stroke','arc','setLineDash','strokeRect'])ctx[k]=(...a)=>calls.push([k,...a]);
+ const ctx={};for(const k of ['save','restore','clearRect','setTransform','transform','translate','drawImage','beginPath','rect','clip','moveTo','lineTo','closePath','fill','stroke','arc','setLineDash','strokeRect'])ctx[k]=(...a)=>calls.push(k==='stroke'||k==='strokeRect'?[k,...a,ctx.lineWidth]:[k,...a]);
  const node={width:0,height:0,getContext:()=>ctx,requestAnimationFrame:f=>{queueMicrotask(f);return 1},cancelAnimationFrame(){}};let delay=false;
  global.wx={nextTick:f=>queueMicrotask(f),getWindowInfo:()=>({pixelRatio:2})};
  const obj={properties:{view:'back',prepared,transform,viewport,interactionKey:'test:1',revision:0,layoutRevision:7,disabled:false},triggerEvent(n,d){events.push({n,d})},
@@ -18,7 +18,13 @@ function harness(){
  return {obj,node,ctx,calls,events,bounds,event,setDelay:v=>delay=v};
 }
 test('transparent placement canvas draws all rings, a visible move handle, and CSS-sized strokes',async()=>{
- const h=harness();await flush();assert.equal(h.node.width,750);assert.equal(h.node.height,1000);assert.equal(h.calls.filter(c=>c[0]==='moveTo').length,4);assert.ok(h.calls.some(c=>c[0]==='arc'&&c[3]===14));assert.equal(h.events.at(-1).d.ready,true);
+ const h=harness();await flush();assert.equal(h.node.width,750);assert.equal(h.node.height,1000);
+ const fill=h.calls.findIndex(c=>c[0]==='fill'),rings=h.calls.slice(0,fill);
+ assert.equal(rings.filter(c=>c[0]==='moveTo').length,2);
+ assert.equal(rings.filter(c=>c[0]==='closePath').length,2);
+ const box=h.calls.find(c=>c[0]==='strokeRect');assert.ok(box&&box[3]>=24&&box[4]>=24);assert.equal(box[5],1);
+ assert.ok(h.calls.slice(fill).some(c=>c[0]==='stroke'&&c[1]===1.2),'center crosshair retains CSS-pixel stroke width');
+ assert.equal(h.events.at(-1).d.ready,true);
  assert.equal(h.events.at(-1).d.layoutRevision,7);assert.deepEqual(h.events.at(-1).d.viewport,h.obj.properties.viewport);
 });
 test('handle drags an entire multi-ring patch with one release event, without a body selection or vertex event',async()=>{
@@ -59,5 +65,6 @@ test('wake redraws an existing Canvas node through the selector-free vector fall
  h.calls.length=0;h.obj.wake();assert.ok(frame);
  frame();await flush();
  assert.equal(h.events.at(-1).d.status,'ready');
- assert.equal(count,0);assert.equal(h.calls.filter(c=>c[0]==='fill').length,2);
+ assert.equal(count,0);assert.equal(h.calls.filter(c=>c[0]==='clearRect').length,1);assert.equal(h.calls.filter(c=>c[0]==='fill').length,1);
+ assert.equal(h.calls.filter(c=>c[0]==='closePath').length,2);assert.equal(h.calls.filter(c=>c[0]==='strokeRect').length,1);
 });

@@ -337,5 +337,5 @@ test("special chooser includes one perineum entry while retired palm stays absen
     "utf8",
   );
   assert.match(pageMarkup, /wx:if="\{\{showSideSwitch\}\}"/);
-  assert.match(pageMarkup, /AI 照片分割与自动放置未开放/);
+  assert.match(pageMarkup, /wx:if="\{\{!aiPhotoSupported\}\}"[^>]*>此视图仅支持手动标注/);
 });

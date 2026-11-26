@@ -257,6 +257,8 @@ placement 页原子提交后进入复核并调用既有 matchingSession，失败
 
 environment.ts统一develop/trial/release/unknown能力。trial业务开放、调试隐藏，release/unknown在线能力关闭；body/manual原离线能力保留。servers.ts区分trial/release HTTPS地址，无有效授权主机时失败，不回退HTTP或本机。原api.ts保留develop模拟器配置。当前无B域名，trialBaseUrl有意为空，尚不具备手机连接条件。
 
+2026-11-24 更新：上述 P4 结论已被正式 HTTPS 接入取代。`trial` 和 `release` 现均固定 `https://dermatome.bglabs.cloud`，二者开放图片处理、人体放置和参考匹配，未知环境关闭；正式鉴权采用微信 `wx.login`/`code2Session`，任何本 AppID 的有效用户默认获准，白名单仅作可选测试限制。AppSecret 尚待服务器安全配置，之前正式业务入口安全返回 503。详见[最终发布准备](compliance/wechat-review/https-release-readiness/final-release.md)。
+
 trial-access前端只在内存管理1小时Bearer，用一次性邀请开通；所有网络封装复用它，迟到的401/开通回复不能破坏新会话。服务端TrialAccess用私有原子摘要状态与文件锁，支持SSH管理员一次性签发、消费、防重放、固定失效与撤销；AI会话增加owner_id并同时校验照片能力令牌。不是微信身份认证，无数据库/外部AI/新模型。人体、MultiPolygon、V2权威会话与V4结果身份不改。
 
 当前后端已独立更新，真实trial测试替身→云端HTTP通过；HTTPS与手机未验证。原针灸服务/证书/路由保持不变。实现、安全边界与人工准备见[wechat-trial-integration.md](wechat-trial-integration.md)。

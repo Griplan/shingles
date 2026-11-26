@@ -1,14 +1,16 @@
 import asyncio
 from contextlib import asynccontextmanager
 from fastapi.responses import JSONResponse
-from app.services.ai_limits import MULTIPART_SLACK_BYTES
+from app.services.ai_limits import MULTIPART_SLACK_BYTES, SWEEP_SECONDS
 from app.services.ai_sessions import enabled, AISessions
 from app.services.access import controlled, upload_limit
+from app.services.production_access import ProductionIdentity
 
 @asynccontextmanager
 async def lifespan(app):
     app.state.ai_sessions=None
     app.state.trial_access=None
+    app.state.production_identity=ProductionIdentity.from_environment() if controlled() else None
     if controlled():
         from app.services.trial_access import TrialAccess
         app.state.trial_access=TrialAccess()
@@ -19,7 +21,7 @@ async def lifespan(app):
         if app.state.ai_sessions:
             async def sweep():
                 while not stop.is_set():
-                    try: await asyncio.wait_for(stop.wait(),30)
+                    try: await asyncio.wait_for(stop.wait(),SWEEP_SECONDS)
                     except asyncio.TimeoutError:
                         try: await asyncio.to_thread(app.state.ai_sessions.sweep)
                         except OSError: pass  # Retry next scan; do not lose the cleanup loop.

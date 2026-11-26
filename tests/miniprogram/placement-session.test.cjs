@@ -9,6 +9,7 @@ const {MatchingSessionStore,snapshotKey,matchingIdentity}=load('packages/clinica
 const {drawLesions}=load('components/body-canvas/lesion-render.js');
 const {fitViewport,focusViewport}=load('utils/coordinate.js');
 const {syntheticPhoto}=require('./placement-fixtures.cjs');
+const formal=require('./formal-auth-fixtures.cjs');
 const fixtures=require('../../backend/tests/fixtures/synthetic-annotation-geometry.json').editor;
 function photo(){return {schema_version:'confirmed-photo-segmentation-v1',session_id:'SYNTHETIC_SESSION',photo_id:'SYNTHETIC_PHOTO',
  result_id:'SYNTHETIC_RESULT',candidate_id:'candidate-1',prompt_revision:3,coordinate_space:'photo_oriented_normalized_v1',
@@ -102,11 +103,11 @@ test('V5.3 V2 page restores complete back-view AI group, keeps body coordinates 
  const h={store,view,entry,act:a=>store.dispatch(sessionToken(store.snapshot()),a)},old=manual(h),p=payload(h);
  assert.equal(store.commitPlacement(sessionToken(store.snapshot()),p).ok,true);const ai=store.snapshot().views.back.completed[1];
  let def;global.Page=o=>def=o;load('packages/clinical/pages/annotate/annotate.js');let requests=0;
- global.wx={getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}}),getWindowInfo:()=>({windowHeight:844}),getSystemInfoSync:()=>({platform:'devtools'}),request(o){if(o.url.endsWith('/api/v1/access/session')){o.success({statusCode:200,data:{access_token:'ACCESS_'+'d'.repeat(48),token_type:'Bearer',access_kind:'public_test',expires_at:Date.now()/1000+3600}});return;}requests++;assert.ok(o.data.lesions[1].geometry);o.success({statusCode:200,data:fakeResponse(o.data)});}};
+ global.wx={getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}}),getWindowInfo:()=>({windowHeight:844}),getSystemInfoSync:()=>({platform:'devtools'}),login:formal.login,request:formal.wrapRequest(o=>{requests++;assert.ok(o.data.lesions[1].geometry);o.success({statusCode:200,data:fakeResponse(o.data)});})};
  const page={data:structuredClone(def.data),setData(c){Object.assign(this.data,c)}};for(const[k,v]of Object.entries(def))if(typeof v==='function')page[k]=v.bind(page);
  page.onLoad({sessionId:store.snapshot().sessionId,result:'1'});page.onShow();
  assert.equal(page.data.view,'back');assert.equal(page.data.backCount,2);assert.equal(page.data.hasAIPlacement,true);assert.equal(page.data.matchingAllowed,true);assert.equal(page.data.resultMode,true);
- assert.deepEqual(page.data.layer.completed[1].geometry,p.geometry);assert.match(page.data.regions[1].label,/AI标注/);
+ assert.deepEqual(page.data.layer.completed[1].geometry,p.geometry);assert.match(page.data.regions[1].label,/图片标注/);
  page.fullBody();assert.equal(page.data.zoomRegion,'');assert.equal(store.snapshot().views.back.completed[1],ai);assert.equal(store.snapshot().views.back.completed[0],old);
  await page.finish();assert.equal(requests,1);assert.equal(page.data.resultMode,true);assert.equal(page.data.matchStatus,'ready');page.continueEditing();page.newRegion();
  assert.equal(page.data.mode,'draw');assert.equal(store.snapshot().views.back.completed[1],ai);page.onHide();page.onUnload();

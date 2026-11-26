@@ -15,10 +15,11 @@ def cleanup(root,now=None):
             if not re.fullmatch('[a-f0-9]{32}',path.name) or path.is_symlink() or not path.is_dir():continue
             state=path/'session.json'
             try:
-                if state.is_symlink() or state.stat().st_size>40*1024*1024:continue
+                if state.is_symlink() or state.stat().st_size>40*1024*1024:
+                    raise ValueError('invalid session state')
                 expired=json.loads(state.read_bytes())['expires_at']<=now
             except (OSError,ValueError,KeyError,TypeError):
-                expired=now-path.stat().st_mtime>=120
+                expired=now-path.stat().st_mtime>=300
             if expired:shutil.rmtree(path)
 
 if __name__ == "__main__":

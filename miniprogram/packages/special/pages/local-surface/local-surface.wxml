@@ -12,7 +12,7 @@
       <view class="local-surface-stage ui-stage-grid">
         <view class="stage-header">
           <view class="stage-title-group">
-            <text class="stage-title">{{resultMode ? schematic ? partName + '模拟结果' : partName + '参考结果' : previewMode ? partName + '参考图谱' : partName + '病灶标注'}}</text>
+            <text class="stage-title">{{resultMode ? schematic ? partName + '模拟结果' : partName + '参考结果' : previewMode ? partName + '参考图谱' : partName + '区域标注'}}</text>
             <view class="stage-chip-btn" hover-class="ui-hover-secondary" aria-role="button" bindtap="reset">复位</view>
           </view>
           <view class="ui-top-pill" hover-class="ui-hover-secondary" aria-role="button" bindtap="showInfo">说明</view>
@@ -134,7 +134,7 @@
         <!-- 2. 宽屏/横屏专属：中间独立滚动完整临床细线数据表（竖屏手机隐藏） -->
         <scroll-view class="inspector-scroll wide-only-table" scroll-y enhanced show-scrollbar="{{false}}">
           <view class="inspector-scroll-inner">
-            <view wx:if="{{!aiPhotoSupported}}" class="muted-banner">本视图仅支持人工标注；AI 照片分割与自动放置未开放。</view>
+            <view wx:if="{{!aiPhotoSupported}}" class="muted-banner">此视图仅支持手动标注。</view>
             <view wx:if="{{!atlasReady}}" class="muted-banner">{{atlasBlocked}} 已保存的标注仍可查看与修改。</view>
             <view wx:elif="{{!matchingAllowed && phase === 'review'}}" class="muted-banner">当前版本仅支持本地标注，参考计算尚未开放。</view>
 
@@ -168,8 +168,8 @@
               </view>
             </view>
 
-            <view wx:if="{{resultMode}}" class="muted-banner">几何覆盖为参考对应，不是诊断概率；未覆盖不代表没有感觉神经。</view>
-            <view wx:if="{{!resultMode && !previewMode}}" class="muted-banner">{{phase === 'review' ? '范围已确认，可点击下方按钮计算参考区域或返回继续修改。' : mode === 'draw' ? '沿病灶边缘顺次轻触添加锚点，满 3 点后点击“闭合范围”。' : '可点击“新增”继续标注其他区域，或点击“完成标注”确认。'}}</view>
+            <view wx:if="{{resultMode}}" class="muted-banner">覆盖比例表示二维标注与参考区域的面积重叠。未覆盖表示当前图谱没有匹配，结果不用于诊断。</view>
+            <view wx:if="{{!resultMode && !previewMode}}" class="muted-banner">{{phase === 'review' ? '范围已确认，可点击下方按钮计算参考区域或返回继续修改。' : mode === 'draw' ? '沿目标范围边缘依次轻触，满 3 点后点击“闭合范围”。' : '可点击“新增”继续标注其他区域，或点击“完成标注”确认。'}}</view>
           </view>
         </scroll-view>
 
@@ -223,7 +223,7 @@
         <view wx:if="{{showSideSwitch}}" class="info-paragraph">左、右{{partName}}独立标注；切换或返回全身会保留本次运行中的范围。关闭或重启小程序后不保留。</view>
         <view wx:else class="info-paragraph">本页为单一中性会阴区域示意，不区分性别；返回全身会保留本次运行中的范围，关闭或重启小程序后不保留。</view>
         <view class="info-paragraph">{{partName}}与全身使用不同模板。参考图谱用于教学与研究，医学审核待完成，不提供临床确诊。</view>
-        <view wx:if="{{!aiPhotoSupported}}" class="info-paragraph">本视图不提供照片上传或 AI 自动分割。</view>
+        <view wx:if="{{!aiPhotoSupported}}" class="info-paragraph">本视图仅支持手动标注，不提供照片上传或轮廓提取。</view>
         <view class="info-title">{{sourceTitle}}</view>
         <view class="info-paragraph">{{attribution}}</view>
         <text class="source" user-select>{{sourceUrl}}</text>

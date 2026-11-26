@@ -76,6 +76,7 @@
   "backend/app/services/local_atlas_service.py": "ad2a145a442e0910bb1470c8b163512e27b9603a69096bdd2df18d450cb224c1",
   "backend/app/services/perineum_atlas_service.py": "7c06c31fad3337dc513c46e6ffe83235fa011a47f2d5d6a4ec5d985ab01716ab",
   "backend/app/services/perineum_schematic_service.py": "4e4d0e24c01c65ead65661181cda1e24c5b09b428ba3b7a5c24fc22e80a8fd44",
+  "backend/app/services/production_access.py": "149946e9e092dce27366c4ce271ef323b9d2e39b453c57ab26ea8b3bf4666ac1",
   "backend/app/services/sole_atlas_service.py": "90cafdfb85d5438da03eebe916e4457c07495fcddc1ba5bed799b32ca8aee584",
   "backend/app/services/trial_access.py": "29cc3d139ba0a61235175d782d88f03b7733ea48691504792c8b90909e84d33e",
   "backend/app/utils/__init__.py": "24656c749eb37596286ab2ab4fcb190d4642a5999ad8599793741f18f0a69a1a",
@@ -136,6 +137,7 @@
   "data/body/sole-resource.json": "e2bb7255abce59494e34267e5303460ac628555a303ccfa33980a958e2ded130",
   "data/body/sole-v1.json": "9ced00d66da132b5f25b0d8593100f05537121b5aa00a361d982a487504e3dff",
   "deployment/cleanup.py": "41da47c9240924314eaa1369e6b18248970fcfe2eb19323415881b07cb925f9c",
+  "deployment/configure-wechat-production.sh": "bd36e7cba03f10971da79186d57106a57b91ca2a906e25e54750e368d1ad8414",
   "deployment/dermatome-cleanup.service": "b847a2b9b0fad1f5c9e5bac12f280c97ec4496af9dc6a7c92a5b58edea7f52a0",
   "deployment/dermatome-cleanup.timer": "8dd895263a69c0a919bb770c028e0c954cf45977b0b31cdb2b2c77114adb4217",
   "deployment/dermatome-control.sh": "24cd222085a751ac6d311596fdbc333c1c316e5111c0c3061683a0316edd962e",
@@ -146,6 +148,7 @@
   "deployment/rollback.md": "68568276889bd7f6f443461eb85a14923dc61eadb8a3328f3ba5d1755a88adae",
   "deployment/snapshot.py": "919d3b01500141b529928502594c59649c3d166ef067bc81bef0ff3a5005ee14",
   "deployment/watch.py": "b55b1a48902981bd4cbe552c768034882e72924e94673bc2e5f742f35deeebee",
+  "docs/compliance/wechat-review/https-release-readiness/nginx-final-release.conf": "de5b0e0de2011619af6bb42fe1ace2983637bc669adb6815d027c78aa3a1492d",
   "miniprogram/assets/body/commons-v1.ts": "5161fc7505618cae55ef41a6051712a19686affd991582b9fdaad2cdaacbd3fd",
   "miniprogram/data/body-hands.generated.ts": "2831bc29f3531f8aac53685fd684b2a1c921945c8b3a5d8e2e15d4a5d9fd352e",
   "miniprogram/data/body-models.ts": "ebc9bc5e90f1f673ff4aa9a0ee3c413c781c38e206a39a586c0917c97f3bf757"

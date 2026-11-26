@@ -1,5 +1,5 @@
 {
-  "description": "智络智绘：人体病灶标注与参考神经分区交互",
+  "description": "智络智绘：人体区域标注与参考图谱几何匹配",
   "projectname": "dermatome-mapper",
   "appid": "wx951711e2fa1da5ff",
   "compileType": "miniprogram",

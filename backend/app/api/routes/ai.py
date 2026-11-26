@@ -13,16 +13,20 @@ def runtime(request):
     if service is None: raise AIError('AI_UNAVAILABLE','当前后端未配置AI运行环境，仍可使用手动标注',503)
     return service
 
+def owner(request):
+    return request.scope.get("production_principal") or request.scope.get("trial_principal")
+
 def auth(request,sid):
     service=runtime(request);token=request.headers.get('x-ai-session-key','')
     with service.lock:
-        s=service.get(sid,token)
-        if s.get('owner_id')!=request.scope.get('trial_principal'):
+        s=service.sessions.get(sid)
+        if s is None or s.get('owner_id')!=owner(request):
             raise AIError('AI_SESSION_GONE','照片会话无效或已过期，请重新上传',410)
+        service.get(sid,token)
     return service,token
 
 @router.post('',response_model=SessionCreated)
-def create(request:Request): return runtime(request).create(request.scope.get('trial_principal'))
+def create(request:Request): return runtime(request).create(owner(request))
 
 @router.post('/{sid}/photo',response_model=PhotoUploaded)
 async def upload(sid:str,request:Request):

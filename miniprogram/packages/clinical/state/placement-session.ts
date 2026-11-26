@@ -36,7 +36,7 @@ export class PlacementSessionStore {
  edit(annotationId:string):Result {
   try{
    const s=this.annotations.snapshot(),p=s&&[...s.views.front.completed,...s.views.back.completed].find(v=>v.id===annotationId);
-   if(!s||!p||p.source?.kind!=="ai_assisted"||!p.geometry)throw Error("没有可调整的AI标注，请返回重新选择");
+   if(!s||!p||p.source?.kind!=="ai_assisted"||!p.geometry)throw Error("没有可调整的图片标注，请返回重新选择");
    const regionId=p.navigation.entryRegionId||null,source=p.source.photo,prepared=preparePhotoGeometry(source);
    const model=getBodyModel(p.view),transform=clone(p.source.transform),geometry=transformPhotoPolygonToBody(prepared,transform,model);
    if(!p.source.clip&&JSON.stringify(geometry)!==JSON.stringify(p.geometry))throw Error("已保存轮廓与来源不一致，不能重新放置");
@@ -63,7 +63,7 @@ export class PlacementSessionStore {
     const deleted=d.phase==="confirmed"&&s.ok&&!s.session.views[d.view].completed.some(p=>p.source?.kind==="ai_assisted"&&p.source.placementId===d.id);
     if(!deleted)return this.read(d.id);
    }
-   if(!source||!Number.isFinite(source.expires_at)||!stillCurrent()||source.expires_at*1000<=this.now())throw Error("照片分析已过期，请返回重新上传或分析");
+   if(!source||!Number.isFinite(source.expires_at)||!stillCurrent()||source.expires_at*1000<=this.now())throw Error("照片处理会话已过期，请重新选择照片");
    if(this.draft?.source.session_id===source.session_id&&this.draft.source.result_id===source.result_id&&
      this.draft.source.candidate_id===source.candidate_id&&this.draft.source.confirmed_at===source.confirmed_at&&
      this.draft.view===view&&this.draft.regionId===regionId){
@@ -75,7 +75,7 @@ export class PlacementSessionStore {
    const model=getBodyModel(view),region=regionId?model.regions.find(r=>r.id===regionId):null;
    if(regionId!==null&&!region)throw Error("所选人体部位与视图不一致");
    const s=this.annotations.snapshot();
-   if(s&&(s.views.front.draft?.vertices.length||s.views.back.draft?.vertices.length))throw Error("请先在手动标注页处理未闭合草稿，再放置识别范围");
+   if(s&&(s.views.front.draft?.vertices.length||s.views.back.draft?.vertices.length))throw Error("请先在手动标注页处理未闭合草稿，再放置提取的轮廓");
    const prepared=preparePhotoGeometry(source),transform=initialPlacement(prepared,model,region);
    const geometry=transformPhotoPolygonToBody(prepared,transform,model),validation=validateTransformedPlacementGeometry(geometry,model);
    const opened=this.annotations.openPlacement(view,regionId);if(!opened.ok)throw Error(opened.message);
@@ -92,10 +92,10 @@ export class PlacementSessionStore {
   const d=this.draft;
   if(!d||d.id!==id||(owner!==undefined&&owner!==this.owner))return {ok:false,message:"本次放置已失效，请返回照片页重新进入"};
   if(d.phase!=="confirmed"&&!d.editTarget&&!d.sourceDetached&&(!this.currentSource()||d.source.expires_at*1000<=this.now()))
-   return {ok:false,message:"照片分析已过期或已更换，请返回重新上传或确认"};
+   return {ok:false,message:"照片已过期或已更换，请重新选择或确认轮廓"};
   const s=this.annotations.read(d.token.sessionId);if(!s.ok)return s;
   if(d.editTarget&&d.phase!=="confirmed"&&!s.session.views[d.view].completed.some(p=>p.id===d.editTarget?.id&&p.source?.kind==="ai_assisted"&&p.source.placementId===d.editTarget.placementId))
-   return {ok:false,message:"原AI标注已变化或删除，请返回重新选择"};
+   return {ok:false,message:"原图片标注已变化或删除，请返回重新选择"};
   if(d.phase==="confirmed"&&!s.session.views[d.view].completed.some(p=>p.source?.kind==="ai_assisted"&&p.source.placementId===d.id))
    return {ok:false,message:"该人体标注已删除，请返回照片页重新放置"};
   if(d.phase!=="confirmed"&&(s.session.revision!==d.token.revision||s.session.currentView!==d.view))
@@ -113,13 +113,21 @@ export class PlacementSessionStore {
  attachSource(id:string,stillCurrent:()=>boolean):Result {
   const r=this.read(id);if(!r.ok)return r;const d=r.draft;
   if(d.phase==="confirmed")return r;
-  if(!stillCurrent()||d.source.expires_at*1000<=this.now())return {ok:false,message:"照片分析已过期，请返回重新上传或分析"};
+  if(!stillCurrent()||d.source.expires_at*1000<=this.now())return {ok:false,message:"照片处理会话已过期，请重新选择照片"};
   this.currentSource=stillCurrent;
   if(d.sourceDetached){const next=freeze({...d,sourceDetached:false});this.draft=next;return {ok:true,draft:next};}
   return {ok:true,draft:d};
  }
  acquire(id:string):number|null {if(!this.read(id).ok)return null;return ++this.owner;}
- hasPendingSource(source:ConfirmedPhoto|null):boolean {const d=this.draft;return !!source&&!!d&&d.phase==="adjusting"&&d.source.session_id===source.session_id&&d.source.result_id===source.result_id&&d.source.candidate_id===source.candidate_id&&this.read(d.id).ok;}
+ pendingForSource(source:ConfirmedPhoto|null):PlacementDraft|null {
+  const draft=this.draft;
+  if(!source||!draft||draft.phase!=="adjusting"||
+     draft.source.session_id!==source.session_id||draft.source.result_id!==source.result_id||
+     draft.source.candidate_id!==source.candidate_id||draft.source.confirmed_at!==source.confirmed_at)return null;
+  const result=this.read(draft.id);
+  return result.ok?result.draft:null;
+ }
+ hasPendingSource(source:ConfirmedPhoto|null):boolean {return this.pendingForSource(source)!==null;}
  release(id:string,owner:number):void {if(this.draft?.id===id&&owner===this.owner)this.owner++;}
  update(id:string,owner:number,transform:PlacementTransform,complete:boolean):Result {
   const r=this.read(id,owner);if(!r.ok)return r;if(r.draft.phase==="confirmed")return {ok:false,message:"位置已确认，可在原标注页查看或删除"};

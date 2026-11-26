@@ -56,9 +56,9 @@
       <view class="stage-bottom-bar">
         <view class="stage-legend-pill">
           <text class="lesion-key"></text>
-          <text>橙色：待放置病灶</text>
+          <text>橙色：待放置轮廓</text>
         </view>
-        <text class="stage-bottom-hint">{{calculating ? '正在计算参考对应，标注已保存…' : confirmed ? '位置已确认，已保存' : '拖动病灶调整位置'}}</text>
+        <text class="stage-bottom-hint">{{calculating ? '正在计算参考区域，标注已保存…' : confirmed ? '位置已确认，已保存' : '拖动轮廓调整位置'}}</text>
       </view>
     </view>
 
@@ -71,7 +71,7 @@
             hover-class="ui-hover-secondary"
             disabled="{{dragging || dialog}}"
             bindtap="toggleFocus"
-          >{{focusBounds ? '查看全身' : '放大病灶范围'}}</button>
+          >{{focusBounds ? '查看全身' : '放大轮廓'}}</button>
 
           <view wx:if="{{error}}" class="placement-warning">
             <text>{{error}}</text>
@@ -129,7 +129,7 @@
               </view>
             </view>
 
-            <view class="hint-box" wx:if="{{!overlayReady && !error}}">人体已显示后，病灶范围将在这里自动就绪。</view>
+            <view class="hint-box" wx:if="{{!overlayReady && !error}}">正在准备标注轮廓。</view>
             <view class="hint-box" wx:else>按住橙色范围拖动调整；尺寸和方向仅影响本次放置。</view>
           </block>
         </view>
@@ -148,7 +148,7 @@
           hover-class="ui-hover-primary"
           disabled="{{(!valid && !needsClip) || !viewport || !overlayReady || dragging || dialog || calculating}}"
           bindtap="confirmPosition"
-        >{{needsClip ? '检查越界并确认' : '确认位置'}}</button>
+        >{{needsClip ? '检查越界并确认' : '确认标注位置'}}</button>
       </view>
 
       <view wx:if="{{confirmed}}" class="ui-sticky-footer placement-footer-confirmed">

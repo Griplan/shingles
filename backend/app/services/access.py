@@ -5,6 +5,7 @@ import os
 import time
 from fastapi.responses import JSONResponse
 from app.services.ai_limits import MAX_UPLOAD_BYTES
+from app.services.production_access import PREFIX
 
 def controlled():
     return os.getenv('DERMATOME_ENV') == 'controlled'
@@ -32,6 +33,8 @@ class AccessBoundary:
             return await JSONResponse({'error': {'code': code, 'message': message}}, status_code=status,
                 headers={'Cache-Control': 'no-store', 'Retry-After': '60'})(scope, receive, send)
         path = scope['path']
+        if path.startswith(PREFIX + '/'):
+            return await self.app(scope,receive,send)  # The separate boundary authenticates this namespace.
         if path == '/api/v1/health' and scope['method'] == 'GET':
             return await self.app(scope, receive, send)
         if not path.startswith('/api/v1/'):

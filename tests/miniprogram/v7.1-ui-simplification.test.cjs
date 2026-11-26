@@ -8,7 +8,7 @@ test('V7.1 main page exposes only the core customer controls',()=>{
   assert.doesNotMatch(select,/快捷定位/);
   assert.doesNotMatch(select,/自由标注（无需选择部位）/);
   assert.match(select,/bindtap="startAnnotation"[\s\S]{0,500}?<text class="card-title">手动标注<\/text>/);
-  assert.match(select,/bindtap="startAI"[\s\S]{0,500}?<text class="card-title">AI 辅助标注<\/text>/);
+  assert.match(select,/bindtap="startAI"[\s\S]{0,500}?<text class="card-title">图片辅助标注<\/text>/);
   assert.match(select,/bindtap="openSpecialParts">特殊部位/);
   assert.doesNotMatch(select,/bindtap="showSource"/);
   assert.doesNotMatch(select,/bindtap="toggleDeveloper"/);

@@ -1,0 +1,88 @@
+{
+  "endpoint": "http://212.64.26.206/dermatome-test",
+  "transport": "HTTP; public/synthetic data only",
+  "checks": [
+    {
+      "name": "health",
+      "status": 200,
+      "expected": 200,
+      "ms": 78.43
+    },
+    {
+      "name": "anonymous_ready_rejected",
+      "status": 401,
+      "expected": 401,
+      "ms": 61.08
+    },
+    {
+      "name": "automatic_test_access",
+      "status": 200,
+      "expected": 200,
+      "ms": 48.72
+    },
+    {
+      "name": "authenticated_ready",
+      "status": 200,
+      "expected": 200,
+      "ms": 248.77,
+      "ai_model_loaded": true
+    },
+    {
+      "name": "body_intersection_inside",
+      "status": 200,
+      "expected": 200,
+      "ms": 48.65,
+      "result_status": "inside"
+    },
+    {
+      "name": "perineum_s2",
+      "status": 200,
+      "expected": 200,
+      "ms": 92.38,
+      "labels": [
+        "S2"
+      ]
+    },
+    {
+      "name": "perineum_undefined",
+      "status": 200,
+      "expected": 200,
+      "ms": 101.82,
+      "labels": [
+        "UNDEFINED"
+      ]
+    },
+    {
+      "name": "stale_version_rejected",
+      "status": 409,
+      "expected": 409,
+      "ms": 64.37
+    },
+    {
+      "name": "ai_session_create",
+      "status": 200,
+      "expected": 200,
+      "ms": 39.76
+    },
+    {
+      "name": "ai_session_delete",
+      "status": 204,
+      "expected": 204,
+      "ms": 44.84
+    },
+    {
+      "name": "ai_session_repeat_delete",
+      "status": 204,
+      "expected": 204,
+      "ms": 51.6
+    },
+    {
+      "name": "access_revoke",
+      "status": 204,
+      "expected": 204,
+      "ms": 83.29
+    }
+  ],
+  "passed": 12,
+  "failed": 0
+}

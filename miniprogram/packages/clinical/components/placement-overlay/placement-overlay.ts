@@ -85,12 +85,9 @@ Component({
     if(node.width!==w)node.width=w;if(node.height!==h)node.height=h;
     if(!s.preview||s.source!==p||s.sourceKey!==this.properties.interactionKey){s.preview?.dispose();s.preview=new PlacementPreview(p);s.source=p;s.sourceKey=this.properties.interactionKey;}
     ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,v.viewportWidth,v.viewportHeight);
-    const interactive=s.dragging||!!s.local;
     ctx.save();try{
      ctx.beginPath();ctx.rect(0,0,v.viewportWidth,v.viewportHeight);ctx.clip();
-     s.preview.draw(ctx,v,t,getBodyModel(this.properties.view==="back"?"back":"front"),interactive);
-     const handle=projectNormalizedToCanvas(t.translation,v);ctx.beginPath();ctx.arc(handle.x,handle.y,14,0,Math.PI*2);ctx.fillStyle="rgba(255,255,255,0.92)";ctx.fill();ctx.lineWidth=1.4;ctx.strokeStyle="#ab4c2d";ctx.stroke();
-     ctx.beginPath();ctx.moveTo(handle.x-7,handle.y);ctx.lineTo(handle.x+7,handle.y);ctx.moveTo(handle.x,handle.y-7);ctx.lineTo(handle.x,handle.y+7);ctx.stroke();
+     s.preview.draw(ctx,v,t,getBodyModel(this.properties.view==="back"?"back":"front"),s.dragging);
     }finally{ctx.restore();}
     // Only settled frames acknowledge a page revision. Moving frames never bridge state.
     if(!s.local)this.reportReady("ready",snapshot);
@@ -115,8 +112,8 @@ Component({
    const work=s.queue.then(async()=>{const p=await position;this.syncInput();if(states.get(this)!==s||s.epoch!==epoch||!s.visible||this.properties.disabled)return;
     const v=this.properties.viewport,t=s.local||this.properties.transform;if(!v||!t)return;
     if(kind==="start"){
-     if(!p||!s.preview)return;const a=projectNormalizedToCanvas(p,v),h=projectNormalizedToCanvas(t.translation,v);
-     if(Math.hypot(a.x-h.x,a.y-h.y)>24&&!s.preview.hit(p,t,getBodyModel(this.properties.view==="back"?"back":"front")))return;
+     if(!p||!s.preview)return;const a=projectNormalizedToCanvas(p,v),model=getBodyModel(this.properties.view==="back"?"back":"front");
+     if(!s.preview.hitBox(a,v,t,model)&&!s.preview.hit(p,t,model))return;
      s.start=p;s.base=t;s.delta={x:0,y:0};s.dragging=true;this.triggerEvent("placementdrag",{key,phase:"start",delta:s.delta});this.queueDraw();return;
     }
     if(!s.start||!s.base)return;

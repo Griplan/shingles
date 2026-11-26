@@ -1,0 +1,35 @@
+enabled
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+active
+2026-11-24T17:20:44+08:00 VM-0-11-ubuntu systemd[1]: Reloading nginx.service - A high performance web server and a reverse proxy server...
+2026-11-24T17:20:44+08:00 VM-0-11-ubuntu systemd[1]: Reloaded nginx.service - A high performance web server and a reverse proxy server.
+2026-11-24T17:21:32+08:00 VM-0-11-ubuntu systemd[1]: Reloading nginx.service - A high performance web server and a reverse proxy server...
+2026-11-24T17:21:32+08:00 VM-0-11-ubuntu systemd[1]: Reloaded nginx.service - A high performance web server and a reverse proxy server.
+2026-11-24T17:22:42+08:00 VM-0-11-ubuntu systemd[1]: Reloading nginx.service - A high performance web server and a reverse proxy server...
+2026-11-24T17:22:42+08:00 VM-0-11-ubuntu systemd[1]: Reloaded nginx.service - A high performance web server and a reverse proxy server.
+2026-11-24 17:22:42,329:INFO:certbot.compat.misc:Running deploy-hook command: /etc/letsencrypt/renewal-hooks/deploy/reload-nginx
+ nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+ nginx: configuration file /etc/nginx/nginx.conf test is successful
+Served, trusted certificate matches the installed certificate: sha256 Fingerprint=13:08:88:3E:D5:6A:70:EA:70:B0:35:01:E8:C8:43:DC:35:2B:D2:AA:D0:85:05:88:29:BA:7E:5F:3A:E9:1B:E0
+notBefore=Nov 24 08:22:58 2026 GMT
+notAfter=Feb 22 08:22:57 2027 GMT
+issuer=C = US, O = Let's Encrypt, CN = YE1
+X509v3 Subject Alternative Name:
+    DNS:dermatome.bglabs.cloud
+{"status":"ok","project":"dermatome-mapper","version":"v0"}
+Post-renewal HTTPS 200 verify=0
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Processing /etc/letsencrypt/renewal/dermatome.bglabs.cloud.conf
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Simulating renewal of an existing certificate for dermatome.bglabs.cloud
+Hook 'deploy-hook' ran with error output:
+ nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+ nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Congratulations, all simulated renewals succeeded:
+  /etc/letsencrypt/live/dermatome.bglabs.cloud/fullchain.pem (success)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

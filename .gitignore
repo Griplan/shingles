@@ -51,6 +51,7 @@ ai/models/*
 *.hdf5
 ai/experiments/outputs/
 ai/experiments/inputs/
+experiments/sam_benchmark/
 
 # Runtime files (reviewed validation evidence is kept as .txt)
 *.log

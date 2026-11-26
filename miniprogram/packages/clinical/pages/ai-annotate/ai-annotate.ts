@@ -1,21 +1,20 @@
-import {whenPlacementReady,cancelPlacementReady} from "../../state/placement-navigation";
-import {AIPhotoFlow,AI_WARNINGS} from "../../state/ai-session";
+import {AIPhotoFlow,AI_WARNINGS,NO_USABLE_CONTOUR_MESSAGE} from "../../state/ai-session";
 import {aiTransport} from "../../../../services/ai";
 import {canUseAI} from "../../../../config/ai";
 import {PhotoBox,PhotoPoint,BrushStroke} from "../../../../types/ai";
 import {getBodyRegion} from "../../../../data/body-regions";
 import {BodyView} from "../../../../types/dermatome";
 import {placementSession} from "../../state/placement-session";
-import {usingPublicIpDebug} from "../../../../config/servers";
+import {controlledServerActive} from "../../../../config/controlled";
 import {preparePhoto,prunePhotoPreparationCache,PreparedPhoto} from "../../utils/prepare-photo";
 const photoPicks=new WeakMap<object,{cancelled:boolean}>();
 const flows=new WeakMap<object,AIPhotoFlow>();
 const contexts=new WeakMap<object,{view:BodyView;initialRegionHint:string|null}>();
 const timers=new WeakMap<object,ReturnType<typeof setInterval>>();
-const privacy="照片仅发送至本项目配置的后端，临时用于AI辅助圈定范围，不作诊断。进入人体放置后，完成分割所需的人体轮廓已复制到本机，原图的后端临时会话会立即释放；其余会话连续闲置15分钟后自动回收，取消或返回会请求删除。当前仅限公开或合成测试图片，请勿上传真实患者照片。";
-const photoPrivacy=()=>usingPublicIpDebug()?"当前使用HTTP公网调试，图片和临时会话不加密。只可选择公开授权或合成测试图片，严禁真实患者照片。照片临时用于AI辅助圈定范围，需自行确认；进入人体放置后会立即释放后端原图会话，其余会话连续闲置15分钟后自动回收并在取消或返回时请求删除。":privacy;
+const privacy="经您同意后，照片会发送至项目后端，仅用于本次自动化图像分割以提取目标轮廓，不用于模型训练。确认轮廓并建立可独立放置的草稿后立即请求删除照片会话，取消或返回也会请求删除。当前在线测试服务按空闲期限定期回收（部署更新后为连续闲置 5 分钟），处理中不会按闲置清理。仅可使用公开授权或合成测试图片，请勿上传真实患者照片。";
+const photoPrivacy=()=>controlledServerActive()?"当前使用本机受控开发服务，仅可使用公开或合成测试图片。"+privacy:privacy;
 Page({
- data:{preparing:false,preparationError:"",available:false,context:"",photo:"",photoWidth:0,photoHeight:0,mask:"",mode:"box",phase:"empty",error:"",cleanupWarning:"",
+ data:{preparing:false,preparationError:"",noUsableContourMessage:NO_USABLE_CONTOUR_MESSAGE,available:false,context:"",photo:"",photoWidth:0,photoHeight:0,mask:"",mode:"box",phase:"empty",error:"",cleanupWarning:"",
   points:[] as PhotoPoint[],box:null as PhotoBox|null,additionalBoxes:[] as PhotoBox[],warnings:[] as string[],
   editingMask:false,brushRadius:.02,brushSize:20,canUndoBrush:false,pendingBrush:false,addingRegion:false,strategy:"context_crop",
   canConfirm:false,renderReady:false,canUndo:false,layoutRevision:0,hasPrompt:false,
@@ -24,7 +23,7 @@ Page({
   prunePhotoPreparationCache();
   const view:BodyView=query.view==="back"?"back":"front";
   const region=getBodyRegion(view,query.region);
-  this.setData({available:canUseAI(),context:region?`${view==="front"?"正面":"背面"} · ${region.name}（初始提示）`:`${view==="front"?"正面":"背面"} · 自由放置`});
+  this.setData({available:canUseAI(),context:view==="front"?"正面":"背面"});
   contexts.set(this,{view,initialRegionHint:region?.id||null});
   flows.set(this,new AIPhotoFlow(aiTransport,()=>this.syncFlow()));
 
@@ -92,7 +91,7 @@ Page({
   else if(e.detail.point&&this.data.adjusting)f.edit(null,e.detail.point);
  },
  boxInvalid(){wx.showToast({title:"圈选范围太小，请稍微扩大",icon:"none"});},
-  reselect(){if(this.data.phase==="confirming")return;this.invalidatePendingPlacement(true);this.setData({mode:"box",selecting:true,adjusting:false,editingMask:false,addingRegion:false});flows.get(this)?.reset();},
+  reselect(){if(this.data.phase==="confirming")return;if(this.data.hasPendingPlacement||flows.get(this)?.sourceReleased){this.changePhoto();return;}this.invalidatePendingPlacement(true);this.setData({mode:"box",selecting:true,adjusting:false,editingMask:false,addingRegion:false});flows.get(this)?.reset();},
  openAdjustment(){if(!this.data.hasResult||this.data.working||this.data.phase!=="ready")return;this.setData({adjusting:true,selecting:false,editingMask:false,mode:"foreground"});},
  openBrush(){if(!this.data.hasResult||this.data.working||this.data.phase!=="ready")return;this.setData({editingMask:true,adjusting:false,selecting:false,mode:"paint-erase"});},
  brushMode(e:WechatMiniprogram.TouchEvent){const mode=e.currentTarget.dataset.mode;if(this.data.editingMask&&!this.data.working&&["paint-add","paint-erase"].includes(mode))this.setData({mode});},
@@ -111,30 +110,47 @@ Page({
   if(!f||choices.length<2)return;
   const i=choices.findIndex(c=>c.candidate_id===f.selected);void f.preview(choices[(i+1)%choices.length].candidate_id);
  },
- confirm(){if(this.data.renderReady&&!this.data.adjusting&&!this.data.editingMask)void flows.get(this)?.confirm();},
+ async confirm(){
+  const flow=flows.get(this);
+  if(!flow||!this.data.renderReady||this.data.adjusting||this.data.editingMask)return;
+  await flow.confirm();
+  if(flows.get(this)===flow&&flow.phase==="confirmed"&&flow.confirmed){
+   const draft=this.preparePlacement(flow,flow.confirmed);
+   if(!draft.ok)this.setData({error:draft.message});
+  }
+ },
+ preparePlacement(flow:AIPhotoFlow,source:NonNullable<AIPhotoFlow["confirmed"]>){
+  const context=contexts.get(this);
+  if(!context)return {ok:false as const,message:"页面已关闭，请重新进入"};
+  const pending=placementSession.pendingForSource(source);
+  if(pending?.sourceDetached)return {ok:true as const,draft:pending};
+  const stillCurrent=()=>flows.get(this)===flow&&flow.confirmed===source&&!!flow.session;
+  const opened=placementSession.open(source,context.view,context.initialRegionHint,stillCurrent);
+  if(!opened.ok)return opened;
+  const detached=placementSession.detachSource(opened.draft.id);
+  if(detached.ok){
+   this.setData({hasPendingPlacement:true,error:""});
+   void flow.releaseSourceAfterPlacement();
+  }
+  return detached;
+ },
  async placeOnBody(){
-  const f=flows.get(this),context=contexts.get(this),source=f?.confirmed;
-  if(!f||!context||!source||f.phase!=="confirmed"||this.data.openingPlacement)return;
+  const flow=flows.get(this),source=flow?.confirmed;
+  if(!flow||!source||flow.phase!=="confirmed"||this.data.openingPlacement)return;
   this.setData({openingPlacement:true});
-  wx.showLoading?.({title:"正在准备人体轮廓",mask:true});
+  wx.showLoading?.({title:"正在准备轮廓放置",mask:true});
   await new Promise<void>(resolve=>wx.nextTick(resolve));
-  if(flows.get(this)!==f||f.confirmed!==source){wx.hideLoading?.();this.setData({openingPlacement:false});return;}
-  const stillCurrent=()=>flows.get(this)===f&&f.confirmed===source&&!!f.session;
-  const result=placementSession.open(source,context.view,context.initialRegionHint,stillCurrent);
+  if(flows.get(this)!==flow||flow.confirmed!==source){wx.hideLoading?.();this.setData({openingPlacement:false});return;}
+  const result=this.preparePlacement(flow,source);
   if(!result.ok){wx.hideLoading?.();this.setData({openingPlacement:false,error:result.message});return;}
-  // Detach before navigation so placement never races the immediate release of
-  // the temporary backend photo session.
-  const detached=placementSession.detachSource(result.draft.id);
-  if(!detached.ok){wx.hideLoading?.();this.setData({openingPlacement:false,error:detached.message});return;}
-  whenPlacementReady(result.draft.id,()=>{void f.releaseSourceAfterPlacement();});
-  this.setData({openingPlacement:true});wx.navigateTo({url:`/packages/clinical/pages/placement/placement?draftId=${encodeURIComponent(result.draft.id)}`,
-   success:()=>{wx.hideLoading?.();},
-   fail:()=>{
-    wx.hideLoading?.();
-    cancelPlacementReady(result.draft.id);
-    placementSession.attachSource(result.draft.id,stillCurrent);
-    this.setData({openingPlacement:false,error:"放置页面未能打开，照片分割结果仍保留"});
-   }});
+  const failed=()=>{
+   wx.hideLoading?.();
+   if(flows.get(this)===flow)this.setData({openingPlacement:false,error:"放置页面未能打开，放置草稿仍保留，请重试"});
+  };
+  try{
+   wx.navigateTo({url:`/packages/clinical/pages/placement/placement?draftId=${encodeURIComponent(result.draft.id)}`,
+    success:()=>{wx.hideLoading?.();},fail:failed});
+  }catch{failed();}
  },
  renderState(e:WechatMiniprogram.CustomEvent<{source:string;mask:string;ready:boolean;layoutRevision?:number}>){
   const detail=e.detail;

@@ -3,12 +3,12 @@ from app.services.ai_sessions import AISessions, AIError
 import pytest
 
 
-def test_default_idle_ttl_is_two_minutes(tmp_path, monkeypatch):
+def test_default_idle_ttl_is_five_minutes(tmp_path, monkeypatch):
     monkeypatch.delenv("AI_IDLE_SECONDS", raising=False)
     service = AISessions(tmp_path)
     created = service.create()
-    assert service.ttl == 120
-    assert created["expires_at"] - service.sessions[created["session_id"]]["last_activity_at"] == pytest.approx(120)
+    assert service.ttl == 300
+    assert created["expires_at"] - service.sessions[created["session_id"]]["last_activity_at"] == pytest.approx(300)
     service.close()
 
 
@@ -49,7 +49,7 @@ def test_idle_state_restored_with_last_activity_and_stopped_cleanup(tmp_path,mon
     assert not (restored.root/s['session_id']).exists()
 
 
-def test_stopped_cleanup_uses_two_minute_fallback_for_unreadable_state(tmp_path):
+def test_stopped_cleanup_uses_five_minute_fallback_for_unreadable_state(tmp_path):
     from deployment.cleanup import cleanup
 
     root = tmp_path / "v5-ai-sessions"
@@ -60,7 +60,31 @@ def test_stopped_cleanup_uses_two_minute_fallback_for_unreadable_state(tmp_path)
     import os
     os.utime(stale, (100, 100))
 
-    cleanup(root, now=219)
+    cleanup(root, now=399)
     assert stale.exists()
-    cleanup(root, now=220)
+    cleanup(root, now=400)
     assert not stale.exists()
+
+
+def test_controlled_capacity_is_released_by_delete_and_idle_sweep(tmp_path, monkeypatch):
+    monkeypatch.setenv("DERMATOME_ENV", "controlled")
+    now = [100.0]
+    service = AISessions(tmp_path, clock=lambda: now[0], ttl=10)
+    first = service.create(owner_id="a")
+    second = service.create(owner_id="b")
+    with pytest.raises(AIError) as capacity:
+        service.create(owner_id="a")
+    assert capacity.value.code == "AI_CAPACITY"
+
+    sid = first["session_id"]
+    (service.root / sid / "photo.png").write_bytes(b"synthetic placeholder")
+    service.delete(sid, first["session_token"])
+    assert not (service.root / sid).exists()
+    now[0] = 106
+    third = service.create(owner_id="a")
+    now[0] = 111
+    service.sweep()
+    assert not (service.root / second["session_id"]).exists()
+    assert third["session_id"] in service.sessions
+    assert service.create(owner_id="b")
+    service.close()

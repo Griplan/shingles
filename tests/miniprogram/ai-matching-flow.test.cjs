@@ -9,6 +9,7 @@ const {fitViewport,focusViewport,reframeViewport,normalizedToCanvas}=load('utils
 const {getBodyModel}=load('data/body-models.js');
 const {ATLAS_REGIONS}=load('packages/clinical/data/atlas.generated.js');
 const {syntheticPhoto}=require('./placement-fixtures.cjs');
+const formal=require('./formal-auth-fixtures.cjs');
 let placement,annotate;global.Page=d=>placement=d;load('packages/clinical/pages/placement/placement.js');global.Page=d=>annotate=d;load('packages/clinical/pages/annotate/annotate.js');
 const instance=def=>{const page={data:structuredClone(def.data),setData(c){Object.assign(this.data,c)},selectComponent:()=>({previewTransform(){}})};for(const[k,v]of Object.entries(def))if(typeof v==='function')page[k]=v.bind(page);return page;};
 function reply(r){
@@ -22,16 +23,15 @@ let sequence=0;
 function setup(t,editId){
  const requests=[],bodyRequests=[],nav=[];
  const bodyControl={status:'outside',geometry:null,ratio:1};
- global.wx={nextTick:f=>queueMicrotask(f),getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}}),getSystemInfoSync:()=>({platform:'devtools'}),getWindowInfo:()=>({windowHeight:844}),
-  request:o=>{
-   if(o.url.endsWith('/api/v1/access/session')){o.success({statusCode:200,data:{access_token:'ACCESS_'+'d'.repeat(48),token_type:'Bearer',access_kind:'public_test',expires_at:Date.now()/1000+3600}});return;}
+ global.wx={nextTick:f=>queueMicrotask(f),getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}}),getSystemInfoSync:()=>({platform:'devtools'}),getWindowInfo:()=>({windowHeight:844}),login:formal.login,
+  request:formal.wrapRequest(o=>{
    if(o.url.endsWith('/api/v1/evaluate/body-intersection')){
     bodyRequests.push(o);
     o.success({statusCode:200,data:{method:'body_intersection_v1',status:bodyControl.status,source_area:1,intersection_area:1-bodyControl.ratio,outside_area:bodyControl.ratio,outside_area_ratio:bodyControl.ratio,geometry:bodyControl.geometry}});
     return;
    }
    requests.push(o);
-  },redirectTo:o=>nav.push(o.url),navigateTo:o=>nav.push(o.url),navigateBack:o=>nav.push('back'),enableAlertBeforeUnload(){},disableAlertBeforeUnload(){},showModal:o=>{o.success({confirm:true});o.complete?.();}};
+  }),redirectTo:o=>nav.push(o.url),navigateTo:o=>nav.push(o.url),navigateBack:o=>nav.push('back'),enableAlertBeforeUnload(){},disableAlertBeforeUnload(){},showModal:o=>{o.success({confirm:true});o.complete?.();}};
  const source=syntheticPhoto(100,true);source.result_id+='-'+(++sequence);
  const r=editId?p.edit(editId):p.open(source,'back','back-upper-back',()=>true);assert.equal(r.ok,true,r.message);
  const page=instance(placement);page.onLoad({draftId:r.draft.id});page.onShow();t.after(()=>page.onUnload());

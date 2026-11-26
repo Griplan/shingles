@@ -104,8 +104,8 @@ class AISessions:
     def create(self,owner_id=None):
         with self.lock:
             self.sweep()
-            if self.closed: raise AIError('AI_UNAVAILABLE','AI服务已停止',503)
-            if len(self.sessions) >= (2 if controlled() else MAX_SESSIONS): raise AIError('AI_CAPACITY','临时分析已满，请取消旧照片或稍后重试',429)
+            if self.closed: raise AIError('AI_UNAVAILABLE','图片处理服务已停止',503)
+            if len(self.sessions) >= (2 if controlled() else MAX_SESSIONS): raise AIError('AI_CAPACITY','临时照片会话已满，请取消旧照片或稍后重试',429)
             sid, token = secrets.token_hex(16), secrets.token_urlsafe(32)
             (self.root/sid).mkdir(mode=0o700)
             self.sessions[sid] = {'token_hash':hashlib.sha256(token.encode()).digest(), 'expires_at':self.clock()+self.ttl,
@@ -161,15 +161,15 @@ class AISessions:
 
     def segment(self,sid,token,payload):
         # Global inference guard: one stateful Predictor, no unbounded work queue.
-        if not self.worker.acquire(blocking=False): raise AIError('AI_BUSY','AI正在处理，请稍后重试',429)
+        if not self.worker.acquire(blocking=False): raise AIError('AI_BUSY','正在处理图片，请稍后重试',429)
         operation=secrets.token_hex(16)
         deadline=self.clock()+TIMEOUT
         try:
             with self.lock:
                 s=self.get(sid,token)
                 self.active_sessions.add(sid)
-                if payload.photo_id != s['photo_id']: raise AIError('PHOTO_MISMATCH','照片已更换，请重新分割',409)
-                if payload.prompt_revision < s['revision']: raise AIError('STALE_RESULT','提示已更新，请重新分割',409)
+                if payload.photo_id != s['photo_id']: raise AIError('PHOTO_MISMATCH','照片已更换，请重新提取',409)
+                if payload.prompt_revision < s['revision']: raise AIError('STALE_RESULT','提示已更新，请重新提取',409)
                 s.update(revision=payload.prompt_revision,operation=operation,request_id=payload.request_id,result=None,confirmed=None)
                 self._persist(sid,s)
                 shutil.rmtree(self.root/sid/'result',ignore_errors=True)
@@ -190,15 +190,15 @@ class AISessions:
                          'box':[box.xMin*w,box.yMin*h,box.xMax*w,box.yMax*h] if box else None}
                 prompts['additional_boxes']=[[b.xMin*w,b.yMin*h,b.xMax*w,b.yMax*h] for b in payload.prompts.additional_boxes]
                 result=segment_image(prepared,prompts,model=self.model,strategy=payload.strategy)
-            except SegmentationError as e: raise AIError(e.code,'AI暂未完成分割，请调整提示或稍后重试',503) from None
-            except ImportError: raise AIError('AI_UNAVAILABLE','AI运行环境尚未安装，仍可使用手动标注',503) from None
+            except SegmentationError as e: raise AIError(e.code,'轮廓提取未完成，请调整提示或稍后重试',503) from None
+            except ImportError: raise AIError('AI_UNAVAILABLE','图片处理服务尚未就绪，仍可使用手动标注',503) from None
             with self.lock:
                 s=self.get(sid,token)
                 if s['operation']!=operation: raise AIError('STALE_RESULT','本次请求已失效',409)
-                if self.clock()>deadline: raise AIError('AI_TIMEOUT','AI处理超时，请稍后重试',504)
+                if self.clock()>deadline: raise AIError('AI_TIMEOUT','图片处理超时，请稍后重试',504)
                 return self._publish(sid,s,payload,result)
         except ImportError:
-            raise AIError('AI_UNAVAILABLE','AI运行环境尚未安装，仍可使用手动标注',503) from None
+            raise AIError('AI_UNAVAILABLE','图片处理服务尚未就绪，仍可使用手动标注',503) from None
         except MemoryError:
             raise AIError('OUT_OF_MEMORY','内存不足，请使用较小照片重试',503) from None
         finally:
@@ -247,7 +247,7 @@ class AISessions:
 
     def edit(self,sid,token,p):
         """Replay bounded user strokes from raw AI mask; inference is never called."""
-        if not self.worker.acquire(blocking=False):raise AIError('AI_BUSY','AI正在处理，请稍后重试',429)
+        if not self.worker.acquire(blocking=False):raise AIError('AI_BUSY','正在处理图片，请稍后重试',429)
         deadline=self.clock()+TIMEOUT
         try:
             import numpy as np
@@ -262,7 +262,7 @@ class AISessions:
                 s=self.get(sid,token);r=s['result']
                 self.active_sessions.add(sid)
                 if not r or p.photo_id!=s['photo_id'] or p.result_id!=r['record']['result_id'] or p.prompt_revision!=r['revision']:
-                    raise AIError('STALE_RESULT','照片或识别结果已变化，请重新识别',409)
+                    raise AIError('STALE_RESULT','照片或候选轮廓已变化，请重新提取',409)
                 raw=next((c for c in r['record']['candidates'] if c['candidate_id']==p.candidate_id),None)
                 if not raw or raw['status']!='ok':raise AIError('INVALID_CANDIDATE','没有可修正的原始候选')
                 previous=r['edits'].get(p.candidate_id)
@@ -284,7 +284,7 @@ class AISessions:
             if len(encoded)>8*1024*1024:raise AIError('RESULT_TOO_COMPLEX','修正轮廓过于复杂，请缩短笔画；原结果保留')
             with self.lock:
                 s=self.get(sid,token)
-                if s['result'] is not r:raise AIError('STALE_RESULT','识别结果已变化，修正未应用',409)
+                if s['result'] is not r:raise AIError('STALE_RESULT','候选轮廓已变化，修正未应用',409)
                 if self.clock()>deadline:raise AIError('AI_TIMEOUT','修正处理超时，请重试',504)
                 folder=self.root/sid/'result';prefix=p.candidate_id+f'-edit-{p.edit_revision}'
                 Image.fromarray(corrected.astype(np.uint8)*255).save(folder/(prefix+'-mask.png'))
@@ -298,7 +298,7 @@ class AISessions:
                     for suffix in ('-mask.png','-alpha.png','.json'):
                         (folder/(p.candidate_id+f'-edit-{previous["revision"]}'+suffix)).unlink(missing_ok=True)
                 return response
-        except ImportError:raise AIError('AI_UNAVAILABLE','AI修正组件不可用，原结果保留',503) from None
+        except ImportError:raise AIError('AI_UNAVAILABLE','轮廓修正暂不可用，原结果保留',503) from None
         except SegmentationError as e:raise AIError(e.code,'修正未能应用，原范围保留，请缩短笔画或撤销') from None
         except MemoryError:raise AIError('OUT_OF_MEMORY','修正内存不足，原范围保留',503) from None
         finally:
@@ -309,9 +309,9 @@ class AISessions:
         with self.lock:
             s=self.get(sid,token);r=s['result']
             if not r or p.photo_id!=s['photo_id'] or p.result_id!=r['record']['result_id'] or p.prompt_revision!=r['revision']:
-                raise AIError('STALE_RESULT','结果已失效，请重新分割后确认',409)
+                raise AIError('STALE_RESULT','结果已失效，请重新提取后确认',409)
             c=next((c for c in r['record']['candidates'] if c['candidate_id']==p.candidate_id),None)
-            if not c or c['status']!='ok' or not c['geometry']: raise AIError('INVALID_CANDIDATE','候选为空或轮廓无效，请重新分割')
+            if not c or c['status']!='ok' or not c['geometry']: raise AIError('INVALID_CANDIDATE','候选为空或轮廓无效，请重新提取')
             edit=r['edits'].get(p.candidate_id)
             if p.edit_revision != (edit['revision'] if edit else 0):
                 raise AIError('STALE_RESULT','修正版本已变化，请重试修正并查看最新范围',409)
@@ -342,6 +342,6 @@ class AISessions:
                 edit=s['result']['edits'].get(m[1])
                 if not edit or edit['revision']!=int(m[2]):raise AIError('ASSET_NOT_FOUND','修正预览已失效',404)
                 p=self.root/sid/'result'/name
-            else: raise AIError('ASSET_NOT_FOUND' ,'图片已失效，请重新分割',404)
+            else: raise AIError('ASSET_NOT_FOUND' ,'图片已失效，请重新提取',404)
             # Read under lock; deletion cannot race a delayed FileResponse open.
             return p.read_bytes()

@@ -11,14 +11,14 @@ import {fitViewport,focusViewport} from "../../../../utils/coordinate";
 import {canPlaceAI} from "../../../../config/ai";
 import {canMatchReference} from "../../../../config/development";
 import {canUseDeveloperTools} from "../../../../config/environment";
-import {cancelPlacementReady,placementReady,retainPlacementView} from "../../state/placement-navigation";
+import {retainPlacementView} from "../../state/placement-navigation";
 
 type SliderKind="scale"|"angle";
 type OverlayState="ready"|"waiting"|"error";
 interface Life {id:string;owner:number;active:boolean;sequence:number;timer:ReturnType<typeof setInterval>|null;labels:ReturnType<typeof setTimeout>|null;
   overlayWatchdog:ReturnType<typeof setTimeout>|null;overlayAttempts:number;drag:PlacementTransform|null;slider:SliderKind|null;cancelledSlider:SliderKind|null}
-const OVERLAY_WATCHDOG_MS=8000,OVERLAY_WAITING_MESSAGE="正在准备病灶范围…";
-const OVERLAY_RETRY_MESSAGE="病灶范围正在自动恢复显示…";
+const OVERLAY_WATCHDOG_MS=8000,OVERLAY_WAITING_MESSAGE="正在准备标注轮廓…";
+const OVERLAY_RETRY_MESSAGE="标注轮廓正在自动恢复显示…";
 function trace(event:string,detail:Record<string,unknown>={}):void {
   if(canUseDeveloperTools())console.info(`[placement] ${event}`,detail);
 }
@@ -55,7 +55,7 @@ Page({
   layer:null as AnnotationLayer|null,scalePercent:100,angle:0,confirmed:false,editingSaved:false,calculating:false,dragging:false,valid:false,needsClip:false,error:"",message:"",dialog:false,opening:false,overlayReady:false,
   initialReady:false,overlayWaiting:false,overlayFault:false,bodyFallbackVisible:false,bodyImagePath:"",bodyImageStyle:"",revision:0},
  onLoad(query:Record<string,string>){
-  if(!canPlaceAI()){this.setData({error:"当前版本暂未开放AI人体放置，请返回手动标注"});return;}
+  if(!canPlaceAI()){this.setData({error:"当前版本暂未开放图片轮廓放置，请返回手动标注"});return;}
   const owner=placementSession.acquire(query.draftId||"");
   const life:Life={id:query.draftId||"",owner:owner||0,active:true,sequence:0,timer:null,labels:null,overlayWatchdog:null,overlayAttempts:0,
     drag:null,slider:null,cancelledSlider:null};lives.set(this,life);
@@ -68,7 +68,7 @@ Page({
   this.setData({dragging:false,opening:false,calculating:false,layoutRevision:this.data.layoutRevision+1},()=>this.ensureViewport());
   this.finishAdjustment();this.checkCurrent();this.guardExit();},
  onHide(){const life=lives.get(this);if(life){trace("hide",{overlayReady:this.data.overlayReady,initialReady:this.data.initialReady});this.finishAdjustment();life.active=false;life.sequence++;life.drag=null;}if(this.data.calculating)matchingSession.cancelPending();},
- onUnload(){cancelPlacementReady(this.data.draftId);const life=lives.get(this);if(life){this.finishAdjustment();this.cancelLabels();life.active=false;if(life.timer)clearInterval(life.timer);this.clearOverlayWatchdog();placementSession.release(life.id,life.owner);}if(this.data.calculating)matchingSession.cancelPending();lives.delete(this);},
+ onUnload(){const life=lives.get(this);if(life){this.finishAdjustment();this.cancelLabels();life.active=false;if(life.timer)clearInterval(life.timer);this.clearOverlayWatchdog();placementSession.release(life.id,life.owner);}if(this.data.calculating)matchingSession.cancelPending();lives.delete(this);},
  onResize(){
   this.cancelLabels();const life=lives.get(this);if(!life?.active)return;
   const previous=placementSession.read(life.id,life.owner);
@@ -174,9 +174,9 @@ Page({
   if(status==="ready"){
    const frameViewport=detail.viewport||(detail.viewportKey&&detail.viewportKey!=="null"?JSON.parse(detail.viewportKey) as ViewportTransform:null);
    if(!frameViewport||JSON.stringify(frameViewport)!==JSON.stringify(this.data.viewport))return;
-   this.clearOverlayWatchdog();life.overlayAttempts=0;if(!this.data.initialReady)placementReady(this.data.draftId);
+   this.clearOverlayWatchdog();life.overlayAttempts=0;
    this.setData({overlayReady:true,initialReady:true,overlayWaiting:false,overlayFault:false,error:"",
-     ...(this.data.message===OVERLAY_WAITING_MESSAGE||this.data.message==="病灶范围暂时无法显示，请返回照片页重试"?{message:""}:{})});
+     ...(this.data.message===OVERLAY_WAITING_MESSAGE||this.data.message==="标注轮廓暂时无法显示，请返回照片页重试"?{message:""}:{})});
    return;
   }
   if(!this.data.initialReady&&life.overlayAttempts<1){
@@ -187,19 +187,19 @@ Page({
    return;
   }
   this.clearOverlayWatchdog();
-  if(!this.data.initialReady)this.setData({error:"人体轮廓或病灶范围加载失败，请重试",overlayWaiting:false,overlayFault:true});
-  else this.setData({overlayReady:false,overlayWaiting:false,overlayFault:true,message:"病灶范围暂时无法显示，请点击“重试显示”"});
+  if(!this.data.initialReady)this.setData({error:"人体或标注轮廓加载失败，请重试",overlayWaiting:false,overlayFault:true});
+  else this.setData({overlayReady:false,overlayWaiting:false,overlayFault:true,message:"标注轮廓暂时无法显示，请点击“重试显示”"});
  },
  clearOverlayWatchdog(){const life=lives.get(this);if(life?.overlayWatchdog!==null&&life){clearTimeout(life.overlayWatchdog as ReturnType<typeof setTimeout>);life.overlayWatchdog=null;}},
   armOverlayWatchdog(){const life=lives.get(this);if(!life?.active||!this.data.viewport||this.data.initialReady||life.overlayWatchdog!==null)return;
   life.overlayWatchdog=setTimeout(()=>{life.overlayWatchdog=null;if(!life.active||this.data.initialReady)return;
    if(life.overlayAttempts<1){life.overlayAttempts++;this.setData({error:"",overlayWaiting:true,overlayFault:false,message:OVERLAY_RETRY_MESSAGE});
     this.selectComponent("#placement-preview")?.retry();this.armOverlayWatchdog();return;}
-   this.setData({error:"人体轮廓或病灶范围加载超时，请重试",overlayWaiting:false,overlayFault:true});
+   this.setData({error:"人体或标注轮廓加载超时，请重试",overlayWaiting:false,overlayFault:true});
   },OVERLAY_WATCHDOG_MS);unrefTimer(life.overlayWatchdog);
  },
  retryOverlay(){const life=lives.get(this);if(!life?.active)return;this.clearOverlayWatchdog();
-  this.setData({error:"",message:this.data.initialReady?"正在重新绘制病灶范围…":OVERLAY_WAITING_MESSAGE,overlayFault:false,overlayWaiting:true});
+  this.setData({error:"",message:this.data.initialReady?"正在重新绘制标注轮廓…":OVERLAY_WAITING_MESSAGE,overlayFault:false,overlayWaiting:true});
   this.selectComponent("#placement-preview")?.retry();life.overlayAttempts=0;this.armOverlayWatchdog();
  },
  cancelLabels(){const life=lives.get(this);if(life&&life.labels!==null){clearTimeout(life.labels);life.labels=null;}},
@@ -261,14 +261,14 @@ onDrag(e:WechatMiniprogram.CustomEvent<{key:string;phase:string;delta:Normalized
   const d=r.draft,target=d.transform.target;
   const clipped=await intersectLesionWithBody({view:d.view,template_id:target.templateId,template_version:target.templateVersion,
     geometry_id:target.geometryId,region_set_id:target.regionSetId,geometry:d.rawGeometry});
-  if(clipped.status==="outside"||!clipped.geometry){this.setData({message:"病灶完全位于人体外，请移动回有效皮肤范围"});return false;}
+  if(clipped.status==="outside"||!clipped.geometry){this.setData({message:"标注轮廓完全位于人体外，请移动回有效皮肤范围"});return false;}
   if(clipped.status==="inside"){
    // The client only calls this endpoint after its exact local check reports
    // an out-of-body result. An "inside" response therefore means the two
    // boundary checks disagree; never manufacture a tiny clip or save it.
    this.setData({message:"人体边界检查结果不一致，请重新调整位置后再试"});return false;
   }
-  const accepted=await new Promise<boolean>(resolve=>wx.showModal({title:"使用有效人体交集？",content:`当前范围有 ${(clipped.outside_area_ratio*100).toFixed(1)}% 位于人体外。确认后将保留人体内的病灶部分，原始调整参数仍可继续修改。`,cancelText:"继续调整",confirmText:"使用交集",success:value=>resolve(value.confirm),fail:()=>resolve(false)}));
+  const accepted=await new Promise<boolean>(resolve=>wx.showModal({title:"仅保留人体内的范围？",content:`当前范围有 ${(clipped.outside_area_ratio*100).toFixed(1)}% 位于人体外。确认后将保留人体内的标注范围，原始调整参数仍可继续修改。`,cancelText:"继续调整",confirmText:"保留人体内",success:value=>resolve(value.confirm),fail:()=>resolve(false)}));
   if(!accepted)return false;
   const applied=placementSession.applyBodyIntersection(life.id,life.owner,clipped.geometry,clipped.outside_area_ratio);
   if(!applied.ok){this.setData({message:applied.message});return false;}return true;
@@ -313,7 +313,7 @@ onDrag(e:WechatMiniprogram.CustomEvent<{key:string;phase:string;delta:Normalized
   this.finishAdjustment();
   const leave=()=>{try{wx.disableAlertBeforeUnload();}catch{}placementSession.discard(life.id,life.owner);wx.navigateBack({fail:()=>wx.redirectTo({url:"/pages/select/select"})});};
   if(this.data.confirmed||this.data.error){leave();return;}
-  const sequence=++life.sequence;this.setData({dialog:true});wx.showModal({title:"放弃本次放置？",content:this.data.editingSaved?"已保存的原标注和原计算结果会保留。":"照片中已确认的识别范围和其他标注会保留。",cancelText:"继续调整",confirmText:"放弃返回",
+  const sequence=++life.sequence;this.setData({dialog:true});wx.showModal({title:"放弃本次放置？",content:this.data.editingSaved?"已保存的原标注和原计算结果会保留。":"已确认的照片轮廓和其他标注会保留。",cancelText:"继续调整",confirmText:"放弃返回",
    success:r=>{if(lives.get(this)===life&&life.active&&life.sequence===sequence&&r.confirm)leave();},
    complete:()=>{if(lives.get(this)===life)this.setData({dialog:false});}});
  },

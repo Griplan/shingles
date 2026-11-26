@@ -1,0 +1,21 @@
+{
+  "deployment_id": "final-release-20261124-184702",
+  "production_access_sha256": "149946e9e092dce27366c4ce271ef323b9d2e39b453c57ab26ea8b3bf4666ac1",
+  "release_manifest_sha256": "2741d33e300050745786687e8dca374abab431b09bd30aea4f4066c5ab760b27",
+  "nginx_site_sha256": "de5b0e0de2011619af6bb42fe1ace2983637bc669adb6815d027c78aa3a1492d",
+  "wechat_config_present": false,
+  "units": {
+    "dermatome": [
+      "MainPID=2899895",
+      "ActiveState=active"
+    ],
+    "acupuncture": [
+      "MainPID=611289",
+      "ActiveState=active"
+    ],
+    "nginx": [
+      "MainPID=12643",
+      "ActiveState=active"
+    ]
+  }
+}

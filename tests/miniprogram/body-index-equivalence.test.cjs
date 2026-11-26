@@ -45,6 +45,8 @@ test('mutable and shallow-frozen rings never acquire stale indexes; replacement 
  const fixed=[{outer:freeze(ring.map(p=>P(p.x-.5,p.y))),holes:[]}];assert.equal(after.pointInBody(P(.5,.5),fixed),true);
  assert.equal(after.pointInBody(P(.5,.5),body),false);
 });
+// Localized guidance can change independently of the geometry decision.
+function placementDecision({message, ...decision}) { return decision; }
 test('complete placement decision and transformed geometry match frozen baseline for full-scale scenarios',()=>{
  let checks=0;
  for(const view of ['front','back']){
@@ -54,15 +56,15 @@ test('complete placement decision and transformed geometry match frozen baseline
    const initial=newPlacement.initialPlacement(prepared,model,model.regions.find(r=>r.id===(view==='front'?'front-chest':'back-upper-back')));
    for(const patch of [{},{rotationDegrees:43},{scale:.7},{scale:4},{translation:P(.01,.01)},{translation:P(.5,.82)}]){
     const transform={...initial,...patch};const a=oldPlacement.transformPhotoPolygonToBody(old,transform,model),b=newPlacement.transformPhotoPolygonToBody(prepared,transform,model);
-    assert.deepEqual(b,a);assert.deepEqual(newPlacement.validatePlacementGeometry(b,model),oldPlacement.validatePlacementGeometry(a,model));checks++;
+    assert.deepEqual(b,a);assert.deepEqual(placementDecision(newPlacement.validatePlacementGeometry(b,model)),placementDecision(oldPlacement.validatePlacementGeometry(a,model)));checks++;
    }
   }
   for(let i=0;i<160;i++){
    const geometry=bodyGeometry([[rect(random()*.9,random()*.9,.002+random()*.15,.002+random()*.15)]]);
-   assert.deepEqual(newPlacement.validatePlacementGeometry(geometry,model),oldPlacement.validatePlacementGeometry(geometry,model));checks++;
+   assert.deepEqual(placementDecision(newPlacement.validatePlacementGeometry(geometry,model)),placementDecision(oldPlacement.validatePlacementGeometry(geometry,model)));checks++;
   }
   for(const rings of [[[P(.4,.3),P(.6,.5),P(.4,.5),P(.6,.3),P(.4,.3)]],[rect(.45,.3,.08,.05),rect(.46,.31,.02,.02)]]){
-   const geometry=bodyGeometry([rings]);assert.deepEqual(newPlacement.validatePlacementGeometry(geometry,model),oldPlacement.validatePlacementGeometry(geometry,model));checks++;
+   const geometry=bodyGeometry([rings]);assert.deepEqual(placementDecision(newPlacement.validatePlacementGeometry(geometry,model)),placementDecision(oldPlacement.validatePlacementGeometry(geometry,model)));checks++;
   }
  }
  assert.equal(checks,408);

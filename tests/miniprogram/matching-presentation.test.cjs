@@ -4,6 +4,7 @@ const load=f=>require(path.join(process.env.DERMATOME_BUILD_DIR,f));
 const {ATLAS_REGIONS:R}=load('packages/clinical/data/atlas.generated.js');
 const {presentation,placeLabels,screenSide,stageHeight}=load('utils/matching-presentation.js');
 const {fitViewport,focusViewport}=load('utils/coordinate.js'),{getBodyModel}=load('data/body-models.js');
+const formal=require('./formal-auth-fixtures.cjs');
 const event=dataset=>({currentTarget:{dataset}});
 function candidates(view){
  const keys=new Set();return R.filter(r=>r.view===view).flatMap(r=>{
@@ -53,14 +54,14 @@ function harness(){
  store.clear?.();
  let def;global.Page=d=>{def=d;};const file=path.join(process.env.DERMATOME_BUILD_DIR,'packages/clinical/pages/annotate/annotate.js');delete require.cache[require.resolve(file)];require(file);
  const requests=[],replies=[],routes=[];
- global.wx={getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}}),getWindowInfo:()=>({windowHeight:603}),getSystemInfoSync:()=>({platform:'devtools'}),
+ global.wx={getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}}),getWindowInfo:()=>({windowHeight:603}),getSystemInfoSync:()=>({platform:'devtools'}),login:formal.login,
   nextTick:callback=>setImmediate(callback),
-  request:o=>{if(o.url.endsWith('/api/v1/access/session')){o.success({statusCode:200,data:{access_token:'ACCESS_'+'d'.repeat(48),token_type:'Bearer',access_kind:'public_test',expires_at:Date.now()/1000+3600}});return;}requests.push(o);replies.push(()=>{const req=o.data;
+  request:formal.wrapRequest(o=>{requests.push(o);replies.push(()=>{const req=o.data;
    const cov=(view,ids)=>({view,lesion_ids:ids,annotation_area:1,covered_area:.8,uncovered_area:.2,covered_ratio:.8,uncovered_ratio:.2,coverage_status:'partial',
     candidates:candidates(view).slice(0,8)});
    o.success({statusCode:200,data:{request_id:req.request_id,annotation_revision:req.annotation_revision,identity:req.identity,
     method:'manual_annotation_reference_geometry',area_unit:'normalized_template_area',source:{preview:true,medical_review_status:'pending',attribution:'SYNTHETIC UI TEST',coverage_note:'test'},warnings:[],
-    lesions:req.lesions.map(l=>cov(l.view,[l.id])),views:[...new Set(req.lesions.map(l=>l.view))].map(v=>cov(v,req.lesions.filter(l=>l.view===v).map(l=>l.id)))}});});},
+    lesions:req.lesions.map(l=>cov(l.view,[l.id])),views:[...new Set(req.lesions.map(l=>l.view))].map(v=>cov(v,req.lesions.filter(l=>l.view===v).map(l=>l.id)))}});});}),
   navigateBack:()=>routes.push('back'),redirectTo:o=>routes.push(o.url)};
  const make=()=>{const p={data:structuredClone(def.data),setData(c){Object.assign(this.data,c);}};for(const[k,v]of Object.entries(def))if(typeof v==='function')p[k]=v.bind(p);return p;};
  const act=a=>{const r=store.dispatch(state.sessionToken(store.snapshot()),a);assert.ok(r.ok,r.message);};
@@ -147,11 +148,11 @@ test('confirmed polygons fill immediately once each, result outline mode preserv
   assert.deepEqual(outlined.calls.filter(c=>['moveTo','lineTo','closePath','stroke'].includes(c[0])),filled.calls.filter(c=>['moveTo','lineTo','closePath','stroke'].includes(c[0])));
  }
 });
-test('in-flight calculation follows current view; hide cancels response; release gate clears cached colors but attribution stays accessible',async()=>{
+test('in-flight calculation follows current view; hide cancels response; release retains verified result and attribution',async()=>{
  const h=harness(),p=h.open();const work=p.calculate();await flush();p.switchView(event({view:'back'}));h.replies.shift()();await work;
  assert.equal(p.data.view,'back');assert.equal(p.data.matchStatus,'ready');assert.equal(p.data.atlas.regions.length,0);
  p.switchView(event({view:'front'}));assert.ok(p.data.atlas.regions.length);
- wx.getAccountInfoSync=()=>({miniProgram:{envVersion:'release'}});p.focusSelected();assert.equal(p.data.atlas,null);assert.equal(p.data.candidates.length,0);
+ wx.getAccountInfoSync=()=>({miniProgram:{envVersion:'release'}});p.focusSelected();assert.ok(p.data.atlas.regions.length);assert.ok(p.data.candidates.length);
  p.openInfo();assert.equal(p.data.infoOpen,true);assert.ok(p.data.source.attribution);p.closeInfo();await p.calculate();assert.equal(h.requests.length,1);p.onUnload();
  const h2=harness(),q=h2.open();const pending=q.calculate();await flush();q.onHide();h2.replies.shift()();await pending;q.onShow();
  assert.equal(q.data.atlas,null);assert.notEqual(q.data.matchStatus,'ready');q.onUnload();

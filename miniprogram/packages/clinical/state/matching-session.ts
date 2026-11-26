@@ -26,7 +26,7 @@ export function lesionForMatching(p:CompletedPolygon):EvaluateLesion {
    throw new Error("匹配只接受已确认的人体坐标，照片坐标不能提交");
   return {...base,geometry:p.geometry};
  }
- if(p.source?.kind==="ai_assisted")throw new Error("AI标注缺少完整人体轮廓，请重新确认位置");
+ if(p.source?.kind==="ai_assisted")throw new Error("图片标注缺少完整人体轮廓，请重新确认位置");
  return {...base,vertices:p.ring};
 }
 export function snapshotKey(s:AnnotationSession|null,identity:MatchingIdentity):string {

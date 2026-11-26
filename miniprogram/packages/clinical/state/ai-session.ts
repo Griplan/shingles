@@ -1,11 +1,12 @@
 import {PhotoTransport,PhotoSession,PhotoResult,ConfirmedPhoto,PhotoPrompts,PhotoBox,PhotoPoint,PHOTO_SPACE,BrushStroke,InferenceStrategy} from "../../../types/ai";
 import {usablePhotoBox} from "../../../utils/photo-coordinate";
-export const AI_WARNINGS:Record<string,string>={EMPTY_MASK:"该候选没有分割范围，请调整提示",CONTOUR_FAILED:"该候选轮廓无效，请重新分割",
- CROP_EDGE:"范围触及局部分析边缘，可能被截断；请扩大圈选或改用整图分析",
+export const NO_USABLE_CONTOUR_MESSAGE="轮廓提取失败，请重新圈选。";
+export const AI_WARNINGS:Record<string,string>={EMPTY_MASK:"该候选没有可用轮廓，请调整提示",CONTOUR_FAILED:"该候选轮廓无效，请重新提取",
+ CROP_EDGE:"范围触及局部提取边缘，可能被截断；请扩大圈选或改用整图提取",
  LARGE_MASK:"当前分割范围较大，请检查是否包含正常皮肤",OUTSIDE_BOX:"范围明显超出框选，请检查并补充排除点",
  FRAGMENTED:"当前范围包含较多碎片，请仔细检查",SIMILAR_CANDIDATES:"部分候选很相似，请按实际边界选择",
- BOX_AREA_EXCESS:"识别范围明显大于圈选范围，请检查正常皮肤是否被误选",FOREGROUND_MISSED:"部分补充位置未被选中，请检查遗漏",
- BACKGROUND_INCLUDED:"部分排除位置仍被选中，可擦除误选或重新识别"};
+ BOX_AREA_EXCESS:"提取范围明显大于圈选范围，请检查正常皮肤是否被误选",FOREGROUND_MISSED:"部分补充位置未被选中，请检查遗漏",
+ BACKGROUND_INCLUDED:"部分排除位置仍被选中，可擦除误选或重新提取"};
 export function samePhoto(r:PhotoResult,s:PhotoSession,revision:number,requestId:string):boolean {
  return r.session_id===s.session_id&&r.photo_id===s.photo_id&&r.coordinate_space===PHOTO_SPACE&&r.prompt_revision===revision&&r.request_id===requestId&&
  typeof r.result_id==="string"&&Array.isArray(r.candidates)&&r.candidates.length>0&&r.candidates.length<=3&&new Set(r.candidates.map(c=>c.candidate_id)).size===r.candidates.length&&r.candidates.every(c=>/^candidate-[0-2]$/.test(c.candidate_id)&&["ok","empty_mask","contour_failed"].includes(c.status)&&Number.isFinite(c.area_ratio)&&c.area_ratio>=0&&c.area_ratio<=1&&Array.isArray(c.warnings)&&(c.display_priority===undefined||Number.isInteger(c.display_priority)&&c.display_priority>=0&&c.display_priority<3)&&(c.edit_revision===undefined||c.edit_revision===0));
@@ -29,7 +30,7 @@ export class AIPhotoFlow {
  private notify(){this.changed();}
  private clearResult(){this.editSerial++;this.corrections.clear();this.pendingCorrection=null;this.previewSerial++;this.previewing=false;if(this.maskPath)this.api.forget(this.maskPath);this.maskPath="";this.result=null;this.confirmed=null;this.selected="";}
  private async release(s:PhotoSession,removeServer=true){
-  if(removeServer)try{await this.api.remove(s);}catch{this.cleanupWarning="临时数据删除尚未确认，服务将在闲置后自动清理";this.notify();return;}
+  if(removeServer)try{await this.api.remove(s);}catch{this.cleanupWarning="临时数据删除尚未确认，服务将在闲置后自动清理";this.notify();}
   this.api.forget(s.localPhoto);
  }
  async replace(path:string){
@@ -72,12 +73,12 @@ export class AIPhotoFlow {
  }
  changeStrategy():Promise<void>{
   if(this.phase!=="ready")return Promise.resolve();
-  if(this.prompts.additional_boxes?.length){this.error="多处圈选采用局部分析；如需整图分析，请重新圈选单一区域";this.notify();return Promise.resolve();}
+  if(this.prompts.additional_boxes?.length){this.error="多处圈选采用局部提取；如需整图提取，请重新圈选单一区域";this.notify();return Promise.resolve();}
   this.strategy=this.strategy==="context_crop"?"full_image":"context_crop";this.revision++;return this.segment();
  }
  segment():Promise<void>{
   if(!this.session||this.phase==="confirming"||this.phase==="confirmed"||this.phase==="correcting")return Promise.resolve();
-  if(!this.prompts.box&&!this.prompts.points.some(p=>p.label===1)){this.error="请先圈选需要识别的区域";this.notify();return Promise.resolve();}
+  if(!this.prompts.box&&!this.prompts.points.some(p=>p.label===1)){this.error="请先圈选目标区域";this.notify();return Promise.resolve();}
   if(this.phase==="segmenting")return this.active||Promise.resolve();
   const ticket={generation:this.generation,revision:this.revision};
   if(this.running){this.queued=ticket;this.phase="segmenting";this.notify();return this.active!;}
@@ -102,7 +103,7 @@ export class AIPhotoFlow {
    this.result=r;this.phase="ready";
    const first=[...r.candidates].filter(c=>c.status==="ok").sort((a,b)=>(a.display_priority??0)-(b.display_priority??0))[0];
    if(first)await this.preview(first.candidate_id);
-   else this.error="这次没有得到合适的识别范围，请重新圈选。";
+   else this.error=NO_USABLE_CONTOUR_MESSAGE;
   }catch(e){if(g!==this.generation||rev!==this.revision)return;this.phase="ready";this.error=(e as Error).message;}
   this.notify();
  }
@@ -119,7 +120,7 @@ export class AIPhotoFlow {
  async brush(stroke:BrushStroke){
   if(this.phase!=="ready"||this.previewing||this.pendingCorrection)return;
   const history=this.corrections.get(this.selected)||[];
-  if(history.length>=32){this.error="修正已达32笔，请先撤销或重新识别";this.notify();return;}
+  if(history.length>=32){this.error="修正已达32笔，请先撤销或重新提取";this.notify();return;}
   await this.correct([...history,JSON.parse(JSON.stringify(stroke)) as BrushStroke]);
  }
  async undoBrush(){if(this.phase!=="ready"||this.pendingCorrection)return;const h=this.corrections.get(this.selected)||[];if(h.length)await this.correct(h.slice(0,-1));}
@@ -140,7 +141,7 @@ export class AIPhotoFlow {
    this.result={...r,candidates:r.candidates.map(c=>c.candidate_id===id?result.candidate:c)};
    this.corrections.set(id,JSON.parse(JSON.stringify(strokes)) as BrushStroke[]);this.pendingCorrection=null;this.phase="ready";
    await this.preview(id);
-  }catch(e){if(g!==this.generation||serial!==this.editSerial)return;this.phase="ready";this.error=(e as Error).message+"；本次修正尚未确认，可重试或恢复原识别";}
+  }catch(e){if(g!==this.generation||serial!==this.editSerial)return;this.phase="ready";this.error=(e as Error).message+"；本次修正尚未确认，可重试或恢复原轮廓";}
   if(g===this.generation&&serial===this.editSerial)this.notify();
  }
  async confirm(){
@@ -153,7 +154,7 @@ export class AIPhotoFlow {
      c.coordinate_space!==PHOTO_SPACE||c.confirmed_by_user!==true||c.image.width!==s.image.width||c.image.height!==s.image.height||
      c.image.oriented_rgb_sha256!==s.image.oriented_rgb_sha256||c.geometry?.type!=="MultiPolygon"||!c.geometry.coordinates.length||
      (c.correction?.edit_revision||0)!==editRevision)
-       throw new Error("确认结果与当前照片不一致，请重新分割");
+       throw new Error("确认结果与当前照片不一致，请重新提取");
    this.confirmed=c;this.phase="confirmed";
   }catch(e){if(g!==this.generation||rev!==this.revision)return;this.phase="ready";this.error=(e as Error).message;}
   this.notify();

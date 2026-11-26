@@ -5,7 +5,7 @@
       <!-- 1. 顶部控制条（移除冗余“完整人体”灰标，保持清爽） -->
       <view class="stage-header">
         <view class="stage-title-group">
-          <text class="body-title">完整人体标注</text>
+          <text class="body-title">人体区域标注</text>
           <text wx:if="{{mode === 'focused'}}" class="stage-badge">局部预览</text>
         </view>
         <view class="utility-actions">
@@ -66,7 +66,7 @@
         <!-- 宽屏区段小标题（手机端隐藏以极致压缩底部高度） -->
         <view class="inspector-wide-header">
           <text class="inspector-kicker">开始标注</text>
-          <text class="inspector-wide-sub">可在左侧轻触预选部位，或直接选择标注方式</text>
+          <text class="inspector-wide-sub">选择一种标注方式</text>
         </view>
 
         <!-- 动态状态条：仅在选中部位或有提示时显示 -->
@@ -101,7 +101,6 @@
             </view>
             <view class="card-body">
               <text class="card-title">手动标注</text>
-              <text class="card-desc">在人体图谱上手动描点圈选</text>
             </view>
             <view class="card-arrow" aria-hidden="true"></view>
           </view>
@@ -119,8 +118,8 @@
               </view>
             </view>
             <view class="card-body">
-              <text class="card-title">AI 辅助标注</text>
-              <text class="card-desc">上传局部皮肤照片辅助识别范围</text>
+              <text class="card-title">图片辅助标注</text>
+              <text class="card-desc">圈选照片中的目标，自动提取轮廓</text>
             </view>
             <view class="card-arrow" aria-hidden="true"></view>
           </view>
@@ -133,7 +132,7 @@
               <text>坐标调试</text>
               <switch checked="{{debugEnabled}}" bindchange="toggleDebug" color="#165DFF" aria-label="坐标调试开关"></switch>
             </view>
-            <view class="debug-subtitle">{{debugEnabled ? "坐标调试中，人体点击暂不用于选择部位。" : "默认关闭；仅保留一个调试点，不记录病灶。"}}</view>
+            <view class="debug-subtitle">{{debugEnabled ? "坐标调试中，人体点击暂不用于选择部位。" : "默认关闭；仅保留一个调试点，不保存为标注。"}}</view>
             <view class="debug-status {{probeStatus === 'valid' ? 'debug-valid' : ''}}">{{debugMessage}}</view>
             <view class="debug-row"><text>当前视图 / 显示模式</text><text class="debug-value ui-num">{{view}} / {{zoomRegion ? '局部放大' : '全身'}}</text></view>
             <view class="debug-row"><text>人体模板</text><text class="debug-value ui-num">{{modelId}} · {{modelVersion}}</text></view>

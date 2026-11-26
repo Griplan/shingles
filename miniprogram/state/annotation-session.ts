@@ -126,19 +126,19 @@ export class AnnotationSessionStore {
       return fail("请先闭合或取消已有手动草稿，再确认放置");
     const replaced=payload.editTarget?s.views[view].completed.find(p=>p.id===payload.editTarget?.id):null;
     if(payload.editTarget&&(!replaced||replaced.source?.kind!=="ai_assisted"||replaced.source.placementId!==payload.editTarget.placementId||
-      JSON.stringify(replaced.source.photo)!==JSON.stringify(payload.source)))return fail("原AI标注已变化，不能覆盖；请返回重新选择");
+      JSON.stringify(replaced.source.photo)!==JSON.stringify(payload.source)))return fail("原图片标注已变化，不能覆盖；请返回重新选择");
     if(!replaced&&s.views[view].completed.length>=MAX_REGIONS_PER_VIEW)return fail(`每面最多 ${MAX_REGIONS_PER_VIEW} 片，请先删除不需要的区域`);
     if(payload.entryRegionId!==null&&!model.regions.some(r=>r.id===payload.entryRegionId))
       return fail("当前视野的初始定位提示无效");
     if(!payload.source || !Number.isFinite(payload.source.expires_at) ||
       (!replaced&&!payload.sourceDetached&&payload.source.expires_at<=Date.now()/1000))
-      return fail("照片分析会话已过期，请返回重新上传或分析");
+      return fail("照片处理会话已过期，请重新选择照片");
     const source=payload.source;
     if(![source.session_id,source.photo_id,source.result_id,source.mask_asset].every(v=>typeof v==="string" && v.length>0) ||
       !/^candidate-[0-2]$/.test(source.candidate_id) || !/^[a-f0-9]{64}$/i.test(source.mask_sha256) ||
       !Number.isInteger(source.prompt_revision) || source.prompt_revision<0 || !Number.isFinite(source.confirmed_at) ||
       source.confirmed_at>source.expires_at || source.prompts?.coordinate_space!=="photo_oriented_normalized_v1")
-      return fail("缺少有效的AI确认来源，请返回分割页重新确认");
+      return fail("照片轮廓尚未有效确认，请返回图片页重新确认");
     let geometry:BodyMultiPolygon;
     let clipped=false;
     try {

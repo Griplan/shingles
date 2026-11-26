@@ -48,8 +48,8 @@
             <view class="viewfinder-corner br"></view>
             <view class="viewfinder-lens"></view>
           </view>
-          <text class="placeholder-title">{{preparing ? '正在准备照片…' : phase === 'uploading' ? '正在上传…' : '上传一张局部皮肤照片'}}</text>
-          <text class="placeholder-sub">{{preparing || phase === 'uploading' ? '请稍候' : '圈住皮疹，AI辅助识别范围'}}</text>
+          <text class="placeholder-title">{{preparing ? '正在准备照片…' : phase === 'uploading' ? '正在上传…' : '上传一张局部照片'}}</text>
+          <text class="placeholder-sub">{{preparing || phase === 'uploading' ? '请稍候' : '圈选目标区域，自动提取轮廓'}}</text>
         </view>
       </view>
     </view>
@@ -61,7 +61,7 @@
         <view wx:if="{{!available}}" class="ai-notice">当前仅开放测试图片体验，可返回手动标注。</view>
         <view class="empty-wide-header">
           <view class="empty-section-title">选择照片来源</view>
-          <view class="empty-section-sub">请上传清晰的局部皮肤照片，AI 将辅助圈定皮疹轮廓</view>
+          <view class="empty-section-sub">请选择清晰的局部照片，圈选后自动提取轮廓</view>
         </view>
         <view class="upload-actions">
           <button
@@ -71,7 +71,7 @@
             loading="{{preparing || phase === 'uploading'}}"
             data-source="album"
             bindtap="pickPhoto"
-          >从相册上传</button>
+          >从相册选择</button>
           <button
             class="ui-btn ui-btn-secondary upload-btn"
             hover-class="ui-hover-secondary"
@@ -81,7 +81,7 @@
           >拍照</button>
         </view>
         <view wx:if="{{preparationError}}" class="ai-warning" aria-live="polite">{{preparationError}}</view>
-        <view wx:if="{{error && error !== '这次没有得到合适的识别范围，请重新圈选。'}}" class="ai-warning">{{error}}</view>
+        <view wx:if="{{error && error !== noUsableContourMessage}}" class="ai-warning">{{error}}</view>
         <view wx:if="{{cleanupWarning}}" class="ai-warning">{{cleanupWarning}}</view>
       </view>
 
@@ -100,16 +100,16 @@
             <view class="status-banner" aria-live="polite">
               <text class="status-dot {{failed ? 'is-warn' : ''}}"></text>
               <view class="status-text">
-                <text wx:if="{{phase === 'confirmed'}}">{{hasPendingPlacement ? '上次的位置调整已在本次运行中暂存，可继续放置。' : '照片中的识别范围已确认，请继续确认人体位置。'}}</text>
+                <text wx:if="{{phase === 'confirmed'}}">{{hasPendingPlacement ? '上次的位置调整已在本次运行中暂存，可继续放置。' : '照片中的轮廓已确认，请继续确认人体位置。'}}</text>
                 <text wx:elif="{{phase === 'confirming'}}">正在确认…</text>
                 <text wx:elif="{{phase === 'correcting'}}">正在应用修正，照片会保持显示…</text>
-                <text wx:elif="{{working}}">{{previewing ? '正在切换结果…' : '正在 AI 分析…'}}</text>
-                <text wx:elif="{{editingMask}}">{{mode === 'paint-add' ? '涂过需要补充的范围，松手后应用' : '涂过误选的正常皮肤，松手后擦除'}}</text>
-                <text wx:elif="{{addingRegion}}">再框住一处需要识别的皮疹区域。</text>
-                <text wx:elif="{{failed}}">这次没有得到合适的识别范围，请重新圈选。</text>
-                <text wx:elif="{{adjusting}}">{{mode === 'foreground' ? '轻点需要补充识别的位置' : '轻点需要排除的位置'}}</text>
-                <text wx:elif="{{hasResult}}">AI 分析完成，请检查绿色范围，再确认。</text>
-                <text wx:else>请框住需要识别的皮疹区域。</text>
+                <text wx:elif="{{working}}">{{previewing ? '正在切换候选轮廓…' : '正在处理图片…'}}</text>
+                <text wx:elif="{{editingMask}}">{{mode === 'paint-add' ? '涂过需要补充的范围，松手后应用' : '涂过误选的区域，松手后擦除'}}</text>
+                <text wx:elif="{{addingRegion}}">再框住一处需要提取轮廓的区域。</text>
+                <text wx:elif="{{failed}}">轮廓提取失败，请重新圈选。</text>
+                <text wx:elif="{{adjusting}}">{{mode === 'foreground' ? '轻点需要补充的位置' : '轻点需要排除的位置'}}</text>
+                <text wx:elif="{{hasResult}}">轮廓提取完成（自动化图像分割），请检查绿色范围，再确认。</text>
+                <text wx:else>请框住所需的目标区域。</text>
               </view>
             </view>
 
@@ -155,7 +155,7 @@
 
                 <view class="submode-row">
                   <button class="ui-btn ui-btn-secondary ui-btn-sm submode-btn" hover-class="ui-hover-secondary" disabled="{{!canUndoBrush || working || pendingBrush}}" bindtap="undoBrush">撤销</button>
-                  <button class="ui-btn ui-btn-secondary ui-btn-sm submode-btn" hover-class="ui-hover-secondary" disabled="{{working}}" bindtap="restoreBrush">恢复原识别</button>
+                  <button class="ui-btn ui-btn-secondary ui-btn-sm submode-btn" hover-class="ui-hover-secondary" disabled="{{working}}" bindtap="restoreBrush">恢复原轮廓</button>
                 </view>
 
                 <button wx:if="{{pendingBrush}}" class="ui-btn ui-btn-primary ui-btn-block" hover-class="ui-hover-primary" disabled="{{working}}" bindtap="retryBrush">重试本次修正</button>
@@ -171,7 +171,7 @@
                     aria-role="button"
                     data-mode="foreground"
                     bindtap="setMode"
-                  >补充识别区域</view>
+                  >补充目标区域</view>
                   <view
                     class="ui-segmented-item submode-tab {{mode === 'background' ? 'is-active' : ''}}"
                     hover-class="ui-hover-subtle"
@@ -183,14 +183,14 @@
 
                 <view class="submode-row">
                   <button class="ui-btn ui-btn-secondary ui-btn-sm submode-btn" hover-class="ui-hover-secondary" disabled="{{!canUndo}}" bindtap="undo">撤销</button>
-                  <button class="ui-btn ui-btn-primary ui-btn-sm submode-btn" hover-class="ui-hover-primary" disabled="{{!hasPrompt || working}}" bindtap="refine">重新识别</button>
+                  <button class="ui-btn ui-btn-primary ui-btn-sm submode-btn" hover-class="ui-hover-primary" disabled="{{!hasPrompt || working}}" bindtap="refine">重新提取</button>
                 </view>
 
                 <view class="tool-grid">
                   <button class="tool-grid-btn" hover-class="ui-hover-secondary" disabled="{{working || additionalBoxes.length >= 3}}" bindtap="addRegion">补圈一处</button>
-                  <button class="tool-grid-btn" hover-class="ui-hover-secondary" disabled="{{working || additionalBoxes.length > 0}}" bindtap="alternativeAnalysis">{{strategy === 'context_crop' ? '改用整图分析' : '改用局部分析'}}</button>
+                  <button class="tool-grid-btn" hover-class="ui-hover-secondary" disabled="{{working || additionalBoxes.length > 0}}" bindtap="alternativeAnalysis">{{strategy === 'context_crop' ? '改用整图提取' : '改用局部提取'}}</button>
                 </view>
-                <text class="submode-muted">局部分析仅识别圈选附近，圈外病灶可补圈。重新识别会替换本次画笔修正。</text>
+                <text class="submode-muted">局部提取仅处理圈选附近，圈外目标可补圈。重新提取会替换本次画笔修正。</text>
               </view>
 
               <!-- 标准 AI 识别确认态：唯一主 CTA + 2x2 微调工具盒 -->
@@ -202,13 +202,13 @@
                   disabled="{{!canConfirm || !renderReady}}"
                   loading="{{phase === 'confirming'}}"
                   bindtap="confirm"
-                >确认识别范围</button>
+                >确认轮廓</button>
 
                 <view wx:if="{{box || failed || hasResult}}" class="toolbox-card">
-                  <view class="toolbox-title">识别不准确？可微调范围</view>
+                  <view class="toolbox-title">轮廓不合适？可微调范围</view>
                   <view class="tool-grid">
                     <button class="tool-grid-btn" hover-class="ui-hover-secondary" disabled="{{phase === 'confirming'}}" bindtap="reselect">重新圈选</button>
-                    <button wx:if="{{canCycle}}" class="tool-grid-btn" hover-class="ui-hover-secondary" disabled="{{phase === 'confirming'}}" bindtap="nextResult">换个结果</button>
+                    <button wx:if="{{canCycle}}" class="tool-grid-btn" hover-class="ui-hover-secondary" disabled="{{phase === 'confirming'}}" bindtap="nextResult">换个候选轮廓</button>
                     <button wx:if="{{hasResult && !working && phase === 'ready'}}" class="tool-grid-btn" hover-class="ui-hover-secondary" bindtap="openBrush">修正范围</button>
                     <button wx:if="{{hasResult && !working && phase === 'ready'}}" class="tool-grid-btn" hover-class="ui-hover-secondary" bindtap="openAdjustment">精细调整</button>
                   </view>
@@ -216,7 +216,7 @@
               </block>
             </block>
 
-            <!-- 已确认识别范围态 -->
+            <!-- 已确认轮廓态 -->
             <view wx:else class="confirmed-actions">
               <button
                 class="ui-btn ui-btn-primary ui-btn-block confirm-cta"
@@ -225,12 +225,12 @@
                 disabled="{{openingPlacement}}"
                 bindtap="placeOnBody"
               >{{hasPendingPlacement ? '继续放置到人体' : '放置到人体'}}</button>
-              <button class="ui-btn ui-btn-secondary ui-btn-sm ui-btn-block" hover-class="ui-hover-secondary" bindtap="reselect">重新圈选</button>
+              <button class="ui-btn ui-btn-secondary ui-btn-sm ui-btn-block" hover-class="ui-hover-secondary" bindtap="reselect">{{hasPendingPlacement ? '重新选择照片' : '重新圈选'}}</button>
             </view>
           </block>
 
           <view wx:if="{{preparationError}}" class="ai-warning" aria-live="polite">{{preparationError}}</view>
-          <view wx:if="{{error && error !== '这次没有得到合适的识别范围，请重新圈选。'}}" class="ai-warning">{{error}}</view>
+          <view wx:if="{{error && error !== noUsableContourMessage}}" class="ai-warning">{{error}}</view>
           <view wx:if="{{cleanupWarning}}" class="ai-warning">{{cleanupWarning}}</view>
         </view>
       </scroll-view>
@@ -248,7 +248,7 @@
           <text class="footer-sep" aria-hidden="true">·</text>
           <view class="footer-link-btn" hover-class="ui-hover-ghost" aria-role="button" bindtap="showPrivacy">照片用途与隐私</view>
         </view>
-        <view class="privacy-note">AI辅助结果需自行确认，不用于诊断</view>
+        <view class="privacy-note">提取的轮廓需自行确认，仅供位置标注参考，不作为医疗诊断依据。</view>
       </view>
     </view>
   </view>

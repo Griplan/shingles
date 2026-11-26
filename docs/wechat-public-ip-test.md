@@ -1,5 +1,7 @@
 # P4.1 公网 IP 手机开发调试
 
+> 历史记录：trial 的 HTTP 公网 IP 入口已退役，当前 trial/release 均固定正式 HTTPS；文中开启开发调试与 IP 鉴权步骤不得用于发布。当前步骤见[最终发布准备](compliance/wechat-review/https-release-readiness/final-release.md)。
+
 2026-11-02。用户本轮明确选择公网 IP，不申请新域名、不创建临时隧道。本报告记录实际实现和验收证据；唯一进度台账是 [task.md](../task.md)。原 P4 的 HTTPS 前置结论保留为历史，本轮授权只覆盖临时测试，不能据此开放正式版。
 
 **服务器公网接口已可用，真实 AI/匹配通过；新代码尚未确认上传，手机验收 NOT_RUN。**

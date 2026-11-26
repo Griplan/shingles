@@ -57,7 +57,7 @@ test('default preview skips unusable candidates without deleting their source re
 });
 test('all candidates unusable -> explicit failure; reselect can retry the same location',async()=>{
  const v=fixture();await v.f.replace('A');v.api.segment=async(s,p,rev,id)=>({...response(s,rev,id),candidates:[candidate(0,'empty_mask'),candidate(1,'contour_failed')]});
- await v.f.selectBox(box);assert.match(v.f.error,/这次没有得到合适/);assert.equal(v.f.canConfirm(),false);assert.equal(v.f.maskPath,'');
+ await v.f.selectBox(box);assert.match(v.f.error,/轮廓提取失败，请重新圈选/);assert.equal(v.f.canConfirm(),false);assert.equal(v.f.maskPath,'');
  v.f.reset();v.api.segment=async(s,p,rev,id)=>response(s,rev,id);await v.f.selectBox(box);assert.equal(v.f.canConfirm(),true);
 });
 let definition;global.Page=o=>definition=o;load('packages/clinical/pages/ai-annotate/ai-annotate.js');
@@ -77,26 +77,30 @@ test('page upload -> auto box -> cycle -> explicit confirmation; no manual segme
  p.confirm();await flush();assert.equal(v.confirms.length,0); // actual canvas must acknowledge current frame
  p.renderState({detail:{source:p.data.photo,mask:p.data.mask,ready:true}});await flush();p.confirm();await flush();
  assert.equal(p.data.phase,'confirmed');assert.deepEqual(v.confirms,['candidate-1']);
+ assert.equal(p.data.hasPendingPlacement,false,'invalid placement geometry cannot create a draft');
+ assert.deepEqual(v.removed,[],'keep the backend photo if draft preparation fails');
 });
-test('successful placement navigation releases the backend photo once and keeps the self-contained draft',async t=>{
+test('confirmation releases the backend photo before navigation and keeps the self-contained draft',async t=>{
  const v=pageFixture(t),p=v.p,transport=load('services/ai.js').aiTransport;
+ const deletion=deferred();
+ transport.remove=async s=>{v.removed.push(s.session_id);await deletion.promise;};
  transport.confirm=async(s,r,id)=>({schema_version:'confirmed-photo-segmentation-v1',session_id:s.session_id,photo_id:s.photo_id,result_id:r.result_id,candidate_id:id,
   prompt_revision:r.prompt_revision,coordinate_space:PHOTO_SPACE,confirmed_by_user:true,confirmed_at:Date.now()/1000-1,expires_at:s.expires_at,image:s.image,
   model:{name:'synthetic-fixture'},prompts:{coordinate_space:PHOTO_SPACE,points:[],box:null},mask_asset:'candidate-0.png',mask_sha256:'b'.repeat(64),
   geometry:{type:'MultiPolygon',coordinates:[[[[.2,.3],[.6,.3],[.6,.7],[.2,.7],[.2,.3]]]]}});
  await v.choose('A');p.onPrompt({detail:{box,point:null}});await flush();
  p.renderState({detail:{source:p.data.photo,mask:p.data.mask,ready:true}});await flush();p.confirm();await flush();
+ assert.deepEqual(v.removed,['A'],'delete starts at confirmation before navigation');
  let url='';global.wx.navigateTo=o=>{url=o.url;o.success?.();};
  p.placeOnBody();await flush();
- assert.deepEqual(v.removed,[],'navigation alone does not release before canvas readiness');
- load('packages/clinical/state/placement-navigation.js').placementReady(decodeURIComponent(url.split('draftId=')[1]));await flush();
  assert.match(url,/packages\/clinical\/pages\/placement\/placement\?draftId=/);assert.deepEqual(v.removed,['A']);
  const id=decodeURIComponent(url.split('draftId=')[1]),draft=load('packages/clinical/state/placement-session.js').placementSession.read(id);
  assert.equal(draft.ok,true,draft.message);assert.equal(draft.draft.sourceDetached,true);
  assert.equal(p.data.photo,'A.png','local preview remains available if the user returns');
  assert.equal(p.data.phase,'confirmed');assert.equal(p.data.hasPendingPlacement,true);
+ deletion.resolve();await flush();
 });
-test('failed placement navigation keeps the temporary photo source for retry',async t=>{
+test('failed placement navigation retries from a detached draft after deleting the server photo',async t=>{
  const v=pageFixture(t),p=v.p,transport=load('services/ai.js').aiTransport;
  transport.confirm=async(s,r,id)=>({schema_version:'confirmed-photo-segmentation-v1',session_id:s.session_id,photo_id:s.photo_id,result_id:r.result_id,candidate_id:id,
   prompt_revision:r.prompt_revision,coordinate_space:PHOTO_SPACE,confirmed_by_user:true,confirmed_at:Date.now()/1000-1,expires_at:s.expires_at,image:s.image,
@@ -106,9 +110,12 @@ test('failed placement navigation keeps the temporary photo source for retry',as
  p.renderState({detail:{source:p.data.photo,mask:p.data.mask,ready:true}});await flush();p.confirm();await flush();
  let id='';global.wx.navigateTo=o=>{id=decodeURIComponent(o.url.split('draftId=')[1]);o.fail?.({});};
  p.placeOnBody();await flush();
- assert.deepEqual(v.removed,[]);assert.match(p.data.error,/分割结果仍保留/);assert.equal(p.data.openingPlacement,false);
+ assert.deepEqual(v.removed,['A']);assert.match(p.data.error,/放置草稿仍保留/);assert.equal(p.data.openingPlacement,false);
  const draft=load('packages/clinical/state/placement-session.js').placementSession.read(id);
- assert.equal(draft.ok,true,draft.message);assert.equal(draft.draft.sourceDetached,false);
+ assert.equal(draft.ok,true,draft.message);assert.equal(draft.draft.sourceDetached,true);
+ let replay='';global.wx.navigateTo=o=>{replay=decodeURIComponent(o.url.split('draftId=')[1]);o.success?.();};
+ await p.placeOnBody();
+ assert.equal(replay,id);assert.deepEqual(v.removed,['A']);
 });
 test('fine adjustment is opt-in; foreground/background/undo and manual refine stay available',async t=>{
  const v=pageFixture(t),p=v.p;await v.choose('A');p.openAdjustment();assert.equal(p.data.adjusting,false);

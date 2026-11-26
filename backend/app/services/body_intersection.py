@@ -115,6 +115,6 @@ def clip_to_body(payload: BodyIntersectionRequest) -> BodyIntersectionResponse:
     except (OSError, ValueError, KeyError, TypeError, AttributeError, ShapelyError) as exc:
         raise EvaluationError(
             "INVALID_ANNOTATION",
-            "病灶轮廓或人体数据无效，不能执行人体交集",
+            "标注轮廓或人体数据无效，不能执行人体交集",
             422,
         ) from exc
